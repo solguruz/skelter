@@ -1,8 +1,8 @@
 import 'package:alchemist/alchemist.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 extension WidgetTestHelper on WidgetTester {
