@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/gen/fonts.gen.dart';
 
 class AppTextStyles {
   /*

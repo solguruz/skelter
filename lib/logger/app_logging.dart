@@ -17,6 +17,7 @@ class _LogMessage {
 /// Example log line:
 ///
 /// D/FeedPage (2024-06-03T19:42:01.115371Z): setting posts
+///
 class _AppLogPrinter extends LogPrinter {
   @override
   List<String> log(LogEvent event) {
