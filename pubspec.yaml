@@ -1,0 +1,93 @@
+name: flutter_skeleton
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  auto_route: ^9.3.0
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  firebase_core: ^3.5.0
+  firebase_analytics: ^11.3.2
+  firebase_crashlytics: ^4.3.0
+  firebase_auth: ^5.3.1
+  google_sign_in: ^6.2.2
+  sign_in_with_apple: ^6.1.4
+  intl_phone_number_input: ^0.7.4
+  phone_numbers_parser: ^9.0.3
+  pinput: ^5.0.0
+  sms_autofill: ^2.4.0
+  equatable: ^2.0.5
+  flutter_tabler_icons: ^1.43.0
+  flutter_localization: ^0.3.1
+  loader_overlay: ^4.0.0
+  flutter_svg: ^2.0.16
+  logger: ^2.5.0
+  path_provider: ^2.1.5
+  font_awesome_flutter: ^10.8.0
+  debounce_throttle: ^2.0.0
+  flutter_fgbg: ^0.6.0
+  image_picker: ^1.1.2
+  image_cropper: ^8.1.0
+  country_picker: ^2.0.27
+  shared_preferences: ^2.3.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.14
+  flutter_gen_runner: ^5.8.0
+  auto_route_generator: ^9.0.0
+  mocktail: ^1.0.4
+  bloc_test: ^9.1.7
+  alchemist: ^0.11.0
+
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/icons/
+
+  fonts:
+    - family: Inter
+      fonts:
+        # 200 ExtraLight
+        - asset: assets/fonts/Inter/Inter-Black.ttf
+          weight: 200
+
+        - asset: assets/fonts/Inter/Inter-Bold.ttf
+          weight: 200
+
+        #300 Light
+        - asset: assets/fonts/Inter/Inter-ExtraBold.ttf
+          weight: 300
+        - asset: assets/fonts/Inter/Inter-ExtraLight.ttf
+          weight: 300
+
+        #400 Normal
+        - asset: assets/fonts/Inter/Inter-Light.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Inter/Inter-Medium.ttf
+          weight: 400
+
+        #500 Medium
+        - asset: assets/fonts/Inter/Inter-Regular.ttf
+          weight: 500
+          style: italic
+
+        - asset: assets/fonts/Inter/Inter-SemiBold.ttf
+          weight: 500
+
+        #600 Semi-bold
+        - asset: assets/fonts/Inter/Inter-Thin.ttf
+          weight: 600

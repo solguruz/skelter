@@ -1,0 +1,247 @@
+include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    # info
+    todo: info
+    deprecated_member_use_from_same_package: ignore
+    deprecated_member_use: ignore
+    unreachable_from_main: info
+    invalid_use_of_visible_for_testing_member: ignore
+
+    # error
+    always_declare_return_types: warning
+    always_use_package_imports: warning
+    avoid_empty_else: warning
+    avoid_field_initializers_in_const_classes: warning
+    avoid_final_parameters: warning
+    avoid_function_literals_in_foreach_calls: warning
+    avoid_positional_boolean_parameters: warning
+    avoid_private_typedef_functions: warning
+    avoid_redundant_argument_values: warning
+    avoid_relative_lib_imports: warning
+    avoid_renaming_method_parameters: warning
+    avoid_return_types_on_setters: warning
+    avoid_returning_this: warning
+    avoid_setters_without_getters: warning
+    camel_case_extensions: warning
+    camel_case_types: warning
+    cascade_invocations: ignore
+    cast_nullable_to_non_nullable: warning
+    combinators_ordering: warning
+    conditional_uri_does_not_exist: warning
+    curly_braces_in_flow_control_structures: warning
+    directives_ordering: warning
+    exhaustive_cases: warning
+    file_names: warning
+    implementation_imports: warning
+    implicit_call_tearoffs: warning
+    join_return_with_assignment: warning
+    leading_newlines_in_multiline_strings: warning
+    library_annotations: warning
+    lines_longer_than_80_chars: warning
+    matching_super_parameters: warning
+    missing_whitespace_between_adjacent_strings: warning
+    no_leading_underscores_for_library_prefixes: warning
+    no_leading_underscores_for_local_identifiers: warning
+    no_literal_bool_comparisons: warning
+    no_runtimeType_toString: warning #performance
+    non_constant_identifier_names: warning
+    null_check_on_nullable_type_parameter: warning
+    null_closures: warning
+    one_member_abstracts: warning
+    only_throw_errors: warning
+    overridden_fields: warning
+    parameter_assignments: warning
+    prefer_adjacent_string_concatenation: warning
+    prefer_collection_literals: warning
+    prefer_conditional_assignment: warning
+    prefer_const_constructors: warning
+    prefer_const_constructors_in_immutables: warning
+    prefer_const_declarations: warning
+    prefer_constructors_over_static_methods: warning
+    prefer_contains: warning
+    prefer_expression_function_bodies: info
+    prefer_final_fields: warning
+    prefer_final_in_for_each: warning
+    prefer_final_locals: warning
+    prefer_for_elements_to_map_fromIterable: warning #performance
+    prefer_function_declarations_over_variables: warning
+    prefer_generic_function_type_aliases: warning
+    prefer_if_elements_to_conditional_expressions: warning
+    prefer_if_null_operators: warning
+    prefer_initializing_formals: warning
+    prefer_inlined_adds: warning
+    prefer_is_empty: warning
+    prefer_is_not_empty: warning
+    prefer_is_not_operator: warning
+    prefer_iterable_whereType: warning
+    prefer_mixin: warning
+    prefer_null_aware_method_calls: warning
+    prefer_null_aware_operators: warning
+    prefer_single_quotes: warning
+    prefer_spread_collections: warning
+    prefer_typing_uninitialized_variables: warning
+    provide_deprecation_message: warning
+    recursive_getters: warning
+    require_trailing_commas: warning
+    sized_box_for_whitespace: warning
+    sized_box_shrink_expand: warning
+    slash_for_doc_comments: warning
+    sort_child_properties_last: warning
+    sort_unnamed_constructors_first: warning
+    tighten_type_of_initializing_formals: warning
+    type_literal_in_constant_pattern: warning
+    unawaited_futures: warning
+    unnecessary_brace_in_string_interps: warning
+    unnecessary_breaks: warning
+    unnecessary_const: warning
+    unnecessary_constructor_name: warning
+    unnecessary_getters_setters: warning
+    unnecessary_late: warning
+    unnecessary_new: warning
+    unnecessary_null_aware_assignments: warning
+    use_colored_box: warning
+    use_decorated_box: ignore
+    use_enums: warning
+    use_full_hex_values_for_flutter_colors: warning
+    use_function_type_syntax_for_parameters: warning
+    use_if_null_to_convert_nulls_to_bools: warning
+    use_late_for_private_fields_and_variables: warning
+    use_named_constants: warning
+    use_super_parameters: warning
+    use_to_and_as_if_applicable: warning
+    void_checks: warning
+  exclude:
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+    - "**/*.gr.dart"
+    - "**/*.pb.dart"
+    - "**/*.pbenum.dart"
+    - "**/*.pbgrpc.dart"
+    - "**/*.pbjson.dart"
+linter:
+  rules:
+    # = false
+    avoid_bool_literals_in_conditional_expressions: false
+    constant_identifier_names: false
+    depend_on_referenced_packages: false
+    deprecated_member_use_from_same_package: false
+    no_default_cases: false
+    prefer_foreach: false
+    prefer_interpolation_to_compose_strings: false
+    sort_constructors_first: false
+    use_build_context_synchronously: false # remove it
+    unreachable_from_main: false
+    use_decorated_box: false #performance
+    #    invalid_use_of_visible_for_testing_member: false
+
+    # = true
+    always_declare_return_types: true
+    always_use_package_imports: true
+    avoid_empty_else: true
+    avoid_field_initializers_in_const_classes: true
+    avoid_final_parameters: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_positional_boolean_parameters: true
+    avoid_private_typedef_functions: true
+    avoid_redundant_argument_values: true
+    avoid_relative_lib_imports: true
+    avoid_renaming_method_parameters: true
+    avoid_return_types_on_setters: true
+    avoid_returning_this: true
+    avoid_setters_without_getters: true
+    camel_case_extensions: true
+    camel_case_types: true
+    cascade_invocations: true
+    cast_nullable_to_non_nullable: true
+    combinators_ordering: true
+    conditional_uri_does_not_exist: true
+    curly_braces_in_flow_control_structures: true
+    directives_ordering: true
+    exhaustive_cases: true
+    file_names: true
+    implementation_imports: true
+    implicit_call_tearoffs: true
+    join_return_with_assignment: true
+    leading_newlines_in_multiline_strings: true
+    library_annotations: true
+    lines_longer_than_80_chars: true
+    matching_super_parameters: true
+    missing_whitespace_between_adjacent_strings: true
+    no_leading_underscores_for_library_prefixes: true
+    no_leading_underscores_for_local_identifiers: true
+    no_literal_bool_comparisons: true
+    no_runtimeType_toString: true #performance
+    non_constant_identifier_names: true
+    null_check_on_nullable_type_parameter: true
+    null_closures: true
+    one_member_abstracts: true
+    only_throw_errors: true
+    overridden_fields: true
+    parameter_assignments: true
+    prefer_adjacent_string_concatenation: true
+    prefer_collection_literals: true
+    prefer_conditional_assignment: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_constructors_over_static_methods: true
+    prefer_contains: true
+    prefer_expression_function_bodies: false
+    prefer_final_fields: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_for_elements_to_map_fromIterable: true #performance
+    prefer_function_declarations_over_variables: true
+    prefer_generic_function_type_aliases: true
+    prefer_if_elements_to_conditional_expressions: true
+    prefer_if_null_operators: true
+    prefer_initializing_formals: true
+    prefer_inlined_adds: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_is_not_operator: true
+    prefer_iterable_whereType: true
+    prefer_mixin: true
+    prefer_null_aware_method_calls: true
+    prefer_null_aware_operators: true
+    prefer_single_quotes: true
+    prefer_spread_collections: true
+    prefer_typing_uninitialized_variables: true
+    provide_deprecation_message: true
+    recursive_getters: true
+    require_trailing_commas: true
+    sized_box_for_whitespace: true
+    sized_box_shrink_expand: true
+    slash_for_doc_comments: true
+    sort_child_properties_last: true
+    sort_unnamed_constructors_first: true
+    tighten_type_of_initializing_formals: true
+    type_literal_in_constant_pattern: true
+    unawaited_futures: true
+    unnecessary_brace_in_string_interps: true
+    unnecessary_breaks: true
+    unnecessary_const: true
+    unnecessary_constructor_name: true
+    unnecessary_getters_setters: true
+    unnecessary_late: true # Top-level and static variables with initializers are already evaluated lazily as if they are marked late.
+    unnecessary_new: true
+    unnecessary_null_aware_assignments: true
+    use_colored_box: true #performance
+    use_enums: true
+    use_full_hex_values_for_flutter_colors: true
+    use_function_type_syntax_for_parameters: true
+    use_if_null_to_convert_nulls_to_bools: true
+    use_late_for_private_fields_and_variables: true
+    use_named_constants: true
+    use_super_parameters: true
+    use_to_and_as_if_applicable: true
+    void_checks: true
+
+    ## Requires code change
+    # use_build_context_synchronously: true
+    # always_specify_types: true
+    # avoid_dynamic_calls: true
+    # unnecessary_lambdas: true
+    # avoid_annotating_with_dynamic: true
+    # omit_local_variable_types: true
