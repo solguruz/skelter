@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/widgets/bottom_nav_bar.dart';
 import 'package:flutter_skeleton/presentation/home/widgets/home_page_body.dart';
@@ -6,8 +8,6 @@ import 'package:flutter_skeleton/presentation/map/map_page.dart';
 import 'package:flutter_skeleton/presentation/notifications/notifications_page.dart';
 import 'package:flutter_skeleton/presentation/profile/profile_page.dart';
 import 'package:flutter_skeleton/presentation/search/search_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:flutter_skeleton/presentation/login_signup/login/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/bloc/signup_state.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart';
 
 part 'email_password_login_state.dart';
 part 'phone_number_login_state.dart';

@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
@@ -5,9 +8,6 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmailNextCTA extends StatelessWidget {
   const EmailNextCTA({super.key});

@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/i18n/localization.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});

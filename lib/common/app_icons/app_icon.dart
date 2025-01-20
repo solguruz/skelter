@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/logger/app_logging.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 /// Requires [AppIcons]

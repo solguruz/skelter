@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/widgets/password_requirement_indicators.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/widgets/password_strength_indicator.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/widgets/password_strength_status.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter/material.dart';
 
 class PasswordRequirementStats extends StatelessWidget {
   const PasswordRequirementStats({

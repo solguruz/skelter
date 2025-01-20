@@ -2,6 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_fgbg/flutter_fgbg.dart';
 import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
@@ -15,12 +19,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_a
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/widgets/entered_wrong_email.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/widgets/resend_verification_mail_cta.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_fgbg/flutter_fgbg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:get/get.dart';
 
 @RoutePage()
 class VerifyEmailPage extends StatelessWidget {

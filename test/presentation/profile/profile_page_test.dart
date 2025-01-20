@@ -1,5 +1,6 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
@@ -7,7 +8,6 @@ import 'package:flutter_skeleton/presentation/home/home_page.dart';
 import 'package:flutter_skeleton/presentation/profile/profile_page.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/logout_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
