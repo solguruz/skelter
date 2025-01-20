@@ -1,12 +1,12 @@
 import 'dart:math';
 
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 
 class AgreementLinks extends StatelessWidget {
   const AgreementLinks({

@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 
 class AppIconButton extends StatelessWidget {
   const AppIconButton(
