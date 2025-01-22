@@ -53,10 +53,22 @@ class $AssetsIconsGen {
       ];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/demo_user.jpeg
+  AssetGenImage get demoUser =>
+      const AssetGenImage('assets/images/demo_user.jpeg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [demoUser];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

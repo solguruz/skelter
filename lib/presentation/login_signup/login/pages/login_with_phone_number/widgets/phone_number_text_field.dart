@@ -152,7 +152,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
       prefixIcon: Padding(
         padding: const EdgeInsets.all(14.0),
         child: AppIcon(
-          Assets.icons.searchOutline,
+          iconPath: Assets.icons.searchOutline,
           color: AppColors.strokeNeutralDisabled,
         ),
       ),

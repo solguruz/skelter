@@ -300,7 +300,7 @@ class AppButton extends StatelessWidget {
   Widget _icon(String? iconPath, IconData? iconData) {
     if (iconPath != null) {
       return AppIcon(
-        iconPath,
+        iconPath: iconPath,
         color: _getTextColor(),
         size: size.iconSize,
       );

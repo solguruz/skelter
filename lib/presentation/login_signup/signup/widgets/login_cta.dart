@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class LoginCTA extends StatelessWidget {

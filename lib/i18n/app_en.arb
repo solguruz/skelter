@@ -197,6 +197,18 @@
   "search": "Search",
   "map": "Map",
   "notifications": "Notifications",
+   "profile_screen": "===============================================================================",
   "profile": "Profile",
-  "logout": "Logout"
+  "pro":"PRO",
+  "sign_out": "Sign out",
+  "account": "Account",
+  "activity": "Activity",
+  "personal_details":"Personal Details",
+  "notifications":"Notifications",
+  "history":"History",
+  "community":"Community",
+  "settings":"Settings",
+  "feedback_and_ratings":"Feedback & Ratings",
+  "support":"Supprt",
+  "help_and_support":"Help & Support"
 }
