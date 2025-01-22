@@ -113,7 +113,7 @@ extension ShowSnackbar on BuildContext {
         const SizedBox(width: 10),
         GestureDetector(
           onTap: hideSnackBar,
-          child: AppIcon(Assets.icons.close, size: 18),
+          child: AppIcon(iconPath: Assets.icons.close, size: 18),
         ),
       ];
     } else {

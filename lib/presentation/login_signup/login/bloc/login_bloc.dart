@@ -10,7 +10,6 @@ import 'package:flutter_skeleton/analytics/analytics_parameters.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/logger/app_logging.dart';
-import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
@@ -19,6 +18,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/models/login_de
 import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
+import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 
@@ -1243,6 +1243,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   // endregion
 }
 
-extension LoginBlcoExtension on BuildContext {
+extension LoginBlocExtension on BuildContext {
   LoginBloc get loginBloc => BlocProvider.of<LoginBloc>(this);
 }

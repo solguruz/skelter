@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/profile_picture/widgets/add_skip_picture_cta.dart';
+import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 

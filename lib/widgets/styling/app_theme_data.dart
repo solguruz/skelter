@@ -50,6 +50,9 @@ class AppThemesData {
         labelColor: Colors.black,
         unselectedLabelColor: Colors.black54,
       ),
+      listTileTheme: const ListTileThemeData(
+        horizontalTitleGap: 0,
+      ),
       colorScheme: ColorScheme.fromSwatch(
         backgroundColor: Colors.white,
         primarySwatch: AppColors.primarySwatches,
@@ -87,6 +90,9 @@ class AppThemesData {
       ),
       bottomAppBarTheme: const BottomAppBarTheme(
         color: AppColors.bottomAppBarColorDark,
+      ),
+      listTileTheme: const ListTileThemeData(
+        horizontalTitleGap: 0,
       ),
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.dark,

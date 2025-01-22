@@ -1,5 +1,6 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
@@ -35,7 +36,7 @@ void main() {
       expect(find.byType(HomePage), findsOneWidget);
     });
 
-    // Golden tests
+    // Golden test cases
     testExecutable(() {
       goldenTest(
         'Home page UI test',
@@ -49,10 +50,11 @@ void main() {
 
           // act, assert
           return GoldenTestGroup(
+            columnWidthBuilder: (_) =>
+                const FixedColumnWidth(pixel5DeviceWidth),
             children: [
               createTestScenario(
                 name: 'selected in bottom nav bar',
-                addScaffold: true,
                 providers: [
                   BlocProvider<HomeBloc>.value(value: homeBloc),
                 ],

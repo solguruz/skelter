@@ -33,7 +33,7 @@ class AppIconButton extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: AppIcon(
-        icon,
+        iconPath: icon,
         size: size,
         color: iconColor,
         alignment: alignment,
