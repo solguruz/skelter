@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 
 bool isValidUrl({required String url}) {

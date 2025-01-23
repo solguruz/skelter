@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 extension AppBuildContextExtensions on BuildContext {
@@ -113,7 +113,7 @@ extension ShowSnackbar on BuildContext {
         const SizedBox(width: 10),
         GestureDetector(
           onTap: hideSnackBar,
-          child: AppIcon(Assets.icons.close, size: 18),
+          child: AppIcon(iconPath: Assets.icons.close, size: 18),
         ),
       ];
     } else {

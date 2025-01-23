@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/gen/fonts.gen.dart';
 
 class AppTextStyles {
   /*
@@ -161,6 +161,12 @@ class AppTextStyles {
   static TextStyle p3Bold = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
+    fontFamily: FontFamily.inter,
+    height: 1.5, // 150% on Figma,
+  );
+  static TextStyle p4SemiBold = const TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
     height: 1.5, // 150% on Figma,
   );

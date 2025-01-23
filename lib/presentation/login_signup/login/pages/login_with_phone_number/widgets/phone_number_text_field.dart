@@ -1,3 +1,6 @@
+import 'package:debounce_throttle/debounce_throttle.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
@@ -6,9 +9,6 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:debounce_throttle/debounce_throttle.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
@@ -152,7 +152,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
       prefixIcon: Padding(
         padding: const EdgeInsets.all(14.0),
         child: AppIcon(
-          Assets.icons.searchOutline,
+          iconPath: Assets.icons.searchOutline,
           color: AppColors.strokeNeutralDisabled,
         ),
       ),

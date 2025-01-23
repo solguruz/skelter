@@ -18,11 +18,11 @@ PODS:
   - Firebase/Crashlytics (11.6.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 11.6.0)
-  - firebase_analytics (11.3.6):
+  - firebase_analytics (11.4.0):
     - Firebase/Analytics (= 11.6.0)
     - firebase_core
     - Flutter
-  - firebase_auth (5.3.4):
+  - firebase_auth (5.4.0):
     - Firebase/Auth (= 11.6.0)
     - firebase_core
     - Flutter
@@ -283,8 +283,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   Firebase: 374a441a91ead896215703a674d58cdb3e9d772b
-  firebase_analytics: c2b131770f77b2f6b55f618342c898e9fb1a7c28
-  firebase_auth: 1623c3c0b4d587c35f795181b83aacff03099b84
+  firebase_analytics: 07bd7cfbac54bfcdccf2bb2530f9a65486f7ef3f
+  firebase_auth: 223c0d5afbd4eba3cd202177ec872436437549ba
   firebase_core: feb37e79f775c2bd08dd35e02d83678291317e10
   firebase_crashlytics: 609a5f6f4a2f5af9e40a68182e0c1be3ca2a02f6
   FirebaseAnalytics: 7114c698cac995602e3b1b96663473e50d54d6e7
@@ -322,6 +322,6 @@ SPEC CHECKSUMS:
   sms_autofill: c461043483362c3f1709ee76eaae6eb570b31686
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
 
-PODFILE CHECKSUM: 407e678731e2b8354e2f0e0b47923db791f41bb1
+PODFILE CHECKSUM: 377ee06b2334f07777ba1a7d6dd14201adcc6cfc
 
 COCOAPODS: 1.16.2

@@ -1,13 +1,11 @@
 import 'dart:io';
 
+import 'package:equatable/equatable.dart';
 import 'package:flutter_skeleton/analytics/analytics_parameters.dart';
 import 'package:flutter_skeleton/analytics/main_event.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
-// import 'package:flutter_skeleton/bloc/main/main_bloc.dart';
-// import 'package:flutter_skeleton/feat_post/model/post_category.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/signup_state.dart';
-import 'package:equatable/equatable.dart';
 
 abstract class LoginEvents with EquatableMixin implements AnalyticsEvent {
   LoginEvents();
@@ -963,18 +961,6 @@ class VerificationCodeFailedToSendEvent extends LoginEvents {
   String get eventName => (VerificationCodeFailedToSendEvent).toString();
 }
 
-class ToggleInterestCategory extends LoginEvents {
-  // PostCategory category;
-
-  ToggleInterestCategory();
-
-  @override
-  List<Object?> get props => [];
-
-  @override
-  String get eventName => (ToggleInterestCategory).toString();
-}
-
 class CheckEmailAvailabilityEvent extends LoginEvents {
   CheckEmailAvailabilityEvent(this.email);
 
@@ -987,33 +973,7 @@ class CheckEmailAvailabilityEvent extends LoginEvents {
   List<Object?> get props => [email];
 
   @override
-  String get eventName => (ToggleInterestCategory).toString();
-}
-
-class UpdateUserInterestCategories extends LoginEvents {
-  UpdateUserInterestCategories();
-
-  @override
-  Map<String, String>? getAnalyticParameters() => null;
-
-  @override
-  List<Object?> get props => [];
-
-  @override
   String get eventName => (CheckEmailAvailabilityEvent).toString();
-}
-
-class SkipInterestCategorySelectionEvent extends LoginEvents {
-  SkipInterestCategorySelectionEvent();
-
-  @override
-  Map<String, String>? getAnalyticParameters() => null;
-
-  @override
-  List<Object?> get props => [];
-
-  @override
-  String get eventName => (SkipInterestCategorySelectionEvent).toString();
 }
 
 class ChangeUserDetailsInputStatusEvent extends LoginEvents {

@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/analytics/main_event.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_skeleton/analytics/main_event.dart';
 
 abstract class HomeEvent extends Equatable implements AnalyticsEvent {
   const HomeEvent();

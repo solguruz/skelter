@@ -1,20 +1,27 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/logger/app_logging.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 /// Requires [AppIcons]
 class AppIcon extends StatelessWidget with Loggable {
-  const AppIcon(
-    this.iconPath, {
+  const AppIcon({
+    this.iconPath,
+    this.iconData,
     super.key,
     this.size,
     this.alignment = Alignment.center,
     this.color,
     this.shouldIgnoreColorFilter = false,
-  });
+  }) : assert(
+          (iconPath != null || iconData != null),
+          'iconPath or iconData should not be null',
+        );
 
-  final String iconPath;
+  final String? iconPath;
+
+  /// use the values from [TablerIcons]
+  final IconData? iconData;
   final double? size;
   final Alignment alignment;
   final Color? color;
@@ -30,9 +37,9 @@ class AppIcon extends StatelessWidget with Loggable {
     } else {
       iconColor = color!;
     }
-    if (iconPath.endsWith(kSVGExtension)) {
+    if (iconPath != null && (iconPath ?? '').endsWith(kSVGExtension)) {
       return SvgPicture.asset(
-        iconPath,
+        iconPath ?? '',
         height: size,
         width: size,
         colorFilter: shouldIgnoreColorFilter
@@ -40,12 +47,18 @@ class AppIcon extends StatelessWidget with Loggable {
             : ColorFilter.mode(iconColor, BlendMode.srcIn),
         alignment: alignment,
       );
-    } else if (iconPath.endsWith(kPNGExtension)) {
+    } else if ((iconPath ?? '').endsWith(kPNGExtension)) {
       return Image.asset(
-        iconPath,
+        iconPath ?? '',
         height: size,
         width: size,
         alignment: alignment,
+      );
+    } else if (iconData != null) {
+      return Icon(
+        iconData,
+        size: size,
+        color: iconColor,
       );
     } else {
       logE('Unknown format of image: $iconPath');

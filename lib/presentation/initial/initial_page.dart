@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/models/LoginDetails.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/models/login_details.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
-import 'package:flutter/material.dart';
 
 @RoutePage()
 class InitialPage extends StatefulWidget {
