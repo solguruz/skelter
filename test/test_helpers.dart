@@ -1,9 +1,12 @@
 import 'package:alchemist/alchemist.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sizer/sizer.dart';
+
+import 'flutter_test_config.dart';
 
 extension WidgetTestHelper on WidgetTester {
   Future<void> runWidgetTest({
@@ -11,18 +14,22 @@ extension WidgetTestHelper on WidgetTester {
     List<BlocProvider> providers = const [],
   }) async {
     return pumpWidget(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-        ],
-        home: providers.isNotEmpty
-            ? MultiBlocProvider(
-                providers: providers,
-                child: child,
-              )
-            : child,
+      Sizer(
+        builder: (context, orientation, screenType) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+            ],
+            home: providers.isNotEmpty
+                ? MultiBlocProvider(
+                    providers: providers,
+                    child: child,
+                  )
+                : child,
+          );
+        },
       ),
     );
   }
@@ -35,25 +42,43 @@ GoldenTestScenario createTestScenario({
   bool addScaffold = false,
 }) {
   final childWithDeviceSize = SizedBox(
-    width: 411, // Logical width of Pixel 5
-    height: 896, // Logical height of Pixel 5
-    child: addScaffold ? Scaffold(body: Center(child: child)) : child,
+    width: pixel5DeviceWidth,
+    height: pixel5DeviceHeight,
+    child: addScaffold
+        ? Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(child: child),
+            ),
+          )
+        : child,
   );
+
+  // // Wrap the child with a SizedBox to specify a fixed size
+  // final childWithFixedSize = SizedBox(
+  //   width: pixel5DeviceWidth,
+  //   height: pixel5DeviceHeight,
+  //   child: childWithDeviceSize,
+  // );
 
   return GoldenTestScenario(
     name: name,
-    child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-      ],
-      home: providers.isNotEmpty
-          ? MultiBlocProvider(
-              providers: providers,
-              child: childWithDeviceSize,
-            )
-          : childWithDeviceSize,
+    child: Sizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+          ],
+          home: providers.isNotEmpty
+              ? MultiBlocProvider(
+                  providers: providers,
+                  child: childWithDeviceSize,
+                )
+              : childWithDeviceSize,
+        );
+      },
     ),
   );
 }

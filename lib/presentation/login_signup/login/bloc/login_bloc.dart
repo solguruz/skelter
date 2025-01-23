@@ -1,26 +1,26 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/analytics/analytics_common.dart';
 import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/analytics/analytics_parameters.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/logger/app_logging.dart';
-import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/models/LoginDetails.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/models/login_details.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
+import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   static const kMinimumPasswordLength = 8;
@@ -29,14 +29,10 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   final AppLocalizations localizations;
 
   LoginBloc({
-    // required this.gqlBloc,
-    // required this.mainBloc,
     required this.localizations,
   }) : super(LoginState.initial()) {
     _initialiseFirebaseServices();
     _setupEventListener();
-    // _setupGqlBlocListener();
-    // _setupMainBlocListener();
   }
 
   @override
@@ -120,12 +116,10 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     );
     on<VerificationCodeFailedToSendEvent>(_onVerificationCodeFailedToSendEvent);
     on<LoginWithPhoneNumEvent>(_onLoginWithPhoneNumEvent);
-    on<ToggleInterestCategory>(_onToggleInterestCategory);
     on<CheckEmailAvailabilityEvent>(_onVerifyEmailAccountEvent);
     on<ChangeUserDetailsInputStatusEvent>(
       _onChangeUserDetailsInputStatusEvent,
     );
-    on<SkipInterestCategorySelectionEvent>(_onSkipInterestCategorySelection);
   }
 
   // region eventHandler
@@ -850,29 +844,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     add(FirebasePhoneLoginEvent(isFromVerificationPage: false));
   }
 
-  void _onToggleInterestCategory(
-    ToggleInterestCategory event,
-    Emitter emit,
-  ) {
-    // final PostCategory category = event.category;
-    // final InterestCategoriesState interestCategoriesState =
-    //     state.interestCategoriesState;
-    // final List<PostCategory> selectedCategories =
-    //     List.from(state.interestCategoriesState.selectedCategories);
-
-    // if (selectedCategories.contains(category)) {
-    //   selectedCategories.remove(category);
-    // } else {
-    //   selectedCategories.add(category);
-    // }
-    //
-    // final updatedSignupState = interestCategoriesState.copyWith(
-    //   selectedCategories: selectedCategories,
-    // );
-
-    // emit(state.copyWith(interestCategoriesState: updatedSignupState));
-  }
-
   void _onVerifyEmailAccountEvent(
     CheckEmailAvailabilityEvent event,
     Emitter emit,
@@ -890,43 +861,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     );
   }
 
-  void _onSkipInterestCategorySelection(
-    SkipInterestCategorySelectionEvent event,
-    Emitter emit,
-  ) {
-    final bool userDetailsInputInProgress =
-        state.userDetailsInputStatus == UserDetailsInputStatus.inProgress;
-
-    if (userDetailsInputInProgress) add(CompleteOnboardingEvent());
-  }
-
-  // endregion eventHandler
-
-  // region gqlBlocListener
-  // void _setupGqlBlocListener() {
-  //   _gqlBlocStream = gqlBloc.stream.listen((s) {
-  //     if (s is CheckPhoneNumberAccountFailedState) {
-  //       _onPhoneNumberAccountFailedState(s);
-  //     } else if (s is CheckPhoneNumberAccountExistsState) {
-  //       _onPhoneNumberAccountExistsState(s);
-  //     } else if (s is LoginSignupFailedState) {
-  //       add(AuthenticationExceptionEvent(errorMessage: s.message));
-  //     } else if (s is AskForHandleAndNameState) {
-  //       add(NavigateToChooseHandleScreenEvent());
-  //     } else if (s is CheckHandleResultState) {
-  //       _onCheckHandleResultState(s);
-  //     } else if (s is RequestVerificationEmailState) {
-  //       _onRequestVerificationEmailState(s);
-  //     } else if (s is ContentPrefOnboardingGetCategoriesState) {
-  //       _onContentPrefOnboardingGetCategories(s);
-  //     } else if (s is UpdateUserCategoriesInterestsState) {
-  //       _onUpdateUserCategoriesInterestsState(s);
-  //     } else if (s is CheckEmailResult) {
-  //       _onCheckEmailResult(s);
-  //     }
-  //   });
-  // }
-
   /* void _onRequestVerificationEmailState(RequestVerificationEmailState s) {
     add(EmailLoginLoadingEvent(isLoading: false));
     if (s.message.haveContent()) {
@@ -937,106 +871,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
       );
       add(VerificationCodeFailedToSendEvent());
     }
-  }
-
-  void _onPhoneNumberAccountFailedState(CheckPhoneNumberAccountFailedState s) {
-    logD('Phone number account check failed: ${s.errorMessage}');
-    add(PhoneNumLoginLoadingEvent(isLoading: false));
-    add(PhoneNumErrorEvent(errorMessage: s.errorMessage));
-  }
-
-  void _onPhoneNumberAccountExistsState(CheckPhoneNumberAccountExistsState s) {
-    logD('Phone number account exists: ${s.phoneNumberAccountExist}');
-    if (!state.isSignup && !s.phoneNumberAccountExist) {
-      add(PhoneNumLoginLoadingEvent(isLoading: false));
-      // if user not registered then show warning and continue to sign up
-      add(EnableSignupModeEvent(isSignup: true));
-      add(
-        AuthenticationExceptionEvent(
-          errorMessage:
-              localizations.login_signup_error_phone_number_not_registered,
-        ),
-      );
-    } else if (state.isSignup && s.phoneNumberAccountExist) {
-      add(PhoneNumLoginLoadingEvent(isLoading: false));
-      // if user already registered then show warning and continue to login
-      add(EnableSignupModeEvent(isSignup: false));
-      add(
-        AuthenticationExceptionEvent(
-          errorMessage:
-              localizations.login_signup_phone_number_already_registered,
-        ),
-      );
-    }
-
-    add(FirebasePhoneLoginEvent(isFromVerificationPage: false));
-  }
-
-  void _onCheckHandleResultState(CheckHandleResultState s) {
-    logD('CheckHandleResultState '
-        'Error: ${s.errorMessage} '
-        'doesExist ${s.doesExist}');
-    if (s.doesExist) {
-      add(HandleNameStatusEvent(status: HandleNameStatus.doesExist));
-      add(
-        HandleNameErrorEvent(
-          errorMessage: localizations.login_signup_error_handle_already_taken,
-        ),
-      );
-      return;
-    } else if (s.errorMessage.haveContent()) {
-      add(HandleNameStatusEvent(status: HandleNameStatus.unknown));
-      add(
-        HandleNameErrorEvent(
-          errorMessage: s.errorMessage ?? kSomethingWentWrong,
-        ),
-      );
-      return;
-    } else {
-      add(HandleNameErrorEvent(errorMessage: ''));
-      add(HandleNameStatusEvent(status: HandleNameStatus.valid));
-    }
-  }
-
-  void _onContentPrefOnboardingGetCategories(
-    ContentPrefOnboardingGetCategoriesState s,
-  ) {
-    final categoriesFetchFailed = s.errorMessage != null;
-
-    final hasSelectedInterestCategories = s.userCategoryInterests.isNotEmpty;
-
-    if (hasSelectedInterestCategories || categoriesFetchFailed) {
-      return add(CompleteOnboardingEvent());
-    }
-
-    _navigateToSelectCategories(s.categories);
-  }
-
-  void _navigateToSelectCategories(List<WildrCategory> categories) {
-    final updatedSignupState = state.interestCategoriesState.copyWith(
-      interestCategories: categories,
-      status: InterestCategoriesStatus.loaded,
-    );
-
-    emit(
-      NavigateToSelectCategoriesState(
-        state.copyWith(
-          interestCategoriesState: updatedSignupState,
-          userDetailsInputStatus: UserDetailsInputStatus.inProgress,
-        ),
-      ),
-    );
-    add(SignupLoadingEvent(isLoading: false));
-  }
-
-  void _onUpdateUserCategoriesInterestsState(
-    UpdateUserCategoriesInterestsState s,
-  ) async {
-    if (s.errorMessage != null) {
-      add(AuthenticationExceptionEvent(errorMessage: s.errorMessage!));
-      return add(SignupLoadingEvent(isLoading: false));
-    }
-    emit(RegistrationCompletedState(state));
   }
 
   void _onCheckEmailResult(CheckEmailResult gqlState) {
@@ -1097,19 +931,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
       add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
       return;
     }
-    // await gqlBloc.add(
-    //   SignupEvent.withPhoneNumber(
-    //     name: firebaseCurrentUser.displayName ?? '',
-    //     handle: state.signupState?.handle ?? '',
-    //     fbUID: firebaseCurrentUser.uid,
-    //     token: token,
-    //     phoneNumber: state.phoneNumberLoginState?.phoneNumber,
-    //     profileImage: state.signupState?.selectedProfilePicture,
-    //     inviteCode: '${Prefs.getInt(SignupPrefKeys.kReferralOrInviteCode)}',
-    //     fcmToken: await WildrFcmTokenProvider().getFcmToken(),
-    //     linkData: await SignupLinkData.fromSignupPrefs(),
-    //   ),
-    // );
   }
 
   Future<void> _performSignupWithEmailOrSSO(
@@ -1130,21 +951,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     //         ? firebaseCurrentUser.displayName
     //         : state.signupState?.handle) ??
     //     '';
-
-    // await gqlBloc.add(
-    //   SignupEvent.withEmail(
-    //     email: firebaseCurrentUser.email!,
-    //     name: fullName,
-    //     handle: state.signupState?.handle ?? '',
-    //     fbUID: firebaseCurrentUser.uid,
-    //     token: token,
-    //     profileImage: state.signupState?.selectedProfilePicture,
-    //     inviteCode:
-    //         Prefs.getInt(SignupPrefKeys.kReferralOrInviteCode)?.toString(),
-    //     fcmToken: await WildrFcmTokenProvider().getFcmToken(),
-    //     linkData: await SignupLinkData.fromSignupPrefs(),
-    //   ),
-    // );
   }
 
   void hideAllLoadingsAndShowError() {
@@ -1154,24 +960,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
   }
 
-  // endregion
-
-  // region mainBlocListener
-  // void _setupMainBlocListener() {
-  //   _mainBlocStream = mainBloc.stream.listen((s) {
-  //     if (s is AuthenticationSuccessfulState) {
-  //       _checkUserSelectedCategories();
-  //     }
-  //   });
-  // }
-
-  // void _checkUserSelectedCategories() {
-  //   gqlBloc.add(
-  //     ContentPrefOnboardingGetCategoriesEvent(
-  //       shouldAddUserPreferences: true,
-  //     ),
-  //   );
-  // }
   // endregion
 
   // region Firebase methods
@@ -1423,8 +1211,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
         return;
       }
       // TODO:
-      // if (!WildrAuth().isEmailVerified() &&
-      //     WildrAuth().getVerifiedEmail() == null) {
+      // if (!isEmailVerified() &&
+      //     getVerifiedEmail() == null) {
       //   add(NavigateToEmailVerifyPageEvent());
       //   add(SendEmailVerificationLinkEvent());
       //   return;
@@ -1455,6 +1243,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   // endregion
 }
 
-extension LoginBlcoExtension on BuildContext {
+extension LoginBlocExtension on BuildContext {
   LoginBloc get loginBloc => BlocProvider.of<LoginBloc>(this);
 }

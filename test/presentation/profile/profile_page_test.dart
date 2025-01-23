@@ -1,13 +1,17 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core_platform_interface/test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/presentation/home/home_page.dart';
+import 'package:flutter_skeleton/presentation/profile/bloc/profile_bloc.dart';
+import 'package:flutter_skeleton/presentation/profile/bloc/profile_event.dart';
+import 'package:flutter_skeleton/presentation/profile/bloc/profile_state.dart';
 import 'package:flutter_skeleton/presentation/profile/profile_page.dart';
-import 'package:flutter_skeleton/presentation/profile/widgets/logout_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/presentation/profile/widgets/profile_details.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -16,7 +20,24 @@ import '../../test_helpers.dart';
 
 class MockHomeBloc extends MockBloc<HomeEvent, HomeState> implements HomeBloc {}
 
+class MockProfileBloc extends MockBloc<ProfileEvent, ProfileState>
+    implements ProfileBloc {}
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    setupFirebaseCoreMocks();
+    await Firebase.initializeApp(
+      name: 'tenantIdTest',
+      options: const FirebaseOptions(
+        apiKey: 'apiKey',
+        appId: 'appId',
+        messagingSenderId: 'messagingSenderId',
+        projectId: 'projectId',
+      ),
+    );
+  });
+
   // Widget tests
   group('Profile Page', () {
     testWidgets('Profile page', (tester) async {
@@ -29,61 +50,130 @@ void main() {
 
       // assert
       expect(find.byType(ProfilePage), findsOneWidget);
-      expect(find.byType(AppButton), findsOneWidget);
-      expect(find.text('Logout'), findsOneWidget);
+      expect(find.text('Sign out'), findsOneWidget);
     });
 
     // Golden tests
     testExecutable(() {
-      group('Profile Page UI test', () {
-        goldenTest(
-          'Profile page',
-          fileName: 'profile_page',
-          builder: () {
-            //arrange
-            final homeBloc = MockHomeBloc();
-            when(() => homeBloc.state).thenReturn(
-              HomeState.test(currentBottomNavIndex: 4),
-            );
+      group(
+        'Profile Page UI test',
+        () {
+          goldenTest(
+            'Profile page',
+            fileName: 'profile_page',
+            pumpBeforeTest: precacheImages,
+            builder: () {
+              //arrange
+              final homeBloc = MockHomeBloc();
+              when(() => homeBloc.state).thenReturn(
+                HomeState.test(currentBottomNavIndex: 4),
+              );
 
-            // act, assert
-            return GoldenTestGroup(
-              children: [
-                createTestScenario(
-                  name: 'Profile page selected in bottom bar',
-                  child: const HomePageWrapper(),
-                  providers: [
-                    BlocProvider<HomeBloc>.value(value: homeBloc),
-                  ],
+              final mockProfileBloc = MockProfileBloc();
+              when(() => mockProfileBloc.state).thenReturn(
+                ProfileState.test(
+                  name: 'Test User',
+                  email: 'x5t4T@example.com',
+                  isProUser: true,
                 ),
-                createTestScenario(
-                  name: 'Profile page UI',
-                  child: const ProfilePage(),
-                ),
-              ],
-            );
-          },
-        );
+              );
 
-        goldenTest(
-          'Having a Logout button',
-          fileName: 'having_a_logout_button',
-          builder: () {
-            //arrange
-
-            // act, assert
-            return GoldenTestGroup(
-              children: [
-                createTestScenario(
-                  addScaffold: true,
-                  name: 'Having a Logout button with normal state',
-                  child: const LogoutButton(),
-                ),
-              ],
-            );
-          },
-        );
-      });
+              // act, assert
+              return GoldenTestGroup(
+                // Fixes "LayoutBuilder does not support returning
+                // intrinsic dimensions" error
+                columnWidthBuilder: (_) =>
+                    const FixedColumnWidth(pixel5DeviceWidth),
+                children: [
+                  createTestScenario(
+                    name: 'Profile page',
+                    child: const ProfilePageBody(),
+                    addScaffold: true,
+                    providers: [
+                      BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
+                    ],
+                  ),
+                  createTestScenario(
+                    name: 'Profile details',
+                    child: const ProfileDetails(),
+                    addScaffold: true,
+                    providers: [
+                      BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
+                    ],
+                  ),
+                ],
+              );
+            },
+          );
+        },
+      );
     });
+  });
+
+  testExecutable(() {
+    goldenTest(
+      'Profile details with long name',
+      fileName: 'profile_details_long_name',
+      pumpBeforeTest: precacheImages,
+      builder: () {
+        // arrange
+        final profileBloc = MockProfileBloc();
+        when(() => profileBloc.state).thenReturn(
+          ProfileState.test(
+            name: 'This is very long name for testing purpose only',
+            email: 'x5t4T_wzkrhzj_45454_qweurnzzlahrnzgkhf@example.com',
+            isProUser: true,
+          ),
+        );
+
+        // act, assert
+        return GoldenTestGroup(
+          columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
+          children: [
+            createTestScenario(
+              name: 'Profile details with long name',
+              child: const ProfileDetails(),
+              addScaffold: true,
+              providers: [
+                BlocProvider<ProfileBloc>.value(value: profileBloc),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  });
+
+  testExecutable(() {
+    goldenTest(
+      'Regular User Profile details',
+      fileName: 'profile_details_regular_user',
+      pumpBeforeTest: precacheImages,
+      builder: () {
+        // arrange
+        final profileBloc = MockProfileBloc();
+        when(() => profileBloc.state).thenReturn(
+          ProfileState.test(
+            name: 'Test User',
+            email: 'x5t4T@example.com',
+          ),
+        );
+
+        // act, assert
+        return GoldenTestGroup(
+          columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
+          children: [
+            createTestScenario(
+              name: 'Regular User Profile details',
+              child: const ProfileDetails(),
+              addScaffold: true,
+              providers: [
+                BlocProvider<ProfileBloc>.value(value: profileBloc),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   });
 }

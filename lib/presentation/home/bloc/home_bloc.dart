@@ -1,10 +1,10 @@
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/logger/app_logging.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/presentation/login_signup/analytics_helper.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/utils/analytics_helper.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> with Loggable {
   HomeBloc() : super(HomeState.initial()) {
@@ -35,6 +35,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> with Loggable {
   }
 }
 
-extension HomeBlcoExtension on BuildContext {
+extension HomeBlocExtension on BuildContext {
   HomeBloc get homeBloc => BlocProvider.of<HomeBloc>(this);
 }

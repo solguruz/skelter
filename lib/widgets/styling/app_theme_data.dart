@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/fonts.gen.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_skeleton/widgets/styling/input_decorations.dart';
-import 'package:flutter/material.dart';
 
 enum AppThemeEnum {
   /// Dark theme is unused in the product, only use/test LightTheme.
@@ -50,6 +50,9 @@ class AppThemesData {
         labelColor: Colors.black,
         unselectedLabelColor: Colors.black54,
       ),
+      listTileTheme: const ListTileThemeData(
+        horizontalTitleGap: 0,
+      ),
       colorScheme: ColorScheme.fromSwatch(
         backgroundColor: Colors.white,
         primarySwatch: AppColors.primarySwatches,
@@ -87,6 +90,9 @@ class AppThemesData {
       ),
       bottomAppBarTheme: const BottomAppBarTheme(
         color: AppColors.bottomAppBarColorDark,
+      ),
+      listTileTheme: const ListTileThemeData(
+        horizontalTitleGap: 0,
       ),
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.dark,

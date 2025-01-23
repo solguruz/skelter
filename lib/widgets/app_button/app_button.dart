@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/widgets/app_button/icon_size.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 part 'app_button_size.dart';
@@ -300,7 +300,7 @@ class AppButton extends StatelessWidget {
   Widget _icon(String? iconPath, IconData? iconData) {
     if (iconPath != null) {
       return AppIcon(
-        iconPath,
+        iconPath: iconPath,
         color: _getTextColor(),
         size: size.iconSize,
       );

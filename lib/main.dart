@@ -1,14 +1,15 @@
+import 'package:country_picker/country_picker.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_skeleton/firebase_options.dart';
 import 'package:flutter_skeleton/i18n/i18n.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/routes.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
-import 'package:country_picker/country_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,20 +60,22 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      supportedLocales: I18n.all,
-      localizationsDelegates: const <LocalizationsDelegate>[
-        AppLocalizations.delegate,
-        CountryLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      // routerDelegate: appRouter.delegate(),
-      routerConfig: appRouter.config(),
-      theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
-      // routeInformationParser: appRouter.defaultRouteParser(),
+    return Sizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          supportedLocales: I18n.all,
+          localizationsDelegates: const <LocalizationsDelegate>[
+            AppLocalizations.delegate,
+            CountryLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          routerConfig: appRouter.config(),
+          theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
+        );
+      },
     );
   }
 }

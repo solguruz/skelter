@@ -63,8 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '691451580239',
     projectId: 'sg-skeleton',
     storageBucket: 'sg-skeleton.firebasestorage.app',
-    iosClientId: '691451580239-qm3557bh4m0ilhf04jubac0b9n04sfbd.apps.googleusercontent.com',
-    iosBundleId: 'com.solguruz.flutterskeleton.flutterSkeleton',
+    iosClientId:
+        '691451580239-qm3557bh4m0ilhf04jubac0b9n04sfbd.apps.googleusercontent.com',
+    iosBundleId: 'com.solguruz.flutterskeleton',
   );
-
 }
