@@ -12,10 +12,11 @@ class ProfileState with EquatableMixin {
     required this.isProUser,
   });
 
-  ProfileState.initial()
-      : name = '',
-        email = '',
-        isProUser = false;
+  ProfileState.initial({
+    this.name = '',
+    this.email = '',
+    this.isProUser = false,
+  });
 
   ProfileState.copy(ProfileState state)
       : name = state.name,
@@ -49,4 +50,8 @@ class ProfileState with EquatableMixin {
         email,
         isProUser,
       ];
+}
+
+class SignOutState extends ProfileState {
+  SignOutState() : super.initial();
 }

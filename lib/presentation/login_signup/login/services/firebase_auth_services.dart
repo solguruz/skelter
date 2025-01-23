@@ -205,6 +205,10 @@ class FirebaseAuthService with Loggable {
     return null;
   }
 
+  Future<void> signOut() async {
+    await _firebaseAuth?.signOut();
+  }
+
   void _handleFirebaseError(
     FirebaseAuthException e,
     Function(String, {StackTrace? stackTrace}) onError, {
