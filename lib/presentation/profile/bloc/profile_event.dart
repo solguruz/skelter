@@ -32,3 +32,13 @@ class UpdateProfileEvent extends ProfileEvent {
   @override
   String get eventName => (UpdateProfileEvent).toString();
 }
+
+class SignOutEvent extends ProfileEvent {
+  const SignOutEvent();
+
+  @override
+  List<Object> get props => [];
+
+  @override
+  String get eventName => (SignOutEvent).toString();
+}
