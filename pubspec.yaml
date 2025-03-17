@@ -38,6 +38,8 @@ dependencies:
   country_picker: ^2.0.27
   shared_preferences: ^2.3.5
   sizer: ^3.0.5
+  cached_network_image: ^3.4.1
+  timeago: ^3.7.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,8 @@ dev_dependencies:
   mocktail: ^1.0.4
   bloc_test: ^9.1.7
   alchemist: ^0.11.0
+  mocktail_image_network: ^1.2.0
+  flutter_image: ^4.1.11
 
 
 flutter:
@@ -93,3 +97,7 @@ flutter:
         #600 Semi-bold
         - asset: assets/fonts/Inter/Inter-Thin.ttf
           weight: 600
+        
+    # - family: Roboto
+    #   fonts:
+    #     - asset: test/fonts/Roboto-Regular.ttf

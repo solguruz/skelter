@@ -75,10 +75,6 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null
                 : passwordErrorMessage,
-            border: _enabledInputBorder(),
-            enabledBorder: _enabledInputBorder(),
-            focusedBorder: _focusedInputBorder(),
-            errorBorder: _errorInputBorder(),
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,
@@ -97,27 +93,6 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           textInputAction: TextInputAction.done,
         ),
       ],
-    );
-  }
-
-  OutlineInputBorder _enabledInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _focusedInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeBrandHover),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _errorInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
-      borderRadius: BorderRadius.circular(8),
     );
   }
 }

@@ -62,10 +62,6 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             ),
             errorText:
                 emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
-            border: _enabledInputBorder(),
-            enabledBorder: _enabledInputBorder(),
-            focusedBorder: _focusedInputBorder(),
-            errorBorder: _errorInputBorder(),
           ),
           textInputAction: TextInputAction.next,
           keyboardType: TextInputType.emailAddress,
@@ -88,10 +84,6 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null
                 : passwordErrorMessage,
-            border: _enabledInputBorder(),
-            enabledBorder: _enabledInputBorder(),
-            focusedBorder: _focusedInputBorder(),
-            errorBorder: _errorInputBorder(),
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,
@@ -132,27 +124,6 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
     }
     context.loginBloc.add(
       PasswordChangeEvent(password: _passwordController.text),
-    );
-  }
-
-  OutlineInputBorder _enabledInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _focusedInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeBrandHover),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _errorInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
-      borderRadius: BorderRadius.circular(8),
     );
   }
 

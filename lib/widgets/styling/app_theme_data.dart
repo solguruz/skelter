@@ -40,11 +40,6 @@ class AppThemesData {
         titleLarge: TextStyle(color: Color.fromRGBO(41, 41, 52, 1)),
       ),
       fontFamily: FontFamily.inter,
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: InputDecorations.labelStyleBright,
-        hintStyle: InputDecorations.hintStyleBright,
-        isDense: true,
-      ),
       indicatorColor: AppColors.brand600,
       tabBarTheme: const TabBarTheme(
         labelColor: Colors.black,
@@ -52,6 +47,25 @@ class AppThemesData {
       ),
       listTileTheme: const ListTileThemeData(
         horizontalTitleGap: 0,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: InputDecorations.labelStyleBright,
+        hintStyle: AppTextStyles.p3Medium.withColor(
+          AppColors.textNeutralDisable,
+        ),
+        isDense: true,
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.strokeBrandHover),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
       colorScheme: ColorScheme.fromSwatch(
         backgroundColor: Colors.white,

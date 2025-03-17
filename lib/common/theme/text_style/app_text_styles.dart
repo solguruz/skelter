@@ -177,6 +177,20 @@ class AppTextStyles {
     fontFamily: FontFamily.inter,
     height: 1.5, // 150% on Figma,
   );
+
+  static TextStyle c2Regular = const TextStyle(
+    fontSize: 8,
+    fontWeight: FontWeight.w400,
+    fontFamily: FontFamily.inter,
+    height: 1.5, // 150% on Figma,
+  );
+
+  static TextStyle c2SemiBold = const TextStyle(
+    fontSize: 8,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.5, // 150% on Figma,
+  );
 }
 
 extension AppTextStyleExtension on TextStyle {
