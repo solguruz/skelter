@@ -48,6 +48,9 @@ class AppRouter extends RootStackRouter {
 
       // Home page
       HomeRoute.page,
+
+      // Chat page
+      ChatRoute.page,
     ]
         .map(
           (page) => CustomRoute(

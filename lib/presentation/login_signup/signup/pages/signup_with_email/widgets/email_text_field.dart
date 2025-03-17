@@ -52,10 +52,6 @@ class _EmailTextFieldState extends State<EmailTextField> {
                 emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,
-            border: _enabledInputBorder(),
-            enabledBorder: _enabledInputBorder(),
-            focusedBorder: _focusedInputBorder(),
-            errorBorder: _errorInputBorder(),
           ),
           textInputAction: TextInputAction.next,
           keyboardType: TextInputType.emailAddress,
@@ -73,27 +69,6 @@ class _EmailTextFieldState extends State<EmailTextField> {
     }
     context.loginBloc.add(
       SignupEmailChangeEvent(email: _emailController.text),
-    );
-  }
-
-  OutlineInputBorder _enabledInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _focusedInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeBrandHover),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _errorInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
-      borderRadius: BorderRadius.circular(8),
     );
   }
 

@@ -67,36 +67,11 @@ class _EmailTextFieldState extends State<EmailTextField> {
             ),
             errorText:
                 emailError != null && emailError.isNotEmpty ? emailError : null,
-            border: enabledInputBorder(),
-            enabledBorder: enabledInputBorder(),
-            focusedBorder: focusedInputBorder(),
-            errorBorder: errorInputBorder(),
           ),
           textInputAction: TextInputAction.next,
           keyboardType: TextInputType.emailAddress,
         ),
       ],
-    );
-  }
-
-  OutlineInputBorder enabledInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder focusedInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeBrandHover),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder errorInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
-      borderRadius: BorderRadius.circular(8),
     );
   }
 }

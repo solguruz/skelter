@@ -58,12 +58,6 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           obscureText: !isPasswordVisible,
           decoration: InputDecoration(
             hintText: context.l10n.login_signup_password_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
-            ),
-            border: _enabledInputBorder(),
-            enabledBorder: _enabledInputBorder(),
-            focusedBorder: _focusedInputBorder(),
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,
@@ -80,20 +74,6 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           textInputAction: TextInputAction.done,
         ),
       ],
-    );
-  }
-
-  OutlineInputBorder _enabledInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
-      borderRadius: BorderRadius.circular(8),
-    );
-  }
-
-  OutlineInputBorder _focusedInputBorder() {
-    return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.strokeBrandHover),
-      borderRadius: BorderRadius.circular(8),
     );
   }
 }

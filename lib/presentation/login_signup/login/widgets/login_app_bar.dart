@@ -4,8 +4,6 @@ import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
-  static const kHeight = kToolbarHeight;
-
   const LoginAppBar({
     super.key,
     this.removeLeading = false,
@@ -37,5 +35,5 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

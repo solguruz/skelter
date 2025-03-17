@@ -210,5 +210,8 @@
   "settings":"Settings",
   "feedback_and_ratings":"Feedback & Ratings",
   "support":"Supprt",
-  "help_and_support":"Help & Support"
+  "help_and_support":"Help & Support",
+  "chat_page": "===============================================================================",
+  "chat": "Chat",
+  "search": "Search"
 }
