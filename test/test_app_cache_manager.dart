@@ -12,8 +12,12 @@ class MockAppImageCacheManager extends Mock implements BaseCacheManager {
   MockAppImageCacheManager();
 
   @override
-  Stream<FileResponse> getFileStream(String url,
-      {String? key, Map<String, String>? headers, bool? withProgress}) async* {
+  Stream<FileResponse> getFileStream(
+    String url, {
+    String? key,
+    Map<String, String>? headers,
+    bool? withProgress,
+  }) async* {
     final file = await getCustomFile();
 
     if (withProgress ?? false) {
@@ -29,8 +33,11 @@ class MockAppImageCacheManager extends Mock implements BaseCacheManager {
   }
 
   @override
-  Stream<FileInfo> getFile(String url,
-      {String? key, Map<String, String>? headers}) async* {
+  Stream<FileInfo> getFile(
+    String url, {
+    String? key,
+    Map<String, String>? headers,
+  }) async* {
     final file = await getCustomFile();
 
     // Set the validity date to 30 days from now
@@ -54,10 +61,12 @@ class MockAppImageCacheManager extends Mock implements BaseCacheManager {
   }
 
   @override
-  Future<FileInfo> downloadFile(String url,
-      {String? key,
-      Map<String, String>? authHeaders,
-      bool force = false}) async {
+  Future<FileInfo> downloadFile(
+    String url, {
+    String? key,
+    Map<String, String>? authHeaders,
+    bool force = false,
+  }) async {
     // Create a temporary file path
     final file = await getCustomFile();
 
@@ -70,8 +79,10 @@ class MockAppImageCacheManager extends Mock implements BaseCacheManager {
   }
 
   @override
-  Future<FileInfo?> getFileFromCache(String key,
-      {bool ignoreMemCache = false}) async {
+  Future<FileInfo?> getFileFromCache(
+    String key, {
+    bool ignoreMemCache = false,
+  }) async {
     final file = await getCustomFile();
 
     // Set the validity date to 30 days from now
@@ -95,8 +106,11 @@ class MockAppImageCacheManager extends Mock implements BaseCacheManager {
   }
 
   @override
-  Future<File> getSingleFile(String url,
-      {String? key, Map<String, String>? headers}) async {
+  Future<File> getSingleFile(
+    String url, {
+    String? key,
+    Map<String, String>? headers,
+  }) async {
     final file = await getCustomFile();
 
     return file;

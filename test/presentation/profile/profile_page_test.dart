@@ -64,10 +64,6 @@ void main() {
             pumpBeforeTest: precacheImages,
             builder: () {
               //arrange
-              final homeBloc = MockHomeBloc();
-              when(() => homeBloc.state).thenReturn(
-                HomeState.test(currentBottomNavIndex: 4),
-              );
 
               final mockProfileBloc = MockProfileBloc();
               when(() => mockProfileBloc.state).thenReturn(
