@@ -74,7 +74,7 @@ List<ChatModel> generateSampleUsersChat() {
       'isTeam': false,
     },
     {
-      'name': 'Scheduling Team',
+      'name': 'Scheduling & Maintenance Team from the ABC company',
       'profile_picture': 'https://randomuser.me/api/portraits/men/2.jpg',
       'last_message': 'Sure, see you there!',
       'last_message_attachment_url': '',

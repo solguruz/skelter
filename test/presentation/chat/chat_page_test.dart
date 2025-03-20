@@ -2,6 +2,7 @@ import 'package:alchemist/alchemist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_skeleton/presentation/chat/chat_page.dart';
+import 'package:flutter_skeleton/presentation/chat/widgets/chat_shimmer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -42,6 +43,13 @@ void main() {
               createTestScenario(
                 name: 'Chat page',
                 child: const ChatPage(),
+              ),
+              createTestScenario(
+                name: 'Chat shimmer',
+                addScaffold: true,
+                child: const ChatShimmer(
+                  showAnimation: false,
+                ),
                 // addScaffold: true,
               ),
             ],
