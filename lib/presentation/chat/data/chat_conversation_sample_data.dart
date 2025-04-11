@@ -9,7 +9,7 @@ final List<ChatMessage> messages = [
     isSentByMe: false,
     replyingToId: 1,
     messageType: MessageType.text,
-    date: DateTime.now(),
+    date: DateTime(2025, 4, 11),
   ),
   ChatMessage(
     id: 1,
@@ -17,7 +17,7 @@ final List<ChatMessage> messages = [
     status: 'Read',
     isSentByMe: true,
     messageType: MessageType.text,
-    date: DateTime.now().subtract(const Duration(hours: 1, minutes: 12)),
+    date: DateTime(2025, 4, 11, 10, 48),
   ),
   ChatMessage(
     id: 2,
@@ -25,7 +25,7 @@ final List<ChatMessage> messages = [
     status: 'Read',
     isSentByMe: true,
     messageType: MessageType.audio,
-    date: DateTime.now().subtract(const Duration(days: 1)),
+    date: DateTime(2025, 4, 10),
   ),
   ChatMessage(
     id: 3,
@@ -33,7 +33,7 @@ final List<ChatMessage> messages = [
     status: 'Read',
     isSentByMe: false,
     messageType: MessageType.text,
-    date: DateTime.now().subtract(const Duration(days: 1)),
+    date: DateTime(2025, 4, 10),
   ),
   ChatMessage(
     id: 4,
@@ -42,9 +42,7 @@ final List<ChatMessage> messages = [
     status: 'Read',
     isSentByMe: false,
     messageType: MessageType.image,
-    date: DateTime.now().subtract(
-      const Duration(days: 1, hours: 2),
-    ),
+    date: DateTime(2025, 4, 10, 22),
   ),
   ChatMessage(
     id: 5,
@@ -52,6 +50,6 @@ final List<ChatMessage> messages = [
     status: 'Read',
     isSentByMe: true,
     messageType: MessageType.text,
-    date: DateTime.now().subtract(const Duration(days: 2, hours: 2)),
+    date: DateTime(2025, 4, 9, 22),
   ),
 ];
