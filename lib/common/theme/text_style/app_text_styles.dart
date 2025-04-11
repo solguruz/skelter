@@ -2,45 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/gen/fonts.gen.dart';
 
 class AppTextStyles {
-  /*
-  static TextStyle h1 = const TextStyle(
-    fontSize: 28,
-    fontWeight: FontWeight.w900,
-    fontFamily: FontFamily.inter,
-    height: 1.5,
-    // 150% on Figma,
-    letterSpacing: -0.28,
-  );
-
-  static TextStyle h2 = const TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w900,
-    fontFamily: FontFamily.inter,
-    height: 1.5,
-    // 150% on Figma,
-    letterSpacing: -0.24,
-  );
-
-  static TextStyle h3 = const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w900,
-    fontFamily: FontFamily.inter,
-    height: 1.5,
-    // 150% on Figma,
-    letterSpacing: -0.24,
-  );
-
-  // h3
-  static TextStyle h4 = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w900,
-    fontFamily: FontFamily.inter,
-    height: 1.5,
-    // 150% on Figma,
-    letterSpacing: -0.24,
-  );
-  * */
-
   static TextStyle h1 = const TextStyle(
     fontSize: 29,
     fontWeight: FontWeight.w900,
@@ -130,6 +91,13 @@ class AppTextStyles {
     height: 1.5, // 150% on Figma,
   );
 
+  static TextStyle p3SemiBold = const TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.5, // 150% on Figma,
+  );
+
   static TextStyle p4Medium = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
@@ -179,14 +147,21 @@ class AppTextStyles {
   );
 
   static TextStyle c2Regular = const TextStyle(
-    fontSize: 8,
+    fontSize: 10,
     fontWeight: FontWeight.w400,
     fontFamily: FontFamily.inter,
     height: 1.5, // 150% on Figma,
   );
 
+  static TextStyle c2Medium = const TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+    fontFamily: FontFamily.inter,
+    height: 1.5, // 150% on Figma,
+  );
+
   static TextStyle c2SemiBold = const TextStyle(
-    fontSize: 8,
+    fontSize: 10,
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
     height: 1.5, // 150% on Figma,

@@ -213,5 +213,10 @@
   "help_and_support":"Help & Support",
   "chat_page": "===============================================================================",
   "chat": "Chat",
-  "search": "Search"
+  "search": "Search",
+  "faq": "FAQ",
+  "today":"Today",
+  "yesterday":"Yesterday",
+  "send_a_new_message":"Send a new message",
+  "you":"You"
 }

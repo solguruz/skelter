@@ -8,13 +8,16 @@ class UserAvatar extends StatelessWidget {
   const UserAvatar({
     super.key,
     required this.chatModel,
+    this.profileImageSize = 14.0,
+    this.showStatus = true,
   });
 
   final ChatModel chatModel;
+  final double profileImageSize;
+  final bool showStatus;
 
   @override
   Widget build(BuildContext context) {
-    const double profileImageSize = 14.0;
     return Stack(
       children: [
         ClipRRect(
@@ -25,7 +28,7 @@ class UserAvatar extends StatelessWidget {
             width: profileImageSize.w,
           ),
         ),
-        if (chatModel.isOnline)
+        if (chatModel.isOnline && showStatus)
           Positioned(
             bottom: 1,
             right: 1,
@@ -41,6 +44,24 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+class ChatAvatarSmall extends StatelessWidget {
+  const ChatAvatarSmall({
+    super.key,
+    required this.chatModel,
+  });
+
+  final ChatModel chatModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return UserAvatar(
+      chatModel: chatModel,
+      profileImageSize: 10,
+      showStatus: false,
     );
   }
 }

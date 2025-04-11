@@ -33,11 +33,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search_outline.svg
   String get searchOutline => 'assets/icons/search_outline.svg';
 
+  /// File path: assets/icons/send.svg
+  String get send => 'assets/icons/send.svg';
+
   /// File path: assets/icons/tick.svg
   String get tick => 'assets/icons/tick.svg';
 
   /// File path: assets/icons/user_placeholder.svg
   String get userPlaceholder => 'assets/icons/user_placeholder.svg';
+
+  /// File path: assets/icons/waveforms.svg
+  String get waveforms => 'assets/icons/waveforms.svg';
 
   /// List of all assets
   List<dynamic> get values => [
@@ -48,8 +54,10 @@ class $AssetsIconsGen {
         google,
         icon,
         searchOutline,
+        send,
         tick,
-        userPlaceholder
+        userPlaceholder,
+        waveforms
       ];
 }
 

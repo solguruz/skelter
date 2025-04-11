@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/chat/data/chat_sample_data.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/chat_app_bar.dart';
+import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_app_bar.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_tile.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_shimmer.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/search_text_field.dart';
+import 'package:flutter_skeleton/routes.gr.dart';
 
 @RoutePage()
 class ChatPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ChatAppBar(),
+      appBar: const ChatListAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(AppSize.M),
         child: Column(
@@ -71,10 +72,14 @@ class ChatMessages extends StatelessWidget {
     return ListView.builder(
       itemCount: sampleData.length,
       itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: AppSize.M),
-          child: ChatListTile(
-            chatModel: sampleData[index],
+        return InkWell(
+          onTap: () {
+            context.router
+                .push(ChatConversationRoute(chatUser: sampleData[index]));
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: AppSize.M),
+            child: ChatListTile(chatModel: sampleData[index]),
           ),
         );
       },

@@ -47,4 +47,8 @@ extension TimeAgo on DateTime {
     }
     return '';
   }
+
+  String get to12HourFormat {
+    return DateFormat('hh:mm a').format(toLocal());
+  }
 }

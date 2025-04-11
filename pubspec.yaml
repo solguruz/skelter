@@ -54,6 +54,7 @@ dev_dependencies:
   alchemist: ^0.11.0
   mocktail_image_network: ^1.2.0
   flutter_image: ^4.1.11
+  image_viewer_pro: ^1.0.0
 
 
 flutter:
