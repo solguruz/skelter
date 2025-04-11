@@ -8,46 +8,50 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i16;
-import 'package:flutter/material.dart' as _i17;
-import 'package:flutter_skeleton/presentation/chat/chat_page.dart' as _i2;
-import 'package:flutter_skeleton/presentation/home/home_page.dart' as _i6;
-import 'package:flutter_skeleton/presentation/initial/initial_page.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i17;
+import 'package:flutter/material.dart' as _i18;
+import 'package:flutter_skeleton/presentation/chat/chat_conversations.dart'
+    as _i2;
+import 'package:flutter_skeleton/presentation/chat/chat_page.dart' as _i3;
+import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart'
+    as _i20;
+import 'package:flutter_skeleton/presentation/home/home_page.dart' as _i7;
+import 'package:flutter_skeleton/presentation/initial/initial_page.dart' as _i8;
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart'
-    as _i18;
+    as _i19;
 import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart'
-    as _i8;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/check_your_email/check_your_email_page.dart'
-    as _i3;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/forgot_password/forgot_password_page.dart'
-    as _i5;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/login_with_email_pass_page.dart'
     as _i9;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_phone_number/login_with_phone_num_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/check_your_email/check_your_email_page.dart'
+    as _i4;
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/forgot_password/forgot_password_page.dart'
+    as _i6;
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/login_with_email_pass_page.dart'
     as _i10;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_phone_number/login_with_phone_num_page.dart'
     as _i11;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/phone_num_verified_page/phone_num_verified_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart'
     as _i12;
+import 'package:flutter_skeleton/presentation/login_signup/signup/pages/phone_num_verified_page/phone_num_verified_page.dart'
+    as _i13;
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/profile_picture/add_profile_picture_page.dart'
     as _i1;
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/create_your_password_page.dart'
-    as _i4;
+    as _i5;
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/signup_with_email_pass_page.dart'
-    as _i14;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/verify_email_page.dart'
     as _i15;
+import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/verify_email_page.dart'
+    as _i16;
 import 'package:flutter_skeleton/presentation/login_signup/signup/signup_page.dart'
-    as _i13;
+    as _i14;
 
 /// generated route for
 /// [_i1.AddProfilePicturePage]
 class AddProfilePictureRoute
-    extends _i16.PageRouteInfo<AddProfilePictureRouteArgs> {
+    extends _i17.PageRouteInfo<AddProfilePictureRouteArgs> {
   AddProfilePictureRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           AddProfilePictureRoute.name,
           args: AddProfilePictureRouteArgs(
@@ -59,7 +63,7 @@ class AddProfilePictureRoute
 
   static const String name = 'AddProfilePictureRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<AddProfilePictureRouteArgs>();
@@ -77,9 +81,9 @@ class AddProfilePictureRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -88,9 +92,56 @@ class AddProfilePictureRouteArgs {
 }
 
 /// generated route for
-/// [_i2.ChatPage]
-class ChatRoute extends _i16.PageRouteInfo<void> {
-  const ChatRoute({List<_i16.PageRouteInfo>? children})
+/// [_i2.ChatConversationPage]
+class ChatConversationRoute
+    extends _i17.PageRouteInfo<ChatConversationRouteArgs> {
+  ChatConversationRoute({
+    _i18.Key? key,
+    required _i20.ChatModel chatUser,
+    List<_i17.PageRouteInfo>? children,
+  }) : super(
+          ChatConversationRoute.name,
+          args: ChatConversationRouteArgs(
+            key: key,
+            chatUser: chatUser,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatConversationRoute';
+
+  static _i17.PageInfo page = _i17.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ChatConversationRouteArgs>();
+      return _i2.ChatConversationPage(
+        key: args.key,
+        chatUser: args.chatUser,
+      );
+    },
+  );
+}
+
+class ChatConversationRouteArgs {
+  const ChatConversationRouteArgs({
+    this.key,
+    required this.chatUser,
+  });
+
+  final _i18.Key? key;
+
+  final _i20.ChatModel chatUser;
+
+  @override
+  String toString() {
+    return 'ChatConversationRouteArgs{key: $key, chatUser: $chatUser}';
+  }
+}
+
+/// generated route for
+/// [_i3.ChatPage]
+class ChatRoute extends _i17.PageRouteInfo<void> {
+  const ChatRoute({List<_i17.PageRouteInfo>? children})
       : super(
           ChatRoute.name,
           initialChildren: children,
@@ -98,21 +149,21 @@ class ChatRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'ChatRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i2.ChatPage();
+      return const _i3.ChatPage();
     },
   );
 }
 
 /// generated route for
-/// [_i3.CheckYourEmailPage]
-class CheckYourEmailRoute extends _i16.PageRouteInfo<CheckYourEmailRouteArgs> {
+/// [_i4.CheckYourEmailPage]
+class CheckYourEmailRoute extends _i17.PageRouteInfo<CheckYourEmailRouteArgs> {
   CheckYourEmailRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           CheckYourEmailRoute.name,
           args: CheckYourEmailRouteArgs(
@@ -124,11 +175,11 @@ class CheckYourEmailRoute extends _i16.PageRouteInfo<CheckYourEmailRouteArgs> {
 
   static const String name = 'CheckYourEmailRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CheckYourEmailRouteArgs>();
-      return _i3.CheckYourEmailPage(
+      return _i4.CheckYourEmailPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -142,9 +193,9 @@ class CheckYourEmailRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -153,13 +204,13 @@ class CheckYourEmailRouteArgs {
 }
 
 /// generated route for
-/// [_i4.CreateYourPasswordPage]
+/// [_i5.CreateYourPasswordPage]
 class CreateYourPasswordRoute
-    extends _i16.PageRouteInfo<CreateYourPasswordRouteArgs> {
+    extends _i17.PageRouteInfo<CreateYourPasswordRouteArgs> {
   CreateYourPasswordRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           CreateYourPasswordRoute.name,
           args: CreateYourPasswordRouteArgs(
@@ -171,11 +222,11 @@ class CreateYourPasswordRoute
 
   static const String name = 'CreateYourPasswordRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CreateYourPasswordRouteArgs>();
-      return _i4.CreateYourPasswordPage(
+      return _i5.CreateYourPasswordPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -189,9 +240,9 @@ class CreateYourPasswordRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -200,13 +251,13 @@ class CreateYourPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i5.ForgotPasswordV2Page]
+/// [_i6.ForgotPasswordV2Page]
 class ForgotPasswordV2Route
-    extends _i16.PageRouteInfo<ForgotPasswordV2RouteArgs> {
+    extends _i17.PageRouteInfo<ForgotPasswordV2RouteArgs> {
   ForgotPasswordV2Route({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           ForgotPasswordV2Route.name,
           args: ForgotPasswordV2RouteArgs(
@@ -218,11 +269,11 @@ class ForgotPasswordV2Route
 
   static const String name = 'ForgotPasswordV2Route';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<ForgotPasswordV2RouteArgs>();
-      return _i5.ForgotPasswordV2Page(
+      return _i6.ForgotPasswordV2Page(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -236,9 +287,9 @@ class ForgotPasswordV2RouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -247,9 +298,9 @@ class ForgotPasswordV2RouteArgs {
 }
 
 /// generated route for
-/// [_i6.HomePage]
-class HomeRoute extends _i16.PageRouteInfo<void> {
-  const HomeRoute({List<_i16.PageRouteInfo>? children})
+/// [_i7.HomePage]
+class HomeRoute extends _i17.PageRouteInfo<void> {
+  const HomeRoute({List<_i17.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -257,18 +308,18 @@ class HomeRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i6.HomePage();
+      return const _i7.HomePage();
     },
   );
 }
 
 /// generated route for
-/// [_i7.InitialPage]
-class InitialRoute extends _i16.PageRouteInfo<void> {
-  const InitialRoute({List<_i16.PageRouteInfo>? children})
+/// [_i8.InitialPage]
+class InitialRoute extends _i17.PageRouteInfo<void> {
+  const InitialRoute({List<_i17.PageRouteInfo>? children})
       : super(
           InitialRoute.name,
           initialChildren: children,
@@ -276,18 +327,18 @@ class InitialRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'InitialRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i7.InitialPage();
+      return const _i8.InitialPage();
     },
   );
 }
 
 /// generated route for
-/// [_i8.LoginPage]
-class LoginRoute extends _i16.PageRouteInfo<void> {
-  const LoginRoute({List<_i16.PageRouteInfo>? children})
+/// [_i9.LoginPage]
+class LoginRoute extends _i17.PageRouteInfo<void> {
+  const LoginRoute({List<_i17.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -295,22 +346,22 @@ class LoginRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i8.LoginPage();
+      return const _i9.LoginPage();
     },
   );
 }
 
 /// generated route for
-/// [_i9.LoginWithEmailPasswordPage]
+/// [_i10.LoginWithEmailPasswordPage]
 class LoginWithEmailPasswordRoute
-    extends _i16.PageRouteInfo<LoginWithEmailPasswordRouteArgs> {
+    extends _i17.PageRouteInfo<LoginWithEmailPasswordRouteArgs> {
   LoginWithEmailPasswordRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           LoginWithEmailPasswordRoute.name,
           args: LoginWithEmailPasswordRouteArgs(
@@ -322,11 +373,11 @@ class LoginWithEmailPasswordRoute
 
   static const String name = 'LoginWithEmailPasswordRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<LoginWithEmailPasswordRouteArgs>();
-      return _i9.LoginWithEmailPasswordPage(
+      return _i10.LoginWithEmailPasswordPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -340,9 +391,9 @@ class LoginWithEmailPasswordRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -351,9 +402,9 @@ class LoginWithEmailPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i10.LoginWithPhoneNumberPage]
-class LoginWithPhoneNumberRoute extends _i16.PageRouteInfo<void> {
-  const LoginWithPhoneNumberRoute({List<_i16.PageRouteInfo>? children})
+/// [_i11.LoginWithPhoneNumberPage]
+class LoginWithPhoneNumberRoute extends _i17.PageRouteInfo<void> {
+  const LoginWithPhoneNumberRoute({List<_i17.PageRouteInfo>? children})
       : super(
           LoginWithPhoneNumberRoute.name,
           initialChildren: children,
@@ -361,21 +412,21 @@ class LoginWithPhoneNumberRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'LoginWithPhoneNumberRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i10.LoginWithPhoneNumberPage();
+      return const _i11.LoginWithPhoneNumberPage();
     },
   );
 }
 
 /// generated route for
-/// [_i11.PhoneNumberOTPPage]
-class PhoneNumberOTPRoute extends _i16.PageRouteInfo<PhoneNumberOTPRouteArgs> {
+/// [_i12.PhoneNumberOTPPage]
+class PhoneNumberOTPRoute extends _i17.PageRouteInfo<PhoneNumberOTPRouteArgs> {
   PhoneNumberOTPRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           PhoneNumberOTPRoute.name,
           args: PhoneNumberOTPRouteArgs(
@@ -387,11 +438,11 @@ class PhoneNumberOTPRoute extends _i16.PageRouteInfo<PhoneNumberOTPRouteArgs> {
 
   static const String name = 'PhoneNumberOTPRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberOTPRouteArgs>();
-      return _i11.PhoneNumberOTPPage(
+      return _i12.PhoneNumberOTPPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -405,9 +456,9 @@ class PhoneNumberOTPRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -416,13 +467,13 @@ class PhoneNumberOTPRouteArgs {
 }
 
 /// generated route for
-/// [_i12.PhoneNumberVerifiedPage]
+/// [_i13.PhoneNumberVerifiedPage]
 class PhoneNumberVerifiedRoute
-    extends _i16.PageRouteInfo<PhoneNumberVerifiedRouteArgs> {
+    extends _i17.PageRouteInfo<PhoneNumberVerifiedRouteArgs> {
   PhoneNumberVerifiedRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           PhoneNumberVerifiedRoute.name,
           args: PhoneNumberVerifiedRouteArgs(
@@ -434,11 +485,11 @@ class PhoneNumberVerifiedRoute
 
   static const String name = 'PhoneNumberVerifiedRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberVerifiedRouteArgs>();
-      return _i12.PhoneNumberVerifiedPage(
+      return _i13.PhoneNumberVerifiedPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -452,9 +503,9 @@ class PhoneNumberVerifiedRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -463,9 +514,9 @@ class PhoneNumberVerifiedRouteArgs {
 }
 
 /// generated route for
-/// [_i13.SignUpPage]
-class SignUpRoute extends _i16.PageRouteInfo<void> {
-  const SignUpRoute({List<_i16.PageRouteInfo>? children})
+/// [_i14.SignUpPage]
+class SignUpRoute extends _i17.PageRouteInfo<void> {
+  const SignUpRoute({List<_i17.PageRouteInfo>? children})
       : super(
           SignUpRoute.name,
           initialChildren: children,
@@ -473,22 +524,22 @@ class SignUpRoute extends _i16.PageRouteInfo<void> {
 
   static const String name = 'SignUpRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i13.SignUpPage();
+      return const _i14.SignUpPage();
     },
   );
 }
 
 /// generated route for
-/// [_i14.SignupWithEmailPasswordPage]
+/// [_i15.SignupWithEmailPasswordPage]
 class SignupWithEmailPasswordRoute
-    extends _i16.PageRouteInfo<SignupWithEmailPasswordRouteArgs> {
+    extends _i17.PageRouteInfo<SignupWithEmailPasswordRouteArgs> {
   SignupWithEmailPasswordRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           SignupWithEmailPasswordRoute.name,
           args: SignupWithEmailPasswordRouteArgs(
@@ -500,11 +551,11 @@ class SignupWithEmailPasswordRoute
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SignupWithEmailPasswordRouteArgs>();
-      return _i14.SignupWithEmailPasswordPage(
+      return _i15.SignupWithEmailPasswordPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -518,9 +569,9 @@ class SignupWithEmailPasswordRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -529,12 +580,12 @@ class SignupWithEmailPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i15.VerifyEmailPage]
-class VerifyEmailRoute extends _i16.PageRouteInfo<VerifyEmailRouteArgs> {
+/// [_i16.VerifyEmailPage]
+class VerifyEmailRoute extends _i17.PageRouteInfo<VerifyEmailRouteArgs> {
   VerifyEmailRoute({
-    _i17.Key? key,
-    required _i18.LoginBloc loginBloc,
-    List<_i16.PageRouteInfo>? children,
+    _i18.Key? key,
+    required _i19.LoginBloc loginBloc,
+    List<_i17.PageRouteInfo>? children,
   }) : super(
           VerifyEmailRoute.name,
           args: VerifyEmailRouteArgs(
@@ -546,11 +597,11 @@ class VerifyEmailRoute extends _i16.PageRouteInfo<VerifyEmailRouteArgs> {
 
   static const String name = 'VerifyEmailRoute';
 
-  static _i16.PageInfo page = _i16.PageInfo(
+  static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<VerifyEmailRouteArgs>();
-      return _i15.VerifyEmailPage(
+      return _i16.VerifyEmailPage(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -564,9 +615,9 @@ class VerifyEmailRouteArgs {
     required this.loginBloc,
   });
 
-  final _i17.Key? key;
+  final _i18.Key? key;
 
-  final _i18.LoginBloc loginBloc;
+  final _i19.LoginBloc loginBloc;
 
   @override
   String toString() {

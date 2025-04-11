@@ -15,3 +15,6 @@ const kFirebaseAuthSessionExpiredException = 'session-expired';
 const kFirebaseAuthSessionEmailAlreadyInUse = 'email-already-in-use';
 
 const String kSomethingWentWrong = 'Oops! Something went wrong';
+
+// Chat messaging constants
+const String kHereAnimationPrefix = 'fullscreen_image_0';
