@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
@@ -19,7 +21,7 @@ extension UtcToLocal on DateTime {
 extension TimeAgo on DateTime {
   String get timeAgo {
     try {
-      final Duration difference = DateTime.now().difference(this);
+      final Duration difference = getCurrentDateTime().difference(this);
 
       if (difference.inDays >= 365) {
         final int years = (difference.inDays / 365).floor();
@@ -51,4 +53,12 @@ extension TimeAgo on DateTime {
   String get to12HourFormat {
     return DateFormat('hh:mm a').format(toLocal());
   }
+}
+
+DateTime getCurrentDateTime() {
+  final bool isTest = Platform.environment.containsKey('FLUTTER_TEST');
+  if (isTest) {
+    return DateTime(2025, 4, 11, 8, 30, 20);
+  }
+  return DateTime.now();
 }

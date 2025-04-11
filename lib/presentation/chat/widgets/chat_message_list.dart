@@ -6,6 +6,7 @@ import 'package:flutter_skeleton/presentation/chat/model/chat_message_model.dart
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_conversation_tile.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/date_separator_text.dart';
+import 'package:flutter_skeleton/utils/extensions/date_time_extensions.dart';
 
 class ChatMessageList extends StatelessWidget {
   const ChatMessageList({super.key, required this.chatUser});
@@ -47,14 +48,14 @@ class ChatMessageList extends StatelessWidget {
   }
 
   String _formatDate(BuildContext context, DateTime date) {
-    final now = DateTime.now();
-    if (date.year == now.year &&
-        date.month == now.month &&
-        date.day == now.day) {
+    final compareToDate = getCurrentDateTime();
+    if (date.year == compareToDate.year &&
+        date.month == compareToDate.month &&
+        date.day == compareToDate.day) {
       return context.l10n.today;
-    } else if (date.year == now.year &&
-        date.month == now.month &&
-        date.day == now.day - 1) {
+    } else if (date.year == compareToDate.year &&
+        date.month == compareToDate.month &&
+        date.day == compareToDate.day - 1) {
       return context.l10n.yesterday;
     } else {
       return '${date.month}/${date.day}/${date.year}';
