@@ -47,6 +47,21 @@ class AppTextStyles {
     letterSpacing: -0.24,
   );
 
+  static TextStyle h6Medium = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    fontFamily: FontFamily.inter,
+    height: 1.5,
+    letterSpacing: -1,
+  );
+  static TextStyle h6Bold = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    fontFamily: FontFamily.inter,
+    height: 1.5,
+    letterSpacing: -1,
+  );
+
   static TextStyle h6SemiBold = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -124,6 +139,13 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     fontFamily: FontFamily.inter,
     height: 1.5, // 150% on Figma,
+  );
+
+  static TextStyle p2SemiBold = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.5,
   );
 
   static TextStyle p3Bold = const TextStyle(

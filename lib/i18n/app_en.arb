@@ -218,5 +218,28 @@
   "today":"Today",
   "yesterday":"Yesterday",
   "send_a_new_message":"Send a new message",
-  "you":"You"
+  "you":"You",
+  "cart_checkout_page": "===============================================================================",
+  "cart":"Cart",
+  "shipping":"Shipping",
+  "payment":"Payment",
+  "order_review":"Order Review",
+  "cart_and_checkout":"Cart Details",
+  "cart_items":"Cart Items",
+  "expected_delivery_by":"Expected Delivery by",
+  "order_summary":"Order Summary",
+  "price_of_items":"Price({total_product} items)",
+  "@price_of_items":{
+  "description":"Total products count",
+      "placeholders": {
+           "total_product": {
+            "type": "int",
+            "example": "1"
+           }
+      }
+  },
+  "discount":"Discount",
+  "delivery_charges":"Delivery Charges",
+  "total_amount":"Total Amount",
+  "add_shipping_details":"Add Shipping Details"
 }
