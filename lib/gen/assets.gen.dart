@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/close.svg
   String get close => 'assets/icons/close.svg';
 
+  /// File path: assets/icons/delivery_parcel.svg
+  String get deliveryParcel => 'assets/icons/delivery_parcel.svg';
+
   /// File path: assets/icons/email.svg
   String get email => 'assets/icons/email.svg';
 
@@ -49,6 +52,7 @@ class $AssetsIconsGen {
   List<dynamic> get values => [
         apple,
         close,
+        deliveryParcel,
         email,
         emailNotification,
         google,
@@ -64,12 +68,20 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/cart_item_1.png
+  AssetGenImage get cartItem1 =>
+      const AssetGenImage('assets/images/cart_item_1.png');
+
+  /// File path: assets/images/cart_item_2.png
+  AssetGenImage get cartItem2 =>
+      const AssetGenImage('assets/images/cart_item_2.png');
+
   /// File path: assets/images/demo_user.jpeg
   AssetGenImage get demoUser =>
       const AssetGenImage('assets/images/demo_user.jpeg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [demoUser];
+  List<AssetGenImage> get values => [cartItem1, cartItem2, demoUser];
 }
 
 class Assets {
