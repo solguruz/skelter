@@ -28,7 +28,7 @@ class CartPage extends StatelessWidget {
       children: [
         Text(
           context.l10n.cart_items,
-          style: AppTextStyles.p2SemiBold,
+          style: AppTextStyles.p2Bold,
         ),
         const SizedBox(height: 16),
         const CartItemLists(),
