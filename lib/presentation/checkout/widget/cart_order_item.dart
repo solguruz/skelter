@@ -7,6 +7,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/checkout/model/product_cart.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:sizer/sizer.dart';
 
 class CartOrderItem extends StatelessWidget {
   const CartOrderItem({
@@ -26,8 +27,12 @@ class CartOrderItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(cartModel.product.image),
-          const SizedBox(width: 35),
+          Image.asset(
+            width: Device.width / 6,
+            fit: BoxFit.cover,
+            cartModel.product.image,
+          ),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
