@@ -15,6 +15,16 @@ abstract class CheckoutEvent extends Equatable implements AnalyticsEvent {
   }
 }
 
+class InitialCalculationEvent extends CheckoutEvent {
+  const InitialCalculationEvent();
+
+  @override
+  List<Object?> get props => [];
+
+  @override
+  String get eventName => (InitialCalculationEvent).toString();
+}
+
 class StepperIndexUpdateEvent extends CheckoutEvent {
   final int index;
 

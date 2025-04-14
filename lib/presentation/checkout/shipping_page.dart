@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
+import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/order_summary.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/shipping_address.dart';
 
 class ShippingPage extends StatelessWidget {
   const ShippingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 100.0),
-      child: Center(
-        child: Text('shipping'),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          context.l10n.shipping_address,
+          style: AppTextStyles.p2Bold,
+        ),
+        const SizedBox(height: 16),
+        const ShippingAddress(),
+        const SizedBox(height: 16),
+        const OrderSummary(),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }
