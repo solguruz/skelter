@@ -241,5 +241,6 @@
   "discount":"Discount",
   "delivery_charges":"Delivery Charges",
   "total_amount":"Total Amount",
-  "add_shipping_details":"Add Shipping Details"
+  "add_shipping_details":"Add Shipping Details",
+  "shipping_address":"Shipping Address"
 }

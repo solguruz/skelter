@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class OrderSummary extends StatelessWidget {
-  const OrderSummary({
-    super.key,
-    required this.totalPrice,
-    required this.discount,
-    required this.deliveryCharges,
-    required this.finalAmount,
-  });
-
-  final double totalPrice;
-  final double discount;
-  final int deliveryCharges;
-  final String finalAmount;
+  const OrderSummary({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final totalPrice = context.select<CheckoutBloc, double>(
+      (bloc) => bloc.state.totalPrice,
+    );
+    final discount = context.select<CheckoutBloc, double>(
+      (bloc) => bloc.state.discount,
+    );
+    final deliveryCharges = context.select<CheckoutBloc, double>(
+      (bloc) => bloc.state.deliveryCharges,
+    );
+    final finalAmount = context.select<CheckoutBloc, double>(
+      (bloc) => bloc.state.finalAmount,
+    );
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

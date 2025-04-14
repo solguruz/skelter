@@ -3,21 +3,19 @@ import 'package:flutter_skeleton/presentation/checkout/widget/shipping_details_c
 import 'package:flutter_skeleton/presentation/checkout/widget/total_amount.dart';
 
 class BottomItems extends StatelessWidget {
-  const BottomItems({
-    super.key,
-    required this.finalAmount,
-  });
-
-  final String finalAmount;
+  const BottomItems({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TotalAmount(finalAmount: finalAmount),
-        const Spacer(),
-        const ShippingDetailsCTA(),
-      ],
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          TotalAmount(),
+          Spacer(),
+          ShippingDetailsCTA(),
+        ],
+      ),
     );
   }
 }
