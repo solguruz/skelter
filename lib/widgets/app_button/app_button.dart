@@ -38,6 +38,12 @@ class AppButton extends StatelessWidget {
   /// use the values from [TablerIcons]
   final IconData? rightIconData;
 
+  /// use the values from [AppIcons]
+  final bool leftAppIconAttachedToText;
+
+  /// use the values from [AppIcons]
+  final bool rightAppIconAttachedToText;
+
   /// Overrides
   final Color? iconOrTextColorOverride;
   final Color? bgColorOverride;
@@ -79,6 +85,8 @@ class AppButton extends StatelessWidget {
     this.leftIconData,
     this.rightAppIcon,
     this.rightIconData,
+    this.leftAppIconAttachedToText = false,
+    this.rightAppIconAttachedToText = false,
     this.iconOrTextColorOverride,
     this.bgColorOverride,
     this.borderColorOverride,
@@ -249,25 +257,51 @@ class AppButton extends StatelessWidget {
   }
 
   Widget _buildWithLeftIcon() {
-    return Row(
-      children: [
-        _icon(leftAppIcon, leftIconData),
-        const Spacer(),
-        _getText(),
-        const Spacer(),
-      ],
-    );
+    if (leftAppIconAttachedToText) {
+      return Row(
+        children: [
+          const Spacer(),
+          _icon(leftAppIcon, leftIconData),
+          SizedBox(width: size.gap),
+          _getText(),
+          const Spacer(),
+        ],
+      );
+    } else {
+      return Row(
+        children: [
+          _icon(leftAppIcon, leftIconData),
+          const Spacer(),
+          SizedBox(width: size.gap),
+          _getText(),
+          const Spacer(),
+        ],
+      );
+    }
   }
 
   Widget _buildWithRightIcon() {
-    return Row(
-      children: [
-        const Spacer(),
-        _getText(),
-        const Spacer(),
-        _icon(rightAppIcon, rightIconData),
-      ],
-    );
+    if (rightAppIconAttachedToText) {
+      return Row(
+        children: [
+          const Spacer(),
+          _getText(),
+          SizedBox(width: size.gap),
+          Flexible(child: _icon(rightAppIcon, rightIconData)),
+          const Spacer(),
+        ],
+      );
+    } else {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Spacer(),
+          _getText(),
+          const Spacer(),
+          _icon(rightAppIcon, rightIconData),
+        ],
+      );
+    }
   }
 
 /*  Widget _wrapIt(List<Widget> children) {

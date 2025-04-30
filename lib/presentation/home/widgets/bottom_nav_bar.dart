@@ -36,12 +36,8 @@ class BottomNavBar extends StatelessWidget {
           label: context.l10n.search,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(TablerIcons.map_pin),
-          label: context.l10n.map,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(TablerIcons.bell),
-          label: context.l10n.notifications,
+          icon: const Icon(TablerIcons.shopping_cart),
+          label: context.l10n.cart,
         ),
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.user),

@@ -14,7 +14,7 @@ class NewMessageTextField extends StatefulWidget {
 }
 
 class _NewMessageTextFieldState extends State<NewMessageTextField> {
-  final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           const SizedBox(width: 16),
           Expanded(
             child: TextField(
-              controller: _fullnameController,
+              controller: _fullNameController,
               decoration: InputDecoration(
                 hintText: context.l10n.send_a_new_message,
                 hintStyle: AppTextStyles.p3Medium.withColor(
@@ -79,7 +79,7 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
 
   @override
   void dispose() {
-    _fullnameController.dispose();
+    _fullNameController.dispose();
     super.dispose();
   }
 }

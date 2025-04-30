@@ -56,21 +56,21 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-        apple,
-        close,
-        deliveryParcel,
-        email,
-        emailNotification,
-        fileUpload,
-        google,
-        icon,
-        mdiTick,
-        searchOutline,
-        send,
-        tick,
-        userPlaceholder,
-        waveforms,
-      ];
+    apple,
+    close,
+    deliveryParcel,
+    email,
+    emailNotification,
+    fileUpload,
+    google,
+    icon,
+    mdiTick,
+    searchOutline,
+    send,
+    tick,
+    userPlaceholder,
+    waveforms,
+  ];
 }
 
 class $AssetsImagesGen {
