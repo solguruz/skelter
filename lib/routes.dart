@@ -33,6 +33,10 @@ class AppRouter extends RootStackRouter {
       SignupWithEmailPasswordRoute.page,
       CreateYourPasswordRoute.page,
       VerifyEmailRoute.page,
+
+      // Contact Us
+      ContactUsRoute.page,
+      ContactUsSubmittedRoute.page,
     ]
         .map(
           (page) => AutoRoute(

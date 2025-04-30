@@ -93,7 +93,8 @@ class AppThemesData {
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleDark,
         hintStyle: InputDecorations.hintStyleDark,
-        errorStyle: const TextStyle(color: Colors.redAccent),
+        errorStyle:
+            AppTextStyles.p4Regular.withColor(AppColors.textErrorSecondary),
         isDense: true,
       ),
       fontFamily: FontFamily.inter,
