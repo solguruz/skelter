@@ -27,11 +27,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email_notification.svg
   String get emailNotification => 'assets/icons/email_notification.svg';
 
+  /// File path: assets/icons/file_upload.svg
+  String get fileUpload => 'assets/icons/file_upload.svg';
+
   /// File path: assets/icons/google.png
   AssetGenImage get google => const AssetGenImage('assets/icons/google.png');
 
   /// File path: assets/icons/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/icons/icon.png');
+
+  /// File path: assets/icons/mdi_tick.svg
+  String get mdiTick => 'assets/icons/mdi_tick.svg';
 
   /// File path: assets/icons/search_outline.svg
   String get searchOutline => 'assets/icons/search_outline.svg';
@@ -55,13 +61,15 @@ class $AssetsIconsGen {
         deliveryParcel,
         email,
         emailNotification,
+        fileUpload,
         google,
         icon,
+        mdiTick,
         searchOutline,
         send,
         tick,
         userPlaceholder,
-        waveforms
+        waveforms,
       ];
 }
 
@@ -85,18 +93,14 @@ class $AssetsImagesGen {
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
 
@@ -124,7 +128,7 @@ class AssetGenImage {
     bool gaplessPlayback = true,
     bool isAntiAlias = false,
     String? package,
-    FilterQuality filterQuality = FilterQuality.low,
+    FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
   }) {
@@ -156,15 +160,8 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;

@@ -40,6 +40,7 @@ dependencies:
   sizer: ^3.0.5
   cached_network_image: ^3.4.1
   timeago: ^3.7.0
+  mobkit_dashed_border: ^0.0.8
   shimmer: ^3.0.0
   tuple: ^2.0.2
   image_viewer_pro: ^1.0.0

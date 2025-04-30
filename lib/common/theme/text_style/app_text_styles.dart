@@ -62,6 +62,14 @@ class AppTextStyles {
     letterSpacing: -1,
   );
 
+  static TextStyle h4SemiBold = const TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 36 / 28,
+    letterSpacing: -0.28,
+  );
+
   static TextStyle h6SemiBold = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
