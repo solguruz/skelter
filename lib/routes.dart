@@ -37,6 +37,14 @@ class AppRouter extends RootStackRouter {
       // Contact Us
       ContactUsRoute.page,
       ContactUsSubmittedRoute.page,
+
+      // Chat
+      ChatRoute.page,
+      ChatConversationRoute.page,
+
+      // Cart & Checkout
+      AddAddressRoute.page,
+      EditAddressRoute.page,
     ]
         .map(
           (page) => AutoRoute(
@@ -52,10 +60,6 @@ class AppRouter extends RootStackRouter {
 
       // Home page
       HomeRoute.page,
-
-      // Chat page
-      ChatRoute.page,
-      ChatConversationRoute.page,
     ]
         .map(
           (page) => CustomRoute(

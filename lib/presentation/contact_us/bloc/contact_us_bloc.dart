@@ -72,8 +72,10 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     if (state.selectedImages?.isEmpty ?? true) {
       hasError = true;
       emit(
-        PickedFilesErrorState(state,
-            error: localizations.image_cannot_be_empty),
+        PickedFilesErrorState(
+          state,
+          error: localizations.image_cannot_be_empty,
+        ),
       );
     }
 

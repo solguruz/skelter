@@ -23,7 +23,7 @@ class ContactUs extends StatelessWidget {
         iconData: TablerIcons.chevron_right,
       ),
       onTap: () {
-        context.router.push(ContactUsRoute());
+        context.router.push(const ContactUsRoute());
       },
     );
   }
