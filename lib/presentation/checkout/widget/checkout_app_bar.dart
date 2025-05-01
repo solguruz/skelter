@@ -31,11 +31,34 @@ class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
             )
           : null,
-      title: Text(context.l10n.cart_and_checkout),
+      title: const AppBarTitleText(),
       centerTitle: true,
     );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class AppBarTitleText extends StatelessWidget {
+  const AppBarTitleText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final currentStepperIndex = context.select<CheckoutBloc, int>(
+      (bloc) => bloc.state.stepperIndex,
+    );
+    switch (currentStepperIndex) {
+      case 0:
+        return Text(context.l10n.cart_and_checkout);
+      case 1:
+        return Text(context.l10n.shipping_details);
+      case 2:
+        return Text(context.l10n.payment);
+      case 3:
+        return Text(context.l10n.order_review);
+      default:
+        return const SizedBox.shrink();
+    }
+  }
 }
