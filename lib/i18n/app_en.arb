@@ -207,7 +207,7 @@
   "community":"Community",
   "settings":"Settings",
   "feedback_and_ratings":"Feedback & Ratings",
-  "support":"Supprt",
+  "support":"Support",
   "help_and_support":"Help & Support",
   "chat_page": "===============================================================================",
   "chat": "Chat",
@@ -239,6 +239,7 @@
   "delivery_charges":"Delivery Charges",
   "total_amount":"Total Amount",
   "add_shipping_details":"Add Shipping Details",
+  "shipping_details":"Shipping Details",
   "shipping_address":"Shipping Address",
   "deliver_to":"Deliver to",
   "add":"Add",
@@ -262,6 +263,20 @@
   "address": "Address",
   "enter_your_address": "Enter Your Address",
   "set_as_default_address": "Set as Default Address",
+  "select_payment_method": "Select Payment Method",
+  "cash_on_delivery": "Cash on Delivery",
+  "apply_coupon": "Apply Coupon",
+  "coupon_message":"{coupon_count, plural, =0 {No Coupon Available} =1 {{coupon_count} Coupon Available} other {{coupon_count} Coupons Available}}",
+  "@coupon_message":{
+  "description":"Message based on the number of available coupons",
+      "placeholders": {
+           "coupon_count": {
+            "type": "int",
+            "example": "2"
+           }
+      }
+  },
+  "select_and_review_order":"Select & Review Order",
   "contact_us_screen": "==========================================================================",
   "contact_us": "Contact Us",
   "contact_us_message": "Let’s get connect if you have any queries. We are happy to help you anytime.",

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
 import 'package:flutter_skeleton/presentation/checkout/cart_page.dart';
+import 'package:flutter_skeleton/presentation/checkout/payment_page.dart';
 import 'package:flutter_skeleton/presentation/checkout/shipping_page.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/bottom_items.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/checkout_app_bar.dart';
@@ -68,6 +69,12 @@ class _CheckoutPageBodyState extends State<CheckoutPageBody> {
                 maintainState: true,
                 maintainAnimation: true,
                 child: const ShippingPage(),
+              ),
+              Visibility(
+                visible: currentStepperIndex == 2,
+                maintainState: true,
+                maintainAnimation: true,
+                child: const PaymentPage(),
               ),
             ],
           ),
