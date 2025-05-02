@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/close.svg
   String get close => 'assets/icons/close.svg';
 
+  /// File path: assets/icons/coupon.svg
+  String get coupon => 'assets/icons/coupon.svg';
+
   /// File path: assets/icons/delivery_parcel.svg
   String get deliveryParcel => 'assets/icons/delivery_parcel.svg';
 
@@ -58,6 +61,7 @@ class $AssetsIconsGen {
   List<dynamic> get values => [
     apple,
     close,
+    coupon,
     deliveryParcel,
     email,
     emailNotification,
