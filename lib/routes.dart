@@ -45,6 +45,7 @@ class AppRouter extends RootStackRouter {
       // Cart & Checkout
       AddAddressRoute.page,
       EditAddressRoute.page,
+      AvailableCouponsRoute.page,
     ]
         .map(
           (page) => AutoRoute(
