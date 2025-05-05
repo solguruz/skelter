@@ -55,7 +55,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> with Loggable {
     StepperIndexUpdateEvent event,
     Emitter<CheckoutState> emit,
   ) {
-    emit(state.copyWith(stepperIndex: event.index));
+    emit(StepperIndexUpdateState(state, index: event.index));
   }
 }
 

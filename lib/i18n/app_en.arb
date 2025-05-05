@@ -264,6 +264,7 @@
   "enter_your_address": "Enter Your Address",
   "set_as_default_address": "Set as Default Address",
   "select_payment_method": "Select Payment Method",
+  "selected_payment_method": "Selected Payment Method",
   "cash_on_delivery": "Cash on Delivery",
   "apply_coupon": "Apply Coupon",
   "apply": "Apply",
@@ -279,6 +280,7 @@
       }
   },
   "select_and_review_order":"Select & Review Order",
+  "confirm_and_pay":"Confirm and Pay",
   "contact_us_screen": "==========================================================================",
   "contact_us": "Contact Us",
   "contact_us_message": "Let’s get connect if you have any queries. We are happy to help you anytime.",

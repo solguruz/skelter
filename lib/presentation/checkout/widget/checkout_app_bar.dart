@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/presentation/checkout/initial_checkout_page.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
@@ -26,7 +25,6 @@ class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
                   context.checkoutBloc.add(
                     StepperIndexUpdateEvent(index: currentStepperIndex - 1),
                   );
-                  CheckoutPageBody.scrollController.jumpTo(0);
                 }
               },
             )

@@ -14,7 +14,7 @@ class SelectPaymentMethodFromList extends StatelessWidget {
       shrinkWrap: true,
       children: [
         const SizedBox(height: 12),
-        const PaymentMethodOnline(),
+        const PaymentMethodOnline(isSelected: true),
         const SizedBox(height: 14),
         const PaymentMethodCOD(),
       ],
@@ -25,14 +25,19 @@ class SelectPaymentMethodFromList extends StatelessWidget {
 class PaymentMethodOnline extends StatelessWidget {
   const PaymentMethodOnline({
     super.key,
+    this.isSelected = false,
   });
+
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.strokeBrandDisabled,
+          color: isSelected
+              ? AppColors.strokeBrandDisabled
+              : AppColors.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),
