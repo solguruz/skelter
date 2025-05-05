@@ -68,3 +68,10 @@ class CheckoutState with EquatableMixin {
         finalAmount,
       ];
 }
+
+class StepperIndexUpdateState extends CheckoutState {
+  StepperIndexUpdateState(
+    CheckoutState state, {
+    required int index,
+  }) : super.copy(state.copyWith(stepperIndex: index));
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/confirm_and_pay_cta.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/review_order_cta.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/select_payment_method_cta.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/shipping_details_cta.dart';
@@ -39,6 +40,8 @@ class GetCartActionCTA extends StatelessWidget {
         return const SelectPaymentMethodCTA();
       case 2:
         return const SelectAndReviewOrderCTA();
+      case 3:
+        return const ConfirmAndPayCTA();
       default:
         return const ShippingDetailsCTA();
     }

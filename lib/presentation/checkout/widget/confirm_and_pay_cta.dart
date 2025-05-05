@@ -5,15 +5,15 @@ import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart
 import 'package:flutter_skeleton/presentation/checkout/widget/custom_stepper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 
-class SelectAndReviewOrderCTA extends StatelessWidget {
-  const SelectAndReviewOrderCTA({
+class ConfirmAndPayCTA extends StatelessWidget {
+  const ConfirmAndPayCTA({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.select_and_review_order,
+      label: context.l10n.confirm_and_pay,
       size: AppButtonSize.xl,
       onPressed: () {
         final currentStepperIndex = context.checkoutBloc.state.stepperIndex;
