@@ -18,6 +18,11 @@ import 'package:flutter_skeleton/routes.gr.dart';
 class ContactUsPage extends StatefulWidget {
   const ContactUsPage({super.key});
 
+  static int kMaxFileLimit = 5;
+  static int kMaxFileSizeInBytes = 5 * 1024 * 1024;
+  static int kMessageMaxLength = 250;
+  static String kPdfFileSignature = '%PDF-';
+
   @override
   State<ContactUsPage> createState() => _ContactUsPageState();
 }

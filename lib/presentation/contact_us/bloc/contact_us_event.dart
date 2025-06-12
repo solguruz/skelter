@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_skeleton/analytics/main_event.dart';
+import 'package:image_picker/image_picker.dart';
 
 abstract class ContactUsEvent extends Equatable implements AnalyticsEvent {
   const ContactUsEvent();
@@ -91,8 +92,32 @@ class SubmitFormEvent extends ContactUsEvent {
 }
 
 class AddImageEvent extends ContactUsEvent {
-  const AddImageEvent();
+  final ImageSource source;
+  const AddImageEvent({required this.source});
 
   @override
   String get eventName => (AddImageEvent).toString();
+}
+
+class RemoveImageEvent extends ContactUsEvent {
+  final int index;
+  const RemoveImageEvent(this.index);
+
+  @override
+  String get eventName => (RemoveImageEvent).toString();
+}
+
+class AddPdfEvent extends ContactUsEvent {
+  const AddPdfEvent();
+
+  @override
+  String get eventName => (AddPdfEvent).toString();
+}
+
+class RemovePdfEvent extends ContactUsEvent {
+  final int index;
+  const RemovePdfEvent(this.index);
+
+  @override
+  String get eventName => (RemovePdfEvent).toString();
 }
