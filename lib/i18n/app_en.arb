@@ -301,5 +301,12 @@
   "name_cannot_be_empty": "Name can't be empty",
   "message_cannot_be_empty": "Message can't be empty",
   "pick_image_error": "Something went wrong while picking images. Please try again.",
-  "image_cannot_be_empty": "Please select at least one image"
+  "pick_pdf_error": "Something went wrong while picking PDFs. Please try again.",
+  "file_too_large_error": "One or more selected files exceed the 5MB limit.",
+  "file_cannot_be_empty": "Please select at least one file",
+  "take_a_photo": "Take a photo",
+  "upload_from_gallery": "Upload from gallery",
+  "upload_from_files": "Upload from files",
+  "file_empty_error": "The selected PDF file is empty. Please choose a valid file.",
+  "unsupported_file_format_error": "The selected file is not a valid PDF. Please choose a proper PDF file to continue."
 }

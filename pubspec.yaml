@@ -46,6 +46,7 @@ dependencies:
   image_viewer_pro: ^1.0.0
   easy_stepper: ^0.8.5+1
   flutter_rating_bar_plus: ^4.0.2
+  file_picker: 8.3.3
 
 dev_dependencies:
   flutter_test:

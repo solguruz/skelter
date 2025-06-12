@@ -59,22 +59,22 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    apple,
-    close,
-    coupon,
-    deliveryParcel,
-    email,
-    emailNotification,
-    fileUpload,
-    google,
-    icon,
-    mdiTick,
-    searchOutline,
-    send,
-    tick,
-    userPlaceholder,
-    waveforms,
-  ];
+        apple,
+        close,
+        coupon,
+        deliveryParcel,
+        email,
+        emailNotification,
+        fileUpload,
+        google,
+        icon,
+        mdiTick,
+        searchOutline,
+        send,
+        tick,
+        userPlaceholder,
+        waveforms,
+      ];
 }
 
 class $AssetsImagesGen {
@@ -98,11 +98,11 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-    cartItem1,
-    cartItem2,
-    demoUser,
-    mastercard,
-  ];
+        cartItem1,
+        cartItem2,
+        demoUser,
+        mastercard,
+      ];
 }
 
 class Assets {

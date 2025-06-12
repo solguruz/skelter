@@ -21,3 +21,4 @@ const String kHereAnimationPrefix = 'fullscreen_image_0';
 
 // Contact us constants
 final kEmailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+final kAllowedFileExtensions = ['pdf'];

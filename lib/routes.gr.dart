@@ -60,7 +60,7 @@ import 'package:flutter_skeleton/presentation/shipping_address/edit_address.dart
 /// [_i1.AddAddressPage]
 class AddAddressRoute extends _i22.PageRouteInfo<void> {
   const AddAddressRoute({List<_i22.PageRouteInfo>? children})
-    : super(AddAddressRoute.name, initialChildren: children);
+      : super(AddAddressRoute.name, initialChildren: children);
 
   static const String name = 'AddAddressRoute';
 
@@ -81,10 +81,10 @@ class AddProfilePictureRoute
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         AddProfilePictureRoute.name,
-         args: AddProfilePictureRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          AddProfilePictureRoute.name,
+          args: AddProfilePictureRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'AddProfilePictureRoute';
 
@@ -117,7 +117,7 @@ class AddProfilePictureRouteArgs {
 /// [_i3.AvailableCouponsPage]
 class AvailableCouponsRoute extends _i22.PageRouteInfo<void> {
   const AvailableCouponsRoute({List<_i22.PageRouteInfo>? children})
-    : super(AvailableCouponsRoute.name, initialChildren: children);
+      : super(AvailableCouponsRoute.name, initialChildren: children);
 
   static const String name = 'AvailableCouponsRoute';
 
@@ -138,10 +138,10 @@ class ChatConversationRoute
     required _i25.ChatModel chatUser,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         ChatConversationRoute.name,
-         args: ChatConversationRouteArgs(key: key, chatUser: chatUser),
-         initialChildren: children,
-       );
+          ChatConversationRoute.name,
+          args: ChatConversationRouteArgs(key: key, chatUser: chatUser),
+          initialChildren: children,
+        );
 
   static const String name = 'ChatConversationRoute';
 
@@ -171,7 +171,7 @@ class ChatConversationRouteArgs {
 /// [_i5.ChatPage]
 class ChatRoute extends _i22.PageRouteInfo<void> {
   const ChatRoute({List<_i22.PageRouteInfo>? children})
-    : super(ChatRoute.name, initialChildren: children);
+      : super(ChatRoute.name, initialChildren: children);
 
   static const String name = 'ChatRoute';
 
@@ -191,10 +191,10 @@ class CheckYourEmailRoute extends _i22.PageRouteInfo<CheckYourEmailRouteArgs> {
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         CheckYourEmailRoute.name,
-         args: CheckYourEmailRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          CheckYourEmailRoute.name,
+          args: CheckYourEmailRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'CheckYourEmailRoute';
 
@@ -224,7 +224,7 @@ class CheckYourEmailRouteArgs {
 /// [_i7.ContactUsPage]
 class ContactUsRoute extends _i22.PageRouteInfo<void> {
   const ContactUsRoute({List<_i22.PageRouteInfo>? children})
-    : super(ContactUsRoute.name, initialChildren: children);
+      : super(ContactUsRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsRoute';
 
@@ -240,7 +240,7 @@ class ContactUsRoute extends _i22.PageRouteInfo<void> {
 /// [_i8.ContactUsSubmittedPage]
 class ContactUsSubmittedRoute extends _i22.PageRouteInfo<void> {
   const ContactUsSubmittedRoute({List<_i22.PageRouteInfo>? children})
-    : super(ContactUsSubmittedRoute.name, initialChildren: children);
+      : super(ContactUsSubmittedRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsSubmittedRoute';
 
@@ -261,10 +261,10 @@ class CreateYourPasswordRoute
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         CreateYourPasswordRoute.name,
-         args: CreateYourPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          CreateYourPasswordRoute.name,
+          args: CreateYourPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'CreateYourPasswordRoute';
 
@@ -297,7 +297,7 @@ class CreateYourPasswordRouteArgs {
 /// [_i10.EditAddressPage]
 class EditAddressRoute extends _i22.PageRouteInfo<void> {
   const EditAddressRoute({List<_i22.PageRouteInfo>? children})
-    : super(EditAddressRoute.name, initialChildren: children);
+      : super(EditAddressRoute.name, initialChildren: children);
 
   static const String name = 'EditAddressRoute';
 
@@ -318,10 +318,10 @@ class ForgotPasswordV2Route
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         ForgotPasswordV2Route.name,
-         args: ForgotPasswordV2RouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          ForgotPasswordV2Route.name,
+          args: ForgotPasswordV2RouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'ForgotPasswordV2Route';
 
@@ -354,7 +354,7 @@ class ForgotPasswordV2RouteArgs {
 /// [_i12.HomePage]
 class HomeRoute extends _i22.PageRouteInfo<void> {
   const HomeRoute({List<_i22.PageRouteInfo>? children})
-    : super(HomeRoute.name, initialChildren: children);
+      : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
@@ -370,7 +370,7 @@ class HomeRoute extends _i22.PageRouteInfo<void> {
 /// [_i13.InitialPage]
 class InitialRoute extends _i22.PageRouteInfo<void> {
   const InitialRoute({List<_i22.PageRouteInfo>? children})
-    : super(InitialRoute.name, initialChildren: children);
+      : super(InitialRoute.name, initialChildren: children);
 
   static const String name = 'InitialRoute';
 
@@ -386,7 +386,7 @@ class InitialRoute extends _i22.PageRouteInfo<void> {
 /// [_i14.LoginPage]
 class LoginRoute extends _i22.PageRouteInfo<void> {
   const LoginRoute({List<_i22.PageRouteInfo>? children})
-    : super(LoginRoute.name, initialChildren: children);
+      : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
@@ -407,10 +407,10 @@ class LoginWithEmailPasswordRoute
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         LoginWithEmailPasswordRoute.name,
-         args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          LoginWithEmailPasswordRoute.name,
+          args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'LoginWithEmailPasswordRoute';
 
@@ -443,7 +443,7 @@ class LoginWithEmailPasswordRouteArgs {
 /// [_i16.LoginWithPhoneNumberPage]
 class LoginWithPhoneNumberRoute extends _i22.PageRouteInfo<void> {
   const LoginWithPhoneNumberRoute({List<_i22.PageRouteInfo>? children})
-    : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
+      : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
 
   static const String name = 'LoginWithPhoneNumberRoute';
 
@@ -463,10 +463,10 @@ class PhoneNumberOTPRoute extends _i22.PageRouteInfo<PhoneNumberOTPRouteArgs> {
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         PhoneNumberOTPRoute.name,
-         args: PhoneNumberOTPRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          PhoneNumberOTPRoute.name,
+          args: PhoneNumberOTPRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'PhoneNumberOTPRoute';
 
@@ -501,10 +501,10 @@ class PhoneNumberVerifiedRoute
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         PhoneNumberVerifiedRoute.name,
-         args: PhoneNumberVerifiedRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          PhoneNumberVerifiedRoute.name,
+          args: PhoneNumberVerifiedRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'PhoneNumberVerifiedRoute';
 
@@ -537,7 +537,7 @@ class PhoneNumberVerifiedRouteArgs {
 /// [_i19.SignUpPage]
 class SignUpRoute extends _i22.PageRouteInfo<void> {
   const SignUpRoute({List<_i22.PageRouteInfo>? children})
-    : super(SignUpRoute.name, initialChildren: children);
+      : super(SignUpRoute.name, initialChildren: children);
 
   static const String name = 'SignUpRoute';
 
@@ -558,10 +558,11 @@ class SignupWithEmailPasswordRoute
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         SignupWithEmailPasswordRoute.name,
-         args: SignupWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          SignupWithEmailPasswordRoute.name,
+          args:
+              SignupWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
@@ -598,10 +599,10 @@ class VerifyEmailRoute extends _i22.PageRouteInfo<VerifyEmailRouteArgs> {
     required _i24.LoginBloc loginBloc,
     List<_i22.PageRouteInfo>? children,
   }) : super(
-         VerifyEmailRoute.name,
-         args: VerifyEmailRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          VerifyEmailRoute.name,
+          args: VerifyEmailRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'VerifyEmailRoute';
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -15,6 +17,7 @@ class ContactUsState with EquatableMixin {
   final String? descriptionError;
   final List<XFile>? selectedImages;
   final String? pickedFilesErrorMessage;
+  final List<File>? selectedPdfs;
 
   ContactUsState({
     required this.name,
@@ -30,6 +33,7 @@ class ContactUsState with EquatableMixin {
     this.descriptionError,
     this.selectedImages,
     this.pickedFilesErrorMessage,
+    this.selectedPdfs,
   });
 
   ContactUsState.initial()
@@ -45,7 +49,8 @@ class ContactUsState with EquatableMixin {
         emailError = null,
         descriptionError = null,
         selectedImages = null,
-        pickedFilesErrorMessage = null;
+        pickedFilesErrorMessage = null,
+        selectedPdfs = null;
 
   ContactUsState.copy(ContactUsState state)
       : name = state.name,
@@ -60,7 +65,8 @@ class ContactUsState with EquatableMixin {
         emailError = state.emailError,
         descriptionError = state.descriptionError,
         selectedImages = state.selectedImages,
-        pickedFilesErrorMessage = state.pickedFilesErrorMessage;
+        pickedFilesErrorMessage = state.pickedFilesErrorMessage,
+        selectedPdfs = state.selectedPdfs;
 
   ContactUsState copyWith({
     String? name,
@@ -78,6 +84,7 @@ class ContactUsState with EquatableMixin {
     String? errorMessage,
     String? pickedFilesErrorMessage,
     bool resetPickedFilesError = false,
+    List<File>? selectedPdfs,
   }) {
     return ContactUsState(
       name: name ?? this.name,
@@ -94,6 +101,7 @@ class ContactUsState with EquatableMixin {
       selectedImages: selectedImages ?? this.selectedImages,
       pickedFilesErrorMessage: pickedFilesErrorMessage ??
           (resetPickedFilesError ? null : this.pickedFilesErrorMessage),
+      selectedPdfs: selectedPdfs ?? this.selectedPdfs,
     );
   }
 
@@ -112,6 +120,7 @@ class ContactUsState with EquatableMixin {
         descriptionError,
         selectedImages,
         pickedFilesErrorMessage,
+        selectedPdfs,
       ];
 }
 

@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:flutter_skeleton/presentation/contact_us/contact_us_page.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
@@ -44,9 +45,6 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
 
   @override
   Widget build(BuildContext context) {
-    final message = context.select<ContactUsBloc, int>(
-      (bloc) => bloc.state.description.length,
-    );
     final errorMessage = context.select<ContactUsBloc, String?>(
       (bloc) => bloc.state.descriptionError,
     );
@@ -58,29 +56,36 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        TextField(
-          controller: _messageController,
-          maxLength: 250,
-          decoration: InputDecoration(
-            hintText: context.l10n.message_description,
-            hintStyle:
-                AppTextStyles.p3Regular.withColor(AppColors.textNeutralDisable),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-            counterText: '',
-            suffixIcon: Padding(
-              padding: const EdgeInsets.only(right: 12, top: 70),
-              child: Text(
-                '$message/250',
-                style: AppTextStyles.p4Regular
+        Stack(
+          children: [
+            TextField(
+              controller: _messageController,
+              maxLength: 250,
+              decoration: InputDecoration(
+                hintText: context.l10n.message_description,
+                hintStyle: AppTextStyles.p3Regular
                     .withColor(AppColors.textNeutralDisable),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
+                counterText: '',
+              ),
+              maxLines: 4,
+              keyboardType: TextInputType.multiline,
+            ),
+            Positioned(
+              bottom: errorMessage.isNullOrEmpty() ? 10 : 30,
+              right: 0,
+              child: Container(
+                padding: const EdgeInsets.only(right: 12),
+                child: Text(
+                  '${_messageController.text.length}/${ContactUsPage.kMessageMaxLength}',
+                  style: AppTextStyles.p4Regular
+                      .withColor(AppColors.textNeutralDisable),
+                ),
               ),
             ),
-            suffixIconConstraints: const BoxConstraints(),
-            errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
-          ),
-          maxLines: 4,
-          keyboardType: TextInputType.multiline,
+          ],
         ),
       ],
     );
