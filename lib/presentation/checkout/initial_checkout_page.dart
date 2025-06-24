@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_state.dart';
 import 'package:flutter_skeleton/presentation/checkout/cart_page.dart';
+import 'package:flutter_skeleton/presentation/checkout/data/cart_sample_data.dart';
 import 'package:flutter_skeleton/presentation/checkout/order_review_page.dart';
 import 'package:flutter_skeleton/presentation/checkout/payment_page.dart';
 import 'package:flutter_skeleton/presentation/checkout/shipping_page.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/bottom_items.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/checkout_app_bar.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/custom_stepper.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/empty_cart_view.dart';
 
 class InitialCheckoutPage extends StatelessWidget {
   const InitialCheckoutPage({super.key});
@@ -33,7 +34,36 @@ class CheckoutPageBody extends StatefulWidget {
 }
 
 class _CheckoutPageBodyState extends State<CheckoutPageBody> {
+
+
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      appBar: const CheckoutAppBar(),
+      bottomNavigationBar:
+          cartSampleData.isEmpty ? null : const BottomItems(),
+      body: cartSampleData.isEmpty
+          ? const EmptyCartView()
+          : const InitialCheckoutPageBody(),
+    );
+  }
+}
+
+class InitialCheckoutPageBody extends StatefulWidget {
+  const InitialCheckoutPageBody({super.key});
+
+  @override
+  State<InitialCheckoutPageBody> createState() =>
+      _InitialCheckoutPageBodyState();
+}
+
+class _InitialCheckoutPageBodyState extends State<InitialCheckoutPageBody> {
   final ScrollController scrollController = ScrollController();
+
+
 
   @override
   void dispose() {
@@ -44,57 +74,47 @@ class _CheckoutPageBodyState extends State<CheckoutPageBody> {
   @override
   Widget build(BuildContext context) {
     final currentStepperIndex = context.select<CheckoutBloc, int>(
-      (bloc) => bloc.state.stepperIndex,
+          (bloc) => bloc.state.stepperIndex,
     );
 
-    return BlocListener<CheckoutBloc, CheckoutState>(
-      listener: (context, state) {
-        if (state is StepperIndexUpdateState) {
-          scrollController.jumpTo(0);
-        }
-      },
-      child: Scaffold(
-        appBar: const CheckoutAppBar(),
-        bottomNavigationBar: const BottomItems(),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              children: [
-                const CustomStepper(),
-                // Can use IndexedStack but it causes extra height issue
-                // i.e. if child 1 is bigger then another, all the children
-                // will be as big as child 1
-                Visibility(
-                  visible: currentStepperIndex == 0,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  child: const CartPage(),
-                ),
-                Visibility(
-                  visible: currentStepperIndex == 1,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  child: const ShippingPage(),
-                ),
-                Visibility(
-                  visible: currentStepperIndex == 2,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  child: const PaymentPage(),
-                ),
-                Visibility(
-                  visible: currentStepperIndex == 3,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  child: const OrderReviewPage(),
-                ),
-              ],
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: SingleChildScrollView(
+        controller: scrollController,
+        child: Column(
+          children: [
+            const CustomStepper(),
+            // Can use IndexedStack but it causes extra height issue
+            // i.e.if child 1 is bigger then another, all the children
+            // will be as big as child 1
+            Visibility(
+              visible: currentStepperIndex == 0,
+              maintainState: true,
+              maintainAnimation: true,
+              child: const CartPage(),
             ),
-          ),
+            Visibility(
+              visible: currentStepperIndex == 1,
+              maintainState: true,
+              maintainAnimation: true,
+              child: const ShippingPage(),
+            ),
+            Visibility(
+              visible: currentStepperIndex == 2,
+              maintainState: true,
+              maintainAnimation: true,
+              child: const PaymentPage(),
+            ),
+            Visibility(
+              visible: currentStepperIndex == 3,
+              maintainState: true,
+              maintainAnimation: true,
+              child: const OrderReviewPage(),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/presentation/notifications/widgets/empty_notifications_view.dart';
 
 class NotificationsPage extends StatelessWidget {
   const NotificationsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(context.l10n.notifications),
+    return const Center(
+      child: EmptyNotificationsView(),
     );
   }
 }

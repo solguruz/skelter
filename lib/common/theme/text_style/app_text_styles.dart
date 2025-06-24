@@ -142,6 +142,13 @@ class AppTextStyles {
     height: 1.5, // 150% on Figma,
   );
 
+  static TextStyle p1SemiBold = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.5,
+  );
+
   static TextStyle p2Bold = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,

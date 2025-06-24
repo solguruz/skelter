@@ -46,6 +46,15 @@ class AppRouter extends RootStackRouter {
       AddAddressRoute.page,
       EditAddressRoute.page,
       AvailableCouponsRoute.page,
+
+      // Empty widget screens
+      WishlistRoute.page,
+      ServerErrorRoute.page,
+      NoInternetRoute.page,
+      UnderMaintenanceRoute.page,
+      MyOrdersRoute.page,
+      SavedCardRoute.page,
+      EmptyViewsRoute.page,
     ]
         .map(
           (page) => AutoRoute(

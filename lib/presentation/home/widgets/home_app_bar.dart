@@ -18,6 +18,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           size: AppButtonSize.xl,
           onPressed: () => context.pushRoute(const ChatRoute()),
         ),
+        AppButton.icon(
+          iconData: TablerIcons.info_circle,
+          size: AppButtonSize.xl,
+          onPressed: () => context.pushRoute(const EmptyViewsRoute()),
+        ),
       ],
       centerTitle: true,
     );
