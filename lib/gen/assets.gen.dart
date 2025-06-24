@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/app_under_maintenance.svg
+  String get appUnderMaintenance => 'assets/icons/app_under_maintenance.svg';
+
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
 
@@ -30,6 +33,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email_notification.svg
   String get emailNotification => 'assets/icons/email_notification.svg';
 
+  /// File path: assets/icons/empty_cart.svg
+  String get emptyCart => 'assets/icons/empty_cart.svg';
+
+  /// File path: assets/icons/empty_saved_cards.svg
+  String get emptySavedCards => 'assets/icons/empty_saved_cards.svg';
+
+  /// File path: assets/icons/empty_wishlist.svg
+  String get emptyWishlist => 'assets/icons/empty_wishlist.svg';
+
   /// File path: assets/icons/file_upload.svg
   String get fileUpload => 'assets/icons/file_upload.svg';
 
@@ -42,14 +54,29 @@ class $AssetsIconsGen {
   /// File path: assets/icons/mdi_tick.svg
   String get mdiTick => 'assets/icons/mdi_tick.svg';
 
+  /// File path: assets/icons/no_chats.svg
+  String get noChats => 'assets/icons/no_chats.svg';
+
+  /// File path: assets/icons/no_internet_connection.svg
+  String get noInternetConnection => 'assets/icons/no_internet_connection.svg';
+
+  /// File path: assets/icons/no_notifications.svg
+  String get noNotifications => 'assets/icons/no_notifications.svg';
+
   /// File path: assets/icons/search_outline.svg
   String get searchOutline => 'assets/icons/search_outline.svg';
 
   /// File path: assets/icons/send.svg
   String get send => 'assets/icons/send.svg';
 
+  /// File path: assets/icons/server_error.svg
+  String get serverError => 'assets/icons/server_error.svg';
+
   /// File path: assets/icons/tick.svg
   String get tick => 'assets/icons/tick.svg';
+
+  /// File path: assets/icons/user_not_found.svg
+  String get userNotFound => 'assets/icons/user_not_found.svg';
 
   /// File path: assets/icons/user_placeholder.svg
   String get userPlaceholder => 'assets/icons/user_placeholder.svg';
@@ -59,22 +86,31 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-        apple,
-        close,
-        coupon,
-        deliveryParcel,
-        email,
-        emailNotification,
-        fileUpload,
-        google,
-        icon,
-        mdiTick,
-        searchOutline,
-        send,
-        tick,
-        userPlaceholder,
-        waveforms,
-      ];
+    appUnderMaintenance,
+    apple,
+    close,
+    coupon,
+    deliveryParcel,
+    email,
+    emailNotification,
+    emptyCart,
+    emptySavedCards,
+    emptyWishlist,
+    fileUpload,
+    google,
+    icon,
+    mdiTick,
+    noChats,
+    noInternetConnection,
+    noNotifications,
+    searchOutline,
+    send,
+    serverError,
+    tick,
+    userNotFound,
+    userPlaceholder,
+    waveforms,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -98,11 +134,11 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        cartItem1,
-        cartItem2,
-        demoUser,
-        mastercard,
-      ];
+    cartItem1,
+    cartItem2,
+    demoUser,
+    mastercard,
+  ];
 }
 
 class Assets {

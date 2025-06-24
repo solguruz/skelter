@@ -6,6 +6,7 @@ import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_app_bar.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_tile.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_shimmer.dart';
+import 'package:flutter_skeleton/presentation/chat/widgets/empty_chat_view.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/search_text_field.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 
@@ -69,20 +70,22 @@ class ChatMessages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ChatModel> sampleData = generateSampleUsersChat();
-    return ListView.builder(
-      itemCount: sampleData.length,
-      itemBuilder: (context, index) {
-        return InkWell(
-          onTap: () {
-            context.router
-                .push(ChatConversationRoute(chatUser: sampleData[index]));
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: AppSize.M),
-            child: ChatListTile(chatModel: sampleData[index]),
-          ),
-        );
-      },
-    );
+    return sampleData.isEmpty
+        ? const EmptyChatView()
+        : ListView.builder(
+            itemCount: sampleData.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  context.router
+                      .push(ChatConversationRoute(chatUser: sampleData[index]));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: AppSize.M),
+                  child: ChatListTile(chatModel: sampleData[index]),
+                ),
+              );
+            },
+          );
   }
 }
