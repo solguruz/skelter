@@ -180,12 +180,15 @@ extension ShowSnackbar on BuildContext {
 }
 
 extension ShowBottomSheet on BuildContext {
-  Future<void> showBottomSheet(Widget child) async {
+  Future<void> showBottomSheet(
+    Widget child, {
+    bool showDragHandle = true,
+  }) async {
     return showModalBottomSheet(
       context: this,
       useSafeArea: true,
       isScrollControlled: true,
-      showDragHandle: true,
+      showDragHandle: showDragHandle,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(15),

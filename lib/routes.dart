@@ -47,6 +47,9 @@ class AppRouter extends RootStackRouter {
       EditAddressRoute.page,
       AvailableCouponsRoute.page,
 
+      // Notifications
+      NotificationsRoute.page,
+
       // Empty widget screens
       WishlistRoute.page,
       ServerErrorRoute.page,
@@ -55,6 +58,8 @@ class AppRouter extends RootStackRouter {
       MyOrdersRoute.page,
       SavedCardRoute.page,
       EmptyViewsRoute.page,
+      //Image view
+      NetworkImageRoute.page,
     ]
         .map(
           (page) => AutoRoute(
