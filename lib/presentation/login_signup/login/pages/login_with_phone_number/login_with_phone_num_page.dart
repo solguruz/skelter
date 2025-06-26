@@ -96,7 +96,7 @@ class _LoginWithPhoneNumberBody extends StatelessWidget {
         }
       },
       child: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
             horizontal: LoginPage.kHorizontalPadding,
           ),

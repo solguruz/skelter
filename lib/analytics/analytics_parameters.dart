@@ -121,3 +121,13 @@ class LoginSignupV2AnalyticsParams extends AnalyticsParameters {
   static const String kPasswordStrengthLevel = 'passwordStrengthLevel';
   static const String kResendTimeLeft = 'resendTimeLeft';
 }
+
+class NotificationAnalyticsParams extends AnalyticsParameters {
+  static const String kIsLoading = 'isLoading';
+  static const String kNotificationId = 'notificationId';
+  static const String kMessage = 'message';
+}
+
+class ProductAnalyticsParams extends AnalyticsParameters {
+  static const String kProductId = 'productId';
+}

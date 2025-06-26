@@ -9,22 +9,24 @@ class EmptyNotificationsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            Assets.icons.noNotifications,
-            height: 150,
-            width: 150,
-          ),
-          const SizedBox(height: 24),
-          Text(
-            context.l10n.empty_notifications_title,
-            style: AppTextStyles.p1SemiBold,
-          ),
-        ],
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              Assets.icons.noNotifications,
+              height: 150,
+              width: 150,
+            ),
+            const SizedBox(height: 24),
+            Text(
+              context.l10n.empty_notifications_title,
+              style: AppTextStyles.p1SemiBold,
+            ),
+          ],
+        ),
       ),
     );
   }
