@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,13 @@ import 'package:flutter_skeleton/firebase_options.dart';
 import 'package:flutter_skeleton/i18n/i18n.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/routes.dart';
+import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:sizer/sizer.dart';
+
+final rootNavigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,12 +22,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ],
-  );
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   // final Function originalOnError = FlutterError.onError!;
   // FlutterError.onError = (FlutterErrorDetails errorDetails) async {
@@ -51,11 +54,42 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final AppRouter appRouter = AppRouter();
+  final InternetConnectivityHelper _connectivityHelper =
+      InternetConnectivityHelper();
 
   @override
   void initState() {
     super.initState();
     Prefs.init();
+    _connectivityHelper.onConnectivityChange
+        .addListener(handleConnectivityStatusChange);
+  }
+
+  Future<void> handleConnectivityStatusChange() async {
+    final isConnected = _connectivityHelper.onConnectivityChange.value;
+
+    if (!isConnected) {
+      await Future.delayed(const Duration(milliseconds: 300));
+
+      final stillDisconnected = !_connectivityHelper.onConnectivityChange.value;
+      if (!stillDisconnected) return;
+      await rootNavigatorKey.currentContext!.pushRoute(const NoInternetRoute());
+    } else {
+      dismissConnectivityPopup();
+    }
+  }
+
+  void dismissConnectivityPopup() {
+    final navigator = Navigator.of(rootNavigatorKey.currentContext!);
+    if (navigator.canPop()) {
+      navigator.pop();
+    }
+  }
+
+  @override
+  void dispose() {
+    InternetConnectivityHelper().dispose();
+    super.dispose();
   }
 
   @override
@@ -65,7 +99,7 @@ class _MainAppState extends State<MainApp> {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           supportedLocales: I18n.all,
-          localizationsDelegates: const <LocalizationsDelegate>[
+          localizationsDelegates: const [
             AppLocalizations.delegate,
             CountryLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
