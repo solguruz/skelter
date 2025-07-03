@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
@@ -31,7 +29,7 @@ class UploadAttachment extends StatelessWidget {
             onTap: () => _showImageSourceBottomSheet(context),
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 32),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: const DashedBorder.fromBorderSide(
@@ -42,8 +40,11 @@ class UploadAttachment extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.icons.fileUpload),
-                  const SizedBox(height: 8),
+                  const Icon(
+                    TablerIcons.file_upload,
+                    color: AppColors.strokeNeutralHover,
+                  ),
+                  const SizedBox(height: 12),
                   Text(
                     context.l10n.choose_a_file,
                     style: AppTextStyles.p3Medium

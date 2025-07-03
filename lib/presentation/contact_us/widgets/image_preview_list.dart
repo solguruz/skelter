@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_cta.dart';
+import 'package:flutter_skeleton/utils/app_environment.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePreviewList extends StatelessWidget {
@@ -30,12 +31,19 @@ class ImagePreviewList extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.file(
-                        File(image.path),
-                        height: 80,
-                        width: 80,
-                        fit: BoxFit.cover,
-                      ),
+                      child: AppEnvironment.isTestEnvironment
+                          ? Image.asset(
+                              image.path,
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.cover,
+                            )
+                          : Image.file(
+                              File(image.path),
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.cover,
+                            ),
                     ),
                     RemoveFileCTA(
                       onRemove: (index) =>

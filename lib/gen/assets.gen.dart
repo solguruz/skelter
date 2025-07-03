@@ -42,9 +42,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/empty_wishlist.svg
   String get emptyWishlist => 'assets/icons/empty_wishlist.svg';
 
-  /// File path: assets/icons/file_upload.svg
-  String get fileUpload => 'assets/icons/file_upload.svg';
-
   /// File path: assets/icons/google.png
   AssetGenImage get google => const AssetGenImage('assets/icons/google.png');
 
@@ -96,7 +93,6 @@ class $AssetsIconsGen {
     emptyCart,
     emptySavedCards,
     emptyWishlist,
-    fileUpload,
     google,
     icon,
     mdiTick,
@@ -141,11 +137,43 @@ class $AssetsImagesGen {
   ];
 }
 
+class $AssetsTestGen {
+  const $AssetsTestGen();
+
+  /// Directory path: assets/test/files
+  $AssetsTestFilesGen get files => const $AssetsTestFilesGen();
+
+  /// Directory path: assets/test/images
+  $AssetsTestImagesGen get images => const $AssetsTestImagesGen();
+}
+
+class $AssetsTestFilesGen {
+  const $AssetsTestFilesGen();
+
+  /// File path: assets/test/files/test_pdf.pdf
+  String get testPdf => 'assets/test/files/test_pdf.pdf';
+
+  /// List of all assets
+  List<String> get values => [testPdf];
+}
+
+class $AssetsTestImagesGen {
+  const $AssetsTestImagesGen();
+
+  /// File path: assets/test/images/test_image.jpeg
+  AssetGenImage get testImage =>
+      const AssetGenImage('assets/test/images/test_image.jpeg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [testImage];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsTestGen test = $AssetsTestGen();
 }
 
 class AssetGenImage {
