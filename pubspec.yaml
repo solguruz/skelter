@@ -47,6 +47,7 @@ dependencies:
   easy_stepper: ^0.8.5+1
   flutter_rating_bar_plus: ^4.0.2
   file_picker: 8.3.3
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,14 @@ dev_dependencies:
   alchemist: ^0.11.0
   mocktail_image_network: ^1.2.0
 
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/sg_skeleton_logo.png
+
+  android_12:
+    image: assets/images/sg_skeleton_logo.png
+    icon_background_color: "#ffffff"
+    android_gravity: center
 
 flutter:
   uses-material-design: true
