@@ -47,6 +47,7 @@ dependencies:
   easy_stepper: ^0.8.5+1
   flutter_rating_bar_plus: ^4.0.2
   file_picker: 8.3.3
+  connectivity_plus: ^6.1.4
   flutter_native_splash: ^2.4.4
 
 dev_dependencies:

@@ -5,12 +5,13 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/utils/analytics_helper.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 
 class SendOTPCTA extends StatelessWidget {
-  const SendOTPCTA({
-    super.key,
-  });
+  const SendOTPCTA({super.key});
+
   @override
   Widget build(BuildContext context) {
     final bool isSignup = context.select<LoginBloc, bool>(
@@ -43,7 +44,15 @@ class SendOTPCTA extends StatelessWidget {
           ? AppButtonState.d_efault
           : AppButtonState.disabled,
       showLoader: isLoading,
-      onPressed: () {
+      onPressed: () async {
+        final isConnected =
+            InternetConnectivityHelper().onConnectivityChange.value;
+
+        if (!isConnected && context.mounted) {
+          context.showSnackBar(context.l10n.no_internet_connection);
+          return;
+        }
+
         if (phoneNumberOnly.isNotEmpty) {
           FocusScope.of(context).unfocus();
           AnalyticsHelper().logCustomEvent(

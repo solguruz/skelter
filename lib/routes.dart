@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_skeleton/main.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
-  AppRouter() : super();
+  AppRouter() : super(navigatorKey: rootNavigatorKey);
 
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
