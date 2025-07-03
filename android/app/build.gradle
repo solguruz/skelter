@@ -41,6 +41,28 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+
+    flavorDimensions "app"
+    productFlavors {
+        dev {
+            dimension "app"
+            resValue "string", "app_name", "Flutter Skeleton Dev"
+            versionNameSuffix "-dev"
+            applicationId "com.solguruz.flutter_skeleton.dev"
+        }
+        prod {
+            dimension "app"
+            resValue "string", "app_name", "Flutter Skeleton"
+            versionNameSuffix "-prod"
+            applicationId "com.solguruz.flutter_skeleton"
+        }
+        stage {
+            dimension "app"
+            resValue "string", "app_name", "Flutter Skeleton Stage"
+            versionNameSuffix "-stage"
+            applicationId "com.solguruz.flutter_skeleton.stage"
+        }
+    }
 }
 
 flutter {
