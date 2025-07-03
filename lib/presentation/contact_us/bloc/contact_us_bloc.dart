@@ -28,6 +28,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     on<RemoveImageEvent>(_onRemoveImageEvent);
     on<RemovePdfEvent>(_onRemovePdfEvent);
   }
+
   void _onNameChangedEvent(
     NameChangedEvent event,
     Emitter<ContactUsState> emit,

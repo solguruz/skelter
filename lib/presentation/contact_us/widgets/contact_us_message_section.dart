@@ -48,6 +48,10 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
     final errorMessage = context.select<ContactUsBloc, String?>(
       (bloc) => bloc.state.descriptionError,
     );
+
+    final description = context.select<ContactUsBloc, String>(
+      (bloc) => bloc.state.description,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,36 +60,23 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        Stack(
-          children: [
-            TextField(
-              controller: _messageController,
-              maxLength: 250,
-              decoration: InputDecoration(
-                hintText: context.l10n.message_description,
-                hintStyle: AppTextStyles.p3Regular
-                    .withColor(AppColors.textNeutralDisable),
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
-                counterText: '',
-              ),
-              maxLines: 4,
-              keyboardType: TextInputType.multiline,
-            ),
-            Positioned(
-              bottom: errorMessage.isNullOrEmpty() ? 10 : 30,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.only(right: 12),
-                child: Text(
-                  '${_messageController.text.length}/${ContactUsPage.kMessageMaxLength}',
-                  style: AppTextStyles.p4Regular
-                      .withColor(AppColors.textNeutralDisable),
-                ),
-              ),
-            ),
-          ],
+        TextField(
+          controller: _messageController,
+          maxLength: 250,
+          decoration: InputDecoration(
+            hintText: context.l10n.message_description,
+            hintStyle:
+                AppTextStyles.p3Regular.withColor(AppColors.textNeutralDisable),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+            errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
+            counterText:
+                '${description.length}/${ContactUsPage.kMessageMaxLength}',
+            counterStyle:
+                AppTextStyles.p4Regular.withColor(AppColors.textNeutralDisable),
+          ),
+          maxLines: 4,
+          keyboardType: TextInputType.multiline,
         ),
       ],
     );

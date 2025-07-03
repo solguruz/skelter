@@ -68,6 +68,8 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/test/images/
+    - assets/test/files/
 
   fonts:
     - family: Inter

@@ -17,6 +17,7 @@ abstract class ContactUsEvent extends Equatable implements AnalyticsEvent {
 
 class NameChangedEvent extends ContactUsEvent {
   final String name;
+
   const NameChangedEvent({required this.name});
 
   @override
@@ -28,6 +29,7 @@ class NameChangedEvent extends ContactUsEvent {
 
 class EmailChangedEvent extends ContactUsEvent {
   final String email;
+
   const EmailChangedEvent({required this.email});
 
   @override
@@ -75,6 +77,7 @@ class DescriptionErrorEvent extends ContactUsEvent {
 
 class DescriptionChangedEvent extends ContactUsEvent {
   final String message;
+
   const DescriptionChangedEvent({required this.message});
 
   @override
@@ -93,6 +96,7 @@ class SubmitFormEvent extends ContactUsEvent {
 
 class AddImageEvent extends ContactUsEvent {
   final ImageSource source;
+
   const AddImageEvent({required this.source});
 
   @override
@@ -101,6 +105,7 @@ class AddImageEvent extends ContactUsEvent {
 
 class RemoveImageEvent extends ContactUsEvent {
   final int index;
+
   const RemoveImageEvent(this.index);
 
   @override
@@ -116,6 +121,7 @@ class AddPdfEvent extends ContactUsEvent {
 
 class RemovePdfEvent extends ContactUsEvent {
   final int index;
+
   const RemovePdfEvent(this.index);
 
   @override

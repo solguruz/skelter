@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ContactUsState with EquatableMixin {
@@ -104,6 +105,37 @@ class ContactUsState with EquatableMixin {
       selectedPdfs: selectedPdfs ?? this.selectedPdfs,
     );
   }
+
+  @visibleForTesting
+  ContactUsState.test({
+    String? name,
+    String? email,
+    String? description,
+    bool? isSubmitting,
+    bool? isSuccess,
+    bool? isNameFocused,
+    bool? isEmailFocused,
+    bool? isMessageFocused,
+    String? nameError,
+    String? emailError,
+    String? descriptionError,
+    List<XFile>? selectedImages,
+    String? pickedFilesErrorMessage,
+    List<File>? selectedPdfs,
+  })  : name = name ?? '',
+        email = email ?? '',
+        description = description ?? '',
+        isSubmitting = isSubmitting ?? false,
+        isSuccess = isSuccess ?? false,
+        isNameFocused = isNameFocused ?? false,
+        isEmailFocused = isEmailFocused ?? false,
+        isMessageFocused = isMessageFocused ?? false,
+        nameError = nameError ?? '',
+        emailError = emailError ?? '',
+        descriptionError = descriptionError ?? '',
+        selectedImages = selectedImages ?? [],
+        pickedFilesErrorMessage = pickedFilesErrorMessage ?? '',
+        selectedPdfs = selectedPdfs ?? [];
 
   @override
   List<Object?> get props => [

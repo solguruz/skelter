@@ -13,6 +13,7 @@ class ContactUsAttachmentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(context.l10n.attachment, style: AppTextStyles.p3Medium),
         const SizedBox(height: 6),
