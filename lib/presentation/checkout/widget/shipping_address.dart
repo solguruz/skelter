@@ -1,18 +1,26 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
+import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class ShippingAddress extends StatelessWidget {
-  const ShippingAddress({
-    super.key,
-  });
+  const ShippingAddress({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userName = context.select<CheckoutBloc, String>(
+      (bloc) => bloc.state.userName,
+    );
+
+    final address = context.select<CheckoutBloc, String>(
+      (bloc) => bloc.state.address,
+    );
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -27,12 +35,13 @@ class ShippingAddress extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Roz Cooper',
+                  userName,
                   style: AppTextStyles.p2Medium,
+                  maxLines: 2,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  '2118 Thornridge Cir. Syracuse, Connecticut 35624',
+                  address,
                   style: AppTextStyles.p3Regular,
                 ),
               ],

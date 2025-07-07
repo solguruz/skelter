@@ -113,3 +113,175 @@ final List<ProductModel> sampleProducts = [
     seller: 'BrightHome',
   ),
 ];
+
+final List<ProductModel> testProducts = [
+  // Short Title Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Long Title Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title:
+        'Island Pink Kush Oil - 100% Organic Hemp Extract for Health Benefits',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Emoji in Title Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: '🧪 Emoji test 🌟',
+    description: 'Test with emojis!',
+    category: 'Fun',
+    rating: 0,
+    reviews: 0,
+    availableQuantities: 0,
+    price: 0,
+    seller: 'UnicodeCo',
+  ),
+
+  // No Rating Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 0.0,
+    reviews: 0,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // 3-Star Rating Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 3.0,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Price with No Decimals Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Price with Decimals Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 99.99,
+    seller: 'Pure Hemp',
+  ),
+
+  // Quantity = 1 Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Quantity = 100 Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 100,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Valid Delivery Date Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // No Delivery Date Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+  // Product category with small letters Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Island Pink Kush Oil',
+    description: 'High-quality organic oil for better health.',
+    category: 'Essentials',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Pure Hemp',
+  ),
+
+// Product category with long name Test Case
+  ProductModel(
+    image: Assets.images.cartItem1.path,
+    title: 'Super Premium Deluxe Product',
+    description: 'A premium product with extensive features and capabilities.',
+    category: 'Professional Grade Electronics & Accessories',
+    rating: 4.5,
+    reviews: 1234,
+    availableQuantities: 50,
+    price: 150,
+    seller: 'Premium Electronics Store',
+  ),
+];

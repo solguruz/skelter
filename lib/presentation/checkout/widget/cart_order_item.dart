@@ -66,7 +66,7 @@ class CartOrderItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 RatingBar.builder(
-                  initialRating: 4,
+                  initialRating: cartModel.product.rating,
                   minRating: 1,
                   itemSize: 20,
                   itemPadding: const EdgeInsets.symmetric(horizontal: 4),

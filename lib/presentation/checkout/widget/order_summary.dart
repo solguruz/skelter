@@ -23,6 +23,10 @@ class OrderSummary extends StatelessWidget {
       (bloc) => bloc.state.finalAmount,
     );
 
+    final cartItemsCount = context.select<CheckoutBloc, int>(
+      (bloc) => bloc.state.cartData.length,
+    );
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -31,6 +35,7 @@ class OrderSummary extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             context.l10n.order_summary,
@@ -44,7 +49,7 @@ class OrderSummary extends StatelessWidget {
           Row(
             children: [
               Text(
-                context.l10n.price_of_items(2),
+                context.l10n.price_of_items(cartItemsCount),
                 style: AppTextStyles.p3Regular
                     .withColor(AppColors.textNeutralPrimary),
               ),

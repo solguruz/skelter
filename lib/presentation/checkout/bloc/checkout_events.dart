@@ -36,3 +36,15 @@ class StepperIndexUpdateEvent extends CheckoutEvent {
   @override
   String get eventName => (StepperIndexUpdateEvent).toString();
 }
+
+class SelectPaymentMethodEvent extends CheckoutEvent {
+  final bool isPaymentMethodOnline;
+
+  const SelectPaymentMethodEvent({required this.isPaymentMethodOnline});
+
+  @override
+  List<Object> get props => [isPaymentMethodOnline];
+
+  @override
+  String get eventName => (SelectPaymentMethodEvent).toString();
+}

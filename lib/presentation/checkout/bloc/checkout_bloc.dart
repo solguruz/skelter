@@ -26,6 +26,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> with Loggable {
   void _setupEventListener() {
     on<StepperIndexUpdateEvent>(_onStepperIndexUpdateEvent);
     on<InitialCalculationEvent>(_onInitialCalculationEvent);
+    on<SelectPaymentMethodEvent>(_onSelectPaymentMethodEvent);
   }
 
   void _onInitialCalculationEvent(
@@ -56,6 +57,15 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> with Loggable {
     Emitter<CheckoutState> emit,
   ) {
     emit(StepperIndexUpdateState(state, index: event.index));
+  }
+
+  void _onSelectPaymentMethodEvent(
+    SelectPaymentMethodEvent event,
+    Emitter<CheckoutState> emit,
+  ) {
+    emit(
+      state.copyWith(isPaymentMethodOnline: event.isPaymentMethodOnline),
+    );
   }
 }
 

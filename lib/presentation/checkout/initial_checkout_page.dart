@@ -34,17 +34,11 @@ class CheckoutPageBody extends StatefulWidget {
 }
 
 class _CheckoutPageBodyState extends State<CheckoutPageBody> {
-
-
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: const CheckoutAppBar(),
-      bottomNavigationBar:
-          cartSampleData.isEmpty ? null : const BottomItems(),
+      bottomNavigationBar: cartSampleData.isEmpty ? null : const BottomItems(),
       body: cartSampleData.isEmpty
           ? const EmptyCartView()
           : const InitialCheckoutPageBody(),
@@ -63,8 +57,6 @@ class InitialCheckoutPageBody extends StatefulWidget {
 class _InitialCheckoutPageBodyState extends State<InitialCheckoutPageBody> {
   final ScrollController scrollController = ScrollController();
 
-
-
   @override
   void dispose() {
     scrollController.dispose();
@@ -74,7 +66,7 @@ class _InitialCheckoutPageBodyState extends State<InitialCheckoutPageBody> {
   @override
   Widget build(BuildContext context) {
     final currentStepperIndex = context.select<CheckoutBloc, int>(
-          (bloc) => bloc.state.stepperIndex,
+      (bloc) => bloc.state.stepperIndex,
     );
 
     return Padding(
@@ -117,4 +109,3 @@ class _InitialCheckoutPageBodyState extends State<InitialCheckoutPageBody> {
     );
   }
 }
-
