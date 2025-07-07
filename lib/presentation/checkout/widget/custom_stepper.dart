@@ -27,10 +27,12 @@ class CustomStepper extends StatelessWidget {
       enableStepTapping: false,
       lineStyle: const LineStyle(
         lineType: LineType.normal,
-        lineThickness: 6,
+        lineThickness: 5,
         unreachedLineColor: AppColors.brand50,
+        activeLineColor: AppColors.brand50,
+        finishedLineColor: AppColors.brand500,
       ),
-      stepRadius: 22,
+      stepRadius: 26,
       unreachedStepBorderColor: AppColors.brand500,
       unreachedStepBackgroundColor: AppColors.brand50,
       activeStepIconColor: AppColors.white,
@@ -44,39 +46,32 @@ class CustomStepper extends StatelessWidget {
   static List<EasyStep> steps(BuildContext context) {
     return [
       EasyStep(
-        icon: const Icon(
-          TablerIcons.shopping_cart,
-        ),
+        icon: const Icon(TablerIcons.shopping_cart),
         customTitle: Text(
           context.l10n.cart,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
-        icon: const Icon(
-          TablerIcons.shopping_cart,
-        ),
+        icon: const Icon(TablerIcons.truck_delivery),
         customTitle: Text(
           context.l10n.shipping,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
-        icon: const Icon(
-          TablerIcons.currency_dollar,
-        ),
+        icon: const Icon(TablerIcons.currency_dollar),
         customTitle: Text(
           context.l10n.payment,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
-        icon: const Icon(
-          TablerIcons.clipboard_text,
-        ),
+        icon: const Icon(TablerIcons.clipboard_text),
         customTitle: Text(
           context.l10n.order_review,
           textAlign: TextAlign.center,
+          softWrap: false,
         ),
       ),
     ];

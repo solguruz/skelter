@@ -44,7 +44,7 @@ void main() {
         expect(find.byType(NotificationsPage), findsOneWidget);
         expect(find.text('Notifications'), findsOneWidget);
       });
-      //golden test
+      //golden test˚
       testExecutable(
         () {
           goldenTest(

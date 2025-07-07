@@ -230,13 +230,13 @@
   "explore_products": "Explore Products",
   "expected_delivery_by": "Expected Delivery by",
   "order_summary": "Order Summary",
-  "price_of_items": "Price({total_product} items)",
+  "price_of_items": "Price({total_product, plural, =1{{total_product} item} other{{total_product} items}})",
   "@price_of_items": {
-    "description": "Total products count",
+    "description": "Total products count with correct plural form",
     "placeholders": {
       "total_product": {
         "type": "int",
-        "example": "1"
+        "example": "2"
       }
     }
   },
@@ -313,19 +313,13 @@
   "name_cannot_be_empty": "Name can't be empty",
   "message_cannot_be_empty": "Message can't be empty",
   "pick_image_error": "Something went wrong while picking images. Please try again.",
+  "pick_pdf_error": "Something went wrong while picking PDFs. Please try again.",
   "file_too_large_error": "One or more selected files exceed the 5MB limit.",
+  "file_cannot_be_empty": "Please select at least one file",
   "take_a_photo": "Take a photo",
   "upload_from_gallery": "Upload from gallery",
   "upload_from_files": "Upload from files",
   "file_empty_error": "The selected PDF file is empty. Please choose a valid file.",
-  "unsupported_file_format_error": "The selected file is not a valid PDF. Please choose a proper PDF file to continue.",
-  "pick_pdf_error": "Something went wrong while picking PDFs. Please try again.",
-  "file_cannot_be_empty": "Please select at least one file",
-  "camera": "Camera",
-  "gallery": "Gallery",
-  "browse_files_pdf": "Browse Files (PDF)",
-  "unsupported_file_format_error": "The selected file is not a valid PDF. Please choose a proper PDF file to continue.",
-"search_screen": "==========================================================================",
   "search_screen": "==========================================================================",
   "no_result_for": "No results for \"{searchText}\"",
   "no_search_result_message": "We couldn’t found any result related to your search. Try searching for something else.",
