@@ -38,7 +38,7 @@ class AppColors {
   static const Color bottomLabelsGreyColor = Color(0xFF686868);
   static const Color participantTitle = Color(0xFFF8F8F9);
   static const Color unselectedColor = Color(0xFF414152);
-  static const Color feedCtaBgColor = Color(0x40000000);
+  static const Color feedButtonBgColor = Color(0x40000000);
   static const Color postMediaGradientColor = Color(0x40000000);
   static const Color popupMenuIconColor = Color(0xFF282828);
   static const Color shadowColor = Color(0x14202120);

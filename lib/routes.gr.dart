@@ -11,8 +11,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i31;
 import 'package:flutter/material.dart' as _i32;
-import 'package:flutter_skeleton/empty_screens_list/empty_screens_page.dart'
-    as _i11;
 import 'package:flutter_skeleton/presentation/chat/chat_conversations.dart'
     as _i4;
 import 'package:flutter_skeleton/presentation/chat/chat_page.dart' as _i5;
@@ -24,6 +22,8 @@ import 'package:flutter_skeleton/presentation/contact_us/contact_us_submitted_pa
     as _i8;
 import 'package:flutter_skeleton/presentation/coupons/available_coupons.dart'
     as _i3;
+import 'package:flutter_skeleton/presentation/empty_screens/empty_screens_page.dart'
+    as _i11;
 import 'package:flutter_skeleton/presentation/home/home_page.dart' as _i13;
 import 'package:flutter_skeleton/presentation/initial/initial_page.dart'
     as _i14;

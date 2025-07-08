@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/back_to_home_cta.dart';
+import 'package:flutter_skeleton/presentation/contact_us/widgets/back_to_home_button.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/submission_success_icon.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/submission_success_message.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
@@ -39,7 +39,7 @@ class ContactUsSubmittedBody extends StatelessWidget {
             SizedBox(height: AppSize.XL),
             SubmissionSuccessMessage(),
             Spacer(),
-            BackToHomeCTA(),
+            BackToHomeButton(),
             SizedBox(height: AppSize.XL),
           ],
         ),

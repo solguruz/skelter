@@ -8,6 +8,7 @@ import 'package:timeago/timeago.dart' as time_ago;
 
 class NotificationContentWidget extends StatelessWidget {
   const NotificationContentWidget({super.key, required this.notificationModel});
+
   final NotificationModel notificationModel;
 
   @override

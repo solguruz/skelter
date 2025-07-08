@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_cta.dart';
+import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_button.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:path/path.dart' as path;
@@ -60,7 +60,7 @@ class PdfPreviewList extends StatelessWidget {
                         ],
                       ),
                     ),
-                    RemoveFileCTA(
+                    RemoveFileButton(
                       onRemove: (index) =>
                           context.contactUsBloc.add(RemovePdfEvent(index)),
                       index: index,

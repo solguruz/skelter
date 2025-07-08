@@ -2,28 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_state.dart';
 import 'package:flutter_skeleton/presentation/notifications/data/notification_data_list.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/app_environment.dart';
 
-class NotificationBloc extends Bloc<NotificationEvent, NotificationState>
-    with Loggable {
-  @override
-  void onEvent(NotificationEvent event) {
-    super.onEvent(event);
-    AnalyticsHelper().logCustomEvent(
-      event.eventName,
-      parameters: event.getAnalyticParameters(),
-    );
-  }
-
-  @override
-  String get className => (NotificationBloc).toString();
-
+class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   NotificationBloc() : super(NotificationInitializeState()) {
     on<InitializeNotificationEvent>(_initializeNotification);
     on<NotificationLoadingEvent>(_onNotificationLoadingEvent);

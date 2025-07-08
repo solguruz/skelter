@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
 import 'package:flutter_svg/svg.dart';
 
 /// Requires [AppIcons]
-class AppIcon extends StatelessWidget with Loggable {
+class AppIcon extends StatelessWidget {
   const AppIcon({
     this.iconPath,
     this.iconData,
@@ -61,11 +60,8 @@ class AppIcon extends StatelessWidget with Loggable {
         color: iconColor,
       );
     } else {
-      logE('Unknown format of image: $iconPath');
+      debugPrint('Unknown format of image: $iconPath');
       return const SizedBox.shrink();
     }
   }
-
-  @override
-  String get className => (AppIcon).toString();
 }

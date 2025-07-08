@@ -103,6 +103,7 @@ extension NullableStringHelperExtension on String? {
 extension RegexHelperExtension on String {
   bool hasLetterAndNumber() =>
       RegExp(r'^(?=.*[A-Za-z])(?=.*\d)').hasMatch(this);
+
   bool hasSpecialCharacter() =>
       RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(this);
 }

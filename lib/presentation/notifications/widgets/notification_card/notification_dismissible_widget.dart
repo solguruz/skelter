@@ -11,6 +11,7 @@ class NotificationDismissibleWidget extends StatelessWidget {
     required this.child,
     required this.notificationModel,
   });
+
   final Widget child;
   final NotificationModel notificationModel;
 

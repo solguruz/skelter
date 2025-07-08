@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/profile_picture/widgets/add_skip_picture_cta.dart';
+import 'package:flutter_skeleton/presentation/login_signup/signup/pages/profile_picture/widgets/add_skip_picture_button.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,7 +14,7 @@ class UserPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => AddSkipPictureCTA.showImageSourceBottomSheet(
+      onTap: () => AddSkipPictureButton.showImageSourceBottomSheet(
         context,
         onImageSelected: (File file) {
           context.loginBloc.add(SelectedProfilePictureEvent(image: file));

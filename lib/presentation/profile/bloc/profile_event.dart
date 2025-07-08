@@ -1,18 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/analytics/main_event.dart';
 
-abstract class ProfileEvent extends Equatable implements AnalyticsEvent {
+abstract class ProfileEvent extends Equatable {
   const ProfileEvent();
-
-  @override
-  Map<String, String>? getAnalyticParameters() {
-    return {};
-  }
-
-  @override
-  bool shouldLogEvent() {
-    return false;
-  }
 }
 
 class UpdateProfileEvent extends ProfileEvent {
@@ -28,9 +17,6 @@ class UpdateProfileEvent extends ProfileEvent {
 
   @override
   List<Object> get props => [name, email, isProUser];
-
-  @override
-  String get eventName => (UpdateProfileEvent).toString();
 }
 
 class SignOutEvent extends ProfileEvent {
@@ -38,7 +24,4 @@ class SignOutEvent extends ProfileEvent {
 
   @override
   List<Object> get props => [];
-
-  @override
-  String get eventName => (SignOutEvent).toString();
 }

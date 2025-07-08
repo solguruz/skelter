@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
@@ -10,10 +9,9 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_even
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/widgets/email_password_text_fields.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/widgets/forgot_password_cta.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/widgets/login_with_email_pass_cta.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/widgets/forgot_password_button.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/widgets/login_with_email_pass_button.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_app_bar.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 
@@ -30,9 +28,6 @@ class LoginWithEmailPasswordPage extends StatelessWidget {
         if (didPop) {
           loginBloc.add(ResetEmailStateEvent());
           loginBloc.add(ResetSignUpStateOnPageClosedEvent());
-          AnalyticsHelper().logCustomEvent(
-            DebugPhoneLoginAnalyticsEvents.kEmailLoginPageOnBackPressed,
-          );
         }
       },
       child: Scaffold(
@@ -94,10 +89,10 @@ class _LoginWithEmailPageBody extends StatelessWidget {
           const SizedBox(height: 8),
           const Align(
             alignment: Alignment.centerRight,
-            child: ForgotPasswordCTA(),
+            child: ForgotPasswordButton(),
           ),
           const SizedBox(height: 20),
-          const LoginWithEmailPassCTA(),
+          const LoginWithEmailPassButton(),
         ],
       ),
     );

@@ -3,18 +3,18 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
-// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-class FirebaseAuthService with Loggable {
+class FirebaseAuthService {
   static FirebaseAuthService? _instance = FirebaseAuthService._internal();
 
   factory FirebaseAuthService() {
     return _instance ??= FirebaseAuthService._internal();
   }
+
   FirebaseAuthService._internal();
 
   FirebaseAuth? _firebaseAuth;
@@ -70,7 +70,7 @@ class FirebaseAuthService with Loggable {
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {
-      logE('Error signing in with email and password: $e');
+      debugPrint('Error signing in with email and password: $e');
       onError(kSomethingWentWrong);
     }
     return null;
@@ -121,11 +121,11 @@ class FirebaseAuthService with Loggable {
           await GoogleSignIn(scopes: <String>['email'])
               .signIn()
               .catchError((error) {
-        logE('Error signing in with Google: $error');
+        debugPrint('Error signing in with Google: $error');
         return null;
       });
       if (googleUser == null) {
-        logE('googleUser is null');
+        debugPrint('googleUser is null');
         return null;
       }
       final GoogleSignInAuthentication googleAuth =
@@ -141,7 +141,7 @@ class FirebaseAuthService with Loggable {
       _handleFirebaseError(e, onError, stackTrace: stack);
       return null;
     } catch (e) {
-      logE('Error signing in with Google: $e');
+      debugPrint('Error signing in with Google: $e');
       return null;
     }
   }
@@ -160,7 +160,7 @@ class FirebaseAuthService with Loggable {
         nonce: _sha256OfString(rawNonce),
       );
 
-      logD(
+      debugPrint(
         '''
     APPLE CRED = 
     FAMILY_NAME = ${appleCred.familyName}
@@ -180,7 +180,7 @@ class FirebaseAuthService with Loggable {
       _handleFirebaseError(e, onError, stackTrace: stack);
       return null;
     } catch (e) {
-      logE('Error signing in with Apple: $e');
+      debugPrint('Error signing in with Apple: $e');
       return null;
     }
   }
@@ -199,7 +199,7 @@ class FirebaseAuthService with Loggable {
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {
-      logE('Error signing in with email and password: $e');
+      debugPrint('Error signing in with email and password: $e');
       onError(kSomethingWentWrong);
     }
     return null;
@@ -232,7 +232,7 @@ class FirebaseAuthService with Loggable {
       case kFirebaseAuthSessionEmailAlreadyInUse:
         errorMessage = 'Email already in use, please login to continue.';
     }
-    logE('FirebaseAuth error: $errorMessage');
+    debugPrint('FirebaseAuth error: $errorMessage');
     onError(errorMessage, stackTrace: stackTrace);
     // TODO: uncommnet to enable crashlytics
     // FirebaseCrashlytics.instance.recordError(
@@ -255,7 +255,4 @@ class FirebaseAuthService with Loggable {
     final Digest digest = sha256.convert(bytes);
     return digest.toString();
   }
-
-  @override
-  String get className => (FirebaseAuthService).toString();
 }
