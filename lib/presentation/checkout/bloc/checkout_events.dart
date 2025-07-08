@@ -1,18 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/analytics/main_event.dart';
 
-abstract class CheckoutEvent extends Equatable implements AnalyticsEvent {
+abstract class CheckoutEvent extends Equatable {
   const CheckoutEvent();
-
-  @override
-  Map<String, String>? getAnalyticParameters() {
-    return {};
-  }
-
-  @override
-  bool shouldLogEvent() {
-    return false;
-  }
 }
 
 class InitialCalculationEvent extends CheckoutEvent {
@@ -20,9 +9,6 @@ class InitialCalculationEvent extends CheckoutEvent {
 
   @override
   List<Object?> get props => [];
-
-  @override
-  String get eventName => (InitialCalculationEvent).toString();
 }
 
 class StepperIndexUpdateEvent extends CheckoutEvent {
@@ -32,9 +18,6 @@ class StepperIndexUpdateEvent extends CheckoutEvent {
 
   @override
   List<Object> get props => [index];
-
-  @override
-  String get eventName => (StepperIndexUpdateEvent).toString();
 }
 
 class SelectPaymentMethodEvent extends CheckoutEvent {
@@ -44,7 +27,4 @@ class SelectPaymentMethodEvent extends CheckoutEvent {
 
   @override
   List<Object> get props => [isPaymentMethodOnline];
-
-  @override
-  String get eventName => (SelectPaymentMethodEvent).toString();
 }

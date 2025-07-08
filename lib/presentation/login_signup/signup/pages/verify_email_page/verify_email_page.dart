@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fgbg/flutter_fgbg.dart';
-import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
@@ -16,8 +15,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_stat
 import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/widgets/entered_wrong_email.dart';
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/widgets/resend_verification_mail_cta.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
+import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/widgets/resend_verification_mail_button.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -89,47 +87,38 @@ class _VerifyEmailPageBodyState extends State<_VerifyEmailPageBody> {
             _verificationListenTimer?.cancel();
           }
         },
-        child: PopScope(
-          onPopInvokedWithResult: (didPop, result) {
-            if (didPop) {
-              AnalyticsHelper().logCustomEvent(
-                DebugSignUpAnalyticsEvents.kEmailVerifyPageOnBackPressed,
-              );
-            }
-          },
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: LoginPage.kHorizontalPadding,
-                right: LoginPage.kHorizontalPadding,
-                bottom: max(20, context.screenPaddingBottom),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.emailNotification),
-                  const SizedBox(height: 18),
-                  Text(
-                    context.l10n.login_signup_verify_your_email,
-                    style: AppTextStyles.h2Bold,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 18),
-                  // TODO: create a loading animation
-                  // prevent in test mode
-                  // Common().loadingLottieAnimation(),
-                  const SizedBox(height: 18),
-                  Text(
-                    context.l10n.login_signup_link_verify_info(email),
-                    style: AppTextStyles.p2Medium,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 25),
-                  const ResendVerificationMailCTA(),
-                  const SizedBox(height: 16),
-                  const EnteredWrongEmail(),
-                ],
-              ),
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: LoginPage.kHorizontalPadding,
+              right: LoginPage.kHorizontalPadding,
+              bottom: max(20, context.screenPaddingBottom),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(Assets.icons.emailNotification),
+                const SizedBox(height: 18),
+                Text(
+                  context.l10n.login_signup_verify_your_email,
+                  style: AppTextStyles.h2Bold,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 18),
+                // TODO: create a loading animation
+                // prevent in test mode
+                // Common().loadingLottieAnimation(),
+                const SizedBox(height: 18),
+                Text(
+                  context.l10n.login_signup_link_verify_info(email),
+                  style: AppTextStyles.p2Medium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 25),
+                const ResendVerificationMailButton(),
+                const SizedBox(height: 16),
+                const EnteredWrongEmail(),
+              ],
             ),
           ),
         ),

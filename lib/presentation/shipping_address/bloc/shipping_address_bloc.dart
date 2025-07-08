@@ -1,26 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/bloc/shipping_address_events.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/bloc/shipping_address_state.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
 
 class ShippingAddressBloc
-    extends Bloc<ShippingAddressEvent, ShippingAddressState> with Loggable {
+    extends Bloc<ShippingAddressEvent, ShippingAddressState> {
   ShippingAddressBloc() : super(ShippingAddressState.initial()) {
     on<SelectedAddressIndexUpdateEvent>(_onSelectedAddressIndexUpdateEvent);
   }
-
-  @override
-  void onEvent(ShippingAddressEvent event) {
-    super.onEvent(event);
-    AnalyticsHelper().logCustomEvent(
-      event.eventName,
-      parameters: event.getAnalyticParameters(),
-    );
-  }
-
-  @override
-  String get className => (ShippingAddressBloc).toString();
 
   void _onSelectedAddressIndexUpdateEvent(
     SelectedAddressIndexUpdateEvent event,

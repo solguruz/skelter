@@ -12,6 +12,7 @@ class NotificationState with EquatableMixin {
     required this.notificationList,
     this.message = '',
   });
+
   NotificationState.initial()
       : isLoading = false,
         notificationList = [],

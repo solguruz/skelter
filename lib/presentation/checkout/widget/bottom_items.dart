@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/confirm_and_pay_cta.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/review_order_cta.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/select_payment_method_cta.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/shipping_details_cta.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/confirm_and_pay_button.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/review_order_button.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/select_payment_method_button.dart';
+import 'package:flutter_skeleton/presentation/checkout/widget/shipping_details_button.dart';
 import 'package:flutter_skeleton/presentation/checkout/widget/total_amount.dart';
 
 class BottomItems extends StatelessWidget {
@@ -18,15 +18,15 @@ class BottomItems extends StatelessWidget {
         children: [
           TotalAmount(),
           Spacer(),
-          GetCartActionCTA(),
+          GetCartActionButton(),
         ],
       ),
     );
   }
 }
 
-class GetCartActionCTA extends StatelessWidget {
-  const GetCartActionCTA({super.key});
+class GetCartActionButton extends StatelessWidget {
+  const GetCartActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +35,15 @@ class GetCartActionCTA extends StatelessWidget {
     );
     switch (currentStepperIndex) {
       case 0:
-        return const ShippingDetailsCTA();
+        return const ShippingDetailsButton();
       case 1:
-        return const SelectPaymentMethodCTA();
+        return const SelectPaymentMethodButton();
       case 2:
-        return const SelectAndReviewOrderCTA();
+        return const SelectAndReviewOrderButton();
       case 3:
-        return const ConfirmAndPayCTA();
+        return const ConfirmAndPayButton();
       default:
-        return const ShippingDetailsCTA();
+        return const ShippingDetailsButton();
     }
   }
 }

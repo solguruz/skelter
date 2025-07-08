@@ -6,7 +6,7 @@ import 'package:flutter_skeleton/presentation/shipping_address/widgets/address_t
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/city_dropdown.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/country_dropdown.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/name_text_field.dart';
-import 'package:flutter_skeleton/presentation/shipping_address/widgets/save_cta.dart';
+import 'package:flutter_skeleton/presentation/shipping_address/widgets/save_button.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/set_default_address.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/state_dropdown.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/zip_code_text_field.dart';
@@ -51,7 +51,7 @@ class AddAddressPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 const SetDefaultAddress(),
                 const SizedBox(height: 26),
-                const SaveAddressCTA(),
+                const SaveAddressButton(),
               ],
             ),
           ),

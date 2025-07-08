@@ -207,6 +207,7 @@ class AppTextStyles {
 
 extension AppTextStyleExtension on TextStyle {
   TextStyle withColor(Color color) => copyWith(color: color);
+
   TextStyle withDecoration(TextDecoration decoration) =>
       copyWith(decoration: decoration);
 }

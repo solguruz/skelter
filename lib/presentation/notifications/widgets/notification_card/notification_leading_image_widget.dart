@@ -12,6 +12,7 @@ class NotificationLeadingImageWidget extends StatelessWidget {
     super.key,
     required this.notificationModel,
   });
+
   final NotificationModel notificationModel;
 
   @override

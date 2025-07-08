@@ -12,6 +12,7 @@ class AppIconButton extends StatelessWidget {
     this.alignment = Alignment.center,
     this.color,
   });
+
   final String icon;
   final double? radius;
   final VoidCallback? onPressed;

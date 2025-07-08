@@ -10,6 +10,7 @@ class NotificationShimmerCard extends StatelessWidget {
     super.key,
     required this.showAnimation,
   });
+
   final bool showAnimation;
 
   @override

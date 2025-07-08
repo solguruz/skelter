@@ -1,19 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/analytics/main_event.dart';
 
-abstract class ShippingAddressEvent extends Equatable
-    implements AnalyticsEvent {
+abstract class ShippingAddressEvent extends Equatable {
   const ShippingAddressEvent();
-
-  @override
-  Map<String, String>? getAnalyticParameters() {
-    return {};
-  }
-
-  @override
-  bool shouldLogEvent() {
-    return false;
-  }
 }
 
 class SelectedAddressIndexUpdateEvent extends ShippingAddressEvent {
@@ -23,7 +11,4 @@ class SelectedAddressIndexUpdateEvent extends ShippingAddressEvent {
 
   @override
   List<Object?> get props => [index];
-
-  @override
-  String get eventName => (SelectedAddressIndexUpdateEvent).toString();
 }

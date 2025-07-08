@@ -11,7 +11,7 @@ import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_desc
 import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_email_section.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_message_section.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_name_section.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_submit_cta.dart';
+import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_submit_button.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 
 @RoutePage()
@@ -64,7 +64,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
               controller: _scrollController,
               child: const ContactUsPageBody(),
             ),
-            bottomNavigationBar: const ContactUsSubmitCTA(),
+            bottomNavigationBar: const ContactUsSubmitButton(),
           ),
         ),
       ),

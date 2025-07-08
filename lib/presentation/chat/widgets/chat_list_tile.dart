@@ -12,6 +12,7 @@ class ChatListTile extends StatelessWidget {
   });
 
   final ChatModel chatModel;
+
   @override
   Widget build(BuildContext context) {
     return Row(

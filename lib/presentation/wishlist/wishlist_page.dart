@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/presentation/wishlist/widgets/empty_wishlist_view.dart';
 import 'package:flutter_skeleton/presentation/wishlist/widgets/wishlist_app_bar.dart';
 
-
 @RoutePage()
 class WishlistPage extends StatelessWidget {
   const WishlistPage({super.key});

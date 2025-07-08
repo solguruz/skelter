@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_cta.dart';
+import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_button.dart';
 import 'package:flutter_skeleton/utils/app_environment.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -45,7 +45,7 @@ class ImagePreviewList extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                     ),
-                    RemoveFileCTA(
+                    RemoveFileButton(
                       onRemove: (index) =>
                           context.contactUsBloc.add(RemoveImageEvent(index)),
                       index: index,

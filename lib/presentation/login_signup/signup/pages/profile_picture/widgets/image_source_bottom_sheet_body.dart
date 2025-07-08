@@ -2,9 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/analytics/analytics_events.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -38,9 +36,6 @@ class ImageSourceBottomSheetBody extends StatelessWidget {
           children: [
             _Camera(
               onCameraSelected: () async {
-                AnalyticsHelper().logCustomEvent(
-                  DebugSignUpAnalyticsEvents.kTapSignupChooseCamera,
-                );
                 final XFile? xFile = await ImagePicker().pickImage(
                   source: ImageSource.camera,
                 );
@@ -54,9 +49,6 @@ class ImageSourceBottomSheetBody extends StatelessWidget {
             ),
             _Gallery(
               onGallerySelected: () async {
-                AnalyticsHelper().logCustomEvent(
-                  DebugSignUpAnalyticsEvents.kTapSignupChooseGallery,
-                );
                 final XFile? xFile = await pickImageXFile(
                   screenName: ModalRoute.of(context)?.settings.name,
                   source: ImageSource.gallery,
@@ -158,6 +150,7 @@ class _Gallery extends StatelessWidget {
   });
 
   final void Function() onGallerySelected;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(

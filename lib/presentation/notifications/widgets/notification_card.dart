@@ -8,6 +8,7 @@ import 'package:flutter_skeleton/presentation/notifications/widgets/notification
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard({super.key, required this.notificationModel});
+
   final NotificationModel notificationModel;
 
   @override
@@ -24,10 +25,12 @@ class NotificationCard extends StatelessWidget {
           children: [
             if (notificationModel.notificationType == NotificationType.image)
               NotificationLeadingImageWidget(
-                  notificationModel: notificationModel)
+                notificationModel: notificationModel,
+              )
             else
               NotificationLeadingIconWidget(
-                  notificationModel: notificationModel),
+                notificationModel: notificationModel,
+              ),
             const SizedBox(width: AppSize.M),
             NotificationContentWidget(notificationModel: notificationModel),
           ],

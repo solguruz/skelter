@@ -5,6 +5,7 @@ import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class NotificationLoadigShimmerList extends StatelessWidget {
   const NotificationLoadigShimmerList({super.key, this.showAnimation = true});
+
   final bool showAnimation;
 
   @override
