@@ -1,55 +1,29 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:country_picker/country_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_skeleton/firebase_options_dev.dart' as dev;
-import 'package:flutter_skeleton/firebase_options_prod.dart' as prod;
-import 'package:flutter_skeleton/firebase_options_stage.dart' as stage;
 import 'package:flutter_skeleton/i18n/i18n.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/initialize_app.dart';
 import 'package:flutter_skeleton/routes.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/app_flavor_env.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:sizer/sizer.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final firebaseOptions = switch (AppConfig.appFlavor) {
-    AppFlavor.dev => dev.DefaultFirebaseOptions.currentPlatform,
-    AppFlavor.prod => prod.DefaultFirebaseOptions.currentPlatform,
-    AppFlavor.stage => stage.DefaultFirebaseOptions.currentPlatform,
-  };
-  await Firebase.initializeApp(options: firebaseOptions);
-  await SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ],
-  );
-
-  // final Function originalOnError = FlutterError.onError!;
-  // FlutterError.onError = (FlutterErrorDetails errorDetails) async {
-  //   // TODO: uncomment to enable crashlytics
-  //   // if (!kDebugMode) {
-  //   //   await FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-  //   // }
-  //   originalOnError(errorDetails);
-  //   // Pass all uncaught asynchronous errors that aren't handled by the
-  //   // Flutter framework to Crashlytics
-  //   // TODO: uncomment to enable crashlytics
-  //   // PlatformDispatcher.instance.onError = (error, stack) {
-  //   //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-  //   //   return true;
-  //   // };
-  // };
-  runApp(const MainApp());
+void main() {
+  runZonedGuarded(() async {
+    await initializeApp();
+    runApp(const MainApp());
+  }, (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  });
 }
 
 class MainApp extends StatefulWidget {
