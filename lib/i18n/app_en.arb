@@ -348,5 +348,10 @@
   "no_reviews_found": "No reviews available for this product.",
   "add_photo_or_video": "Add a photo or video",
   "write_your_review": "Write your review",
-  "review_submited_message": "Your review has been submitted successfully."
+  "review_submited_message": "Your review has been submitted successfully.",
+  "notification_settings": "Notification Settings",
+  "change_password" : "Change Password",
+  "choose_app_theme" : "Choose App Theme",
+  "account_and_privacy" : "Account & Privacy",
+  "delete_account" : "Delete Account"
 }

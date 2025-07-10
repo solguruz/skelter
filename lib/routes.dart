@@ -61,6 +61,9 @@ class AppRouter extends RootStackRouter {
       EmptyViewsRoute.page,
       //Image view
       NetworkImageRoute.page,
+
+      //Settings
+      SettingsRoute.page,
     ]
         .map(
           (page) => AutoRoute(

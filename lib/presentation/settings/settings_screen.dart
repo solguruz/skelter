@@ -1,0 +1,40 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/core/app_sizes.dart';
+import 'package:flutter_skeleton/presentation/settings/widgets/delete_account.dart';
+import 'package:flutter_skeleton/presentation/settings/widgets/settings_appbar.dart';
+import 'package:flutter_skeleton/presentation/settings/widgets/settings.dart';
+
+@RoutePage()
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: SettingsAppbar(),
+      body: SettingsPageBody(),
+    );
+  }
+}
+
+class SettingsPageBody extends StatelessWidget {
+  const SettingsPageBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppSize.L),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: AppSize.L),
+            Settings(),
+            SizedBox(height: AppSize.XL),
+            DeleteAccount(),
+          ],
+        ),
+      ),
+    );
+  }
+}

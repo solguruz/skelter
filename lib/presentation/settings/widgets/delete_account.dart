@@ -1,16 +1,14 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class DeleteAccount extends StatelessWidget {
+  const DeleteAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +19,19 @@ class Settings extends StatelessWidget {
       ),
       child: ListTile(
         leading: const AppIcon(
-          iconData: TablerIcons.settings,
+          iconData: TablerIcons.trash,
+          color: AppColors.bgErrorDefault,
         ),
         title: Text(
-          context.l10n.settings,
-          style: AppTextStyles.h6SemiBold,
+          context.l10n.delete_account,
+          style:
+              AppTextStyles.p2Regular.withColor(AppColors.textErrorSecondary),
         ),
         trailing: const AppIcon(
           iconData: TablerIcons.chevron_right,
         ),
         onTap: () {
-          context.router.push(const SettingsRoute());
+          context.showSnackBar('Delete Account!...');
         },
       ),
     );
