@@ -49,7 +49,7 @@ class CouponItem extends StatelessWidget {
               ),
               const Spacer(),
               AppButton(
-                label: context.l10n.apply,
+                label: context.localization.apply,
                 style: AppButtonStyle.textOrIcon,
                 size: AppButtonSize.l,
                 onPressed: () {

@@ -22,7 +22,7 @@ class Settings extends StatelessWidget {
           color: AppColors.iconNeutralDefault,
         ),
         title: Text(
-          context.l10n.settings,
+          context.localization.settings,
           style: AppTextStyles.h6SemiBold,
         ),
         trailing: const Icon(

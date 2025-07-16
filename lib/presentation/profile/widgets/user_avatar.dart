@@ -55,7 +55,7 @@ class UserAvatar extends StatelessWidget {
                   ),
                   const SizedBox(width: 4.0),
                   Text(
-                    context.l10n.pro,
+                    context.localization.pro,
                     style: AppTextStyles.p4SemiBold.withColor(
                       AppColors.iconBrandHover,
                     ),

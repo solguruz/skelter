@@ -11,7 +11,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(context.l10n.home),
+      title: Text(context.localization.home),
       actions: [
         AppButton.icon(
           onPressed: () => context.pushRoute(const NotificationsRoute()),

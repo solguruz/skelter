@@ -16,7 +16,7 @@ class NotificationSettings extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.notification_settings,
+        context.localization.notification_settings,
         style: AppTextStyles.p2Regular,
       ),
       trailing: const Icon(

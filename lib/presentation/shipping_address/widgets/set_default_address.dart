@@ -26,7 +26,7 @@ class SetDefaultAddress extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          context.l10n.set_as_default_address,
+          context.localization.set_as_default_address,
           style: AppTextStyles.p2Medium,
         ),
       ],

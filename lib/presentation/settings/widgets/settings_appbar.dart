@@ -16,7 +16,8 @@ class SettingsAppbar extends StatelessWidget implements PreferredSizeWidget {
         size: AppButtonSize.xl,
         onPressed: () => context.router.maybePop(),
       ),
-      title: Text(context.l10n.settings, style: AppTextStyles.h6SemiBold),
+      title:
+          Text(context.localization.settings, style: AppTextStyles.h6SemiBold),
       centerTitle: true,
     );
   }

@@ -27,10 +27,11 @@ class LoginButton extends StatelessWidget {
               AppTextStyles.p2Medium.withColor(AppColors.textNeutralSecondary),
           children: [
             TextSpan(
-              text: context.l10n.login_signup_signup_already_have_account,
+              text:
+                  context.localization.login_signup_signup_already_have_account,
             ),
             TextSpan(
-              text: context.l10n.login_signup_login,
+              text: context.localization.login_signup_login,
               style:
                   AppTextStyles.p2Bold.withColor(AppColors.textBrandSecondary),
               recognizer: TapGestureRecognizer()

@@ -27,14 +27,14 @@ class _NameTextFieldState extends State<NameTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.name,
+          context.localization.name,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _fullNameController,
           decoration: InputDecoration(
-            hintText: context.l10n.enter_your_name,
+            hintText: context.localization.enter_your_name,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.textNeutralDisable,
             ),

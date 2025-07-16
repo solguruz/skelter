@@ -38,7 +38,7 @@ class OrderSummary extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            context.l10n.order_summary,
+            context.localization.order_summary,
             style: AppTextStyles.h6Bold.withColor(
               AppColors.textNeutralPrimary,
             ),
@@ -49,7 +49,7 @@ class OrderSummary extends StatelessWidget {
           Row(
             children: [
               Text(
-                context.l10n.price_of_items(cartItemsCount),
+                context.localization.price_of_items(cartItemsCount),
                 style: AppTextStyles.p3Regular
                     .withColor(AppColors.textNeutralPrimary),
               ),
@@ -65,7 +65,7 @@ class OrderSummary extends StatelessWidget {
           Row(
             children: [
               Text(
-                context.l10n.discount,
+                context.localization.discount,
                 style: AppTextStyles.p3Regular
                     .withColor(AppColors.textNeutralPrimary),
               ),
@@ -81,7 +81,7 @@ class OrderSummary extends StatelessWidget {
           Row(
             children: [
               Text(
-                context.l10n.delivery_charges,
+                context.localization.delivery_charges,
                 style: AppTextStyles.p3Regular
                     .withColor(AppColors.textNeutralPrimary),
               ),
@@ -97,7 +97,7 @@ class OrderSummary extends StatelessWidget {
           Row(
             children: [
               Text(
-                context.l10n.total_amount,
+                context.localization.total_amount,
                 style: AppTextStyles.h6Medium
                     .withColor(AppColors.textNeutralPrimary),
               ),

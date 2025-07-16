@@ -15,7 +15,7 @@ class ContactUsAppBar extends StatelessWidget implements PreferredSizeWidget {
         size: AppButtonSize.xl,
         onPressed: () => context.router.maybePop(),
       ),
-      title: Text(context.l10n.contact_us),
+      title: Text(context.localization.contact_us),
       centerTitle: true,
     );
   }

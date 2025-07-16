@@ -30,7 +30,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
     );
 
     return AppButton(
-      label: context.l10n.login_signup_login,
+      label: context.localization.login_signup_login,
       fillWidth: true,
       size: AppButtonSize.l,
       state: email.isNotEmpty && _isPasswordLongEnough(password)
@@ -43,7 +43,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
             InternetConnectivityHelper().onConnectivityChange.value;
 
         if (!isConnected && context.mounted) {
-          context.showSnackBar(context.l10n.no_internet_connection);
+          context.showSnackBar(context.localization.no_internet_connection);
           return;
         }
 
@@ -59,7 +59,8 @@ class LoginWithEmailPassButton extends StatelessWidget {
         if (password == null || password.isEmpty) {
           context.loginBloc.add(
             PasswordErrorEvent(
-              errorMessage: context.l10n.login_signup_password_cant_be_empty,
+              errorMessage:
+                  context.localization.login_signup_password_cant_be_empty,
             ),
           );
           shouldReturn = true;

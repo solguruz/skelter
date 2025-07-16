@@ -15,7 +15,7 @@ class ContactUsAttachmentSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(context.l10n.attachment, style: AppTextStyles.p3Medium),
+        Text(context.localization.attachment, style: AppTextStyles.p3Medium),
         const SizedBox(height: 6),
         const UploadAttachment(),
         const ImagePreviewList(),

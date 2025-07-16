@@ -13,7 +13,7 @@ class PaymentMethodHeader extends StatelessWidget {
     return Row(
       children: [
         Text(
-          context.l10n.select_payment_method,
+          context.localization.select_payment_method,
           style: AppTextStyles.p2SemiBold,
         ),
         const Spacer(),

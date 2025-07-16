@@ -46,8 +46,8 @@ class NotificationScreenBody extends StatelessWidget {
         return BlocListener<NotificationBloc, NotificationState>(
           listener: (context, state) {
             if (state is NotificationDeletedState) {
-              context
-                  .showSnackBar(context.l10n.notifications_delete_successfully);
+              context.showSnackBar(
+                  context.localization.notifications_delete_successfully);
             } else if (state is NotificationErrorState) {
               context.showSnackBar(state.message);
             }

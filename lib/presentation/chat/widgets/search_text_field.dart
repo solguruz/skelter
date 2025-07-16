@@ -39,7 +39,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
     return TextField(
       controller: _searchTextController,
       decoration: InputDecoration(
-        hintText: context.l10n.search,
+        hintText: context.localization.search,
         hintStyle: AppTextStyles.p3Medium.withColor(
           AppColors.textNeutralDisable,
         ),

@@ -17,7 +17,7 @@ class ChatListAppBar extends StatelessWidget implements PreferredSizeWidget {
           context.router.maybePop();
         },
       ),
-      title: Text(context.l10n.chat),
+      title: Text(context.localization.chat),
       actions: [
         AppButton.icon(
           iconData: TablerIcons.dots_vertical,

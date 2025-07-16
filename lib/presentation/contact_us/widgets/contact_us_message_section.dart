@@ -56,7 +56,7 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.message,
+          context.localization.message,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
@@ -64,7 +64,7 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           controller: _messageController,
           maxLength: 250,
           decoration: InputDecoration(
-            hintText: context.l10n.message_description,
+            hintText: context.localization.message_description,
             hintStyle:
                 AppTextStyles.p3Regular.withColor(AppColors.textNeutralDisable),
             contentPadding:

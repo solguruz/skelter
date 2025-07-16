@@ -11,12 +11,12 @@ class SubmissionSuccessMessage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          context.l10n.alright,
+          context.localization.alright,
           style: AppTextStyles.h4SemiBold,
         ),
         const SizedBox(height: 8.0),
         Text(
-          context.l10n.response_received,
+          context.localization.response_received,
           style:
               AppTextStyles.p2Regular.withColor(AppColors.textNeutralSecondary),
           textAlign: TextAlign.center,

@@ -24,14 +24,14 @@ class _AddressTextFieldState extends State<AddressTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.address,
+          context.localization.address,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _addressTextController,
           decoration: InputDecoration(
-            hintText: context.l10n.enter_your_address,
+            hintText: context.localization.enter_your_address,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.textNeutralDisable,
             ),

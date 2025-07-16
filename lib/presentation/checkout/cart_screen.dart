@@ -15,7 +15,7 @@ class CartScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.cart_items,
+          context.localization.cart_items,
           style: AppTextStyles.p2Bold,
         ),
         const SizedBox(height: 16),

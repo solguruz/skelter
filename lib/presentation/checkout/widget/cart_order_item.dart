@@ -128,7 +128,7 @@ class CartOrderItem extends StatelessWidget {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        '${context.l10n.expected_delivery_by} ',
+                        '${context.localization.expected_delivery_by} ',
                         style: AppTextStyles.p3Medium.withColor(
                           AppColors.textNeutralPrimary,
                         ),

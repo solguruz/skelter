@@ -25,17 +25,18 @@ class PasswordStrengthStatus extends StatelessWidget {
 
     switch (passwordStrengthLevel) {
       case 3:
-        strengthLabel = context.l10n.login_signup_strong;
+        strengthLabel = context.localization.login_signup_strong;
       case 2:
-        strengthLabel = context.l10n.login_signup_weak;
+        strengthLabel = context.localization.login_signup_weak;
       default:
-        strengthLabel =
-            password.haveContent() ? context.l10n.login_signup_poor : '';
+        strengthLabel = password.haveContent()
+            ? context.localization.login_signup_poor
+            : '';
     }
     return Row(
       children: [
         Text(
-          context.l10n.login_signup_password_strength,
+          context.localization.login_signup_password_strength,
           style: AppTextStyles.p4Medium.withColor(
             AppColors.textNeutralSecondary,
           ),

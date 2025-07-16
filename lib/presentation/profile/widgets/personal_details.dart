@@ -18,7 +18,7 @@ class PersonalDetails extends StatelessWidget {
             color: AppColors.iconNeutralDefault,
           ),
           title: Text(
-            context.l10n.personal_details,
+            context.localization.personal_details,
             style: AppTextStyles.h6SemiBold,
           ),
           trailing: const Icon(

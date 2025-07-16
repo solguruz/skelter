@@ -15,7 +15,7 @@ class ActivitySection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.l10n.activity, style: AppTextStyles.h6SemiBold),
+        Text(context.localization.activity, style: AppTextStyles.h6SemiBold),
         const SizedBox(height: 12.0),
         Container(
           decoration: BoxDecoration(

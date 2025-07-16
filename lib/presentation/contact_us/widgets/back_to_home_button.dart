@@ -10,7 +10,7 @@ class BackToHomeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.back_to_home,
+      label: context.localization.back_to_home,
       fillWidth: true,
       size: AppButtonSize.xl,
       onPressed: () {

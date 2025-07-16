@@ -16,7 +16,7 @@ class Notifications extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.notifications,
+        context.localization.notifications,
         style: AppTextStyles.h6SemiBold,
       ),
       trailing: const Icon(

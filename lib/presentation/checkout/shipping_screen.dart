@@ -13,7 +13,7 @@ class ShippingScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.shipping_address,
+          context.localization.shipping_address,
           style: AppTextStyles.p2Bold,
         ),
         const SizedBox(height: 16),

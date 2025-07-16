@@ -22,18 +22,18 @@ class EmptyCartView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            context.l10n.your_cart_is_empty,
+            context.localization.your_cart_is_empty,
             style: AppTextStyles.p1SemiBold,
           ),
           const SizedBox(height: 8),
           Text(
-            context.l10n.empty_cart_message,
+            context.localization.empty_cart_message,
             style: AppTextStyles.p3Regular,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
           AppButton(
-            label: context.l10n.explore_products,
+            label: context.localization.explore_products,
             onPressed: () {},
             size: AppButtonSize.xl,
           ),

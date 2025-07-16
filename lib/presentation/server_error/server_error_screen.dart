@@ -26,12 +26,12 @@ class ServerErrorScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                context.l10n.server_error_title,
+                context.localization.server_error_title,
                 style: AppTextStyles.p1SemiBold,
               ),
               const SizedBox(height: 8),
               Text(
-                context.l10n.server_error_description,
+                context.localization.server_error_description,
                 style: AppTextStyles.p3Regular,
                 textAlign: TextAlign.center,
               ),
@@ -40,7 +40,7 @@ class ServerErrorScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppButton(
-                      label: context.l10n.try_again,
+                      label: context.localization.try_again,
                       onPressed: () {},
                       size: AppButtonSize.xl,
                       style: AppButtonStyle.secondary,
@@ -49,7 +49,7 @@ class ServerErrorScreen extends StatelessWidget {
                   const SizedBox(width: 16),
                   Expanded(
                     child: AppButton(
-                      label: context.l10n.back_to_home,
+                      label: context.localization.back_to_home,
                       onPressed: () {},
                       size: AppButtonSize.xl,
                     ),

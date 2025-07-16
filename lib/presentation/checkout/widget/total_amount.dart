@@ -18,7 +18,7 @@ class TotalAmount extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.total_amount,
+          context.localization.total_amount,
           style:
               AppTextStyles.p4Regular.withColor(AppColors.textNeutralSecondary),
         ),

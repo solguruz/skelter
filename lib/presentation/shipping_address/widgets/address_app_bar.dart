@@ -21,8 +21,8 @@ class AddressAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         isAddingAddress
-            ? context.l10n.add_new_address
-            : context.l10n.select_address,
+            ? context.localization.add_new_address
+            : context.localization.select_address,
       ),
       centerTitle: true,
     );

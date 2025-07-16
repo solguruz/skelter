@@ -32,7 +32,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.l10n.login_signup_continue_with_email,
+            label: context.localization.login_signup_continue_with_email,
             fillWidth: true,
             style: AppButtonStyle.outline,
             leftIconData: TablerIcons.mail,
@@ -49,7 +49,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.l10n.login_signup_continue_with_google,
+            label: context.localization.login_signup_continue_with_google,
             fillWidth: true,
             style: AppButtonStyle.outline,
             leftAppIcon: Assets.icons.google.path,
@@ -59,7 +59,8 @@ class MoreLoginOptionsButton extends StatelessWidget {
                   InternetConnectivityHelper().onConnectivityChange.value;
 
               if (!isConnected && context.mounted) {
-                context.showSnackBar(context.l10n.no_internet_connection);
+                context
+                    .showSnackBar(context.localization.no_internet_connection);
                 return;
               }
               context.loginBloc
@@ -71,7 +72,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
               Theme.of(context).platform == TargetPlatform.iOS) ...[
             const SizedBox(height: 16),
             AppButton(
-              label: context.l10n.login_signup_continue_with_apple,
+              label: context.localization.login_signup_continue_with_apple,
               fillWidth: true,
               style: AppButtonStyle.outline,
               leftAppIcon: Assets.icons.apple,
@@ -81,7 +82,8 @@ class MoreLoginOptionsButton extends StatelessWidget {
                     InternetConnectivityHelper().onConnectivityChange.value;
 
                 if (!isConnected && context.mounted) {
-                  context.showSnackBar(context.l10n.no_internet_connection);
+                  context.showSnackBar(
+                      context.localization.no_internet_connection);
                   return;
                 }
                 context.loginBloc
@@ -93,8 +95,8 @@ class MoreLoginOptionsButton extends StatelessWidget {
           const SizedBox(height: 16),
           AppButton(
             label: isSignup
-                ? context.l10n.login_signup_login
-                : context.l10n.login_signup_sign_up,
+                ? context.localization.login_signup_login
+                : context.localization.login_signup_sign_up,
             fillWidth: true,
             style: AppButtonStyle.outline,
             size: AppButtonSize.xl,

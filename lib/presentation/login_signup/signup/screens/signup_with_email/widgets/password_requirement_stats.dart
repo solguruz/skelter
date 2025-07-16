@@ -23,7 +23,7 @@ class PasswordRequirementStats extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            context.l10n.login_signup_password_requirements,
+            context.localization.login_signup_password_requirements,
             style: AppTextStyles.p4Bold.withColor(
               AppColors.textNeutralPrimary,
             ),

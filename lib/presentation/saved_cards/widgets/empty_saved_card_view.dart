@@ -23,18 +23,18 @@ class EmptySavedCardView extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              context.l10n.empty_cards_list_title,
+              context.localization.empty_cards_list_title,
               style: AppTextStyles.p1SemiBold,
             ),
             const SizedBox(height: 8),
             Text(
-              context.l10n.empty_cards_list_message,
+              context.localization.empty_cards_list_message,
               style: AppTextStyles.p3Regular,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             AppButton(
-              label: context.l10n.explore_products,
+              label: context.localization.explore_products,
               onPressed: () {},
               size: AppButtonSize.xl,
             ),

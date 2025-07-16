@@ -21,12 +21,12 @@ class EmptySearchView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            context.l10n.no_result_for('Home'),
+            context.localization.no_result_for('Home'),
             style: AppTextStyles.p1SemiBold,
           ),
           const SizedBox(height: 8),
           Text(
-            context.l10n.no_search_result_message,
+            context.localization.no_search_result_message,
             style: AppTextStyles.p3Regular,
             textAlign: TextAlign.center,
           ),

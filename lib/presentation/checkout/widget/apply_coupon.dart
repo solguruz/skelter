@@ -23,7 +23,7 @@ class ApplyCoupon extends StatelessWidget {
           : MainAxisSize.max,
       children: [
         Text(
-          context.l10n.apply_coupon,
+          context.localization.apply_coupon,
           style: AppTextStyles.p2SemiBold,
         ),
         const SizedBox(height: 8),
@@ -41,7 +41,7 @@ class ApplyCoupon extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Text(
-              context.l10n.coupon_message(couponCount),
+              context.localization.coupon_message(couponCount),
               style: AppTextStyles.p3SemiBold
                   .withColor(AppColors.textBrandPrimary),
             ),

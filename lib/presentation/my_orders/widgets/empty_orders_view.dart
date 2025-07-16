@@ -23,18 +23,18 @@ class EmptyOrdersView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            context.l10n.empty_order_title,
+            context.localization.empty_order_title,
             style: AppTextStyles.p1SemiBold,
           ),
           const SizedBox(height: 8),
           Text(
-            context.l10n.empty_order_message,
+            context.localization.empty_order_message,
             style: AppTextStyles.p3Regular,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
           AppButton(
-            label: context.l10n.explore_products,
+            label: context.localization.explore_products,
             onPressed: () =>
                 context.showSnackBar('Explore products button pressed'),
             size: AppButtonSize.xl,

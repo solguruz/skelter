@@ -16,7 +16,7 @@ class AccountAndPrivacy extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.account_and_privacy,
+        context.localization.account_and_privacy,
         style: AppTextStyles.p2Regular,
       ),
       trailing: const Icon(

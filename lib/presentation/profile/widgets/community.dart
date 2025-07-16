@@ -16,7 +16,7 @@ class Community extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.community,
+        context.localization.community,
         style: AppTextStyles.h6SemiBold,
       ),
       trailing: const Icon(

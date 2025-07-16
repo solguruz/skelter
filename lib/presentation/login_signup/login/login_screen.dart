@@ -27,7 +27,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late final AppLocalizations appLocalizations = context.l10n;
+  late final AppLocalizations appLocalizations = context.localization;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _LoginScreenBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            context.l10n.login_signup_login_to_app,
+            context.localization.login_signup_login_to_app,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 30),

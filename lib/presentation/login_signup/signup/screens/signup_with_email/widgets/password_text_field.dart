@@ -47,7 +47,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.login_signup_password,
+          context.localization.login_signup_password,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
@@ -55,7 +55,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           controller: _passwordController,
           obscureText: !isPasswordVisible,
           decoration: InputDecoration(
-            hintText: context.l10n.login_signup_password_hint,
+            hintText: context.localization.login_signup_password_hint,
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,

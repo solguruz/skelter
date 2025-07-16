@@ -22,7 +22,7 @@ class SignOut extends StatelessWidget {
           color: AppColors.iconNeutralDefault,
         ),
         title: Text(
-          context.l10n.sign_out,
+          context.localization.sign_out,
           style: AppTextStyles.h6SemiBold,
         ),
         trailing: const Icon(

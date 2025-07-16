@@ -16,7 +16,7 @@ class ContactUsSubmitButton extends StatelessWidget {
         vertical: 24.0,
       ),
       child: AppButton(
-        label: context.l10n.submit,
+        label: context.localization.submit,
         fillWidth: true,
         size: AppButtonSize.xl,
         onPressed: () {

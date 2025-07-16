@@ -34,8 +34,8 @@ class SendOTPButton extends StatelessWidget {
 
     return AppButton(
       label: isSignup
-          ? context.l10n.login_signup_next
-          : context.l10n.login_signup_send_otp,
+          ? context.localization.login_signup_next
+          : context.localization.login_signup_send_otp,
       fillWidth: true,
       size: AppButtonSize.l,
       state: phoneNumberOnly.isNotEmpty
@@ -47,7 +47,7 @@ class SendOTPButton extends StatelessWidget {
             InternetConnectivityHelper().onConnectivityChange.value;
 
         if (!isConnected && context.mounted) {
-          context.showSnackBar(context.l10n.no_internet_connection);
+          context.showSnackBar(context.localization.no_internet_connection);
           return;
         }
 

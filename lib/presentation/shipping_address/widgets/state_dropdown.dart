@@ -28,13 +28,13 @@ class _StateDropdownState extends State<StateDropdown> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.state,
+          context.localization.state,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
-            hintText: context.l10n.state,
+            hintText: context.localization.state,
             border: const OutlineInputBorder(),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
@@ -42,7 +42,7 @@ class _StateDropdownState extends State<StateDropdown> {
           value: _selectedState,
           icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
-            context.l10n.select_state,
+            context.localization.select_state,
             style:
                 AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
           ),

@@ -9,7 +9,7 @@ class SaveAddressButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.save,
+      label: context.localization.save,
       fillWidth: true,
       size: AppButtonSize.xl,
       onPressed: () {

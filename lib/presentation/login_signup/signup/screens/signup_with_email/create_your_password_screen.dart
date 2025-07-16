@@ -62,7 +62,7 @@ class _CreateYourPasswordScreenBody extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           Text(
-            context.l10n.login_signup_create_your_password,
+            context.localization.login_signup_create_your_password,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 25),

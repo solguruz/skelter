@@ -14,7 +14,7 @@ class DoneButton extends StatelessWidget {
       (bloc) => bloc.state.isLoading,
     );
     return AppButton(
-      label: context.l10n.login_signup_done,
+      label: context.localization.login_signup_done,
       fillWidth: true,
       size: AppButtonSize.l,
       showLoader: isLoading,

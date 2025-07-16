@@ -15,7 +15,7 @@ class SupportSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.l10n.support, style: AppTextStyles.h6SemiBold),
+        Text(context.localization.support, style: AppTextStyles.h6SemiBold),
         const SizedBox(height: 12.0),
         Container(
           decoration: BoxDecoration(
