@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
@@ -71,7 +69,6 @@ extension ShowSnackbar on BuildContext {
     int millis = 3000,
     Widget? leading,
     Widget? trailing,
-    bool showCloseIcon = false,
     SnackBarAction? action,
     Duration? duration,
     bool showTrailingLoader = false,
@@ -105,15 +102,6 @@ extension ShowSnackbar on BuildContext {
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
             strokeWidth: 2,
           ),
-        ),
-      ];
-    } else if (showCloseIcon) {
-      contents = [
-        Expanded(child: messageText),
-        const SizedBox(width: 10),
-        GestureDetector(
-          onTap: hideSnackBar,
-          child: AppIcon(iconPath: Assets.icons.close, size: 18),
         ),
       ];
     } else {

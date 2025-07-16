@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class NewMessageTextField extends StatefulWidget {
@@ -28,8 +28,8 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
       child: Row(
         children: [
           const SizedBox(width: 8),
-          const AppIcon(
-            iconData: TablerIcons.plus,
+          const Icon(
+            TablerIcons.plus,
             color: AppColors.neutral400,
           ),
           const SizedBox(width: 16),
@@ -67,10 +67,10 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
             ),
           ),
           const SizedBox(width: 8),
-          AppIcon(
-            iconPath: Assets.icons.send,
-            iconData: TablerIcons.message_chatbot,
-            color: AppColors.brand500,
+          SvgPicture.asset(
+            Assets.icons.send,
+            colorFilter:
+                const ColorFilter.mode(AppColors.brand500, BlendMode.srcIn),
           ),
         ],
       ),

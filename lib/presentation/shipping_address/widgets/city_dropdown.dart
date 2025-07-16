@@ -40,9 +40,7 @@ class _CityDropdownState extends State<CityDropdown> {
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           ),
           value: _selectedCity,
-          icon: const Icon(
-            TablerIcons.chevron_down,
-          ),
+          icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
             context.l10n.select_city,
             style:

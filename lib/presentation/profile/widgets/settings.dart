@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
@@ -19,15 +18,17 @@ class Settings extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.M),
       ),
       child: ListTile(
-        leading: const AppIcon(
-          iconData: TablerIcons.settings,
+        leading: const Icon(
+          TablerIcons.settings,
+          color: AppColors.iconNeutralDefault,
         ),
         title: Text(
           context.l10n.settings,
           style: AppTextStyles.h6SemiBold,
         ),
-        trailing: const AppIcon(
-          iconData: TablerIcons.chevron_right,
+        trailing: const Icon(
+          TablerIcons.chevron_right,
+          color: AppColors.iconNeutralDefault,
         ),
         onTap: () {
           context.router.push(const SettingsRoute());

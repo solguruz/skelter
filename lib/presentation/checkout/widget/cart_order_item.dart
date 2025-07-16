@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar_plus/flutter_rating_bar_plus.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/checkout/model/product_cart.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:sizer/sizer.dart';
 
@@ -118,9 +118,12 @@ class CartOrderItem extends StatelessWidget {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    AppIcon(
-                      iconPath: Assets.icons.deliveryParcel,
-                      color: AppColors.bgBrandDefault,
+                    SvgPicture.asset(
+                      Assets.icons.deliveryParcel,
+                      colorFilter: const ColorFilter.mode(
+                        AppColors.bgBrandDefault,
+                        BlendMode.srcIn,
+                      ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(

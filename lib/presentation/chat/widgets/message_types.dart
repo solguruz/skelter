@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_skeleton/presentation/chat/enum/message_type_enum.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_message_model.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/image_full_screen_view.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class MessageTypes extends StatelessWidget {
@@ -59,15 +59,16 @@ class MessageTypes extends StatelessWidget {
           children: [
             const RotatedBox(
               quarterTurns: 45,
-              child: AppIcon(
-                iconData: TablerIcons.triangle_filled,
+              child: Icon(
+                TablerIcons.triangle_filled,
                 color: AppColors.brand500,
               ),
             ),
             const SizedBox(width: 8),
-            AppIcon(
-              iconPath: Assets.icons.waveforms,
-              color: AppColors.brand500,
+            SvgPicture.asset(
+              Assets.icons.waveforms,
+              colorFilter:
+                  const ColorFilter.mode(AppColors.brand500, BlendMode.srcIn),
             ),
           ],
         );

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
+import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/widgets/app_button/icon_size.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 part 'app_button_size.dart';
 part 'app_button_state.dart';
@@ -15,58 +15,27 @@ class AppButton extends StatelessWidget {
   final AppButtonSize size;
   final AppButtonState state;
   final bool isDestructive;
-
   final String? label;
-
   final bool isIconButton;
-
-  /// use the values from [AppIcons]
   final String? appIcon;
-
-  /// use the values from [TablerIcons]
   final IconData? iconData;
-
-  /// use the values from [AppIcons]
   final String? leftAppIcon;
-
-  /// use the values from [TablerIcons]
   final IconData? leftIconData;
-
-  /// use the values from [AppIcons]
   final String? rightAppIcon;
-
-  /// use the values from [TablerIcons]
   final IconData? rightIconData;
-
-  /// use the values from [AppIcons]
   final bool leftAppIconAttachedToText;
-
-  /// use the values from [AppIcons]
   final bool rightAppIconAttachedToText;
-
-  /// Overrides
   final Color? iconOrTextColorOverride;
   final Color? bgColorOverride;
   final Color? borderColorOverride;
   final double? radiusOverride;
-
-  /// `onPanDown` is faster than `onTap`
-  /// because it is triggered when the user touches the screen.
-  /// Avoid the usage if the button is part of a scrollable widget
   final bool shouldUseOnPanDown;
   final VoidCallback? onPressed;
-
   final bool showLoader;
-
-  /// Adds vertical and horizontal padding to the button
-  /// Otherwise the widget tends to take
-  /// the full height of the AppBar for some reason
   final bool isAppBarAction;
-
   final double? appBarActionVerticalPadding;
   final double? appBarActionRightPadding;
   final double? appBarActionLeftPadding;
-
   final bool fillWidth;
 
   const AppButton({
@@ -92,30 +61,12 @@ class AppButton extends StatelessWidget {
     this.borderColorOverride,
     this.showLoader = false,
     this.isAppBarAction = false,
-    this.appBarActionVerticalPadding,
     this.appBarActionRightPadding,
     this.appBarActionLeftPadding,
+    this.appBarActionVerticalPadding,
     this.fillWidth = false,
     this.radiusOverride,
-  })  : assert(
-          (isIconButton && (appIcon != null || iconData != null)) ||
-              (!isIconButton && (appIcon == null && iconData == null)),
-          'icons or iconData should not be null and isIcon should be true',
-        ),
-        // assert(
-        //   (!isIconButton) && label != null,
-        //   'label should not be null.',
-        // ),
-        assert(
-          (leftAppIcon == null &&
-                  leftIconData == null &&
-                  rightIconData == null &&
-                  rightAppIcon == null) ||
-              label != null,
-          'The assert statement ensures that if any of the '
-          'leftIcon, leftIconData, rightIcon, or rightIconData properties '
-          'are not null, then the `label` property must also be not null',
-        );
+  });
 
   factory AppButton.icon({
     String? appIcon,
@@ -128,10 +79,6 @@ class AppButton extends StatelessWidget {
     bool isAppBarAction = false,
     double? appBarActionRightPadding,
   }) {
-    assert(
-      appIcon != null || iconData != null,
-      'icons or iconData should not be null',
-    );
     return AppButton(
       style: AppButtonStyle.textOrIcon,
       size: size ?? AppButtonSize.s,
@@ -187,7 +134,6 @@ class AppButton extends StatelessWidget {
       child = _buildTextButton();
     }
 
-    // Avoid using `Center` because it will take unlimited space
     final Widget centeredChild = Stack(
       alignment: Alignment.center,
       children: [child, if (showLoader) _loader()],
@@ -304,19 +250,10 @@ class AppButton extends StatelessWidget {
     }
   }
 
-/*  Widget _wrapIt(List<Widget> children) {
-    return Wrap(
-      spacing: size.gap,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: children,
-    );
-  }*/
-
   Widget _buildTextButton() {
     return _getText();
   }
 
-  // Common
   Text _getText() {
     return Text(
       label!,
@@ -332,11 +269,18 @@ class AppButton extends StatelessWidget {
   }
 
   Widget _icon(String? iconPath, IconData? iconData) {
-    if (iconPath != null) {
-      return AppIcon(
-        iconPath: iconPath,
-        color: _getTextColor(),
-        size: size.iconSize,
+    if (iconPath != null && iconPath.endsWith(kSVGExtension)) {
+      return SvgPicture.asset(
+        iconPath,
+        colorFilter: ColorFilter.mode(_getTextColor(), BlendMode.srcIn),
+        height: size.iconSize,
+        width: size.iconSize,
+      );
+    } else if ((iconPath ?? '').endsWith(kPNGExtension)) {
+      return Image.asset(
+        iconPath ?? '',
+        height: size.iconSize,
+        width: size.iconSize,
       );
     } else if (iconData != null) {
       return Icon(

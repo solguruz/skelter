@@ -1,6 +1,5 @@
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
@@ -44,12 +43,12 @@ class _SearchTextFieldState extends State<SearchTextField> {
         hintStyle: AppTextStyles.p3Medium.withColor(
           AppColors.textNeutralDisable,
         ),
-        prefixIcon: const AppIcon(
-          iconData: TablerIcons.search,
+        prefixIcon: const Icon(
+          TablerIcons.search,
           color: AppColors.strokeNeutralDisabled,
         ),
-        suffixIcon: const AppIcon(
-          iconData: TablerIcons.microphone,
+        suffixIcon: const Icon(
+          TablerIcons.microphone,
           color: AppColors.strokeNeutralDisabled,
         ),
       ),
