@@ -16,7 +16,6 @@ import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.da
 import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/widgets/entered_wrong_email.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/widgets/resend_verification_mail_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -92,7 +91,7 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
             padding: EdgeInsets.only(
               left: LoginScreen.kHorizontalPadding,
               right: LoginScreen.kHorizontalPadding,
-              bottom: max(20, context.screenPaddingBottom),
+              bottom: max(20, MediaQuery.of(context).padding.bottom),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

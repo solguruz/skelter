@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_bloc.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
@@ -26,7 +25,7 @@ class NotificationList extends StatelessWidget {
           color: AppColors.strokeNeutralLight200,
         ),
         itemCount: notificationList.length,
-        padding: const EdgeInsets.symmetric(vertical: AppSize.XS),
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
         itemBuilder: (context, index) {
           final notificationModel = notificationList[index];
           return NotificationCard(notificationModel: notificationModel);

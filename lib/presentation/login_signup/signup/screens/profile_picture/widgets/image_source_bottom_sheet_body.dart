@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -27,7 +26,7 @@ class ImageSourceBottomSheetBody extends StatelessWidget {
       padding: EdgeInsets.only(
         left: 16.0,
         right: 16.0,
-        bottom: max(20, context.screenPaddingBottom),
+        bottom: max(20, MediaQuery.of(context).padding.bottom),
       ),
       child: SizedBox(
         height: 80,

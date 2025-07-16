@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_content_widget.dart';
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_dismissible_widget.dart';
@@ -17,8 +16,8 @@ class NotificationCard extends StatelessWidget {
       notificationModel: notificationModel,
       child: Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSize.L,
-          vertical: AppSize.S,
+          horizontal: 16.0,
+          vertical: 8.0,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +30,7 @@ class NotificationCard extends StatelessWidget {
               NotificationLeadingIconWidget(
                 notificationModel: notificationModel,
               ),
-            const SizedBox(width: AppSize.M),
+            const SizedBox(width: 12.0),
             NotificationContentWidget(notificationModel: notificationModel),
           ],
         ),

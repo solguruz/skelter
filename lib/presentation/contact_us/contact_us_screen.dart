@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
@@ -89,7 +88,7 @@ class ContactUsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSize.L),
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
           SizedBox(height: 30),

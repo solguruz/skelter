@@ -10,7 +10,6 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/check_your_email/widgets/continue_login_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -52,7 +51,7 @@ class CheckYourEmailScreenBody extends StatelessWidget {
           padding: EdgeInsets.only(
             left: LoginScreen.kHorizontalPadding,
             right: LoginScreen.kHorizontalPadding,
-            bottom: max(20, context.screenPaddingBottom),
+            bottom: max(20, MediaQuery.of(context).padding.bottom),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

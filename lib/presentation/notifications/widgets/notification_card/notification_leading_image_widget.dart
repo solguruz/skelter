@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/app_environment.dart';
@@ -46,7 +45,7 @@ class NotificationLeadingImageWidget extends StatelessWidget {
                   child: Container(
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppSize.XS),
+                      borderRadius: BorderRadius.circular(4.0),
                       image: DecorationImage(
                         image: imageProvider,
                         fit: BoxFit.cover,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
@@ -16,18 +15,18 @@ class NotificationLeadingIconWidget extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          radius: AppSize.L,
+          radius: 16.0,
           backgroundColor: notificationModel.notificationType.getBgColor,
           foregroundColor: AppColors.white,
           child: notificationModel.notificationType.getIcon,
         ),
         if (!notificationModel.isSeen) ...[
           const SizedBox(
-            height: AppSize.S,
+            height: 8.0,
           ),
           Container(
-            height: AppSize.S,
-            width: AppSize.S,
+            height: 8.0,
+            width: 8.0,
             decoration: const BoxDecoration(
               color: AppColors.brand500,
               shape: BoxShape.circle,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
@@ -21,14 +20,14 @@ class NotificationContentWidget extends StatelessWidget {
             notificationModel.title,
             style: AppTextStyles.p2Medium.withColor(AppColors.neutral700),
           ),
-          const SizedBox(height: AppSize.XS),
+          const SizedBox(height: 4.0),
           Text(
             notificationModel.message,
             style: AppTextStyles.p3Regular.withColor(
               AppColors.textNeutralSecondary,
             ),
           ),
-          const SizedBox(height: AppSize.XS),
+          const SizedBox(height: 4.0),
           Text(
             time_ago.format(
               notificationModel.insertedOn,

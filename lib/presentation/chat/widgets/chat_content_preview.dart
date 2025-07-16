@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:sizer/sizer.dart';
 
@@ -26,7 +25,7 @@ class ChatContentPreview extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
           ),
-          const SizedBox(height: AppSize.XS),
+          const SizedBox(height: 4.0),
           Row(
             children: [
               if (chatModel.lastMessageAttachmentUrl != null &&
@@ -42,7 +41,7 @@ class ChatContentPreview extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SizedBox(width: AppSize.S),
+                    const SizedBox(width: 8.0),
                   ],
                 ),
               Expanded(

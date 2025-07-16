@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/widgets/shimmer/shimmer_circular_image.dart';
 import 'package:flutter_skeleton/widgets/shimmer/shimmer_text.dart';
 import 'package:shimmer/shimmer.dart';
@@ -20,25 +19,25 @@ class ChatShimmer extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ShimmerCircularImage(size: profileImageSize),
-          SizedBox(width: AppSize.L),
+          SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 ShimmerText(width: 60),
-                SizedBox(height: AppSize.XS),
+                SizedBox(height: 4.0),
                 ShimmerText(width: double.infinity),
               ],
             ),
           ),
-          SizedBox(width: AppSize.XXL),
+          SizedBox(width: 32.0),
           Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ShimmerText(width: 50),
-              SizedBox(height: AppSize.M),
+              SizedBox(height: 12.0),
               ShimmerText(width: 30, radius: 8),
             ],
           ),
