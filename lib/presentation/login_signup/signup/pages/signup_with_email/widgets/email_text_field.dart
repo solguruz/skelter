@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/constants/login_signup_constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
@@ -41,7 +40,6 @@ class _EmailTextFieldState extends State<EmailTextField> {
         ),
         const SizedBox(height: 16),
         TextField(
-          key: kEmailKey,
           controller: _emailController,
           decoration: InputDecoration(
             hintText: context.l10n.login_signup_email_hint,

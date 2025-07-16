@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
@@ -18,8 +17,8 @@ class DeleteAccount extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.M),
       ),
       child: ListTile(
-        leading: const AppIcon(
-          iconData: TablerIcons.trash,
+        leading: const Icon(
+          TablerIcons.trash,
           color: AppColors.bgErrorDefault,
         ),
         title: Text(
@@ -27,8 +26,9 @@ class DeleteAccount extends StatelessWidget {
           style:
               AppTextStyles.p2Regular.withColor(AppColors.textErrorSecondary),
         ),
-        trailing: const AppIcon(
-          iconData: TablerIcons.chevron_right,
+        trailing: const Icon(
+          TablerIcons.chevron_right,
+          color: AppColors.iconNeutralDefault,
         ),
         onTap: () {
           context.showSnackBar('Delete Account!...');

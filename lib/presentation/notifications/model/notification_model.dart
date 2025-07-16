@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
@@ -57,24 +56,24 @@ enum NotificationType {
   shiftFilled,
   image;
 
-  AppIcon? get getIcon {
+  Icon? get getIcon {
     return switch (this) {
-      NotificationType.shiftSchedule => const AppIcon(
-          size: 20,
-          iconData: TablerIcons.calendar_check,
+      NotificationType.shiftSchedule => const Icon(
+          TablerIcons.calendar_check,
           color: AppColors.white,
-        ),
-      NotificationType.shiftFilled => const AppIcon(
           size: 20,
-          iconData: TablerIcons.calendar_check,
-          color: AppColors.white,
         ),
-      NotificationType.shiftCancel => const AppIcon(
+      NotificationType.shiftFilled => const Icon(
+          TablerIcons.calendar_check,
+          color: AppColors.white,
           size: 20,
-          iconData: TablerIcons.calendar_x,
-          color: AppColors.white,
         ),
-      _ => null
+      NotificationType.shiftCancel => const Icon(
+          TablerIcons.calendar_x,
+          color: AppColors.white,
+          size: 20,
+        ),
+      _ => null,
     };
   }
 

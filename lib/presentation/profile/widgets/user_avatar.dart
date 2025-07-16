@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
@@ -50,10 +49,10 @@ class UserAvatar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const AppIcon(
-                    iconData: TablerIcons.star,
-                    size: 16,
+                  const Icon(
+                    TablerIcons.star,
                     color: AppColors.iconBrandHover,
+                    size: 16,
                   ),
                   const SizedBox(width: AppSize.XS),
                   Text(

@@ -15,10 +15,7 @@ class NotificationErrorWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            TablerIcons.info_circle,
-            size: 50,
-          ),
+          const Icon(TablerIcons.info_circle, size: 50),
           const SizedBox(
             height: 20,
           ),

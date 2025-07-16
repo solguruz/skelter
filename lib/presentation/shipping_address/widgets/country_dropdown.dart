@@ -40,9 +40,7 @@ class _CountryDropdownState extends State<CountryDropdown> {
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           ),
           value: _selectedCountry,
-          icon: const Icon(
-            TablerIcons.chevron_down,
-          ),
+          icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
             context.l10n.select_country,
             style:
