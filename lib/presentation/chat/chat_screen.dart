@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/chat/data/chat_sample_data.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_app_bar.dart';
@@ -19,11 +18,11 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       appBar: const ChatListAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(AppSize.M),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
             const SearchTextField(),
-            const SizedBox(height: AppSize.XL),
+            const SizedBox(height: 24.0),
             Expanded(
               child: FutureBuilder(
                 future: Future.delayed(const Duration(seconds: 2)),
@@ -54,7 +53,7 @@ class ShimmerLoadingView extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
         return const Padding(
-          padding: EdgeInsets.symmetric(vertical: AppSize.M),
+          padding: EdgeInsets.symmetric(vertical: 12.0),
           child: ChatShimmer(),
         );
       },
@@ -81,7 +80,7 @@ class ChatMessages extends StatelessWidget {
                       .push(ChatConversationRoute(chatUser: sampleData[index]));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: AppSize.M),
+                  padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: ChatListTile(chatModel: sampleData[index]),
                 ),
               );

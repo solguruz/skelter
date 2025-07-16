@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/account_and_privacy.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/change_password.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/choose_app_theme.dart';
@@ -18,7 +17,7 @@ class Settings extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.strokeNeutralLight200),
-            borderRadius: BorderRadius.circular(AppRadius.M),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           child: const Column(
             children: [

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/back_to_home_button.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/submission_success_icon.dart';
 import 'package:flutter_skeleton/presentation/contact_us/widgets/submission_success_message.dart';
@@ -30,17 +29,17 @@ class ContactUsSubmittedBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSize.L),
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: Center(
         child: Column(
           children: [
             Spacer(),
             SubmissionSuccessIcon(),
-            SizedBox(height: AppSize.XL),
+            SizedBox(height: 24.0),
             SubmissionSuccessMessage(),
             Spacer(),
             BackToHomeButton(),
-            SizedBox(height: AppSize.XL),
+            SizedBox(height: 24.0),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 
 class SettingsSectionDivider extends StatelessWidget {
   const SettingsSectionDivider({super.key});
@@ -7,8 +6,8 @@ class SettingsSectionDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Divider(
-      indent: AppSize.S,
-      endIndent: AppSize.S,
+      indent: 8.0,
+      endIndent: 8.0,
     );
   }
 }

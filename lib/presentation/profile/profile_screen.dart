@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_bloc.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_state.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/account_section.dart';
@@ -42,22 +41,22 @@ class ProfileScreenBody extends StatelessWidget {
         }
       },
       child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.L),
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
               ProfileDetails(),
               SizedBox(height: 40.0),
               AccountSection(),
-              SizedBox(height: AppSize.XL),
+              SizedBox(height: 24.0),
               ActivitySection(),
-              SizedBox(height: AppSize.XXL),
+              SizedBox(height: 32.0),
               Settings(),
-              SizedBox(height: AppSize.XL),
+              SizedBox(height: 24.0),
               SupportSection(),
-              SizedBox(height: AppSize.XL),
+              SizedBox(height: 24.0),
               SignOut(),
-              SizedBox(height: AppSize.XXL),
+              SizedBox(height: 32.0),
             ],
           ),
         ),

@@ -9,7 +9,6 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/screens/phone_num_verified_page/widgets/next_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -39,7 +38,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
         padding: EdgeInsets.only(
           left: LoginScreen.kHorizontalPadding,
           right: LoginScreen.kHorizontalPadding,
-          bottom: max(20, context.screenPaddingBottom),
+          bottom: max(20, MediaQuery.of(context).padding.bottom),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

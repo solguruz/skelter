@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
@@ -72,7 +71,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
     builder: (_) {
       return SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSize.L),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -101,7 +100,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
                   );
                 },
               ),
-              const SizedBox(height: AppSize.L),
+              const SizedBox(height: 16.0),
               AppButton(
                 label: context.l10n.upload_from_gallery,
                 fillWidth: true,
@@ -115,7 +114,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
                   );
                 },
               ),
-              const SizedBox(height: AppSize.L),
+              const SizedBox(height: 16.0),
               AppButton(
                 label: context.l10n.upload_from_files,
                 fillWidth: true,
@@ -127,7 +126,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
                   context.contactUsBloc.add(const AddPdfEvent());
                 },
               ),
-              const SizedBox(height: AppSize.L),
+              const SizedBox(height: 16.0),
             ],
           ),
         ),

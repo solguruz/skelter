@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_shimmer_card.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
@@ -12,7 +11,7 @@ class NotificationLoadigShimmerList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: 7,
-      padding: const EdgeInsets.symmetric(vertical: AppSize.XS),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
       separatorBuilder: (context, index) => const Divider(
         color: AppColors.strokeNeutralLight200,
       ),

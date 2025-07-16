@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_bloc.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
@@ -29,7 +28,7 @@ class NotificationDismissibleWidget extends StatelessWidget {
               color: AppColors.white,
             ),
             SizedBox(
-              width: AppSize.L,
+              width: 16.0,
             ),
           ],
         ),

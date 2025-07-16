@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/delete_account.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/settings.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/settings_appbar.dart';
@@ -24,13 +23,13 @@ class SettingsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSize.L),
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: AppSize.L),
+            SizedBox(height: 16.0),
             Settings(),
-            SizedBox(height: AppSize.XL),
+            SizedBox(height: 24.0),
             DeleteAccount(),
           ],
         ),
