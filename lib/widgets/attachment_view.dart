@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 @RoutePage()
-class NetworkImagePage extends StatelessWidget {
-  const NetworkImagePage({super.key, required this.link});
+class NetworkImageScreen extends StatelessWidget {
+  const NetworkImageScreen({super.key, required this.link});
 
   final String link;
 

@@ -42,7 +42,7 @@ void main() {
           children: [
             createTestScenario(
               name: 'Chat conversation page',
-              child: ChatConversationPage(
+              child: ChatConversationScreen(
                 chatUser: sampleData[0],
               ),
             ),

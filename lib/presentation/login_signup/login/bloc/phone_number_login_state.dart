@@ -33,7 +33,7 @@ class PhoneNumberLoginState with EquatableMixin {
       phoneOTPText: '',
       phoneOTPErrorMessage: null,
       isResendOTPEnabled: false,
-      resendOTPTimeLeft: PhoneNumberOTPPage.kResendOTPMaxSeconds,
+      resendOTPTimeLeft: PhoneNumberOTPScreen.kResendOTPMaxSeconds,
     );
   }
 
@@ -98,7 +98,7 @@ class PhoneNumberLoginState with EquatableMixin {
       phoneOTPErrorMessage: phoneOTPErrorMessage,
       isResendOTPEnabled: isResendOTPEnabled ?? false,
       resendOTPTimeLeft:
-          resendOTPTimeLeft ?? PhoneNumberOTPPage.kResendOTPMaxSeconds,
+          resendOTPTimeLeft ?? PhoneNumberOTPScreen.kResendOTPMaxSeconds,
     );
   }
 

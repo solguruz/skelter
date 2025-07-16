@@ -6,7 +6,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -20,7 +20,7 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: LoginPage.kHorizontalPadding,
+        horizontal: LoginScreen.kHorizontalPadding,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

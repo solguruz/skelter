@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart';
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart';
 
 part 'email_password_login_state.dart';
 part 'phone_number_login_state.dart';
@@ -118,8 +118,8 @@ class NavigateToOTPScreenState extends LoginState {
         );
 }
 
-class NavigateToHomePageState extends LoginState {
-  NavigateToHomePageState(super.state) : super.copy();
+class NavigateToHomeScreenState extends LoginState {
+  NavigateToHomeScreenState(super.state) : super.copy();
 }
 
 class AuthenticationExceptionState extends LoginState {
@@ -145,8 +145,8 @@ class SSOLoginLoadingState extends LoginState {
       : super.copy(state.copyWith(isLoading: isLoading));
 }
 
-class NavigateToVerifiedPageState extends LoginState {
-  NavigateToVerifiedPageState(super.state) : super.copy();
+class NavigateToVerifiedScreenState extends LoginState {
+  NavigateToVerifiedScreenState(super.state) : super.copy();
 }
 
 class NavigateToChooseHandleState extends LoginState {
@@ -158,8 +158,8 @@ class SignupLoadingState extends LoginState {
       : super.copy(state.copyWith(isLoading: isLoading));
 }
 
-class NavigateToEmailVerifyPageState extends LoginState {
-  NavigateToEmailVerifyPageState(super.state) : super.copy();
+class NavigateToEmailVerifyScreenState extends LoginState {
+  NavigateToEmailVerifyScreenState(super.state) : super.copy();
 }
 
 class RestartVerificationMailResendTimerState extends LoginState {

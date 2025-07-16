@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/verify_email_page.dart';
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/verify_email_screen.dart';
 
 class SignUpState with EquatableMixin {
   final String handle;
@@ -69,7 +69,7 @@ class SignUpState with EquatableMixin {
       hasLetterAndNumberInPassword: false,
       hasSpecialCharacterInPassword: false,
       resendVerificationEmailTimeLeft:
-          VerifyEmailPage.kResendVerificationEmailMaxSeconds,
+          VerifyEmailScreen.kResendVerificationEmailMaxSeconds,
     );
   }
 
@@ -201,7 +201,7 @@ class SignUpState with EquatableMixin {
       hasLetterAndNumberInPassword: hasLetterAndNumberInPassword ?? false,
       hasSpecialCharacterInPassword: hasSpecialCharacterInPassword ?? false,
       resendVerificationEmailTimeLeft: resendVerificationEmailTimeLeft ??
-          VerifyEmailPage.kResendVerificationEmailMaxSeconds,
+          VerifyEmailScreen.kResendVerificationEmailMaxSeconds,
     );
   }
 
