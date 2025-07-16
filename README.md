@@ -4,9 +4,9 @@ A comprehensive Flutter skeleton project incorporating best practices, modern ar
 
 ## Technology Stack
 
-- **Flutter Version:** ^3.27.3
-- **Dart SDK:** ^3.6.1
-- **State Management:** BLoC pattern
+- **Flutter Version:** ^3.29.3
+- **Dart SDK:** ^3.7.2
+- **State Management:** BLoC
 - **Navigation:** Auto Route
 - **Backend Integration:** Firebase (Core, Analytics, Crashlytics, Auth)
 - **Authentication:** Firebase Auth, Google Sign-In, Apple Sign-In
