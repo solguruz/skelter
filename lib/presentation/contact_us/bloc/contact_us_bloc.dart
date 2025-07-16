@@ -7,7 +7,7 @@ import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_page.dart';
+import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
@@ -117,7 +117,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
 
       if (event.source == ImageSource.gallery) {
         pickedImages =
-            await picker.pickMultiImage(limit: ContactUsPage.kMaxFileLimit);
+            await picker.pickMultiImage(limit: ContactUsScreen.kMaxFileLimit);
       } else {
         final XFile? image = await picker.pickImage(source: ImageSource.camera);
         if (image != null) pickedImages = [image];
@@ -127,7 +127,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
         emit(
           state.copyWith(
             selectedImages:
-                pickedImages.take(ContactUsPage.kMaxFileLimit).toList(),
+                pickedImages.take(ContactUsScreen.kMaxFileLimit).toList(),
           ),
         );
         emit(ResetPickedFilesErrorState(state));
@@ -177,7 +177,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
             return;
           }
 
-          if (fileSize > ContactUsPage.kMaxFileSizeInBytes) {
+          if (fileSize > ContactUsScreen.kMaxFileSizeInBytes) {
             emit(
               PickedFilesErrorState(
                 state,
@@ -205,7 +205,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       emit(ResetPickedFilesErrorState(state));
       emit(
         state.copyWith(
-          selectedPdfs: updated.take(ContactUsPage.kMaxFileLimit).toList(),
+          selectedPdfs: updated.take(ContactUsScreen.kMaxFileLimit).toList(),
         ),
       );
     } catch (e) {
@@ -225,7 +225,7 @@ Future<bool> isValidPdf(File file) async {
   try {
     final bytes = await file.openRead(0, 5).first;
     final signature = String.fromCharCodes(bytes);
-    return signature == ContactUsPage.kPdfFileSignature;
+    return signature == ContactUsScreen.kPdfFileSignature;
   } catch (e) {
     return false;
   }

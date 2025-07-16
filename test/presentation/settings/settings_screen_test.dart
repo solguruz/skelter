@@ -16,7 +16,7 @@ void main() {
       );
 
       expect(find.byType(SettingsScreen), findsOneWidget);
-      expect(find.byType(SettingsPageBody), findsOneWidget);
+      expect(find.byType(SettingsScreenBody), findsOneWidget);
     });
   });
 

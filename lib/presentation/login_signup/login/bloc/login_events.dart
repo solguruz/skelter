@@ -108,12 +108,12 @@ class NavigateToHomeScreenEvent extends LoginEvents {
 }
 
 class FirebasePhoneLoginEvent extends LoginEvents {
-  final bool isFromVerificationPage;
+  final bool isFromVerificationScreen;
 
-  FirebasePhoneLoginEvent({required this.isFromVerificationPage});
+  FirebasePhoneLoginEvent({required this.isFromVerificationScreen});
 
   @override
-  List<Object?> get props => [isFromVerificationPage];
+  List<Object?> get props => [isFromVerificationScreen];
 }
 
 class FirebaseOTPVerificationEvent extends LoginEvents {
@@ -378,8 +378,8 @@ class FinishProfilePictureEvent extends LoginEvents {
   List<Object?> get props => [];
 }
 
-class ResetSignUpStateOnPageClosedEvent extends LoginEvents {
-  ResetSignUpStateOnPageClosedEvent();
+class ResetSignUpStateOnScreenClosedEvent extends LoginEvents {
+  ResetSignUpStateOnScreenClosedEvent();
 
   @override
   List<Object?> get props => [];
@@ -473,8 +473,8 @@ class SignupWithEmailEvent extends LoginEvents {
   List<Object?> get props => [];
 }
 
-class NavigateToEmailVerifyPageEvent extends LoginEvents {
-  NavigateToEmailVerifyPageEvent();
+class NavigateToEmailVerifyScreenEvent extends LoginEvents {
+  NavigateToEmailVerifyScreenEvent();
 
   @override
   List<Object?> get props => [];

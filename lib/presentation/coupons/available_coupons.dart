@@ -4,8 +4,8 @@ import 'package:flutter_skeleton/presentation/coupons/widgets/available_coupons_
 import 'package:flutter_skeleton/presentation/coupons/widgets/coupon_item.dart';
 
 @RoutePage()
-class AvailableCouponsPage extends StatelessWidget {
-  const AvailableCouponsPage({super.key});
+class AvailableCouponsScreen extends StatelessWidget {
+  const AvailableCouponsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -44,7 +44,7 @@ extension AppBuildContextExtensions on BuildContext {
   }
 }
 
-extension PushPage on BuildContext {
+extension PushScreen on BuildContext {
   /// Pushes a new route/page using auto_route.
   /// 'For navigation, use auto_route and its `pushRoute` method instead'
   Future pushMaterialPageRoute(Widget page) {

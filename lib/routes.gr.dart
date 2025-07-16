@@ -13,55 +13,55 @@ import 'package:auto_route/auto_route.dart' as _i32;
 import 'package:flutter/material.dart' as _i33;
 import 'package:flutter_skeleton/presentation/chat/chat_conversations.dart'
     as _i4;
-import 'package:flutter_skeleton/presentation/chat/chat_page.dart' as _i5;
+import 'package:flutter_skeleton/presentation/chat/chat_screen.dart' as _i5;
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart'
     as _i35;
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_page.dart'
+import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart'
     as _i7;
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_submitted_page.dart'
+import 'package:flutter_skeleton/presentation/contact_us/contact_us_submitted_screen.dart'
     as _i8;
 import 'package:flutter_skeleton/presentation/coupons/available_coupons.dart'
     as _i3;
-import 'package:flutter_skeleton/presentation/empty_screens/empty_screens_page.dart'
+import 'package:flutter_skeleton/presentation/empty_screens/empty_view_screens.dart'
     as _i11;
-import 'package:flutter_skeleton/presentation/home/home_page.dart' as _i13;
-import 'package:flutter_skeleton/presentation/initial/initial_page.dart'
+import 'package:flutter_skeleton/presentation/home/home_screen.dart' as _i13;
+import 'package:flutter_skeleton/presentation/initial/initial_screen.dart'
     as _i14;
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart'
     as _i34;
-import 'package:flutter_skeleton/presentation/login_signup/login/login_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart'
     as _i15;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/check_your_email/check_your_email_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/check_your_email/check_your_email_screen.dart'
     as _i6;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/forgot_password/forgot_password_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/forgot_password/forgot_password_screen.dart'
     as _i12;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_email/login_with_email_pass_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_email/login_with_email_password_screen.dart'
     as _i16;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/login_with_phone_number/login_with_phone_num_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_phone_number/login_with_phone_number_screen.dart'
     as _i17;
-import 'package:flutter_skeleton/presentation/login_signup/login/pages/phone_num_otp_page/phone_num_otp_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart'
     as _i22;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/phone_num_verified_page/phone_num_verified_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
     as _i23;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/profile_picture/add_profile_picture_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/profile_picture/add_profile_picture_screen.dart'
     as _i2;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/create_your_password_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/signup_with_email/create_your_password_screen.dart'
     as _i9;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/signup_with_email/signup_with_email_pass_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
     as _i28;
-import 'package:flutter_skeleton/presentation/login_signup/signup/pages/verify_email_page/verify_email_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/verify_email_screen.dart'
     as _i30;
-import 'package:flutter_skeleton/presentation/login_signup/signup/signup_page.dart'
+import 'package:flutter_skeleton/presentation/login_signup/signup/signup_screen.dart'
     as _i27;
-import 'package:flutter_skeleton/presentation/my_orders/my_orders_page.dart'
+import 'package:flutter_skeleton/presentation/my_orders/my_orders_screen.dart'
     as _i18;
-import 'package:flutter_skeleton/presentation/no_internet/no_internet_page.dart'
+import 'package:flutter_skeleton/presentation/no_internet/no_internet_screen.dart'
     as _i20;
-import 'package:flutter_skeleton/presentation/notifications/notifications_page.dart'
+import 'package:flutter_skeleton/presentation/notifications/notifications_screen.dart'
     as _i21;
-import 'package:flutter_skeleton/presentation/saved_cards/saved_card_page.dart'
+import 'package:flutter_skeleton/presentation/saved_cards/saved_card_screen.dart'
     as _i24;
-import 'package:flutter_skeleton/presentation/server_error/server_error_page.dart'
+import 'package:flutter_skeleton/presentation/server_error/server_error_screen.dart'
     as _i25;
 import 'package:flutter_skeleton/presentation/settings/settings_screen.dart'
     as _i26;
@@ -69,14 +69,14 @@ import 'package:flutter_skeleton/presentation/shipping_address/add_address.dart'
     as _i1;
 import 'package:flutter_skeleton/presentation/shipping_address/edit_address.dart'
     as _i10;
-import 'package:flutter_skeleton/presentation/under_maintainace/under_maintenance_page.dart'
+import 'package:flutter_skeleton/presentation/under_maintainace/under_maintenance_screen.dart'
     as _i29;
-import 'package:flutter_skeleton/presentation/wishlist/wishlist_page.dart'
+import 'package:flutter_skeleton/presentation/wishlist/wishlist_screen.dart'
     as _i31;
 import 'package:flutter_skeleton/widgets/attachment_view.dart' as _i19;
 
 /// generated route for
-/// [_i1.AddAddressPage]
+/// [_i1.AddAddressScreen]
 class AddAddressRoute extends _i32.PageRouteInfo<void> {
   const AddAddressRoute({List<_i32.PageRouteInfo>? children})
     : super(AddAddressRoute.name, initialChildren: children);
@@ -86,13 +86,13 @@ class AddAddressRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i1.AddAddressPage();
+      return const _i1.AddAddressScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i2.AddProfilePicturePage]
+/// [_i2.AddProfilePictureScreen]
 class AddProfilePictureRoute
     extends _i32.PageRouteInfo<AddProfilePictureRouteArgs> {
   AddProfilePictureRoute({
@@ -111,7 +111,7 @@ class AddProfilePictureRoute
     name,
     builder: (data) {
       final args = data.argsAs<AddProfilePictureRouteArgs>();
-      return _i2.AddProfilePicturePage(
+      return _i2.AddProfilePictureScreen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -133,7 +133,7 @@ class AddProfilePictureRouteArgs {
 }
 
 /// generated route for
-/// [_i3.AvailableCouponsPage]
+/// [_i3.AvailableCouponsScreen]
 class AvailableCouponsRoute extends _i32.PageRouteInfo<void> {
   const AvailableCouponsRoute({List<_i32.PageRouteInfo>? children})
     : super(AvailableCouponsRoute.name, initialChildren: children);
@@ -143,13 +143,13 @@ class AvailableCouponsRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i3.AvailableCouponsPage();
+      return const _i3.AvailableCouponsScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i4.ChatConversationPage]
+/// [_i4.ChatConversationScreen]
 class ChatConversationRoute
     extends _i32.PageRouteInfo<ChatConversationRouteArgs> {
   ChatConversationRoute({
@@ -168,7 +168,7 @@ class ChatConversationRoute
     name,
     builder: (data) {
       final args = data.argsAs<ChatConversationRouteArgs>();
-      return _i4.ChatConversationPage(key: args.key, chatUser: args.chatUser);
+      return _i4.ChatConversationScreen(key: args.key, chatUser: args.chatUser);
     },
   );
 }
@@ -187,7 +187,7 @@ class ChatConversationRouteArgs {
 }
 
 /// generated route for
-/// [_i5.ChatPage]
+/// [_i5.ChatScreen]
 class ChatRoute extends _i32.PageRouteInfo<void> {
   const ChatRoute({List<_i32.PageRouteInfo>? children})
     : super(ChatRoute.name, initialChildren: children);
@@ -197,13 +197,13 @@ class ChatRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i5.ChatPage();
+      return const _i5.ChatScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i6.CheckYourEmailPage]
+/// [_i6.CheckYourEmailScreen]
 class CheckYourEmailRoute extends _i32.PageRouteInfo<CheckYourEmailRouteArgs> {
   CheckYourEmailRoute({
     _i33.Key? key,
@@ -221,7 +221,7 @@ class CheckYourEmailRoute extends _i32.PageRouteInfo<CheckYourEmailRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<CheckYourEmailRouteArgs>();
-      return _i6.CheckYourEmailPage(key: args.key, loginBloc: args.loginBloc);
+      return _i6.CheckYourEmailScreen(key: args.key, loginBloc: args.loginBloc);
     },
   );
 }
@@ -240,7 +240,7 @@ class CheckYourEmailRouteArgs {
 }
 
 /// generated route for
-/// [_i7.ContactUsPage]
+/// [_i7.ContactUsScreen]
 class ContactUsRoute extends _i32.PageRouteInfo<void> {
   const ContactUsRoute({List<_i32.PageRouteInfo>? children})
     : super(ContactUsRoute.name, initialChildren: children);
@@ -250,13 +250,13 @@ class ContactUsRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i7.ContactUsPage();
+      return const _i7.ContactUsScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i8.ContactUsSubmittedPage]
+/// [_i8.ContactUsSubmittedScreen]
 class ContactUsSubmittedRoute extends _i32.PageRouteInfo<void> {
   const ContactUsSubmittedRoute({List<_i32.PageRouteInfo>? children})
     : super(ContactUsSubmittedRoute.name, initialChildren: children);
@@ -266,13 +266,13 @@ class ContactUsSubmittedRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i8.ContactUsSubmittedPage();
+      return const _i8.ContactUsSubmittedScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i9.CreateYourPasswordPage]
+/// [_i9.CreateYourPasswordScreen]
 class CreateYourPasswordRoute
     extends _i32.PageRouteInfo<CreateYourPasswordRouteArgs> {
   CreateYourPasswordRoute({
@@ -291,7 +291,7 @@ class CreateYourPasswordRoute
     name,
     builder: (data) {
       final args = data.argsAs<CreateYourPasswordRouteArgs>();
-      return _i9.CreateYourPasswordPage(
+      return _i9.CreateYourPasswordScreen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -313,7 +313,7 @@ class CreateYourPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i10.EditAddressPage]
+/// [_i10.EditAddressScreen]
 class EditAddressRoute extends _i32.PageRouteInfo<void> {
   const EditAddressRoute({List<_i32.PageRouteInfo>? children})
     : super(EditAddressRoute.name, initialChildren: children);
@@ -323,13 +323,13 @@ class EditAddressRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i10.EditAddressPage();
+      return const _i10.EditAddressScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i11.EmptyViewsPage]
+/// [_i11.EmptyViewsScreen]
 class EmptyViewsRoute extends _i32.PageRouteInfo<void> {
   const EmptyViewsRoute({List<_i32.PageRouteInfo>? children})
     : super(EmptyViewsRoute.name, initialChildren: children);
@@ -339,13 +339,13 @@ class EmptyViewsRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i11.EmptyViewsPage();
+      return const _i11.EmptyViewsScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i12.ForgotPasswordV2Page]
+/// [_i12.ForgotPasswordV2Screen]
 class ForgotPasswordV2Route
     extends _i32.PageRouteInfo<ForgotPasswordV2RouteArgs> {
   ForgotPasswordV2Route({
@@ -364,7 +364,7 @@ class ForgotPasswordV2Route
     name,
     builder: (data) {
       final args = data.argsAs<ForgotPasswordV2RouteArgs>();
-      return _i12.ForgotPasswordV2Page(
+      return _i12.ForgotPasswordV2Screen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -386,7 +386,7 @@ class ForgotPasswordV2RouteArgs {
 }
 
 /// generated route for
-/// [_i13.HomePage]
+/// [_i13.HomeScreen]
 class HomeRoute extends _i32.PageRouteInfo<void> {
   const HomeRoute({List<_i32.PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
@@ -396,13 +396,13 @@ class HomeRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i13.HomePage();
+      return const _i13.HomeScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i14.InitialPage]
+/// [_i14.InitialScreen]
 class InitialRoute extends _i32.PageRouteInfo<void> {
   const InitialRoute({List<_i32.PageRouteInfo>? children})
     : super(InitialRoute.name, initialChildren: children);
@@ -412,13 +412,13 @@ class InitialRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i14.InitialPage();
+      return const _i14.InitialScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i15.LoginPage]
+/// [_i15.LoginScreen]
 class LoginRoute extends _i32.PageRouteInfo<void> {
   const LoginRoute({List<_i32.PageRouteInfo>? children})
     : super(LoginRoute.name, initialChildren: children);
@@ -428,13 +428,13 @@ class LoginRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i15.LoginPage();
+      return const _i15.LoginScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i16.LoginWithEmailPasswordPage]
+/// [_i16.LoginWithEmailPasswordScreen]
 class LoginWithEmailPasswordRoute
     extends _i32.PageRouteInfo<LoginWithEmailPasswordRouteArgs> {
   LoginWithEmailPasswordRoute({
@@ -453,7 +453,7 @@ class LoginWithEmailPasswordRoute
     name,
     builder: (data) {
       final args = data.argsAs<LoginWithEmailPasswordRouteArgs>();
-      return _i16.LoginWithEmailPasswordPage(
+      return _i16.LoginWithEmailPasswordScreen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -475,7 +475,7 @@ class LoginWithEmailPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i17.LoginWithPhoneNumberPage]
+/// [_i17.LoginWithPhoneNumberScreen]
 class LoginWithPhoneNumberRoute extends _i32.PageRouteInfo<void> {
   const LoginWithPhoneNumberRoute({List<_i32.PageRouteInfo>? children})
     : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
@@ -485,13 +485,13 @@ class LoginWithPhoneNumberRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i17.LoginWithPhoneNumberPage();
+      return const _i17.LoginWithPhoneNumberScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i18.MyOrdersPage]
+/// [_i18.MyOrdersScreen]
 class MyOrdersRoute extends _i32.PageRouteInfo<void> {
   const MyOrdersRoute({List<_i32.PageRouteInfo>? children})
     : super(MyOrdersRoute.name, initialChildren: children);
@@ -501,13 +501,13 @@ class MyOrdersRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i18.MyOrdersPage();
+      return const _i18.MyOrdersScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i19.NetworkImagePage]
+/// [_i19.NetworkImageScreen]
 class NetworkImageRoute extends _i32.PageRouteInfo<NetworkImageRouteArgs> {
   NetworkImageRoute({
     _i33.Key? key,
@@ -525,7 +525,7 @@ class NetworkImageRoute extends _i32.PageRouteInfo<NetworkImageRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<NetworkImageRouteArgs>();
-      return _i19.NetworkImagePage(key: args.key, link: args.link);
+      return _i19.NetworkImageScreen(key: args.key, link: args.link);
     },
   );
 }
@@ -544,7 +544,7 @@ class NetworkImageRouteArgs {
 }
 
 /// generated route for
-/// [_i20.NoInternetPage]
+/// [_i20.NoInternetScreen]
 class NoInternetRoute extends _i32.PageRouteInfo<void> {
   const NoInternetRoute({List<_i32.PageRouteInfo>? children})
     : super(NoInternetRoute.name, initialChildren: children);
@@ -554,13 +554,13 @@ class NoInternetRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i20.NoInternetPage();
+      return const _i20.NoInternetScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i21.NotificationsPage]
+/// [_i21.NotificationsScreen]
 class NotificationsRoute extends _i32.PageRouteInfo<void> {
   const NotificationsRoute({List<_i32.PageRouteInfo>? children})
     : super(NotificationsRoute.name, initialChildren: children);
@@ -570,13 +570,13 @@ class NotificationsRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i21.NotificationsPage();
+      return const _i21.NotificationsScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i22.PhoneNumberOTPPage]
+/// [_i22.PhoneNumberOTPScreen]
 class PhoneNumberOTPRoute extends _i32.PageRouteInfo<PhoneNumberOTPRouteArgs> {
   PhoneNumberOTPRoute({
     _i33.Key? key,
@@ -594,7 +594,10 @@ class PhoneNumberOTPRoute extends _i32.PageRouteInfo<PhoneNumberOTPRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberOTPRouteArgs>();
-      return _i22.PhoneNumberOTPPage(key: args.key, loginBloc: args.loginBloc);
+      return _i22.PhoneNumberOTPScreen(
+        key: args.key,
+        loginBloc: args.loginBloc,
+      );
     },
   );
 }
@@ -613,7 +616,7 @@ class PhoneNumberOTPRouteArgs {
 }
 
 /// generated route for
-/// [_i23.PhoneNumberVerifiedPage]
+/// [_i23.PhoneNumberVerifiedScreen]
 class PhoneNumberVerifiedRoute
     extends _i32.PageRouteInfo<PhoneNumberVerifiedRouteArgs> {
   PhoneNumberVerifiedRoute({
@@ -632,7 +635,7 @@ class PhoneNumberVerifiedRoute
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberVerifiedRouteArgs>();
-      return _i23.PhoneNumberVerifiedPage(
+      return _i23.PhoneNumberVerifiedScreen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -654,7 +657,7 @@ class PhoneNumberVerifiedRouteArgs {
 }
 
 /// generated route for
-/// [_i24.SavedCardPage]
+/// [_i24.SavedCardScreen]
 class SavedCardRoute extends _i32.PageRouteInfo<void> {
   const SavedCardRoute({List<_i32.PageRouteInfo>? children})
     : super(SavedCardRoute.name, initialChildren: children);
@@ -664,13 +667,13 @@ class SavedCardRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i24.SavedCardPage();
+      return const _i24.SavedCardScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i25.ServerErrorPage]
+/// [_i25.ServerErrorScreen]
 class ServerErrorRoute extends _i32.PageRouteInfo<void> {
   const ServerErrorRoute({List<_i32.PageRouteInfo>? children})
     : super(ServerErrorRoute.name, initialChildren: children);
@@ -680,7 +683,7 @@ class ServerErrorRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i25.ServerErrorPage();
+      return const _i25.ServerErrorScreen();
     },
   );
 }
@@ -702,7 +705,7 @@ class SettingsRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i27.SignUpPage]
+/// [_i27.SignUpScreen]
 class SignUpRoute extends _i32.PageRouteInfo<void> {
   const SignUpRoute({List<_i32.PageRouteInfo>? children})
     : super(SignUpRoute.name, initialChildren: children);
@@ -712,13 +715,13 @@ class SignUpRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i27.SignUpPage();
+      return const _i27.SignUpScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i28.SignupWithEmailPasswordPage]
+/// [_i28.SignupWithEmailPasswordScreen]
 class SignupWithEmailPasswordRoute
     extends _i32.PageRouteInfo<SignupWithEmailPasswordRouteArgs> {
   SignupWithEmailPasswordRoute({
@@ -737,7 +740,7 @@ class SignupWithEmailPasswordRoute
     name,
     builder: (data) {
       final args = data.argsAs<SignupWithEmailPasswordRouteArgs>();
-      return _i28.SignupWithEmailPasswordPage(
+      return _i28.SignupWithEmailPasswordScreen(
         key: args.key,
         loginBloc: args.loginBloc,
       );
@@ -759,7 +762,7 @@ class SignupWithEmailPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i29.UnderMaintenancePage]
+/// [_i29.UnderMaintenanceScreen]
 class UnderMaintenanceRoute extends _i32.PageRouteInfo<void> {
   const UnderMaintenanceRoute({List<_i32.PageRouteInfo>? children})
     : super(UnderMaintenanceRoute.name, initialChildren: children);
@@ -769,13 +772,13 @@ class UnderMaintenanceRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i29.UnderMaintenancePage();
+      return const _i29.UnderMaintenanceScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i30.VerifyEmailPage]
+/// [_i30.VerifyEmailScreen]
 class VerifyEmailRoute extends _i32.PageRouteInfo<VerifyEmailRouteArgs> {
   VerifyEmailRoute({
     _i33.Key? key,
@@ -793,7 +796,7 @@ class VerifyEmailRoute extends _i32.PageRouteInfo<VerifyEmailRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<VerifyEmailRouteArgs>();
-      return _i30.VerifyEmailPage(key: args.key, loginBloc: args.loginBloc);
+      return _i30.VerifyEmailScreen(key: args.key, loginBloc: args.loginBloc);
     },
   );
 }
@@ -812,7 +815,7 @@ class VerifyEmailRouteArgs {
 }
 
 /// generated route for
-/// [_i31.WishlistPage]
+/// [_i31.WishlistScreen]
 class WishlistRoute extends _i32.PageRouteInfo<void> {
   const WishlistRoute({List<_i32.PageRouteInfo>? children})
     : super(WishlistRoute.name, initialChildren: children);
@@ -822,7 +825,7 @@ class WishlistRoute extends _i32.PageRouteInfo<void> {
   static _i32.PageInfo page = _i32.PageInfo(
     name,
     builder: (data) {
-      return const _i31.WishlistPage();
+      return const _i31.WishlistScreen();
     },
   );
 }

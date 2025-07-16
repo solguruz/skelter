@@ -6,8 +6,8 @@ import 'package:flutter_skeleton/presentation/chat/widgets/chat_message_list.dar
 import 'package:flutter_skeleton/presentation/chat/widgets/new_message_text_field.dart';
 
 @RoutePage()
-class ChatConversationPage extends StatelessWidget {
-  const ChatConversationPage({super.key, required this.chatUser});
+class ChatConversationScreen extends StatelessWidget {
+  const ChatConversationScreen({super.key, required this.chatUser});
 
   final ChatModel chatUser;
 

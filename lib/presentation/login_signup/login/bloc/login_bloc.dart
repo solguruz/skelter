@@ -47,7 +47,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     on<FirebaseOTPAutoVerificationEvent>(
       _onFirebaseOTPAutoVerificationEvent,
     );
-    on<NavigateToHomeScreenEvent>(_onNavigateToHomePageEvent);
+    on<NavigateToHomeScreenEvent>(_onNavigateToHomeScreenEvent);
     on<EmailChangeEvent>(_onEmailChangeEvent);
     on<EmailErrorEvent>(_onEmailErrorEvent);
     on<PasswordChangeEvent>(_onPasswordChangeEvent);
@@ -76,7 +76,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     on<RemoveProfilePictureEvent>(_onRemoveProfilePictureEvent);
     on<ProfilePictureDoneToggleEvent>(_onProfilePictureDoneToggleEvent);
     on<FinishProfilePictureEvent>(_onFinishProfilePictureEvent);
-    on<ResetSignUpStateOnPageClosedEvent>(_resetSignUpStateOnPageClosedEvent);
+    on<ResetSignUpStateOnScreenClosedEvent>(
+        _resetSignUpStateOnScreenClosedEvent);
     on<SelectLoginSignupTypeEvent>(_onSelectLoginSignupTypeEvent);
     on<SignupEmailChangeEvent>(_onSignupEmailChangeEvent);
     on<SignupEmailErrorEvent>(_onSignupEmailErrorEvent);
@@ -89,7 +90,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     );
     on<UpdatePasswordStrengthEvent>(_onUpdatePasswordStrengthEvent);
     on<SignupWithEmailEvent>(_onSignupWithEmailEvent);
-    on<NavigateToEmailVerifyPageEvent>(_onNavigateToEmailVerifyPageState);
+    on<NavigateToEmailVerifyScreenEvent>(_onNavigateToEmailVerifyScreenState);
     on<SendEmailVerificationLinkEvent>(_onSendEmailVerificationLinkEvent);
     on<ResendVerificationEmailTimeLeftEvent>(
       _onResendVerificationEmailTimeLeftEvent,
@@ -250,19 +251,19 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     );
   }
 
-  void _onNavigateToHomePageEvent(
+  void _onNavigateToHomeScreenEvent(
     NavigateToHomeScreenEvent event,
     Emitter emit,
   ) {
-    emit(NavigateToHomePageState(state));
+    emit(NavigateToHomeScreenState(state));
   }
 
   Future<void> _onFirebasePhoneLoginEvent(
     FirebasePhoneLoginEvent event,
     Emitter emit,
   ) async {
-    await _firebaseVerifyAndOpenOtpPageOnCodeSent(
-      isFromVerificationPage: event.isFromVerificationPage,
+    await _firebaseVerifyAndOpenOtpScreenOnCodeSent(
+      isFromVerificationScreen: event.isFromVerificationScreen,
     );
   }
 
@@ -448,7 +449,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     Emitter emit,
   ) {
     emit(
-      NavigateToVerifiedPageState(
+      NavigateToVerifiedScreenState(
         state.copyWith(
           userDetailsInputStatus: UserDetailsInputStatus.inProgress,
         ),
@@ -584,8 +585,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     _proceedSignUpDetailsUpload();
   }
 
-  void _resetSignUpStateOnPageClosedEvent(
-    ResetSignUpStateOnPageClosedEvent event,
+  void _resetSignUpStateOnScreenClosedEvent(
+    ResetSignUpStateOnScreenClosedEvent event,
     Emitter emit,
   ) {
     // If we are in the process of completing the user details,
@@ -751,11 +752,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     _signupWithEmailAndPassword();
   }
 
-  void _onNavigateToEmailVerifyPageState(
-    NavigateToEmailVerifyPageEvent event,
+  void _onNavigateToEmailVerifyScreenState(
+    NavigateToEmailVerifyScreenEvent event,
     Emitter emit,
   ) {
-    emit(NavigateToEmailVerifyPageState(state));
+    emit(NavigateToEmailVerifyScreenState(state));
   }
 
   void _onSendEmailVerificationLinkEvent(
@@ -817,7 +818,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       add(PhoneNumLoginLoadingEvent(isLoading: false));
       return;
     }
-    add(FirebasePhoneLoginEvent(isFromVerificationPage: false));
+    add(FirebasePhoneLoginEvent(isFromVerificationScreen: false));
   }
 
   void _onVerifyEmailAccountEvent(
@@ -937,10 +938,10 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     FirebaseAuthService().init();
   }
 
-  Future<void> _firebaseVerifyAndOpenOtpPageOnCodeSent({
-    required bool isFromVerificationPage,
+  Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({
+    required bool isFromVerificationScreen,
   }) async {
-    add(PhoneNumLoginLoadingEvent(isLoading: !isFromVerificationPage));
+    add(PhoneNumLoginLoadingEvent(isLoading: !isFromVerificationScreen));
 
     await _firebaseAuthService.verifyFBAuthPhoneNumber(
       phoneNumber: state.phoneNumberLoginState?.phoneNumber ?? '',
@@ -949,7 +950,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       },
       codeSent: (verificationId) {
         add(PhoneNumLoginLoadingEvent(isLoading: false));
-        if (!isFromVerificationPage) {
+        if (!isFromVerificationScreen) {
           add(NavigateToOtpEvent(verificationId: verificationId));
         }
       },
@@ -1082,7 +1083,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       return;
     }
     add(EmailLoginLoadingEvent(isLoading: false));
-    add(NavigateToEmailVerifyPageEvent());
+    add(NavigateToEmailVerifyScreenEvent());
   }
 
   Future<void> _sendPasswordResetLink() async {
@@ -1125,7 +1126,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       // TODO:
       // if (!isEmailVerified() &&
       //     getVerifiedEmail() == null) {
-      //   add(NavigateToEmailVerifyPageEvent());
+      //   add(NavigateToEmailVerifyScreenEvent());
       //   add(SendEmailVerificationLinkEvent());
       //   return;
       // }

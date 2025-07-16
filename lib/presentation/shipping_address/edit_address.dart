@@ -9,8 +9,8 @@ import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 @RoutePage()
-class EditAddressPage extends StatelessWidget {
-  const EditAddressPage({super.key});
+class EditAddressScreen extends StatelessWidget {
+  const EditAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

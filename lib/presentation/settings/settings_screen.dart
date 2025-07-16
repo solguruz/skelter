@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/delete_account.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/settings_appbar.dart';
 import 'package:flutter_skeleton/presentation/settings/widgets/settings.dart';
+import 'package:flutter_skeleton/presentation/settings/widgets/settings_appbar.dart';
 
 @RoutePage()
 class SettingsScreen extends StatelessWidget {
@@ -13,13 +13,13 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: SettingsAppbar(),
-      body: SettingsPageBody(),
+      body: SettingsScreenBody(),
     );
   }
 }
 
-class SettingsPageBody extends StatelessWidget {
-  const SettingsPageBody({super.key});
+class SettingsScreenBody extends StatelessWidget {
+  const SettingsScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
