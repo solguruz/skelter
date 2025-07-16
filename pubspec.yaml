@@ -73,6 +73,7 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+  # TODO: https://docs.flutter.dev/release/breaking-changes/flutter-generate-i10n-source
   generate: true
 
   assets:
