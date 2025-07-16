@@ -16,7 +16,7 @@ class History extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.history,
+        context.localization.history,
         style: AppTextStyles.h6SemiBold,
       ),
       trailing: const Icon(

@@ -55,7 +55,7 @@ class ForgotPasswordV2ScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.l10n.login_signup_forgot_password,
+              context.localization.login_signup_forgot_password,
               style: AppTextStyles.h2Bold,
             ),
           ),

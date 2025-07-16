@@ -237,7 +237,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -262,7 +262,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -287,7 +287,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -312,7 +312,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -337,7 +337,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -362,7 +362,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -387,7 +387,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -412,7 +412,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -437,7 +437,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -462,7 +462,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -487,7 +487,7 @@ void main() {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.l10n.cart_items,
+                        context.localization.cart_items,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -777,7 +777,7 @@ void main() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        context.l10n.shipping_address,
+                        context.localization.shipping_address,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -801,7 +801,7 @@ void main() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        context.l10n.shipping_address,
+                        context.localization.shipping_address,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -825,7 +825,7 @@ void main() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        context.l10n.shipping_address,
+                        context.localization.shipping_address,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),
@@ -849,7 +849,7 @@ void main() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        context.l10n.shipping_address,
+                        context.localization.shipping_address,
                         style: AppTextStyles.p2Bold,
                       ),
                       const SizedBox(height: 16),

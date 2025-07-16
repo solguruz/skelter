@@ -13,7 +13,7 @@ class ConfirmAndPayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.confirm_and_pay,
+      label: context.localization.confirm_and_pay,
       size: AppButtonSize.xl,
       onPressed: () {
         final currentStepperIndex = context.checkoutBloc.state.stepperIndex;

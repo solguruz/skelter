@@ -79,7 +79,7 @@ class PaymentMethodCOD extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
-        title: Text(context.l10n.cash_on_delivery),
+        title: Text(context.localization.cash_on_delivery),
         onTap: () => context.checkoutBloc.add(
           const SelectPaymentMethodEvent(isPaymentMethodOnline: false),
         ),

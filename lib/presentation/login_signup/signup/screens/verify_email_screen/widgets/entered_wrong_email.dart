@@ -24,10 +24,10 @@ class EnteredWrongEmail extends StatelessWidget {
               AppTextStyles.p2Medium.withColor(AppColors.textNeutralSecondary),
           children: [
             TextSpan(
-              text: context.l10n.login_signup_entered_wrong_email,
+              text: context.localization.login_signup_entered_wrong_email,
             ),
             TextSpan(
-              text: context.l10n.login_signup_change_email,
+              text: context.localization.login_signup_change_email,
               style:
                   AppTextStyles.p2Bold.withColor(AppColors.textBrandSecondary),
               recognizer: TapGestureRecognizer()

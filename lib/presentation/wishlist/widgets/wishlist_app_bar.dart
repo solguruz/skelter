@@ -15,7 +15,7 @@ class WishlistAppBar extends StatelessWidget implements PreferredSizeWidget {
       foregroundColor: AppColors.iconNeutralDefault,
       centerTitle: true,
       title: Text(
-        context.l10n.wishlist,
+        context.localization.wishlist,
         style: AppTextStyles.h6SemiBold,
       ),
       leading: AppButton.icon(

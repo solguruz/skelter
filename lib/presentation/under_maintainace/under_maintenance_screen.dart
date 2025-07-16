@@ -24,12 +24,12 @@ class UnderMaintenanceScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              context.l10n.under_maintenance,
+              context.localization.under_maintenance,
               style: AppTextStyles.p1SemiBold,
             ),
             const SizedBox(height: 8),
             Text(
-              context.l10n.under_maintenance_message,
+              context.localization.under_maintenance_message,
               style: AppTextStyles.p3Regular,
               textAlign: TextAlign.center,
             ),

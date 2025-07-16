@@ -27,9 +27,9 @@ class AgreementLinks extends StatelessWidget {
           style:
               AppTextStyles.p4Medium.withColor(AppColors.textNeutralSecondary),
           children: [
-            TextSpan(text: context.l10n.login_signup_agreement_info),
+            TextSpan(text: context.localization.login_signup_agreement_info),
             TextSpan(
-              text: context.l10n.login_signup_terms_and_conditions,
+              text: context.localization.login_signup_terms_and_conditions,
               style: AppTextStyles.p4Bold
                   .withColor(AppColors.textNeutralSecondary)
                   .withDecoration(TextDecoration.underline),
@@ -38,9 +38,9 @@ class AgreementLinks extends StatelessWidget {
                   // TODO: open terms and conditions
                 },
             ),
-            TextSpan(text: ' ${context.l10n.login_signup_and} '),
+            TextSpan(text: ' ${context.localization.login_signup_and} '),
             TextSpan(
-              text: context.l10n.login_signup_privacy_policy,
+              text: context.localization.login_signup_privacy_policy,
               style: AppTextStyles.p4Bold
                   .withColor(AppColors.textNeutralSecondary)
                   .withDecoration(TextDecoration.underline),

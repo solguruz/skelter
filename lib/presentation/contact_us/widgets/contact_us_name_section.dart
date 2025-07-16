@@ -49,14 +49,14 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.name,
+          context.localization.name,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
         TextField(
           controller: _nameController,
           decoration: InputDecoration(
-            hintText: context.l10n.enter_your_name,
+            hintText: context.localization.enter_your_name,
             hintStyle:
                 AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
             errorText: nameError.isNullOrEmpty() ? null : nameError,

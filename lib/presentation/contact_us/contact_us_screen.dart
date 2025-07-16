@@ -43,7 +43,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = context.l10n;
+    final AppLocalizations appLocalizations = context.localization;
     return BlocProvider(
       create: (_) => ContactUsBloc(localizations: appLocalizations),
       child: BlocListener<ContactUsBloc, ContactUsState>(

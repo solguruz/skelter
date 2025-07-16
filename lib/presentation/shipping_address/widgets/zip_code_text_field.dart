@@ -24,14 +24,14 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.zip_code,
+          context.localization.zip_code,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _zipCodeTextController,
           decoration: InputDecoration(
-            hintText: context.l10n.enter_zip_code,
+            hintText: context.localization.enter_zip_code,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.textNeutralDisable,
             ),

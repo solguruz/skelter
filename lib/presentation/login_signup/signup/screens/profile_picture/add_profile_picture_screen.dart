@@ -56,7 +56,7 @@ class AddProfilePictureScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.l10n.login_signup_add_profile_picture,
+              context.localization.login_signup_add_profile_picture,
               style: AppTextStyles.h2Bold,
             ),
           ),

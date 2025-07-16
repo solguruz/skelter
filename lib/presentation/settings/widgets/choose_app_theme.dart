@@ -16,7 +16,7 @@ class ChooseAppTheme extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.choose_app_theme,
+        context.localization.choose_app_theme,
         style: AppTextStyles.p2Regular,
       ),
       trailing: const Icon(

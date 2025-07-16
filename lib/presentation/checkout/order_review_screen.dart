@@ -23,14 +23,14 @@ class OrderReviewScreen extends StatelessWidget {
         const CartItemLists(),
         const SizedBox(height: 16),
         Text(
-          context.l10n.shipping_address,
+          context.localization.shipping_address,
           style: AppTextStyles.p2Bold,
         ),
         const SizedBox(height: 12),
         const ShippingAddress(),
         const SizedBox(height: 16),
         Text(
-          context.l10n.selected_payment_method,
+          context.localization.selected_payment_method,
           style: AppTextStyles.p2SemiBold,
         ),
         const SizedBox(height: 12),

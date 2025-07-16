@@ -25,7 +25,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  late final AppLocalizations appLocalizations = context.l10n;
+  late final AppLocalizations appLocalizations = context.localization;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class _SignupV2ScreenBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            context.l10n.login_signup_signup,
+            context.localization.login_signup_signup,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 30),

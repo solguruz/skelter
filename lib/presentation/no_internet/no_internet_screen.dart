@@ -30,19 +30,19 @@ class NoInternetScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    context.l10n.lost_connection,
+                    context.localization.lost_connection,
                     style: AppTextStyles.p1SemiBold,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    context.l10n.lost_connection_message,
+                    context.localization.lost_connection_message,
                     style: AppTextStyles.p3Regular,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 30),
                   AppButton(
-                    label: context.l10n.try_again,
+                    label: context.localization.try_again,
                     onPressed: () {
                       final isConnected = InternetConnectivityHelper()
                           .onConnectivityChange

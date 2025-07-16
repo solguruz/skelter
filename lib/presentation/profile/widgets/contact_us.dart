@@ -17,7 +17,7 @@ class ContactUs extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.contact_us,
+        context.localization.contact_us,
         style: AppTextStyles.h6SemiBold,
       ),
       trailing: const Icon(

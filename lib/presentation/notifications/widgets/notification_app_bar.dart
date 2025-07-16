@@ -12,7 +12,7 @@ class NotificationAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        context.l10n.notifications,
+        context.localization.notifications,
         style: AppTextStyles.h6SemiBold,
       ),
       centerTitle: true,

@@ -29,7 +29,7 @@ class LoginWithPhoneNumberScreen extends StatefulWidget {
 
 class _LoginWithPhoneNumberScreenState
     extends State<LoginWithPhoneNumberScreen> {
-  late final AppLocalizations appLocalizations = context.l10n;
+  late final AppLocalizations appLocalizations = context.localization;
 
   @override
   Widget build(BuildContext context) {

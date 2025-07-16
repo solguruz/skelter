@@ -7,7 +7,7 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(context.l10n.map),
+      child: Text(context.localization.map),
     );
   }
 }

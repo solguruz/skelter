@@ -19,7 +19,7 @@ class AddSkipPictureButton extends StatelessWidget {
     return Column(
       children: [
         AppButton(
-          label: context.l10n.login_signup_add,
+          label: context.localization.login_signup_add,
           fillWidth: true,
           size: AppButtonSize.l,
           state: isLoading ? AppButtonState.disabled : AppButtonState.d_efault,
@@ -39,7 +39,7 @@ class AddSkipPictureButton extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         AppButton(
-          label: context.l10n.login_signup_skip,
+          label: context.localization.login_signup_skip,
           fillWidth: true,
           size: AppButtonSize.l,
           style: AppButtonStyle.outline,

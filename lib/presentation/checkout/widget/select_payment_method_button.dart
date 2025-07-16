@@ -13,7 +13,7 @@ class SelectPaymentMethodButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.select_payment_method,
+      label: context.localization.select_payment_method,
       size: AppButtonSize.xl,
       onPressed: () {
         final currentStepperIndex = context.checkoutBloc.state.stepperIndex;

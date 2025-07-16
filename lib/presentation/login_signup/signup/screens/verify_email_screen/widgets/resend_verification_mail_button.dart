@@ -22,7 +22,7 @@ class ResendVerificationMailButton extends StatelessWidget {
     );
 
     final String resendLinkText =
-        '${context.l10n.login_signup_resend_verification_email} '
+        '${context.localization.login_signup_resend_verification_email} '
         '${resendEmailVerificationTimeLeft > 0 ? ''
             '($resendEmailVerificationTimeLeft)' : ''}';
 

@@ -25,7 +25,7 @@ class OTPVerificationButton extends StatelessWidget {
     return Column(
       children: [
         AppButton(
-          label: context.l10n.login_signup_verify,
+          label: context.localization.login_signup_verify,
           fillWidth: true,
           size: AppButtonSize.l,
           state: mobileOtpText.isNotEmpty && mobileOtpText.length == 6
@@ -80,7 +80,7 @@ class _ResendOTPButtonState extends State<_ResendOTPButton> {
           bloc.state.phoneNumberLoginState?.isResendOTPEnabled ?? false,
     );
 
-    final String resendOTPText = '${context.l10n.login_signup_resend} '
+    final String resendOTPText = '${context.localization.login_signup_resend} '
         '${resendTimeLeft > 0 ? '($resendTimeLeft)' : ''}';
 
     return AppButton(

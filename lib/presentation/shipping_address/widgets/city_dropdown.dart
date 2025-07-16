@@ -28,13 +28,13 @@ class _CityDropdownState extends State<CityDropdown> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.city,
+          context.localization.city,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
-            hintText: context.l10n.city,
+            hintText: context.localization.city,
             border: const OutlineInputBorder(),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
@@ -42,7 +42,7 @@ class _CityDropdownState extends State<CityDropdown> {
           value: _selectedCity,
           icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
-            context.l10n.select_city,
+            context.localization.select_city,
             style:
                 AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
           ),

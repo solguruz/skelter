@@ -79,7 +79,7 @@ class _SignupWithEmailPasswordScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.l10n.login_signup_sign_up_with_email,
+              context.localization.login_signup_sign_up_with_email,
               style: AppTextStyles.h2Bold,
             ),
           ),

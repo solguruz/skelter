@@ -18,7 +18,7 @@ class ApplyCouponsAppBar extends StatelessWidget
           context.maybePop();
         },
       ),
-      title: Text(context.l10n.available_coupons),
+      title: Text(context.localization.available_coupons),
       centerTitle: true,
     );
   }

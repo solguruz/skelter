@@ -48,28 +48,28 @@ class CustomStepper extends StatelessWidget {
       EasyStep(
         icon: const Icon(TablerIcons.shopping_cart),
         customTitle: Text(
-          context.l10n.cart,
+          context.localization.cart,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
         icon: const Icon(TablerIcons.truck_delivery),
         customTitle: Text(
-          context.l10n.shipping,
+          context.localization.shipping,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
         icon: const Icon(TablerIcons.currency_dollar),
         customTitle: Text(
-          context.l10n.payment,
+          context.localization.payment,
           textAlign: TextAlign.center,
         ),
       ),
       EasyStep(
         icon: const Icon(TablerIcons.clipboard_text),
         customTitle: Text(
-          context.l10n.order_review,
+          context.localization.order_review,
           textAlign: TextAlign.center,
           softWrap: false,
         ),

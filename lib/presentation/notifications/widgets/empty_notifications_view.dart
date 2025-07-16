@@ -22,7 +22,7 @@ class EmptyNotificationsView extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              context.l10n.empty_notifications_title,
+              context.localization.empty_notifications_title,
               style: AppTextStyles.p1SemiBold,
             ),
           ],

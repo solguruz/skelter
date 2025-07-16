@@ -31,7 +31,7 @@ class AddAddressScreen extends StatelessWidget {
                 AppButton(
                   style: AppButtonStyle.outline,
                   size: AppButtonSize.xl,
-                  label: context.l10n.use_current_location,
+                  label: context.localization.use_current_location,
                   leftIconData: TablerIcons.map_pin,
                   leftAppIconAttachedToText: true,
                   fillWidth: true,

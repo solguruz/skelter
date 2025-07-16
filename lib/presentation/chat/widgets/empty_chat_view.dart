@@ -21,7 +21,7 @@ class EmptyChatView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            context.l10n.no_chats,
+            context.localization.no_chats,
             style: AppTextStyles.p1SemiBold,
           ),
         ],

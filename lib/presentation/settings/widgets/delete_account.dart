@@ -21,7 +21,7 @@ class DeleteAccount extends StatelessWidget {
           color: AppColors.bgErrorDefault,
         ),
         title: Text(
-          context.l10n.delete_account,
+          context.localization.delete_account,
           style:
               AppTextStyles.p2Regular.withColor(AppColors.textErrorSecondary),
         ),

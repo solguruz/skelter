@@ -10,7 +10,7 @@ class HomeScreenBody extends StatelessWidget {
     return Scaffold(
       appBar: const HomeAppBar(),
       body: Center(
-        child: Text(context.l10n.home),
+        child: Text(context.localization.home),
       ),
     );
   }

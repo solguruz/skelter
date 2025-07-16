@@ -48,13 +48,13 @@ class AppBarTitleText extends StatelessWidget {
     );
     switch (currentStepperIndex) {
       case 0:
-        return Text(context.l10n.cart_and_checkout);
+        return Text(context.localization.cart_and_checkout);
       case 1:
-        return Text(context.l10n.shipping_details);
+        return Text(context.localization.shipping_details);
       case 2:
-        return Text(context.l10n.payment);
+        return Text(context.localization.payment);
       case 3:
-        return Text(context.l10n.order_review);
+        return Text(context.localization.order_review);
       default:
         return const SizedBox.shrink();
     }

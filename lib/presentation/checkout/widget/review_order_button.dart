@@ -13,7 +13,7 @@ class SelectAndReviewOrderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.select_and_review_order,
+      label: context.localization.select_and_review_order,
       size: AppButtonSize.xl,
       onPressed: () {
         final currentStepperIndex = context.checkoutBloc.state.stepperIndex;

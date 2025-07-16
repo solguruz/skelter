@@ -21,7 +21,7 @@ class SendResetLinkButton extends StatelessWidget {
       (bloc) => bloc.state.emailPasswordLoginState?.email ?? '',
     );
     return AppButton(
-      label: context.l10n.login_signup_send_reset_link,
+      label: context.localization.login_signup_send_reset_link,
       fillWidth: true,
       size: AppButtonSize.l,
       state:

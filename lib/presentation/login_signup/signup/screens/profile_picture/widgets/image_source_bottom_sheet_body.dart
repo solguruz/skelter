@@ -136,7 +136,7 @@ class _RemoveImage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.l10n.login_signup_remove),
+          Text(context.localization.login_signup_remove),
         ],
       ),
     );
@@ -169,7 +169,7 @@ class _Gallery extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.l10n.login_signup_gallery),
+          Text(context.localization.login_signup_gallery),
         ],
       ),
     );
@@ -202,7 +202,7 @@ class _Camera extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.l10n.login_signup_camera),
+          Text(context.localization.login_signup_camera),
         ],
       ),
     );

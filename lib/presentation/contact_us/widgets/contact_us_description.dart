@@ -9,7 +9,7 @@ class ContactUsDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      context.l10n.contact_us_message,
+      context.localization.contact_us_message,
       style: AppTextStyles.p2Regular.withColor(AppColors.textNeutralPrimary),
     );
   }

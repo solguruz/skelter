@@ -45,13 +45,13 @@ class UploadAttachment extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    context.l10n.choose_a_file,
+                    context.localization.choose_a_file,
                     style: AppTextStyles.p3Medium
                         .withColor(AppColors.textNeutralPrimary),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    context.l10n.supported_format,
+                    context.localization.supported_format,
                     style: AppTextStyles.p4Regular
                         .withColor(AppColors.textNeutralPrimary),
                   ),
@@ -88,7 +88,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
               ),
               const SizedBox(height: 22),
               AppButton(
-                label: context.l10n.take_a_photo,
+                label: context.localization.take_a_photo,
                 fillWidth: true,
                 style: AppButtonStyle.outline,
                 leftIconData: TablerIcons.camera,
@@ -102,7 +102,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
               ),
               const SizedBox(height: 16.0),
               AppButton(
-                label: context.l10n.upload_from_gallery,
+                label: context.localization.upload_from_gallery,
                 fillWidth: true,
                 style: AppButtonStyle.outline,
                 leftIconData: TablerIcons.photo,
@@ -116,7 +116,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
               ),
               const SizedBox(height: 16.0),
               AppButton(
-                label: context.l10n.upload_from_files,
+                label: context.localization.upload_from_files,
                 fillWidth: true,
                 style: AppButtonStyle.outline,
                 leftIconData: TablerIcons.folders,

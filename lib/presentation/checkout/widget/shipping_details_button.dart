@@ -13,7 +13,7 @@ class ShippingDetailsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.add_shipping_details,
+      label: context.localization.add_shipping_details,
       size: AppButtonSize.xl,
       onPressed: () {
         final currentStepperIndex = context.checkoutBloc.state.stepperIndex;

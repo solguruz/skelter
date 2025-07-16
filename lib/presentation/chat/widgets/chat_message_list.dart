@@ -52,11 +52,11 @@ class ChatMessageList extends StatelessWidget {
     if (date.year == compareToDate.year &&
         date.month == compareToDate.month &&
         date.day == compareToDate.day) {
-      return context.l10n.today;
+      return context.localization.today;
     } else if (date.year == compareToDate.year &&
         date.month == compareToDate.month &&
         date.day == compareToDate.day - 1) {
-      return context.l10n.yesterday;
+      return context.localization.yesterday;
     } else {
       return '${date.month}/${date.day}/${date.year}';
     }

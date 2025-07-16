@@ -16,7 +16,7 @@ class HelpAndSupport extends StatelessWidget {
         color: AppColors.iconNeutralDefault,
       ),
       title: Text(
-        context.l10n.help_and_support,
+        context.localization.help_and_support,
         style: AppTextStyles.h6SemiBold,
       ),
       trailing: const Icon(

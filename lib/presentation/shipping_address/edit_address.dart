@@ -20,7 +20,7 @@ class EditAddressScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
           child: AppButton(
-            label: context.l10n.save,
+            label: context.localization.save,
             size: AppButtonSize.l,
             onPressed: () {
               context.router.maybePop();
@@ -36,14 +36,14 @@ class EditAddressScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    context.l10n.deliver_to,
+                    context.localization.deliver_to,
                     style: AppTextStyles.p2Bold,
                   ),
                   const Spacer(flex: 2),
                   Flexible(
                     child: AppButton(
                       style: AppButtonStyle.textOrIcon,
-                      label: context.l10n.add,
+                      label: context.localization.add,
                       leftIconData: TablerIcons.plus,
                       leftAppIconAttachedToText: true,
                       onPressed: () {

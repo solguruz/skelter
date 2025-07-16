@@ -59,13 +59,13 @@ class CheckYourEmailScreenBody extends StatelessWidget {
               SvgPicture.asset(Assets.icons.emailNotification),
               const SizedBox(height: 18),
               Text(
-                context.l10n.login_signup_check_your_email,
+                context.localization.login_signup_check_your_email,
                 style: AppTextStyles.h2Bold,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 18),
               Text(
-                context.l10n.login_signup_link_send_info(email),
+                context.localization.login_signup_link_send_info(email),
                 style: AppTextStyles.p2Medium,
                 textAlign: TextAlign.center,
               ),

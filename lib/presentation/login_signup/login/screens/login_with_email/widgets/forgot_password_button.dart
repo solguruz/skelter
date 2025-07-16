@@ -15,7 +15,7 @@ class ForgotPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.l10n.login_signup_ask_forgot_password,
+      label: context.localization.login_signup_ask_forgot_password,
       style: AppButtonStyle.textOrIcon,
       size: AppButtonSize.l,
       state: AppButtonState.disabled,

@@ -31,7 +31,7 @@ class NotificationContentWidget extends StatelessWidget {
           Text(
             time_ago.format(
               notificationModel.insertedOn,
-              locale: context.l10n.localeName,
+              locale: context.localization.localeName,
             ),
             style: AppTextStyles.p4Regular.withColor(
               AppColors.textNeutralSecondary,

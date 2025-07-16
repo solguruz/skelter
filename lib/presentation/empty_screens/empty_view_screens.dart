@@ -17,42 +17,42 @@ class EmptyViewsScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.wishlist,
+                label: context.localization.wishlist,
                 onPressed: () {
                   context.pushRoute(const WishlistRoute());
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.server_error,
+                label: context.localization.server_error,
                 onPressed: () {
                   context.pushRoute(const ServerErrorRoute());
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.lost_connection,
+                label: context.localization.lost_connection,
                 onPressed: () {
                   context.pushRoute(const NoInternetRoute());
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.under_maintenance,
+                label: context.localization.under_maintenance,
                 onPressed: () {
                   context.pushRoute(const UnderMaintenanceRoute());
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.empty_order_title,
+                label: context.localization.empty_order_title,
                 onPressed: () {
                   context.pushRoute(const MyOrdersRoute());
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                label: context.l10n.empty_cards_list_title,
+                label: context.localization.empty_cards_list_title,
                 onPressed: () {
                   context.pushRoute(const SavedCardRoute());
                 },

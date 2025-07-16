@@ -20,7 +20,7 @@ class NotificationErrorWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
-            msg.isEmpty ? context.l10n.opps_something_went_wrong : msg,
+            msg.isEmpty ? context.localization.opps_something_went_wrong : msg,
             style: AppTextStyles.p2Medium.withColor(AppColors.errorColor),
           ),
         ],

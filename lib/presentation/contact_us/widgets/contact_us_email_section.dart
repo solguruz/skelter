@@ -50,14 +50,14 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.email_id,
+          context.localization.email_id,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
         TextField(
           controller: _emailController,
           decoration: InputDecoration(
-            hintText: context.l10n.enter_your_email_id,
+            hintText: context.localization.enter_your_email_id,
             hintStyle:
                 AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
             errorText: emailError.isNullOrEmpty() ? null : emailError,

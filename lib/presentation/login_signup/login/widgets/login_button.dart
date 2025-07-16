@@ -26,7 +26,7 @@ class LoginButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.l10n.login_signup_continue_with_google,
+            label: context.localization.login_signup_continue_with_google,
             fillWidth: true,
             style: AppButtonStyle.outline,
             // TODO: change icon
@@ -42,7 +42,7 @@ class LoginButton extends StatelessWidget {
           if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
               Theme.of(context).platform == TargetPlatform.iOS) ...[
             AppButton(
-              label: context.l10n.login_signup_continue_with_apple,
+              label: context.localization.login_signup_continue_with_apple,
               fillWidth: true,
               style: AppButtonStyle.outline,
               leftAppIcon: Assets.icons.apple,
@@ -56,7 +56,7 @@ class LoginButton extends StatelessWidget {
             const SizedBox(height: 16),
           ],
           AppButton(
-            label: context.l10n.login_signup_continue_with_number,
+            label: context.localization.login_signup_continue_with_number,
             fillWidth: true,
             style: AppButtonStyle.outline,
             leftIconData: TablerIcons.device_mobile,
@@ -71,7 +71,7 @@ class LoginButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.l10n.login_signup_continue_with_email,
+            label: context.localization.login_signup_continue_with_email,
             fillWidth: true,
             style: AppButtonStyle.outline,
             leftIconData: TablerIcons.mail,
