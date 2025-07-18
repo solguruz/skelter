@@ -12,8 +12,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_a
 import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_signup_button_divider.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/widgets/login_button.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/widgets/signup_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 @RoutePage()

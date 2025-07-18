@@ -6,7 +6,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/models/login_de
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class InitialScreen extends StatefulWidget {

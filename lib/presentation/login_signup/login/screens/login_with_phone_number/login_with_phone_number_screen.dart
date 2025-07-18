@@ -13,8 +13,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_w
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_phone_number/widgets/phone_number_text_field.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_phone_number/widgets/send_otp_button.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {

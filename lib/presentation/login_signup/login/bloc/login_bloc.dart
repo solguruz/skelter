@@ -14,7 +14,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/models/login_de
 import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginState> {

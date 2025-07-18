@@ -12,8 +12,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_w
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_email/widgets/forgot_password_button.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_email/widgets/login_with_email_pass_button.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/widgets/login_app_bar.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {

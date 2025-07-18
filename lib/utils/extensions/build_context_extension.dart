@@ -65,3 +65,11 @@ extension ShowSnackbar on BuildContext {
     ScaffoldMessenger.of(this).hideCurrentSnackBar();
   }
 }
+
+extension MediaQueryValues on BuildContext {
+  Size get size => MediaQuery.sizeOf(this);
+
+  double get screenWidth => size.width;
+
+  double get screenHeight => size.height;
+}

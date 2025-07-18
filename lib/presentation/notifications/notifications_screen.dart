@@ -10,7 +10,7 @@ import 'package:flutter_skeleton/presentation/notifications/widgets/empty_notifi
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_app_bar.dart';
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_list.dart';
 import 'package:flutter_skeleton/presentation/notifications/widgets/notification_loading_shimmer_list.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
 
 @RoutePage()
 class NotificationsScreen extends StatelessWidget {

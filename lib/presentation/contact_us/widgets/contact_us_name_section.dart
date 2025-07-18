@@ -4,7 +4,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class ContactUsNameSection extends StatefulWidget {

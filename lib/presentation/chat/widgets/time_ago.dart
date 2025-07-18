@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_message_model.dart';
-import 'package:flutter_skeleton/utils/extensions/date_time_extensions.dart';
+import 'package:flutter_skeleton/utils/extensions/date_time_extension.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class TimeAgo extends StatelessWidget {

@@ -4,7 +4,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:pinput/pinput.dart';
 import 'package:sms_autofill/sms_autofill.dart';
