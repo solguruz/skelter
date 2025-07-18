@@ -6,6 +6,7 @@ extension StringNullCheck on String? {
   bool haveContent() => this?.isNotEmpty ?? false;
 
   bool isNumeric() => this != null && num.tryParse(this!) != null;
+
   String capitalize() => this == null || this!.isEmpty
       ? ''
       : '${this![0].toUpperCase()}${this!.substring(1)}';

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
@@ -8,6 +7,8 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
 import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
+import 'package:flutter_skeleton/utils/file_picker_util.dart';
+import 'package:flutter_skeleton/utils/image_picker_util.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
@@ -112,16 +113,12 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     Emitter<ContactUsState> emit,
   ) async {
     try {
-      final picker = ImagePicker();
-      List<XFile> pickedImages = [];
+      final pickerUtil = ImagePickerUtil();
 
-      if (event.source == ImageSource.gallery) {
-        pickedImages =
-            await picker.pickMultiImage(limit: ContactUsScreen.kMaxFileLimit);
-      } else {
-        final XFile? image = await picker.pickImage(source: ImageSource.camera);
-        if (image != null) pickedImages = [image];
-      }
+      final pickedImages = await pickerUtil.pickImages(
+        source: event.source,
+        maxFileLimit: ContactUsScreen.kMaxFileLimit,
+      );
 
       if (pickedImages.isNotEmpty) {
         emit(
@@ -151,67 +148,27 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     AddPdfEvent event,
     Emitter<ContactUsState> emit,
   ) async {
-    try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: kAllowedFileExtensions,
-        allowMultiple: true,
-      );
+    final result = await FilePickerUtil.pickAndValidateFiles(
+      localizations: localizations,
+      allowedExtensions: kAllowedFileExtensions,
+      maxSizeInBytes: ContactUsScreen.kMaxFileSizeInBytes,
+      maxFiles: ContactUsScreen.kMaxFileLimit,
+      isValidFile: isValidPdf,
+      allowMultiple: true,
+    );
 
-      if (result == null) return;
-
-      final files = <File>[];
-
-      for (final path in result.paths) {
-        if (path != null) {
-          final file = File(path);
-          final fileSize = await file.length();
-
-          if (fileSize == 0) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.file_empty_error,
-              ),
-            );
-            return;
-          }
-
-          if (fileSize > ContactUsScreen.kMaxFileSizeInBytes) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.file_too_large_error,
-              ),
-            );
-            return;
-          }
-
-          if (!await isValidPdf(file)) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.unsupported_file_format_error,
-              ),
-            );
-            return;
-          }
-
-          files.add(file);
-        }
-      }
-
-      final updated = [...?state.selectedPdfs, ...files];
-      emit(ResetPickedFilesErrorState(state));
-      emit(
-        state.copyWith(
-          selectedPdfs: updated.take(ContactUsScreen.kMaxFileLimit).toList(),
-        ),
-      );
-    } catch (e) {
-      debugPrint('Pdf picking error: $e');
-      emit(PickedFilesErrorState(state, error: localizations.pick_pdf_error));
+    if (result.hasError) {
+      emit(PickedFilesErrorState(state, error: result.error!));
+      return;
     }
+
+    final updated = [...?state.selectedPdfs, ...result.validFiles];
+    emit(ResetPickedFilesErrorState(state));
+    emit(
+      state.copyWith(
+        selectedPdfs: updated.take(ContactUsScreen.kMaxFileLimit).toList(),
+      ),
+    );
   }
 
   void _onRemovePdfEvent(RemovePdfEvent event, Emitter<ContactUsState> emit) {
