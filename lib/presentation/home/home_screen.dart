@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/initial_checkout_screen.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
+import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/widgets/bottom_nav_bar.dart';
 import 'package:flutter_skeleton/presentation/home/widgets/home_screen_body.dart';
 import 'package:flutter_skeleton/presentation/profile/profile_screen.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (context) => HomeBloc(),
+      create: (_) => HomeBloc()..add(const GetTopProductDataEvent()),
       child: const HomeScreenWrapper(),
     );
   }

@@ -12,3 +12,10 @@ class BottomNavBarIndexChangedEvent extends HomeEvent {
   @override
   List<Object> get props => [index];
 }
+
+class GetTopProductDataEvent extends HomeEvent {
+  const GetTopProductDataEvent();
+
+  @override
+  List<Object> get props => [];
+}

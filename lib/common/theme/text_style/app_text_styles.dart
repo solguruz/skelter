@@ -183,6 +183,13 @@ class AppTextStyles {
     height: 1.5, // 150% on Figma,
   );
 
+  static TextStyle c1SemiBold = const TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.4,
+  );
+
   static TextStyle c2Regular = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w400,
