@@ -1,4 +1,3 @@
-// lib/presentation/shipping_address/bloc/shipping_address_state.dart
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 

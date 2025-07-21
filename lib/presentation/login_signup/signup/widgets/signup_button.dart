@@ -9,6 +9,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_even
 import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class SignupButton extends StatelessWidget {
@@ -25,11 +27,10 @@ class SignupButton extends StatelessWidget {
         children: [
           AppButton(
             label: context.localization.login_signup_signup_with_google,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            // TODO: change icon
-            leftAppIcon: Assets.icons.icon.path,
-            size: AppButtonSize.l,
+            leftIconPath: Assets.icons.icon.path,
+            size: AppButtonSize.large,
             onPressed: () {
               context.loginBloc
                   .add(SelectLoginSignupTypeEvent(LoginType.GOOGLE));
@@ -41,10 +42,10 @@ class SignupButton extends StatelessWidget {
               Theme.of(context).platform == TargetPlatform.iOS) ...[
             AppButton(
               label: context.localization.login_signup_signup_with_apple,
-              fillWidth: true,
+              shouldSetFullWidth: true,
               style: AppButtonStyle.outline,
-              leftAppIcon: Assets.icons.apple,
-              size: AppButtonSize.l,
+              leftIconPath: Assets.icons.apple,
+              size: AppButtonSize.large,
               onPressed: () {
                 context.loginBloc
                     .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
@@ -55,10 +56,10 @@ class SignupButton extends StatelessWidget {
           ],
           AppButton(
             label: context.localization.login_signup_signup_lets_get_started,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            leftIconData: TablerIcons.device_mobile,
-            size: AppButtonSize.l,
+            leftIcon: TablerIcons.device_mobile,
+            size: AppButtonSize.large,
             onPressed: () {
               context.loginBloc
                   .add(SelectLoginSignupTypeEvent(LoginType.PHONE));
@@ -70,10 +71,10 @@ class SignupButton extends StatelessWidget {
           const SizedBox(height: 16),
           AppButton(
             label: context.localization.login_signup_signup_with_email,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            leftIconData: TablerIcons.mail,
-            size: AppButtonSize.l,
+            leftIcon: TablerIcons.mail,
+            size: AppButtonSize.large,
             onPressed: () {
               context.loginBloc
                   .add(SelectLoginSignupTypeEvent(LoginType.EMAIL));

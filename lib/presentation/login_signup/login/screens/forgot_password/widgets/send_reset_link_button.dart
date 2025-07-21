@@ -6,6 +6,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
 
 class SendResetLinkButton extends StatelessWidget {
   const SendResetLinkButton({
@@ -22,11 +24,10 @@ class SendResetLinkButton extends StatelessWidget {
     );
     return AppButton(
       label: context.localization.login_signup_send_reset_link,
-      fillWidth: true,
-      size: AppButtonSize.l,
-      state:
-          email.isNotEmpty ? AppButtonState.d_efault : AppButtonState.disabled,
-      showLoader: isLoading,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
+      state: email.isNotEmpty ? AppButtonState.normal : AppButtonState.disabled,
+      isLoading: isLoading,
       onPressed: () {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
         final String? emailError = isEmailValid(email, context);

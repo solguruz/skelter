@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 
 class DoneButton extends StatelessWidget {
   const DoneButton({super.key});
@@ -15,9 +16,9 @@ class DoneButton extends StatelessWidget {
     );
     return AppButton(
       label: context.localization.login_signup_done,
-      fillWidth: true,
-      size: AppButtonSize.l,
-      showLoader: isLoading,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
+      isLoading: isLoading,
       onPressed: () {
         context.loginBloc.add(FinishProfilePictureEvent());
       },

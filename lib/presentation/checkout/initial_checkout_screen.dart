@@ -76,9 +76,6 @@ class _InitialCheckoutScreenBodyState extends State<InitialCheckoutScreenBody> {
         child: Column(
           children: [
             const CustomStepper(),
-            // Can use IndexedStack but it causes extra height issue
-            // i.e.if child 1 is bigger then another, all the children
-            // will be as big as child 1
             Visibility(
               visible: currentStepperIndex == 0,
               maintainState: true,

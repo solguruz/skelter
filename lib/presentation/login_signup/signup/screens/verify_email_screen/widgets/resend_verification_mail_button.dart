@@ -5,6 +5,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/verify_email_screen.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
 
 class ResendVerificationMailButton extends StatelessWidget {
   const ResendVerificationMailButton({super.key});
@@ -28,12 +30,12 @@ class ResendVerificationMailButton extends StatelessWidget {
 
     return AppButton(
       label: resendLinkText,
-      fillWidth: true,
-      size: AppButtonSize.l,
-      showLoader: isLoading,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
+      isLoading: isLoading,
       state: resendEmailVerificationTimeLeft != 0
           ? AppButtonState.disabled
-          : AppButtonState.d_efault,
+          : AppButtonState.normal,
       onPressed: () {
         if (resendEmailVerificationTimeLeft == 0) {
           context.loginBloc.add(SendEmailVerificationLinkEvent());

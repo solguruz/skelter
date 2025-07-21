@@ -6,6 +6,8 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_even
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
 
 class SendOTPButton extends StatelessWidget {
   const SendOTPButton({super.key});
@@ -36,12 +38,12 @@ class SendOTPButton extends StatelessWidget {
       label: isSignup
           ? context.localization.login_signup_next
           : context.localization.login_signup_send_otp,
-      fillWidth: true,
-      size: AppButtonSize.l,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
       state: phoneNumberOnly.isNotEmpty
-          ? AppButtonState.d_efault
+          ? AppButtonState.normal
           : AppButtonState.disabled,
-      showLoader: isLoading,
+      isLoading: isLoading,
       onPressed: () async {
         final isConnected =
             InternetConnectivityHelper().onConnectivityChange.value;
