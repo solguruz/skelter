@@ -6,6 +6,8 @@ import 'package:flutter_skeleton/presentation/shipping_address/widgets/address_a
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/address_tile.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 @RoutePage()
@@ -21,7 +23,7 @@ class EditAddressScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
           child: AppButton(
             label: context.localization.save,
-            size: AppButtonSize.l,
+            size: AppButtonSize.large,
             onPressed: () {
               context.router.maybePop();
             },
@@ -44,8 +46,8 @@ class EditAddressScreen extends StatelessWidget {
                     child: AppButton(
                       style: AppButtonStyle.textOrIcon,
                       label: context.localization.add,
-                      leftIconData: TablerIcons.plus,
-                      leftAppIconAttachedToText: true,
+                      leftIcon: TablerIcons.plus,
+                      isLeftIconAttachedToText: true,
                       onPressed: () {
                         context.router.push(const AddAddressRoute());
                       },

@@ -54,13 +54,6 @@ GoldenTestScenario createTestScenario({
         : child,
   );
 
-  // // Wrap the child with a SizedBox to specify a fixed size
-  // final childWithFixedSize = SizedBox(
-  //   width: pixel5DeviceWidth,
-  //   height: pixel5DeviceHeight,
-  //   child: childWithDeviceSize,
-  // );
-
   return GoldenTestScenario(
     name: name,
     child: Sizer(

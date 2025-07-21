@@ -12,6 +12,8 @@ import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class MoreLoginOptionsButton extends StatelessWidget {
@@ -33,10 +35,10 @@ class MoreLoginOptionsButton extends StatelessWidget {
         children: [
           AppButton(
             label: context.localization.login_signup_continue_with_email,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            leftIconData: TablerIcons.mail,
-            size: AppButtonSize.xl,
+            leftIcon: TablerIcons.mail,
+            size: AppButtonSize.extraLarge,
             onPressed: () {
               context.loginBloc
                   .add(SelectLoginSignupTypeEvent(LoginType.EMAIL));
@@ -50,10 +52,10 @@ class MoreLoginOptionsButton extends StatelessWidget {
           const SizedBox(height: 16),
           AppButton(
             label: context.localization.login_signup_continue_with_google,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            leftAppIcon: Assets.icons.google.path,
-            size: AppButtonSize.xl,
+            leftIconPath: Assets.icons.google.path,
+            size: AppButtonSize.extraLarge,
             onPressed: () async {
               final isConnected =
                   InternetConnectivityHelper().onConnectivityChange.value;
@@ -73,17 +75,18 @@ class MoreLoginOptionsButton extends StatelessWidget {
             const SizedBox(height: 16),
             AppButton(
               label: context.localization.login_signup_continue_with_apple,
-              fillWidth: true,
+              shouldSetFullWidth: true,
               style: AppButtonStyle.outline,
-              leftAppIcon: Assets.icons.apple,
-              size: AppButtonSize.xl,
+              leftIconPath: Assets.icons.apple,
+              size: AppButtonSize.extraLarge,
               onPressed: () async {
                 final isConnected =
                     InternetConnectivityHelper().onConnectivityChange.value;
 
                 if (!isConnected && context.mounted) {
                   context.showSnackBar(
-                      context.localization.no_internet_connection);
+                    context.localization.no_internet_connection,
+                  );
                   return;
                 }
                 context.loginBloc
@@ -97,9 +100,9 @@ class MoreLoginOptionsButton extends StatelessWidget {
             label: isSignup
                 ? context.localization.login_signup_login
                 : context.localization.login_signup_sign_up,
-            fillWidth: true,
+            shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            size: AppButtonSize.xl,
+            size: AppButtonSize.extraLarge,
             onPressed: () async {
               context.loginBloc.add(EnableSignupModeEvent(isSignup: !isSignup));
             },

@@ -4,6 +4,8 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -51,7 +53,7 @@ class CouponItem extends StatelessWidget {
               AppButton(
                 label: context.localization.apply,
                 style: AppButtonStyle.textOrIcon,
-                size: AppButtonSize.l,
+                size: AppButtonSize.large,
                 onPressed: () {
                   context.maybePop();
                 },

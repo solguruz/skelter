@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -19,7 +20,7 @@ class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: canGoBack
           ? AppButton.icon(
               iconData: TablerIcons.arrow_left,
-              size: AppButtonSize.xl,
+              size: AppButtonSize.extraLarge,
               onPressed: () {
                 if (canGoBack) {
                   context.checkoutBloc.add(

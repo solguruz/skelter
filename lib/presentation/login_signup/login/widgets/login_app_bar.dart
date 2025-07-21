@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,7 +23,7 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: showAppcon
           ? AppButton.icon(
               appIcon: Assets.icons.icon.path,
-              size: AppButtonSize.xl,
+              size: AppButtonSize.extraLarge,
               iconOrTextColorOverride: AppColors.bgBrandDefault,
               onPressed: () {},
             )

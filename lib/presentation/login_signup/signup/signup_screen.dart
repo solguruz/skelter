@@ -30,11 +30,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginBloc>(
-      create: (context) => LoginBloc(
-        // gqlBloc: context.mainBloc.gqlBloc,
-        // mainBloc: context.mainBloc,
-        localizations: appLocalizations,
-      )..add(EnableSignupModeEvent(isSignup: true)),
+      create: (context) => LoginBloc(localizations: appLocalizations)
+        ..add(EnableSignupModeEvent(isSignup: true)),
       child: const Scaffold(
         appBar: LoginAppBar(),
         bottomNavigationBar: AgreementLinks(),

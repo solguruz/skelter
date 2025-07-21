@@ -77,7 +77,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     on<ProfilePictureDoneToggleEvent>(_onProfilePictureDoneToggleEvent);
     on<FinishProfilePictureEvent>(_onFinishProfilePictureEvent);
     on<ResetSignUpStateOnScreenClosedEvent>(
-        _resetSignUpStateOnScreenClosedEvent);
+      _resetSignUpStateOnScreenClosedEvent,
+    );
     on<SelectLoginSignupTypeEvent>(_onSelectLoginSignupTypeEvent);
     on<SignupEmailChangeEvent>(_onSignupEmailChangeEvent);
     on<SignupEmailErrorEvent>(_onSignupEmailErrorEvent);

@@ -5,6 +5,8 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
 
 class PasswordNextButton extends StatelessWidget {
   const PasswordNextButton({super.key});
@@ -25,12 +27,12 @@ class PasswordNextButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.login_signup_next,
-      fillWidth: true,
-      size: AppButtonSize.l,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
       state: confirmPassword.isNotEmpty && isPasswordValid
-          ? AppButtonState.d_efault
+          ? AppButtonState.normal
           : AppButtonState.disabled,
-      showLoader: isLoading,
+      isLoading: isLoading,
       onPressed: () {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
 

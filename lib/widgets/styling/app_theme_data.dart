@@ -4,11 +4,7 @@ import 'package:flutter_skeleton/gen/fonts.gen.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_skeleton/widgets/styling/input_decorations.dart';
 
-enum AppThemeEnum {
-  /// Dark theme is unused in the product, only use/test LightTheme.
-  DarkTheme,
-  LightTheme
-}
+enum AppThemeEnum { DarkTheme, LightTheme }
 
 class AppThemesData {
   static final Map<AppThemeEnum, ThemeData> themeData =

@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:flutter_skeleton/presentation/chat/widgets/user_avatar.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
@@ -18,7 +19,7 @@ class ChatConversationAppBar extends StatelessWidget
     return AppBar(
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
-        size: AppButtonSize.xl,
+        size: AppButtonSize.extraLarge,
         onPressed: () {
           context.router.maybePop();
         },

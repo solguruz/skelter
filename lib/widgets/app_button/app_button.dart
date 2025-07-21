@@ -1,71 +1,71 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/widgets/app_button/icon_size.dart';
+import 'package:flutter_skeleton/widgets/app_button/app_button_icon.dart';
+import 'package:flutter_skeleton/widgets/app_button/app_button_label.dart';
+import 'package:flutter_skeleton/widgets/app_button/app_button_loader.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_decoration.dart';
+import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_size_extension.dart';
+import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_style_text_colors.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-part 'app_button_size.dart';
-part 'app_button_state.dart';
-part 'app_button_style.dart';
 
 class AppButton extends StatelessWidget {
   final AppButtonStyle style;
   final AppButtonSize size;
   final AppButtonState state;
-  final bool isDestructive;
   final String? label;
   final bool isIconButton;
-  final String? appIcon;
+
+  final String? iconPath;
   final IconData? iconData;
-  final String? leftAppIcon;
-  final IconData? leftIconData;
-  final String? rightAppIcon;
-  final IconData? rightIconData;
-  final bool leftAppIconAttachedToText;
-  final bool rightAppIconAttachedToText;
-  final Color? iconOrTextColorOverride;
-  final Color? bgColorOverride;
-  final Color? borderColorOverride;
-  final double? radiusOverride;
-  final bool shouldUseOnPanDown;
+  final String? leftIconPath;
+  final IconData? leftIcon;
+  final String? rightIconPath;
+  final IconData? rightIcon;
+  final bool isLeftIconAttachedToText;
+  final bool isRightAppIconAttachedToText;
+
+  final Color? foregroundColor;
+  final Color? backgroundColor;
+  final Color? borderColor;
+  final double? borderRadius;
+
   final VoidCallback? onPressed;
-  final bool showLoader;
+  final bool isLoading;
+  final bool shouldSetFullWidth;
+
   final bool isAppBarAction;
   final double? appBarActionVerticalPadding;
   final double? appBarActionRightPadding;
   final double? appBarActionLeftPadding;
-  final bool fillWidth;
 
   const AppButton({
     super.key,
     this.style = AppButtonStyle.primary,
-    this.size = AppButtonSize.s,
-    this.state = AppButtonState.d_efault,
-    this.isDestructive = false,
+    this.size = AppButtonSize.small,
+    this.state = AppButtonState.normal,
     this.isIconButton = false,
     this.onPressed,
-    this.shouldUseOnPanDown = false,
-    this.appIcon,
+    this.iconPath,
     this.iconData,
     this.label,
-    this.leftAppIcon,
-    this.leftIconData,
-    this.rightAppIcon,
-    this.rightIconData,
-    this.leftAppIconAttachedToText = false,
-    this.rightAppIconAttachedToText = false,
-    this.iconOrTextColorOverride,
-    this.bgColorOverride,
-    this.borderColorOverride,
-    this.showLoader = false,
+    this.leftIconPath,
+    this.leftIcon,
+    this.rightIconPath,
+    this.rightIcon,
+    this.isLeftIconAttachedToText = false,
+    this.isRightAppIconAttachedToText = false,
+    this.foregroundColor,
+    this.backgroundColor,
+    this.borderColor,
+    this.isLoading = false,
     this.isAppBarAction = false,
     this.appBarActionRightPadding,
     this.appBarActionLeftPadding,
     this.appBarActionVerticalPadding,
-    this.fillWidth = false,
-    this.radiusOverride,
+    this.shouldSetFullWidth = false,
+    this.borderRadius,
   });
 
   factory AppButton.icon({
@@ -74,21 +74,19 @@ class AppButton extends StatelessWidget {
     AppButtonSize? size,
     AppButtonState? state,
     required VoidCallback onPressed,
-    bool shouldUseOnPanDown = false,
     Color? iconOrTextColorOverride = AppColors.iconNeutralDefault,
     bool isAppBarAction = false,
     double? appBarActionRightPadding,
   }) {
     return AppButton(
       style: AppButtonStyle.textOrIcon,
-      size: size ?? AppButtonSize.s,
-      state: state ?? AppButtonState.d_efault,
+      size: size ?? AppButtonSize.small,
+      state: state ?? AppButtonState.normal,
       iconData: iconData,
       isIconButton: true,
-      appIcon: appIcon,
+      iconPath: appIcon,
       onPressed: onPressed,
-      shouldUseOnPanDown: shouldUseOnPanDown,
-      iconOrTextColorOverride: iconOrTextColorOverride,
+      foregroundColor: iconOrTextColorOverride,
       isAppBarAction: isAppBarAction,
       appBarActionRightPadding: appBarActionRightPadding,
     );
@@ -99,227 +97,169 @@ class AppButton extends StatelessWidget {
     AppButtonSize? size,
     AppButtonState? state,
     required VoidCallback onPressed,
-    bool shouldUseOnPanDown = false,
     Color? iconOrTextColorOverride,
     bool isAppBarAction = false,
     bool? showLoader,
     double? radiusOverride,
   }) {
     return AppButton(
-      size: size ?? AppButtonSize.s,
-      state: state ?? AppButtonState.d_efault,
+      size: size ?? AppButtonSize.small,
+      state: state ?? AppButtonState.normal,
       label: label,
       onPressed: onPressed,
-      shouldUseOnPanDown: shouldUseOnPanDown,
-      iconOrTextColorOverride: iconOrTextColorOverride,
+      foregroundColor: iconOrTextColorOverride,
       isAppBarAction: isAppBarAction,
-      showLoader: showLoader ?? false,
-      radiusOverride: radiusOverride,
+      isLoading: showLoader ?? false,
+      borderRadius: radiusOverride,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget child;
-    if (isIconButton) {
-      child = _icon(appIcon, iconData);
-    } else if ((leftAppIcon != null || leftIconData != null) &&
-        (rightAppIcon != null || rightIconData != null)) {
-      child = _buttonWithLeftAndRightIcon();
-    } else if (leftAppIcon != null || leftIconData != null) {
-      child = _buildWithLeftIcon();
-    } else if (rightAppIcon != null || rightIconData != null) {
-      child = _buildWithRightIcon();
-    } else {
-      child = _buildTextButton();
-    }
-
-    final Widget centeredChild = Stack(
+    final visualContent = Stack(
       alignment: Alignment.center,
-      children: [child, if (showLoader) _loader()],
+      children: [
+        _buildChild(),
+        if (isLoading)
+          AppButtonLoader(
+            style: style,
+            state: state,
+            size: size,
+          ),
+      ],
     );
 
-    final Widget widget = InkWell(
+    final baseButton = InkWell(
       splashFactory: NoSplash.splashFactory,
       splashColor: AppColors.transparent,
       highlightColor: AppColors.transparent,
-      onTapDown: shouldUseOnPanDown
-          ? (_) {
-              onPressed?.call();
-            }
-          : null,
-      onTap: !shouldUseOnPanDown ? onPressed : null,
+      onTap: onPressed,
       child: Container(
         height: size.height,
         width: isIconButton
             ? size.height
-            : fillWidth
+            : shouldSetFullWidth
                 ? double.infinity
                 : null,
-        padding: _padding(),
-        decoration: style.decoration(
+        padding: _resolvePadding(),
+        decoration: style.toBoxDecoration(
           state,
-          isDestructive: isDestructive,
-          bgColorOverride: bgColorOverride,
-          borderColorOverride: borderColorOverride,
-          radiusOverride: radiusOverride,
+          bgColorOverride: backgroundColor,
+          borderColorOverride: borderColor,
+          borderRadiusOverride: borderRadius,
         ),
-        child: centeredChild,
+        child: visualContent,
       ),
     );
 
-    if (isAppBarAction) {
-      return Padding(
-        padding: EdgeInsets.only(
-          right: appBarActionRightPadding ?? 16,
-          left: appBarActionRightPadding ?? 0,
-          top: appBarActionVerticalPadding ?? 13,
-          bottom: appBarActionVerticalPadding ?? 13,
-        ),
-        child: widget,
-      );
-    } else {
-      return widget;
+    return isAppBarAction
+        ? Padding(
+            padding: EdgeInsets.only(
+              top: appBarActionVerticalPadding ?? 13,
+              bottom: appBarActionVerticalPadding ?? 13,
+              left: appBarActionLeftPadding ?? 0,
+              right: appBarActionRightPadding ?? 16,
+            ),
+            child: baseButton,
+          )
+        : baseButton;
+  }
+
+  Widget _buildChild() {
+    if (isIconButton) {
+      return _buildIcon(iconPath, iconData);
     }
+
+    final hasLeadingIcon = leftIconPath != null || leftIcon != null;
+    final hasTrailingIcon = rightIconPath != null || rightIcon != null;
+
+    if (hasLeadingIcon && hasTrailingIcon) {
+      return _buildWithLeadingAndTrailingIcons();
+    }
+    if (hasLeadingIcon) return _buildWithLeadingIcon();
+    if (hasTrailingIcon) return _buildWithTrailingIcon();
+
+    return _buildLabel();
   }
 
-  Widget _loader() {
-    return CupertinoActivityIndicator(
-      color: style.getTextColor(state, isDestructive: isDestructive),
-      radius: (size.textStyle.fontSize ?? 10) * 0.6,
-    );
-  }
-
-  Widget _buttonWithLeftAndRightIcon() {
+  Widget _buildWithLeadingAndTrailingIcons() {
     return Row(
       children: [
-        _icon(leftAppIcon, leftIconData),
+        _buildIcon(leftIconPath, leftIcon),
         const Spacer(),
-        _getText(),
+        _buildLabel(),
         const Spacer(),
-        _icon(rightAppIcon, rightIconData),
+        _buildIcon(rightIconPath, rightIcon),
       ],
     );
   }
 
-  Widget _buildWithLeftIcon() {
-    if (leftAppIconAttachedToText) {
-      return Row(
-        children: [
+  Widget _buildWithLeadingIcon() {
+    return Row(
+      children: [
+        if (isLeftIconAttachedToText) ...[
           const Spacer(),
-          _icon(leftAppIcon, leftIconData),
-          SizedBox(width: size.gap),
-          _getText(),
-          const Spacer(),
-        ],
-      );
-    } else {
-      return Row(
-        children: [
-          _icon(leftAppIcon, leftIconData),
-          const Spacer(),
-          SizedBox(width: size.gap),
-          _getText(),
+          _buildIcon(leftIconPath, leftIcon),
+        ] else ...[
+          _buildIcon(leftIconPath, leftIcon),
           const Spacer(),
         ],
-      );
-    }
-  }
-
-  Widget _buildWithRightIcon() {
-    if (rightAppIconAttachedToText) {
-      return Row(
-        children: [
-          const Spacer(),
-          _getText(),
-          SizedBox(width: size.gap),
-          Flexible(child: _icon(rightAppIcon, rightIconData)),
-          const Spacer(),
-        ],
-      );
-    } else {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Spacer(),
-          _getText(),
-          const Spacer(),
-          _icon(rightAppIcon, rightIconData),
-        ],
-      );
-    }
-  }
-
-  Widget _buildTextButton() {
-    return _getText();
-  }
-
-  Text _getText() {
-    return Text(
-      label!,
-      style: size.textStyle.copyWith(
-        color: _getTextColor(),
-        fontWeight: _getFontWeight(),
-        height: 0,
-        decoration:
-            style == AppButtonStyle.link ? TextDecoration.underline : null,
-      ),
-      maxLines: 1,
+        SizedBox(width: size.spacing),
+        _buildLabel(),
+        const Spacer(),
+      ],
     );
   }
 
-  Widget _icon(String? iconPath, IconData? iconData) {
-    if (iconPath != null && iconPath.endsWith(kSVGExtension)) {
-      return SvgPicture.asset(
-        iconPath,
-        colorFilter: ColorFilter.mode(_getTextColor(), BlendMode.srcIn),
-        height: size.iconSize,
-        width: size.iconSize,
-      );
-    } else if ((iconPath ?? '').endsWith(kPNGExtension)) {
-      return Image.asset(
-        iconPath ?? '',
-        height: size.iconSize,
-        width: size.iconSize,
-      );
-    } else if (iconData != null) {
-      return Icon(
-        iconData,
-        color: _getTextColor(),
-        size: size.iconSize * 0.9,
-      );
-    } else {
-      return const SizedBox.shrink();
-    }
+  Widget _buildWithTrailingIcon() {
+    return Row(
+      mainAxisSize:
+          isRightAppIconAttachedToText ? MainAxisSize.max : MainAxisSize.min,
+      children: [
+        const Spacer(),
+        _buildLabel(),
+        if (isRightAppIconAttachedToText) ...[
+          SizedBox(width: size.spacing),
+          Flexible(child: _buildIcon(rightIconPath, rightIcon)),
+        ] else ...[
+          const Spacer(),
+          _buildIcon(rightIconPath, rightIcon),
+        ],
+        if (isRightAppIconAttachedToText) const Spacer(),
+      ],
+    );
   }
 
-  Color _getTextColor() {
-    if (iconOrTextColorOverride != null) {
-      return iconOrTextColorOverride!;
-    }
-    if (showLoader) {
-      return AppColors.transparent;
-    } else {
-      return style.getTextColor(state, isDestructive: isDestructive);
-    }
+  Widget _buildLabel() {
+    return AppButtonLabel(
+      label: label ?? '',
+      style: style,
+      size: size,
+      state: state,
+      foregroundColor: foregroundColor,
+      isLoading: isLoading,
+    );
   }
 
-  FontWeight? _getFontWeight() {
-    return size.textStyle.fontWeight;
+  Widget _buildIcon(String? path, IconData? icon) {
+    return AppButtonIcon(
+      iconPath: path,
+      iconData: icon,
+      size: size.iconSize,
+      color: _resolveTextColor(),
+    );
   }
 
-  EdgeInsets? _padding() {
-    if (isIconButton) {
+  Color _resolveTextColor() {
+    if (foregroundColor != null) return foregroundColor!;
+    return isLoading ? Colors.transparent : style.getTextColor(state);
+  }
+
+  EdgeInsets? _resolvePadding() {
+    if (isIconButton) return EdgeInsets.zero;
+    if (style == AppButtonStyle.link || style == AppButtonStyle.textOrIcon) {
       return EdgeInsets.zero;
     }
-    switch (style) {
-      case AppButtonStyle.primary:
-      case AppButtonStyle.secondary:
-      case AppButtonStyle.outline:
-        return size.padding;
-      case AppButtonStyle.link:
-      case AppButtonStyle.textOrIcon:
-        return EdgeInsets.zero;
-    }
+    return size.padding;
   }
 }

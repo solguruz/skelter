@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class EmptyOrdersView extends StatelessWidget {
@@ -37,7 +38,7 @@ class EmptyOrdersView extends StatelessWidget {
             label: context.localization.explore_products,
             onPressed: () =>
                 context.showSnackBar('Explore products button pressed'),
-            size: AppButtonSize.xl,
+            size: AppButtonSize.extraLarge,
           ),
         ],
       ),
