@@ -43,6 +43,7 @@ class AppColors {
   static const Color popupMenuIconColor = Color(0xFF282828);
   static const Color shadowColor = Color(0x14202120);
   static const Color shadowColor2 = Color(0x55555512);
+  static const Color shadowColor3 = Color(0x40000000);
   static const Color imageOverlay = Color(0x80000000);
   static const Color gridCounterOverlay = Color(0xB3050505);
   static const Color transparent = Color(0x00000000);
