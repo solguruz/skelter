@@ -3,6 +3,8 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 
 class ProductsHeadlineBar extends StatelessWidget {
   const ProductsHeadlineBar({super.key});
@@ -18,7 +20,7 @@ class ProductsHeadlineBar extends StatelessWidget {
         ),
         AppButton(
           style: AppButtonStyle.textOrIcon,
-          size: AppButtonSize.m,
+          size: AppButtonSize.medium,
           label: context.localization.see_all,
           onPressed: () => context.showSnackBar('See all products'),
         ),

@@ -12,6 +12,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/account_deleted_success.svg
+  String get accountDeletedSuccess =>
+      'assets/icons/account_deleted_success.svg';
+
   /// File path: assets/icons/app_under_maintenance.svg
   String get appUnderMaintenance => 'assets/icons/app_under_maintenance.svg';
 
@@ -83,30 +87,31 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-        appUnderMaintenance,
-        apple,
-        close,
-        coupon,
-        deliveryParcel,
-        email,
-        emailNotification,
-        emptyCart,
-        emptySavedCards,
-        emptyWishlist,
-        google,
-        icon,
-        mdiTick,
-        noChats,
-        noInternetConnection,
-        noNotifications,
-        searchOutline,
-        send,
-        serverError,
-        tick,
-        userNotFound,
-        userPlaceholder,
-        waveforms,
-      ];
+    accountDeletedSuccess,
+    appUnderMaintenance,
+    apple,
+    close,
+    coupon,
+    deliveryParcel,
+    email,
+    emailNotification,
+    emptyCart,
+    emptySavedCards,
+    emptyWishlist,
+    google,
+    icon,
+    mdiTick,
+    noChats,
+    noInternetConnection,
+    noNotifications,
+    searchOutline,
+    send,
+    serverError,
+    tick,
+    userNotFound,
+    userPlaceholder,
+    waveforms,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -134,12 +139,12 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        cartItem1,
-        cartItem2,
-        demoUser,
-        mastercard,
-        sgSkeletonLogo,
-      ];
+    cartItem1,
+    cartItem2,
+    demoUser,
+    mastercard,
+    sgSkeletonLogo,
+  ];
 }
 
 class $AssetsTestGen {
