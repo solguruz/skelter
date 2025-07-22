@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
@@ -46,9 +46,8 @@ class NoInternetScreen extends StatelessWidget {
                   AppButton(
                     label: context.localization.try_again,
                     onPressed: () {
-                      final isConnected = InternetConnectivityHelper()
-                          .onConnectivityChange
-                          .value;
+                      final isConnected =
+                          InternetConnectivityUtil().onConnectivityChange.value;
                       if (isConnected) {
                         context.router.maybePop();
                       }

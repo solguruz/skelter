@@ -11,7 +11,7 @@ import 'package:flutter_skeleton/initialize_app.dart';
 import 'package:flutter_skeleton/routes.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
 import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:sizer/sizer.dart';
 
@@ -35,8 +35,8 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final AppRouter appRouter = AppRouter();
-  final InternetConnectivityHelper _connectivityHelper =
-      InternetConnectivityHelper();
+  final InternetConnectivityUtil _connectivityHelper =
+      InternetConnectivityUtil();
 
   @override
   void initState() {
@@ -69,7 +69,7 @@ class _MainAppState extends State<MainApp> {
 
   @override
   void dispose() {
-    InternetConnectivityHelper().dispose();
+    InternetConnectivityUtil().dispose();
     super.dispose();
   }
 

@@ -17,13 +17,15 @@ extension DateTimeExtensions on DateTime {
     }
   }
 
-  bool isSameDay(DateTime other) {
-    return year == other.year && month == other.month && day == other.day;
-  }
+  bool get isFuture => isAfter(DateTime.now());
 
-  bool isInRange(DateTime start, DateTime end) {
-    return isAfter(start) && isBefore(end);
-  }
+  bool get isPast => isBefore(DateTime.now());
+
+  bool isSameDay(DateTime other) =>
+      year == other.year && month == other.month && day == other.day;
+
+  bool isInRange(DateTime start, DateTime end) =>
+      isAfter(start) && isBefore(end);
 
   String get timeAgo {
     try {

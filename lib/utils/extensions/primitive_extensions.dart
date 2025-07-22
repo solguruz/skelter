@@ -1,6 +1,6 @@
 extension StringNullCheck on String? {
   /// Returns `true` if the string is null or empty.
-  bool isNullOrEmpty() => this?.isEmpty ?? true;
+  bool isNullOrEmpty() => this?.trim().isEmpty ?? true;
 
   /// Returns `true` if the string is non-null and not empty.
   bool haveContent() => this?.isNotEmpty ?? false;
@@ -36,9 +36,6 @@ extension IntRange on int {
 }
 
 // List Extensions
-extension ListExtensions<T> on List<T> {
-  List<T> distinct() {
-    final seen = <T>{};
-    return where((e) => seen.add(e)).toList();
-  }
+extension DistinctList<T> on List<T> {
+  List<T> distinct() => toSet().toList();
 }

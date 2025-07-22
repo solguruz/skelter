@@ -10,7 +10,7 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_even
 import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
@@ -58,7 +58,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             size: AppButtonSize.extraLarge,
             onPressed: () async {
               final isConnected =
-                  InternetConnectivityHelper().onConnectivityChange.value;
+                  InternetConnectivityUtil().onConnectivityChange.value;
 
               if (!isConnected && context.mounted) {
                 context
@@ -81,7 +81,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
               size: AppButtonSize.extraLarge,
               onPressed: () async {
                 final isConnected =
-                    InternetConnectivityHelper().onConnectivityChange.value;
+                    InternetConnectivityUtil().onConnectivityChange.value;
 
                 if (!isConnected && context.mounted) {
                   context.showSnackBar(
