@@ -3,6 +3,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class EmptyCartView extends StatelessWidget {
@@ -35,7 +36,7 @@ class EmptyCartView extends StatelessWidget {
           AppButton(
             label: context.localization.explore_products,
             onPressed: () {},
-            size: AppButtonSize.xl,
+            size: AppButtonSize.extraLarge,
           ),
         ],
       ),

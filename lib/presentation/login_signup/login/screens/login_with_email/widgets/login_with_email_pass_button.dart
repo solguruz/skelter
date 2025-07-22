@@ -8,6 +8,8 @@ import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
 
 class LoginWithEmailPassButton extends StatelessWidget {
   const LoginWithEmailPassButton({
@@ -31,12 +33,12 @@ class LoginWithEmailPassButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.login_signup_login,
-      fillWidth: true,
-      size: AppButtonSize.l,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
       state: email.isNotEmpty && _isPasswordLongEnough(password)
-          ? AppButtonState.d_efault
+          ? AppButtonState.normal
           : AppButtonState.disabled,
-      showLoader: isLoading,
+      isLoading: isLoading,
       onPressed: () async {
         await SystemChannels.textInput.invokeMethod('TextInput.hide');
         final isConnected =

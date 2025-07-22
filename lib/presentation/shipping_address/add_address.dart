@@ -11,6 +11,8 @@ import 'package:flutter_skeleton/presentation/shipping_address/widgets/set_defau
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/state_dropdown.dart';
 import 'package:flutter_skeleton/presentation/shipping_address/widgets/zip_code_text_field.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 @RoutePage()
@@ -30,11 +32,11 @@ class AddAddressScreen extends StatelessWidget {
               children: [
                 AppButton(
                   style: AppButtonStyle.outline,
-                  size: AppButtonSize.xl,
+                  size: AppButtonSize.extraLarge,
                   label: context.localization.use_current_location,
-                  leftIconData: TablerIcons.map_pin,
-                  leftAppIconAttachedToText: true,
-                  fillWidth: true,
+                  leftIcon: TablerIcons.map_pin,
+                  isLeftIconAttachedToText: true,
+                  shouldSetFullWidth: true,
                 ),
                 const SizedBox(height: 16),
                 const NameTextField(),

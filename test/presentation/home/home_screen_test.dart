@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
+import 'package:flutter_skeleton/presentation/home/data/dummy_product_data.dart';
 import 'package:flutter_skeleton/presentation/home/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -45,23 +46,24 @@ void main() {
         providers: [
           BlocProvider<HomeBloc>.value(value: homeBloc),
         ],
-        child: const HomeScreen(),
+        child: const HomeScreenWrapper(),
       );
 
       // assert
-      expect(find.byType(HomeScreen), findsOneWidget);
+      expect(find.byType(HomeScreenWrapper), findsOneWidget);
     });
 
     // Golden test cases
     testExecutable(() {
       goldenTest(
         'Home page UI test',
-        fileName: 'home_page_selected_in_bottom_bar',
+        fileName: 'home_screen',
+        pumpBeforeTest: precacheImages,
         builder: () {
           //arrange
           final homeBloc = MockHomeBloc();
           when(() => homeBloc.state).thenReturn(
-            HomeState.test(),
+            HomeState.test(topProducts: dummyProductData),
           );
 
           // act, assert
@@ -70,11 +72,11 @@ void main() {
                 const FixedColumnWidth(pixel5DeviceWidth),
             children: [
               createTestScenario(
-                name: 'selected in bottom nav bar',
+                name: 'home_screen',
                 providers: [
                   BlocProvider<HomeBloc>.value(value: homeBloc),
                 ],
-                child: const HomeScreen(),
+                child: const HomeScreenWrapper(),
               ),
             ],
           );

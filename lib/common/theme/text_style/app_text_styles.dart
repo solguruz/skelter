@@ -7,7 +7,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -0.28,
   );
 
@@ -16,7 +15,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -0.24,
   );
 
@@ -25,7 +23,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -0.24,
   );
 
@@ -34,7 +31,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -0.24,
   );
 
@@ -43,7 +39,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -0.24,
   );
 
@@ -75,7 +70,6 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
     height: 1.5,
-    // 150% on Figma,
     letterSpacing: -1,
   );
 
@@ -83,77 +77,77 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w400,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p1Medium = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p1SemiBold = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p2Medium = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p2Regular = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p3Medium = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p3SemiBold = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p4Medium = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p4Regular = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p1Bold = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p2Bold = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p2SemiBold = const TextStyle(
@@ -167,41 +161,48 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.bold,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
   static TextStyle p4SemiBold = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle p4Bold = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.bold,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
+  );
+
+  static TextStyle c1SemiBold = const TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    fontFamily: FontFamily.inter,
+    height: 1.4,
   );
 
   static TextStyle c2Regular = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w400,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle c2Medium = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w500,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 
   static TextStyle c2SemiBold = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,
     fontFamily: FontFamily.inter,
-    height: 1.5, // 150% on Figma,
+    height: 1.5,
   );
 }
 

@@ -6,6 +6,8 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:image_picker/image_picker.dart';
@@ -89,10 +91,10 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 22),
               AppButton(
                 label: context.localization.take_a_photo,
-                fillWidth: true,
+                shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
-                leftIconData: TablerIcons.camera,
-                size: AppButtonSize.xl,
+                leftIcon: TablerIcons.camera,
+                size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
                   context.contactUsBloc.add(
@@ -103,10 +105,10 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 16.0),
               AppButton(
                 label: context.localization.upload_from_gallery,
-                fillWidth: true,
+                shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
-                leftIconData: TablerIcons.photo,
-                size: AppButtonSize.xl,
+                leftIcon: TablerIcons.photo,
+                size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
                   context.contactUsBloc.add(
@@ -117,10 +119,10 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 16.0),
               AppButton(
                 label: context.localization.upload_from_files,
-                fillWidth: true,
+                shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
-                leftIconData: TablerIcons.folders,
-                size: AppButtonSize.xl,
+                leftIcon: TablerIcons.folders,
+                size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
                   context.contactUsBloc.add(const AddPdfEvent());

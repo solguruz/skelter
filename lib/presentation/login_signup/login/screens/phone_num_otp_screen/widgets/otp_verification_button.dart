@@ -7,6 +7,9 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 
 class OTPVerificationButton extends StatelessWidget {
   const OTPVerificationButton({
@@ -26,12 +29,12 @@ class OTPVerificationButton extends StatelessWidget {
       children: [
         AppButton(
           label: context.localization.login_signup_verify,
-          fillWidth: true,
-          size: AppButtonSize.l,
+          shouldSetFullWidth: true,
+          size: AppButtonSize.large,
           state: mobileOtpText.isNotEmpty && mobileOtpText.length == 6
-              ? AppButtonState.d_efault
+              ? AppButtonState.normal
               : AppButtonState.disabled,
-          showLoader: isLoading,
+          isLoading: isLoading,
           onPressed: () {
             if (mobileOtpText.isNotEmpty && mobileOtpText.length == 6) {
               context.loginBloc.add(FirebaseOTPVerificationEvent());
@@ -85,12 +88,11 @@ class _ResendOTPButtonState extends State<_ResendOTPButton> {
 
     return AppButton(
       label: resendOTPText,
-      fillWidth: true,
-      size: AppButtonSize.l,
+      shouldSetFullWidth: true,
+      size: AppButtonSize.large,
       style: AppButtonStyle.textOrIcon,
-      state: isResendOTPEnabled
-          ? AppButtonState.d_efault
-          : AppButtonState.disabled,
+      state:
+          isResendOTPEnabled ? AppButtonState.normal : AppButtonState.disabled,
       onPressed: () {
         if (isResendOTPEnabled) {
           context.loginBloc

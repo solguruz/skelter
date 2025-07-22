@@ -4,6 +4,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 
 class ContactUsSubmitButton extends StatelessWidget {
   const ContactUsSubmitButton({super.key});
@@ -17,8 +18,8 @@ class ContactUsSubmitButton extends StatelessWidget {
       ),
       child: AppButton(
         label: context.localization.submit,
-        fillWidth: true,
-        size: AppButtonSize.xl,
+        shouldSetFullWidth: true,
+        size: AppButtonSize.extraLarge,
         onPressed: () {
           SystemChannels.textInput.invokeMethod('TextInput.hide');
           context.contactUsBloc.add(const SubmitFormEvent());

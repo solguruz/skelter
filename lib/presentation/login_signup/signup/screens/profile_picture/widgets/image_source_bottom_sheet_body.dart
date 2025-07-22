@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -128,7 +130,7 @@ class _RemoveImage extends StatelessWidget {
               aspectRatio: 1,
               child: AppButton(
                 style: AppButtonStyle.outline,
-                size: AppButtonSize.xs,
+                size: AppButtonSize.extraSmall,
                 isIconButton: true,
                 iconData: TablerIcons.photo_x,
                 onPressed: onImageRemoved,
@@ -161,7 +163,7 @@ class _Gallery extends StatelessWidget {
               aspectRatio: 1,
               child: AppButton(
                 style: AppButtonStyle.outline,
-                size: AppButtonSize.xs,
+                size: AppButtonSize.extraSmall,
                 isIconButton: true,
                 iconData: TablerIcons.photo,
                 onPressed: () => onGallerySelected(),
@@ -194,7 +196,7 @@ class _Camera extends StatelessWidget {
               aspectRatio: 1,
               child: AppButton(
                 style: AppButtonStyle.outline,
-                size: AppButtonSize.xs,
+                size: AppButtonSize.extraSmall,
                 isIconButton: true,
                 iconData: TablerIcons.camera,
                 onPressed: () => onCameraSelected(),

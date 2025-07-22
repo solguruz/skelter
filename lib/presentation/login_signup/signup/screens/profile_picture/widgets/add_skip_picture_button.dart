@@ -7,6 +7,9 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/signup/screens/profile_picture/widgets/image_source_bottom_sheet_body.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 
 class AddSkipPictureButton extends StatelessWidget {
   const AddSkipPictureButton({super.key});
@@ -20,9 +23,9 @@ class AddSkipPictureButton extends StatelessWidget {
       children: [
         AppButton(
           label: context.localization.login_signup_add,
-          fillWidth: true,
-          size: AppButtonSize.l,
-          state: isLoading ? AppButtonState.disabled : AppButtonState.d_efault,
+          shouldSetFullWidth: true,
+          size: AppButtonSize.large,
+          state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
           onPressed: () {
             if (!isLoading) {
               showImageSourceBottomSheet(
@@ -40,10 +43,10 @@ class AddSkipPictureButton extends StatelessWidget {
         const SizedBox(height: 16),
         AppButton(
           label: context.localization.login_signup_skip,
-          fillWidth: true,
-          size: AppButtonSize.l,
+          shouldSetFullWidth: true,
+          size: AppButtonSize.large,
           style: AppButtonStyle.outline,
-          showLoader: isLoading,
+          isLoading: isLoading,
           onPressed: () {
             context.loginBloc.add(FinishProfilePictureEvent());
           },

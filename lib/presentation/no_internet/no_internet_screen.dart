@@ -5,6 +5,8 @@ import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
@@ -51,7 +53,7 @@ class NoInternetScreen extends StatelessWidget {
                         context.router.maybePop();
                       }
                     },
-                    size: AppButtonSize.xl,
+                    size: AppButtonSize.extraLarge,
                     style: AppButtonStyle.secondary,
                   ),
                 ],

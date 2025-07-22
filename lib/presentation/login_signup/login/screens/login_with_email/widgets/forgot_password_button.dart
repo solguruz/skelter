@@ -5,6 +5,9 @@ import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class ForgotPasswordButton extends StatelessWidget {
@@ -17,9 +20,9 @@ class ForgotPasswordButton extends StatelessWidget {
     return AppButton(
       label: context.localization.login_signup_ask_forgot_password,
       style: AppButtonStyle.textOrIcon,
-      size: AppButtonSize.l,
+      size: AppButtonSize.large,
       state: AppButtonState.disabled,
-      iconOrTextColorOverride: AppColors.textNeutralDisable,
+      foregroundColor: AppColors.textNeutralDisable,
       onPressed: () {
         final String? emailError =
             context.loginBloc.state.emailPasswordLoginState?.emailErrorMessage;
