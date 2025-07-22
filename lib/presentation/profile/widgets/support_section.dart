@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/presentation/profile/widgets/contact_us.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/divider.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/feedback_and_rating.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/help_and_support.dart';
@@ -15,18 +15,20 @@ class SupportSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.l10n.support, style: AppTextStyles.h6SemiBold),
-        const SizedBox(height: AppSize.M),
+        Text(context.localization.support, style: AppTextStyles.h6SemiBold),
+        const SizedBox(height: 12.0),
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.strokeNeutralLight200),
-            borderRadius: BorderRadius.circular(AppRadius.M),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           child: const Column(
             children: [
               FeedbackAndRating(),
               ProfileItemsDivider(),
               HelpAndSupport(),
+              ProfileItemsDivider(),
+              ContactUs(),
             ],
           ),
         ),

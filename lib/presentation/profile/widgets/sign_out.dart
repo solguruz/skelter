@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_bloc.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_event.dart';
@@ -16,18 +14,20 @@ class SignOut extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.strokeNeutralLight200),
-        borderRadius: BorderRadius.circular(AppRadius.M),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
-        leading: const AppIcon(
-          iconData: TablerIcons.arrow_left_from_arc,
+        leading: const Icon(
+          TablerIcons.arrow_left_from_arc,
+          color: AppColors.iconNeutralDefault,
         ),
         title: Text(
-          context.l10n.sign_out,
+          context.localization.sign_out,
           style: AppTextStyles.h6SemiBold,
         ),
-        trailing: const AppIcon(
-          iconData: TablerIcons.chevron_right,
+        trailing: const Icon(
+          TablerIcons.chevron_right,
+          color: AppColors.iconNeutralDefault,
         ),
         onTap: () {
           context.profileBloc.add(const SignOutEvent());

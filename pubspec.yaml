@@ -15,7 +15,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   firebase_core: ^3.5.0
   firebase_analytics: ^11.3.2
-  firebase_crashlytics: ^4.3.0
+  firebase_crashlytics: ^4.3.9
   firebase_auth: ^5.3.3
   google_sign_in: ^6.2.2
   sign_in_with_apple: ^6.1.4
@@ -38,6 +38,17 @@ dependencies:
   country_picker: ^2.0.27
   shared_preferences: ^2.3.5
   sizer: ^3.0.5
+  cached_network_image: ^3.4.1
+  timeago: ^3.7.0
+  mobkit_dashed_border: ^0.0.8
+  shimmer: ^3.0.0
+  tuple: ^2.0.2
+  image_viewer_pro: ^1.0.0
+  easy_stepper: ^0.8.5+1
+  flutter_rating_bar_plus: ^4.0.2
+  file_picker: 8.3.3
+  connectivity_plus: ^6.1.4
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -49,15 +60,27 @@ dev_dependencies:
   mocktail: ^1.0.4
   bloc_test: ^9.1.7
   alchemist: ^0.11.0
+  mocktail_image_network: ^1.2.0
 
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/sg_skeleton_logo.png
+
+  android_12:
+    image: assets/images/sg_skeleton_logo.png
+    icon_background_color: "#ffffff"
+    android_gravity: center
 
 flutter:
   uses-material-design: true
+  # TODO: https://docs.flutter.dev/release/breaking-changes/flutter-generate-i10n-source
   generate: true
 
   assets:
     - assets/icons/
     - assets/images/
+    - assets/test/images/
+    - assets/test/files/
 
   fonts:
     - family: Inter
@@ -93,3 +116,7 @@ flutter:
         #600 Semi-bold
         - asset: assets/fonts/Inter/Inter-Thin.ttf
           weight: 600
+        
+    # - family: Roboto
+    #   fonts:
+    #     - asset: test/fonts/Roboto-Regular.ttf

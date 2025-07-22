@@ -43,6 +43,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/.cxx/
 
 # Golden tests
 test/**/failures/**/*.*
+
+# FVM Version Cache
+.fvm/

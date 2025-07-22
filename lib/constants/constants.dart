@@ -13,5 +13,13 @@ const kFirebaseAuthTooManyRequestsException = 'too-many-requests';
 const kFirebaseAuthInvalidCodeException = 'invalid-verification-code';
 const kFirebaseAuthSessionExpiredException = 'session-expired';
 const kFirebaseAuthSessionEmailAlreadyInUse = 'email-already-in-use';
+const kFirebaseAuthRequiresRecentLogin = 'requires-recent-login';
 
 const String kSomethingWentWrong = 'Oops! Something went wrong';
+
+// Chat messaging constants
+const String kHereAnimationPrefix = 'fullscreen_image_0';
+
+// Contact us constants
+final kEmailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+final kAllowedFileExtensions = ['pdf'];

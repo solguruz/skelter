@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/app_icons/app_icon.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/core/app_sizes.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_bloc.dart';
@@ -40,24 +38,24 @@ class UserAvatar extends StatelessWidget {
             left: 0,
             child: Container(
               padding: const EdgeInsets.symmetric(
-                vertical: AppSize.XS,
+                vertical: 4.0,
               ),
               decoration: BoxDecoration(
                 color: AppColors.bgBrandLight50,
-                borderRadius: BorderRadius.circular(AppRadius.L),
+                borderRadius: BorderRadius.circular(16.0),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const AppIcon(
-                    iconData: TablerIcons.star,
-                    size: 16,
+                  const Icon(
+                    TablerIcons.star,
                     color: AppColors.iconBrandHover,
+                    size: 16,
                   ),
-                  const SizedBox(width: AppSize.XS),
+                  const SizedBox(width: 4.0),
                   Text(
-                    context.l10n.pro,
+                    context.localization.pro,
                     style: AppTextStyles.p4SemiBold.withColor(
                       AppColors.iconBrandHover,
                     ),

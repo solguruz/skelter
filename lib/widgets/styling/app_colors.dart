@@ -38,10 +38,12 @@ class AppColors {
   static const Color bottomLabelsGreyColor = Color(0xFF686868);
   static const Color participantTitle = Color(0xFFF8F8F9);
   static const Color unselectedColor = Color(0xFF414152);
-  static const Color feedCtaBgColor = Color(0x40000000);
+  static const Color feedButtonBgColor = Color(0x40000000);
   static const Color postMediaGradientColor = Color(0x40000000);
   static const Color popupMenuIconColor = Color(0xFF282828);
   static const Color shadowColor = Color(0x14202120);
+  static const Color shadowColor2 = Color(0x55555512);
+  static const Color shadowColor3 = Color(0x40000000);
   static const Color imageOverlay = Color(0x80000000);
   static const Color gridCounterOverlay = Color(0xB3050505);
   static const Color transparent = Color(0x00000000);
@@ -62,7 +64,7 @@ class AppColors {
   static const Color neutral200 = Color(0xFFCDCFCE);
   static const Color neutral300 = Color(0xFFB1B3B2);
   static const Color neutral400 = Color(0xFF959796);
-  static const Color neutral500 = Color(0xFF797B7A);
+  static const Color neutral500 = Color(0xFF77808D);
   static const Color neutral600 = Color(0xFF565857);
   static const Color neutral700 = Color(0xFF414241);
   static const Color neutral800 = Color(0xFF303130);

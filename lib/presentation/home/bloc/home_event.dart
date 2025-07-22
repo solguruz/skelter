@@ -1,18 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/analytics/main_event.dart';
 
-abstract class HomeEvent extends Equatable implements AnalyticsEvent {
+abstract class HomeEvent extends Equatable {
   const HomeEvent();
-
-  @override
-  Map<String, String>? getAnalyticParameters() {
-    return {};
-  }
-
-  @override
-  bool shouldLogEvent() {
-    return false;
-  }
 }
 
 class BottomNavBarIndexChangedEvent extends HomeEvent {
@@ -22,7 +11,11 @@ class BottomNavBarIndexChangedEvent extends HomeEvent {
 
   @override
   List<Object> get props => [index];
+}
+
+class GetTopProductDataEvent extends HomeEvent {
+  const GetTopProductDataEvent();
 
   @override
-  String get eventName => (BottomNavBarIndexChangedEvent).toString();
+  List<Object> get props => [];
 }

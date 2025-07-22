@@ -29,23 +29,19 @@ class BottomNavBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.home),
-          label: context.l10n.home,
+          label: context.localization.home,
         ),
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.search),
-          label: context.l10n.search,
+          label: context.localization.search,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(TablerIcons.map_pin),
-          label: context.l10n.map,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(TablerIcons.bell),
-          label: context.l10n.notifications,
+          icon: const Icon(TablerIcons.shopping_cart),
+          label: context.localization.cart,
         ),
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.user),
-          label: context.l10n.profile,
+          label: context.localization.profile,
         ),
       ],
     );

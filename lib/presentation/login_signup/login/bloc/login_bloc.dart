@@ -4,12 +4,8 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/analytics/analytics_common.dart';
-import 'package:flutter_skeleton/analytics/analytics_events.dart';
-import 'package:flutter_skeleton/analytics/analytics_parameters.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';
@@ -18,11 +14,10 @@ import 'package:flutter_skeleton/presentation/login_signup/login/models/login_de
 import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/analytics_helper.dart';
 import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:flutter_skeleton/validators/validators.dart';
 
-class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
+class LoginBloc extends Bloc<LoginEvents, LoginState> {
   static const kMinimumPasswordLength = 8;
 
   final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
@@ -34,18 +29,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     _initialiseFirebaseServices();
     _setupEventListener();
   }
-
-  @override
-  void onEvent(LoginEvents event) {
-    super.onEvent(event);
-    AnalyticsHelper().logCustomEvent(
-      event.eventName,
-      parameters: event.getAnalyticParameters(),
-    );
-  }
-
-  @override
-  String get className => (LoginBloc).toString();
 
   void _setupEventListener() {
     on<EnableSignupModeEvent>(_onEnableSignupModeEvent);
@@ -64,7 +47,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     on<FirebaseOTPAutoVerificationEvent>(
       _onFirebaseOTPAutoVerificationEvent,
     );
-    on<NavigateToHomeScreenEvent>(_onNavigateToHomePageEvent);
+    on<NavigateToHomeScreenEvent>(_onNavigateToHomeScreenEvent);
     on<EmailChangeEvent>(_onEmailChangeEvent);
     on<EmailErrorEvent>(_onEmailErrorEvent);
     on<PasswordChangeEvent>(_onPasswordChangeEvent);
@@ -93,7 +76,9 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     on<RemoveProfilePictureEvent>(_onRemoveProfilePictureEvent);
     on<ProfilePictureDoneToggleEvent>(_onProfilePictureDoneToggleEvent);
     on<FinishProfilePictureEvent>(_onFinishProfilePictureEvent);
-    on<ResetSignUpStateOnPageClosedEvent>(_resetSignUpStateOnPageClosedEvent);
+    on<ResetSignUpStateOnScreenClosedEvent>(
+      _resetSignUpStateOnScreenClosedEvent,
+    );
     on<SelectLoginSignupTypeEvent>(_onSelectLoginSignupTypeEvent);
     on<SignupEmailChangeEvent>(_onSignupEmailChangeEvent);
     on<SignupEmailErrorEvent>(_onSignupEmailErrorEvent);
@@ -106,7 +91,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     );
     on<UpdatePasswordStrengthEvent>(_onUpdatePasswordStrengthEvent);
     on<SignupWithEmailEvent>(_onSignupWithEmailEvent);
-    on<NavigateToEmailVerifyPageEvent>(_onNavigateToEmailVerifyPageState);
+    on<NavigateToEmailVerifyScreenEvent>(_onNavigateToEmailVerifyScreenState);
     on<SendEmailVerificationLinkEvent>(_onSendEmailVerificationLinkEvent);
     on<ResendVerificationEmailTimeLeftEvent>(
       _onResendVerificationEmailTimeLeftEvent,
@@ -267,19 +252,19 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     );
   }
 
-  void _onNavigateToHomePageEvent(
+  void _onNavigateToHomeScreenEvent(
     NavigateToHomeScreenEvent event,
     Emitter emit,
   ) {
-    emit(NavigateToHomePageState(state));
+    emit(NavigateToHomeScreenState(state));
   }
 
   Future<void> _onFirebasePhoneLoginEvent(
     FirebasePhoneLoginEvent event,
     Emitter emit,
   ) async {
-    await _firebaseVerifyAndOpenOtpPageOnCodeSent(
-      isFromVerificationPage: event.isFromVerificationPage,
+    await _firebaseVerifyAndOpenOtpScreenOnCodeSent(
+      isFromVerificationScreen: event.isFromVerificationScreen,
     );
   }
 
@@ -464,11 +449,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     NavigateToVerifiedScreenEvent event,
     Emitter emit,
   ) {
-    AnalyticsHelper().logCustomEvent(
-      DebugSignUpAnalyticsEvents.kPhoneVerifiedPageInit,
-    );
     emit(
-      NavigateToVerifiedPageState(
+      NavigateToVerifiedScreenState(
         state.copyWith(
           userDetailsInputStatus: UserDetailsInputStatus.inProgress,
         ),
@@ -522,10 +504,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     NavigateToChooseHandleScreenEvent event,
     Emitter emit,
   ) {
-    AnalyticsHelper().logCustomEvent(
-      DebugSignUpAnalyticsEvents.kChooseHandlePageInit,
-    );
-
     emit(
       NavigateToChooseHandleState(
         state.copyWith(
@@ -608,8 +586,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     _proceedSignUpDetailsUpload();
   }
 
-  void _resetSignUpStateOnPageClosedEvent(
-    ResetSignUpStateOnPageClosedEvent event,
+  void _resetSignUpStateOnScreenClosedEvent(
+    ResetSignUpStateOnScreenClosedEvent event,
     Emitter emit,
   ) {
     // If we are in the process of completing the user details,
@@ -775,11 +753,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     _signupWithEmailAndPassword();
   }
 
-  void _onNavigateToEmailVerifyPageState(
-    NavigateToEmailVerifyPageEvent event,
+  void _onNavigateToEmailVerifyScreenState(
+    NavigateToEmailVerifyScreenEvent event,
     Emitter emit,
   ) {
-    emit(NavigateToEmailVerifyPageState(state));
+    emit(NavigateToEmailVerifyScreenState(state));
   }
 
   void _onSendEmailVerificationLinkEvent(
@@ -841,7 +819,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
       add(PhoneNumLoginLoadingEvent(isLoading: false));
       return;
     }
-    add(FirebasePhoneLoginEvent(isFromVerificationPage: false));
+    add(FirebasePhoneLoginEvent(isFromVerificationScreen: false));
   }
 
   void _onVerifyEmailAccountEvent(
@@ -889,17 +867,15 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   void _proceedSignUpDetailsUpload() async {
     final User? firebaseCurrentUser = FirebaseAuth.instance.currentUser;
     if (firebaseCurrentUser == null) {
-      logD('Firebase current user == null');
-      AnalyticsHelper().logCustomEvent(
-        DebugPhoneLoginAnalyticsEvents.kPerformSignupFirebaseCurrentUserNull,
-      );
+      debugPrint('Firebase current user == null');
+
       add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
       return;
     }
     final String? token =
         await FirebaseAuth.instance.currentUser!.getIdToken(true);
     if (token == null) {
-      logD('token == null');
+      debugPrint('token == null');
       hideAllLoadingsAndShowError();
       return;
     }
@@ -911,7 +887,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
       case LoginType.APPLE:
         await _performSignupWithEmailOrSSO(firebaseCurrentUser, token);
       default:
-        logD('Signup type not specified');
+        debugPrint('Signup type not specified');
         hideAllLoadingsAndShowError();
     }
   }
@@ -923,10 +899,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     add(PhoneNumLoginLoadingEvent(isLoading: true));
     final String? phoneNumber = firebaseCurrentUser.phoneNumber;
     if (phoneNumber == null) {
-      logD('Firebase current user phone number == null');
-      AnalyticsHelper().logCustomEvent(
-        DebugPhoneLoginAnalyticsEvents.kPerformSignupPhoneNumberNull,
-      );
+      debugPrint('Firebase current user phone number == null');
+
       add(PhoneNumLoginLoadingEvent(isLoading: false));
       add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
       return;
@@ -939,10 +913,8 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   ) async {
     add(EmailLoginLoadingEvent(isLoading: true));
     if (firebaseCurrentUser.email == null) {
-      logD('Firebase current user email == null');
-      AnalyticsHelper().logCustomEvent(
-        DebugSignUpAnalyticsEvents.kSignupWithGoogleEmailNull,
-      );
+      debugPrint('Firebase current user email == null');
+
       add(EmailLoginLoadingEvent(isLoading: false));
       add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
       return;
@@ -967,36 +939,19 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     FirebaseAuthService().init();
   }
 
-  Future<void> _firebaseVerifyAndOpenOtpPageOnCodeSent({
-    required bool isFromVerificationPage,
+  Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({
+    required bool isFromVerificationScreen,
   }) async {
-    add(PhoneNumLoginLoadingEvent(isLoading: !isFromVerificationPage));
-    AnalyticsHelper().logCustomEvent(
-      DebugPhoneLoginAnalyticsEvents.kVerifyPhoneLogin,
-      parameters: {
-        LoginAnalyticsParams.kIsFromVerificationPage:
-            isFromVerificationPage.toString(),
-      },
-    );
+    add(PhoneNumLoginLoadingEvent(isLoading: !isFromVerificationScreen));
 
     await _firebaseAuthService.verifyFBAuthPhoneNumber(
       phoneNumber: state.phoneNumberLoginState?.phoneNumber ?? '',
       verificationCompleted: (credential) {
-        logD('Firebase Phone number verified ${credential.smsCode}');
-        AnalyticsHelper().logCustomEvent(
-          DebugPhoneLoginAnalyticsEvents.kVerificationCompleted,
-        );
+        debugPrint('Firebase Phone number verified ${credential.smsCode}');
       },
       codeSent: (verificationId) {
-        AnalyticsHelper().logCustomEvent(
-          DebugPhoneLoginAnalyticsEvents.kOtpVerificationId,
-          parameters: {LoginAnalyticsParams.kVerificationId: verificationId},
-        );
-        AnalyticsHelper().logCustomEvent(
-          DebugPhoneLoginAnalyticsEvents.kCodeSent,
-        );
         add(PhoneNumLoginLoadingEvent(isLoading: false));
-        if (!isFromVerificationPage) {
+        if (!isFromVerificationScreen) {
           add(NavigateToOtpEvent(verificationId: verificationId));
         }
       },
@@ -1010,9 +965,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
 
   Future<void> _firebaseOTPVerification() async {
     add(PhoneNumLoginLoadingEvent(isLoading: true));
-    AnalyticsHelper().logCustomEvent(
-      DebugPhoneLoginAnalyticsEvents.kHandleOtpInput,
-    );
+
     final credential = _firebaseAuthService.getPhoneAuthCredential(
       verificationId: state.phoneOTPVerificationId,
       smsCode: state.phoneNumberLoginState?.phoneOTPText ?? '',
@@ -1022,18 +975,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
         await _firebaseAuthService.signInWithPhoneAuthCredential(
       credential,
       onError: (error, {stackTrace}) {
-        AnalyticsHelper().logCustomEvent(
-          DebugPhoneLoginAnalyticsEvents.kOtpError,
-          parameters: {
-            AnalyticsParameters.kDebugStackTrace:
-                trimStackTrace(stackTrace.toString()),
-            LoginAnalyticsParams.kOtpVerificationId:
-                state.phoneOTPVerificationId,
-            LoginAnalyticsParams.kSmsCodeLen:
-                state.phoneNumberLoginState?.phoneOTPText.length.toString() ??
-                    '',
-          },
-        );
         add(PhoneNumLoginLoadingEvent(isLoading: false));
         add(PhoneOtpErrorEvent(errorMessage: error));
       },
@@ -1081,16 +1022,9 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
 
   Future<void> _loginWithGoogle() async {
     add(SSOLoginLoadingEvent(isLoading: true));
-    AnalyticsHelper().logCustomEvent(LoginAnalyticsEvents.kContinueWithGoogle);
+
     final userCredential = await _firebaseAuthService.loginWithGoogle(
       onError: (error, {stackTrace}) {
-        AnalyticsHelper().logCustomEvent(
-          DebugLoginAnalyticsEvents.kGoogleSignInFailed,
-          parameters: {
-            AnalyticsParameters.kDebugStackTrace:
-                trimStackTrace(stackTrace.toString()),
-          },
-        );
         add(AuthenticationExceptionEvent(errorMessage: error));
       },
     );
@@ -1112,16 +1046,9 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
 
   Future<void> _loginWithApple() async {
     add(SSOLoginLoadingEvent(isLoading: true));
-    AnalyticsHelper().logCustomEvent(LoginAnalyticsEvents.kContinueWithApple);
+
     final userCredential = await _firebaseAuthService.loginWithApple(
       onError: (error, {stackTrace}) {
-        AnalyticsHelper().logCustomEvent(
-          DebugLoginAnalyticsEvents.kAppleSignInFailed,
-          parameters: {
-            AnalyticsParameters.kDebugStackTrace:
-                trimStackTrace(stackTrace.toString()),
-          },
-        );
         add(AuthenticationExceptionEvent(errorMessage: error));
       },
     );
@@ -1136,8 +1063,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
   }
 
   Future<void> _signupWithEmailAndPassword() async {
-    AnalyticsHelper()
-        .logCustomEvent(DebugSignUpAnalyticsEvents.kContinueWithEmail);
     add(EmailLoginLoadingEvent(isLoading: true));
     final email = state.signupState?.email ?? '';
     final password = state.signupState?.password ?? '';
@@ -1155,11 +1080,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     if (userCredential != null) {
       add(SendEmailVerificationLinkEvent());
     } else {
-      logD('signup with Email/Password userCredential is null');
+      debugPrint('signup with Email/Password userCredential is null');
       return;
     }
     add(EmailLoginLoadingEvent(isLoading: false));
-    add(NavigateToEmailVerifyPageEvent());
+    add(NavigateToEmailVerifyScreenEvent());
   }
 
   Future<void> _sendPasswordResetLink() async {
@@ -1177,43 +1102,32 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     User? firebaseUser, {
     required Function(String) onError,
   }) async {
-    AnalyticsHelper().logCustomEvent(
-      DebugLoginAnalyticsEvents.kHandleUserDetailsAfterGettingFirebaseDetails,
-    );
     final loginType = state.signupState?.selectedLoginSignupType;
     if (firebaseUser == null) {
-      logE('firebaseUser is null');
+      debugPrint('firebaseUser is null');
       onError('User information could not be retrieved.');
       return;
     }
     if (loginType == LoginType.PHONE) {
       if (firebaseUser.phoneNumber.isNullOrEmpty()) {
-        logD('Authentication Current user phone number is null');
-        AnalyticsHelper().logCustomEvent(
-          DebugLoginAnalyticsEvents.kCurrentUserPhoneNumberNull,
-        );
+        debugPrint('Authentication Current user phone number is null');
+
         onError('Error retrieving your phone number');
         return;
       }
-      AnalyticsHelper().logCustomEvent(
-        DebugLoginAnalyticsEvents
-            .kReturningFromHandleUserDetailsFunOnPhoneNumber,
-      );
+
       await _storeLoginDetailsInPrefs(firebaseUser);
       add(PhoneNumLoginLoadingEvent(isLoading: false));
       add(NavigateToHomeScreenEvent());
     } else if (loginType == LoginType.EMAIL) {
       if (firebaseUser.email.isNullOrEmpty()) {
-        AnalyticsHelper().logCustomEvent(
-          DebugLoginAnalyticsEvents.kUserDetailsFirebaseUserNull,
-        );
         onError('Error retrieving your email');
         return;
       }
       // TODO:
       // if (!isEmailVerified() &&
       //     getVerifiedEmail() == null) {
-      //   add(NavigateToEmailVerifyPageEvent());
+      //   add(NavigateToEmailVerifyScreenEvent());
       //   add(SendEmailVerificationLinkEvent());
       //   return;
       // }
@@ -1223,7 +1137,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
     } else if (loginType == LoginType.APPLE) {
       // await _addAuthEventInGQLBloc(firebaseUser, token);
     } else {
-      logD('Login/Signup type not specified');
+      debugPrint('Login/Signup type not specified');
       hideAllLoadingsAndShowError();
     }
   }
@@ -1240,7 +1154,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> with Loggable {
       json.encode(loginDetails.toJson()),
     );
   }
-  // endregion
+// endregion
 }
 
 extension LoginBlocExtension on BuildContext {

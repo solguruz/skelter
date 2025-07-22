@@ -3,18 +3,19 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/logger/app_logging.dart';
-// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-class FirebaseAuthService with Loggable {
+class FirebaseAuthService {
   static FirebaseAuthService? _instance = FirebaseAuthService._internal();
 
   factory FirebaseAuthService() {
     return _instance ??= FirebaseAuthService._internal();
   }
+
   FirebaseAuthService._internal();
 
   FirebaseAuth? _firebaseAuth;
@@ -70,7 +71,7 @@ class FirebaseAuthService with Loggable {
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {
-      logE('Error signing in with email and password: $e');
+      debugPrint('Error signing in with email and password: $e');
       onError(kSomethingWentWrong);
     }
     return null;
@@ -121,11 +122,11 @@ class FirebaseAuthService with Loggable {
           await GoogleSignIn(scopes: <String>['email'])
               .signIn()
               .catchError((error) {
-        logE('Error signing in with Google: $error');
+        debugPrint('Error signing in with Google: $error');
         return null;
       });
       if (googleUser == null) {
-        logE('googleUser is null');
+        debugPrint('googleUser is null');
         return null;
       }
       final GoogleSignInAuthentication googleAuth =
@@ -141,7 +142,7 @@ class FirebaseAuthService with Loggable {
       _handleFirebaseError(e, onError, stackTrace: stack);
       return null;
     } catch (e) {
-      logE('Error signing in with Google: $e');
+      debugPrint('Error signing in with Google: $e');
       return null;
     }
   }
@@ -160,7 +161,7 @@ class FirebaseAuthService with Loggable {
         nonce: _sha256OfString(rawNonce),
       );
 
-      logD(
+      debugPrint(
         '''
     APPLE CRED = 
     FAMILY_NAME = ${appleCred.familyName}
@@ -180,7 +181,7 @@ class FirebaseAuthService with Loggable {
       _handleFirebaseError(e, onError, stackTrace: stack);
       return null;
     } catch (e) {
-      logE('Error signing in with Apple: $e');
+      debugPrint('Error signing in with Apple: $e');
       return null;
     }
   }
@@ -199,7 +200,7 @@ class FirebaseAuthService with Loggable {
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {
-      logE('Error signing in with email and password: $e');
+      debugPrint('Error signing in with email and password: $e');
       onError(kSomethingWentWrong);
     }
     return null;
@@ -207,6 +208,89 @@ class FirebaseAuthService with Loggable {
 
   Future<void> signOut() async {
     await _firebaseAuth?.signOut();
+  }
+
+  Future<void> deleteCurrentUser({
+    required Function(String message, {StackTrace? stackTrace}) onError,
+  }) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      await user?.delete();
+      await Prefs.clear();
+    } on FirebaseAuthException catch (e, stack) {
+      debugPrint('FirebaseAuthException: ${e.code}');
+      if (e.code == kFirebaseAuthRequiresRecentLogin) {
+        await reAuthenticateCurrentUser(onError: onError);
+        try {
+          final user = FirebaseAuth.instance.currentUser;
+          await user?.delete();
+          await Prefs.clear();
+        } on FirebaseAuthException catch (e2, stack2) {
+          _handleFirebaseError(e2, onError, stackTrace: stack2);
+        } on Exception catch (e2) {
+          debugPrint('Error delete account after reauth: $e2');
+          onError(kSomethingWentWrong);
+        }
+        return;
+      }
+      _handleFirebaseError(e, onError, stackTrace: stack);
+    } on Exception catch (e) {
+      debugPrint('Error delete account: $e');
+      onError(kSomethingWentWrong);
+    }
+  }
+
+  Future<void> reAuthenticateCurrentUser({
+    required Function(String message, {StackTrace? stackTrace}) onError,
+  }) async {
+    final user = FirebaseAuth.instance.currentUser;
+    try {
+      final providerId = user?.providerData.firstOrNull?.providerId;
+      if (providerId == null) {
+        onError('UnknownAuthProvider');
+        return;
+      }
+      if (providerId == AppleAuthProvider().providerId) {
+        final String rawNonce = generateNonce();
+        final AuthorizationCredentialAppleID appleCred =
+            await SignInWithApple.getAppleIDCredential(
+          scopes: <AppleIDAuthorizationScopes>[
+            AppleIDAuthorizationScopes.email,
+            AppleIDAuthorizationScopes.fullName,
+          ],
+          nonce: _sha256OfString(rawNonce),
+        );
+        final OAuthCredential credential =
+            OAuthProvider('apple.com').credential(
+          idToken: appleCred.identityToken,
+          accessToken: appleCred.authorizationCode,
+          rawNonce: rawNonce,
+        );
+        await user?.reauthenticateWithCredential(credential);
+      } else if (providerId == GoogleAuthProvider().providerId) {
+        final GoogleSignInAccount? googleUser =
+            await GoogleSignIn(scopes: <String>['email']).signIn();
+        if (googleUser == null) {
+          onError('Google sign-in aborted');
+          return;
+        }
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        await user?.reauthenticateWithCredential(credential);
+      } else {
+        onError('UnsupportedProvider');
+        return;
+      }
+    } on FirebaseAuthException catch (e, stack) {
+      _handleFirebaseError(e, onError, stackTrace: stack);
+    } on Exception catch (e) {
+      debugPrint('Reauth error $e');
+      onError(kSomethingWentWrong);
+    }
   }
 
   void _handleFirebaseError(
@@ -232,7 +316,7 @@ class FirebaseAuthService with Loggable {
       case kFirebaseAuthSessionEmailAlreadyInUse:
         errorMessage = 'Email already in use, please login to continue.';
     }
-    logE('FirebaseAuth error: $errorMessage');
+    debugPrint('FirebaseAuth error: $errorMessage');
     onError(errorMessage, stackTrace: stackTrace);
     // TODO: uncommnet to enable crashlytics
     // FirebaseCrashlytics.instance.recordError(
@@ -255,7 +339,4 @@ class FirebaseAuthService with Loggable {
     final Digest digest = sha256.convert(bytes);
     return digest.toString();
   }
-
-  @override
-  String get className => (FirebaseAuthService).toString();
 }

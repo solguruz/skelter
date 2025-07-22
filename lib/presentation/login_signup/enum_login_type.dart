@@ -1,9 +1,3 @@
-// import 'package:flutter_skeleton/auth/firebase_auth_provider/apple_fb_auth_provider.dart';
-// import 'package:flutter_skeleton/auth/firebase_auth_provider/email_fb_auth_provider.dart';
-// import 'package:flutter_skeleton/auth/firebase_auth_provider/google_fb_auth_provider.dart';
-// import 'package:flutter_skeleton/login_signup/signup/signup_signup_after_handle_details.dart';
-// import 'package:flutter_skeleton/login_signup/user_details.dart';
-
 enum LoginType {
   EMAIL,
   PHONE,
