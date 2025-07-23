@@ -13,6 +13,7 @@ const kFirebaseAuthTooManyRequestsException = 'too-many-requests';
 const kFirebaseAuthInvalidCodeException = 'invalid-verification-code';
 const kFirebaseAuthSessionExpiredException = 'session-expired';
 const kFirebaseAuthSessionEmailAlreadyInUse = 'email-already-in-use';
+const kFirebaseAuthRequiresRecentLogin = 'requires-recent-login';
 
 const String kSomethingWentWrong = 'Oops! Something went wrong';
 
