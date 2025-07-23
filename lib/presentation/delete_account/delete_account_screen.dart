@@ -20,44 +20,9 @@ class DeleteAccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<DeleteAccountBloc>(
       create: (_) => DeleteAccountBloc(),
-      child: const Scaffold(
-        appBar: DeleteAccountAppbar(),
-        body: SafeArea(
-          child: _DeleteAccountBody(),
-        ),
-      ),
-    );
-  }
-}
-
-class _DeleteAccountBody extends StatelessWidget {
-  const _DeleteAccountBody();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<DeleteAccountBloc, DeleteAccountState>(
-      listener: (context, state) => _listenStateChanged(context, state),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(height: 16),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DeleteAccountReasonOptions(),
-                    DeleteAccountDivider(),
-                    DeleteAccountWarnings(),
-                  ],
-                ),
-              ),
-            ),
-            DeleteAccountButton(),
-            SizedBox(height: 32),
-          ],
-        ),
+      child: BlocListener<DeleteAccountBloc, DeleteAccountState>(
+        listener: (context, state) => _listenStateChanged(context, state),
+        child: const DeleteAccountBody(),
       ),
     );
   }
@@ -72,5 +37,40 @@ class _DeleteAccountBody extends StatelessWidget {
     } else if (state is DeleteAccountReAuthRequiredState) {
       context.showSnackBar(kFirebaseAuthRequiresRecentLogin);
     }
+  }
+}
+
+class DeleteAccountBody extends StatelessWidget {
+  const DeleteAccountBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: DeleteAccountAppbar(),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              SizedBox(height: 16),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DeleteAccountReasonOptions(),
+                      DeleteAccountDivider(),
+                      DeleteAccountWarnings(),
+                    ],
+                  ),
+                ),
+              ),
+              DeleteAccountButton(),
+              SizedBox(height: 32),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

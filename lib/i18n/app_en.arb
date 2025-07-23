@@ -354,9 +354,9 @@
   "choose_app_theme" : "Choose App Theme",
   "account_and_privacy" : "Account & Privacy",
   "delete_account" : "Delete Account",
-  "delete_reason_unused": "I don't need it anymore",
-  "delete_reason_irrelevant": "Products are no more relevant to me",
-  "delete_reason_dislike": "I don’t like to be on this app",
+  "delete_reason_do_not_need_anymore": "I don't need it anymore",
+  "delete_reason_product_no_more_relevant": "Products are no more relevant to me",
+  "delete_reason_dislike_app": "I don’t like to be on this app",
   "delete_reason_other": "Other",
   "delete_reason_title": "Why are you deleting account?",
   "specify_reason": "Please specify your reason",
@@ -369,5 +369,6 @@
   "delete_account_failed": "Account deletion failed. Please try again.",
   "no_user_found": "No user found.",
   "reauth_required": "Please re-authenticate to delete your account.",
-  "firebase_error": "Firebase error"
+  "firebase_error": "Firebase error",
+  "creating_new_account": "Creating new account?"
 }
