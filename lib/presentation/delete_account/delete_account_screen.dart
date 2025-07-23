@@ -10,7 +10,7 @@ import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_acco
 import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_reasons_options.dart';
 import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_warnings.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
 
 @RoutePage()
 class DeleteAccountScreen extends StatelessWidget {
