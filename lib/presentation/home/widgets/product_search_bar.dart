@@ -29,10 +29,6 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
           TablerIcons.search,
           color: AppColors.strokeNeutralDisabled,
         ),
-        suffixIcon: const Icon(
-          TablerIcons.microphone,
-          color: AppColors.strokeNeutralDisabled,
-        ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15),
       ),
     );
