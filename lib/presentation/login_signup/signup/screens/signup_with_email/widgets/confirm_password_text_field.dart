@@ -30,14 +30,19 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
 
   void _passwordControllerListener() {
     //TODO: add a debouncer
-    final String? previousErrorMessage =
-        context.loginBloc.state.signupState?.confirmPasswordErrorMessage;
+    final String? previousErrorMessage = context
+        .read<LoginBloc>()
+        .state
+        .signupState
+        ?.confirmPasswordErrorMessage;
     if (previousErrorMessage.haveContent()) {
-      context.loginBloc.add(ConfirmPasswordErrorEvent(errorMessage: ''));
+      context
+          .read<LoginBloc>()
+          .add(ConfirmPasswordErrorEvent(errorMessage: ''));
     }
-    context.loginBloc.add(
-      ConfirmPasswordChangeEvent(confirmPassword: _passwordController.text),
-    );
+    context.read<LoginBloc>().add(
+          ConfirmPasswordChangeEvent(confirmPassword: _passwordController.text),
+        );
   }
 
   @override
@@ -80,11 +85,11 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
                 color: AppColors.strokeNeutralDisabled,
               ),
               onPressed: () {
-                context.loginBloc.add(
-                  ToggleConfirmPasswordVisibilityEvent(
-                    isVisible: !isPasswordVisible,
-                  ),
-                );
+                context.read<LoginBloc>().add(
+                      ToggleConfirmPasswordVisibilityEvent(
+                        isVisible: !isPasswordVisible,
+                      ),
+                    );
               },
             ),
           ),

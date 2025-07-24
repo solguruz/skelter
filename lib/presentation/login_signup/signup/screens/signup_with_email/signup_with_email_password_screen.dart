@@ -53,13 +53,13 @@ class SignupWithEmailPasswordScreen extends StatelessWidget {
       context.router.popUntilRoot();
     } else if (state is NavigateToEmailVerifyScreenState) {
       await context.router.push(
-        VerifyEmailRoute(loginBloc: context.loginBloc),
+        VerifyEmailRoute(loginBloc: context.read<LoginBloc>()),
       );
     } else if (state is NavigateToCreatePasswordState) {
       unawaited(
         context.router.push(
           CreateYourPasswordRoute(
-            loginBloc: context.loginBloc,
+            loginBloc: context.read<LoginBloc>(),
           ),
         ),
       );

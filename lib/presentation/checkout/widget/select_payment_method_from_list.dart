@@ -48,9 +48,9 @@ class PaymentMethodOnline extends StatelessWidget {
       child: ListTile(
         leading: Assets.images.mastercard.image(),
         title: const Text('Debit/Credit Card/Bank Transfer'),
-        onTap: () => context.checkoutBloc.add(
-          const SelectPaymentMethodEvent(isPaymentMethodOnline: true),
-        ),
+        onTap: () => context.read<CheckoutBloc>().add(
+              const SelectPaymentMethodEvent(isPaymentMethodOnline: true),
+            ),
       ),
     );
   }
@@ -80,9 +80,9 @@ class PaymentMethodCOD extends StatelessWidget {
       ),
       child: ListTile(
         title: Text(context.localization.cash_on_delivery),
-        onTap: () => context.checkoutBloc.add(
-          const SelectPaymentMethodEvent(isPaymentMethodOnline: false),
-        ),
+        onTap: () => context.read<CheckoutBloc>().add(
+              const SelectPaymentMethodEvent(isPaymentMethodOnline: false),
+            ),
       ),
     );
   }

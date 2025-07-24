@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
@@ -17,9 +18,11 @@ class SelectPaymentMethodButton extends StatelessWidget {
       label: context.localization.select_payment_method,
       size: AppButtonSize.extraLarge,
       onPressed: () {
-        final currentStepperIndex = context.checkoutBloc.state.stepperIndex;
+        final currentStepperIndex =
+            context.read<CheckoutBloc>().state.stepperIndex;
         if (currentStepperIndex < CustomStepper.steps(context).length - 1) {
-          context.checkoutBloc
+          context
+              .read<CheckoutBloc>()
               .add(StepperIndexUpdateEvent(index: currentStepperIndex + 1));
         }
       },

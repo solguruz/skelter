@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_state.dart';
@@ -84,9 +83,4 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
       ),
     );
   }
-}
-
-extension NotificationBlocExtention on BuildContext {
-  NotificationBloc get notificationBloc =>
-      BlocProvider.of<NotificationBloc>(this);
 }

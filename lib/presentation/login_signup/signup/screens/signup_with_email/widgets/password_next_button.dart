@@ -40,7 +40,7 @@ class PasswordNextButton extends StatelessWidget {
           return;
         }
 
-        context.loginBloc.add(SignupWithEmailEvent());
+        context.read<LoginBloc>().add(SignupWithEmailEvent());
       },
     );
   }

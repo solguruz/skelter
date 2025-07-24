@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_bloc.dart';
 import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
 import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
@@ -34,9 +35,9 @@ class NotificationDismissibleWidget extends StatelessWidget {
         ),
       ),
       onDismissed: (direction) {
-        context.notificationBloc.add(
-          DeleteNotificationEvent(notificationId: notificationModel.id),
-        );
+        context.read<NotificationBloc>().add(
+              DeleteNotificationEvent(notificationId: notificationModel.id),
+            );
       },
       child: child,
     );

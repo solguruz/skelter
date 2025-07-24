@@ -97,9 +97,9 @@ void _showImageSourceBottomSheet(BuildContext context) {
                 size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
-                  context.contactUsBloc.add(
-                    const AddImageEvent(source: ImageSource.camera),
-                  );
+                  context.read<ContactUsBloc>().add(
+                        const AddImageEvent(source: ImageSource.camera),
+                      );
                 },
               ),
               const SizedBox(height: 16.0),
@@ -111,9 +111,9 @@ void _showImageSourceBottomSheet(BuildContext context) {
                 size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
-                  context.contactUsBloc.add(
-                    const AddImageEvent(source: ImageSource.gallery),
-                  );
+                  context.read<ContactUsBloc>().add(
+                        const AddImageEvent(source: ImageSource.gallery),
+                      );
                 },
               ),
               const SizedBox(height: 16.0),
@@ -125,7 +125,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
                 size: AppButtonSize.extraLarge,
                 onPressed: () {
                   context.router.maybePop();
-                  context.contactUsBloc.add(const AddPdfEvent());
+                  context.read<ContactUsBloc>().add(const AddPdfEvent());
                 },
               ),
               const SizedBox(height: 16.0),

@@ -46,8 +46,9 @@ class ImagePreviewList extends StatelessWidget {
                             ),
                     ),
                     RemoveFileButton(
-                      onRemove: (index) =>
-                          context.contactUsBloc.add(RemoveImageEvent(index)),
+                      onRemove: (index) => context
+                          .read<ContactUsBloc>()
+                          .add(RemoveImageEvent(index)),
                       index: index,
                     ),
                   ],

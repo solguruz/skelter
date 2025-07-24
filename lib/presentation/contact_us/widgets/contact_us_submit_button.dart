@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
@@ -22,7 +23,7 @@ class ContactUsSubmitButton extends StatelessWidget {
         size: AppButtonSize.extraLarge,
         onPressed: () {
           SystemChannels.textInput.invokeMethod('TextInput.hide');
-          context.contactUsBloc.add(const SubmitFormEvent());
+          context.read<ContactUsBloc>().add(const SubmitFormEvent());
         },
       ),
     );

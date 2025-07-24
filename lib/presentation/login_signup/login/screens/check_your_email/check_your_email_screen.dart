@@ -43,7 +43,7 @@ class CheckYourEmailScreenBody extends StatelessWidget {
     return PopScope(
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) {
-          context.loginBloc.add(ResetEmailStateEvent());
+          context.read<LoginBloc>().add(ResetEmailStateEvent());
         }
       },
       child: SafeArea(

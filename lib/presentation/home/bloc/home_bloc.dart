@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
@@ -27,8 +26,4 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) {
     emit(state.copyWith(topProducts: dummyProductData));
   }
-}
-
-extension HomeBlocExtension on BuildContext {
-  HomeBloc get homeBloc => BlocProvider.of<HomeBloc>(this);
 }

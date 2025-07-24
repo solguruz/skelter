@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
@@ -24,20 +25,28 @@ class ForgotPasswordButton extends StatelessWidget {
       state: AppButtonState.disabled,
       foregroundColor: AppColors.textNeutralDisable,
       onPressed: () {
-        final String? emailError =
-            context.loginBloc.state.emailPasswordLoginState?.emailErrorMessage;
+        final String? emailError = context
+            .read<LoginBloc>()
+            .state
+            .emailPasswordLoginState
+            ?.emailErrorMessage;
         final String? passwordError = context
-            .loginBloc.state.emailPasswordLoginState?.passwordErrorMessage;
+            .read<LoginBloc>()
+            .state
+            .emailPasswordLoginState
+            ?.passwordErrorMessage;
 
         if (emailError != null && emailError.isNotEmpty) {
-          context.loginBloc.add(EmailErrorEvent(errorMessage: ''));
+          context.read<LoginBloc>().add(EmailErrorEvent(errorMessage: ''));
         }
 
         if (passwordError != null && passwordError.isNotEmpty) {
-          context.loginBloc.add(PasswordErrorEvent(errorMessage: ''));
+          context.read<LoginBloc>().add(PasswordErrorEvent(errorMessage: ''));
         }
 
-        context.pushRoute(ForgotPasswordV2Route(loginBloc: context.loginBloc));
+        context.pushRoute(
+          ForgotPasswordV2Route(loginBloc: context.read<LoginBloc>()),
+        );
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
@@ -17,8 +18,11 @@ class UserPlaceholder extends StatelessWidget {
       onTap: () => AddSkipPictureButton.showImageSourceBottomSheet(
         context,
         onImageSelected: (File file) {
-          context.loginBloc.add(SelectedProfilePictureEvent(image: file));
-          context.loginBloc
+          context
+              .read<LoginBloc>()
+              .add(SelectedProfilePictureEvent(image: file));
+          context
+              .read<LoginBloc>()
               .add(ProfilePictureDoneToggleEvent(isDoneEditing: true));
         },
       ),

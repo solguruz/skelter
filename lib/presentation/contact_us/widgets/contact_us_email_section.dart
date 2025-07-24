@@ -20,18 +20,21 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
   @override
   void initState() {
     super.initState();
-    _emailController.text = context.contactUsBloc.state.email;
+    _emailController.text = context.read<ContactUsBloc>().state.email;
     _emailController.addListener(() {
       _emailControllerListener();
     });
   }
 
   void _emailControllerListener() {
-    final String? previousError = context.contactUsBloc.state.emailError;
+    final String? previousError =
+        context.read<ContactUsBloc>().state.emailError;
     if (previousError != null && previousError.isNotEmpty) {
-      context.contactUsBloc.add(const EmailErrorEvent(error: ''));
+      context.read<ContactUsBloc>().add(const EmailErrorEvent(error: ''));
     }
-    context.contactUsBloc.add(EmailChangedEvent(email: _emailController.text));
+    context
+        .read<ContactUsBloc>()
+        .add(EmailChangedEvent(email: _emailController.text));
   }
 
   @override

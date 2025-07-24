@@ -40,11 +40,12 @@ class MoreLoginOptionsButton extends StatelessWidget {
             leftIcon: TablerIcons.mail,
             size: AppButtonSize.extraLarge,
             onPressed: () {
-              context.loginBloc
+              context
+                  .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.EMAIL));
               context.pushRoute(
                 LoginWithEmailPasswordRoute(
-                  loginBloc: context.loginBloc,
+                  loginBloc: context.read<LoginBloc>(),
                 ),
               );
             },
@@ -65,9 +66,10 @@ class MoreLoginOptionsButton extends StatelessWidget {
                     .showSnackBar(context.localization.no_internet_connection);
                 return;
               }
-              context.loginBloc
+              context
+                  .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.GOOGLE));
-              context.loginBloc.add(LoginWithGoogleEvent());
+              context.read<LoginBloc>().add(LoginWithGoogleEvent());
             },
           ),
           if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
@@ -89,9 +91,10 @@ class MoreLoginOptionsButton extends StatelessWidget {
                   );
                   return;
                 }
-                context.loginBloc
+                context
+                    .read<LoginBloc>()
                     .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
-                context.loginBloc.add(LoginWithAppleEvent());
+                context.read<LoginBloc>().add(LoginWithAppleEvent());
               },
             ),
           ],
@@ -104,7 +107,9 @@ class MoreLoginOptionsButton extends StatelessWidget {
             style: AppButtonStyle.outline,
             size: AppButtonSize.extraLarge,
             onPressed: () async {
-              context.loginBloc.add(EnableSignupModeEvent(isSignup: !isSignup));
+              context
+                  .read<LoginBloc>()
+                  .add(EnableSignupModeEvent(isSignup: !isSignup));
             },
           ),
         ],

@@ -20,21 +20,24 @@ class _EmailTextFieldState extends State<EmailTextField> {
   void initState() {
     super.initState();
     _emailController.text =
-        context.loginBloc.state.emailPasswordLoginState?.email ?? '';
+        context.read<LoginBloc>().state.emailPasswordLoginState?.email ?? '';
     _emailController.addListener(() {
       _emailControllerListener();
     });
   }
 
   void _emailControllerListener() {
-    final String? previousError =
-        context.loginBloc.state.emailPasswordLoginState?.emailErrorMessage;
+    final String? previousError = context
+        .read<LoginBloc>()
+        .state
+        .emailPasswordLoginState
+        ?.emailErrorMessage;
     if (previousError != null && previousError.isNotEmpty) {
-      context.loginBloc.add(EmailErrorEvent(errorMessage: ''));
+      context.read<LoginBloc>().add(EmailErrorEvent(errorMessage: ''));
     }
-    context.loginBloc.add(
-      EmailChangeEvent(email: _emailController.text),
-    );
+    context.read<LoginBloc>().add(
+          EmailChangeEvent(email: _emailController.text),
+        );
   }
 
   @override
