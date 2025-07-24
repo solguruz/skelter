@@ -58,14 +58,15 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String phoneNumber =
-        context.loginBloc.state.phoneNumberLoginState?.phoneNumber ?? '';
+        context.read<LoginBloc>().state.phoneNumberLoginState?.phoneNumber ??
+            '';
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) async {
         if (state is NavigateToHomeScreenState) {
           context.router.popUntilRoot();
         } else if (state is NavigateToVerifiedScreenState) {
           await context.router.replace(
-            PhoneNumberVerifiedRoute(loginBloc: context.loginBloc),
+            PhoneNumberVerifiedRoute(loginBloc: context.read<LoginBloc>()),
           );
         } else if (state is NavigateToChooseHandleState) {
           // TODO: add navigation

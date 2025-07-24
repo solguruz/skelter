@@ -36,9 +36,9 @@ class DeleteAccountReasonOptions extends StatelessWidget {
               reason: reason.toDeleteAccountReasonString(context.localization),
               isSelected: selectedReason == reason,
               onSelected: () {
-                context.deleteAccountBloc.add(
-                  DeleteReasonSelectedEvent(reason: reason),
-                );
+                context.read<DeleteAccountBloc>().add(
+                      DeleteReasonSelectedEvent(reason: reason),
+                    );
               },
             ),
           );

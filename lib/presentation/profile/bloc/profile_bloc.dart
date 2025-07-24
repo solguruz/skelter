@@ -55,7 +55,3 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     FirebaseAuthService().init();
   }
 }
-
-extension ProfileBlocExtension on BuildContext {
-  ProfileBloc get profileBloc => BlocProvider.of<ProfileBloc>(this);
-}

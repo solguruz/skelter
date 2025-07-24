@@ -38,7 +38,8 @@ class DeleteAccountButton extends StatelessWidget {
                 return;
               }
 
-              context.deleteAccountBloc
+              context
+                  .read<DeleteAccountBloc>()
                   .add(const DeleteAccountSubmittedEvent());
             },
     );

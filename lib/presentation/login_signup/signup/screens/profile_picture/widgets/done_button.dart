@@ -20,7 +20,7 @@ class DoneButton extends StatelessWidget {
       size: AppButtonSize.large,
       isLoading: isLoading,
       onPressed: () {
-        context.loginBloc.add(FinishProfilePictureEvent());
+        context.read<LoginBloc>().add(FinishProfilePictureEvent());
       },
     );
   }

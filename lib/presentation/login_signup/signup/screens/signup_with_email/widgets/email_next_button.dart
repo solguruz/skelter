@@ -31,11 +31,12 @@ class EmailNextButton extends StatelessWidget {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
         final String? emailError = isEmailValid(email, context);
         if (emailError != null) {
-          context.loginBloc
+          context
+              .read<LoginBloc>()
               .add(SignupEmailErrorEvent(errorMessage: emailError));
           return;
         }
-        context.loginBloc.add(CheckEmailAvailabilityEvent(email));
+        context.read<LoginBloc>().add(CheckEmailAvailabilityEvent(email));
       },
     );
   }

@@ -32,10 +32,12 @@ class SendResetLinkButton extends StatelessWidget {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
         final String? emailError = isEmailValid(email, context);
         if (emailError != null) {
-          context.loginBloc.add(EmailErrorEvent(errorMessage: emailError));
+          context
+              .read<LoginBloc>()
+              .add(EmailErrorEvent(errorMessage: emailError));
           return;
         }
-        context.loginBloc.add(ForgotPasswordEvent());
+        context.read<LoginBloc>().add(ForgotPasswordEvent());
       },
     );
   }

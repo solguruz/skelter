@@ -1156,7 +1156,3 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   }
 // endregion
 }
-
-extension LoginBlocExtension on BuildContext {
-  LoginBloc get loginBloc => BlocProvider.of<LoginBloc>(this);
-}

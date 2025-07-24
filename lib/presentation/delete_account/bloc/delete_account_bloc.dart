@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
@@ -117,8 +116,4 @@ class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
       );
     }
   }
-}
-
-extension DeleteAccountBlocExtension on BuildContext {
-  DeleteAccountBloc get deleteAccountBloc => read<DeleteAccountBloc>();
 }

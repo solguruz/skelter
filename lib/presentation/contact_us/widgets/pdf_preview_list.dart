@@ -61,8 +61,9 @@ class PdfPreviewList extends StatelessWidget {
                       ),
                     ),
                     RemoveFileButton(
-                      onRemove: (index) =>
-                          context.contactUsBloc.add(RemovePdfEvent(index)),
+                      onRemove: (index) => context
+                          .read<ContactUsBloc>()
+                          .add(RemovePdfEvent(index)),
                       index: index,
                     ),
                   ],
