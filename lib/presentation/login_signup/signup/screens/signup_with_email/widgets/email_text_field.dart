@@ -61,13 +61,13 @@ class _EmailTextFieldState extends State<EmailTextField> {
   void _emailControllerListener() {
     // TODO: add a debouncer
     final String? previousErrorMessage =
-        context.loginBloc.state.signupState?.emailErrorMessage;
+        context.read<LoginBloc>().state.signupState?.emailErrorMessage;
     if (previousErrorMessage.haveContent()) {
-      context.loginBloc.add(SignupEmailErrorEvent(errorMessage: ''));
+      context.read<LoginBloc>().add(SignupEmailErrorEvent(errorMessage: ''));
     }
-    context.loginBloc.add(
-      SignupEmailChangeEvent(email: _emailController.text),
-    );
+    context.read<LoginBloc>().add(
+          SignupEmailChangeEvent(email: _emailController.text),
+        );
   }
 
   @override

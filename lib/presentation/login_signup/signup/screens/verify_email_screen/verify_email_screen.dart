@@ -61,9 +61,9 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
 
   @override
   Widget build(BuildContext context) {
-    final email = context.loginBloc.state.isSignup
-        ? context.loginBloc.state.signupState?.email ?? ''
-        : context.loginBloc.state.emailPasswordLoginState?.email ?? '';
+    final email = context.read<LoginBloc>().state.isSignup
+        ? context.read<LoginBloc>().state.signupState?.email ?? ''
+        : context.read<LoginBloc>().state.emailPasswordLoginState?.email ?? '';
 
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
@@ -71,11 +71,11 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
           _startTimerForResendVerificationEmail();
         } else if (state is VerificationCodeFailedToSendState) {
           _resendVerificationMailTimer?.cancel();
-          context.loginBloc.add(
-            ResendVerificationEmailTimeLeftEvent(
-              resendTimeLeft: 0,
-            ),
-          );
+          context.read<LoginBloc>().add(
+                ResendVerificationEmailTimeLeftEvent(
+                  resendTimeLeft: 0,
+                ),
+              );
         }
       },
       child: FGBGNotifier(
@@ -130,11 +130,13 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
     _verificationListenTimer?.cancel();
     await FirebaseAuth.instance.currentUser?.reload();
     if (_isEmailVerified()) {
-      context.loginBloc.add(
-        ChangeUserDetailsInputStatusEvent(UserDetailsInputStatus.inProgress),
-      );
+      context.read<LoginBloc>().add(
+            ChangeUserDetailsInputStatusEvent(
+              UserDetailsInputStatus.inProgress,
+            ),
+          );
       // TODO: add navigation
-      if (context.loginBloc.state.isSignup) {
+      if (context.read<LoginBloc>().state.isSignup) {
         //   context.router.popUntilRouteWithName(SignUpV2Route.name);
         //   await context.router
         //       .push(ChooseHandleRoute(loginBloc: context.loginV2Bloc));
@@ -161,11 +163,11 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
       final timeLeft =
           VerifyEmailScreen.kResendVerificationEmailMaxSeconds - timer.tick;
       if (timeLeft >= 0) {
-        context.loginBloc.add(
-          ResendVerificationEmailTimeLeftEvent(
-            resendTimeLeft: timeLeft,
-          ),
-        );
+        context.read<LoginBloc>().add(
+              ResendVerificationEmailTimeLeftEvent(
+                resendTimeLeft: timeLeft,
+              ),
+            );
       }
     });
   }

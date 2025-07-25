@@ -60,17 +60,23 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       child: PopScope(
         onPopInvokedWithResult: (didPop, result) {
           if (errorText.haveContent()) {
-            context.loginBloc.add(PhoneOtpErrorEvent(errorMessage: ''));
+            context.read<LoginBloc>().add(PhoneOtpErrorEvent(errorMessage: ''));
           }
           if (_pinController.text.isNotEmpty) {
             _pinController.text = '';
-            context.loginBloc.add(PhoneOtpTextChangeEvent(phoneOtpText: ''));
+            context
+                .read<LoginBloc>()
+                .add(PhoneOtpTextChangeEvent(phoneOtpText: ''));
           }
           final bool isResendOTPEnabled = context
-                  .loginBloc.state.phoneNumberLoginState?.isResendOTPEnabled ??
+                  .read<LoginBloc>()
+                  .state
+                  .phoneNumberLoginState
+                  ?.isResendOTPEnabled ??
               false;
           if (isResendOTPEnabled) {
-            context.loginBloc
+            context
+                .read<LoginBloc>()
                 .add(IsResendOTPEnabledEvent(isResendOTPEnabled: false));
           }
         },
@@ -89,13 +95,17 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           ),
           onChanged: (pin) {
             if (errorText.haveContent()) {
-              context.loginBloc.add(PhoneOtpErrorEvent(errorMessage: ''));
+              context
+                  .read<LoginBloc>()
+                  .add(PhoneOtpErrorEvent(errorMessage: ''));
             }
-            context.loginBloc.add(PhoneOtpTextChangeEvent(phoneOtpText: pin));
+            context
+                .read<LoginBloc>()
+                .add(PhoneOtpTextChangeEvent(phoneOtpText: pin));
           },
           onCompleted: (phoneOtpText) {
             if (phoneOtpText.isNotEmpty && phoneOtpText.length == 6) {
-              context.loginBloc.add(FirebaseOTPVerificationEvent());
+              context.read<LoginBloc>().add(FirebaseOTPVerificationEvent());
             }
           },
         ),

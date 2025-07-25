@@ -187,7 +187,3 @@ Future<bool> isValidPdf(File file) async {
     return false;
   }
 }
-
-extension ContactUsBlocExtension on BuildContext {
-  ContactUsBloc get contactUsBloc => BlocProvider.of<ContactUsBloc>(this);
-}

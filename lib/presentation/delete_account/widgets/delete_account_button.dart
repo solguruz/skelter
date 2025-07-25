@@ -8,6 +8,7 @@ import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class DeleteAccountButton extends StatelessWidget {
   const DeleteAccountButton({super.key});
@@ -20,7 +21,9 @@ class DeleteAccountButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.delete_account,
-      size: AppButtonSize.medium,
+      size: AppButtonSize.extraLarge,
+      backgroundColor: AppColors.bgErrorDefault,
+      shouldSetFullWidth: true,
       state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
       onPressed: isLoading
           ? null
@@ -35,7 +38,8 @@ class DeleteAccountButton extends StatelessWidget {
                 return;
               }
 
-              context.deleteAccountBloc
+              context
+                  .read<DeleteAccountBloc>()
                   .add(const DeleteAccountSubmittedEvent());
             },
     );

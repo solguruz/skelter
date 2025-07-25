@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
@@ -32,9 +33,10 @@ class SignupButton extends StatelessWidget {
             leftIconPath: Assets.icons.icon.path,
             size: AppButtonSize.large,
             onPressed: () {
-              context.loginBloc
+              context
+                  .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.GOOGLE));
-              context.loginBloc.add(LoginWithGoogleEvent());
+              context.read<LoginBloc>().add(LoginWithGoogleEvent());
             },
           ),
           const SizedBox(height: 16),
@@ -47,9 +49,10 @@ class SignupButton extends StatelessWidget {
               leftIconPath: Assets.icons.apple,
               size: AppButtonSize.large,
               onPressed: () {
-                context.loginBloc
+                context
+                    .read<LoginBloc>()
                     .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
-                context.loginBloc.add(LoginWithAppleEvent());
+                context.read<LoginBloc>().add(LoginWithAppleEvent());
               },
             ),
             const SizedBox(height: 16),
@@ -61,7 +64,8 @@ class SignupButton extends StatelessWidget {
             leftIcon: TablerIcons.device_mobile,
             size: AppButtonSize.large,
             onPressed: () {
-              context.loginBloc
+              context
+                  .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.PHONE));
               context.pushRoute(
                 const LoginWithPhoneNumberRoute(),
@@ -76,10 +80,13 @@ class SignupButton extends StatelessWidget {
             leftIcon: TablerIcons.mail,
             size: AppButtonSize.large,
             onPressed: () {
-              context.loginBloc
+              context
+                  .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.EMAIL));
               context.pushRoute(
-                SignupWithEmailPasswordRoute(loginBloc: context.loginBloc),
+                SignupWithEmailPasswordRoute(
+                  loginBloc: context.read<LoginBloc>(),
+                ),
               );
             },
           ),

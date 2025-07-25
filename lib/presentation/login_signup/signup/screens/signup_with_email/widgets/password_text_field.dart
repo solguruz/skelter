@@ -27,9 +27,9 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
 
   void _passwordControllerListener() {
     // TODO: add a debouncer
-    context.loginBloc.add(
-      SignupPasswordChangeEvent(password: _passwordController.text),
-    );
+    context.read<LoginBloc>().add(
+          SignupPasswordChangeEvent(password: _passwordController.text),
+        );
   }
 
   @override
@@ -63,9 +63,11 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                 color: AppColors.strokeNeutralDisabled,
               ),
               onPressed: () {
-                context.loginBloc.add(
-                  TogglePasswordVisibilityEvent(isVisible: !isPasswordVisible),
-                );
+                context.read<LoginBloc>().add(
+                      TogglePasswordVisibilityEvent(
+                        isVisible: !isPasswordVisible,
+                      ),
+                    );
               },
             ),
           ),

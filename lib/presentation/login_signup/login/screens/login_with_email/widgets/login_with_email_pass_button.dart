@@ -52,23 +52,25 @@ class LoginWithEmailPassButton extends StatelessWidget {
         bool shouldReturn = false;
         final String? emailError = isEmailValid(email, context);
         if (emailError != null) {
-          context.loginBloc.add(EmailErrorEvent(errorMessage: emailError));
+          context
+              .read<LoginBloc>()
+              .add(EmailErrorEvent(errorMessage: emailError));
           shouldReturn = true;
         }
 
         final String? password =
-            context.loginBloc.state.emailPasswordLoginState?.password;
+            context.read<LoginBloc>().state.emailPasswordLoginState?.password;
         if (password == null || password.isEmpty) {
-          context.loginBloc.add(
-            PasswordErrorEvent(
-              errorMessage:
-                  context.localization.login_signup_password_cant_be_empty,
-            ),
-          );
+          context.read<LoginBloc>().add(
+                PasswordErrorEvent(
+                  errorMessage:
+                      context.localization.login_signup_password_cant_be_empty,
+                ),
+              );
           shouldReturn = true;
         }
         if (shouldReturn) return;
-        context.loginBloc.add(EmailPasswordLoginEvent());
+        context.read<LoginBloc>().add(EmailPasswordLoginEvent());
       },
     );
   }

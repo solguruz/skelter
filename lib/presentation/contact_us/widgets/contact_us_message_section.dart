@@ -22,18 +22,20 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
   @override
   void initState() {
     super.initState();
-    _messageController.text = context.contactUsBloc.state.description;
+    _messageController.text = context.read<ContactUsBloc>().state.description;
     _messageController.addListener(() {
       nameControllerListener();
     });
   }
 
   void nameControllerListener() {
-    final String? previousError = context.contactUsBloc.state.descriptionError;
+    final String? previousError =
+        context.read<ContactUsBloc>().state.descriptionError;
     if (previousError != null && previousError.isNotEmpty) {
-      context.contactUsBloc.add(const DescriptionErrorEvent(error: ''));
+      context.read<ContactUsBloc>().add(const DescriptionErrorEvent(error: ''));
     }
-    context.contactUsBloc
+    context
+        .read<ContactUsBloc>()
         .add(DescriptionChangedEvent(message: _messageController.text));
   }
 

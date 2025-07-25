@@ -14,7 +14,7 @@ class OtherReasonTextField extends StatefulWidget {
 }
 
 class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
-  late final TextEditingController _controller;
+  final TextEditingController _otherReasonController = TextEditingController();
   final _debouncer = Debouncer<String>(
     const Duration(milliseconds: 300),
     initialValue: '',
@@ -24,25 +24,23 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final text = context.read<DeleteAccountBloc>().state.otherReasonText;
-      _controller = TextEditingController(text: text);
+    _otherReasonController.text =
+        context.read<DeleteAccountBloc>().state.otherReasonText;
 
-      _controller.addListener(() {
-        _debouncer.value = _controller.text;
-      });
+    _otherReasonController.addListener(() {
+      _debouncer.value = _otherReasonController.text;
+    });
 
-      _debouncer.values.listen((text) {
-        context.deleteAccountBloc.add(
-          DeleteOtherReasonTextChangedEvent(text: text),
-        );
-      });
+    _debouncer.values.listen((text) {
+      context.read<DeleteAccountBloc>().add(
+            DeleteOtherReasonTextChangedEvent(text: text),
+          );
     });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _otherReasonController.dispose();
     _debouncer.cancel();
     super.dispose();
   }
@@ -59,8 +57,8 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
     }
 
     return TextField(
-      controller: _controller,
-      maxLines: 2,
+      controller: _otherReasonController,
+      maxLines: 3,
       decoration: InputDecoration(
         hintText: context.localization.specify_reason,
       ),

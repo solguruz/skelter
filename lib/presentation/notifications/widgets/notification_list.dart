@@ -18,7 +18,7 @@ class NotificationList extends StatelessWidget {
 
     return RefreshIndicator(
       onRefresh: () async {
-        context.notificationBloc.add(GetNotificationDataEvent());
+        context.read<NotificationBloc>().add(GetNotificationDataEvent());
       },
       child: ListView.separated(
         separatorBuilder: (context, index) => const Divider(

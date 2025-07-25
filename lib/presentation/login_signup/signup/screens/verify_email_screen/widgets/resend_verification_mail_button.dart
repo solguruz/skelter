@@ -38,7 +38,7 @@ class ResendVerificationMailButton extends StatelessWidget {
           : AppButtonState.normal,
       onPressed: () {
         if (resendEmailVerificationTimeLeft == 0) {
-          context.loginBloc.add(SendEmailVerificationLinkEvent());
+          context.read<LoginBloc>().add(SendEmailVerificationLinkEvent());
         }
       },
     );

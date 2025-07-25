@@ -40,8 +40,10 @@ class _LoginWithPhoneNumberScreenState
       child: PopScope(
         onPopInvokedWithResult: (didPop, result) {
           if (didPop) {
-            context.loginBloc.add(ResetPhoneNumberStateEvent());
-            context.loginBloc.add(ResetSignUpStateOnScreenClosedEvent());
+            context.read<LoginBloc>().add(ResetPhoneNumberStateEvent());
+            context
+                .read<LoginBloc>()
+                .add(ResetSignUpStateOnScreenClosedEvent());
           }
         },
         child: const Scaffold(
@@ -77,7 +79,7 @@ class _LoginWithPhoneNumberBody extends StatelessWidget {
           // );
         } else if (state is NavigateToEmailVerifyScreenState) {
           await context.router.push(
-            VerifyEmailRoute(loginBloc: context.loginBloc),
+            VerifyEmailRoute(loginBloc: context.read<LoginBloc>()),
           );
         }
       },
@@ -91,7 +93,7 @@ class _LoginWithPhoneNumberBody extends StatelessWidget {
               if (state is NavigateToOTPScreenState &&
                   state.phoneOTPVerificationId.isNotEmpty) {
                 context.pushRoute(
-                  PhoneNumberOTPRoute(loginBloc: context.loginBloc),
+                  PhoneNumberOTPRoute(loginBloc: context.read<LoginBloc>()),
                 );
               }
             },

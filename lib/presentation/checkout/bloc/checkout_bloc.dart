@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
 import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_state.dart';
@@ -53,8 +52,4 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       state.copyWith(isPaymentMethodOnline: event.isPaymentMethodOnline),
     );
   }
-}
-
-extension CheckoutBlocExtension on BuildContext {
-  CheckoutBloc get checkoutBloc => BlocProvider.of<CheckoutBloc>(this);
 }

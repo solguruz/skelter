@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +11,37 @@ import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
-class AccountDeleteSuccessScreen extends StatelessWidget {
+class AccountDeleteSuccessScreen extends StatefulWidget {
   const AccountDeleteSuccessScreen({super.key});
+
+  @override
+  State<AccountDeleteSuccessScreen> createState() =>
+      _AccountDeleteSuccessScreenState();
+}
+
+class _AccountDeleteSuccessScreenState
+    extends State<AccountDeleteSuccessScreen> {
+  Timer? _navigationTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _scheduleNavigationToLogin();
+  }
+
+  void _scheduleNavigationToLogin() {
+    _navigationTimer = Timer(const Duration(seconds: 5), () {
+      if (mounted) {
+        context.router.replaceAll([const LoginRoute()]);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _navigationTimer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

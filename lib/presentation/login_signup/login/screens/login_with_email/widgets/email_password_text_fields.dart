@@ -88,11 +88,11 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
                 color: AppColors.strokeNeutralDisabled,
               ),
               onPressed: () {
-                context.loginBloc.add(
-                  IsPasswordVisibleEvent(
-                    isPasswordVisible: !isPasswordVisible,
-                  ),
-                );
+                context.read<LoginBloc>().add(
+                      IsPasswordVisibleEvent(
+                        isPasswordVisible: !isPasswordVisible,
+                      ),
+                    );
               },
             ),
           ),
@@ -103,25 +103,31 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
   }
 
   void _emailControllerListener() {
-    final String? previousErrorMessage =
-        context.loginBloc.state.emailPasswordLoginState?.emailErrorMessage;
+    final String? previousErrorMessage = context
+        .read<LoginBloc>()
+        .state
+        .emailPasswordLoginState
+        ?.emailErrorMessage;
     if (previousErrorMessage.haveContent()) {
-      context.loginBloc.add(EmailErrorEvent(errorMessage: ''));
+      context.read<LoginBloc>().add(EmailErrorEvent(errorMessage: ''));
     }
-    context.loginBloc.add(
-      EmailChangeEvent(email: _emailController.text),
-    );
+    context.read<LoginBloc>().add(
+          EmailChangeEvent(email: _emailController.text),
+        );
   }
 
   void _passwordControllerListener() {
-    final String? previousErrorMessage =
-        context.loginBloc.state.emailPasswordLoginState?.passwordErrorMessage;
+    final String? previousErrorMessage = context
+        .read<LoginBloc>()
+        .state
+        .emailPasswordLoginState
+        ?.passwordErrorMessage;
     if (previousErrorMessage.haveContent()) {
-      context.loginBloc.add(PasswordErrorEvent(errorMessage: ''));
+      context.read<LoginBloc>().add(PasswordErrorEvent(errorMessage: ''));
     }
-    context.loginBloc.add(
-      PasswordChangeEvent(password: _passwordController.text),
-    );
+    context.read<LoginBloc>().add(
+          PasswordChangeEvent(password: _passwordController.text),
+        );
   }
 
   @override

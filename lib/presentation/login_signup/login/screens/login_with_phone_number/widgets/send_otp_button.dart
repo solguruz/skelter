@@ -56,7 +56,8 @@ class SendOTPButton extends StatelessWidget {
         if (phoneNumberOnly.isNotEmpty) {
           FocusScope.of(context).unfocus();
 
-          context.loginBloc
+          context
+              .read<LoginBloc>()
               .add(LoginWithPhoneNumEvent(phoneNumWithCountryCode));
         }
       },

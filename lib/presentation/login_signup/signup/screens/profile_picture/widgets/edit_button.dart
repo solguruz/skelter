@@ -33,13 +33,17 @@ class EditButton extends StatelessWidget {
               context,
               showRemoveImageButton: true,
               onImageSelected: (File file) {
-                context.loginBloc.add(SelectedProfilePictureEvent(image: file));
-                context.loginBloc
+                context
+                    .read<LoginBloc>()
+                    .add(SelectedProfilePictureEvent(image: file));
+                context
+                    .read<LoginBloc>()
                     .add(ProfilePictureDoneToggleEvent(isDoneEditing: true));
               },
               onImageRemoved: () {
-                context.loginBloc.add(RemoveProfilePictureEvent());
-                context.loginBloc
+                context.read<LoginBloc>().add(RemoveProfilePictureEvent());
+                context
+                    .read<LoginBloc>()
                     .add(ProfilePictureDoneToggleEvent(isDoneEditing: false));
               },
             );

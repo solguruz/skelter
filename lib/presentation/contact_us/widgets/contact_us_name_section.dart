@@ -20,18 +20,20 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = context.contactUsBloc.state.name;
+    _nameController.text = context.read<ContactUsBloc>().state.name;
     _nameController.addListener(() {
       nameControllerListener();
     });
   }
 
   void nameControllerListener() {
-    final String? previousError = context.contactUsBloc.state.nameError;
+    final String? previousError = context.read<ContactUsBloc>().state.nameError;
     if (previousError != null && previousError.isNotEmpty) {
-      context.contactUsBloc.add(const NameErrorEvent(error: ''));
+      context.read<ContactUsBloc>().add(const NameErrorEvent(error: ''));
     }
-    context.contactUsBloc.add(NameChangedEvent(name: _nameController.text));
+    context
+        .read<ContactUsBloc>()
+        .add(NameChangedEvent(name: _nameController.text));
   }
 
   @override

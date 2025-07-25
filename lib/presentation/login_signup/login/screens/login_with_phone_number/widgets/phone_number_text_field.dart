@@ -36,7 +36,9 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
     super.initState();
     _phoneInputController = TextEditingController();
     _focusNode.addListener(() {
-      context.loginBloc.add(PhoneInputHasFocus(hasFocus: _focusNode.hasFocus));
+      context
+          .read<LoginBloc>()
+          .add(PhoneInputHasFocus(hasFocus: _focusNode.hasFocus));
     });
   }
 
@@ -48,16 +50,19 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
   }
 
   void _updatePhoneNumberEvent(PhoneNumber number) {
-    context.loginBloc.add(
-      CountryCodeChangeEvent(countryCode: number.dialCode ?? ''),
-    );
-    context.loginBloc.add(
-      PhoneNumChangeEvent(phoneNumber: number.phoneNumber ?? ''),
-    );
-    final String? previousError =
-        context.loginBloc.state.phoneNumberLoginState?.phoneNumErrorMessage;
+    context.read<LoginBloc>().add(
+          CountryCodeChangeEvent(countryCode: number.dialCode ?? ''),
+        );
+    context.read<LoginBloc>().add(
+          PhoneNumChangeEvent(phoneNumber: number.phoneNumber ?? ''),
+        );
+    final String? previousError = context
+        .read<LoginBloc>()
+        .state
+        .phoneNumberLoginState
+        ?.phoneNumErrorMessage;
     if (previousError.haveContent()) {
-      context.loginBloc.add(PhoneNumErrorEvent(errorMessage: ''));
+      context.read<LoginBloc>().add(PhoneNumErrorEvent(errorMessage: ''));
     }
   }
 

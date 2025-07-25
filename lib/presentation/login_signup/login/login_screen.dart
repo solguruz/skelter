@@ -70,7 +70,7 @@ class _LoginScreenBody extends StatelessWidget {
           // );
         } else if (state is NavigateToEmailVerifyScreenState) {
           await context.router.push(
-            VerifyEmailRoute(loginBloc: context.loginBloc),
+            VerifyEmailRoute(loginBloc: context.read<LoginBloc>()),
           );
         }
       },
