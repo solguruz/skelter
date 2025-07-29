@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
+import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
 
 class HomeState with EquatableMixin {
   final int currentBottomNavIndex;
-  final List<ProductModel> topProducts;
+  final List<Product> topProducts;
 
   HomeState({
     required this.currentBottomNavIndex,
@@ -21,7 +21,7 @@ class HomeState with EquatableMixin {
 
   HomeState copyWith({
     int? currentBottomNavIndex,
-    List<ProductModel>? topProducts,
+    List<Product>? topProducts,
   }) {
     return HomeState(
       currentBottomNavIndex:
@@ -33,7 +33,7 @@ class HomeState with EquatableMixin {
   @visibleForTesting
   HomeState.test({
     int? currentBottomNavIndex,
-    List<ProductModel>? topProducts,
+    List<Product>? topProducts,
     bool? isTopProductsLoading,
     String? reviewAttachmentPath,
   })  : currentBottomNavIndex = currentBottomNavIndex ?? 0,
@@ -44,4 +44,14 @@ class HomeState with EquatableMixin {
         currentBottomNavIndex,
         topProducts,
       ];
+}
+
+class TopProductsLoadedState extends HomeState {
+  TopProductsLoadedState(HomeState state, {required List<Product> topProducts})
+      : super.copy(state.copyWith(topProducts: topProducts));
+}
+
+class AuthenticationError extends HomeState {
+  AuthenticationError(HomeState state, {required String errorMessage})
+      : super.copy(state.copyWith());
 }

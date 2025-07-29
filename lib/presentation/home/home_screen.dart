@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/core/services/injection_container.dart';
 import 'package:flutter_skeleton/presentation/checkout/initial_checkout_screen.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
@@ -16,7 +17,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (_) => HomeBloc()..add(const GetTopProductDataEvent()),
+      create: (_) =>
+          HomeBloc(getProducts: sl())..add(const GetTopProductDataEvent()),
       child: const HomeScreenWrapper(),
     );
   }

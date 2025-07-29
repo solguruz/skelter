@@ -32,7 +32,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-
 # Symbolication related
 app.*.symbols
 
@@ -50,3 +49,6 @@ test/**/failures/**/*.*
 
 # FVM Version Cache
 .fvm/
+
+# Environment variables
+.env
