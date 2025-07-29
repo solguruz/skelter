@@ -1,12 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/presentation/home/data/dummy_product_data.dart';
+import 'package:flutter_skeleton/presentation/home/domain/usecases/get_products.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeState.initial()) {
+  HomeBloc({
+    required GetProducts getProducts,
+  })  : _getProducts = getProducts,
+        super(HomeState.initial()) {
     _setupEventListener();
   }
+
+  final GetProducts _getProducts;
 
   void _setupEventListener() {
     on<BottomNavBarIndexChangedEvent>(_onBottomNavBarIndexChangedEvent);
@@ -23,7 +28,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   void _onGetTopProductDataEvent(
     GetTopProductDataEvent event,
     Emitter<HomeState> emit,
-  ) {
-    emit(state.copyWith(topProducts: dummyProductData));
+  ) async {
+    final result = await _getProducts();
+
+    result.fold(
+      (failure) =>
+          emit(AuthenticationError(state, errorMessage: failure.errorMessage)),
+      (topProducts) =>
+          emit(TopProductsLoadedState(state, topProducts: topProducts)),
+    );
   }
 }

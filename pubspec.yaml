@@ -49,6 +49,10 @@ dependencies:
   file_picker: 8.3.3
   connectivity_plus: ^6.1.4
   flutter_native_splash: ^2.4.4
+  dartz: ^0.10.0
+  get_it: ^8.0.3
+  dio: ^5.8.0+1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +85,7 @@ flutter:
     - assets/images/
     - assets/test/images/
     - assets/test/files/
+    - .env
 
   fonts:
     - family: Inter

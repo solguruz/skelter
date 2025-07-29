@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
 import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
+import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
 import 'package:flutter_skeleton/presentation/home/widgets/product_card.dart';
 
 class TopProductGrid extends StatelessWidget {
@@ -9,7 +9,7 @@ class TopProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productsList = context.select<HomeBloc, List<ProductModel>>(
+    final productsList = context.select<HomeBloc, List<Product>>(
       (bloc) => bloc.state.topProducts,
     );
 
