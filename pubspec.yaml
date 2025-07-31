@@ -49,6 +49,9 @@ dependencies:
   file_picker: 8.3.3
   connectivity_plus: ^6.1.4
   flutter_native_splash: ^2.4.4
+  url_launcher: ^6.3.2
+  firebase_remote_config: ^5.4.7
+  package_info_plus: ^8.3.0
   dartz: ^0.10.0
   get_it: ^8.0.3
   dio: ^5.8.0+1

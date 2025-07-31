@@ -83,11 +83,11 @@ void main() {
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
 
-            const testState = DeleteAccountState.test(
+            const deleteAccountState = DeleteAccountState.test(
               selectedReason: DeleteAccountReasons.doNotNeedItAnyMore,
             );
 
-            when(() => deleteAccountBloc.state).thenReturn(testState);
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
@@ -112,15 +112,15 @@ void main() {
       testExecutable(() {
         goldenTest(
           'Selected Reason: Other',
-          fileName: 'selected_reason_other_with_empty_field',
+          fileName: 'selected_reason_other_with_empty_text_field',
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
 
-            const testState = DeleteAccountState.test(
+            const deleteAccountState = DeleteAccountState.test(
               selectedReason: DeleteAccountReasons.other,
             );
 
-            when(() => deleteAccountBloc.state).thenReturn(testState);
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
@@ -149,11 +149,11 @@ void main() {
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
 
-            const testState = DeleteAccountState.test(
+            const deleteAccountState = DeleteAccountState.test(
               selectedReason: DeleteAccountReasons.productNoMoreRelevant,
             );
 
-            when(() => deleteAccountBloc.state).thenReturn(testState);
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
@@ -182,11 +182,11 @@ void main() {
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
 
-            const testState = DeleteAccountState.test(
+            const deleteAccountState = DeleteAccountState.test(
               selectedReason: DeleteAccountReasons.dislikeTheApp,
             );
 
-            when(() => deleteAccountBloc.state).thenReturn(testState);
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
@@ -211,20 +211,20 @@ void main() {
       testExecutable(() {
         goldenTest(
           'Selected Reason: Other',
-          fileName: 'selected_reason_other_with_filled_field',
+          fileName: 'selected_reason_other_with_filled_text_field',
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
 
-            const testState = DeleteAccountState.test(
+            const deleteAccountState = DeleteAccountState.test(
               selectedReason: DeleteAccountReasons.other,
-              otherReasonText:
-                  'I appreciate the efforts behind this application, '
-                  'but I have decided to stop using it as my needs have changed.'
-                  'The app has a clean interface and thoughtful design, '
-                  'but some features I require are currently missing.',
+              otherReasonText: '''
+I appreciate the efforts behind this application, but I have decided to
+stop using it as my needs have changed. The app has a clean interface and
+thoughtful design, but some features I require are currently missing.
+''',
             );
 
-            when(() => deleteAccountBloc.state).thenReturn(testState);
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>

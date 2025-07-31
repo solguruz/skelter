@@ -364,11 +364,16 @@
   "delete_warning_products_chats": "Saved products, chats will be deleted",
   "delete_warning_account_info": "Delete all of your account information",
   "account_deleted": "Account Deleted!",
-  "creating_new_account": "Creating new account?",
   "something_went_wrong": "Something went wrong. Please try again.",
   "delete_account_failed": "Account deletion failed. Please try again.",
   "no_user_found": "No user found.",
   "reauth_required": "Please re-authenticate to delete your account.",
   "firebase_error": "Firebase error",
-  "creating_new_account": "Creating new account?"
+  "creating_new_account": "Creating new account?",
+  "its_time_to_update": "It’s time to Update!",
+  "update_required_description": "The version you are using is old, to continue using you need to update the latest version in order to experience new features.",
+  "update_now": "Update Now",
+  "skip_update": "Skip Update",
+  "platform_not_supported": "Platform not supported",
+  "could_not_launch_store_link": "Could not launch store link"
 }

@@ -46,6 +46,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/empty_wishlist.svg
   String get emptyWishlist => 'assets/icons/empty_wishlist.svg';
 
+  /// File path: assets/icons/force_update.svg
+  String get forceUpdate => 'assets/icons/force_update.svg';
+
   /// File path: assets/icons/google.png
   AssetGenImage get google => const AssetGenImage('assets/icons/google.png');
 
@@ -98,6 +101,7 @@ class $AssetsIconsGen {
     emptyCart,
     emptySavedCards,
     emptyWishlist,
+    forceUpdate,
     google,
     icon,
     mdiTick,
@@ -181,9 +185,13 @@ class $AssetsTestImagesGen {
 class Assets {
   const Assets._();
 
+  static const String aEnv = '.env';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsTestGen test = $AssetsTestGen();
+
+  /// List of all assets
+  static List<String> get values => [aEnv];
 }
 
 class AssetGenImage {
