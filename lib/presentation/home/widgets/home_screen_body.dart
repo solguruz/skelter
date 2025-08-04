@@ -9,17 +9,20 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: HomeAppBar(),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(height: 16),
-            ProductSearchBar(),
-            ProductsHeadlineBar(),
-            TopProductGrid(),
-          ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: const Scaffold(
+        appBar: HomeAppBar(),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              SizedBox(height: 16),
+              ProductSearchBar(),
+              ProductsHeadlineBar(),
+              TopProductGrid(),
+            ],
+          ),
         ),
       ),
     );

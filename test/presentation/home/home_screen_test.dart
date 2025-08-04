@@ -63,7 +63,10 @@ void main() {
           //arrange
           final homeBloc = MockHomeBloc();
           when(() => homeBloc.state).thenReturn(
-            HomeState.test(topProducts: dummyProductData),
+            HomeState.test(
+              topProducts: dummyProductData,
+              filteredProducts: dummyProductData,
+            ),
           );
 
           // act, assert

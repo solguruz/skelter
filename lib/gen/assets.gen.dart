@@ -90,32 +90,32 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    accountDeletedSuccess,
-    appUnderMaintenance,
-    apple,
-    close,
-    coupon,
-    deliveryParcel,
-    email,
-    emailNotification,
-    emptyCart,
-    emptySavedCards,
-    emptyWishlist,
-    forceUpdate,
-    google,
-    icon,
-    mdiTick,
-    noChats,
-    noInternetConnection,
-    noNotifications,
-    searchOutline,
-    send,
-    serverError,
-    tick,
-    userNotFound,
-    userPlaceholder,
-    waveforms,
-  ];
+        accountDeletedSuccess,
+        appUnderMaintenance,
+        apple,
+        close,
+        coupon,
+        deliveryParcel,
+        email,
+        emailNotification,
+        emptyCart,
+        emptySavedCards,
+        emptyWishlist,
+        forceUpdate,
+        google,
+        icon,
+        mdiTick,
+        noChats,
+        noInternetConnection,
+        noNotifications,
+        searchOutline,
+        send,
+        serverError,
+        tick,
+        userNotFound,
+        userPlaceholder,
+        waveforms,
+      ];
 }
 
 class $AssetsImagesGen {
@@ -143,12 +143,12 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-    cartItem1,
-    cartItem2,
-    demoUser,
-    mastercard,
-    sgSkeletonLogo,
-  ];
+        cartItem1,
+        cartItem2,
+        demoUser,
+        mastercard,
+        sgSkeletonLogo,
+      ];
 }
 
 class $AssetsTestGen {

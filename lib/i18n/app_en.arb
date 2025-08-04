@@ -375,5 +375,6 @@
   "update_now": "Update Now",
   "skip_update": "Skip Update",
   "platform_not_supported": "Platform not supported",
-  "could_not_launch_store_link": "Could not launch store link"
+  "could_not_launch_store_link": "Could not launch store link",
+  "microphone_permission_permanently_denied": "Microphone permission is permanently denied. Please go to settings and enable it."
 }
