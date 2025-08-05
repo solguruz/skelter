@@ -1120,6 +1120,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get creating_new_account => 'Creating new account?';
 
   @override
+  String get delete_account_confirmation_message =>
+      'This action is irreversible. All your data will be permanently deleted. Are you sure you want to proceed?';
+
+  @override
   String get its_time_to_update => 'It’s time to Update!';
 
   @override

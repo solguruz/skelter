@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
 import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_appbar.dart';
 import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_button.dart';
 import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_divider.dart';
@@ -34,8 +35,17 @@ class DeleteAccountScreen extends StatelessWidget {
       );
     } else if (state is DeleteAccountFailureState) {
       context.showSnackBar(state.errorMessage ?? kSomethingWentWrong);
-    } else if (state is DeleteAccountReAuthRequiredState) {
-      context.showSnackBar(kFirebaseAuthRequiresRecentLogin);
+    } else if (state is DeleteAccountReAuthEmailPasswordRequiredState) {
+      context.showSnackBar('Navigate to email password screen');
+      // TODO: Navigate to email/password screen after dynamic login implement.
+    } else if (state is DeleteAccountReAuthPhoneRequiredState) {
+      context.showSnackBar(kReAuthRequiredForPerformThisAction);
+      context.router.replaceAll([
+        LoginWithPhoneNumberRoute(isFromDeleteAccount: true),
+      ]);
+    } else if (state is DeleteAccountReAuthGoogleRequiredState) {
+      // TODO: Trigger Google re-authentication after dynamic setup google auth.
+      context.showSnackBar(kReAuthRequiredForPerformThisAction);
     }
   }
 }

@@ -627,18 +627,61 @@ class LoginWithEmailPasswordRouteArgs {
 
 /// generated route for
 /// [_i20.LoginWithPhoneNumberScreen]
-class LoginWithPhoneNumberRoute extends _i35.PageRouteInfo<void> {
-  const LoginWithPhoneNumberRoute({List<_i35.PageRouteInfo>? children})
-      : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
+class LoginWithPhoneNumberRoute
+    extends _i35.PageRouteInfo<LoginWithPhoneNumberRouteArgs> {
+  LoginWithPhoneNumberRoute({
+    _i36.Key? key,
+    bool isFromDeleteAccount = false,
+    List<_i35.PageRouteInfo>? children,
+  }) : super(
+          LoginWithPhoneNumberRoute.name,
+          args: LoginWithPhoneNumberRouteArgs(
+            key: key,
+            isFromDeleteAccount: isFromDeleteAccount,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'LoginWithPhoneNumberRoute';
 
   static _i35.PageInfo page = _i35.PageInfo(
     name,
     builder: (data) {
-      return const _i20.LoginWithPhoneNumberScreen();
+      final args = data.argsAs<LoginWithPhoneNumberRouteArgs>(
+        orElse: () => const LoginWithPhoneNumberRouteArgs(),
+      );
+      return _i20.LoginWithPhoneNumberScreen(
+        key: args.key,
+        isFromDeleteAccount: args.isFromDeleteAccount,
+      );
     },
   );
+}
+
+class LoginWithPhoneNumberRouteArgs {
+  const LoginWithPhoneNumberRouteArgs({
+    this.key,
+    this.isFromDeleteAccount = false,
+  });
+
+  final _i36.Key? key;
+
+  final bool isFromDeleteAccount;
+
+  @override
+  String toString() {
+    return 'LoginWithPhoneNumberRouteArgs{key: $key, isFromDeleteAccount: $isFromDeleteAccount}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! LoginWithPhoneNumberRouteArgs) return false;
+    return key == other.key && isFromDeleteAccount == other.isFromDeleteAccount;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ isFromDeleteAccount.hashCode;
 }
 
 /// generated route for
@@ -742,10 +785,15 @@ class PhoneNumberOTPRoute extends _i35.PageRouteInfo<PhoneNumberOTPRouteArgs> {
   PhoneNumberOTPRoute({
     _i36.Key? key,
     required _i37.LoginBloc loginBloc,
+    bool isFromDeleteAccount = false,
     List<_i35.PageRouteInfo>? children,
   }) : super(
           PhoneNumberOTPRoute.name,
-          args: PhoneNumberOTPRouteArgs(key: key, loginBloc: loginBloc),
+          args: PhoneNumberOTPRouteArgs(
+            key: key,
+            loginBloc: loginBloc,
+            isFromDeleteAccount: isFromDeleteAccount,
+          ),
           initialChildren: children,
         );
 
@@ -758,32 +806,42 @@ class PhoneNumberOTPRoute extends _i35.PageRouteInfo<PhoneNumberOTPRouteArgs> {
       return _i25.PhoneNumberOTPScreen(
         key: args.key,
         loginBloc: args.loginBloc,
+        isFromDeleteAccount: args.isFromDeleteAccount,
       );
     },
   );
 }
 
 class PhoneNumberOTPRouteArgs {
-  const PhoneNumberOTPRouteArgs({this.key, required this.loginBloc});
+  const PhoneNumberOTPRouteArgs({
+    this.key,
+    required this.loginBloc,
+    this.isFromDeleteAccount = false,
+  });
 
   final _i36.Key? key;
 
   final _i37.LoginBloc loginBloc;
 
+  final bool isFromDeleteAccount;
+
   @override
   String toString() {
-    return 'PhoneNumberOTPRouteArgs{key: $key, loginBloc: $loginBloc}';
+    return 'PhoneNumberOTPRouteArgs{key: $key, loginBloc: $loginBloc, isFromDeleteAccount: $isFromDeleteAccount}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PhoneNumberOTPRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
+    return key == other.key &&
+        loginBloc == other.loginBloc &&
+        isFromDeleteAccount == other.isFromDeleteAccount;
   }
 
   @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
+  int get hashCode =>
+      key.hashCode ^ loginBloc.hashCode ^ isFromDeleteAccount.hashCode;
 }
 
 /// generated route for

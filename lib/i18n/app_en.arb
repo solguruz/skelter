@@ -369,6 +369,7 @@
   "no_user_found": "No user found.",
   "reauth_required": "Please re-authenticate to delete your account.",
   "creating_new_account": "Creating new account?",
+  "delete_account_confirmation_message": "This action is irreversible. All your data will be permanently deleted. Are you sure you want to proceed?",
   "its_time_to_update": "It’s time to Update!",
   "update_required_description": "The version you are using is old, to continue using you need to update the latest version in order to experience new features.",
   "update_now": "Update Now",

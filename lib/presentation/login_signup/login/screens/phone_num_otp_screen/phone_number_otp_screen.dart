@@ -16,9 +16,12 @@ class PhoneNumberOTPScreen extends StatefulWidget {
   const PhoneNumberOTPScreen({
     super.key,
     required this.loginBloc,
+    this.isFromDeleteAccount = false,
   });
 
   final LoginBloc loginBloc;
+
+  final bool isFromDeleteAccount;
 
   static const kResendOTPMaxSeconds = 60;
 
@@ -44,7 +47,9 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
           padding: const EdgeInsets.all(16.0),
           child: BlocProvider<LoginBloc>.value(
             value: widget.loginBloc,
-            child: const _PhoneNumberOTPScreenBody(),
+            child: _PhoneNumberOTPScreenBody(
+              isFromDeleteAccount: widget.isFromDeleteAccount,
+            ),
           ),
         ),
       ),
@@ -53,7 +58,11 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
 }
 
 class _PhoneNumberOTPScreenBody extends StatelessWidget {
-  const _PhoneNumberOTPScreenBody();
+  const _PhoneNumberOTPScreenBody({
+    required this.isFromDeleteAccount,
+  });
+
+  final bool isFromDeleteAccount;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +72,13 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) async {
         if (state is NavigateToHomeScreenState) {
-          context.router.popUntilRoot();
+// If user came from Delete Account flow, return them to DeleteAccountScreen
+          if (isFromDeleteAccount) {
+            await context.router.replace(const DeleteAccountRoute());
+          } else {
+            // Default flow: go to home
+            context.router.popUntilRoot();
+          }
         } else if (state is NavigateToVerifiedScreenState) {
           await context.router.replace(
             PhoneNumberVerifiedRoute(loginBloc: context.read<LoginBloc>()),

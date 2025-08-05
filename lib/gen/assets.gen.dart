@@ -116,7 +116,7 @@ class $AssetsIconsGen {
         tick,
         userNotFound,
         userPlaceholder,
-        waveforms,
+        waveforms
       ];
 }
 

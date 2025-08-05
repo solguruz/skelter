@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -5,6 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
+import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
@@ -214,25 +216,27 @@ class FirebaseAuthService {
     required Function(String message, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      final user = FirebaseAuth.instance.currentUser;
-      await user?.delete();
+      await _deleteUserAccount();
       await Prefs.clear();
     } on FirebaseAuthException catch (e, stack) {
-      debugPrint('FirebaseAuthException: ${e.code}');
       if (e.code == kFirebaseAuthRequiresRecentLogin) {
-        await reAuthenticateCurrentUser(onError: onError);
-        try {
-          final user = FirebaseAuth.instance.currentUser;
-          await user?.delete();
-          await Prefs.clear();
-        } on FirebaseAuthException catch (e2, stack2) {
-          _handleFirebaseError(e2, onError, stackTrace: stack2);
-        } on Exception catch (e2) {
-          debugPrint('Error delete account after reauth: $e2');
-          onError(kSomethingWentWrong);
-        }
-        return;
+        await _handleRecentLoginRequired(onError);
+      } else {
+        _handleFirebaseError(e, onError, stackTrace: stack);
       }
+    } catch (e, stack) {
+      onError(kSomethingWentWrong, stackTrace: stack);
+    }
+  }
+
+  Future<void> _handleRecentLoginRequired(
+    Function(String message, {StackTrace? stackTrace}) onError,
+  ) async {
+    try {
+      await reAuthenticateCurrentUser(onError: onError);
+      await _deleteUserAccount();
+      await Prefs.clear();
+    } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {
       debugPrint('Error delete account: $e');
@@ -240,51 +244,102 @@ class FirebaseAuthService {
     }
   }
 
+  Future<void> _deleteUserAccount() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) throw Exception('No authenticated user found');
+    debugPrint('Attempting account deletion...');
+    await user.delete();
+    debugPrint('Account deleted successfully.');
+  }
+
   Future<void> reAuthenticateCurrentUser({
     required Function(String message, {StackTrace? stackTrace}) onError,
   }) async {
     final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      onError('User not found');
+      return;
+    }
+
+    final providerId = user.providerData.firstOrNull?.providerId;
+    if (providerId == null) {
+      onError('UnknownAuthProvider');
+      return;
+    }
+
     try {
-      final providerId = user?.providerData.firstOrNull?.providerId;
-      if (providerId == null) {
-        onError('UnknownAuthProvider');
-        return;
+      await _reAuthenticateByProvider(providerId, user, onError);
+    } on FirebaseAuthException catch (e, stack) {
+      _handleFirebaseError(e, onError, stackTrace: stack);
+    } catch (e, stack) {
+      onError(kSomethingWentWrong, stackTrace: stack);
+    }
+  }
+
+  Future<void> _reAuthenticateByProvider(
+    String providerId,
+    User user,
+    Function(String message, {StackTrace? stackTrace}) onError,
+  ) async {
+    try {
+      switch (providerId) {
+        case kProviderGoogle:
+          await _reAuthWithGoogle(user);
+
+        case kProviderPhone:
+          onError(kPhoneAuthRequired);
+
+        //Todo : Dynamic Implementation/Test Pending for Email/Password reAuth
+        case kProviderPassword:
+          onError(kEmailPasswordReAuthRequired);
+
+        default:
+          onError('$kUnsupportedProvider: $providerId');
       }
-      if (providerId == AppleAuthProvider().providerId) {
-        final String rawNonce = generateNonce();
-        final AuthorizationCredentialAppleID appleCred =
-            await SignInWithApple.getAppleIDCredential(
-          scopes: <AppleIDAuthorizationScopes>[
-            AppleIDAuthorizationScopes.email,
-            AppleIDAuthorizationScopes.fullName,
-          ],
-          nonce: _sha256OfString(rawNonce),
-        );
-        final OAuthCredential credential =
-            OAuthProvider('apple.com').credential(
-          idToken: appleCred.identityToken,
-          accessToken: appleCred.authorizationCode,
-          rawNonce: rawNonce,
-        );
-        await user?.reauthenticateWithCredential(credential);
-      } else if (providerId == GoogleAuthProvider().providerId) {
-        final GoogleSignInAccount? googleUser =
-            await GoogleSignIn(scopes: <String>['email']).signIn();
-        if (googleUser == null) {
-          onError('Google sign-in aborted');
-          return;
-        }
-        final GoogleSignInAuthentication googleAuth =
-            await googleUser.authentication;
-        final OAuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-        await user?.reauthenticateWithCredential(credential);
-      } else {
-        onError('UnsupportedProvider');
-        return;
-      }
+    } on FirebaseAuthException catch (e, stack) {
+      _handleFirebaseError(e, onError, stackTrace: stack);
+    } catch (e, stack) {
+      onError(kSomethingWentWrong, stackTrace: stack);
+    }
+  }
+
+  //Todo : Dynamic Implementation/Test Pending for _reAuthWithGoogle
+  // Re-authenticates with Google credentials
+  Future<void> _reAuthWithGoogle(User user) async {
+    final googleSignIn = GoogleSignIn(scopes: [kEmailScope]);
+    final googleUser = await googleSignIn.signIn();
+
+    if (googleUser == null) {
+      throw Exception('Google sign-in was cancelled by user');
+    }
+
+    final googleAuth = await googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    await user.reauthenticateWithCredential(credential);
+  }
+
+  // Re-authenticates with email and password
+  Future<void> reAuthWithEmailPassword({
+    required String email,
+    required String password,
+    required Function(String message, {StackTrace? stackTrace}) onError,
+  }) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      onError('User not found');
+      return;
+    }
+
+    try {
+      final credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      await user.reauthenticateWithCredential(credential);
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     } on Exception catch (e) {

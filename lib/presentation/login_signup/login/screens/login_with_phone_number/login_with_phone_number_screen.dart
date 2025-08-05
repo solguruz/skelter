@@ -19,7 +19,11 @@ import 'package:flutter_skeleton/utils/extensions/string.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {
-  const LoginWithPhoneNumberScreen({super.key});
+  final bool isFromDeleteAccount;
+  const LoginWithPhoneNumberScreen({
+    super.key,
+    this.isFromDeleteAccount = false,
+  });
 
   static const kHorizontalPadding = 16.0;
 
@@ -47,9 +51,10 @@ class _LoginWithPhoneNumberScreenState
                 .add(ResetSignUpStateOnScreenClosedEvent());
           }
         },
-        child: const Scaffold(
-          // appBar: LoginAppBar(),
-          body: _LoginWithPhoneNumberBody(),
+        child: Scaffold(
+          body: _LoginWithPhoneNumberBody(
+            isFromDeleteAccount: widget.isFromDeleteAccount,
+          ),
         ),
       ),
     );
@@ -57,7 +62,10 @@ class _LoginWithPhoneNumberScreenState
 }
 
 class _LoginWithPhoneNumberBody extends StatelessWidget {
-  const _LoginWithPhoneNumberBody();
+  final bool isFromDeleteAccount;
+  const _LoginWithPhoneNumberBody({
+    required this.isFromDeleteAccount,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +102,10 @@ class _LoginWithPhoneNumberBody extends StatelessWidget {
               if (state is NavigateToOTPScreenState &&
                   state.phoneOTPVerificationId.isNotEmpty) {
                 context.pushRoute(
-                  PhoneNumberOTPRoute(loginBloc: context.read<LoginBloc>()),
+                  PhoneNumberOTPRoute(
+                    loginBloc: context.read<LoginBloc>(),
+                    isFromDeleteAccount: isFromDeleteAccount,
+                  ),
                 );
               }
             },

@@ -61,7 +61,7 @@ class _InitialScreenState extends State<InitialScreen> {
     if ((userDetails.uid ?? '').haveContent()) {
       await context.router.replace(const HomeRoute());
     } else {
-      await context.router.replace(const LoginWithPhoneNumberRoute());
+      await context.router.replace(LoginWithPhoneNumberRoute());
     }
   }
 
