@@ -37,7 +37,7 @@ class ProfileScreenBody extends StatelessWidget {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) async {
         if (state is SignOutState) {
-          await context.router.replaceAll([const LoginWithPhoneNumberRoute()]);
+          await context.router.replaceAll([LoginWithPhoneNumberRoute()]);
         }
       },
       child: const Padding(

@@ -68,7 +68,7 @@ class SignupButton extends StatelessWidget {
                   .read<LoginBloc>()
                   .add(SelectLoginSignupTypeEvent(LoginType.PHONE));
               context.pushRoute(
-                const LoginWithPhoneNumberRoute(),
+                LoginWithPhoneNumberRoute(),
               );
             },
           ),

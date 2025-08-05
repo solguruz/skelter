@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
 
 class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
@@ -52,68 +54,67 @@ class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
     DeleteAccountSubmittedEvent event,
     Emitter<DeleteAccountState> emit,
   ) async {
-    emit(
-      DeleteAccountLoadingState(
-        state,
-        isLoading: true,
-      ),
-    );
+    emit(state.copyWith(isLoading: true));
 
-    try {
-      await _firebaseAuthService.deleteCurrentUser(
-        onError: (error, {stackTrace}) {
-          if (error == kFirebaseAuthRequiresRecentLogin) {
+    var hasErrorOccurred = false;
+
+    await _firebaseAuthService.deleteCurrentUser(
+      onError: (error, {stackTrace}) async {
+        hasErrorOccurred = true;
+
+        final user = FirebaseAuth.instance.currentUser;
+        final providerList =
+            user?.providerData.map((p) => p.providerId).toList() ?? [];
+
+        if (error == kFirebaseAuthRequiresRecentLogin) {
+          if (providerList.contains(kProviderPassword)) {
             emit(
-              DeleteAccountReAuthRequiredState(
-                state,
+              state.copyWith(
+                isLoading: false,
                 errorMessage: error,
               ),
             );
+            emit(DeleteAccountReAuthEmailPasswordRequiredState(state));
+          } else if (providerList.contains(kProviderGoogle)) {
+            emit(
+              state.copyWith(
+                isLoading: false,
+                errorMessage: error,
+              ),
+            );
+            emit(DeleteAccountReAuthGoogleRequiredState(state));
           } else {
             emit(
-              DeleteAccountFailureState(
-                state,
+              state.copyWith(
+                isLoading: false,
                 errorMessage: error,
               ),
             );
-            emit(
-              DeleteAccountLoadingState(
-                state,
-                isLoading: false,
-              ),
-            );
+            emit(DeleteAccountFailureState(state));
           }
+        } else if (error == kPhoneAuthRequired) {
+          emit(
+            state.copyWith(
+              isLoading: false,
+              errorMessage: error,
+            ),
+          );
+          emit(DeleteAccountReAuthPhoneRequiredState(state));
+        } else {
+          emit(
+            state.copyWith(
+              isLoading: false,
+              errorMessage: error,
+            ),
+          );
+          emit(DeleteAccountFailureState(state));
+        }
+      },
+    );
 
-          throw Exception(error);
-        },
-      );
-
-      emit(
-        DeleteAccountSuccessState(
-          state,
-        ),
-      );
-
-      emit(
-        DeleteAccountLoadingState(
-          state,
-          isLoading: false,
-        ),
-      );
-    } catch (e) {
-      emit(
-        DeleteAccountFailureState(
-          state,
-          errorMessage: kSomethingWentWrong,
-        ),
-      );
-
-      emit(
-        DeleteAccountLoadingState(
-          state,
-          isLoading: false,
-        ),
-      );
+    if (!hasErrorOccurred) {
+      emit(state.copyWith(isLoading: false));
+      emit(DeleteAccountSuccessState(state));
     }
   }
 }
