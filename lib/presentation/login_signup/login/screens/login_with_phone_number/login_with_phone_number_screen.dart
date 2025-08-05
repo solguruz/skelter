@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
+import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';

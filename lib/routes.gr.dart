@@ -85,7 +85,7 @@ import 'package:flutter_skeleton/widgets/attachment_view.dart' as _i22;
 /// [_i1.AccountDeleteSuccessScreen]
 class AccountDeleteSuccessRoute extends _i35.PageRouteInfo<void> {
   const AccountDeleteSuccessRoute({List<_i35.PageRouteInfo>? children})
-    : super(AccountDeleteSuccessRoute.name, initialChildren: children);
+      : super(AccountDeleteSuccessRoute.name, initialChildren: children);
 
   static const String name = 'AccountDeleteSuccessRoute';
 
@@ -101,7 +101,7 @@ class AccountDeleteSuccessRoute extends _i35.PageRouteInfo<void> {
 /// [_i2.AddAddressScreen]
 class AddAddressRoute extends _i35.PageRouteInfo<void> {
   const AddAddressRoute({List<_i35.PageRouteInfo>? children})
-    : super(AddAddressRoute.name, initialChildren: children);
+      : super(AddAddressRoute.name, initialChildren: children);
 
   static const String name = 'AddAddressRoute';
 
@@ -122,10 +122,10 @@ class AddProfilePictureRoute
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         AddProfilePictureRoute.name,
-         args: AddProfilePictureRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          AddProfilePictureRoute.name,
+          args: AddProfilePictureRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'AddProfilePictureRoute';
 
@@ -152,13 +152,23 @@ class AddProfilePictureRouteArgs {
   String toString() {
     return 'AddProfilePictureRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AddProfilePictureRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i4.AvailableCouponsScreen]
 class AvailableCouponsRoute extends _i35.PageRouteInfo<void> {
   const AvailableCouponsRoute({List<_i35.PageRouteInfo>? children})
-    : super(AvailableCouponsRoute.name, initialChildren: children);
+      : super(AvailableCouponsRoute.name, initialChildren: children);
 
   static const String name = 'AvailableCouponsRoute';
 
@@ -179,10 +189,10 @@ class ChatConversationRoute
     required _i38.ChatModel chatUser,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         ChatConversationRoute.name,
-         args: ChatConversationRouteArgs(key: key, chatUser: chatUser),
-         initialChildren: children,
-       );
+          ChatConversationRoute.name,
+          args: ChatConversationRouteArgs(key: key, chatUser: chatUser),
+          initialChildren: children,
+        );
 
   static const String name = 'ChatConversationRoute';
 
@@ -206,13 +216,23 @@ class ChatConversationRouteArgs {
   String toString() {
     return 'ChatConversationRouteArgs{key: $key, chatUser: $chatUser}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ChatConversationRouteArgs) return false;
+    return key == other.key && chatUser == other.chatUser;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ chatUser.hashCode;
 }
 
 /// generated route for
 /// [_i6.ChatScreen]
 class ChatRoute extends _i35.PageRouteInfo<void> {
   const ChatRoute({List<_i35.PageRouteInfo>? children})
-    : super(ChatRoute.name, initialChildren: children);
+      : super(ChatRoute.name, initialChildren: children);
 
   static const String name = 'ChatRoute';
 
@@ -232,10 +252,10 @@ class CheckYourEmailRoute extends _i35.PageRouteInfo<CheckYourEmailRouteArgs> {
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         CheckYourEmailRoute.name,
-         args: CheckYourEmailRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          CheckYourEmailRoute.name,
+          args: CheckYourEmailRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'CheckYourEmailRoute';
 
@@ -259,13 +279,23 @@ class CheckYourEmailRouteArgs {
   String toString() {
     return 'CheckYourEmailRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CheckYourEmailRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i8.ContactUsScreen]
 class ContactUsRoute extends _i35.PageRouteInfo<void> {
   const ContactUsRoute({List<_i35.PageRouteInfo>? children})
-    : super(ContactUsRoute.name, initialChildren: children);
+      : super(ContactUsRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsRoute';
 
@@ -281,7 +311,7 @@ class ContactUsRoute extends _i35.PageRouteInfo<void> {
 /// [_i9.ContactUsSubmittedScreen]
 class ContactUsSubmittedRoute extends _i35.PageRouteInfo<void> {
   const ContactUsSubmittedRoute({List<_i35.PageRouteInfo>? children})
-    : super(ContactUsSubmittedRoute.name, initialChildren: children);
+      : super(ContactUsSubmittedRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsSubmittedRoute';
 
@@ -302,10 +332,10 @@ class CreateYourPasswordRoute
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         CreateYourPasswordRoute.name,
-         args: CreateYourPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          CreateYourPasswordRoute.name,
+          args: CreateYourPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'CreateYourPasswordRoute';
 
@@ -332,13 +362,23 @@ class CreateYourPasswordRouteArgs {
   String toString() {
     return 'CreateYourPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CreateYourPasswordRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i11.DeleteAccountScreen]
 class DeleteAccountRoute extends _i35.PageRouteInfo<void> {
   const DeleteAccountRoute({List<_i35.PageRouteInfo>? children})
-    : super(DeleteAccountRoute.name, initialChildren: children);
+      : super(DeleteAccountRoute.name, initialChildren: children);
 
   static const String name = 'DeleteAccountRoute';
 
@@ -354,7 +394,7 @@ class DeleteAccountRoute extends _i35.PageRouteInfo<void> {
 /// [_i12.EditAddressScreen]
 class EditAddressRoute extends _i35.PageRouteInfo<void> {
   const EditAddressRoute({List<_i35.PageRouteInfo>? children})
-    : super(EditAddressRoute.name, initialChildren: children);
+      : super(EditAddressRoute.name, initialChildren: children);
 
   static const String name = 'EditAddressRoute';
 
@@ -370,7 +410,7 @@ class EditAddressRoute extends _i35.PageRouteInfo<void> {
 /// [_i13.EmptyViewsScreen]
 class EmptyViewsRoute extends _i35.PageRouteInfo<void> {
   const EmptyViewsRoute({List<_i35.PageRouteInfo>? children})
-    : super(EmptyViewsRoute.name, initialChildren: children);
+      : super(EmptyViewsRoute.name, initialChildren: children);
 
   static const String name = 'EmptyViewsRoute';
 
@@ -390,13 +430,13 @@ class ForceUpdateRoute extends _i35.PageRouteInfo<ForceUpdateRouteArgs> {
     required bool isMandatoryUpdate,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         ForceUpdateRoute.name,
-         args: ForceUpdateRouteArgs(
-           key: key,
-           isMandatoryUpdate: isMandatoryUpdate,
-         ),
-         initialChildren: children,
-       );
+          ForceUpdateRoute.name,
+          args: ForceUpdateRouteArgs(
+            key: key,
+            isMandatoryUpdate: isMandatoryUpdate,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'ForceUpdateRoute';
 
@@ -423,6 +463,16 @@ class ForceUpdateRouteArgs {
   String toString() {
     return 'ForceUpdateRouteArgs{key: $key, isMandatoryUpdate: $isMandatoryUpdate}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ForceUpdateRouteArgs) return false;
+    return key == other.key && isMandatoryUpdate == other.isMandatoryUpdate;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ isMandatoryUpdate.hashCode;
 }
 
 /// generated route for
@@ -434,10 +484,10 @@ class ForgotPasswordV2Route
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         ForgotPasswordV2Route.name,
-         args: ForgotPasswordV2RouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          ForgotPasswordV2Route.name,
+          args: ForgotPasswordV2RouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'ForgotPasswordV2Route';
 
@@ -464,13 +514,23 @@ class ForgotPasswordV2RouteArgs {
   String toString() {
     return 'ForgotPasswordV2RouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ForgotPasswordV2RouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i16.HomeScreen]
 class HomeRoute extends _i35.PageRouteInfo<void> {
   const HomeRoute({List<_i35.PageRouteInfo>? children})
-    : super(HomeRoute.name, initialChildren: children);
+      : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
@@ -486,7 +546,7 @@ class HomeRoute extends _i35.PageRouteInfo<void> {
 /// [_i17.InitialScreen]
 class InitialRoute extends _i35.PageRouteInfo<void> {
   const InitialRoute({List<_i35.PageRouteInfo>? children})
-    : super(InitialRoute.name, initialChildren: children);
+      : super(InitialRoute.name, initialChildren: children);
 
   static const String name = 'InitialRoute';
 
@@ -502,7 +562,7 @@ class InitialRoute extends _i35.PageRouteInfo<void> {
 /// [_i18.LoginScreen]
 class LoginRoute extends _i35.PageRouteInfo<void> {
   const LoginRoute({List<_i35.PageRouteInfo>? children})
-    : super(LoginRoute.name, initialChildren: children);
+      : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
@@ -523,10 +583,10 @@ class LoginWithEmailPasswordRoute
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         LoginWithEmailPasswordRoute.name,
-         args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          LoginWithEmailPasswordRoute.name,
+          args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'LoginWithEmailPasswordRoute';
 
@@ -553,13 +613,23 @@ class LoginWithEmailPasswordRouteArgs {
   String toString() {
     return 'LoginWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! LoginWithEmailPasswordRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i20.LoginWithPhoneNumberScreen]
 class LoginWithPhoneNumberRoute extends _i35.PageRouteInfo<void> {
   const LoginWithPhoneNumberRoute({List<_i35.PageRouteInfo>? children})
-    : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
+      : super(LoginWithPhoneNumberRoute.name, initialChildren: children);
 
   static const String name = 'LoginWithPhoneNumberRoute';
 
@@ -575,7 +645,7 @@ class LoginWithPhoneNumberRoute extends _i35.PageRouteInfo<void> {
 /// [_i21.MyOrdersScreen]
 class MyOrdersRoute extends _i35.PageRouteInfo<void> {
   const MyOrdersRoute({List<_i35.PageRouteInfo>? children})
-    : super(MyOrdersRoute.name, initialChildren: children);
+      : super(MyOrdersRoute.name, initialChildren: children);
 
   static const String name = 'MyOrdersRoute';
 
@@ -595,10 +665,10 @@ class NetworkImageRoute extends _i35.PageRouteInfo<NetworkImageRouteArgs> {
     required String link,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         NetworkImageRoute.name,
-         args: NetworkImageRouteArgs(key: key, link: link),
-         initialChildren: children,
-       );
+          NetworkImageRoute.name,
+          args: NetworkImageRouteArgs(key: key, link: link),
+          initialChildren: children,
+        );
 
   static const String name = 'NetworkImageRoute';
 
@@ -622,13 +692,23 @@ class NetworkImageRouteArgs {
   String toString() {
     return 'NetworkImageRouteArgs{key: $key, link: $link}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! NetworkImageRouteArgs) return false;
+    return key == other.key && link == other.link;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ link.hashCode;
 }
 
 /// generated route for
 /// [_i23.NoInternetScreen]
 class NoInternetRoute extends _i35.PageRouteInfo<void> {
   const NoInternetRoute({List<_i35.PageRouteInfo>? children})
-    : super(NoInternetRoute.name, initialChildren: children);
+      : super(NoInternetRoute.name, initialChildren: children);
 
   static const String name = 'NoInternetRoute';
 
@@ -644,7 +724,7 @@ class NoInternetRoute extends _i35.PageRouteInfo<void> {
 /// [_i24.NotificationsScreen]
 class NotificationsRoute extends _i35.PageRouteInfo<void> {
   const NotificationsRoute({List<_i35.PageRouteInfo>? children})
-    : super(NotificationsRoute.name, initialChildren: children);
+      : super(NotificationsRoute.name, initialChildren: children);
 
   static const String name = 'NotificationsRoute';
 
@@ -664,10 +744,10 @@ class PhoneNumberOTPRoute extends _i35.PageRouteInfo<PhoneNumberOTPRouteArgs> {
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         PhoneNumberOTPRoute.name,
-         args: PhoneNumberOTPRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          PhoneNumberOTPRoute.name,
+          args: PhoneNumberOTPRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'PhoneNumberOTPRoute';
 
@@ -694,6 +774,16 @@ class PhoneNumberOTPRouteArgs {
   String toString() {
     return 'PhoneNumberOTPRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PhoneNumberOTPRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
@@ -705,10 +795,10 @@ class PhoneNumberVerifiedRoute
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         PhoneNumberVerifiedRoute.name,
-         args: PhoneNumberVerifiedRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          PhoneNumberVerifiedRoute.name,
+          args: PhoneNumberVerifiedRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'PhoneNumberVerifiedRoute';
 
@@ -735,13 +825,23 @@ class PhoneNumberVerifiedRouteArgs {
   String toString() {
     return 'PhoneNumberVerifiedRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PhoneNumberVerifiedRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i27.SavedCardScreen]
 class SavedCardRoute extends _i35.PageRouteInfo<void> {
   const SavedCardRoute({List<_i35.PageRouteInfo>? children})
-    : super(SavedCardRoute.name, initialChildren: children);
+      : super(SavedCardRoute.name, initialChildren: children);
 
   static const String name = 'SavedCardRoute';
 
@@ -757,7 +857,7 @@ class SavedCardRoute extends _i35.PageRouteInfo<void> {
 /// [_i28.ServerErrorScreen]
 class ServerErrorRoute extends _i35.PageRouteInfo<void> {
   const ServerErrorRoute({List<_i35.PageRouteInfo>? children})
-    : super(ServerErrorRoute.name, initialChildren: children);
+      : super(ServerErrorRoute.name, initialChildren: children);
 
   static const String name = 'ServerErrorRoute';
 
@@ -773,7 +873,7 @@ class ServerErrorRoute extends _i35.PageRouteInfo<void> {
 /// [_i29.SettingsScreen]
 class SettingsRoute extends _i35.PageRouteInfo<void> {
   const SettingsRoute({List<_i35.PageRouteInfo>? children})
-    : super(SettingsRoute.name, initialChildren: children);
+      : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
@@ -789,7 +889,7 @@ class SettingsRoute extends _i35.PageRouteInfo<void> {
 /// [_i30.SignUpScreen]
 class SignUpRoute extends _i35.PageRouteInfo<void> {
   const SignUpRoute({List<_i35.PageRouteInfo>? children})
-    : super(SignUpRoute.name, initialChildren: children);
+      : super(SignUpRoute.name, initialChildren: children);
 
   static const String name = 'SignUpRoute';
 
@@ -810,10 +910,11 @@ class SignupWithEmailPasswordRoute
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         SignupWithEmailPasswordRoute.name,
-         args: SignupWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          SignupWithEmailPasswordRoute.name,
+          args:
+              SignupWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
@@ -840,13 +941,23 @@ class SignupWithEmailPasswordRouteArgs {
   String toString() {
     return 'SignupWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SignupWithEmailPasswordRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i32.UnderMaintenanceScreen]
 class UnderMaintenanceRoute extends _i35.PageRouteInfo<void> {
   const UnderMaintenanceRoute({List<_i35.PageRouteInfo>? children})
-    : super(UnderMaintenanceRoute.name, initialChildren: children);
+      : super(UnderMaintenanceRoute.name, initialChildren: children);
 
   static const String name = 'UnderMaintenanceRoute';
 
@@ -866,10 +977,10 @@ class VerifyEmailRoute extends _i35.PageRouteInfo<VerifyEmailRouteArgs> {
     required _i37.LoginBloc loginBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
-         VerifyEmailRoute.name,
-         args: VerifyEmailRouteArgs(key: key, loginBloc: loginBloc),
-         initialChildren: children,
-       );
+          VerifyEmailRoute.name,
+          args: VerifyEmailRouteArgs(key: key, loginBloc: loginBloc),
+          initialChildren: children,
+        );
 
   static const String name = 'VerifyEmailRoute';
 
@@ -893,13 +1004,23 @@ class VerifyEmailRouteArgs {
   String toString() {
     return 'VerifyEmailRouteArgs{key: $key, loginBloc: $loginBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! VerifyEmailRouteArgs) return false;
+    return key == other.key && loginBloc == other.loginBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
 /// [_i34.WishlistScreen]
 class WishlistRoute extends _i35.PageRouteInfo<void> {
   const WishlistRoute({List<_i35.PageRouteInfo>? children})
-    : super(WishlistRoute.name, initialChildren: children);
+      : super(WishlistRoute.name, initialChildren: children);
 
   static const String name = 'WishlistRoute';
 
