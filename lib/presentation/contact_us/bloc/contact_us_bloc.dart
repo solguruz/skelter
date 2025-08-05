@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
 import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/presentation/login_signup/enum_login_type.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_state.dart';

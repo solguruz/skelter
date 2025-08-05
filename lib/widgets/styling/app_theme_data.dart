@@ -37,7 +37,7 @@ class AppThemesData {
       ),
       fontFamily: FontFamily.inter,
       indicatorColor: AppColors.brand600,
-      tabBarTheme: const TabBarTheme(
+      tabBarTheme: const TabBarThemeData(
         labelColor: Colors.black,
         unselectedLabelColor: Colors.black54,
       ),
@@ -95,7 +95,7 @@ class AppThemesData {
       ),
       fontFamily: FontFamily.inter,
       indicatorColor: AppColors.brand600,
-      tabBarTheme: const TabBarTheme(
+      tabBarTheme: const TabBarThemeData(
         labelColor: Colors.white,
         unselectedLabelColor: Colors.white54,
       ),
