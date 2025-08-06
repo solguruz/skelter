@@ -20,6 +20,7 @@ import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {
   final bool isFromDeleteAccount;
+
   const LoginWithPhoneNumberScreen({
     super.key,
     this.isFromDeleteAccount = false,
@@ -63,6 +64,7 @@ class _LoginWithPhoneNumberScreenState
 
 class _LoginWithPhoneNumberBody extends StatelessWidget {
   final bool isFromDeleteAccount;
+
   const _LoginWithPhoneNumberBody({
     required this.isFromDeleteAccount,
   });

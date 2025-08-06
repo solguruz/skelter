@@ -9,7 +9,7 @@ import 'package:flutter_skeleton/services/remote_config_service.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:flutter_skeleton/utils/app_version_helper.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 @RoutePage()

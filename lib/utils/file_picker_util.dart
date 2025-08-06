@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_skeleton/i18n/app_localizations.dart';
 
 class FileValidationResult {
   final List<File> validFiles;
