@@ -1,9 +1,9 @@
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
+import 'package:flutter_skeleton/presentation/home/data/models/product_model.dart';
 
 final List<ProductModel> sampleProducts = [
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample001',
+    image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528',
     title: 'Wireless Headphones',
     description: 'High-quality wireless headphones with noise cancellation.',
     category: 'Electronics',
@@ -13,8 +13,9 @@ final List<ProductModel> sampleProducts = [
     price: 99.99,
     seller: 'TechStore',
   ),
-  ProductModel(
-    image: Assets.images.cartItem2.path,
+  const ProductModel(
+    id: 'sample002',
+    image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97',
     title: 'Smartphone',
     description: 'Latest model smartphone with advanced features.',
     category: 'Electronics',
@@ -24,8 +25,9 @@ final List<ProductModel> sampleProducts = [
     price: 699.99,
     seller: 'MobileWorld',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample003',
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
     title: 'Running Shoes',
     description: 'Comfortable and durable running shoes for all terrains.',
     category: 'Sportswear',
@@ -35,8 +37,9 @@ final List<ProductModel> sampleProducts = [
     price: 59.99,
     seller: 'Sporty',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample004',
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62',
     title: 'Backpack',
     description: 'Stylish and spacious backpack for daily use.',
     category: 'Accessories',
@@ -46,8 +49,9 @@ final List<ProductModel> sampleProducts = [
     price: 39.99,
     seller: 'BagStore',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample005',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9',
     title: 'Smartwatch',
     description: 'Feature-packed smartwatch with fitness tracking.',
     category: 'Electronics',
@@ -57,8 +61,9 @@ final List<ProductModel> sampleProducts = [
     price: 149.99,
     seller: 'GadgetHub',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample006',
+    image: 'https://images.unsplash.com/photo-1521747116042-5a810fda9664',
     title: 'Gaming Chair',
     description: 'Ergonomic gaming chair with adjustable features.',
     category: 'Furniture',
@@ -68,8 +73,9 @@ final List<ProductModel> sampleProducts = [
     price: 199.99,
     seller: 'FurniWorld',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample007',
+    image: 'https://images.unsplash.com/photo-1589927986089-35812378c8b1',
     title: 'Electric Kettle',
     description: 'Fast-boiling electric kettle with auto shut-off.',
     category: 'Home Appliances',
@@ -79,8 +85,9 @@ final List<ProductModel> sampleProducts = [
     price: 29.99,
     seller: 'HomeEssentials',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample008',
+    image: 'https://images.unsplash.com/photo-1589927986089-35812378c8b1',
     title: 'Yoga Mat',
     description: 'Non-slip yoga mat for comfortable workouts.',
     category: 'Fitness',
@@ -90,8 +97,9 @@ final List<ProductModel> sampleProducts = [
     price: 19.99,
     seller: 'FitGear',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample009',
+    image: 'https://images.unsplash.com/photo-1589927986089-35812378c8b1',
     title: 'Bluetooth Speaker',
     description: 'Portable Bluetooth speaker with excellent sound quality.',
     category: 'Electronics',
@@ -101,8 +109,9 @@ final List<ProductModel> sampleProducts = [
     price: 49.99,
     seller: 'SoundWave',
   ),
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'sample010',
+    image: 'https://images.unsplash.com/photo-1589927986089-35812378c8b1',
     title: 'Desk Lamp',
     description: 'LED desk lamp with adjustable brightness.',
     category: 'Home Decor',
@@ -116,8 +125,9 @@ final List<ProductModel> sampleProducts = [
 
 final List<ProductModel> testProducts = [
   // Short Title Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test001',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -129,8 +139,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Long Title Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test002',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title:
         'Island Pink Kush Oil - 100% Organic Hemp Extract for Health Benefits',
     description: 'High-quality organic oil for better health.',
@@ -143,8 +154,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Emoji in Title Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test003',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
     title: '🧪 Emoji test 🌟',
     description: 'Test with emojis!',
     category: 'Fun',
@@ -156,8 +168,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // No Rating Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test004',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -169,8 +182,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // 3-Star Rating Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test005',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -182,8 +196,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Price with No Decimals Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test006',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -195,8 +210,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Price with Decimals Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test007',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -208,8 +224,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Quantity = 1 Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test008',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -221,8 +238,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Quantity = 100 Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test009',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -234,8 +252,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Valid Delivery Date Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test010',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -247,8 +266,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // No Delivery Date Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test011',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -260,8 +280,9 @@ final List<ProductModel> testProducts = [
   ),
 
   // Product category with small letters Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  const ProductModel(
+    id: 'test012',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be',
     title: 'Island Pink Kush Oil',
     description: 'High-quality organic oil for better health.',
     category: 'Essentials',
@@ -272,9 +293,10 @@ final List<ProductModel> testProducts = [
     seller: 'Pure Hemp',
   ),
 
-// Product category with long name Test Case
-  ProductModel(
-    image: Assets.images.cartItem1.path,
+  // Product category with long name Test Case
+  const ProductModel(
+    id: 'test013',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
     title: 'Super Premium Deluxe Product',
     description: 'A premium product with extensive features and capabilities.',
     category: 'Professional Grade Electronics & Accessories',

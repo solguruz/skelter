@@ -34,7 +34,6 @@ class DeleteAccountState with EquatableMixin {
     String? otherReasonText,
     bool? isLoading,
     String? errorMessage,
-    bool? isSuccess,
   }) {
     return DeleteAccountState(
       selectedReason: selectedReason ?? this.selectedReason,
@@ -61,17 +60,6 @@ class DeleteAccountState with EquatableMixin {
       ];
 }
 
-class DeleteAccountLoadingState extends DeleteAccountState {
-  DeleteAccountLoadingState(
-    DeleteAccountState state, {
-    required bool isLoading,
-  }) : super.copy(
-          state.copyWith(
-            isLoading: isLoading,
-          ),
-        );
-}
-
 class DeleteAccountSuccessState extends DeleteAccountState {
   DeleteAccountSuccessState(DeleteAccountState state)
       : super.copy(
@@ -80,13 +68,30 @@ class DeleteAccountSuccessState extends DeleteAccountState {
 }
 
 class DeleteAccountFailureState extends DeleteAccountState {
-  DeleteAccountFailureState(
-    DeleteAccountState state, {
-    required String errorMessage,
-  }) : super.copy(
-          state.copyWith(
-            errorMessage: errorMessage,
-          ),
+  DeleteAccountFailureState(DeleteAccountState state)
+      : super.copy(
+          state.copyWith(),
+        );
+}
+
+class DeleteAccountReAuthGoogleRequiredState extends DeleteAccountState {
+  DeleteAccountReAuthGoogleRequiredState(DeleteAccountState state)
+      : super.copy(
+          state.copyWith(),
+        );
+}
+
+class DeleteAccountReAuthPhoneRequiredState extends DeleteAccountState {
+  DeleteAccountReAuthPhoneRequiredState(DeleteAccountState state)
+      : super.copy(
+          state.copyWith(),
+        );
+}
+
+class DeleteAccountReAuthEmailPasswordRequiredState extends DeleteAccountState {
+  DeleteAccountReAuthEmailPasswordRequiredState(DeleteAccountState state)
+      : super.copy(
+          state.copyWith(),
         );
 }
 
@@ -99,17 +104,6 @@ class DeleteAccountInputUpdatedState extends DeleteAccountState {
           state.copyWith(
             selectedReason: selectedReason,
             otherReasonText: otherReasonText,
-          ),
-        );
-}
-
-class DeleteAccountReAuthRequiredState extends DeleteAccountState {
-  DeleteAccountReAuthRequiredState(
-    DeleteAccountState state, {
-    required String errorMessage,
-  }) : super.copy(
-          state.copyWith(
-            errorMessage: errorMessage,
           ),
         );
 }

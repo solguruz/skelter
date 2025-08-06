@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum AppFlavor { dev, prod, stage }
 
 class AppConfig {
@@ -16,6 +18,17 @@ class AppConfig {
         return AppFlavor.stage;
       default:
         return AppFlavor.prod;
+    }
+  }
+
+  static String get baseUrl {
+    switch (appFlavor) {
+      case AppFlavor.dev:
+        return dotenv.env['DEV_API_BASE_URL'] ?? '';
+      case AppFlavor.stage:
+        return dotenv.env['STAGE_API_BASE_URL'] ?? '';
+      case AppFlavor.prod:
+        return dotenv.env['PROD_API_BASE_URL'] ?? '';
     }
   }
 }

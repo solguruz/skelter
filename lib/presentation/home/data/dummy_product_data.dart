@@ -1,7 +1,8 @@
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
+import 'package:flutter_skeleton/presentation/home/data/models/product_model.dart';
 
 final List<ProductModel> dummyProductData = [
-  ProductModel(
+  const ProductModel(
+    id: 'prod001',
     image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
     title: 'Premium Wireless Headphones',
     description:
@@ -13,7 +14,8 @@ final List<ProductModel> dummyProductData = [
     price: 89.99,
     seller: 'TechZone',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod002',
     image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12',
     title: 'Smart Fitness Watch',
     description: 'Track your health with real-time heart rate monitoring.',
@@ -24,7 +26,8 @@ final List<ProductModel> dummyProductData = [
     price: 129.99,
     seller: 'FitStore',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod003',
     image: 'https://images.unsplash.com/photo-1596162954151-cdcb4c0f70a8',
     title: 'Ergonomic Office Chair',
     description: 'Designed for all-day comfort and support.',
@@ -35,7 +38,8 @@ final List<ProductModel> dummyProductData = [
     price: 199.00,
     seller: 'ComfortLiving',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod004',
     image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f',
     title: 'Portable Bluetooth Speaker',
     description: 'Waterproof speaker with 20 hours of battery life.',
@@ -46,7 +50,8 @@ final List<ProductModel> dummyProductData = [
     price: 59.99,
     seller: 'SoundWave',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod005',
     image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86',
     title: 'Organic Cotton T-Shirt',
     description: 'Eco-friendly and comfortable for everyday wear.',
@@ -57,7 +62,8 @@ final List<ProductModel> dummyProductData = [
     price: 24.99,
     seller: 'EcoWear',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod006',
     image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
     title: 'Running Shoes',
     description: 'Lightweight and responsive for your daily runs.',
@@ -68,7 +74,8 @@ final List<ProductModel> dummyProductData = [
     price: 119.99,
     seller: 'SportGear',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod007',
     image: 'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5',
     title: 'Stainless Steel Water Bottle',
     description: 'Keeps drinks cold for 24 hours or hot for 12 hours.',
@@ -79,7 +86,8 @@ final List<ProductModel> dummyProductData = [
     price: 29.99,
     seller: 'EcoLiving',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod008',
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363',
     title: 'Smart Home Security Camera',
     description: '1080p HD video with night vision and motion detection.',
@@ -90,7 +98,8 @@ final List<ProductModel> dummyProductData = [
     price: 79.99,
     seller: 'SmartHome',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod009',
     image: 'https://images.unsplash.com/photo-1606293459209-958d5c67c84b',
     title: 'Yoga Mat',
     description:
@@ -102,7 +111,8 @@ final List<ProductModel> dummyProductData = [
     price: 39.99,
     seller: 'YogaLife',
   ),
-  ProductModel(
+  const ProductModel(
+    id: 'prod010',
     image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990',
     title: 'Ceramic Coffee Mug Set',
     description: 'Set of 4 handcrafted mugs with unique designs.',

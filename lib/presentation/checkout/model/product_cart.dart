@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
+import 'package:flutter_skeleton/presentation/home/data/models/product_model.dart';
 
 class CartModel {
   final ProductModel product;

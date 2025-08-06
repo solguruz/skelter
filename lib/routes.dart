@@ -68,6 +68,9 @@ class AppRouter extends RootStackRouter {
       //Delete Account
       DeleteAccountRoute.page,
       AccountDeleteSuccessRoute.page,
+
+      //Force Update
+      ForceUpdateRoute.page,
     ]
         .map(
           (page) => AutoRoute(

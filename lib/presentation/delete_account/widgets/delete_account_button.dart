@@ -5,6 +5,9 @@ import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
+import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_alert_dialog_box.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
@@ -24,6 +27,7 @@ class DeleteAccountButton extends StatelessWidget {
       size: AppButtonSize.extraLarge,
       backgroundColor: AppColors.bgErrorDefault,
       shouldSetFullWidth: true,
+      isLoading: isLoading,
       state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
       onPressed: isLoading
           ? null
@@ -38,9 +42,7 @@ class DeleteAccountButton extends StatelessWidget {
                 return;
               }
 
-              context
-                  .read<DeleteAccountBloc>()
-                  .add(const DeleteAccountSubmittedEvent());
+              await displayDeleteAccountAlertDialog(context);
             },
     );
   }
