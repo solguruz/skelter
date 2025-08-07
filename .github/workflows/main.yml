@@ -1,0 +1,193 @@
+name: Flutter CI/CD Pipeline
+
+on:
+  push:
+    branches: [git_hub_action_test,develop]
+  pull_request:
+    branches: [git_hub_action_test,develop]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    env:
+      ANDROID: ${{ secrets.ANDROID_HOME }}
+      ANDROID_SDK: ${{ secrets.ANDROID_HOME }}
+      ARCHIVE_DIR: untracked-files-archive
+
+    steps:
+      # 1. CHECKOUT ──────────────────────────────
+      # Checkout repository code
+      - name: 1.1 Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      # 2. FLUTTER SDK SETUP ─────────────────────
+      # Set up the Flutter toolchain
+      - name: 2.1 Set up Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+
+      # 3. ENVIRONMENT & DEPENDENCIES ────────────
+      # Create .env file for API endpoints
+      - name: 3.1 Create .env file
+        run: |
+          echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
+          echo "STAGE_API_BASE_URL=${{ secrets.STAGE_API_BASE_URL }}" >> .env
+          echo "PROD_API_BASE_URL=${{ secrets.PROD_API_BASE_URL }}"  >> .env
+
+      # 4. ANDROID + COMMON BUILD ────────────────
+      # Clean previous builds
+      - name: 4.1 Flutter clean
+        run: flutter clean
+
+      # Install dependencies and run code generation
+      - name: 4.2 Pub get & code generation
+        run: |
+          flutter pub get
+          dart run build_runner build --delete-conflicting-outputs
+
+      # Run all unit and widget tests (including goldens)
+      - name: 4.3 Run unit and widget tests
+        run: flutter test
+        env:
+          CI: true
+
+      # Install Flutterfire CLI for Firebase integration
+      - name: 4.4 Install Flutterfire CLI
+        run: |
+          dart pub global activate flutterfire_cli
+
+      # 5. ANDROID SIGNING AND BUILD ─────────────
+      # Decode Android keystore
+      - name: 5.1 Decode Android Keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/keystore.jks
+
+      # Create key.properties for signing
+      - name: 5.2 Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+          echo "storeFile=keystore.jks" >> android/key.properties
+
+      # Build Android APKs for dev and stage flavors
+      - name: 5.3 Build Android APKs (dev and stage)
+        run: |
+          flutter build apk --flavor dev   --dart-define=APP_FLAVOR=DEV --release
+          flutter build apk --flavor stage --dart-define=APP_FLAVOR=STAGE --release
+
+      # 6. iOS SETUP ─────────────────────────────
+      # Set up Xcode environment
+      - name: 6.1 Setup Xcode environment
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      # Install CocoaPods and dependencies
+      - name: 6.2 Fresh CocoaPods install
+        run: |
+          sudo gem install cocoapods
+          cd ios
+          rm -rf Pods Podfile.lock
+          pod cache clean --all
+          pod repo update
+          pod install
+          cd ..
+
+      # 7. iOS CERTIFICATES, PROFILES, AND BUILD ─────────────────────
+      # --- DEV FLAVOR ---
+      # Decode dev certificates and ExportOptions
+      - name: 7.1.1 Decode iOS Certificates & Profiles (dev)
+        run: |
+          echo "${{ secrets.P12_BASE64 }}" | base64 --decode > certificate.p12
+          echo "${{ secrets.P12_PASSWORD }}" > p12_password.txt
+          echo "${{ secrets.PROFILE_DEV_BASE64 }}" | base64 --decode > profile_dev.mobileprovision
+          echo "${{ secrets.EXPORTOPTIONS_DEV_BASE64 }}" | base64 --decode > ExportOptionsDev.plist
+
+      # Set up keychain and import certificate (run once for all flavors)
+      - name: 7.1.2 Set up iOS keychain & import certificate
+        run: |
+          security create-keychain -p "ci_password" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "ci_password" build.keychain
+          security import certificate.p12 -k build.keychain -P $(cat p12_password.txt) -A
+          security set-key-partition-list -S apple-tool:,apple: -k "ci_password" build.keychain
+
+      # Install provisioning profile for dev flavor
+      - name: 7.1.3 Install provisioning profile (dev)
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp profile_dev.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+
+      # Build IPA for dev flavor
+      - name: 7.1.4 Build IPA (dev)
+        run: flutter build ipa --flavor dev --export-options-plist=ExportOptionsDev.plist --release
+
+      # --- STAGE FLAVOR ---
+      # Install provisioning profile for stage flavor
+      - name: 7.2.1 Install provisioning profile (stage)
+        run: |
+          echo "${{ secrets.PROFILE_STAGE_BASE64 }}" | base64 --decode > profile_stage.mobileprovision
+          cp profile_stage.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          echo "${{ secrets.EXPORTOPTIONS_STAGE_BASE64 }}" | base64 --decode > ExportOptionsStage.plist
+
+      # Build IPA for stage flavor
+      - name: 7.2.2 Build IPA (stage)
+        run: flutter build ipa --flavor stage --export-options-plist=ExportOptionsStage.plist --release
+
+      # --- PROD FLAVOR ---
+      # Install provisioning profile for prod flavor
+      - name: 7.3.1 Install provisioning profile (prod)
+        run: |
+          echo "${{ secrets.PROFILE_PROD_BASE64 }}" | base64 --decode > profile_prod.mobileprovision
+          cp profile_prod.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          echo "${{ secrets.EXPORTOPTIONS_PROD_BASE64 }}" | base64 --decode > ExportOptionsProd.plist
+
+      # Build IPA for prod flavor
+      - name: 7.3.2 Build IPA (prod)
+        run: flutter build ipa --flavor prod --export-options-plist=ExportOptionsProd.plist --release
+
+      # 8. UPLOAD ARTIFACTS ──────────────────────
+      # Upload Android dev APK
+      - name: 8.1 Upload APK (dev)
+        if: success()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: apk-dev-release
+          path: build/app/outputs/flutter-apk/app-dev-release.apk
+
+      # Upload Android stage APK
+      - name: 8.2 Upload APK (stage)
+        if: success()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: apk-stage-release
+          path: build/app/outputs/flutter-apk/app-stage-release.apk
+
+      # Upload iOS dev IPA
+      - name: 8.3 Upload IPA (dev)
+        if: success()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ipa-dev-release
+          path: build/ios/ipa/*.ipa
+
+      # Upload iOS stage IPA
+      - name: 8.4 Upload IPA (stage)
+        if: success()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ipa-stage-release
+          path: build/ios/ipa/*.ipa
+
+      # Upload iOS prod IPA
+      - name: 8.5 Upload IPA (prod)
+        if: success()
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ipa-prod-release
+          path: build/ios/ipa/*.ipa
