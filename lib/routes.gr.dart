@@ -33,32 +33,19 @@ import 'package:flutter_skeleton/presentation/force_update/force_update_screen.d
 import 'package:flutter_skeleton/presentation/home/home_screen.dart' as _i16;
 import 'package:flutter_skeleton/presentation/initial/initial_screen.dart'
     as _i17;
-import 'package:flutter_skeleton/presentation/login_signup/login/bloc/login_bloc.dart'
+import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart'
     as _i37;
-import 'package:flutter_skeleton/presentation/login_signup/login/login_screen.dart'
-    as _i18;
-import 'package:flutter_skeleton/presentation/login_signup/login/screens/check_your_email/check_your_email_screen.dart'
+import 'package:flutter_skeleton/presentation/login/login_screen.dart' as _i18;
+import 'package:flutter_skeleton/presentation/login/screens/check_your_email/check_your_email_screen.dart'
     as _i7;
-import 'package:flutter_skeleton/presentation/login_signup/login/screens/forgot_password/forgot_password_screen.dart'
+import 'package:flutter_skeleton/presentation/login/screens/forgot_password/forgot_password_screen.dart'
     as _i15;
-import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_email/login_with_email_password_screen.dart'
+import 'package:flutter_skeleton/presentation/login/screens/login_with_email/login_with_email_password_screen.dart'
     as _i19;
-import 'package:flutter_skeleton/presentation/login_signup/login/screens/login_with_phone_number/login_with_phone_number_screen.dart'
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart'
     as _i20;
-import 'package:flutter_skeleton/presentation/login_signup/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart'
+import 'package:flutter_skeleton/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart'
     as _i25;
-import 'package:flutter_skeleton/presentation/login_signup/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
-    as _i26;
-import 'package:flutter_skeleton/presentation/login_signup/signup/screens/profile_picture/add_profile_picture_screen.dart'
-    as _i3;
-import 'package:flutter_skeleton/presentation/login_signup/signup/screens/signup_with_email/create_your_password_screen.dart'
-    as _i10;
-import 'package:flutter_skeleton/presentation/login_signup/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
-    as _i31;
-import 'package:flutter_skeleton/presentation/login_signup/signup/screens/verify_email_screen/verify_email_screen.dart'
-    as _i33;
-import 'package:flutter_skeleton/presentation/login_signup/signup/signup_screen.dart'
-    as _i30;
 import 'package:flutter_skeleton/presentation/my_orders/my_orders_screen.dart'
     as _i21;
 import 'package:flutter_skeleton/presentation/no_internet/no_internet_screen.dart'
@@ -75,8 +62,22 @@ import 'package:flutter_skeleton/presentation/shipping_address/add_address.dart'
     as _i2;
 import 'package:flutter_skeleton/presentation/shipping_address/edit_address.dart'
     as _i12;
+import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart'
+    as _i39;
+import 'package:flutter_skeleton/presentation/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
+    as _i26;
+import 'package:flutter_skeleton/presentation/signup/screens/profile_picture/add_profile_picture_screen.dart'
+    as _i3;
+import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/create_your_password_screen.dart'
+    as _i10;
+import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
+    as _i31;
+import 'package:flutter_skeleton/presentation/signup/signup_screen.dart'
+    as _i30;
 import 'package:flutter_skeleton/presentation/under_maintainace/under_maintenance_screen.dart'
     as _i32;
+import 'package:flutter_skeleton/presentation/verify_email/screens/verify_email_screen.dart'
+    as _i33;
 import 'package:flutter_skeleton/presentation/wishlist/wishlist_screen.dart'
     as _i34;
 import 'package:flutter_skeleton/widgets/attachment_view.dart' as _i22;
@@ -329,11 +330,11 @@ class CreateYourPasswordRoute
     extends _i35.PageRouteInfo<CreateYourPasswordRouteArgs> {
   CreateYourPasswordRoute({
     _i36.Key? key,
-    required _i37.LoginBloc loginBloc,
+    required _i39.SignupBloc signupBloc,
     List<_i35.PageRouteInfo>? children,
   }) : super(
           CreateYourPasswordRoute.name,
-          args: CreateYourPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          args: CreateYourPasswordRouteArgs(key: key, signupBloc: signupBloc),
           initialChildren: children,
         );
 
@@ -345,33 +346,33 @@ class CreateYourPasswordRoute
       final args = data.argsAs<CreateYourPasswordRouteArgs>();
       return _i10.CreateYourPasswordScreen(
         key: args.key,
-        loginBloc: args.loginBloc,
+        signupBloc: args.signupBloc,
       );
     },
   );
 }
 
 class CreateYourPasswordRouteArgs {
-  const CreateYourPasswordRouteArgs({this.key, required this.loginBloc});
+  const CreateYourPasswordRouteArgs({this.key, required this.signupBloc});
 
   final _i36.Key? key;
 
-  final _i37.LoginBloc loginBloc;
+  final _i39.SignupBloc signupBloc;
 
   @override
   String toString() {
-    return 'CreateYourPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
+    return 'CreateYourPasswordRouteArgs{key: $key, signupBloc: $signupBloc}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateYourPasswordRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
+    return key == other.key && signupBloc == other.signupBloc;
   }
 
   @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
+  int get hashCode => key.hashCode ^ signupBloc.hashCode;
 }
 
 /// generated route for
@@ -961,54 +962,18 @@ class SignUpRoute extends _i35.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i31.SignupWithEmailPasswordScreen]
-class SignupWithEmailPasswordRoute
-    extends _i35.PageRouteInfo<SignupWithEmailPasswordRouteArgs> {
-  SignupWithEmailPasswordRoute({
-    _i36.Key? key,
-    required _i37.LoginBloc loginBloc,
-    List<_i35.PageRouteInfo>? children,
-  }) : super(
-          SignupWithEmailPasswordRoute.name,
-          args:
-              SignupWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
-          initialChildren: children,
-        );
+class SignupWithEmailPasswordRoute extends _i35.PageRouteInfo<void> {
+  const SignupWithEmailPasswordRoute({List<_i35.PageRouteInfo>? children})
+      : super(SignupWithEmailPasswordRoute.name, initialChildren: children);
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
   static _i35.PageInfo page = _i35.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<SignupWithEmailPasswordRouteArgs>();
-      return _i31.SignupWithEmailPasswordScreen(
-        key: args.key,
-        loginBloc: args.loginBloc,
-      );
+      return const _i31.SignupWithEmailPasswordScreen();
     },
   );
-}
-
-class SignupWithEmailPasswordRouteArgs {
-  const SignupWithEmailPasswordRouteArgs({this.key, required this.loginBloc});
-
-  final _i36.Key? key;
-
-  final _i37.LoginBloc loginBloc;
-
-  @override
-  String toString() {
-    return 'SignupWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! SignupWithEmailPasswordRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
 }
 
 /// generated route for
@@ -1032,11 +997,13 @@ class UnderMaintenanceRoute extends _i35.PageRouteInfo<void> {
 class VerifyEmailRoute extends _i35.PageRouteInfo<VerifyEmailRouteArgs> {
   VerifyEmailRoute({
     _i36.Key? key,
-    required _i37.LoginBloc loginBloc,
+    required String email,
+    bool isSignUp = false,
     List<_i35.PageRouteInfo>? children,
   }) : super(
           VerifyEmailRoute.name,
-          args: VerifyEmailRouteArgs(key: key, loginBloc: loginBloc),
+          args:
+              VerifyEmailRouteArgs(key: key, email: email, isSignUp: isSignUp),
           initialChildren: children,
         );
 
@@ -1046,32 +1013,44 @@ class VerifyEmailRoute extends _i35.PageRouteInfo<VerifyEmailRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<VerifyEmailRouteArgs>();
-      return _i33.VerifyEmailScreen(key: args.key, loginBloc: args.loginBloc);
+      return _i33.VerifyEmailScreen(
+        key: args.key,
+        email: args.email,
+        isSignUp: args.isSignUp,
+      );
     },
   );
 }
 
 class VerifyEmailRouteArgs {
-  const VerifyEmailRouteArgs({this.key, required this.loginBloc});
+  const VerifyEmailRouteArgs({
+    this.key,
+    required this.email,
+    this.isSignUp = false,
+  });
 
   final _i36.Key? key;
 
-  final _i37.LoginBloc loginBloc;
+  final String email;
+
+  final bool isSignUp;
 
   @override
   String toString() {
-    return 'VerifyEmailRouteArgs{key: $key, loginBloc: $loginBloc}';
+    return 'VerifyEmailRouteArgs{key: $key, email: $email, isSignUp: $isSignUp}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! VerifyEmailRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
+    return key == other.key &&
+        email == other.email &&
+        isSignUp == other.isSignUp;
   }
 
   @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
+  int get hashCode => key.hashCode ^ email.hashCode ^ isSignUp.hashCode;
 }
 
 /// generated route for

@@ -26,7 +26,6 @@ dependencies:
   equatable: ^2.0.5
   flutter_tabler_icons: ^1.43.0
   flutter_localization: ^0.3.2
-  loader_overlay: ^4.0.0
   flutter_svg: ^2.1.0
   path_provider: ^2.1.5
   font_awesome_flutter: ^10.8.0

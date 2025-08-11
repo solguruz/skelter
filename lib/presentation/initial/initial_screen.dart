@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/presentation/force_update/feature/force_update_constants.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/models/login_details.dart';
+import 'package:flutter_skeleton/presentation/login/models/login_details.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/services/remote_config_service.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';

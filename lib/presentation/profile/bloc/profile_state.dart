@@ -55,3 +55,8 @@ class ProfileState with EquatableMixin {
 class SignOutState extends ProfileState {
   SignOutState() : super.initial();
 }
+
+class SignOutErrorState extends ProfileState {
+  final String errorMessage;
+  SignOutErrorState({this.errorMessage = ''}) : super.initial();
+}
