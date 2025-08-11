@@ -62,7 +62,7 @@ import 'app_localizations_en.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -85,11 +85,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
@@ -484,12 +484,6 @@ abstract class AppLocalizations {
   /// **'Please enter your Name'**
   String get login_signup_enterName;
 
-  /// No description provided for @login_signup_enterHandle.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your Handle'**
-  String get login_signup_enterHandle;
-
   /// No description provided for @otp_errors_number_not_valid.
   ///
   /// In en, this message translates to:
@@ -790,47 +784,17 @@ abstract class AppLocalizations {
   /// **'Your Phone number has been successfully verified. You can now complete your profile.'**
   String get login_signup_Phone_no_verified_info;
 
-  /// No description provided for @login_signup_choose_handle_name.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose your handle name'**
-  String get login_signup_choose_handle_name;
-
-  /// No description provided for @login_signup_handle_name.
-  ///
-  /// In en, this message translates to:
-  /// **'Handle name'**
-  String get login_signup_handle_name;
-
-  /// No description provided for @login_signup_handle_name_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'eg. john_doe123'**
-  String get login_signup_handle_name_hint;
-
   /// No description provided for @login_signup_checking.
   ///
   /// In en, this message translates to:
   /// **'Checking'**
   String get login_signup_checking;
 
-  /// No description provided for @login_signup_handle_name_length_error.
-  ///
-  /// In en, this message translates to:
-  /// **'Handle name should be at least 5 characters'**
-  String get login_signup_handle_name_length_error;
-
   /// No description provided for @login_signup_error_phone_number_not_registered.
   ///
   /// In en, this message translates to:
   /// **'Phone number is not registered, please sign up to continue'**
   String get login_signup_error_phone_number_not_registered;
-
-  /// No description provided for @login_signup_error_handle_already_taken.
-  ///
-  /// In en, this message translates to:
-  /// **'This handle is already taken. Please choose a different one'**
-  String get login_signup_error_handle_already_taken;
 
   /// No description provided for @login_signup_phone_number_already_registered.
   ///
@@ -1065,6 +1029,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This email is already registered. Please log in or use a different email.'**
   String get login_signup_email_already_in_use;
+
+  /// No description provided for @login_signup_error_retrieving_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Error retrieving your phone number'**
+  String get login_signup_error_retrieving_phone_number;
+
+  /// No description provided for @login_signup_error_retrieving_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Error retrieving your email'**
+  String get login_signup_error_retrieving_email;
+
+  /// No description provided for @login_signup_user_info_not_retrieved.
+  ///
+  /// In en, this message translates to:
+  /// **'User information could not be retrieved.'**
+  String get login_signup_user_info_not_retrieved;
 
   /// No description provided for @share_type_instagram.
   ///
@@ -2178,9 +2160,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

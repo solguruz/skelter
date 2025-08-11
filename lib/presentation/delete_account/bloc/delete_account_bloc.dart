@@ -4,7 +4,7 @@ import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
 import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
-import 'package:flutter_skeleton/presentation/login_signup/login/services/firebase_auth_services.dart';
+import 'package:flutter_skeleton/services/firebase_auth_services.dart';
 
 class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
   final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
