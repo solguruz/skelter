@@ -230,9 +230,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_signup_enterName => 'Please enter your Name';
 
   @override
-  String get login_signup_enterHandle => 'Please enter your Handle';
-
-  @override
   String get otp_errors_number_not_valid =>
       'The provided phone number is not valid.';
 
@@ -396,28 +393,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'Your Phone number has been successfully verified. You can now complete your profile.';
 
   @override
-  String get login_signup_choose_handle_name => 'Choose your handle name';
-
-  @override
-  String get login_signup_handle_name => 'Handle name';
-
-  @override
-  String get login_signup_handle_name_hint => 'eg. john_doe123';
-
-  @override
   String get login_signup_checking => 'Checking';
-
-  @override
-  String get login_signup_handle_name_length_error =>
-      'Handle name should be at least 5 characters';
 
   @override
   String get login_signup_error_phone_number_not_registered =>
       'Phone number is not registered, please sign up to continue';
-
-  @override
-  String get login_signup_error_handle_already_taken =>
-      'This handle is already taken. Please choose a different one';
 
   @override
   String get login_signup_phone_number_already_registered =>
@@ -546,6 +526,18 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get login_signup_email_already_in_use =>
       'This email is already registered. Please log in or use a different email.';
+
+  @override
+  String get login_signup_error_retrieving_phone_number =>
+      'Error retrieving your phone number';
+
+  @override
+  String get login_signup_error_retrieving_email =>
+      'Error retrieving your email';
+
+  @override
+  String get login_signup_user_info_not_retrieved =>
+      'User information could not be retrieved.';
 
   @override
   String get share_type_instagram => 'Instagram';

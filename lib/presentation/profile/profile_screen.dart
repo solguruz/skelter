@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_bloc.dart';
 import 'package:flutter_skeleton/presentation/profile/bloc/profile_state.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/account_section.dart';
@@ -10,6 +11,8 @@ import 'package:flutter_skeleton/presentation/profile/widgets/settings.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/sign_out.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/support_section.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/extensions/string.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -38,6 +41,8 @@ class ProfileScreenBody extends StatelessWidget {
       listener: (context, state) async {
         if (state is SignOutState) {
           await context.router.replaceAll([LoginWithPhoneNumberRoute()]);
+        } else if (state is SignOutErrorState) {
+          _showSignOutError(state, context);
         }
       },
       child: const Padding(
@@ -61,6 +66,16 @@ class ProfileScreenBody extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _showSignOutError(
+    SignOutErrorState state,
+    BuildContext context,
+  ) {
+    final String error = state.errorMessage;
+    context.showSnackBar(
+      error.isNullOrEmpty() ? kSomethingWentWrong : error,
     );
   }
 }

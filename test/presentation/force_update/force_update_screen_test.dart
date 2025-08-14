@@ -43,9 +43,7 @@ void main() {
           builder: () {
             final forceUpdateBloc = MockForceUpdateBloc();
 
-            const forceUpdateState = ForceUpdateState.test(
-              isMandatoryUpdate: false,
-            );
+            const forceUpdateState = ForceUpdateState.test();
 
             when(() => forceUpdateBloc.state).thenReturn(forceUpdateState);
 
