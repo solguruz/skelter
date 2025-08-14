@@ -42,6 +42,7 @@ class ForgotPasswordV2Screen extends StatelessWidget {
 
 class ForgotPasswordV2ScreenBody extends StatelessWidget {
   const ForgotPasswordV2ScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

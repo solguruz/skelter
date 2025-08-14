@@ -28,6 +28,7 @@ class VerifyEmailScreen extends StatefulWidget {
     required this.email,
     this.isSignUp = false,
   });
+
   final bool isSignUp;
 
   final String email;
@@ -64,6 +65,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
 class _VerifyEmailScreenBody extends StatefulWidget {
   const _VerifyEmailScreenBody({required this.email, required this.isSignUp});
+
   final bool isSignUp;
   final String email;
 

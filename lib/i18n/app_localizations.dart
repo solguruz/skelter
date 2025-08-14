@@ -1690,11 +1690,11 @@ abstract class AppLocalizations {
   /// **'Something went wrong while picking images. Please try again.'**
   String get pick_image_error;
 
-  /// No description provided for @pick_pdf_error.
+  /// No description provided for @pick_file_error.
   ///
   /// In en, this message translates to:
-  /// **'Something went wrong while picking PDFs. Please try again.'**
-  String get pick_pdf_error;
+  /// **'Something went wrong while picking files. Please try again.'**
+  String get pick_file_error;
 
   /// No description provided for @file_too_large_error.
   ///

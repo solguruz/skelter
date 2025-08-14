@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
+import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
 import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
@@ -72,8 +72,7 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
-            counterText:
-                '${description.length}/${ContactUsScreen.kMessageMaxLength}',
+            counterText: '${description.length}/$kMessageMaxLength',
             counterStyle:
                 AppTextStyles.p4Regular.withColor(AppColors.textNeutralDisable),
           ),

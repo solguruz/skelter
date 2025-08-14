@@ -6,9 +6,9 @@ import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
 import 'package:flutter_skeleton/utils/file_picker_util.dart';
 import 'package:flutter_skeleton/utils/image_picker_util.dart';
+import 'package:flutter_skeleton/validators/file_validator.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
@@ -117,14 +117,13 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
 
       final pickedImages = await pickerUtil.pickImages(
         source: event.source,
-        maxFileLimit: ContactUsScreen.kMaxFileLimit,
+        maxFileLimit: kMaxFileLimit,
       );
 
       if (pickedImages.isNotEmpty) {
         emit(
           state.copyWith(
-            selectedImages:
-                pickedImages.take(ContactUsScreen.kMaxFileLimit).toList(),
+            selectedImages: pickedImages.take(kMaxFileLimit).toList(),
           ),
         );
         emit(ResetPickedFilesErrorState(state));
@@ -151,9 +150,9 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     final result = await FilePickerUtil.pickAndValidateFiles(
       localizations: localizations,
       allowedExtensions: kAllowedFileExtensions,
-      maxSizeInBytes: ContactUsScreen.kMaxFileSizeInBytes,
-      maxFiles: ContactUsScreen.kMaxFileLimit,
-      isValidFile: isValidPdf,
+      maxSizeInBytes: kMaxFileSizeInBytes,
+      maxFiles: kMaxFileLimit,
+      isValidFile: isValidByMimeAndExtension,
       allowMultiple: true,
     );
 
@@ -166,7 +165,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     emit(ResetPickedFilesErrorState(state));
     emit(
       state.copyWith(
-        selectedPdfs: updated.take(ContactUsScreen.kMaxFileLimit).toList(),
+        selectedPdfs: updated.take(kMaxFileLimit).toList(),
       ),
     );
   }
@@ -175,15 +174,5 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     final updatedPdf = List<File>.from(state.selectedPdfs ?? []);
     updatedPdf.removeAt(event.index);
     emit(state.copyWith(selectedPdfs: updatedPdf));
-  }
-}
-
-Future<bool> isValidPdf(File file) async {
-  try {
-    final bytes = await file.openRead(0, 5).first;
-    final signature = String.fromCharCodes(bytes);
-    return signature == ContactUsScreen.kPdfFileSignature;
-  } catch (e) {
-    return false;
   }
 }

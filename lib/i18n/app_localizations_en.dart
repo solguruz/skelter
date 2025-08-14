@@ -886,8 +886,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'Something went wrong while picking images. Please try again.';
 
   @override
-  String get pick_pdf_error =>
-      'Something went wrong while picking PDFs. Please try again.';
+  String get pick_file_error =>
+      'Something went wrong while picking files. Please try again.';
 
   @override
   String get file_too_large_error =>
