@@ -12,8 +12,8 @@ import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
 import 'package:flutter_skeleton/presentation/signup/bloc/signup_state.dart';
 import 'package:flutter_skeleton/presentation/signup/widgets/login_button.dart';
 import 'package:flutter_skeleton/presentation/signup/widgets/signup_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class SignUpScreen extends StatefulWidget {
@@ -80,9 +80,9 @@ class _SignupV2ScreenBody extends StatelessWidget {
     AuthenticationExceptionState state,
     BuildContext context,
   ) {
-    final String? error = state.authenticationErrorMessage;
+    final String error = state.authenticationErrorMessage;
     context.showSnackBar(
-      error.isNullOrEmpty() ? kSomethingWentWrong : error!,
+      error.isNullOrEmpty() ? kSomethingWentWrong : error,
     );
   }
 }

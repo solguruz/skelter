@@ -12,8 +12,8 @@ import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_button.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_signup_button_divider.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/sign_up_button.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class LoginScreen extends StatefulWidget {

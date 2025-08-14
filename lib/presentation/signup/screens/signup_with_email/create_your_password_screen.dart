@@ -13,8 +13,8 @@ import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/w
 import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_next_button.dart';
 import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_requirement_stats.dart';
 import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 @RoutePage()
 class CreateYourPasswordScreen extends StatelessWidget {

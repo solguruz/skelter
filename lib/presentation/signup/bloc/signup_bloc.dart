@@ -14,7 +14,7 @@ import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_sta
 import 'package:flutter_skeleton/services/firebase_auth_services.dart';
 import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
 import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
   static const kMinimumPasswordLength = 8;

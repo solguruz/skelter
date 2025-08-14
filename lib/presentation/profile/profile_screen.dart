@@ -11,8 +11,8 @@ import 'package:flutter_skeleton/presentation/profile/widgets/settings.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/sign_out.dart';
 import 'package:flutter_skeleton/presentation/profile/widgets/support_section.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
