@@ -57,6 +57,7 @@ dependencies:
   dio: ^5.8.0+1
   flutter_dotenv: ^5.2.1
   mime: ^2.0.0
+  device_info_plus: ^11.5.0
 
 dev_dependencies:
   flutter_test:

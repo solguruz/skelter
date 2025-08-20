@@ -152,7 +152,7 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       allowedExtensions: kAllowedFileExtensions,
       maxSizeInBytes: kMaxFileSizeInBytes,
       maxFiles: kMaxFileLimit,
-      isValidFile: isValidByMimeAndExtension,
+      isValidFile: FileValidator.isValidByMimeAndExtension,
       allowMultiple: true,
     );
 

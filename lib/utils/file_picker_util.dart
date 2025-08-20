@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/validators/validated_file_result_model.dart';
+import 'package:flutter_skeleton/validators/validated_file_result.dart';
 
 class FilePickerUtil {
   /// Picks and validates files based on extension, size, and custom logic.
-  static Future<ValidatedFileResultModel> pickAndValidateFiles({
+  static Future<ValidatedFileResult> pickAndValidateFiles({
     required AppLocalizations localizations,
     required List<String> allowedExtensions,
     required int maxSizeInBytes,
@@ -22,7 +22,7 @@ class FilePickerUtil {
       );
 
       if (result == null || result.paths.isEmpty) {
-        return const ValidatedFileResultModel(validFiles: []);
+        return const ValidatedFileResult(validFiles: []);
       }
 
       final files = <File>[];
@@ -34,14 +34,14 @@ class FilePickerUtil {
         final fileSize = await file.length();
 
         if (fileSize == 0) {
-          return ValidatedFileResultModel(
+          return ValidatedFileResult(
             validFiles: [],
             error: localizations.file_empty_error,
           );
         }
 
         if (fileSize > maxSizeInBytes) {
-          return ValidatedFileResultModel(
+          return ValidatedFileResult(
             validFiles: [],
             error: localizations.file_too_large_error,
           );
@@ -50,7 +50,7 @@ class FilePickerUtil {
         final isValid = await isValidFile(file);
 
         if (!isValid) {
-          return ValidatedFileResultModel(
+          return ValidatedFileResult(
             validFiles: [],
             error: localizations.unsupported_file_format_error,
           );
@@ -59,11 +59,11 @@ class FilePickerUtil {
         files.add(file);
       }
 
-      return ValidatedFileResultModel(
+      return ValidatedFileResult(
         validFiles: files.take(maxFiles).toList(),
       );
     } catch (_) {
-      return ValidatedFileResultModel(
+      return ValidatedFileResult(
         validFiles: [],
         error: localizations.pick_file_error,
       );
