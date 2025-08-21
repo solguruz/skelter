@@ -7,7 +7,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
 import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
@@ -23,7 +23,7 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: LoginScreen.kHorizontalPadding,
+        horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

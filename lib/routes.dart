@@ -81,9 +81,6 @@ class AppRouter extends RootStackRouter {
         .toList();
 
     final List<AutoRoute> noTransitionRoutes = [
-      LoginRoute.page,
-      SignUpRoute.page,
-
       // Home page
       HomeRoute.page,
     ]

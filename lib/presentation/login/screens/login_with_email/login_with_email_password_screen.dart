@@ -7,10 +7,10 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_state.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
 import 'package:flutter_skeleton/presentation/login/screens/login_with_email/widgets/email_password_text_fields.dart';
 import 'package:flutter_skeleton/presentation/login/screens/login_with_email/widgets/forgot_password_button.dart';
 import 'package:flutter_skeleton/presentation/login/screens/login_with_email/widgets/login_with_email_pass_button.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
@@ -37,7 +37,7 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: LoginScreen.kHorizontalPadding,
+                horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
               ),
               child: BlocListener<LoginBloc, LoginState>(
                 listener: (context, state) async {

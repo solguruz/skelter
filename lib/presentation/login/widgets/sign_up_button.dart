@@ -6,7 +6,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
@@ -19,7 +19,7 @@ class SignUpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: LoginScreen.kHorizontalPadding,
+        horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
       ),
       child: RichText(
         textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class SignUpButton extends StatelessWidget {
                   context
                       .read<LoginBloc>()
                       .add(EnableSignupModeEvent(isSignup: false));
-                  await context.router.replace(const SignUpRoute());
+                  await context.router.replace(LoginWithPhoneNumberRoute());
                 },
             ),
           ],

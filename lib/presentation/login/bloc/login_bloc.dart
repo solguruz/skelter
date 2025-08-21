@@ -86,7 +86,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   ) {
     emit(
       state.copyWith(
-        selectedLoginSignupType: event.selectedType,
+        selectedLoginType: event.selectedType,
       ),
     );
   }
@@ -407,6 +407,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       state.copyWith(emailPasswordLoginState: emailPasswordLoginState),
     );
     emit(EmailLoginLoadingState(state, isLoading: false));
+    emit(ClearLoginWithEmailControllerState(state));
   }
 
   void _onResetPhoneNumberStateEvent(

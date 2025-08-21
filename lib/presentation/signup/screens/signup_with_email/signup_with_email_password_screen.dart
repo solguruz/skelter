@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
 import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
@@ -47,7 +47,7 @@ class _SignupWithEmailPasswordScreenState
               body: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: LoginScreen.kHorizontalPadding,
+                    horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
                   ),
                   child: BlocListener<SignupBloc, SignupState>(
                     listener: _onListener,

@@ -28,7 +28,7 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
         context.read<DeleteAccountBloc>().state.otherReasonText;
 
     _otherReasonController.addListener(() {
-      _debouncer.value = _otherReasonController.text;
+      _debouncer.value = _otherReasonController.text.trim();
     });
 
     _debouncer.values.listen((text) {

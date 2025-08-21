@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 
 class AgreementLinks extends StatelessWidget {
@@ -16,8 +16,8 @@ class AgreementLinks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: LoginScreen.kHorizontalPadding,
-        right: LoginScreen.kHorizontalPadding,
+        left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+        right: LoginWithPhoneNumberScreen.kHorizontalPadding,
         top: 8,
         bottom: max(8, MediaQuery.of(context).padding.bottom),
       ),

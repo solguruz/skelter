@@ -40,9 +40,10 @@ class DeleteAccountScreen extends StatelessWidget {
       // TODO: Navigate to email/password screen after dynamic login implement.
     } else if (state is DeleteAccountReAuthPhoneRequiredState) {
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
-      context.router.replaceAll([
+      context.router.pushAndPopUntil(
         LoginWithPhoneNumberRoute(isFromDeleteAccount: true),
-      ]);
+        predicate: (_) => false,
+      );
     } else if (state is DeleteAccountReAuthGoogleRequiredState) {
       // TODO: Trigger Google re-authentication after dynamic setup google auth.
       context.showSnackBar(kReAuthRequiredForPerformThisAction);

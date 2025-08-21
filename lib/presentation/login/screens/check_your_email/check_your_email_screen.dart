@@ -8,8 +8,8 @@ import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
 import 'package:flutter_skeleton/presentation/login/screens/check_your_email/widgets/continue_login_button.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -49,8 +49,8 @@ class CheckYourEmailScreenBody extends StatelessWidget {
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
-            left: LoginScreen.kHorizontalPadding,
-            right: LoginScreen.kHorizontalPadding,
+            left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+            right: LoginWithPhoneNumberScreen.kHorizontalPadding,
             bottom: max(20, MediaQuery.of(context).padding.bottom),
           ),
           child: Column(

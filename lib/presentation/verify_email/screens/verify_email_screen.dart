@@ -10,7 +10,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/app_localizations.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
 import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_bloc.dart';
@@ -111,8 +111,8 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(
-              left: LoginScreen.kHorizontalPadding,
-              right: LoginScreen.kHorizontalPadding,
+              left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+              right: LoginWithPhoneNumberScreen.kHorizontalPadding,
               bottom: max(20, MediaQuery.of(context).padding.bottom),
             ),
             child: Column(

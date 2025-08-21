@@ -7,7 +7,7 @@ import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
 import 'package:flutter_skeleton/gen/assets.gen.dart';
 import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/presentation/signup/screens/phone_num_verified_page/widgets/next_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -36,8 +36,8 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.only(
-          left: LoginScreen.kHorizontalPadding,
-          right: LoginScreen.kHorizontalPadding,
+          left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+          right: LoginWithPhoneNumberScreen.kHorizontalPadding,
           bottom: max(20, MediaQuery.of(context).padding.bottom),
         ),
         child: Column(
