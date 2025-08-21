@@ -54,7 +54,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
 
     on<EmailSignUpLoadingEvent>(_onEmailSignUpLoadingEvent);
     on<CheckEmailAvailabilityEvent>(_onVerifyEmailAccountEvent);
-    on<ResetEmailStateEvent>(_onResetEmailStateEvent);
+    on<ResetPasswordStateEvent>(_onResetPasswordStateEvent);
     on<ChangeUserDetailsInputStatusEvent>(
       _onChangeUserDetailsInputStatusEvent,
     );
@@ -74,12 +74,17 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     );
   }
 
-  void _onResetEmailStateEvent(ResetEmailStateEvent event, Emitter emit) {
+  void _onResetPasswordStateEvent(ResetPasswordStateEvent event, Emitter emit) {
     emit(
-      SignupState.initial().copyWith(
-        email: '',
+      state.copyWith(
         password: '',
+        confirmPassword: '',
         isPasswordVisible: false,
+        isConfirmPasswordVisible: false,
+        passwordStrengthLevel: 0,
+        isPasswordLongEnough: false,
+        hasLetterAndNumberInPassword: false,
+        hasSpecialCharacterInPassword: false,
       ),
     );
   }

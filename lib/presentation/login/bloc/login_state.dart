@@ -58,7 +58,7 @@ class LoginState with EquatableMixin {
     String? verificationId,
     UserDetailsInputStatus? userDetailsInputStatus,
     String? phoneOTPVerificationId,
-    LoginType? selectedLoginSignupType,
+    LoginType? selectedLoginType,
   }) {
     return LoginState(
       isSignup: isSignup ?? this.isSignup,
@@ -71,7 +71,7 @@ class LoginState with EquatableMixin {
           userDetailsInputStatus ?? this.userDetailsInputStatus,
       phoneOTPVerificationId:
           phoneOTPVerificationId ?? this.phoneOTPVerificationId,
-      selectedLoginType: selectedLoginSignupType ?? this.selectedLoginType,
+      selectedLoginType: selectedLoginType ?? this.selectedLoginType,
     );
   }
 
@@ -160,4 +160,8 @@ class RegistrationCompletedState extends LoginState {
 
 class NavigateToCreatePasswordState extends LoginState {
   NavigateToCreatePasswordState(super.state) : super.copy();
+}
+
+class ClearLoginWithEmailControllerState extends LoginState {
+  ClearLoginWithEmailControllerState(super.state) : super.copy();
 }

@@ -2080,6 +2080,12 @@ abstract class AppLocalizations {
   /// **'Creating new account?'**
   String get creating_new_account;
 
+  /// No description provided for @delete_account_alert_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to Delete Account?'**
+  String get delete_account_alert_title;
+
   /// No description provided for @delete_account_confirmation_message.
   ///
   /// In en, this message translates to:
@@ -2133,6 +2139,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Firebase error'**
   String get firebase_error;
+
+  /// No description provided for @please_select_at_least_one_reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select at least one reason'**
+  String get please_select_at_least_one_reason;
+
+  /// No description provided for @please_specify_your_reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Please specify your reason'**
+  String get please_specify_your_reason;
 }
 
 class _AppLocalizationsDelegate

@@ -191,8 +191,8 @@ class CheckEmailAvailabilityEvent extends SignupEvent {
   List<Object?> get props => [email];
 }
 
-class ResetEmailStateEvent extends SignupEvent {
-  ResetEmailStateEvent();
+class ResetPasswordStateEvent extends SignupEvent {
+  ResetPasswordStateEvent();
 
   @override
   List<Object?> get props => [];

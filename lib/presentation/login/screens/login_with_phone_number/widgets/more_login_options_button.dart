@@ -7,7 +7,7 @@ import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
 import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
+import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
 import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
@@ -28,7 +28,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
     );
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: LoginScreen.kHorizontalPadding,
+        horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

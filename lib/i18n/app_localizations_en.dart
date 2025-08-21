@@ -1112,6 +1112,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get creating_new_account => 'Creating new account?';
 
   @override
+  String get delete_account_alert_title =>
+      'Are you sure you want to Delete Account?';
+
+  @override
   String get delete_account_confirmation_message =>
       'This action is irreversible. All your data will be permanently deleted. Are you sure you want to proceed?';
 
@@ -1140,4 +1144,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get firebase_error => 'Firebase error';
+
+  @override
+  String get please_select_at_least_one_reason =>
+      'Please select at least one reason';
+
+  @override
+  String get please_specify_your_reason => 'Please specify your reason';
 }

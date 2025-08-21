@@ -366,6 +366,7 @@
   "no_user_found": "No user found.",
   "reauth_required": "Please re-authenticate to delete your account.",
   "creating_new_account": "Creating new account?",
+  "delete_account_alert_title": "Are you sure you want to Delete Account?",
   "delete_account_confirmation_message": "This action is irreversible. All your data will be permanently deleted. Are you sure you want to proceed?",
   "its_time_to_update": "It’s time to Update!",
   "update_required_description": "The version you are using is old, to continue using you need to update the latest version in order to experience new features.",
@@ -374,5 +375,7 @@
   "platform_not_supported": "Platform not supported",
   "could_not_launch_store_link": "Could not launch store link",
   "microphone_permission_permanently_denied": "Microphone permission is permanently denied. Please go to settings and enable it.",
-  "firebase_error": "Firebase error"
+  "firebase_error": "Firebase error",
+  "please_select_at_least_one_reason": "Please select at least one reason",
+  "please_specify_your_reason": "Please specify your reason"
 }
