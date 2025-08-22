@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_skeleton/presentation/home/data/datasources/product_remote_data_source.dart';
-import 'package:flutter_skeleton/presentation/home/data/repositories/product_repository_impl.dart';
-import 'package:flutter_skeleton/presentation/home/domain/repositories/product_repository.dart';
-import 'package:flutter_skeleton/presentation/home/domain/usecases/get_products.dart';
-import 'package:flutter_skeleton/utils/app_flavor_env.dart';
 import 'package:get_it/get_it.dart';
+import 'package:skelter/presentation/home/data/datasources/product_remote_data_source.dart';
+import 'package:skelter/presentation/home/data/repositories/product_repository_impl.dart';
+import 'package:skelter/presentation/home/domain/repositories/product_repository.dart';
+import 'package:skelter/presentation/home/domain/usecases/get_products.dart';
+import 'package:skelter/utils/app_flavor_env.dart';
 
 final sl = GetIt.instance;
 

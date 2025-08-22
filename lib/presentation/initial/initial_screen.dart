@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/force_update/feature/force_update_constants.dart';
-import 'package:flutter_skeleton/presentation/login/models/login_details.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/services/remote_config_service.dart';
-import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/app_version_helper.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:skelter/presentation/force_update/feature/force_update_constants.dart';
+import 'package:skelter/presentation/login/models/login_details.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/services/remote_config_service.dart';
+import 'package:skelter/shared_pref/pref_keys.dart';
+import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/app_version_helper.dart';
+import 'package:skelter/utils/extensions/string.dart';
 
 @RoutePage()
 class InitialScreen extends StatefulWidget {

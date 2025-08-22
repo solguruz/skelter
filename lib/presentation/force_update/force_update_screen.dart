@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/force_update/bloc/force_update_bloc.dart';
-import 'package:flutter_skeleton/presentation/force_update/bloc/force_update_state.dart';
-import 'package:flutter_skeleton/presentation/force_update/widget/skip_update_button.dart';
-import 'package:flutter_skeleton/presentation/force_update/widget/update_now_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
+import 'package:skelter/presentation/force_update/bloc/force_update_state.dart';
+import 'package:skelter/presentation/force_update/widget/skip_update_button.dart';
+import 'package:skelter/presentation/force_update/widget/update_now_button.dart';
 
 @RoutePage()
 class ForceUpdateScreen extends StatelessWidget {

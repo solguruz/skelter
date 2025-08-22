@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/presentation/chat/enum/message_type_enum.dart';
+import 'package:skelter/presentation/chat/enum/message_type_enum.dart';
 
 class ChatMessage {
   final int id;

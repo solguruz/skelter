@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/profile/widgets/contact_us.dart';
-import 'package:flutter_skeleton/presentation/profile/widgets/divider.dart';
-import 'package:flutter_skeleton/presentation/profile/widgets/feedback_and_rating.dart';
-import 'package:flutter_skeleton/presentation/profile/widgets/help_and_support.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/profile/widgets/contact_us.dart';
+import 'package:skelter/presentation/profile/widgets/divider.dart';
+import 'package:skelter/presentation/profile/widgets/feedback_and_rating.dart';
+import 'package:skelter/presentation/profile/widgets/help_and_support.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SupportSection extends StatelessWidget {
   const SupportSection({super.key});

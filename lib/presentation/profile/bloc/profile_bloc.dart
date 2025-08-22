@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/profile/bloc/profile_event.dart';
-import 'package:flutter_skeleton/presentation/profile/bloc/profile_state.dart';
-import 'package:flutter_skeleton/services/firebase_auth_services.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:skelter/presentation/profile/bloc/profile_event.dart';
+import 'package:skelter/presentation/profile/bloc/profile_state.dart';
+import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/shared_pref/prefs.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc()

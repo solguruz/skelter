@@ -1,5 +1,9 @@
-name: flutter_skeleton
-description: "A new Flutter project."
+name: skelter
+description: >
+  A production-grade Flutter boilerplate by SolGuruz, designed to jumpstart
+  app development with prebuilt utility functions, reusable UI components,
+  state management, test-ready setup, and a clean scalable architecture.
+
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -71,10 +75,10 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/sg_skeleton_logo.png
+  image: assets/images/sg_skelter_logo.png
 
   android_12:
-    image: assets/images/sg_skeleton_logo.png
+    image: assets/images/sg_skelter_logo.png
     icon_background_color: "#ffffff"
     android_gravity: center
 

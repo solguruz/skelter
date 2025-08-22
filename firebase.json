@@ -10,17 +10,17 @@
         "buildConfigurations": {
           "src/dev": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:android:7037baae2d40b49b5cbf3a",
+            "appId": "1:691451580239:android:d2141fb734b39cc05cbf3a",
             "fileOutput": "android/app/src/dev/google-services.json"
           },
           "src/prod": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:android:dde89e47b02b261f5cbf3a",
+            "appId": "1:691451580239:android:613f14bca62e72615cbf3a",
             "fileOutput": "android/app/src/prod/google-services.json"
           },
           "src/stage": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:android:3a220f3ff1ecf4725cbf3a",
+            "appId": "1:691451580239:android:ac217e0f1b000bb05cbf3a",
             "fileOutput": "android/app/src/stage/google-services.json"
           }
         }
@@ -35,55 +35,55 @@
         "buildConfigurations": {
           "Debug-dev": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:2baff42a66770d075cbf3a",
+            "appId": "1:691451580239:ios:600d117e7af4d5c95cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/dev/GoogleService-Info.plist"
           },
           "Profile-dev": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:2baff42a66770d075cbf3a",
+            "appId": "1:691451580239:ios:600d117e7af4d5c95cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/dev/GoogleService-Info.plist"
           },
           "Release-dev": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:2baff42a66770d075cbf3a",
+            "appId": "1:691451580239:ios:600d117e7af4d5c95cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/dev/GoogleService-Info.plist"
           },
           "Debug-prod": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:452d8eab287e44ee5cbf3a",
+            "appId": "1:691451580239:ios:0d54b281ad1a25a65cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/prod/GoogleService-Info.plist"
           },
           "Profile-prod": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:452d8eab287e44ee5cbf3a",
+            "appId": "1:691451580239:ios:0d54b281ad1a25a65cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/prod/GoogleService-Info.plist"
           },
           "Release-prod": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:452d8eab287e44ee5cbf3a",
+            "appId": "1:691451580239:ios:0d54b281ad1a25a65cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/prod/GoogleService-Info.plist"
           },
           "Debug-stage": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:1f0a9d09600b31cc5cbf3a",
+            "appId": "1:691451580239:ios:b4d0e0b961f1c1985cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/stage/GoogleService-Info.plist"
           },
           "Profile-stage": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:1f0a9d09600b31cc5cbf3a",
+            "appId": "1:691451580239:ios:b4d0e0b961f1c1985cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/stage/GoogleService-Info.plist"
           },
           "Release-stage": {
             "projectId": "sg-skeleton",
-            "appId": "1:691451580239:ios:1f0a9d09600b31cc5cbf3a",
+            "appId": "1:691451580239:ios:b4d0e0b961f1c1985cbf3a",
             "uploadDebugSymbols": true,
             "fileOutput": "ios/config/stage/GoogleService-Info.plist"
           }
@@ -100,22 +100,22 @@
         "lib/firebase_options_dev.dart": {
           "projectId": "sg-skeleton",
           "configurations": {
-            "android": "1:691451580239:android:7037baae2d40b49b5cbf3a",
-            "ios": "1:691451580239:ios:2baff42a66770d075cbf3a"
+            "android": "1:691451580239:android:d2141fb734b39cc05cbf3a",
+            "ios": "1:691451580239:ios:600d117e7af4d5c95cbf3a"
           }
         },
         "lib/firebase_options_prod.dart": {
           "projectId": "sg-skeleton",
           "configurations": {
-            "android": "1:691451580239:android:dde89e47b02b261f5cbf3a",
-            "ios": "1:691451580239:ios:452d8eab287e44ee5cbf3a"
+            "android": "1:691451580239:android:613f14bca62e72615cbf3a",
+            "ios": "1:691451580239:ios:0d54b281ad1a25a65cbf3a"
           }
         },
         "lib/firebase_options_stage.dart": {
           "projectId": "sg-skeleton",
           "configurations": {
-            "android": "1:691451580239:android:3a220f3ff1ecf4725cbf3a",
-            "ios": "1:691451580239:ios:1f0a9d09600b31cc5cbf3a"
+            "android": "1:691451580239:android:ac217e0f1b000bb05cbf3a",
+            "ios": "1:691451580239:ios:b4d0e0b961f1c1985cbf3a"
           }
         }
       }

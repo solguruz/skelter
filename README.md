@@ -1,6 +1,6 @@
-# Flutter Skeleton Project
+# Skelter Project
 
-A comprehensive Flutter skeleton project incorporating best practices, modern architecture, and boiler plate code for rapid application development.
+A comprehensive Flutter skelter project incorporating best practices, modern architecture, and boiler plate code for rapid application development.
 
 ## Technology Stack
 
@@ -192,4 +192,4 @@ We use GitLab for version control with the following branch structure:
 4. Ensure your code passes all tests
 5. Submit a Pull Request with a clear description of changes
 
-We appreciate your contributions to make this skeleton project even better!
+We appreciate your contributions to make this skelter project even better!

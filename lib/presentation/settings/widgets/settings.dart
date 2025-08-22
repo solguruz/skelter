@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/account_and_privacy.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/change_password.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/choose_app_theme.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/divider.dart';
-import 'package:flutter_skeleton/presentation/settings/widgets/notification_settings.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/settings/widgets/account_and_privacy.dart';
+import 'package:skelter/presentation/settings/widgets/change_password.dart';
+import 'package:skelter/presentation/settings/widgets/choose_app_theme.dart';
+import 'package:skelter/presentation/settings/widgets/divider.dart';
+import 'package:skelter/presentation/settings/widgets/notification_settings.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

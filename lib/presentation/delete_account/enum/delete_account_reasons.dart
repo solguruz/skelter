@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
+import 'package:skelter/i18n/app_localizations.dart';
 
 enum DeleteAccountReasons {
   doNotNeedItAnyMore,

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_skeleton/utils/app_environment.dart';
 import 'package:intl/intl.dart';
+import 'package:skelter/utils/app_environment.dart';
 
 extension TimeAgo on DateTime {
   String get timeAgo {

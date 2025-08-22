@@ -1,5 +1,5 @@
-import 'package:flutter_skeleton/presentation/chat/enum/message_type_enum.dart';
-import 'package:flutter_skeleton/presentation/chat/model/chat_message_model.dart';
+import 'package:skelter/presentation/chat/enum/message_type_enum.dart';
+import 'package:skelter/presentation/chat/model/chat_message_model.dart';
 
 final List<ChatMessage> messages = [
   ChatMessage(

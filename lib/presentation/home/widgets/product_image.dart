@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/utils/app_environment.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/utils/app_environment.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductImage extends StatelessWidget {
   final String imageUrl;

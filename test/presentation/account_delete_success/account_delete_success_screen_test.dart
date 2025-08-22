@@ -1,7 +1,7 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/account_delete_success/account_delete_success_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:skelter/presentation/account_delete_success/account_delete_success_screen.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';

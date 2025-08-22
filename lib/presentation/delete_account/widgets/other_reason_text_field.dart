@@ -1,10 +1,10 @@
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
-import 'package:flutter_skeleton/presentation/delete_account/enum/delete_account_reasons.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
+import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 
 class OtherReasonTextField extends StatefulWidget {
   const OtherReasonTextField({super.key});

@@ -4,13 +4,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:flutter_skeleton/presentation/delete_account/delete_account_screen.dart';
-import 'package:flutter_skeleton/presentation/delete_account/enum/delete_account_reasons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:skelter/presentation/delete_account/delete_account_screen.dart';
+import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';

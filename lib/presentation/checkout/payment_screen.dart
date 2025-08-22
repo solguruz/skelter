@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/apply_coupon.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/order_summary.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/payment_method_header.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/select_payment_method_from_list.dart';
+import 'package:skelter/presentation/checkout/widget/apply_coupon.dart';
+import 'package:skelter/presentation/checkout/widget/order_summary.dart';
+import 'package:skelter/presentation/checkout/widget/payment_method_header.dart';
+import 'package:skelter/presentation/checkout/widget/select_payment_method_from_list.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});

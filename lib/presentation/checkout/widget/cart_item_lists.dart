@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_state.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/cart_order_item.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_state.dart';
+import 'package:skelter/presentation/checkout/widget/cart_order_item.dart';
 
 class CartItemLists extends StatelessWidget {
   const CartItemLists({super.key});

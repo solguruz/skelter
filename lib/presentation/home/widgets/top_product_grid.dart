@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/empty_search_view.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_card.dart';
+import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/widgets/empty_search_view.dart';
+import 'package:skelter/presentation/home/widgets/product_card.dart';
 
 class TopProductGrid extends StatelessWidget {
   const TopProductGrid({super.key});

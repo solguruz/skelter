@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/custom_stepper.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
+import 'package:skelter/presentation/checkout/widget/custom_stepper.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 
 class ConfirmAndPayButton extends StatelessWidget {
   const ConfirmAndPayButton({

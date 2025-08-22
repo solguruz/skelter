@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:alchemist/alchemist.dart';
-import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 Future<void> testExecutable(
   FutureOr<void> Function() testMain, {

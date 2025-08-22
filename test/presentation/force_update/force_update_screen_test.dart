@@ -4,12 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/force_update/bloc/force_update_bloc.dart';
-import 'package:flutter_skeleton/presentation/force_update/bloc/force_update_event.dart';
-import 'package:flutter_skeleton/presentation/force_update/bloc/force_update_state.dart';
-import 'package:flutter_skeleton/presentation/force_update/force_update_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
+import 'package:skelter/presentation/force_update/bloc/force_update_event.dart';
+import 'package:skelter/presentation/force_update/bloc/force_update_state.dart';
+import 'package:skelter/presentation/force_update/force_update_screen.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
