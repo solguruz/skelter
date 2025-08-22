@@ -2,17 +2,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/enum/enum_login_type.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 
 class SignupButton extends StatelessWidget {
   const SignupButton({super.key});

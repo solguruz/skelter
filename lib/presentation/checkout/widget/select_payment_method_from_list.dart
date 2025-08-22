@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SelectPaymentMethodFromList extends StatelessWidget {
   const SelectPaymentMethodFromList({super.key});

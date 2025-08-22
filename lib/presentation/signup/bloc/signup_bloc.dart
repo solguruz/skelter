@@ -4,17 +4,17 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/models/login_details.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
-import 'package:flutter_skeleton/services/firebase_auth_services.dart';
-import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/presentation/login/enum/enum_login_type.dart';
+import 'package:skelter/presentation/login/models/login_details.dart';
+import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/presentation/signup/bloc/signup_state.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/shared_pref/pref_keys.dart';
+import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/extensions/string.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
   static const kMinimumPasswordLength = 8;

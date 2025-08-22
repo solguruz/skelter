@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_state.dart';
+import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
   final AppLocalizations localizations;

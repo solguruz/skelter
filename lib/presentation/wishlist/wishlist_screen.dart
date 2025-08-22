@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/wishlist/widgets/empty_wishlist_view.dart';
-import 'package:flutter_skeleton/presentation/wishlist/widgets/wishlist_app_bar.dart';
+import 'package:skelter/presentation/wishlist/widgets/empty_wishlist_view.dart';
+import 'package:skelter/presentation/wishlist/widgets/wishlist_app_bar.dart';
 
 @RoutePage()
 class WishlistScreen extends StatelessWidget {

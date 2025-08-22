@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/core/errors/exceptions.dart';
+import 'package:skelter/core/errors/exceptions.dart';
 
 abstract class Failure extends Equatable {
   const Failure({

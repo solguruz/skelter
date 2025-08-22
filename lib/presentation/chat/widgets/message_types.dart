@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/presentation/chat/enum/message_type_enum.dart';
-import 'package:flutter_skeleton/presentation/chat/model/chat_message_model.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/image_full_screen_view.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/presentation/chat/enum/message_type_enum.dart';
+import 'package:skelter/presentation/chat/model/chat_message_model.dart';
+import 'package:skelter/presentation/chat/widgets/image_full_screen_view.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class MessageTypes extends StatelessWidget {
   const MessageTypes({

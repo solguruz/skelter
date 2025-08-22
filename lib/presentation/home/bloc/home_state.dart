@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
 
 class HomeState with EquatableMixin {
   final int currentBottomNavIndex;

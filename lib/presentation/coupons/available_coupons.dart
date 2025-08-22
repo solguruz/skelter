@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/coupons/widgets/available_coupons_app_bar.dart';
-import 'package:flutter_skeleton/presentation/coupons/widgets/coupon_item.dart';
+import 'package:skelter/presentation/coupons/widgets/available_coupons_app_bar.dart';
+import 'package:skelter/presentation/coupons/widgets/coupon_item.dart';
 
 @RoutePage()
 class AvailableCouponsScreen extends StatelessWidget {

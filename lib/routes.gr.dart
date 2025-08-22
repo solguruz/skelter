@@ -11,73 +11,62 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i33;
 import 'package:flutter/material.dart' as _i34;
-import 'package:flutter_skeleton/presentation/account_delete_success/account_delete_success_screen.dart'
+import 'package:skelter/presentation/account_delete_success/account_delete_success_screen.dart'
     as _i1;
-import 'package:flutter_skeleton/presentation/chat/chat_conversations.dart'
-    as _i5;
-import 'package:flutter_skeleton/presentation/chat/chat_screen.dart' as _i6;
-import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart'
-    as _i36;
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart'
-    as _i8;
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_submitted_screen.dart'
+import 'package:skelter/presentation/chat/chat_conversations.dart' as _i5;
+import 'package:skelter/presentation/chat/chat_screen.dart' as _i6;
+import 'package:skelter/presentation/chat/model/chat_model.dart' as _i36;
+import 'package:skelter/presentation/contact_us/contact_us_screen.dart' as _i8;
+import 'package:skelter/presentation/contact_us/contact_us_submitted_screen.dart'
     as _i9;
-import 'package:flutter_skeleton/presentation/coupons/available_coupons.dart'
-    as _i4;
-import 'package:flutter_skeleton/presentation/delete_account/delete_account_screen.dart'
+import 'package:skelter/presentation/coupons/available_coupons.dart' as _i4;
+import 'package:skelter/presentation/delete_account/delete_account_screen.dart'
     as _i11;
-import 'package:flutter_skeleton/presentation/empty_screens/empty_view_screens.dart'
+import 'package:skelter/presentation/empty_screens/empty_view_screens.dart'
     as _i13;
-import 'package:flutter_skeleton/presentation/force_update/force_update_screen.dart'
+import 'package:skelter/presentation/force_update/force_update_screen.dart'
     as _i14;
-import 'package:flutter_skeleton/presentation/home/home_screen.dart' as _i16;
-import 'package:flutter_skeleton/presentation/initial/initial_screen.dart'
-    as _i17;
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart'
-    as _i35;
-import 'package:flutter_skeleton/presentation/login/screens/check_your_email/check_your_email_screen.dart'
+import 'package:skelter/presentation/home/home_screen.dart' as _i16;
+import 'package:skelter/presentation/initial/initial_screen.dart' as _i17;
+import 'package:skelter/presentation/login/bloc/login_bloc.dart' as _i35;
+import 'package:skelter/presentation/login/screens/check_your_email/check_your_email_screen.dart'
     as _i7;
-import 'package:flutter_skeleton/presentation/login/screens/forgot_password/forgot_password_screen.dart'
+import 'package:skelter/presentation/login/screens/forgot_password/forgot_password_screen.dart'
     as _i15;
-import 'package:flutter_skeleton/presentation/login/screens/login_with_email/login_with_email_password_screen.dart'
+import 'package:skelter/presentation/login/screens/login_with_email/login_with_email_password_screen.dart'
     as _i18;
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart'
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart'
     as _i19;
-import 'package:flutter_skeleton/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart'
+import 'package:skelter/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart'
     as _i24;
-import 'package:flutter_skeleton/presentation/my_orders/my_orders_screen.dart'
-    as _i20;
-import 'package:flutter_skeleton/presentation/no_internet/no_internet_screen.dart'
+import 'package:skelter/presentation/my_orders/my_orders_screen.dart' as _i20;
+import 'package:skelter/presentation/no_internet/no_internet_screen.dart'
     as _i22;
-import 'package:flutter_skeleton/presentation/notifications/notifications_screen.dart'
+import 'package:skelter/presentation/notifications/notifications_screen.dart'
     as _i23;
-import 'package:flutter_skeleton/presentation/saved_cards/saved_card_screen.dart'
+import 'package:skelter/presentation/saved_cards/saved_card_screen.dart'
     as _i26;
-import 'package:flutter_skeleton/presentation/server_error/server_error_screen.dart'
+import 'package:skelter/presentation/server_error/server_error_screen.dart'
     as _i27;
-import 'package:flutter_skeleton/presentation/settings/settings_screen.dart'
-    as _i28;
-import 'package:flutter_skeleton/presentation/shipping_address/add_address.dart'
-    as _i2;
-import 'package:flutter_skeleton/presentation/shipping_address/edit_address.dart'
+import 'package:skelter/presentation/settings/settings_screen.dart' as _i28;
+import 'package:skelter/presentation/shipping_address/add_address.dart' as _i2;
+import 'package:skelter/presentation/shipping_address/edit_address.dart'
     as _i12;
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart'
-    as _i37;
-import 'package:flutter_skeleton/presentation/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart' as _i37;
+import 'package:skelter/presentation/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
     as _i25;
-import 'package:flutter_skeleton/presentation/signup/screens/profile_picture/add_profile_picture_screen.dart'
+import 'package:skelter/presentation/signup/screens/profile_picture/add_profile_picture_screen.dart'
     as _i3;
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/create_your_password_screen.dart'
+import 'package:skelter/presentation/signup/screens/signup_with_email/create_your_password_screen.dart'
     as _i10;
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
+import 'package:skelter/presentation/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
     as _i29;
-import 'package:flutter_skeleton/presentation/under_maintainace/under_maintenance_screen.dart'
+import 'package:skelter/presentation/under_maintainace/under_maintenance_screen.dart'
     as _i30;
-import 'package:flutter_skeleton/presentation/verify_email/screens/verify_email_screen.dart'
+import 'package:skelter/presentation/verify_email/screens/verify_email_screen.dart'
     as _i31;
-import 'package:flutter_skeleton/presentation/wishlist/wishlist_screen.dart'
-    as _i32;
-import 'package:flutter_skeleton/widgets/attachment_view.dart' as _i21;
+import 'package:skelter/presentation/wishlist/wishlist_screen.dart' as _i32;
+import 'package:skelter/widgets/attachment_view.dart' as _i21;
 
 /// generated route for
 /// [_i1.AccountDeleteSuccessScreen]

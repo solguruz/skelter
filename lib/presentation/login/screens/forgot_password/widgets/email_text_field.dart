@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmailTextField extends StatefulWidget {
   const EmailTextField({super.key});

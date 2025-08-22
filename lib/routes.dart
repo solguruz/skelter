@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_skeleton/main.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/routes.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

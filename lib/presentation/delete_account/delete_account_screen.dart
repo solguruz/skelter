@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_appbar.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_button.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_divider.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_reasons_options.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_warnings.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_appbar.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_button.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_divider.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_reasons_options.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_warnings.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
 
 @RoutePage()
 class DeleteAccountScreen extends StatelessWidget {

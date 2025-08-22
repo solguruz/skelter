@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
 
 abstract class HomeEvent extends Equatable {
   const HomeEvent();

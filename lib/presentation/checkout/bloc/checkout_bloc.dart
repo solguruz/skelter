@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_state.dart';
-import 'package:flutter_skeleton/presentation/checkout/data/cart_sample_data.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_state.dart';
+import 'package:skelter/presentation/checkout/data/cart_sample_data.dart';
 
 class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
   CheckoutBloc() : super(CheckoutState.initial()) {

@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/remove_file_button.dart';
-import 'package:flutter_skeleton/utils/app_environment.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:skelter/presentation/contact_us/widgets/remove_file_button.dart';
+import 'package:skelter/utils/app_environment.dart';
 
 class ImagePreviewList extends StatelessWidget {
   const ImagePreviewList({super.key});

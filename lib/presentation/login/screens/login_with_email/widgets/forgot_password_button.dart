@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ForgotPasswordButton extends StatelessWidget {
   const ForgotPasswordButton({

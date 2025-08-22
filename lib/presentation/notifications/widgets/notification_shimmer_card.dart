@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/widgets/shimmer/shimmer_text.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/widgets/shimmer/shimmer_text.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationShimmerCard extends StatelessWidget {
   const NotificationShimmerCard({

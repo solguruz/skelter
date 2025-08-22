@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_skeleton/presentation/delete_account/enum/delete_account_reasons.dart';
+import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 
 class DeleteAccountState with EquatableMixin {
   final DeleteAccountReasons? selectedReason;

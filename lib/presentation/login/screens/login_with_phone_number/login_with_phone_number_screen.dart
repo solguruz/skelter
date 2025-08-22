@@ -1,20 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_state.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/widgets/heading_welcome_widget.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/widgets/login_options_divider.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/widgets/more_login_options_button.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/widgets/phone_number_text_field.dart';
-import 'package:flutter_skeleton/presentation/login/screens/login_with_phone_number/widgets/send_otp_button.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/bloc/login_state.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/heading_welcome_widget.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/login_options_divider.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/more_login_options_button.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/phone_number_text_field.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/send_otp_button.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/utils/extensions/string.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {

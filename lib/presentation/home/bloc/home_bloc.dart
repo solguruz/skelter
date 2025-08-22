@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/presentation/home/domain/usecases/get_products.dart';
+import 'package:skelter/presentation/home/bloc/home_event.dart';
+import 'package:skelter/presentation/home/bloc/home_state.dart';
+import 'package:skelter/presentation/home/domain/usecases/get_products.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {

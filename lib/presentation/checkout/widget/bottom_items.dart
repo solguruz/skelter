@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/confirm_and_pay_button.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/review_order_button.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/select_payment_method_button.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/shipping_details_button.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/total_amount.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/checkout/widget/confirm_and_pay_button.dart';
+import 'package:skelter/presentation/checkout/widget/review_order_button.dart';
+import 'package:skelter/presentation/checkout/widget/select_payment_method_button.dart';
+import 'package:skelter/presentation/checkout/widget/shipping_details_button.dart';
+import 'package:skelter/presentation/checkout/widget/total_amount.dart';
 
 class BottomItems extends StatelessWidget {
   const BottomItems({super.key});

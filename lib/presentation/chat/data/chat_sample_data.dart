@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
+import 'package:skelter/presentation/chat/model/chat_model.dart';
 
 List<ChatModel> generateSampleUsersChat() {
   final List<Map<String, dynamic>> userData = [
