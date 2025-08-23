@@ -42,7 +42,7 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
         }
       },
       child: Scaffold(
-        appBar: const LoginAppBar(),
+        appBar: const LoginAppBar(removeLeading: false),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: BlocProvider<LoginBloc>.value(
