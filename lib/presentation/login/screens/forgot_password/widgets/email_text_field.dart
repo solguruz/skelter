@@ -8,6 +8,7 @@ import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmailTextField extends StatefulWidget {
   const EmailTextField({super.key});
+
   @override
   State<EmailTextField> createState() => _EmailTextFieldState();
 }

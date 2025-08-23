@@ -63,9 +63,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '691451580239',
     projectId: 'sg-skeleton',
     storageBucket: 'sg-skeleton.firebasestorage.app',
-    androidClientId: '691451580239-2fr294msgu7vq266j0vf510i9vh1ahhl.apps.googleusercontent.com',
-    iosClientId: '691451580239-arq7c19hmkgoqm4glgh232mqfkcrinn4.apps.googleusercontent.com',
+    androidClientId:
+        '691451580239-2fr294msgu7vq266j0vf510i9vh1ahhl.apps.googleusercontent.com',
+    iosClientId:
+        '691451580239-arq7c19hmkgoqm4glgh232mqfkcrinn4.apps.googleusercontent.com',
     iosBundleId: 'com.solguruz.skelter',
   );
-
 }

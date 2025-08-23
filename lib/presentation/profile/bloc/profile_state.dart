@@ -58,5 +58,6 @@ class SignOutState extends ProfileState {
 
 class SignOutErrorState extends ProfileState {
   final String errorMessage;
+
   SignOutErrorState({this.errorMessage = ''}) : super.initial();
 }

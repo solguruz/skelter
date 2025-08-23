@@ -1,0 +1,1 @@
+- Initial release: First version of the project with core features implemented.
