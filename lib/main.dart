@@ -48,10 +48,9 @@ class _MainAppState extends State<MainApp> {
 
   Future<void> handleConnectivityStatusChange() async {
     final isConnected = _connectivityHelper.onConnectivityChange.value;
+    await Future.delayed(const Duration(milliseconds: 300));
 
     if (!isConnected) {
-      await Future.delayed(const Duration(milliseconds: 300));
-
       final stillDisconnected = !_connectivityHelper.onConnectivityChange.value;
       if (!stillDisconnected) return;
       await rootNavigatorKey.currentContext!.pushRoute(const NoInternetRoute());
