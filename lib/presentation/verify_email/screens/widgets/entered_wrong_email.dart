@@ -11,6 +11,7 @@ import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EnteredWrongEmail extends StatelessWidget {
   const EnteredWrongEmail({super.key});
+
   @override
   Widget build(BuildContext context) {
     final bool isSignup = context.select<VerifyEmailBloc, bool>(

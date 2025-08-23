@@ -1,6 +1,7 @@
 # Skelter Project
 
-A comprehensive Flutter skelter project incorporating best practices, modern architecture, and boiler plate code for rapid application development.
+A comprehensive Flutter skelter project incorporating best practices, modern architecture, and
+boiler plate code for rapid application development.
 
 ## Technology Stack
 
@@ -17,12 +18,15 @@ A comprehensive Flutter skelter project incorporating best practices, modern arc
 ## Getting Started
 
 ### Flavors
+
 This project supports three flavors:
+
 - **dev**
 - **stage**
 - **prod**
 
 ### Environment Variables
+
 Create a `.env` file in the project root directory with the following values:
 
 ```
@@ -34,14 +38,17 @@ PROD_API_BASE_URL=https://prod.example.com/api
 Replace the URLs with your actual API endpoints.
 
 ### Building APK/IPA
+
 To build for a specific flavor, use the following commands:
 
 **Android APK (dev flavor):**
+
 ```
 flutter build apk --flavor dev --dart-define=APP_FLAVOR=DEV
 ```
 
 **iOS IPA (prod flavor):**
+
 ```
 flutter build ipa --export-method=ad-hoc --flavor prod --dart-define=APP_FLAVOR=PROD 
 ```
@@ -68,6 +75,7 @@ The project uses the BLoC (Business Logic Component) pattern to separate busines
 - **BLoCs**: Components that convert events to states
 
 Code structure follows this pattern:
+
 ```
 feature/
 ├── bloc/
@@ -92,10 +100,11 @@ feature/
 The project is set up with Flutter's internationalization system:
 
 - Localization files are located in `lib/i18n/`
-- Base ARB file is `app_en.arb` 
+- Base ARB file is `app_en.arb`
 - The output localization file is `app_localizations.dart`
 
 To add a new language:
+
 1. Create a new ARB file in the `lib/i18n/` directory (e.g., `app_es.arb`)
 2. Run `flutter gen-l10n` to generate localization code
 3. Access translations using `AppLocalizations.of(context).translationKey`
@@ -120,7 +129,8 @@ The project uses Alchemist for golden testing, a powerful tool for UI regression
 
 ### What are Golden Tests?
 
-Golden tests compare the rendered UI to a "golden" reference image. This helps detect unintended visual changes during development.
+Golden tests compare the rendered UI to a "golden" reference image. This helps detect unintended
+visual changes during development.
 
 ### How to Use Golden Tests
 
@@ -146,10 +156,12 @@ Golden tests compare the rendered UI to a "golden" reference image. This helps d
    ```
 
 3. **Managing Golden Files**:
-   - Golden files are stored in the `test/goldens/` directory
-   - Use `copy_golden_images.sh` script to copy golden images to the linux directory for CI/CD environments
+    - Golden files are stored in the `/golden/macos` and `/golden/linux`' directory
+    - Use `copy_golden_images.sh` script to copy golden images to the linux directory for CI/CD
+      environments
 
-For more details, refer to the **Technical Document on Golden Test Cases** and **alchemist** library.
+For more details, refer to the **Technical Document on Golden Test Cases** and **alchemist**
+library.
 
 ## Git Workflow & Contribution Guidelines
 
@@ -180,9 +192,9 @@ We use GitLab for version control with the following branch structure:
 
 ## Important Links
 
-- **Repository**: [GitLab](https://gitlab.solguruzsolutions.com/flutter/flutter-skeleton)
-- **UI Design**: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
-- **Firebase Console**: [Firebase Project](https://console.firebase.google.com/u/1/project/sg-skeleton/settings/general/android:com.solguruz.flutter_skeleton)
+- **Repository**: [GitLab](https://gitlab.solguruzsolutions.com/solguruz/skelter)
+- **UI Design
+  **: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
 
 ## How to Contribute
 

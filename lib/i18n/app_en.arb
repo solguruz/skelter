@@ -175,7 +175,7 @@
   "login_signup_email_already_in_use": "This email is already registered. Please log in or use a different email.",
   "login_signup_error_retrieving_phone_number": "Error retrieving your phone number",
   "login_signup_error_retrieving_email": "Error retrieving your email",
-  "login_signup_user_info_not_retrieved":"User information could not be retrieved.",
+  "login_signup_user_info_not_retrieved": "User information could not be retrieved.",
   "share_type_instagram": "Instagram",
   "share_type_x": "X",
   "share_type_facebook": "Facebook",
