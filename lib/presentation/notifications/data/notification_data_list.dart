@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
+import 'package:skelter/presentation/notifications/model/notification_model.dart';
 
 final List<NotificationModel> dummyNotifications = [
   NotificationModel(

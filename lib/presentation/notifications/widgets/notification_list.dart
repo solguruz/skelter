@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/notifications/bloc/notification_bloc.dart';
-import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
-import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
-import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/notifications/bloc/notification_bloc.dart';
+import 'package:skelter/presentation/notifications/bloc/notification_event.dart';
+import 'package:skelter/presentation/notifications/model/notification_model.dart';
+import 'package:skelter/presentation/notifications/widgets/notification_card.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationList extends StatelessWidget {
   const NotificationList({super.key});
@@ -18,7 +18,7 @@ class NotificationList extends StatelessWidget {
 
     return RefreshIndicator(
       onRefresh: () async {
-        context.notificationBloc.add(GetNotificationDataEvent());
+        context.read<NotificationBloc>().add(GetNotificationDataEvent());
       },
       child: ListView.separated(
         separatorBuilder: (context, index) => const Divider(

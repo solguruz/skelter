@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/initial_checkout_screen.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/bottom_nav_bar.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/home_screen_body.dart';
-import 'package:flutter_skeleton/presentation/profile/profile_screen.dart';
-import 'package:flutter_skeleton/presentation/search/search_screen.dart';
+import 'package:skelter/core/services/injection_container.dart';
+import 'package:skelter/presentation/checkout/initial_checkout_screen.dart';
+import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/presentation/home/bloc/home_event.dart';
+import 'package:skelter/presentation/home/widgets/bottom_nav_bar.dart';
+import 'package:skelter/presentation/home/widgets/home_screen_body.dart';
+import 'package:skelter/presentation/profile/profile_screen.dart';
+import 'package:skelter/presentation/search/search_screen.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -16,7 +17,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (_) => HomeBloc()..add(const GetTopProductDataEvent()),
+      create: (_) =>
+          HomeBloc(getProducts: sl())..add(const GetTopProductDataEvent()),
       child: const HomeScreenWrapper(),
     );
   }

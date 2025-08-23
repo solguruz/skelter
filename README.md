@@ -1,11 +1,11 @@
-# Flutter Skeleton Project
+# Skelter Project
 
-A comprehensive Flutter skeleton project incorporating best practices, modern architecture, and boiler plate code for rapid application development.
+A comprehensive Flutter skelter project incorporating best practices, modern architecture, and boiler plate code for rapid application development.
 
 ## Technology Stack
 
-- **Flutter Version:** ^3.29.3
-- **Dart SDK:** ^3.7.2
+- **Flutter Version:** ^3.32.0
+- **Dart SDK:** ^3.8.0
 - **State Management:** BLoC
 - **Navigation:** Auto Route
 - **Backend Integration:** Firebase (Core, Analytics, Crashlytics, Auth)
@@ -13,6 +13,38 @@ A comprehensive Flutter skeleton project incorporating best practices, modern ar
 - **UI Components:** Custom widgets, Flutter SVG, Shimmer effects
 - **Testing:** Flutter Test, Bloc Test, Alchemist (Golden Tests), Mocktail
 - **Code Generation:** Build Runner, Auto Route Generator, Flutter Gen Runner
+
+## Getting Started
+
+### Flavors
+This project supports three flavors:
+- **dev**
+- **stage**
+- **prod**
+
+### Environment Variables
+Create a `.env` file in the project root directory with the following values:
+
+```
+DEV_API_BASE_URL=https://dev.example.com/api
+STAGE_API_BASE_URL=https://stage.example.com/api
+PROD_API_BASE_URL=https://prod.example.com/api
+```
+
+Replace the URLs with your actual API endpoints.
+
+### Building APK/IPA
+To build for a specific flavor, use the following commands:
+
+**Android APK (dev flavor):**
+```
+flutter build apk --flavor dev --dart-define=APP_FLAVOR=DEV
+```
+
+**iOS IPA (prod flavor):**
+```
+flutter build ipa --export-method=ad-hoc --flavor prod --dart-define=APP_FLAVOR=PROD 
+```
 
 ## Architecture and Coding Standards
 
@@ -152,29 +184,6 @@ We use GitLab for version control with the following branch structure:
 - **UI Design**: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
 - **Firebase Console**: [Firebase Project](https://console.firebase.google.com/u/1/project/sg-skeleton/settings/general/android:com.solguruz.flutter_skeleton)
 
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://gitlab.solguruzsolutions.com/packeges/common-flutter-feature.git
-   cd flutter_skeleton
-   ```
-
-2. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
-
-3. Generate necessary files:
-   ```bash
-   dart run build_runner build --delete-conflicting-outputs
-   ```
-
-4. Run the app:
-   ```bash
-   flutter run
-   ```
-
 ## How to Contribute
 
 1. Understand the project structure and coding standards
@@ -183,4 +192,4 @@ We use GitLab for version control with the following branch structure:
 4. Ensure your code passes all tests
 5. Submit a Pull Request with a clear description of changes
 
-We appreciate your contributions to make this skeleton project even better!
+We appreciate your contributions to make this skelter project even better!

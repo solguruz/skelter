@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
-import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_content_widget.dart';
-import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_dismissible_widget.dart';
-import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_leading_icon_widget.dart';
-import 'package:flutter_skeleton/presentation/notifications/widgets/notification_card/notification_leading_image_widget.dart';
+import 'package:skelter/presentation/notifications/model/notification_model.dart';
+import 'package:skelter/presentation/notifications/widgets/notification_card/notification_content_widget.dart';
+import 'package:skelter/presentation/notifications/widgets/notification_card/notification_dismissible_widget.dart';
+import 'package:skelter/presentation/notifications/widgets/notification_card/notification_leading_icon_widget.dart';
+import 'package:skelter/presentation/notifications/widgets/notification_card/notification_leading_image_widget.dart';
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard({super.key, required this.notificationModel});

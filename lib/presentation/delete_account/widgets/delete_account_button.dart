@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
+import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_alert_bottom_sheet.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class DeleteAccountButton extends StatelessWidget {
   const DeleteAccountButton({super.key});
@@ -20,23 +21,36 @@ class DeleteAccountButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.delete_account,
-      size: AppButtonSize.medium,
+      size: AppButtonSize.extraLarge,
+      backgroundColor: AppColors.bgErrorDefault,
+      shouldSetFullWidth: true,
+      isLoading: isLoading,
       state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
       onPressed: isLoading
           ? null
           : () async {
-              final isConnected =
-                  InternetConnectivityHelper().onConnectivityChange.value;
+              FocusManager.instance.primaryFocus?.unfocus();
 
-              if (!isConnected && context.mounted) {
+              final deleteAccountState =
+                  context.read<DeleteAccountBloc>().state;
+              final selectedReason = deleteAccountState.selectedReason;
+
+              if (selectedReason == null) {
                 context.showSnackBar(
-                  context.localization.no_internet_connection,
+                  context.localization.please_select_at_least_one_reason,
                 );
                 return;
               }
 
-              context.deleteAccountBloc
-                  .add(const DeleteAccountSubmittedEvent());
+              if (selectedReason == DeleteAccountReasons.other &&
+                  deleteAccountState.otherReasonText.isEmpty) {
+                context.showSnackBar(
+                  context.localization.please_specify_your_reason,
+                );
+                return;
+              }
+
+              await showDeleteAccountAlertBottomSheet(context);
             },
     );
   }

@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
+import 'package:skelter/utils/app_environment.dart';
 
 extension TimeAgo on DateTime {
   String get timeAgo {
@@ -41,7 +40,7 @@ extension TimeAgo on DateTime {
 }
 
 DateTime getCurrentDateTime() {
-  final bool isTest = Platform.environment.containsKey('FLUTTER_TEST');
+  final bool isTest = AppEnvironment.isTestEnvironment;
   if (isTest) {
     return DateTime(2025, 4, 11, 8, 30, 20);
   }

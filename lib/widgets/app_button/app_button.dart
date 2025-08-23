@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button_icon.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button_label.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button_loader.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_decoration.dart';
-import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_size_extension.dart';
-import 'package:flutter_skeleton/widgets/app_button/extensions/app_button_style_text_colors.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/app_button/app_button_icon.dart';
+import 'package:skelter/widgets/app_button/app_button_label.dart';
+import 'package:skelter/widgets/app_button/app_button_loader.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/app_button/extensions/app_button_decoration.dart';
+import 'package:skelter/widgets/app_button/extensions/app_button_size_extension.dart';
+import 'package:skelter/widgets/app_button/extensions/app_button_style_text_colors.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   final AppButtonStyle style;

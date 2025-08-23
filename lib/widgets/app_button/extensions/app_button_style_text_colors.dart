@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 extension AppButtonStyleTextColors on AppButtonStyle {
   Color getTextColor(AppButtonState state) {

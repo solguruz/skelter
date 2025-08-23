@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/notifications/model/notification_model.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:timeago/timeago.dart' as time_ago;
 
 class NotificationContentWidget extends StatelessWidget {

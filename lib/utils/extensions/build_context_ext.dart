@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 extension ShowSnackbar on BuildContext {
   void showSnackBar(

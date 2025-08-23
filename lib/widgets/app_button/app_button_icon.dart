@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skelter/constants/constants.dart';
 
 class AppButtonIcon extends StatelessWidget {
   final String? iconPath;

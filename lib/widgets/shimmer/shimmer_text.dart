@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ShimmerText extends StatelessWidget {
   const ShimmerText({super.key, required this.width, this.radius = 4});

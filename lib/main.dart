@@ -5,15 +5,15 @@ import 'package:country_picker/country_picker.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_skeleton/i18n/i18n.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/initialize_app.dart';
-import 'package:flutter_skeleton/routes.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_helper.dart';
-import 'package:flutter_skeleton/widgets/styling/app_theme_data.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/i18n/i18n.dart';
+import 'package:skelter/initialize_app.dart';
+import 'package:skelter/routes.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/internet_connectivity_helper.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 

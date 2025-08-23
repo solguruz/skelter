@@ -4,13 +4,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/notifications/bloc/notification_bloc.dart';
-import 'package:flutter_skeleton/presentation/notifications/bloc/notification_event.dart';
-import 'package:flutter_skeleton/presentation/notifications/bloc/notification_state.dart';
-import 'package:flutter_skeleton/presentation/notifications/data/notification_data_list.dart';
-import 'package:flutter_skeleton/presentation/notifications/notifications_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:skelter/presentation/notifications/bloc/notification_bloc.dart';
+import 'package:skelter/presentation/notifications/bloc/notification_event.dart';
+import 'package:skelter/presentation/notifications/bloc/notification_state.dart';
+import 'package:skelter/presentation/notifications/data/notification_data_list.dart';
+import 'package:skelter/presentation/notifications/notifications_screen.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';

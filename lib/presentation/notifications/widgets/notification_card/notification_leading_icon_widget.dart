@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/notifications/model/notification_model.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/notifications/model/notification_model.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationLeadingIconWidget extends StatelessWidget {
   const NotificationLeadingIconWidget({

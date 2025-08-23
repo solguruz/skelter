@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
+import 'package:skelter/i18n/localization.dart';
 
 bool isValidUrl({required String url}) {
   final RegExp pattern = RegExp(

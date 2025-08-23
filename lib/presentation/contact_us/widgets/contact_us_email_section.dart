@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ContactUsEmailSection extends StatefulWidget {
   const ContactUsEmailSection({super.key});
@@ -20,18 +20,21 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
   @override
   void initState() {
     super.initState();
-    _emailController.text = context.contactUsBloc.state.email;
+    _emailController.text = context.read<ContactUsBloc>().state.email;
     _emailController.addListener(() {
       _emailControllerListener();
     });
   }
 
   void _emailControllerListener() {
-    final String? previousError = context.contactUsBloc.state.emailError;
+    final String? previousError =
+        context.read<ContactUsBloc>().state.emailError;
     if (previousError != null && previousError.isNotEmpty) {
-      context.contactUsBloc.add(const EmailErrorEvent(error: ''));
+      context.read<ContactUsBloc>().add(const EmailErrorEvent(error: ''));
     }
-    context.contactUsBloc.add(EmailChangedEvent(email: _emailController.text));
+    context
+        .read<ContactUsBloc>()
+        .add(EmailChangedEvent(email: _emailController.text));
   }
 
   @override

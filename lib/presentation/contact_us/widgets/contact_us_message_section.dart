@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:flutter_skeleton/presentation/contact_us/contact_us_screen.dart';
-import 'package:flutter_skeleton/utils/extensions/string.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
+import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ContactUsMessageSection extends StatefulWidget {
   const ContactUsMessageSection({super.key});
@@ -22,18 +22,20 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
   @override
   void initState() {
     super.initState();
-    _messageController.text = context.contactUsBloc.state.description;
+    _messageController.text = context.read<ContactUsBloc>().state.description;
     _messageController.addListener(() {
       nameControllerListener();
     });
   }
 
   void nameControllerListener() {
-    final String? previousError = context.contactUsBloc.state.descriptionError;
+    final String? previousError =
+        context.read<ContactUsBloc>().state.descriptionError;
     if (previousError != null && previousError.isNotEmpty) {
-      context.contactUsBloc.add(const DescriptionErrorEvent(error: ''));
+      context.read<ContactUsBloc>().add(const DescriptionErrorEvent(error: ''));
     }
-    context.contactUsBloc
+    context
+        .read<ContactUsBloc>()
         .add(DescriptionChangedEvent(message: _messageController.text));
   }
 

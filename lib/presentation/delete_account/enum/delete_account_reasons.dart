@@ -1,9 +1,9 @@
-import 'package:flutter_skeleton/i18n/localization.dart';
+import 'package:skelter/i18n/app_localizations.dart';
 
 enum DeleteAccountReasons {
-  unused,
-  irrelevant,
-  dislike,
+  doNotNeedItAnyMore,
+  productNoMoreRelevant,
+  dislikeTheApp,
   other,
 }
 
@@ -14,12 +14,12 @@ extension DeleteAccountReasonExtension on DeleteAccountReasons {
 
   String toDeleteAccountReasonString(AppLocalizations l10n) {
     switch (this) {
-      case DeleteAccountReasons.unused:
-        return l10n.delete_reason_unused;
-      case DeleteAccountReasons.irrelevant:
-        return l10n.delete_reason_irrelevant;
-      case DeleteAccountReasons.dislike:
-        return l10n.delete_reason_dislike;
+      case DeleteAccountReasons.doNotNeedItAnyMore:
+        return l10n.delete_reason_do_not_need_anymore;
+      case DeleteAccountReasons.productNoMoreRelevant:
+        return l10n.delete_reason_product_no_more_relevant;
+      case DeleteAccountReasons.dislikeTheApp:
+        return l10n.delete_reason_dislike_app;
       case DeleteAccountReasons.other:
         return l10n.delete_reason_other;
     }

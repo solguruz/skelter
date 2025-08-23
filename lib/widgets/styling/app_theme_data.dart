@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/fonts.gen.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter_skeleton/widgets/styling/input_decorations.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/fonts.gen.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/styling/input_decorations.dart';
 
 enum AppThemeEnum { DarkTheme, LightTheme }
 
@@ -37,7 +37,7 @@ class AppThemesData {
       ),
       fontFamily: FontFamily.inter,
       indicatorColor: AppColors.brand600,
-      tabBarTheme: const TabBarTheme(
+      tabBarTheme: const TabBarThemeData(
         labelColor: Colors.black,
         unselectedLabelColor: Colors.black54,
       ),
@@ -95,7 +95,7 @@ class AppThemesData {
       ),
       fontFamily: FontFamily.inter,
       indicatorColor: AppColors.brand600,
-      tabBarTheme: const TabBarTheme(
+      tabBarTheme: const TabBarThemeData(
         labelColor: Colors.white,
         unselectedLabelColor: Colors.white54,
       ),

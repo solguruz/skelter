@@ -1,13 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar_plus/flutter_rating_bar_plus.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_cart.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/checkout/model/product_cart.dart';
+import 'package:skelter/utils/app_environment.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class CartOrderItem extends StatelessWidget {
   const CartOrderItem({
@@ -19,6 +21,7 @@ class CartOrderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isFromTestEnvironment = AppEnvironment.isTestEnvironment;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -27,11 +30,18 @@ class CartOrderItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-            width: Device.width / 6,
-            fit: BoxFit.cover,
-            cartModel.product.image,
-          ),
+          if (isFromTestEnvironment)
+            Image.asset(
+              Assets.test.images.testImage.path,
+              width: Device.width / 6,
+              fit: BoxFit.cover,
+            )
+          else
+            CachedNetworkImage(
+              imageUrl: cartModel.product.image,
+              width: Device.width / 6,
+              fit: BoxFit.cover,
+            ),
           const SizedBox(width: 16),
           Expanded(
             child: Column(

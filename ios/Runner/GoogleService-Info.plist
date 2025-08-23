@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>691451580239-l616l5s443oaetllm4ntkprf70rf0rnp.apps.googleusercontent.com</string>
+	<string>691451580239-arq7c19hmkgoqm4glgh232mqfkcrinn4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.691451580239-l616l5s443oaetllm4ntkprf70rf0rnp</string>
+	<string>com.googleusercontent.apps.691451580239-arq7c19hmkgoqm4glgh232mqfkcrinn4</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>691451580239-2fr294msgu7vq266j0vf510i9vh1ahhl.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDCbwpu3cQeo9HNUSdsRDdZe9EOh8jk5xk</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.solguruz.flutterskeleton</string>
+	<string>com.solguruz.skelter</string>
 	<key>PROJECT_ID</key>
 	<string>sg-skeleton</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:691451580239:ios:452d8eab287e44ee5cbf3a</string>
+	<string>1:691451580239:ios:0d54b281ad1a25a65cbf3a</string>
 </dict>
 </plist>

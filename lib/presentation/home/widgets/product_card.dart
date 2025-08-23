@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_model.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_category_chip.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_image.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_price_rating.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_title.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/widgets/product_category_chip.dart';
+import 'package:skelter/presentation/home/widgets/product_image.dart';
+import 'package:skelter/presentation/home/widgets/product_price_rating.dart';
+import 'package:skelter/presentation/home/widgets/product_title.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductModel product;
+  final Product product;
 
   const ProductCard({super.key, required this.product});
 
@@ -41,15 +41,18 @@ class ProductCard extends StatelessWidget {
                   children: [
                     ProductCategoryChip(category: product.category),
                     const SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ProductTitle(title: product.title),
-                          const SizedBox(height: 18),
-                          ProductPriceRating(product: product),
-                        ],
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ProductTitle(title: product.title),
+                            const Spacer(),
+                            ProductPriceRating(product: product),
+                            const SizedBox(height: 6),
+                          ],
+                        ),
                       ),
                     ),
                   ],
