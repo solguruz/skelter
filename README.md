@@ -1,3 +1,5 @@
+![Skelter Project Banner](assets/images/sg_skelter_boilerplate.png)
+
 # Skelter Project
 
 A comprehensive Flutter skelter project incorporating best practices, modern architecture, and
