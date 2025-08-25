@@ -14,7 +14,6 @@ class InternetConnectivityHelper {
       InternetConnectivityHelper._internal();
 
   final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
 
   final ValueNotifier<bool> _connectionNotifier = ValueNotifier<bool>(true);
 
@@ -32,7 +31,7 @@ class InternetConnectivityHelper {
     final bool initialConnected = await isConnected();
     _connectionNotifier.value = initialConnected;
 
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(
+    _connectivity.onConnectivityChanged.listen(
       (List<ConnectivityResult> results) {
         final bool isConnected = !results.contains(ConnectivityResult.none);
         if (_connectionNotifier.value != isConnected) {
@@ -45,11 +44,5 @@ class InternetConnectivityHelper {
         }
       },
     );
-  }
-
-  void dispose() {
-    _connectivitySubscription.cancel();
-    _connectionNotifier.dispose();
-    onConnectivityChange.dispose();
   }
 }

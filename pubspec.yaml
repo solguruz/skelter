@@ -129,22 +129,11 @@ flutter:
         #600 Semi-bold
         - asset: assets/fonts/Inter/Inter-Thin.ttf
           weight: 600
-        
+
 patrol:
   app_name: Flutter Skeleton
-  flavors:
-    dev:
-      android:
-        package_name: com.solguruz.skelter.dev
-      ios:
-        bundle_id: com.solguruz.skelter.dev
-    staging:
-      android:
-        package_name: com.solguruz.skelter.stage
-      ios:
-        bundle_id: com.solguruz.skelter.stage
-    production:
-      android:
-        package_name: com.solguruz.skelter
-      ios:
-        bundle_id: com.solguruz.skelter
+  flavors: dev
+  android:
+    package_name: com.solguruz.skelter.dev
+  ios:
+    bundle_id: com.solguruz.skelter.dev
