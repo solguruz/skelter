@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/constants/constants.dart';
+import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/bloc/login_state.dart';
@@ -20,13 +21,12 @@ import 'package:skelter/validators/validators.dart';
 class LoginBloc extends Bloc<LoginEvents, LoginState> {
   static const kMinimumPasswordLength = 8;
 
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
   final AppLocalizations localizations;
 
   LoginBloc({
     required this.localizations,
   }) : super(LoginState.initial()) {
-    _initialiseFirebaseServices();
     _setupEventListener();
   }
 
@@ -502,10 +502,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     add(PhoneNumLoginLoadingEvent(isLoading: false));
     add(EmailLoginLoadingEvent(isLoading: false));
     add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
-  }
-
-  void _initialiseFirebaseServices() {
-    FirebaseAuthService().init();
   }
 
   Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({

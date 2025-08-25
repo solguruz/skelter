@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/models/login_details.dart';
 import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
@@ -16,7 +17,7 @@ import 'package:skelter/shared_pref/prefs.dart';
 /// Bloc responsible for managing email verification state and events.
 class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
   final AppLocalizations localizations;
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
 
   VerifyEmailBloc({required this.localizations})
       : super(VerifyEmailInitialState()) {

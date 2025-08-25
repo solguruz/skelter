@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/bloc/login_state.dart';
@@ -81,6 +82,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           }
         },
         child: Pinput(
+          key: keys.signInPage.otpTextField,
           length: 6,
           controller: _pinController,
           focusedPinTheme: _focusedPinTheme(),

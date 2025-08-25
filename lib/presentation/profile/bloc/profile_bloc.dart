@@ -15,7 +15,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             isProUser: true,
           ),
         ) {
-    _initialiseFirebaseServices();
     _setupEventListener();
   }
 
@@ -56,9 +55,5 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       debugPrint('Error signing out: $e');
       emit(SignOutErrorState(errorMessage: e.toString()));
     }
-  }
-
-  void _initialiseFirebaseServices() {
-    FirebaseAuthService().init();
   }
 }
