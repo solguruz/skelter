@@ -71,12 +71,6 @@ class _MainAppState extends State<MainApp> {
   }
 
   @override
-  void dispose() {
-    InternetConnectivityHelper().dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, screenType) {
