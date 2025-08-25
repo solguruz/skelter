@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/constants/constants.dart';
+import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/enum/enum_login_type.dart';
 import 'package:skelter/presentation/login/models/login_details.dart';
@@ -19,7 +20,7 @@ import 'package:skelter/utils/extensions/string.dart';
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
   static const kMinimumPasswordLength = 8;
 
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
   final AppLocalizations localizations;
 
   SignupBloc({

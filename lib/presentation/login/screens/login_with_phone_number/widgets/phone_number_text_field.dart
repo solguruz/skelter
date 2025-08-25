@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
@@ -83,6 +84,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
           ),
           const SizedBox(height: 8),
           InternationalPhoneNumberInput(
+            key: keys.signInPage.mobileNoTextField,
             textFieldController: _phoneInputController,
             focusNode: _focusNode,
             textStyle: AppTextStyles.p3Medium
