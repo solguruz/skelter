@@ -1393,7 +1393,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter_your_name.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Name'**
+  /// **'Enter your name'**
   String get enter_your_name;
 
   /// No description provided for @enter_your_mobile_number.
