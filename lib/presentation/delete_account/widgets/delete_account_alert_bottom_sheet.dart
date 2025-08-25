@@ -111,6 +111,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                 ),
               ],
             ),
+            const SizedBox(height: 16),
           ],
         ),
       );

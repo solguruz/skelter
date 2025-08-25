@@ -719,7 +719,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get name => 'Name';
 
   @override
-  String get enter_your_name => 'Enter Your Name';
+  String get enter_your_name => 'Enter your name';
 
   @override
   String get enter_your_mobile_number => 'Enter Your Mobile Number';
