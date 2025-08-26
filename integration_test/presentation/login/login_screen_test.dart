@@ -44,7 +44,7 @@ void main() {
 
       expect(find.text('Premium Wireless Headphones'), findsOneWidget);
       expect(find.text('Smart Fitness Watch'), findsOneWidget);
-      expect(find.byKey(keys.homePage.prodcutCardKey), findsExactly(2));
+      expect(find.byKey(keys.homePage.productCardKey), findsExactly(2));
     },
   );
 }
