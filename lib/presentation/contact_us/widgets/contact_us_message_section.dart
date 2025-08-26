@@ -6,6 +6,7 @@ import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
 import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/validators/validators.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ContactUsMessageSection extends StatefulWidget {
@@ -62,9 +63,8 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        TextField(
+        TextFormField(
           controller: _messageController,
-          maxLength: 250,
           decoration: InputDecoration(
             hintText: context.localization.message_description,
             hintStyle:
@@ -78,6 +78,12 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
                 AppTextStyles.p4Regular.withColor(AppColors.textNeutralDisable),
           ),
           maxLines: 4,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (value) => maxLengthValidator(
+            value,
+            ContactUsScreen.kMessageMaxLength,
+            context,
+          ),
           keyboardType: TextInputType.multiline,
         ),
       ],

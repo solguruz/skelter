@@ -1151,4 +1151,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get please_specify_your_reason => 'Please specify your reason';
+
+  @override
+  String messageTooLong(int maxLength) {
+    return 'Your message is too long (max $maxLength characters)';
+  }
 }

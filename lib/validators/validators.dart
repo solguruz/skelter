@@ -39,3 +39,10 @@ Future<bool> isPhoneNumberValid(String phoneNumberWithCode) async {
 
   return phoneNumber.isValid(type: PhoneNumberType.mobile);
 }
+
+String? maxLengthValidator(String? value, int maxLength, BuildContext context) {
+  if ((value?.length ?? 0) > maxLength) {
+    return context.localization.messageTooLong(maxLength);
+  }
+  return null;
+}
