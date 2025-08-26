@@ -62,6 +62,10 @@ class AppThemesData {
           borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
           borderRadius: BorderRadius.circular(8),
         ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
       colorScheme: ColorScheme.fromSwatch(
         backgroundColor: Colors.white,
