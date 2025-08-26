@@ -43,6 +43,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /android/app/.cxx/
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/gradlew
 
 # Golden tests
 test/**/failures/**/*.*
@@ -52,3 +55,14 @@ test/**/failures/**/*.*
 
 # Environment variables
 .env
+
+# Android Firebase configuration files
+android/app/src/dev/google-services.json
+android/app/src/prod/google-services.json
+android/app/src/stage/google-services.json
+
+# iOS Firebase configuration files
+ios/config/dev/GoogleService-Info.plist
+ios/config/prod/GoogleService-Info.plist
+ios/config/stage/GoogleService-Info.plist
+
