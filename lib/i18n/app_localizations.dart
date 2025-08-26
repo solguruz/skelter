@@ -2151,6 +2151,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please specify your reason'**
   String get please_specify_your_reason;
+
+  /// Error shown when user input exceeds maximum allowed length
+  ///
+  /// In en, this message translates to:
+  /// **'Your message is too long (max {maxLength} characters)'**
+  String messageTooLong(int maxLength);
 }
 
 class _AppLocalizationsDelegate

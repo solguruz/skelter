@@ -377,5 +377,15 @@
   "microphone_permission_permanently_denied": "Microphone permission is permanently denied. Please go to settings and enable it.",
   "firebase_error": "Firebase error",
   "please_select_at_least_one_reason": "Please select at least one reason",
-  "please_specify_your_reason": "Please specify your reason"
+  "please_specify_your_reason": "Please specify your reason",
+  "messageTooLong": "Your message is too long (max {maxLength} characters)",
+  "@messageTooLong": {
+    "description": "Error shown when user input exceeds maximum allowed length",
+    "placeholders": {
+      "maxLength": {
+        "type": "int",
+        "example": "200"
+      }
+    }
+  }
 }

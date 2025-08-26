@@ -73,6 +73,15 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     if (state.description.trim().isEmpty) {
       hasError = true;
       add(DescriptionErrorEvent(error: localizations.message_cannot_be_empty));
+    } else if (state.description.trim().length >
+        ContactUsScreen.kMessageMaxLength) {
+      hasError = true;
+      add(
+        DescriptionErrorEvent(
+          error:
+              localizations.messageTooLong(ContactUsScreen.kMessageMaxLength),
+        ),
+      );
     }
 
     final areFilesMissing = (state.selectedPdfs?.isEmpty ?? true) &&
