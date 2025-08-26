@@ -18,6 +18,7 @@ boiler plate code for rapid application development.
 - **Code Generation:** Build Runner, Auto Route Generator, Flutter Gen Runner
 
 ## Getting Started
+**Skelter** is a production-ready **Flutter starter** designed to help teams ship high-quality apps faster. It’s open-source, scalable, and built with proven patterns so you can focus on delivering features—not boilerplate.
 
 ### Flavors
 
