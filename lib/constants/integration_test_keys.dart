@@ -7,7 +7,7 @@ class LoginPageKeys {
 }
 
 class HomePageKeys {
-  final prodcutCardKey = const Key('productCardKey');
+  final productCardKey = const Key('productCardKey');
 }
 
 class Keys {

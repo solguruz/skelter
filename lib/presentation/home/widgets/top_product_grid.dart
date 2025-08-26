@@ -41,7 +41,7 @@ class TopProductGrid extends StatelessWidget {
             itemBuilder: (context, index) {
               final product = products[index];
               return ProductCard(
-                key: keys.homePage.prodcutCardKey,
+                key: keys.homePage.productCardKey,
                 product: product,
               );
             },
