@@ -76,7 +76,6 @@ class _VerifyEmailScreenBody extends StatefulWidget {
 class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
   Timer? _verificationListenTimer, _resendVerificationMailTimer;
 
-  // TODO: check this if it works:
   bool _isEmailVerified() =>
       FirebaseAuth.instance.currentUser?.emailVerified ?? false;
 
