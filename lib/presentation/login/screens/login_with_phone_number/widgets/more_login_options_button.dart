@@ -77,7 +77,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             },
           ),
 
-          /// TODO: Enable Apple Sign In while releasing next version
+          /// TODO: Enable Apple Sign In
           // if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
           //     Theme.of(context).platform == TargetPlatform.iOS) ...[
           //   const SizedBox(height: 16),

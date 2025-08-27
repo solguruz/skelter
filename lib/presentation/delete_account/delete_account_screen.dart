@@ -37,7 +37,6 @@ class DeleteAccountScreen extends StatelessWidget {
       context.showSnackBar(state.errorMessage ?? kSomethingWentWrong);
     } else if (state is DeleteAccountReAuthEmailPasswordRequiredState) {
       context.showSnackBar('Navigate to email password screen');
-      // TODO: Navigate to email/password screen after dynamic login implement.
     } else if (state is DeleteAccountReAuthPhoneRequiredState) {
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
       context.router.pushAndPopUntil(
@@ -45,7 +44,6 @@ class DeleteAccountScreen extends StatelessWidget {
         predicate: (_) => false,
       );
     } else if (state is DeleteAccountReAuthGoogleRequiredState) {
-      // TODO: Trigger Google re-authentication after dynamic setup google auth.
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
     }
   }

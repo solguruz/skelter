@@ -68,9 +68,9 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      if (_firebaseAuth?.currentUser != null) {
-        if (!(_firebaseAuth?.currentUser?.emailVerified ?? false)) {
-          await _firebaseAuth?.currentUser?.sendEmailVerification();
+      if (_firebaseAuth.currentUser != null) {
+        if (!(_firebaseAuth.currentUser?.emailVerified ?? false)) {
+          await _firebaseAuth.currentUser?.sendEmailVerification();
         } else {
           onError(kFirebaseAuthSessionEmailAlreadyInUse);
         }
@@ -376,7 +376,7 @@ class FirebaseAuthService {
     }
     debugPrint('FirebaseAuth error: $errorMessage');
     onError(errorMessage, stackTrace: stackTrace);
-    // TODO: uncommnet to enable crashlytics
+    // TODO: uncomment to enable crashlytics
     // FirebaseCrashlytics.instance.recordError(
     //   e,
     //   stackTrace ?? StackTrace.current,
