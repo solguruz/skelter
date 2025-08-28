@@ -9,263 +9,13 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get login_signup_signup => 'Sign up';
+  String get login_welcome_back => 'Welcome back!';
 
   @override
-  String get login_signup_accountNotFoundSignupMessage =>
-      'Account not found. Please sign up to create a new account.';
+  String get login_send_otp => 'Send OTP';
 
   @override
-  String get login_signup_invalidEmailAddressErrorMessage =>
-      'Please enter a valid email address';
-
-  @override
-  String get login_signup_sendPasswordResetLinkButton =>
-      'Send password reset link';
-
-  @override
-  String get login_signup_needMoreHelp => 'Need more help?';
-
-  @override
-  String get login_signup_passwordResetLinkSentMessage =>
-      'Password reset link sent!';
-
-  @override
-  String get login_signup_checkEmailInstructionsMessage =>
-      'Please check your inbox and follow the\ninstructions in the email';
-
-  @override
-  String get login_signup_goBackToSignIn => 'Go back to Sign in';
-
-  @override
-  String get login_signup_cap_help => 'Help';
-
-  @override
-  String get login_signup_birthdayQuestionPrompt => 'When\'s your birthday?';
-
-  @override
-  String get login_signup_cap_birthdate => 'Birthdate';
-
-  @override
-  String get login_signup_passionsQuestionPrompt => 'What are your passions?';
-
-  @override
-  String get login_signup_interestsSelectionPrompt =>
-      'Choose some interests to help us curate your feed and recommendations';
-
-  @override
-  String get login_signup_pronounsQuestionPrompt => 'What are your pronouns?';
-
-  @override
-  String get login_signup_cap_skip => 'Skip';
-
-  @override
-  String get login_signup_setUpYourProfile => 'Create your profile';
-
-  @override
-  String get login_signup_addAProfilePicture => 'Add a profile picture';
-
-  @override
-  String get login_signup_cap_save => 'Save';
-
-  @override
-  String get login_signup_realPhotoRecognitionPrompt =>
-      'Help your friends recognize you by using a real photo of yourself';
-
-  @override
-  String get login_signup_emailVerificationRequired =>
-      'Email Verification Required';
-
-  @override
-  String get login_signup_verificationEmailSentMessage =>
-      'We\'ve sent you a verification email. Please verify your account.';
-
-  @override
-  String get login_signup_cap_submit => 'Submit';
-
-  @override
-  String get login_signup_forgotPassword => 'Forgot password?';
-
-  @override
-  String get login_signup_userAlreadyExists => 'User already exists';
-
-  @override
-  String get login_signup_usernameMinimumLengthErrorMessage =>
-      'Username should at least be 5 characters';
-
-  @override
-  String get login_signup_tryAgainInFewSecondsMessage =>
-      'Please try again in few seconds';
-
-  @override
-  String get login_signup_yourPassword => 'Your password';
-
-  @override
-  String get login_signup_cap_refresh => 'Refresh';
-
-  @override
-  String get login_signup_cap_resend => 'Resend';
-
-  @override
-  String get login_signup_continueWithGoogle => 'Sign in with Google';
-
-  @override
-  String get login_signup_continueWithApple => 'Sign in with Apple';
-
-  @override
-  String get login_signup_continueWithEmailOrPhone =>
-      'Sign in with Email or Phone';
-
-  @override
-  String get login_signup_skipForNow => 'Skip for now';
-
-  @override
-  String get login_signup_enter_phone => 'Enter your phone number';
-
-  @override
-  String get login_signup_byContinuingYouAreAgreeingToUur =>
-      'By continuing, you are agreeing to our ';
-
-  @override
-  String get login_signup_termsAndConditions => 'Terms and Conditions';
-
-  @override
-  String get login_signup_dataFeesDisclaimer =>
-      ' and any data fees that may apply.';
-
-  @override
-  String get login_signup_noAccountFoundMessage =>
-      'Looks like you don’t have an account.\nTry a different number or ';
-
-  @override
-  String get login_signup_DoNotHaveAnAccount => 'Don\'t have an account? ';
-
-  @override
-  String get login_signup_signIn => 'Sign in';
-
-  @override
-  String get login_signup_createAnAccount => 'Create an account';
-
-  @override
-  String get login_signup_createAccount => 'Create account';
-
-  @override
-  String get login_signup_cap_phone => 'Phone';
-
-  @override
-  String get login_signup_sendVerificationCode => 'Get OTP';
-
-  @override
-  String get login_signup_phone_label => '10-Digit Phone number';
-
-  @override
-  String get login_signup_cap_continue => 'Continue';
-
-  @override
-  String get login_signup_emailCanNotBeEmpty => 'Email can\'t be empty';
-
-  @override
-  String get login_signup_passwordCanNotBeEmpty => 'Password can\'t be empty';
-
-  @override
-  String get login_signup_enterNumberToProceedMessage =>
-      'Please enter your number to sign proceed';
-
-  @override
-  String get login_signup_tooManyRequestsErrorMessage =>
-      'Too many requests, please try again later.';
-
-  @override
-  String get login_signup_resendEmail => 'Resend email';
-
-  @override
-  String get login_signup_verificationCode => 'Verification Code';
-
-  @override
-  String get login_signup_accountVerificationInstruction =>
-      'so we can verify your account';
-
-  @override
-  String get login_signup_emailVerificationSentMessage =>
-      'We have sent you an email verification to:';
-
-  @override
-  String get login_signup_emailSentMessage => 'We have sent you an email';
-
-  @override
-  String get login_signup_weakPassword => 'Weak password';
-
-  @override
-  String get login_signup_emailAlreadyInUse => 'Email already in use';
-
-  @override
-  String get login_signup_invalidCredentials => 'Invalid Credentials';
-
-  @override
-  String get login_signup_resendCode => 'Resend code';
-
-  @override
-  String login_signup_resendCodeTime(Object timeLeft) {
-    return 'Resend code (${timeLeft}s)';
-  }
-
-  @override
-  String get login_signup_verificationCodeSent => 'Verification code sent';
-
-  @override
-  String login_signup_enterOtpSentTo(Object phoneNumber) {
-    return 'Enter the 6 digit OTP sent to\n$phoneNumber';
-  }
-
-  @override
-  String get login_signup_looksLikeThisIsTheWrongCode =>
-      'Looks like this is the wrong code,\nPlease try again or get a new code';
-
-  @override
-  String get login_signup_signupWithPhoneOnly =>
-      'New accounts are created only using phone number';
-
-  @override
-  String get login_signup_enterName => 'Please enter your Name';
-
-  @override
-  String get otp_errors_number_not_valid =>
-      'The provided phone number is not valid.';
-
-  @override
-  String get otp_errors_too_many_requests =>
-      'Too many requests. We have temporarily blocked attempts from this device. Please try again later.';
-
-  @override
-  String get otp_errors_the_sms_code_expired => 'The SMS code has expired.';
-
-  @override
-  String get otp_errors_invalid_verification_code =>
-      'Invalid OTP code. Please try again.';
-
-  @override
-  String get otp_errors_phone_number_not_allowed =>
-      'Phone numbers from this country are not allowed.';
-
-  @override
-  String get otp_errors_oops_something_went_wrong =>
-      'Oops! Something went wrong.';
-
-  @override
-  String get otp_errors_network_request_failed =>
-      'Network error! Please check your internet connection and try again.';
-
-  @override
-  String get login_signup_login_to_app => 'Login to App';
-
-  @override
-  String get login_signup_welcome_back => 'Welcome back!';
-
-  @override
-  String get login_signup_send_otp => 'Send OTP';
-
-  @override
-  String get login_signup_enter_your_registered_phone_number =>
+  String get login_enter_your_registered_phone_number =>
       'Enter your registered phone number';
 
   @override
@@ -275,11 +25,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_signup_no_account => 'Don’t have an account? ';
 
   @override
-  String get login_signup_sign_up => 'Sign up';
+  String get signup_sign_up => 'Sign up';
 
   @override
   String get login_signup_agreement_info =>
-      'By continuing, you are acknowledge and accept our ';
+      'By continuing, you are acknowledge and accept our';
 
   @override
   String get login_signup_terms_and_conditions => 'Terms and Conditions';
@@ -303,13 +53,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_signup_continue_with_email => 'Continue with Email';
 
   @override
-  String get login_signup_login_with_phone => 'Login with phone number';
-
-  @override
   String get login_signup_mobile_number => 'Mobile number';
 
   @override
-  String get login_signup_continue => 'Continue';
+  String get login_continue => 'Continue';
 
   @override
   String get login_signup_enter_phone_number => 'Enter phone number';
@@ -321,16 +68,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_signup_sent_code_info => 'We’ve sent a 6-digit code to';
 
   @override
-  String get login_signup_error_invalid_otp => 'Invalid OTP. Please try again.';
-
-  @override
   String get login_signup_verify => 'Verify';
 
   @override
   String get login_signup_resend => 'Resend';
 
   @override
-  String get login_signup_login_with_email => 'Login with email';
+  String get login_login_with_email => 'Login with email';
 
   @override
   String get login_signup_email_hint => 'Enter email';
@@ -390,17 +134,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get login_signup_Phone_no_verified_info =>
       'Your Phone number has been successfully verified. You can now complete your profile.';
-
-  @override
-  String get login_signup_checking => 'Checking';
-
-  @override
-  String get login_signup_error_phone_number_not_registered =>
-      'Phone number is not registered, please sign up to continue';
-
-  @override
-  String get login_signup_phone_number_already_registered =>
-      'Welcome back! We found your phone number in our records. Please continue with the login.';
 
   @override
   String get login_signup_add_profile_picture => 'Add a profile picture';
@@ -513,20 +246,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_signup_search_by_country => 'Search by name or code';
 
   @override
-  String get login_signup_registration_complete => 'Registration complete!';
-
-  @override
-  String get login_signup_what_interest_you => 'What topics interest you?';
-
-  @override
-  String get login_signup_select_three_categories =>
-      'Select at least 3 topics to personalize your feed.';
-
-  @override
-  String get login_signup_email_already_in_use =>
-      'This email is already registered. Please log in or use a different email.';
-
-  @override
   String get login_signup_error_retrieving_phone_number =>
       'Error retrieving your phone number';
 
@@ -537,30 +256,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get login_signup_user_info_not_retrieved =>
       'User information could not be retrieved.';
-
-  @override
-  String get share_type_instagram => 'Instagram';
-
-  @override
-  String get share_type_x => 'X';
-
-  @override
-  String get share_type_facebook => 'Facebook';
-
-  @override
-  String get share_type_tiktok => 'Tiktok';
-
-  @override
-  String get share_type_snapchat => 'Snapchat';
-
-  @override
-  String get share_type_iMessage => 'iMessage';
-
-  @override
-  String get share_type_messages => 'Messages';
-
-  @override
-  String get share_type_whatsApp => 'WhatsApp';
 
   @override
   String get home => 'Home';
@@ -618,9 +313,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chat => 'Chat';
-
-  @override
-  String get faq => 'FAQ';
 
   @override
   String get today => 'Today';
@@ -722,12 +414,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_your_name => 'Enter your name';
 
   @override
-  String get enter_your_mobile_number => 'Enter Your Mobile Number';
-
-  @override
-  String get mobile_number => 'Mobile Number';
-
-  @override
   String get country => 'Country';
 
   @override
@@ -797,35 +483,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirm_and_pay => 'Confirm and Pay';
 
   @override
-  String get product_already_scanned => 'Product already scanned. Continue?';
-
-  @override
-  String get previous_scan_will_be_overwritten =>
-      'Previous scan will be overwritten.';
-
-  @override
   String get cancel => 'Cancel';
-
-  @override
-  String get cart_checkout_continue => 'Continue';
-
-  @override
-  String get add_certificate => 'Add Certificate';
-
-  @override
-  String get add_certificate_description =>
-      'Do You want to add lab tested certificate for this item?';
-
-  @override
-  String get proceed => 'Proceed';
-
-  @override
-  String get are_you_sure_want_to_delete =>
-      'Are you sure you want to delete this item?';
-
-  @override
-  String get delete_product_from_cart_description =>
-      'By deleting this, you will delete all relevent data connected to this';
 
   @override
   String get delete => 'Delete';
@@ -871,9 +529,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get back_to_home => 'Back to Home';
-
-  @override
-  String get name_required => 'Please enter your name';
 
   @override
   String get name_cannot_be_empty => 'Name can\'t be empty';
@@ -983,24 +638,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'The selected file is not a valid PDF. Please choose a proper PDF file to continue.';
 
   @override
-  String get image_cannot_be_empty => 'Please select at least one image';
-
-  @override
-  String get notifications_not_available => 'Notifications not available';
-
-  @override
   String get notifications_delete_successfully =>
       'Notification Delete Successfully';
 
   @override
-  String get internet_not_available =>
-      'No Internet Connection Found \nPlease check your inernet connection';
-
-  @override
   String get opps_something_went_wrong => 'Opps Something Went Wrong';
-
-  @override
-  String get view_product_reviews => 'View Product Reviews';
 
   @override
   String get price => 'Price';
@@ -1012,39 +654,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rating => 'Rating';
 
   @override
-  String ratingWithCount(num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Ratings',
-      one: 'Rating',
-    );
-    return '$count $_temp0';
-  }
-
-  @override
-  String get write_a_review => 'Write a Review';
-
-  @override
   String get star => 'Star';
-
-  @override
-  String star_count(Object count) {
-    return '$count Star';
-  }
-
-  @override
-  String get no_reviews_found => 'No reviews available for this product.';
-
-  @override
-  String get add_photo_or_video => 'Add a photo or video';
-
-  @override
-  String get write_your_review => 'Write your review';
-
-  @override
-  String get review_submited_message =>
-      'Your review has been submitted successfully.';
 
   @override
   String get notification_settings => 'Notification Settings';
@@ -1095,20 +705,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get account_deleted => 'Account Deleted!';
 
   @override
-  String get something_went_wrong => 'Something went wrong. Please try again.';
-
-  @override
-  String get delete_account_failed =>
-      'Account deletion failed. Please try again.';
-
-  @override
-  String get no_user_found => 'No user found.';
-
-  @override
-  String get reauth_required =>
-      'Please re-authenticate to delete your account.';
-
-  @override
   String get creating_new_account => 'Creating new account?';
 
   @override
@@ -1141,9 +737,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get microphone_permission_permanently_denied =>
       'Microphone permission is permanently denied. Please go to settings and enable it.';
-
-  @override
-  String get firebase_error => 'Firebase error';
 
   @override
   String get please_select_at_least_one_reason =>

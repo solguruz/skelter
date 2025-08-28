@@ -29,7 +29,7 @@ class SignUpButton extends StatelessWidget {
           children: [
             TextSpan(text: context.localization.login_signup_no_account),
             TextSpan(
-              text: context.localization.login_signup_sign_up,
+              text: context.localization.signup_sign_up,
               style:
                   AppTextStyles.p2Bold.withColor(AppColors.textBrandSecondary),
               recognizer: TapGestureRecognizer()
