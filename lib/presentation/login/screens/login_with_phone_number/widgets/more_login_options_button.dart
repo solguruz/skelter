@@ -108,7 +108,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           AppButton(
             label: isSignup
                 ? context.localization.login_signup_login
-                : context.localization.login_signup_sign_up,
+                : context.localization.signup_sign_up,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             size: AppButtonSize.extraLarge,

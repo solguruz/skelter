@@ -139,13 +139,23 @@ class $AssetsImagesGen {
   AssetGenImage get mastercard =>
       const AssetGenImage('assets/images/mastercard.png');
 
+  /// File path: assets/images/sg_skelter_boilerplate.png
+  AssetGenImage get sgSkelterBoilerplate =>
+      const AssetGenImage('assets/images/sg_skelter_boilerplate.png');
+
   /// File path: assets/images/sg_skelter_logo.png
   AssetGenImage get sgSkelterLogo =>
       const AssetGenImage('assets/images/sg_skelter_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [cartItem1, cartItem2, demoUser, mastercard, sgSkelterLogo];
+  List<AssetGenImage> get values => [
+        cartItem1,
+        cartItem2,
+        demoUser,
+        mastercard,
+        sgSkelterBoilerplate,
+        sgSkelterLogo
+      ];
 }
 
 class $AssetsTestGen {

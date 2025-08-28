@@ -62,7 +62,7 @@ import 'app_localizations_en.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -85,470 +85,32 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @login_signup_signup.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign up'**
-  String get login_signup_signup;
-
-  /// No description provided for @login_signup_accountNotFoundSignupMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Account not found. Please sign up to create a new account.'**
-  String get login_signup_accountNotFoundSignupMessage;
-
-  /// No description provided for @login_signup_invalidEmailAddressErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid email address'**
-  String get login_signup_invalidEmailAddressErrorMessage;
-
-  /// No description provided for @login_signup_sendPasswordResetLinkButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Send password reset link'**
-  String get login_signup_sendPasswordResetLinkButton;
-
-  /// No description provided for @login_signup_needMoreHelp.
-  ///
-  /// In en, this message translates to:
-  /// **'Need more help?'**
-  String get login_signup_needMoreHelp;
-
-  /// No description provided for @login_signup_passwordResetLinkSentMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Password reset link sent!'**
-  String get login_signup_passwordResetLinkSentMessage;
-
-  /// No description provided for @login_signup_checkEmailInstructionsMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Please check your inbox and follow the\ninstructions in the email'**
-  String get login_signup_checkEmailInstructionsMessage;
-
-  /// No description provided for @login_signup_goBackToSignIn.
-  ///
-  /// In en, this message translates to:
-  /// **'Go back to Sign in'**
-  String get login_signup_goBackToSignIn;
-
-  /// No description provided for @login_signup_cap_help.
-  ///
-  /// In en, this message translates to:
-  /// **'Help'**
-  String get login_signup_cap_help;
-
-  /// No description provided for @login_signup_birthdayQuestionPrompt.
-  ///
-  /// In en, this message translates to:
-  /// **'When\'s your birthday?'**
-  String get login_signup_birthdayQuestionPrompt;
-
-  /// No description provided for @login_signup_cap_birthdate.
-  ///
-  /// In en, this message translates to:
-  /// **'Birthdate'**
-  String get login_signup_cap_birthdate;
-
-  /// No description provided for @login_signup_passionsQuestionPrompt.
-  ///
-  /// In en, this message translates to:
-  /// **'What are your passions?'**
-  String get login_signup_passionsQuestionPrompt;
-
-  /// No description provided for @login_signup_interestsSelectionPrompt.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose some interests to help us curate your feed and recommendations'**
-  String get login_signup_interestsSelectionPrompt;
-
-  /// No description provided for @login_signup_pronounsQuestionPrompt.
-  ///
-  /// In en, this message translates to:
-  /// **'What are your pronouns?'**
-  String get login_signup_pronounsQuestionPrompt;
-
-  /// No description provided for @login_signup_cap_skip.
-  ///
-  /// In en, this message translates to:
-  /// **'Skip'**
-  String get login_signup_cap_skip;
-
-  /// No description provided for @login_signup_setUpYourProfile.
-  ///
-  /// In en, this message translates to:
-  /// **'Create your profile'**
-  String get login_signup_setUpYourProfile;
-
-  /// No description provided for @login_signup_addAProfilePicture.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a profile picture'**
-  String get login_signup_addAProfilePicture;
-
-  /// No description provided for @login_signup_cap_save.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get login_signup_cap_save;
-
-  /// No description provided for @login_signup_realPhotoRecognitionPrompt.
-  ///
-  /// In en, this message translates to:
-  /// **'Help your friends recognize you by using a real photo of yourself'**
-  String get login_signup_realPhotoRecognitionPrompt;
-
-  /// No description provided for @login_signup_emailVerificationRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Email Verification Required'**
-  String get login_signup_emailVerificationRequired;
-
-  /// No description provided for @login_signup_verificationEmailSentMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'We\'ve sent you a verification email. Please verify your account.'**
-  String get login_signup_verificationEmailSentMessage;
-
-  /// No description provided for @login_signup_cap_submit.
-  ///
-  /// In en, this message translates to:
-  /// **'Submit'**
-  String get login_signup_cap_submit;
-
-  /// No description provided for @login_signup_forgotPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Forgot password?'**
-  String get login_signup_forgotPassword;
-
-  /// No description provided for @login_signup_userAlreadyExists.
-  ///
-  /// In en, this message translates to:
-  /// **'User already exists'**
-  String get login_signup_userAlreadyExists;
-
-  /// No description provided for @login_signup_usernameMinimumLengthErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Username should at least be 5 characters'**
-  String get login_signup_usernameMinimumLengthErrorMessage;
-
-  /// No description provided for @login_signup_tryAgainInFewSecondsMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Please try again in few seconds'**
-  String get login_signup_tryAgainInFewSecondsMessage;
-
-  /// No description provided for @login_signup_yourPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Your password'**
-  String get login_signup_yourPassword;
-
-  /// No description provided for @login_signup_cap_refresh.
-  ///
-  /// In en, this message translates to:
-  /// **'Refresh'**
-  String get login_signup_cap_refresh;
-
-  /// No description provided for @login_signup_cap_resend.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend'**
-  String get login_signup_cap_resend;
-
-  /// No description provided for @login_signup_continueWithGoogle.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign in with Google'**
-  String get login_signup_continueWithGoogle;
-
-  /// No description provided for @login_signup_continueWithApple.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign in with Apple'**
-  String get login_signup_continueWithApple;
-
-  /// No description provided for @login_signup_continueWithEmailOrPhone.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign in with Email or Phone'**
-  String get login_signup_continueWithEmailOrPhone;
-
-  /// No description provided for @login_signup_skipForNow.
-  ///
-  /// In en, this message translates to:
-  /// **'Skip for now'**
-  String get login_signup_skipForNow;
-
-  /// No description provided for @login_signup_enter_phone.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter your phone number'**
-  String get login_signup_enter_phone;
-
-  /// No description provided for @login_signup_byContinuingYouAreAgreeingToUur.
-  ///
-  /// In en, this message translates to:
-  /// **'By continuing, you are agreeing to our '**
-  String get login_signup_byContinuingYouAreAgreeingToUur;
-
-  /// No description provided for @login_signup_termsAndConditions.
-  ///
-  /// In en, this message translates to:
-  /// **'Terms and Conditions'**
-  String get login_signup_termsAndConditions;
-
-  /// No description provided for @login_signup_dataFeesDisclaimer.
-  ///
-  /// In en, this message translates to:
-  /// **' and any data fees that may apply.'**
-  String get login_signup_dataFeesDisclaimer;
-
-  /// No description provided for @login_signup_noAccountFoundMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Looks like you don’t have an account.\nTry a different number or '**
-  String get login_signup_noAccountFoundMessage;
-
-  /// No description provided for @login_signup_DoNotHaveAnAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Don\'t have an account? '**
-  String get login_signup_DoNotHaveAnAccount;
-
-  /// No description provided for @login_signup_signIn.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign in'**
-  String get login_signup_signIn;
-
-  /// No description provided for @login_signup_createAnAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Create an account'**
-  String get login_signup_createAnAccount;
-
-  /// No description provided for @login_signup_createAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Create account'**
-  String get login_signup_createAccount;
-
-  /// No description provided for @login_signup_cap_phone.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone'**
-  String get login_signup_cap_phone;
-
-  /// No description provided for @login_signup_sendVerificationCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Get OTP'**
-  String get login_signup_sendVerificationCode;
-
-  /// No description provided for @login_signup_phone_label.
-  ///
-  /// In en, this message translates to:
-  /// **'10-Digit Phone number'**
-  String get login_signup_phone_label;
-
-  /// No description provided for @login_signup_cap_continue.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue'**
-  String get login_signup_cap_continue;
-
-  /// No description provided for @login_signup_emailCanNotBeEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Email can\'t be empty'**
-  String get login_signup_emailCanNotBeEmpty;
-
-  /// No description provided for @login_signup_passwordCanNotBeEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Password can\'t be empty'**
-  String get login_signup_passwordCanNotBeEmpty;
-
-  /// No description provided for @login_signup_enterNumberToProceedMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your number to sign proceed'**
-  String get login_signup_enterNumberToProceedMessage;
-
-  /// No description provided for @login_signup_tooManyRequestsErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Too many requests, please try again later.'**
-  String get login_signup_tooManyRequestsErrorMessage;
-
-  /// No description provided for @login_signup_resendEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend email'**
-  String get login_signup_resendEmail;
-
-  /// No description provided for @login_signup_verificationCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Verification Code'**
-  String get login_signup_verificationCode;
-
-  /// No description provided for @login_signup_accountVerificationInstruction.
-  ///
-  /// In en, this message translates to:
-  /// **'so we can verify your account'**
-  String get login_signup_accountVerificationInstruction;
-
-  /// No description provided for @login_signup_emailVerificationSentMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'We have sent you an email verification to:'**
-  String get login_signup_emailVerificationSentMessage;
-
-  /// No description provided for @login_signup_emailSentMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'We have sent you an email'**
-  String get login_signup_emailSentMessage;
-
-  /// No description provided for @login_signup_weakPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Weak password'**
-  String get login_signup_weakPassword;
-
-  /// No description provided for @login_signup_emailAlreadyInUse.
-  ///
-  /// In en, this message translates to:
-  /// **'Email already in use'**
-  String get login_signup_emailAlreadyInUse;
-
-  /// No description provided for @login_signup_invalidCredentials.
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid Credentials'**
-  String get login_signup_invalidCredentials;
-
-  /// No description provided for @login_signup_resendCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend code'**
-  String get login_signup_resendCode;
-
-  /// No description provided for @login_signup_resendCodeTime.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend code ({timeLeft}s)'**
-  String login_signup_resendCodeTime(Object timeLeft);
-
-  /// No description provided for @login_signup_verificationCodeSent.
-  ///
-  /// In en, this message translates to:
-  /// **'Verification code sent'**
-  String get login_signup_verificationCodeSent;
-
-  /// No description provided for @login_signup_enterOtpSentTo.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter the 6 digit OTP sent to\n{phoneNumber}'**
-  String login_signup_enterOtpSentTo(Object phoneNumber);
-
-  /// No description provided for @login_signup_looksLikeThisIsTheWrongCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Looks like this is the wrong code,\nPlease try again or get a new code'**
-  String get login_signup_looksLikeThisIsTheWrongCode;
-
-  /// No description provided for @login_signup_signupWithPhoneOnly.
-  ///
-  /// In en, this message translates to:
-  /// **'New accounts are created only using phone number'**
-  String get login_signup_signupWithPhoneOnly;
-
-  /// No description provided for @login_signup_enterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your Name'**
-  String get login_signup_enterName;
-
-  /// No description provided for @otp_errors_number_not_valid.
-  ///
-  /// In en, this message translates to:
-  /// **'The provided phone number is not valid.'**
-  String get otp_errors_number_not_valid;
-
-  /// No description provided for @otp_errors_too_many_requests.
-  ///
-  /// In en, this message translates to:
-  /// **'Too many requests. We have temporarily blocked attempts from this device. Please try again later.'**
-  String get otp_errors_too_many_requests;
-
-  /// No description provided for @otp_errors_the_sms_code_expired.
-  ///
-  /// In en, this message translates to:
-  /// **'The SMS code has expired.'**
-  String get otp_errors_the_sms_code_expired;
-
-  /// No description provided for @otp_errors_invalid_verification_code.
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid OTP code. Please try again.'**
-  String get otp_errors_invalid_verification_code;
-
-  /// No description provided for @otp_errors_phone_number_not_allowed.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone numbers from this country are not allowed.'**
-  String get otp_errors_phone_number_not_allowed;
-
-  /// No description provided for @otp_errors_oops_something_went_wrong.
-  ///
-  /// In en, this message translates to:
-  /// **'Oops! Something went wrong.'**
-  String get otp_errors_oops_something_went_wrong;
-
-  /// No description provided for @otp_errors_network_request_failed.
-  ///
-  /// In en, this message translates to:
-  /// **'Network error! Please check your internet connection and try again.'**
-  String get otp_errors_network_request_failed;
-
-  /// No description provided for @login_signup_login_to_app.
-  ///
-  /// In en, this message translates to:
-  /// **'Login to App'**
-  String get login_signup_login_to_app;
-
-  /// No description provided for @login_signup_welcome_back.
+  /// No description provided for @login_welcome_back.
   ///
   /// In en, this message translates to:
   /// **'Welcome back!'**
-  String get login_signup_welcome_back;
+  String get login_welcome_back;
 
-  /// No description provided for @login_signup_send_otp.
+  /// No description provided for @login_send_otp.
   ///
   /// In en, this message translates to:
   /// **'Send OTP'**
-  String get login_signup_send_otp;
+  String get login_send_otp;
 
-  /// No description provided for @login_signup_enter_your_registered_phone_number.
+  /// No description provided for @login_enter_your_registered_phone_number.
   ///
   /// In en, this message translates to:
   /// **'Enter your registered phone number'**
-  String get login_signup_enter_your_registered_phone_number;
+  String get login_enter_your_registered_phone_number;
 
   /// No description provided for @login_signup_or.
   ///
@@ -562,16 +124,16 @@ abstract class AppLocalizations {
   /// **'Don’t have an account? '**
   String get login_signup_no_account;
 
-  /// No description provided for @login_signup_sign_up.
+  /// No description provided for @signup_sign_up.
   ///
   /// In en, this message translates to:
   /// **'Sign up'**
-  String get login_signup_sign_up;
+  String get signup_sign_up;
 
   /// No description provided for @login_signup_agreement_info.
   ///
   /// In en, this message translates to:
-  /// **'By continuing, you are acknowledge and accept our '**
+  /// **'By continuing, you are acknowledge and accept our'**
   String get login_signup_agreement_info;
 
   /// No description provided for @login_signup_terms_and_conditions.
@@ -616,23 +178,17 @@ abstract class AppLocalizations {
   /// **'Continue with Email'**
   String get login_signup_continue_with_email;
 
-  /// No description provided for @login_signup_login_with_phone.
-  ///
-  /// In en, this message translates to:
-  /// **'Login with phone number'**
-  String get login_signup_login_with_phone;
-
   /// No description provided for @login_signup_mobile_number.
   ///
   /// In en, this message translates to:
   /// **'Mobile number'**
   String get login_signup_mobile_number;
 
-  /// No description provided for @login_signup_continue.
+  /// No description provided for @login_continue.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
-  String get login_signup_continue;
+  String get login_continue;
 
   /// No description provided for @login_signup_enter_phone_number.
   ///
@@ -652,12 +208,6 @@ abstract class AppLocalizations {
   /// **'We’ve sent a 6-digit code to'**
   String get login_signup_sent_code_info;
 
-  /// No description provided for @login_signup_error_invalid_otp.
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid OTP. Please try again.'**
-  String get login_signup_error_invalid_otp;
-
   /// No description provided for @login_signup_verify.
   ///
   /// In en, this message translates to:
@@ -670,11 +220,11 @@ abstract class AppLocalizations {
   /// **'Resend'**
   String get login_signup_resend;
 
-  /// No description provided for @login_signup_login_with_email.
+  /// No description provided for @login_login_with_email.
   ///
   /// In en, this message translates to:
   /// **'Login with email'**
-  String get login_signup_login_with_email;
+  String get login_login_with_email;
 
   /// No description provided for @login_signup_email_hint.
   ///
@@ -783,24 +333,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your Phone number has been successfully verified. You can now complete your profile.'**
   String get login_signup_Phone_no_verified_info;
-
-  /// No description provided for @login_signup_checking.
-  ///
-  /// In en, this message translates to:
-  /// **'Checking'**
-  String get login_signup_checking;
-
-  /// No description provided for @login_signup_error_phone_number_not_registered.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone number is not registered, please sign up to continue'**
-  String get login_signup_error_phone_number_not_registered;
-
-  /// No description provided for @login_signup_phone_number_already_registered.
-  ///
-  /// In en, this message translates to:
-  /// **'Welcome back! We found your phone number in our records. Please continue with the login.'**
-  String get login_signup_phone_number_already_registered;
 
   /// No description provided for @login_signup_add_profile_picture.
   ///
@@ -1006,30 +538,6 @@ abstract class AppLocalizations {
   /// **'Search by name or code'**
   String get login_signup_search_by_country;
 
-  /// No description provided for @login_signup_registration_complete.
-  ///
-  /// In en, this message translates to:
-  /// **'Registration complete!'**
-  String get login_signup_registration_complete;
-
-  /// No description provided for @login_signup_what_interest_you.
-  ///
-  /// In en, this message translates to:
-  /// **'What topics interest you?'**
-  String get login_signup_what_interest_you;
-
-  /// No description provided for @login_signup_select_three_categories.
-  ///
-  /// In en, this message translates to:
-  /// **'Select at least 3 topics to personalize your feed.'**
-  String get login_signup_select_three_categories;
-
-  /// No description provided for @login_signup_email_already_in_use.
-  ///
-  /// In en, this message translates to:
-  /// **'This email is already registered. Please log in or use a different email.'**
-  String get login_signup_email_already_in_use;
-
   /// No description provided for @login_signup_error_retrieving_phone_number.
   ///
   /// In en, this message translates to:
@@ -1047,54 +555,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'User information could not be retrieved.'**
   String get login_signup_user_info_not_retrieved;
-
-  /// No description provided for @share_type_instagram.
-  ///
-  /// In en, this message translates to:
-  /// **'Instagram'**
-  String get share_type_instagram;
-
-  /// No description provided for @share_type_x.
-  ///
-  /// In en, this message translates to:
-  /// **'X'**
-  String get share_type_x;
-
-  /// No description provided for @share_type_facebook.
-  ///
-  /// In en, this message translates to:
-  /// **'Facebook'**
-  String get share_type_facebook;
-
-  /// No description provided for @share_type_tiktok.
-  ///
-  /// In en, this message translates to:
-  /// **'Tiktok'**
-  String get share_type_tiktok;
-
-  /// No description provided for @share_type_snapchat.
-  ///
-  /// In en, this message translates to:
-  /// **'Snapchat'**
-  String get share_type_snapchat;
-
-  /// No description provided for @share_type_iMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'iMessage'**
-  String get share_type_iMessage;
-
-  /// No description provided for @share_type_messages.
-  ///
-  /// In en, this message translates to:
-  /// **'Messages'**
-  String get share_type_messages;
-
-  /// No description provided for @share_type_whatsApp.
-  ///
-  /// In en, this message translates to:
-  /// **'WhatsApp'**
-  String get share_type_whatsApp;
 
   /// No description provided for @home.
   ///
@@ -1209,12 +669,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Chat'**
   String get chat;
-
-  /// No description provided for @faq.
-  ///
-  /// In en, this message translates to:
-  /// **'FAQ'**
-  String get faq;
 
   /// No description provided for @today.
   ///
@@ -1396,18 +850,6 @@ abstract class AppLocalizations {
   /// **'Enter your name'**
   String get enter_your_name;
 
-  /// No description provided for @enter_your_mobile_number.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter Your Mobile Number'**
-  String get enter_your_mobile_number;
-
-  /// No description provided for @mobile_number.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile Number'**
-  String get mobile_number;
-
   /// No description provided for @country.
   ///
   /// In en, this message translates to:
@@ -1528,59 +970,11 @@ abstract class AppLocalizations {
   /// **'Confirm and Pay'**
   String get confirm_and_pay;
 
-  /// No description provided for @product_already_scanned.
-  ///
-  /// In en, this message translates to:
-  /// **'Product already scanned. Continue?'**
-  String get product_already_scanned;
-
-  /// No description provided for @previous_scan_will_be_overwritten.
-  ///
-  /// In en, this message translates to:
-  /// **'Previous scan will be overwritten.'**
-  String get previous_scan_will_be_overwritten;
-
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
-
-  /// No description provided for @cart_checkout_continue.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue'**
-  String get cart_checkout_continue;
-
-  /// No description provided for @add_certificate.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Certificate'**
-  String get add_certificate;
-
-  /// No description provided for @add_certificate_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Do You want to add lab tested certificate for this item?'**
-  String get add_certificate_description;
-
-  /// No description provided for @proceed.
-  ///
-  /// In en, this message translates to:
-  /// **'Proceed'**
-  String get proceed;
-
-  /// No description provided for @are_you_sure_want_to_delete.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete this item?'**
-  String get are_you_sure_want_to_delete;
-
-  /// No description provided for @delete_product_from_cart_description.
-  ///
-  /// In en, this message translates to:
-  /// **'By deleting this, you will delete all relevent data connected to this'**
-  String get delete_product_from_cart_description;
 
   /// No description provided for @delete.
   ///
@@ -1665,12 +1059,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to Home'**
   String get back_to_home;
-
-  /// No description provided for @name_required.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your name'**
-  String get name_required;
 
   /// No description provided for @name_cannot_be_empty.
   ///
@@ -1858,41 +1246,17 @@ abstract class AppLocalizations {
   /// **'The selected file is not a valid PDF. Please choose a proper PDF file to continue.'**
   String get unsupported_file_format_error;
 
-  /// No description provided for @image_cannot_be_empty.
-  ///
-  /// In en, this message translates to:
-  /// **'Please select at least one image'**
-  String get image_cannot_be_empty;
-
-  /// No description provided for @notifications_not_available.
-  ///
-  /// In en, this message translates to:
-  /// **'Notifications not available'**
-  String get notifications_not_available;
-
   /// No description provided for @notifications_delete_successfully.
   ///
   /// In en, this message translates to:
   /// **'Notification Delete Successfully'**
   String get notifications_delete_successfully;
 
-  /// No description provided for @internet_not_available.
-  ///
-  /// In en, this message translates to:
-  /// **'No Internet Connection Found \nPlease check your inernet connection'**
-  String get internet_not_available;
-
   /// No description provided for @opps_something_went_wrong.
   ///
   /// In en, this message translates to:
   /// **'Opps Something Went Wrong'**
   String get opps_something_went_wrong;
-
-  /// No description provided for @view_product_reviews.
-  ///
-  /// In en, this message translates to:
-  /// **'View Product Reviews'**
-  String get view_product_reviews;
 
   /// No description provided for @price.
   ///
@@ -1912,53 +1276,11 @@ abstract class AppLocalizations {
   /// **'Rating'**
   String get rating;
 
-  /// No description provided for @ratingWithCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} {count, plural, =1{Rating} other{Ratings}}'**
-  String ratingWithCount(num count);
-
-  /// No description provided for @write_a_review.
-  ///
-  /// In en, this message translates to:
-  /// **'Write a Review'**
-  String get write_a_review;
-
   /// No description provided for @star.
   ///
   /// In en, this message translates to:
   /// **'Star'**
   String get star;
-
-  /// No description provided for @star_count.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} Star'**
-  String star_count(Object count);
-
-  /// No description provided for @no_reviews_found.
-  ///
-  /// In en, this message translates to:
-  /// **'No reviews available for this product.'**
-  String get no_reviews_found;
-
-  /// No description provided for @add_photo_or_video.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a photo or video'**
-  String get add_photo_or_video;
-
-  /// No description provided for @write_your_review.
-  ///
-  /// In en, this message translates to:
-  /// **'Write your review'**
-  String get write_your_review;
-
-  /// No description provided for @review_submited_message.
-  ///
-  /// In en, this message translates to:
-  /// **'Your review has been submitted successfully.'**
-  String get review_submited_message;
 
   /// No description provided for @notification_settings.
   ///
@@ -2050,30 +1372,6 @@ abstract class AppLocalizations {
   /// **'Account Deleted!'**
   String get account_deleted;
 
-  /// No description provided for @something_went_wrong.
-  ///
-  /// In en, this message translates to:
-  /// **'Something went wrong. Please try again.'**
-  String get something_went_wrong;
-
-  /// No description provided for @delete_account_failed.
-  ///
-  /// In en, this message translates to:
-  /// **'Account deletion failed. Please try again.'**
-  String get delete_account_failed;
-
-  /// No description provided for @no_user_found.
-  ///
-  /// In en, this message translates to:
-  /// **'No user found.'**
-  String get no_user_found;
-
-  /// No description provided for @reauth_required.
-  ///
-  /// In en, this message translates to:
-  /// **'Please re-authenticate to delete your account.'**
-  String get reauth_required;
-
   /// No description provided for @creating_new_account.
   ///
   /// In en, this message translates to:
@@ -2134,12 +1432,6 @@ abstract class AppLocalizations {
   /// **'Microphone permission is permanently denied. Please go to settings and enable it.'**
   String get microphone_permission_permanently_denied;
 
-  /// No description provided for @firebase_error.
-  ///
-  /// In en, this message translates to:
-  /// **'Firebase error'**
-  String get firebase_error;
-
   /// No description provided for @please_select_at_least_one_reason.
   ///
   /// In en, this message translates to:
@@ -2184,8 +1476,9 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
 }

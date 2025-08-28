@@ -39,7 +39,7 @@ class SendOTPButton extends StatelessWidget {
       key: keys.signInPage.sendOTPButton,
       label: isSignup
           ? context.localization.login_signup_next
-          : context.localization.login_signup_send_otp,
+          : context.localization.login_send_otp,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: phoneNumberOnly.isNotEmpty

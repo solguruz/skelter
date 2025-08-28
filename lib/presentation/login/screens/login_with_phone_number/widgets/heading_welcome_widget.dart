@@ -28,15 +28,14 @@ class HeadingWelcomeWidget extends StatelessWidget {
         Text(
           isSignup
               ? context.localization.login_signup_signup_lets_get_started
-              : context.localization.login_signup_welcome_back,
+              : context.localization.login_welcome_back,
           style: AppTextStyles.h2Bold,
           textAlign: TextAlign.center,
         ),
         Text(
           isSignup
               ? context.localization.login_signup_signup_lets_get_started_info
-              : context
-                  .localization.login_signup_enter_your_registered_phone_number,
+              : context.localization.login_enter_your_registered_phone_number,
           style: AppTextStyles.p2Regular,
           textAlign: TextAlign.center,
         ),
