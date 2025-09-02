@@ -5,6 +5,14 @@
 A comprehensive Flutter skelter project incorporating best practices, modern architecture, and
 boiler plate code for rapid application development.
 
+## 📚 Explore Our Documentation
+
+- Accelerate your development with resources designed to help you build better and faster.  
+- For **detailed guides, configuration setup, and best practices**, visit our documentation:
+
+## 🔗 Get Started
+👉 [**Explore the Skelter Docs**](https://example.domain/skeleton-docs/docs/intro)
+
 ## Technology Stack
 
 - **Flutter Version:** ^3.32.0
