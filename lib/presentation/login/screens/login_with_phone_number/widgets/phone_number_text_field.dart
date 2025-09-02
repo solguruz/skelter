@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
@@ -78,11 +79,12 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            context.localization.login_signup_mobile_number,
+            context.localization.mobile_number,
             style: AppTextStyles.p3Medium,
           ),
           const SizedBox(height: 8),
           InternationalPhoneNumberInput(
+            key: keys.signInPage.mobileNoTextField,
             textFieldController: _phoneInputController,
             focusNode: _focusNode,
             textStyle: AppTextStyles.p3Medium
@@ -90,7 +92,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             selectorTextStyle: const TextStyle(fontWeight: FontWeight.w500),
             initialValue: phoneNumberData,
             inputDecoration: InputDecoration(
-              hintText: context.localization.login_signup_enter_phone_number,
+              hintText: context.localization.enter_phone_number,
               hintStyle: AppTextStyles.p3Medium
                   .copyWith(color: AppColors.textNeutralDisable),
               errorStyle: AppTextStyles.p4Regular
@@ -145,7 +147,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
     final maxWidth = MediaQuery.sizeOf(context).width - 28;
 
     return InputDecoration(
-      hintText: context.localization.login_signup_search_by_country,
+      hintText: context.localization.search_by_name_or_code,
       hintStyle:
           AppTextStyles.p3Medium.copyWith(color: AppColors.textNeutralDisable),
       border: buildOutlineInputBorder(),

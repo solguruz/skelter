@@ -12,7 +12,7 @@ class ContinueLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.localization.login_signup_continue,
+      label: context.localization.login_continue,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       onPressed: () {

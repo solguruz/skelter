@@ -28,6 +28,7 @@ class VerifyEmailScreen extends StatefulWidget {
     required this.email,
     this.isSignUp = false,
   });
+
   final bool isSignUp;
 
   final String email;
@@ -64,6 +65,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
 class _VerifyEmailScreenBody extends StatefulWidget {
   const _VerifyEmailScreenBody({required this.email, required this.isSignUp});
+
   final bool isSignUp;
   final String email;
 
@@ -74,7 +76,6 @@ class _VerifyEmailScreenBody extends StatefulWidget {
 class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
   Timer? _verificationListenTimer, _resendVerificationMailTimer;
 
-  // TODO: check this if it works:
   bool _isEmailVerified() =>
       FirebaseAuth.instance.currentUser?.emailVerified ?? false;
 
@@ -121,13 +122,13 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                 SvgPicture.asset(Assets.icons.emailNotification),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.login_signup_verify_your_email,
+                  context.localization.signup_verify_your_email,
                   style: AppTextStyles.h2Bold,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.login_signup_link_verify_info(
+                  context.localization.signup_link_verify_info(
                     widget.email,
                   ),
                   style: AppTextStyles.p2Medium,

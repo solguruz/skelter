@@ -42,6 +42,7 @@ class ForgotPasswordV2Screen extends StatelessWidget {
 
 class ForgotPasswordV2ScreenBody extends StatelessWidget {
   const ForgotPasswordV2ScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -54,7 +55,7 @@ class ForgotPasswordV2ScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.localization.login_signup_forgot_password,
+              context.localization.login_forgot_password,
               style: AppTextStyles.h2Bold,
             ),
           ),

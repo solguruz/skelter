@@ -13,6 +13,7 @@ class SendEmailVerificationLinkEvent extends VerifyEmailEvent {
 class InitialEvent extends VerifyEmailEvent {
   final String email;
   final bool isSignUp;
+
   const InitialEvent({required this.email, required this.isSignUp});
 
   @override
@@ -31,6 +32,7 @@ class VerificationCodeFailedToSendEvent extends VerifyEmailEvent {
 
 class ChangeUserDetailsInputStatusEvent extends VerifyEmailEvent {
   final UserDetailsInputStatus status;
+
   const ChangeUserDetailsInputStatusEvent({required this.status});
 
   @override
@@ -39,6 +41,7 @@ class ChangeUserDetailsInputStatusEvent extends VerifyEmailEvent {
 
 class ResendVerificationEmailTimeLeftEvent extends VerifyEmailEvent {
   final int resendTimeLeft;
+
   const ResendVerificationEmailTimeLeftEvent({required this.resendTimeLeft});
 
   @override

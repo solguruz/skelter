@@ -42,7 +42,7 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
         }
       },
       child: Scaffold(
-        appBar: const LoginAppBar(),
+        appBar: const LoginAppBar(removeLeading: false),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: BlocProvider<LoginBloc>.value(
@@ -88,13 +88,13 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            context.localization.login_signup_enter_otp,
+            context.localization.enter_otp,
             textAlign: TextAlign.center,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 10),
           Text(
-            '${context.localization.login_signup_sent_code_info} '
+            '${context.localization.sent_code_info} '
             '$phoneNumber',
             textAlign: TextAlign.center,
             style: AppTextStyles.p2Medium,

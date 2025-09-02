@@ -9,6 +9,7 @@ PODS:
     - GoogleUtilities/Environment (~> 8.0)
     - GoogleUtilities/UserDefaults (~> 8.0)
     - PromisesObjC (~> 2.4)
+  - CocoaAsyncSocket (7.6.5)
   - connectivity_plus (0.0.1):
     - Flutter
   - DKImagePickerController/Core (4.3.9):
@@ -247,6 +248,10 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - patrol (0.0.1):
+    - CocoaAsyncSocket (~> 7.6)
+    - Flutter
+    - FlutterMacOS
   - permission_handler_apple (9.3.0):
     - Flutter
   - PhoneNumberKit (3.8.0):
@@ -300,6 +305,7 @@ DEPENDENCIES:
   - libphonenumber_plugin (from `.symlinks/plugins/libphonenumber_plugin/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - patrol (from `.symlinks/plugins/patrol/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - PhoneNumberKit (= 3.8.0)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -313,6 +319,7 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - AppCheckCore
+    - CocoaAsyncSocket
     - DKImagePickerController
     - DKPhotoGallery
     - Firebase
@@ -382,6 +389,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  patrol:
+    :path: ".symlinks/plugins/patrol/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
   shared_preferences_foundation:
@@ -400,16 +409,17 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   AppCheckCore: cc8fd0a3a230ddd401f326489c99990b013f0c4f
-  connectivity_plus: cb623214f4e1f6ef8fe7403d580fdad517d2f7dd
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  connectivity_plus: 2a701ffec2c0ae28a48cf7540e279787e77c447d
   DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
   DKPhotoGallery: b3834fecb755ee09a593d7c9e389d8b5d6deed60
-  file_picker: a0560bc09d61de87f12d246fc47d2119e6ef37be
+  file_picker: b159e0c068aef54932bb15dc9fd1571818edaf49
   Firebase: 800d487043c0557d9faed71477a38d9aafb08a41
-  firebase_analytics: cd56fc56f75c1df30a6ff5290cd56e230996a76d
-  firebase_auth: 4734e8223034e214039a9a805ff2cfb323223e34
-  firebase_core: 633e1851ffe1b9ab875f6467a4f574c79cef02e4
-  firebase_crashlytics: 2c6c1a17900a38081d938330e9f48e60ec5b255d
-  firebase_remote_config: ce17e27739e9fa1a5a41a70319c5ce3f792788d4
+  firebase_analytics: 2d63841132d444fad3d3e71682dc0072ae2aaf08
+  firebase_auth: 4e5ee3c9daf2aa6feec1f3596e2f12daf4b30c09
+  firebase_core: c70f903d70ec229c08c2f49aba5a8c1338546d40
+  firebase_crashlytics: f5df4d26483758138b386e0db8a704e5b7ba6543
+  firebase_remote_config: f137e220690596eb50e2724d6c85a14c5c8c092a
   FirebaseABTesting: 2cad22e464cd7ef4589ae29f897bc71ff83ce83b
   FirebaseAnalytics: 6d790cd1b159b4eb61a99948df0934ce505a34f7
   FirebaseAppCheckInterop: c848d06a04030c9858ef0ae555b82035dbe470d0
@@ -425,10 +435,10 @@ SPEC CHECKSUMS:
   FirebaseSessions: 4e784acda213108aafef536535cdfc03504acc42
   FirebaseSharedSwift: 59266c22ccfcef604d725c034c568fa666ea9bda
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_fgbg: d3da78df78454b1808f0829a5da9cd17dfe16444
-  flutter_localization: 72299fb6cb4e51cae587bd953ed0b958040b71e6
-  flutter_native_splash: c32d145d68aeda5502d5f543ee38c192065986cf
-  google_sign_in_ios: b48bb9af78576358a168361173155596c845f0b9
+  flutter_fgbg: 31c0d1140a131daea2d342121808f6aa0dcd879d
+  flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
+  flutter_native_splash: df59bb2e1421aa0282cb2e95618af4dcb0c56c29
+  google_sign_in_ios: 7411fab6948df90490dc4620ecbcabdc3ca04017
   GoogleAdsOnDeviceConversion: 2be6297a4f048459e0ae17fad9bfd2844e10cf64
   GoogleAppMeasurement: 8f6ab04ad6ae493b53fcf56bd26323fb2f1384f3
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
@@ -436,28 +446,29 @@ SPEC CHECKSUMS:
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
-  image_cropper: c4326ea50132b1e1564499e5d32a84f01fb03537
-  image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
-  libphonenumber_plugin: d134f173b22bfa5ede50887071f087f309277f8c
+  image_cropper: e0bb0042e4404ff2ef134e5cf0492cbd892156cd
+  image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
+  libphonenumber_plugin: 48bf4078546377eedaab4aa54978cd0f6fa23072
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
-  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
-  permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
+  package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  patrol: 5a504c6012be7a84369231475ede1fce6e777268
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   PhoneNumberKit: ec00ab8cef5342c1dc49fadb99d23fa7e66cf0ef
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
   SDWebImage: f29024626962457f3470184232766516dee8dfea
-  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
-  sign_in_with_apple: c5dcc141574c8c54d5ac99dd2163c0c72ad22418
-  sms_autofill: b36b2147535657fea83d7f3898d7831de70bd8e4
-  speech_to_text: 9dc43a5df3cbc2813f8c7cc9bd0fbf94268ed7ac
-  sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  sign_in_with_apple: f3bf75217ea4c2c8b91823f225d70230119b8440
+  sms_autofill: c461043483362c3f1709ee76eaae6eb570b31686
+  speech_to_text: 627d3fd2194770b51abb324ba45c2d39398f24a8
+  sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
   SwiftyGif: 706c60cf65fa2bc5ee0313beece843c8eb8194d4
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   Try: 5ef669ae832617b3cee58cb2c6f99fb767a4ff96
-  url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
-PODFILE CHECKSUM: 9bf644302b593f513aa3b0ce7ea6bad211a4551a
+PODFILE CHECKSUM: 61e7fd29c901218c87de911b4be99ae05a369744
 
 COCOAPODS: 1.16.2

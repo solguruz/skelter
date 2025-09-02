@@ -61,9 +61,7 @@ class CreateYourPasswordScreen extends StatelessWidget {
     BuildContext context,
   ) {
     final String error = state.authenticationErrorMessage;
-    context.showSnackBar(
-      error.isNullOrEmpty() ? kSomethingWentWrong : error,
-    );
+    context.showSnackBar(error.isNullOrEmpty() ? kSomethingWentWrong : error);
   }
 }
 
@@ -77,7 +75,7 @@ class _CreateYourPasswordScreenBody extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           Text(
-            context.localization.login_signup_create_your_password,
+            context.localization.signup_create_your_password,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 25),

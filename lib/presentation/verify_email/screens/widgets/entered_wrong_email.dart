@@ -11,6 +11,7 @@ import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EnteredWrongEmail extends StatelessWidget {
   const EnteredWrongEmail({super.key});
+
   @override
   Widget build(BuildContext context) {
     final bool isSignup = context.select<VerifyEmailBloc, bool>(
@@ -27,10 +28,10 @@ class EnteredWrongEmail extends StatelessWidget {
               AppTextStyles.p2Medium.withColor(AppColors.textNeutralSecondary),
           children: [
             TextSpan(
-              text: context.localization.login_signup_entered_wrong_email,
+              text: context.localization.signup_entered_wrong_email,
             ),
             TextSpan(
-              text: context.localization.login_signup_change_email,
+              text: context.localization.change_email,
               style:
                   AppTextStyles.p2Bold.withColor(AppColors.textBrandSecondary),
               recognizer: TapGestureRecognizer()

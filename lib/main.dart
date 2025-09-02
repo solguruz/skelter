@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sizer/sizer.dart';
@@ -12,6 +13,7 @@ import 'package:skelter/initialize_app.dart';
 import 'package:skelter/routes.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
@@ -22,7 +24,9 @@ void main() {
     await initializeApp();
     runApp(const MainApp());
   }, (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    if (!AppEnvironment.isTestEnvironment && !kIsWeb) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    }
   });
 }
 
@@ -48,10 +52,9 @@ class _MainAppState extends State<MainApp> {
 
   Future<void> handleConnectivityStatusChange() async {
     final isConnected = _connectivityHelper.onConnectivityChange.value;
+    await Future.delayed(const Duration(milliseconds: 300));
 
     if (!isConnected) {
-      await Future.delayed(const Duration(milliseconds: 300));
-
       final stillDisconnected = !_connectivityHelper.onConnectivityChange.value;
       if (!stillDisconnected) return;
       await rootNavigatorKey.currentContext!.pushRoute(const NoInternetRoute());
@@ -65,12 +68,6 @@ class _MainAppState extends State<MainApp> {
     if (navigator.canPop()) {
       navigator.pop();
     }
-  }
-
-  @override
-  void dispose() {
-    InternetConnectivityHelper().dispose();
-    super.dispose();
   }
 
   @override

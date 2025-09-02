@@ -72,6 +72,7 @@ dev_dependencies:
   bloc_test: ^9.1.7
   alchemist: ^0.12.1
   mocktail_image_network: ^1.2.0
+  patrol: ^3.19.0
 
 flutter_native_splash:
   color: "#ffffff"
@@ -129,6 +130,10 @@ flutter:
         - asset: assets/fonts/Inter/Inter-Thin.ttf
           weight: 600
 
-    # - family: Roboto
-    #   fonts:
-    #     - asset: test/fonts/Roboto-Regular.ttf
+patrol:
+  app_name: Flutter Skeleton
+  flavors: dev
+  android:
+    package_name: com.solguruz.skelter.dev
+  ios:
+    bundle_id: com.solguruz.skelter.dev

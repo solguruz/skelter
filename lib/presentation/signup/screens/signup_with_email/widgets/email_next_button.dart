@@ -22,7 +22,7 @@ class EmailNextButton extends StatelessWidget {
     );
 
     return AppButton(
-      label: context.localization.login_signup_next,
+      label: context.localization.next,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: email.isNotEmpty ? AppButtonState.normal : AppButtonState.disabled,

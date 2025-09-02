@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -34,7 +33,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.localization.login_signup_continue_with_email,
+            label: context.localization.login_continue_with_email,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.mail,
@@ -57,7 +56,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.localization.login_signup_continue_with_google,
+            label: context.localization.login_continue_with_google,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIconPath: Assets.icons.google.path,
@@ -77,37 +76,39 @@ class MoreLoginOptionsButton extends StatelessWidget {
               context.read<LoginBloc>().add(LoginWithGoogleEvent());
             },
           ),
-          if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
-              Theme.of(context).platform == TargetPlatform.iOS) ...[
-            const SizedBox(height: 16),
-            AppButton(
-              label: context.localization.login_signup_continue_with_apple,
-              shouldSetFullWidth: true,
-              style: AppButtonStyle.outline,
-              leftIconPath: Assets.icons.apple,
-              size: AppButtonSize.extraLarge,
-              onPressed: () async {
-                final isConnected =
-                    InternetConnectivityHelper().onConnectivityChange.value;
 
-                if (!isConnected && context.mounted) {
-                  context.showSnackBar(
-                    context.localization.no_internet_connection,
-                  );
-                  return;
-                }
-                context
-                    .read<LoginBloc>()
-                    .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
-                context.read<LoginBloc>().add(LoginWithAppleEvent());
-              },
-            ),
-          ],
+          /// TODO: Enable Apple Sign In
+          // if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
+          //     Theme.of(context).platform == TargetPlatform.iOS) ...[
+          //   const SizedBox(height: 16),
+          //   AppButton(
+          //     label: context.localization.login_signup_continue_with_apple,
+          //     shouldSetFullWidth: true,
+          //     style: AppButtonStyle.outline,
+          //     leftIconPath: Assets.icons.apple,
+          //     size: AppButtonSize.extraLarge,
+          //     onPressed: () async {
+          //       final isConnected =
+          //           InternetConnectivityHelper().onConnectivityChange.value;
+          //
+          //       if (!isConnected && context.mounted) {
+          //         context.showSnackBar(
+          //           context.localization.no_internet_connection,
+          //         );
+          //         return;
+          //       }
+          //       context
+          //           .read<LoginBloc>()
+          //           .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
+          //       context.read<LoginBloc>().add(LoginWithAppleEvent());
+          //     },
+          //   ),
+          // ],
           const SizedBox(height: 16),
           AppButton(
             label: isSignup
-                ? context.localization.login_signup_login
-                : context.localization.login_signup_sign_up,
+                ? context.localization.login
+                : context.localization.signup_sign_up,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             size: AppButtonSize.extraLarge,

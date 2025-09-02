@@ -62,17 +62,26 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       hasError = true;
       add(
         EmailErrorEvent(
-          error: localizations.login_signup_email_cant_be_empty,
+          error: localizations.email_cant_be_empty,
         ),
       );
     } else if (!kEmailRegex.hasMatch(state.email)) {
       hasError = true;
-      add(EmailErrorEvent(error: localizations.login_signup_invalid_email));
+      add(EmailErrorEvent(error: localizations.invalid_email));
     }
 
     if (state.description.trim().isEmpty) {
       hasError = true;
       add(DescriptionErrorEvent(error: localizations.message_cannot_be_empty));
+    } else if (state.description.trim().length >
+        ContactUsScreen.kMessageMaxLength) {
+      hasError = true;
+      add(
+        DescriptionErrorEvent(
+          error:
+              localizations.messageTooLong(ContactUsScreen.kMessageMaxLength),
+        ),
+      );
     }
 
     final areFilesMissing = (state.selectedPdfs?.isEmpty ?? true) &&

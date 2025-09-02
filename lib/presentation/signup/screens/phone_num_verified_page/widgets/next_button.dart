@@ -11,7 +11,7 @@ class NextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.localization.login_signup_next,
+      label: context.localization.next,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       onPressed: () {

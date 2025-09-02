@@ -40,7 +40,10 @@ class ProfileScreenBody extends StatelessWidget {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) async {
         if (state is SignOutState) {
-          await context.router.replaceAll([LoginWithPhoneNumberRoute()]);
+          await context.router.pushAndPopUntil(
+            LoginWithPhoneNumberRoute(),
+            predicate: (_) => false,
+          );
         } else if (state is SignOutErrorState) {
           _showSignOutError(state, context);
         }

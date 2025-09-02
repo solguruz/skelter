@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/domain/entities/product.dart';
 import 'package:skelter/presentation/home/widgets/empty_search_view.dart';
@@ -39,7 +40,10 @@ class TopProductGrid extends StatelessWidget {
             itemCount: products.take(6).length,
             itemBuilder: (context, index) {
               final product = products[index];
-              return ProductCard(product: product);
+              return ProductCard(
+                key: keys.homePage.productCardKey,
+                product: product,
+              );
             },
           );
   }

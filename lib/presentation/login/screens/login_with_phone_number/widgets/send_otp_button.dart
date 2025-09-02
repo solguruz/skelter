@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
@@ -35,9 +36,10 @@ class SendOTPButton extends StatelessWidget {
     }
 
     return AppButton(
+      key: keys.signInPage.sendOTPButton,
       label: isSignup
-          ? context.localization.login_signup_next
-          : context.localization.login_signup_send_otp,
+          ? context.localization.next
+          : context.localization.login_send_otp,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: phoneNumberOnly.isNotEmpty
