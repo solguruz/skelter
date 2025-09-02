@@ -22,7 +22,7 @@ class EditButton extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width / 2,
       child: AppButton(
-        label: context.localization.login_signup_edit,
+        label: context.localization.edit,
         size: AppButtonSize.extraLarge,
         style: AppButtonStyle.outline,
         shouldSetFullWidth: true,

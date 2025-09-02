@@ -46,7 +46,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
             SvgPicture.asset(Assets.icons.tick),
             const SizedBox(height: 18),
             Text(
-              context.localization.login_signup_Phone_no_verified,
+              context.localization.signup_phone_no_verified,
               style: AppTextStyles.h2Bold,
               textAlign: TextAlign.center,
             ),
@@ -54,7 +54,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Text(
-                context.localization.login_signup_Phone_no_verified_info,
+                context.localization.signup_phone_no_verified_info,
                 style: AppTextStyles.p2Medium,
                 textAlign: TextAlign.center,
               ),

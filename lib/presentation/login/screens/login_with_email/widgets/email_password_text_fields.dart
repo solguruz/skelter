@@ -55,14 +55,14 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            context.localization.login_signup_email,
+            context.localization.email,
             style: AppTextStyles.p3Medium,
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _emailController,
             decoration: InputDecoration(
-              hintText: context.localization.login_signup_email_hint,
+              hintText: context.localization.email_hint,
               hintStyle: AppTextStyles.p3Medium.withColor(
                 AppColors.textNeutralDisable,
               ),
@@ -74,7 +74,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
           ),
           const SizedBox(height: 16),
           Text(
-            context.localization.login_signup_password,
+            context.localization.password,
             style: AppTextStyles.p3Medium,
           ),
           const SizedBox(height: 8),
@@ -82,7 +82,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             controller: _passwordController,
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
-              hintText: context.localization.login_signup_password_hint,
+              hintText: context.localization.password_hint,
               hintStyle: AppTextStyles.p3Medium.withColor(
                 AppColors.textNeutralDisable,
               ),

@@ -27,7 +27,7 @@ class SignUpButton extends StatelessWidget {
           style:
               AppTextStyles.p2Medium.withColor(AppColors.textNeutralSecondary),
           children: [
-            TextSpan(text: context.localization.login_signup_no_account),
+            TextSpan(text: context.localization.signup_no_account),
             TextSpan(
               text: context.localization.signup_sign_up,
               style:
