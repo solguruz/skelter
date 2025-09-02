@@ -62,12 +62,12 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       hasError = true;
       add(
         EmailErrorEvent(
-          error: localizations.login_signup_email_cant_be_empty,
+          error: localizations.email_cant_be_empty,
         ),
       );
     } else if (!kEmailRegex.hasMatch(state.email)) {
       hasError = true;
-      add(EmailErrorEvent(error: localizations.login_signup_invalid_email));
+      add(EmailErrorEvent(error: localizations.invalid_email));
     }
 
     if (state.description.trim().isEmpty) {

@@ -478,8 +478,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       emit(
         state.copyWith(
           phoneNumberLoginState: phoneNumberLoginState.copyWith(
-            phoneNumErrorMessage:
-                localizations.login_signup_invalid_mobile_number,
+            phoneNumErrorMessage: localizations.login_invalid_mobile_number,
           ),
         ),
       );

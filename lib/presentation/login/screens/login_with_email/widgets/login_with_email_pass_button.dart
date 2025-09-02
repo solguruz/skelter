@@ -32,7 +32,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
     );
 
     return AppButton(
-      label: context.localization.login_signup_login,
+      label: context.localization.login,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: email.isNotEmpty && _isPasswordLongEnough(password)
@@ -63,8 +63,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
         if (password == null || password.isEmpty) {
           context.read<LoginBloc>().add(
                 PasswordErrorEvent(
-                  errorMessage:
-                      context.localization.login_signup_password_cant_be_empty,
+                  errorMessage: context.localization.password_cant_be_empty,
                 ),
               );
           shouldReturn = true;

@@ -26,7 +26,7 @@ class PasswordNextButton extends StatelessWidget {
     );
 
     return AppButton(
-      label: context.localization.login_signup_next,
+      label: context.localization.next,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: confirmPassword.isNotEmpty && isPasswordValid

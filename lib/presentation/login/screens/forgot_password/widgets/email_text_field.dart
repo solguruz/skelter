@@ -56,14 +56,14 @@ class _EmailTextFieldState extends State<EmailTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.login_signup_email,
+          context.localization.email,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _emailController,
           decoration: InputDecoration(
-            hintText: context.localization.login_signup_email_hint,
+            hintText: context.localization.email_hint,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.textNeutralDisable,
             ),
