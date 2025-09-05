@@ -552,10 +552,15 @@ class LoginWithEmailPasswordRoute
   LoginWithEmailPasswordRoute({
     _i34.Key? key,
     required _i35.LoginBloc loginBloc,
+    bool isFromDeleteAccount = false,
     List<_i33.PageRouteInfo>? children,
   }) : super(
           LoginWithEmailPasswordRoute.name,
-          args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          args: LoginWithEmailPasswordRouteArgs(
+            key: key,
+            loginBloc: loginBloc,
+            isFromDeleteAccount: isFromDeleteAccount,
+          ),
           initialChildren: children,
         );
 
@@ -568,32 +573,42 @@ class LoginWithEmailPasswordRoute
       return _i18.LoginWithEmailPasswordScreen(
         key: args.key,
         loginBloc: args.loginBloc,
+        isFromDeleteAccount: args.isFromDeleteAccount,
       );
     },
   );
 }
 
 class LoginWithEmailPasswordRouteArgs {
-  const LoginWithEmailPasswordRouteArgs({this.key, required this.loginBloc});
+  const LoginWithEmailPasswordRouteArgs({
+    this.key,
+    required this.loginBloc,
+    this.isFromDeleteAccount = false,
+  });
 
   final _i34.Key? key;
 
   final _i35.LoginBloc loginBloc;
 
+  final bool isFromDeleteAccount;
+
   @override
   String toString() {
-    return 'LoginWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
+    return 'LoginWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc, isFromDeleteAccount: $isFromDeleteAccount}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! LoginWithEmailPasswordRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
+    return key == other.key &&
+        loginBloc == other.loginBloc &&
+        isFromDeleteAccount == other.isFromDeleteAccount;
   }
 
   @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
+  int get hashCode =>
+      key.hashCode ^ loginBloc.hashCode ^ isFromDeleteAccount.hashCode;
 }
 
 /// generated route for

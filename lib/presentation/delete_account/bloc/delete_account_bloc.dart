@@ -61,7 +61,8 @@ class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
         final providerList =
             user?.providerData.map((p) => p.providerId).toList() ?? [];
 
-        if (error == kFirebaseAuthRequiresRecentLogin) {
+        if (error == kFirebaseAuthRequiresRecentLogin ||
+            error == kEmailPasswordReAuthRequired) {
           if (providerList.contains(kProviderPassword)) {
             emit(
               state.copyWith(
