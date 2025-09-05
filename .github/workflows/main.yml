@@ -141,7 +141,32 @@ jobs:
           dart pub global activate flutterfire_cli
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
 
-      # 5. ANDROID SIGNING AND BUILD ─────────────
+      # 5. SonarQube Analysis ─────────────
+      # Run Flutter test with coverage
+      - name: Run tests and collect coverage
+        run: flutter test --coverage
+
+      # Run SonarQube Scanner for code quality analysis and upload report to sonarqube server
+      - name: 4.5 Run SonarQube Scanner
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarqube.solz.me
+        with:
+          args: >
+            -Dsonar.projectKey=Skelter-Flutter
+            -Dsonar.projectName=Skelter-Flutter
+            -Dsonar.sources=lib
+            -Dsonar.tests=test
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.exclusions=test/**/*_test.mocks.dart,lib/**/*.g.dart
+            -Dsonar.dart.analyzer.mode=DETECT
+            -Dsonar.dart.analyzer.options.override=false
+            -Dsonar.flutter.coverage.reportPath=coverage/lcov.info
+            -Dsonar.flutter.tests.reportPath=test-report.xml          
+
+
+      # 6. ANDROID SIGNING AND BUILD ─────────────
       # Decode Android keystore (fail-fast)
       - name: 5.1 Decode Android Keystore
         run: |
@@ -170,7 +195,7 @@ jobs:
           flutter build apk --flavor stage --dart-define=APP_FLAVOR=STAGE --release
           flutter build apk --flavor prod --dart-define=APP_FLAVOR=PROD --release
 
-      # 6. iOS SETUP ─────────────────────────────
+      # 7. iOS SETUP ─────────────────────────────
       # Set up Xcode environment
       - name: 6.1 Setup Xcode environment
         uses: maxim-lobanov/setup-xcode@v1.6.0
@@ -185,7 +210,7 @@ jobs:
           pod install --repo-update
           cd ..
 
-      # 7. iOS CERTIFICATES, PROFILES, AND BUILD ─────────────────────
+      # 8. iOS CERTIFICATES, PROFILES, AND BUILD ─────────────────────
       # --- DEV FLAVOR ---
       # Decode dev certificates and ExportOptions (fail-fast)
       - name: 7.1.1 Decode iOS Certificates & Profiles (dev)
@@ -275,7 +300,7 @@ jobs:
           IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
           mv "$IPA" build/ios/ipa/app-prod.ipa
 
-      # 8. UPLOAD ARTIFACTS ──────────────────────
+      # 9. UPLOAD ARTIFACTS ──────────────────────
       # Upload Android dev APK
       - name: 8.1 Upload APK (dev)
         if: success()
@@ -342,7 +367,7 @@ jobs:
             build/**/failures/**/*
           if-no-files-found: ignore
 
-      # 9. Cleanup secrets and keychain ─────────────────────
+      # 10. Cleanup secrets and keychain ─────────────────────
       # Explicitly remove sensitive/temporary files including .env (fail-fast)
       - name: 9. Cleanup secrets and keychain
         if: always()
