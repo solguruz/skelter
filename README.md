@@ -2,6 +2,17 @@
 
 # Skelter Project
 
+![Quality gate](https://sonarqube.solz.me/api/project_badges/quality_gate?project=Skelter-Flutter&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+<br>
+![Quality Gate Status](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=alert_status&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Maintainability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Reliability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_reliability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Maintainability Issues](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_issues&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Reliability Issues](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_reliability_issues&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Coverage](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=coverage&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Lines of Code](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=ncloc&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+![Duplicated Lines (%)](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=duplicated_lines_density&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+
 A comprehensive Flutter skelter project incorporating best practices, modern architecture, and
 boiler plate code for rapid application development.
 
