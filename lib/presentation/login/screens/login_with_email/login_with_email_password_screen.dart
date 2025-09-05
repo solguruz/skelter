@@ -18,7 +18,12 @@ import 'package:skelter/utils/extensions/string.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {
-  const LoginWithEmailPasswordScreen({super.key, required this.loginBloc});
+  final bool isFromDeleteAccount;
+  const LoginWithEmailPasswordScreen({
+    super.key,
+    required this.loginBloc,
+    this.isFromDeleteAccount = false,
+  });
 
   final LoginBloc loginBloc;
 
@@ -44,7 +49,11 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
                   if (state is AuthenticationExceptionState) {
                     _showAuthenticationError(state, context);
                   } else if (state is NavigateToHomeScreenState) {
-                    context.router.popUntilRoot();
+                    if (isFromDeleteAccount) {
+                      await context.router.replace(const DeleteAccountRoute());
+                    } else {
+                      context.router.popUntilRoot();
+                    }
                   } else if (state is NavigateToEmailVerifyScreenState) {
                     await context.router.push(
                       VerifyEmailRoute(
