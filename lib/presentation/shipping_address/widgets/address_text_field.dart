@@ -32,20 +32,20 @@ class _AddressTextFieldState extends State<AddressTextField> {
           controller: _addressTextController,
           decoration: InputDecoration(
             hintText: context.localization.enter_your_address,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,
             counterText: '',
             suffix: Text(
               '${_addressTextController.text.length}/250',
-              style: AppTextStyles.p3Regular.withColor(
-                AppColors.textNeutralDisable,
+              style: AppTextStyles.p3Regular.copyWith(
+                color: AppColors.textNeutralDisable,
               ),
             ),
-            counterStyle: AppTextStyles.p3Regular.withColor(
-              AppColors.textNeutralDisable,
+            counterStyle: AppTextStyles.p3Regular.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
           ),
           textInputAction: TextInputAction.newline,

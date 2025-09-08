@@ -38,8 +38,8 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
               controller: _fullNameController,
               decoration: InputDecoration(
                 hintText: context.localization.send_a_new_message,
-                hintStyle: AppTextStyles.p3Medium.withColor(
-                  AppColors.textNeutralDisable,
+                hintStyle: AppTextStyles.p3Medium.copyWith(
+                  color: AppColors.textNeutralDisable,
                 ),
                 errorStyle: AppTextStyles.p3Regular,
                 errorMaxLines: 2,

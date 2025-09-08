@@ -59,8 +59,8 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
           controller: _nameController,
           decoration: InputDecoration(
             hintText: context.localization.enter_your_name,
-            hintStyle:
-                AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
+            hintStyle: AppTextStyles.p2Medium
+                .copyWith(color: AppColors.textNeutralDisable),
             errorText: nameError.isNullOrEmpty() ? null : nameError,
           ),
           textInputAction: TextInputAction.next,

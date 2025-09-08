@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -632,10 +631,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signup_sign_up => 'Sign up';
 
   @override
-  String get signup_sign_up_with_email => 'Sign up with Email';
+  String get signup_sign_up_with_apple => 'Sign up with Apple';
 
   @override
-  String get signup_sign_up_with_apple => 'Sign up with Apple';
+  String get signup_sign_up_with_email => 'Sign up with Email';
 
   @override
   String get signup_sign_up_with_google => 'Sign up with Google';

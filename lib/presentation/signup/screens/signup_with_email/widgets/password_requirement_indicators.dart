@@ -84,8 +84,8 @@ class _RequirementRow extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           text,
-          style: AppTextStyles.p4Regular.withColor(
-            isValid
+          style: AppTextStyles.p4Regular.copyWith(
+            color: isValid
                 ? AppColors.textSuccessSecondary
                 : AppColors.textNeutralSecondary,
           ),

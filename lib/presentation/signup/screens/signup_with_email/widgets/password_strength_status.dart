@@ -34,14 +34,14 @@ class PasswordStrengthStatus extends StatelessWidget {
       children: [
         Text(
           context.localization.signup_password_strength,
-          style: AppTextStyles.p4Medium.withColor(
-            AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Medium.copyWith(
+            color: AppColors.textNeutralSecondary,
           ),
         ),
         Text(
           ' $strengthLabel',
-          style: AppTextStyles.p4Bold.withColor(
-            AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Bold.copyWith(
+            color: AppColors.textNeutralSecondary,
           ),
         ),
       ],

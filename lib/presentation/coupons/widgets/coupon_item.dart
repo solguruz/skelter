@@ -42,7 +42,8 @@ class CouponItem extends StatelessWidget {
                     right: 20,
                     child: Text(
                       'FREEDELIVERY',
-                      style: AppTextStyles.p3Bold.withColor(AppColors.white),
+                      style:
+                          AppTextStyles.p3Bold.copyWith(color: AppColors.white),
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
@@ -69,8 +70,8 @@ class CouponItem extends StatelessWidget {
           Text(
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam '
             'nonumy eirmod tempor invidunt ut labore et dolore',
-            style: AppTextStyles.p4Regular.withColor(
-              AppColors.textNeutralSecondary,
+            style: AppTextStyles.p4Regular.copyWith(
+              color: AppColors.textNeutralSecondary,
             ),
           ),
         ],

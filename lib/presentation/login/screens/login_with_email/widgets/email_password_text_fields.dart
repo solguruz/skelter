@@ -63,8 +63,8 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             controller: _emailController,
             decoration: InputDecoration(
               hintText: context.localization.email_hint,
-              hintStyle: AppTextStyles.p3Medium.withColor(
-                AppColors.textNeutralDisable,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
               ),
               errorText:
                   emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
@@ -83,8 +83,8 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
               hintText: context.localization.password_hint,
-              hintStyle: AppTextStyles.p3Medium.withColor(
-                AppColors.textNeutralDisable,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
               ),
               errorText: passwordErrorMessage.isNullOrEmpty()
                   ? null

@@ -48,14 +48,15 @@ class RepliedTo extends StatelessWidget {
                   repliedToMessage?.isSentByMe ?? false
                       ? context.localization.you
                       : '${chatUser?.name}',
-                  style: AppTextStyles.p4Medium.withColor(AppColors.brand500),
+                  style: AppTextStyles.p4Medium
+                      .copyWith(color: AppColors.brand500),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 Text(
                   repliedToMessage?.message ?? '',
-                  style:
-                      AppTextStyles.p3Regular.withColor(AppColors.neutral900),
+                  style: AppTextStyles.p3Regular
+                      .copyWith(color: AppColors.neutral900),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),

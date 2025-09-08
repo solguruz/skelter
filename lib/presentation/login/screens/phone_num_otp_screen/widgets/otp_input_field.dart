@@ -92,8 +92,8 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           pinAnimationType: PinAnimationType.fade,
           forceErrorState: true,
           errorText: errorText.isNullOrEmpty() ? null : errorText,
-          errorTextStyle: AppTextStyles.p4Regular.withColor(
-            AppColors.textErrorSecondary,
+          errorTextStyle: AppTextStyles.p4Regular.copyWith(
+            color: AppColors.textErrorSecondary,
           ),
           onChanged: (pin) {
             if (errorText.haveContent()) {

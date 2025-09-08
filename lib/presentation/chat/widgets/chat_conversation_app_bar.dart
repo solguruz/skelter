@@ -36,7 +36,7 @@ class ChatConversationAppBar extends StatelessWidget
                 Text(
                   'Last seen 04:00 pm',
                   style: AppTextStyles.p4Medium
-                      .withColor(AppColors.textNeutralSecondary),
+                      .copyWith(color: AppColors.textNeutralSecondary),
                 ),
               ],
             ),
