@@ -279,6 +279,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get login_ask_forgot_password => 'Forgot password?';
+
+  @override
   String get login_check_your_email => 'Check Your Email';
 
   @override
@@ -304,12 +307,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_forgot_password => 'Forgot password';
 
   @override
+  String get login_invalid_mobile_number => 'Invalid mobile number';
+
+  @override
   String login_link_send_info(Object email) {
     return 'A reset link has been sent to $email. Please check your inbox and click the link to reset the password.';
   }
-
-  @override
-  String get login_ask_forgot_password => 'Forgot password?';
 
   @override
   String get login_login_with_email => 'Login with email';
@@ -319,9 +322,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get login_send_reset_link => 'Send Reset Link';
-
-  @override
-  String get login_invalid_mobile_number => 'Invalid mobile number';
 
   @override
   String get login_welcome_back => 'Welcome back!';
@@ -480,6 +480,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get search_by_name_or_code => 'Search by name or code';
+
+  @override
+  String get secure_connection_failed_message =>
+      'We couldn\'t connect securely to our server. Please try again later, or check if app update available.';
+
+  @override
+  String get secure_connection_failed_title => 'Secure Connection Failed!';
 
   @override
   String get see_all => 'See All';
@@ -694,6 +701,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get try_again => 'Try Again';
+
+  @override
+  String get update_app => 'Update App';
 
   @override
   String get under_maintenance => 'App is Under Maintenance !';

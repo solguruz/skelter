@@ -31,4 +31,15 @@ class AppConfig {
         return dotenv.env['PROD_API_BASE_URL'] ?? '';
     }
   }
+
+  static String getDioCertHash() {
+    switch (appFlavor) {
+      case AppFlavor.dev:
+        return dotenv.env['CERT_HASH_DEV']?.trim() ?? '';
+      case AppFlavor.stage:
+        return dotenv.env['CERT_HASH_STAGE']?.trim() ?? '';
+      case AppFlavor.prod:
+        return dotenv.env['CERT_HASH_PROD']?.trim() ?? '';
+    }
+  }
 }

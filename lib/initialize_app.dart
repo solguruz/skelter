@@ -49,5 +49,6 @@ Future<void> initializeApp({FirebaseAuth? firebaseAuth, Dio? dio}) async {
   ]);
 
   await dotenv.load();
+
   await configureDependencies(firebaseAuth: firebaseAuth, dio: dio);
 }

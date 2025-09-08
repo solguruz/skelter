@@ -62,7 +62,7 @@ import 'app_localizations_en.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -85,11 +85,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
@@ -592,6 +592,12 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @login_ask_forgot_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get login_ask_forgot_password;
+
   /// No description provided for @login_check_your_email.
   ///
   /// In en, this message translates to:
@@ -640,17 +646,17 @@ abstract class AppLocalizations {
   /// **'Forgot password'**
   String get login_forgot_password;
 
+  /// No description provided for @login_invalid_mobile_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid mobile number'**
+  String get login_invalid_mobile_number;
+
   /// No description provided for @login_link_send_info.
   ///
   /// In en, this message translates to:
   /// **'A reset link has been sent to {email}. Please check your inbox and click the link to reset the password.'**
   String login_link_send_info(Object email);
-
-  /// No description provided for @login_ask_forgot_password.
-  ///
-  /// In en, this message translates to:
-  /// **'Forgot password?'**
-  String get login_ask_forgot_password;
 
   /// No description provided for @login_login_with_email.
   ///
@@ -669,12 +675,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send Reset Link'**
   String get login_send_reset_link;
-
-  /// No description provided for @login_invalid_mobile_number.
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid mobile number'**
-  String get login_invalid_mobile_number;
 
   /// No description provided for @login_welcome_back.
   ///
@@ -951,6 +951,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search by name or code'**
   String get search_by_name_or_code;
+
+  /// No description provided for @secure_connection_failed_message.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t connect securely to our server. Please try again later, or check if app update available.'**
+  String get secure_connection_failed_message;
+
+  /// No description provided for @secure_connection_failed_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Connection Failed!'**
+  String get secure_connection_failed_title;
 
   /// No description provided for @see_all.
   ///
@@ -1354,6 +1366,12 @@ abstract class AppLocalizations {
   /// **'Try Again'**
   String get try_again;
 
+  /// No description provided for @update_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Update App'**
+  String get update_app;
+
   /// No description provided for @under_maintenance.
   ///
   /// In en, this message translates to:
@@ -1464,9 +1482,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

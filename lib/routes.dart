@@ -71,6 +71,9 @@ class AppRouter extends RootStackRouter {
 
       //Force Update
       ForceUpdateRoute.page,
+
+      //SSL Connection Failed
+      SslConnectionFailedRoute.page,
     ]
         .map(
           (page) => AutoRoute(

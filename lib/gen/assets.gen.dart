@@ -57,6 +57,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/icons/icon.png');
 
+  /// File path: assets/icons/lock.svg
+  String get lock => 'assets/icons/lock.svg';
+
   /// File path: assets/icons/mdi_tick.svg
   String get mdiTick => 'assets/icons/mdi_tick.svg';
 
@@ -106,6 +109,7 @@ class $AssetsIconsGen {
         forceUpdate,
         google,
         icon,
+        lock,
         mdiTick,
         noChats,
         noInternetConnection,

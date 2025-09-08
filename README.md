@@ -75,6 +75,63 @@ flutter build apk --flavor dev --dart-define=APP_FLAVOR=DEV
 flutter build ipa --export-method=ad-hoc --flavor prod --dart-define=APP_FLAVOR=PROD 
 ```
 
+### SSL Certificate Hash Setup
+
+Follow these steps to configure SSL pinning in your Flutter project.
+
+1. **Add Certificate Hash Variables to `.env`**  
+   Add the SHA-256 SSL public key fingerprints for each flavor:
+
+   ```
+   CERT_HASH_DEV="add_your_dev_hash_here"
+   CERT_HASH_STAGE="add_your_stage_hash_here"
+   CERT_HASH_PROD="add_your_prod_hash_here"
+   ```
+
+2. **Get Your Certificate Hash**  
+   Run the following command (replace `yourdomain.com` with your API domain):
+
+   ```bash
+   openssl s_client -connect yourdomain.com:443 -servername yourdomain.com </dev/null 2>/dev/null \
+     | openssl x509 -pubkey -noout \
+     | openssl pkey -pubin -outform DER \
+     | openssl dgst -sha256 -binary \
+     | openssl enc -base64
+   ```
+
+   **Example output:**
+   ```
+   406f8ac14c60a793be7aa284fc61a3cdcdbd79aa8c59cef535baffefd7278a5d
+   ```
+   Copy this value into the matching `CERT_HASH_*` variable in your `.env` file.
+
+3. **Use the Certificate Hash in Code**  
+   Add a method to fetch the correct hash for the current flavor:
+
+   ```dart
+   String _getCertHash() {
+     final hash = switch (AppConfig.appFlavor) {
+           AppFlavor.dev => dotenv.env['CERT_HASH_DEV'],
+           AppFlavor.stage => dotenv.env['CERT_HASH_STAGE'],
+           AppFlavor.prod => dotenv.env['CERT_HASH_PROD'],
+         } ?? '';
+
+     if (hash.isEmpty) {
+       throw Exception(
+         '[SSL Pinning] CertificateHash not found for: ${AppConfig.appFlavor.name}',
+       );
+     }
+
+     debugPrint('[SSL Pinning] SHA-256 hash: "$hash"');
+     return hash;
+   }
+   ```
+
+4. **Reference**  
+   For a detailed guide, see:  
+   [Securing Your Flutter App by Adding SSL Pinning](https://dwirandyh.medium.com/securing-your-flutter-app-by-adding-ssl-pinning-474722e38518)
+
+
 ## Architecture and Coding Standards
 
 This project follows a clean architecture approach with BLoC pattern for state management, ensuring:
@@ -215,8 +272,7 @@ We use GitLab for version control with the following branch structure:
 ## Important Links
 
 - **Repository**: [GitLab](https://gitlab.solguruzsolutions.com/solguruz/skelter)
-- **UI Design
-  **: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
+- **UI Design**: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
 
 ## How to Contribute
 
