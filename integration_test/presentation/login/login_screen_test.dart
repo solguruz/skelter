@@ -15,12 +15,14 @@ class MockDioResponse<T> extends Mock implements Response<T> {}
 
 void main() {
   final mockDio = MockDio();
+
   setUpAll(() {
     final mockResponse = MockDioResponse<List<dynamic>>();
 
     when(() => mockResponse.statusCode).thenReturn(200);
     when(() => mockResponse.data).thenReturn(productsResponse);
     when(() => mockDio.get(any())).thenAnswer((_) async => mockResponse);
+    when(() => mockDio.interceptors).thenReturn(Interceptors());
   });
 
   patrolTest(
