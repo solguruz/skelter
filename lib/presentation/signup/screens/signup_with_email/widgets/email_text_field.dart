@@ -58,15 +58,16 @@ class _EmailTextFieldState extends State<EmailTextField> {
         const SizedBox(height: 16),
         TextField(
           controller: _emailController,
-          style: AppTextStyles.p3Medium.withColor(AppColors.textNeutralPrimary),
+          style: AppTextStyles.p3Medium
+              .copyWith(color: AppColors.textNeutralPrimary),
           decoration: InputDecoration(
             hintText: context.localization.email_hint,
-            hintStyle:
-                AppTextStyles.p3Medium.withColor(AppColors.textNeutralDisable),
+            hintStyle: AppTextStyles.p3Medium
+                .copyWith(color: AppColors.textNeutralDisable),
             errorText:
                 emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
-            errorStyle:
-                AppTextStyles.p3Regular.withColor(AppColors.textErrorSecondary),
+            errorStyle: AppTextStyles.p3Regular
+                .copyWith(color: AppColors.textErrorSecondary),
             border: buildOutlineInputBorder(),
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(hasFocus: true),

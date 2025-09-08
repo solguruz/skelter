@@ -61,8 +61,8 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
           controller: _emailController,
           decoration: InputDecoration(
             hintText: context.localization.enter_your_email_id,
-            hintStyle:
-                AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
+            hintStyle: AppTextStyles.p2Medium
+                .copyWith(color: AppColors.textNeutralDisable),
             errorText: emailError.isNullOrEmpty() ? null : emailError,
           ),
           textInputAction: TextInputAction.next,

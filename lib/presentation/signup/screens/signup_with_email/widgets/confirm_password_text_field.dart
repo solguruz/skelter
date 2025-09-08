@@ -78,8 +78,8 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           obscureText: !isPasswordVisible,
           decoration: InputDecoration(
             hintText: context.localization.signup_confirm_password_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null

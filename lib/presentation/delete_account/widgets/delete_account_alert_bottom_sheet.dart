@@ -59,8 +59,8 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
             const SizedBox(height: 15),
             Text(
               context.localization.delete_account_alert_title,
-              style: AppTextStyles.h6SemiBold.withColor(
-                AppColors.textNeutralPrimary,
+              style: AppTextStyles.h6SemiBold.copyWith(
+                color: AppColors.textNeutralPrimary,
               ),
             ),
             const SizedBox(height: 10),
@@ -69,8 +69,8 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
               child: Text(
                 context.localization.delete_account_confirmation_message,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.p3Regular.withColor(
-                  AppColors.textNeutralSecondary,
+                style: AppTextStyles.p3Regular.copyWith(
+                  color: AppColors.textNeutralSecondary,
                 ),
               ),
             ),

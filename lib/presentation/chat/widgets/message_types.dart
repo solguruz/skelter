@@ -24,8 +24,8 @@ class MessageTypes extends StatelessWidget {
       case MessageType.text:
         return Text(
           message.message,
-          style: AppTextStyles.p3Regular.withColor(
-            message.isSentByMe ? AppColors.white : AppColors.neutral900,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: message.isSentByMe ? AppColors.white : AppColors.neutral900,
           ),
         );
 

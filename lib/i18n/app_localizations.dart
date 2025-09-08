@@ -1228,17 +1228,17 @@ abstract class AppLocalizations {
   /// **'Sign up'**
   String get signup_sign_up;
 
-  /// No description provided for @signup_sign_up_with_email.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign up with Email'**
-  String get signup_sign_up_with_email;
-
   /// No description provided for @signup_sign_up_with_apple.
   ///
   /// In en, this message translates to:
   /// **'Sign up with Apple'**
   String get signup_sign_up_with_apple;
+
+  /// No description provided for @signup_sign_up_with_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up with Email'**
+  String get signup_sign_up_with_email;
 
   /// No description provided for @signup_sign_up_with_google.
   ///

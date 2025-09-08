@@ -27,8 +27,8 @@ class LoginOptionsDivider extends StatelessWidget {
           const SizedBox(width: 20),
           Text(
             context.localization.or,
-            style: AppTextStyles.p2Regular.withColor(
-              AppColors.textNeutralDisable,
+            style: AppTextStyles.p2Regular.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
           ),
           const SizedBox(width: 20),

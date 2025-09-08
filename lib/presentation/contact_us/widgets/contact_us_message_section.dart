@@ -67,15 +67,15 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           controller: _messageController,
           decoration: InputDecoration(
             hintText: context.localization.message_description,
-            hintStyle:
-                AppTextStyles.p3Regular.withColor(AppColors.textNeutralDisable),
+            hintStyle: AppTextStyles.p3Regular
+                .copyWith(color: AppColors.textNeutralDisable),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
             counterText:
                 '${description.length}/${ContactUsScreen.kMessageMaxLength}',
-            counterStyle:
-                AppTextStyles.p4Regular.withColor(AppColors.textNeutralDisable),
+            counterStyle: AppTextStyles.p4Regular
+                .copyWith(color: AppColors.textNeutralDisable),
           ),
           maxLines: 4,
           autovalidateMode: AutovalidateMode.onUserInteraction,

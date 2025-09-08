@@ -79,13 +79,13 @@ class _AccountDeleteSuccessScreenState
                         TextSpan(
                           text: context.localization.creating_new_account,
                           style: AppTextStyles.p2Regular
-                              .withColor(AppColors.textNeutralPrimary),
+                              .copyWith(color: AppColors.textNeutralPrimary),
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: context.localization.signup_sign_up,
                           style: AppTextStyles.p2SemiBold
-                              .withColor(AppColors.textBrandSecondary),
+                              .copyWith(color: AppColors.textBrandSecondary),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
                               await context.router.pushAndPopUntil(

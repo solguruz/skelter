@@ -17,8 +17,8 @@ class SubmissionSuccessMessage extends StatelessWidget {
         const SizedBox(height: 8.0),
         Text(
           context.localization.response_received,
-          style:
-              AppTextStyles.p2Regular.withColor(AppColors.textNeutralSecondary),
+          style: AppTextStyles.p2Regular
+              .copyWith(color: AppColors.textNeutralSecondary),
           textAlign: TextAlign.center,
         ),
       ],

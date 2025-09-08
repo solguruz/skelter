@@ -64,8 +64,8 @@ class _EmailTextFieldState extends State<EmailTextField> {
           controller: _emailController,
           decoration: InputDecoration(
             hintText: context.localization.email_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorText:
                 emailError != null && emailError.isNotEmpty ? emailError : null,

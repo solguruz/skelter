@@ -24,7 +24,7 @@ class AttachmentErrorDisplay extends StatelessWidget {
                 child: Text(
                   pickedFilesError,
                   style: AppTextStyles.p4Regular
-                      .withColor(AppColors.textErrorSecondary),
+                      .copyWith(color: AppColors.textErrorSecondary),
                 ),
               ),
             ],

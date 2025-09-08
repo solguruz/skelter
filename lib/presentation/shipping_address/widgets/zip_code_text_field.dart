@@ -32,8 +32,8 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
           controller: _zipCodeTextController,
           decoration: InputDecoration(
             hintText: context.localization.enter_zip_code,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,

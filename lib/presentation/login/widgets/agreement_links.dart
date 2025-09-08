@@ -24,15 +24,16 @@ class AgreementLinks extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style:
-              AppTextStyles.p4Medium.withColor(AppColors.textNeutralSecondary),
+          style: AppTextStyles.p4Medium
+              .copyWith(color: AppColors.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_agreement_info),
             TextSpan(
               text: context.localization.signup_terms_and_conditions,
-              style: AppTextStyles.p4Bold
-                  .withColor(AppColors.textNeutralSecondary)
-                  .withDecoration(TextDecoration.underline),
+              style: AppTextStyles.p4Bold.copyWith(
+                color: AppColors.textNeutralSecondary,
+                decoration: TextDecoration.underline,
+              ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   // TODO: open terms and conditions
@@ -41,9 +42,10 @@ class AgreementLinks extends StatelessWidget {
             TextSpan(text: ' ${context.localization.signup_and} '),
             TextSpan(
               text: context.localization.signup_privacy_policy,
-              style: AppTextStyles.p4Bold
-                  .withColor(AppColors.textNeutralSecondary)
-                  .withDecoration(TextDecoration.underline),
+              style: AppTextStyles.p4Bold.copyWith(
+                color: AppColors.textNeutralSecondary,
+                decoration: TextDecoration.underline,
+              ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   // TODO: open privacy policy
