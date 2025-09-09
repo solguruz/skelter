@@ -80,8 +80,8 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
             context.router.popUntilRoot();
           }
         } else if (state is NavigateToVerifiedScreenState) {
-          await context.router.replace(
-            PhoneNumberVerifiedRoute(loginBloc: context.read<LoginBloc>()),
+          await context.router.replaceAll(
+            [PhoneNumberVerifiedRoute(loginBloc: context.read<LoginBloc>())],
           );
         }
       },

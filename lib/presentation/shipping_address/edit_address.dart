@@ -9,6 +9,7 @@ import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class EditAddressScreen extends StatelessWidget {
@@ -48,6 +49,8 @@ class EditAddressScreen extends StatelessWidget {
                       label: context.localization.add,
                       leftIcon: TablerIcons.plus,
                       isLeftIconAttachedToText: true,
+                      foregroundColor:
+                          AppColors.currentTheme.textBrandSecondary,
                       onPressed: () {
                         context.router.push(const AddAddressRoute());
                       },

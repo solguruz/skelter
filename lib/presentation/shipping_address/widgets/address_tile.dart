@@ -60,7 +60,8 @@ class AddressTile extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   '2118 Thornridge Cir. Syracuse, Connecticut 35624 2118',
-                  style: AppTextStyles.p3Regular,
+                  style: AppTextStyles.p3Regular
+                      .withColor(AppColors.currentTheme.textNeutralSecondary),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -79,9 +80,13 @@ class AddressTile extends StatelessWidget {
                   blurRadius: 6,
                 ),
               ],
+              border: Border.all(
+                color: AppColors.currentTheme.strokeNeutralLight200,
+              ),
             ),
             child: AppButton.icon(
               iconData: TablerIcons.trash,
+              iconOrTextColorOverride: AppColors.currentTheme.iconNeutralHover,
               onPressed: () {
                 context.showSnackBar('Delete Address');
               },

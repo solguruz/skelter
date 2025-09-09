@@ -70,7 +70,7 @@ class DarkAppColors implements ThemeColorPalette {
 
   // how?
   @override
-  Color get bgBrandLight50 => AppColors.brand50;
+  Color get bgBrandLight50 => AppColors.brand500.withOpacity(0.3);
   @override
   Color get bgBrandLight100 => AppColors.brand100;
   @override
@@ -258,7 +258,7 @@ class DarkAppColors implements ThemeColorPalette {
   @override
   Color get strokeNeutralLight100 => AppColors.neutral800;
   @override
-  Color get strokeNeutralLight200 => AppColors.neutral300;
+  Color get strokeNeutralLight200 => AppColors.dark300;
 
   // Shades
   @override
