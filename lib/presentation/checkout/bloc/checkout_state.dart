@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_skeleton/presentation/checkout/data/cart_sample_data.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_cart.dart';
+import 'package:skelter/presentation/checkout/data/cart_sample_data.dart';
+import 'package:skelter/presentation/checkout/model/product_cart.dart';
 
 class CheckoutState with EquatableMixin {
   final int stepperIndex;

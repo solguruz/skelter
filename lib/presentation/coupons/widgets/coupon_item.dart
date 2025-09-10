@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class CouponItem extends StatelessWidget {
   const CouponItem({
@@ -42,7 +42,8 @@ class CouponItem extends StatelessWidget {
                     right: 20,
                     child: Text(
                       'FREEDELIVERY',
-                      style: AppTextStyles.p3Bold.withColor(AppColors.white),
+                      style:
+                          AppTextStyles.p3Bold.copyWith(color: AppColors.white),
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
@@ -69,8 +70,8 @@ class CouponItem extends StatelessWidget {
           Text(
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam '
             'nonumy eirmod tempor invidunt ut labore et dolore',
-            style: AppTextStyles.p4Regular.withColor(
-              AppColors.textNeutralSecondary,
+            style: AppTextStyles.p4Regular.copyWith(
+              color: AppColors.textNeutralSecondary,
             ),
           ),
         ],

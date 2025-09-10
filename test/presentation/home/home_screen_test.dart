@@ -4,13 +4,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/presentation/home/data/dummy_product_data.dart';
-import 'package:flutter_skeleton/presentation/home/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/presentation/home/bloc/home_event.dart';
+import 'package:skelter/presentation/home/bloc/home_state.dart';
+import 'package:skelter/presentation/home/data/dummy_product_data.dart';
+import 'package:skelter/presentation/home/home_screen.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';

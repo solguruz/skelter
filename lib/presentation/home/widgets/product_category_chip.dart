@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductCategoryChip extends StatelessWidget {
   final String category;
@@ -19,8 +19,8 @@ class ProductCategoryChip extends StatelessWidget {
         category,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: AppTextStyles.c1SemiBold.withColor(
-          AppColors.textBrandSecondary,
+        style: AppTextStyles.c1SemiBold.copyWith(
+          color: AppColors.textBrandSecondary,
         ),
       ),
     );

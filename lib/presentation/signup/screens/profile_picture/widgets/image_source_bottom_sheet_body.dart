@@ -2,13 +2,13 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 
 class ImageSourceBottomSheetBody extends StatelessWidget {
   const ImageSourceBottomSheetBody({
@@ -138,7 +138,7 @@ class _RemoveImage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.localization.login_signup_remove),
+          Text(context.localization.remove),
         ],
       ),
     );
@@ -171,7 +171,7 @@ class _Gallery extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.localization.login_signup_gallery),
+          Text(context.localization.gallery),
         ],
       ),
     );
@@ -204,7 +204,7 @@ class _Camera extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(context.localization.login_signup_camera),
+          Text(context.localization.camera),
         ],
       ),
     );

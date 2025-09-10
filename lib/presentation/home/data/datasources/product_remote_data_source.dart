@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_skeleton/core/errors/exceptions.dart';
-import 'package:flutter_skeleton/presentation/home/data/models/product_model.dart';
-import 'package:flutter_skeleton/utils/typedef.dart';
+import 'package:skelter/core/errors/exceptions.dart';
+import 'package:skelter/presentation/home/data/models/product_model.dart';
+import 'package:skelter/utils/typedef.dart';
 
 mixin ProductRemoteDatasource {
   Future<List<ProductModel>> getProducts();

@@ -5,31 +5,19 @@ import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/shared_pref/prefs.dart';
 
 class FirebaseAuthService {
-  static FirebaseAuthService? _instance = FirebaseAuthService._internal();
+  final FirebaseAuth _firebaseAuth;
 
-  factory FirebaseAuthService() {
-    return _instance ??= FirebaseAuthService._internal();
-  }
+  FirebaseAuthService({FirebaseAuth? firebaseAuth})
+      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
-  FirebaseAuthService._internal();
-
-  FirebaseAuth? _firebaseAuth;
   int? _phoneResendToken;
-
-  void init() {
-    _firebaseAuth = FirebaseAuth.instance;
-  }
-
-  void dispose() {
-    _instance = null;
-  }
 
   Future<void> verifyFBAuthPhoneNumber({
     required String phoneNumber,
@@ -38,9 +26,7 @@ class FirebaseAuthService {
     required Function(String) codeAutoRetrievalTimeout,
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
-    _checkIfInitMethodInitialised();
-
-    await _firebaseAuth?.verifyPhoneNumber(
+    await _firebaseAuth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       forceResendingToken: _phoneResendToken,
       verificationCompleted: (credential) {
@@ -65,8 +51,7 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      _checkIfInitMethodInitialised();
-      return await _firebaseAuth?.signInWithEmailAndPassword(
+      return await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -83,9 +68,9 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      if (_firebaseAuth?.currentUser != null) {
-        if (!(_firebaseAuth?.currentUser?.emailVerified ?? false)) {
-          await _firebaseAuth?.currentUser?.sendEmailVerification();
+      if (_firebaseAuth.currentUser != null) {
+        if (!(_firebaseAuth.currentUser?.emailVerified ?? false)) {
+          await _firebaseAuth.currentUser?.sendEmailVerification();
         } else {
           onError(kFirebaseAuthSessionEmailAlreadyInUse);
         }
@@ -102,8 +87,7 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      _checkIfInitMethodInitialised();
-      await _firebaseAuth?.sendPasswordResetEmail(email: email);
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
     }
@@ -124,8 +108,7 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      _checkIfInitMethodInitialised();
-      return await _firebaseAuth!.signInWithCredential(credential);
+      return await _firebaseAuth.signInWithCredential(credential);
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
       return null;
@@ -136,8 +119,7 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      _checkIfInitMethodInitialised();
-      await _firebaseAuth?.signOut();
+      await _firebaseAuth.signOut();
       final GoogleSignInAccount? googleUser =
           await GoogleSignIn(scopes: <String>['email'])
               .signIn()
@@ -156,7 +138,7 @@ class FirebaseAuthService {
         idToken: googleAuth.idToken,
       );
       final UserCredential firebaseCred =
-          await FirebaseAuth.instance.signInWithCredential(cred);
+          await _firebaseAuth.signInWithCredential(cred);
       return firebaseCred;
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
@@ -195,7 +177,7 @@ class FirebaseAuthService {
       );
 
       final UserCredential firebaseCred =
-          await FirebaseAuth.instance.signInWithCredential(cred);
+          await _firebaseAuth.signInWithCredential(cred);
       return firebaseCred;
     } on FirebaseAuthException catch (e, stack) {
       _handleFirebaseError(e, onError, stackTrace: stack);
@@ -212,8 +194,7 @@ class FirebaseAuthService {
     required Function(String, {StackTrace? stackTrace}) onError,
   }) async {
     try {
-      _checkIfInitMethodInitialised();
-      return await _firebaseAuth?.createUserWithEmailAndPassword(
+      return await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -226,8 +207,12 @@ class FirebaseAuthService {
     return null;
   }
 
+  User? getCurrentUser() {
+    return _firebaseAuth.currentUser;
+  }
+
   Future<void> signOut() async {
-    await _firebaseAuth?.signOut();
+    await _firebaseAuth.signOut();
   }
 
   Future<void> deleteCurrentUser({
@@ -263,7 +248,7 @@ class FirebaseAuthService {
   }
 
   Future<void> _deleteUserAccount() async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _firebaseAuth.currentUser;
     if (user == null) throw Exception('No authenticated user found');
     debugPrint('Attempting account deletion...');
     await user.delete();
@@ -273,7 +258,7 @@ class FirebaseAuthService {
   Future<void> reAuthenticateCurrentUser({
     required Function(String message, {StackTrace? stackTrace}) onError,
   }) async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _firebaseAuth.currentUser;
     if (user == null) {
       onError('User not found');
       return;
@@ -346,7 +331,7 @@ class FirebaseAuthService {
     required String password,
     required Function(String message, {StackTrace? stackTrace}) onError,
   }) async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _firebaseAuth.currentUser;
     if (user == null) {
       onError('User not found');
       return;
@@ -391,20 +376,12 @@ class FirebaseAuthService {
     }
     debugPrint('FirebaseAuth error: $errorMessage');
     onError(errorMessage, stackTrace: stackTrace);
-    // TODO: uncommnet to enable crashlytics
+    // TODO: uncomment to enable crashlytics
     // FirebaseCrashlytics.instance.recordError(
     //   e,
     //   stackTrace ?? StackTrace.current,
     //   reason: 'FirebaseAuth error',
     // );
-  }
-
-  void _checkIfInitMethodInitialised() {
-    if (_firebaseAuth == null) {
-      throw Exception(
-        'FirebaseAuthService not initialized. Call init() before using',
-      );
-    }
   }
 
   String _sha256OfString(String input) {

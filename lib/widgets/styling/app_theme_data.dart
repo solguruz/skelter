@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/fonts.gen.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
-import 'package:flutter_skeleton/widgets/styling/input_decorations.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/fonts.gen.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/widgets/styling/input_decorations.dart';
 
 enum AppThemeEnum { DarkTheme, LightTheme }
 
@@ -24,8 +24,8 @@ class AppThemesData {
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.white,
         elevation: 0,
-        titleTextStyle: AppTextStyles.h6SemiBold.withColor(
-          AppColors.textNeutralPrimary,
+        titleTextStyle: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.textNeutralPrimary,
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
@@ -46,8 +46,8 @@ class AppThemesData {
       ),
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleBright,
-        hintStyle: AppTextStyles.p3Medium.withColor(
-          AppColors.textNeutralDisable,
+        hintStyle: AppTextStyles.p3Medium.copyWith(
+          color: AppColors.textNeutralDisable,
         ),
         isDense: true,
         enabledBorder: OutlineInputBorder(
@@ -59,6 +59,10 @@ class AppThemesData {
           borderRadius: BorderRadius.circular(8),
         ),
         errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
           borderRadius: BorderRadius.circular(8),
         ),
@@ -89,8 +93,8 @@ class AppThemesData {
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleDark,
         hintStyle: InputDecorations.hintStyleDark,
-        errorStyle:
-            AppTextStyles.p4Regular.withColor(AppColors.textErrorSecondary),
+        errorStyle: AppTextStyles.p4Regular
+            .copyWith(color: AppColors.textErrorSecondary),
         isDense: true,
       ),
       fontFamily: FontFamily.inter,

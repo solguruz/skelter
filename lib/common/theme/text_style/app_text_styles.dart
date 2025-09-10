@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/gen/fonts.gen.dart';
+import 'package:skelter/gen/fonts.gen.dart';
 
 class AppTextStyles {
   static TextStyle h1 = const TextStyle(
@@ -204,11 +204,4 @@ class AppTextStyles {
     fontFamily: FontFamily.inter,
     height: 1.5,
   );
-}
-
-extension AppTextStyleExtension on TextStyle {
-  TextStyle withColor(Color color) => copyWith(color: color);
-
-  TextStyle withDecoration(TextDecoration decoration) =>
-      copyWith(decoration: decoration);
 }

@@ -1,18 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_bloc.dart';
-import 'package:flutter_skeleton/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_app_bar.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_attachment_section.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_description.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_email_section.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_message_section.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_name_section.dart';
-import 'package:flutter_skeleton/presentation/contact_us/widgets/contact_us_submit_button.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
+import 'package:skelter/presentation/contact_us/bloc/contact_us_state.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_app_bar.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_attachment_section.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_description.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_email_section.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_message_section.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_name_section.dart';
+import 'package:skelter/presentation/contact_us/widgets/contact_us_submit_button.dart';
+import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
 class ContactUsScreen extends StatefulWidget {

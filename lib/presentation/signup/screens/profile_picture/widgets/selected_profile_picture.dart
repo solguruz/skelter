@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SelectedProfilePicture extends StatelessWidget {
   const SelectedProfilePicture({super.key});

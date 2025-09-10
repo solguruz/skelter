@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/presentation/chat/model/chat_model.dart';
 
 class ChatContentPreview extends StatelessWidget {
   const ChatContentPreview({

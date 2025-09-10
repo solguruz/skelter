@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_state.dart';
-import 'package:flutter_skeleton/presentation/login/screens/phone_num_otp_screen/widgets/otp_input_field.dart';
-import 'package:flutter_skeleton/presentation/login/screens/phone_num_otp_screen/widgets/otp_verification_button.dart';
-import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/bloc/login_state.dart';
+import 'package:skelter/presentation/login/screens/phone_num_otp_screen/widgets/otp_input_field.dart';
+import 'package:skelter/presentation/login/screens/phone_num_otp_screen/widgets/otp_verification_button.dart';
+import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
+import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
 class PhoneNumberOTPScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
         }
       },
       child: Scaffold(
-        appBar: const LoginAppBar(),
+        appBar: const LoginAppBar(removeLeading: false),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: BlocProvider<LoginBloc>.value(
@@ -88,13 +88,13 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            context.localization.login_signup_enter_otp,
+            context.localization.enter_otp,
             textAlign: TextAlign.center,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 10),
           Text(
-            '${context.localization.login_signup_sent_code_info} '
+            '${context.localization.sent_code_info} '
             '$phoneNumber',
             textAlign: TextAlign.center,
             style: AppTextStyles.p2Medium,

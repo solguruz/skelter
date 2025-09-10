@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/chat/data/chat_sample_data.dart';
-import 'package:flutter_skeleton/presentation/chat/model/chat_model.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_app_bar.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/chat_list_tile.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/chat_shimmer.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/empty_chat_view.dart';
-import 'package:flutter_skeleton/presentation/chat/widgets/search_text_field.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:skelter/presentation/chat/data/chat_sample_data.dart';
+import 'package:skelter/presentation/chat/model/chat_model.dart';
+import 'package:skelter/presentation/chat/widgets/chat_list_app_bar.dart';
+import 'package:skelter/presentation/chat/widgets/chat_list_tile.dart';
+import 'package:skelter/presentation/chat/widgets/chat_shimmer.dart';
+import 'package:skelter/presentation/chat/widgets/empty_chat_view.dart';
+import 'package:skelter/presentation/chat/widgets/search_text_field.dart';
+import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
 class ChatScreen extends StatelessWidget {

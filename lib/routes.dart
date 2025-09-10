@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_skeleton/main.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/routes.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
@@ -71,6 +71,9 @@ class AppRouter extends RootStackRouter {
 
       //Force Update
       ForceUpdateRoute.page,
+
+      //SSL Connection Failed
+      SslConnectionFailedRoute.page,
     ]
         .map(
           (page) => AutoRoute(
@@ -81,9 +84,6 @@ class AppRouter extends RootStackRouter {
         .toList();
 
     final List<AutoRoute> noTransitionRoutes = [
-      LoginRoute.page,
-      SignUpRoute.page,
-
       // Home page
       HomeRoute.page,
     ]

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 
 class HeadingWelcomeWidget extends StatelessWidget {
   const HeadingWelcomeWidget({
@@ -27,16 +27,15 @@ class HeadingWelcomeWidget extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           isSignup
-              ? context.localization.login_signup_signup_lets_get_started
-              : context.localization.login_signup_welcome_back,
+              ? context.localization.signup_lets_get_started
+              : context.localization.login_welcome_back,
           style: AppTextStyles.h2Bold,
           textAlign: TextAlign.center,
         ),
         Text(
           isSignup
-              ? context.localization.login_signup_signup_lets_get_started_info
-              : context
-                  .localization.login_signup_enter_your_registered_phone_number,
+              ? context.localization.signup_lets_get_started_info
+              : context.localization.login_enter_your_registered_phone_number,
           style: AppTextStyles.p2Regular,
           textAlign: TextAlign.center,
         ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class TotalAmount extends StatelessWidget {
   const TotalAmount({super.key});
@@ -19,13 +19,14 @@ class TotalAmount extends StatelessWidget {
       children: [
         Text(
           context.localization.total_amount,
-          style:
-              AppTextStyles.p4Regular.withColor(AppColors.textNeutralSecondary),
+          style: AppTextStyles.p4Regular
+              .copyWith(color: AppColors.textNeutralSecondary),
         ),
         const SizedBox(height: 6),
         Text(
           '\$$finalAmount',
-          style: AppTextStyles.h6Bold.withColor(AppColors.textNeutralPrimary),
+          style: AppTextStyles.h6Bold
+              .copyWith(color: AppColors.textNeutralPrimary),
         ),
       ],
     );

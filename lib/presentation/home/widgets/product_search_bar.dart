@@ -2,14 +2,14 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_event.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_state.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/presentation/home/bloc/home_event.dart';
+import 'package:skelter/presentation/home/bloc/home_state.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductSearchBar extends StatefulWidget {
   const ProductSearchBar({super.key});

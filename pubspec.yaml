@@ -1,5 +1,9 @@
-name: flutter_skeleton
-description: "A new Flutter project."
+name: skelter
+description: >
+  A production-grade Flutter boilerplate by SolGuruz, designed to jumpstart
+  app development with prebuilt utility functions, reusable UI components,
+  state management, test-ready setup, and a clean scalable architecture.
+
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -56,6 +60,8 @@ dependencies:
   get_it: ^8.0.3
   dio: ^5.8.0+1
   flutter_dotenv: ^5.2.1
+  http_certificate_pinning: ^3.0.1
+  flutter_secure_storage: ^9.2.4
   mime: ^2.0.0
   device_info_plus: ^11.5.0
 
@@ -70,13 +76,14 @@ dev_dependencies:
   bloc_test: ^9.1.7
   alchemist: ^0.12.1
   mocktail_image_network: ^1.2.0
+  patrol: ^3.19.0
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/sg_skeleton_logo.png
+  image: assets/images/sg_skelter_logo.png
 
   android_12:
-    image: assets/images/sg_skeleton_logo.png
+    image: assets/images/sg_skelter_logo.png
     icon_background_color: "#ffffff"
     android_gravity: center
 
@@ -127,6 +134,10 @@ flutter:
         - asset: assets/fonts/Inter/Inter-Thin.ttf
           weight: 600
 
-    # - family: Roboto
-    #   fonts:
-    #     - asset: test/fonts/Roboto-Regular.ttf
+patrol:
+  app_name: Flutter Skeleton
+  flavors: dev
+  android:
+    package_name: com.solguruz.skelter.dev
+  ios:
+    bundle_id: com.solguruz.skelter.dev

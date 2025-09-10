@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
+import 'package:skelter/i18n/localization.dart';
 
 bool isValidUrl({required String url}) {
   final RegExp pattern = RegExp(
@@ -26,10 +26,10 @@ bool isValidUrl({required String url}) {
 
 String? isEmailValid(String email, BuildContext context) {
   if (email.isEmpty) {
-    return context.localization.login_signup_email_cant_be_empty;
+    return context.localization.email_cant_be_empty;
   } else if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
       .hasMatch(email)) {
-    return context.localization.login_signup_invalid_email;
+    return context.localization.invalid_email;
   }
   return null;
 }
@@ -38,4 +38,11 @@ Future<bool> isPhoneNumberValid(String phoneNumberWithCode) async {
   final phoneNumber = PhoneNumber.parse(phoneNumberWithCode);
 
   return phoneNumber.isValid(type: PhoneNumberType.mobile);
+}
+
+String? maxLengthValidator(String? value, int maxLength, BuildContext context) {
+  if ((value?.length ?? 0) > maxLength) {
+    return context.localization.messageTooLong(maxLength);
+  }
+  return null;
 }

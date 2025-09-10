@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/presentation/login/enum/enum_login_type.dart';
+import 'package:skelter/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
 
 part 'email_password_login_state.dart';
 part 'phone_number_login_state.dart';
@@ -58,7 +58,7 @@ class LoginState with EquatableMixin {
     String? verificationId,
     UserDetailsInputStatus? userDetailsInputStatus,
     String? phoneOTPVerificationId,
-    LoginType? selectedLoginSignupType,
+    LoginType? selectedLoginType,
   }) {
     return LoginState(
       isSignup: isSignup ?? this.isSignup,
@@ -71,7 +71,7 @@ class LoginState with EquatableMixin {
           userDetailsInputStatus ?? this.userDetailsInputStatus,
       phoneOTPVerificationId:
           phoneOTPVerificationId ?? this.phoneOTPVerificationId,
-      selectedLoginType: selectedLoginSignupType ?? this.selectedLoginType,
+      selectedLoginType: selectedLoginType ?? this.selectedLoginType,
     );
   }
 
@@ -160,4 +160,8 @@ class RegistrationCompletedState extends LoginState {
 
 class NavigateToCreatePasswordState extends LoginState {
   NavigateToCreatePasswordState(super.state) : super.copy();
+}
+
+class ClearLoginWithEmailControllerState extends LoginState {
+  ClearLoginWithEmailControllerState(super.state) : super.copy();
 }

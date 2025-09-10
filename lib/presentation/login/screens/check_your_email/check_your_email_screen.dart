@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
-import 'package:flutter_skeleton/presentation/login/screens/check_your_email/widgets/continue_login_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/screens/check_your_email/widgets/continue_login_button.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 
 @RoutePage()
 class CheckYourEmailScreen extends StatelessWidget {
@@ -49,8 +49,8 @@ class CheckYourEmailScreenBody extends StatelessWidget {
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
-            left: LoginScreen.kHorizontalPadding,
-            right: LoginScreen.kHorizontalPadding,
+            left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+            right: LoginWithPhoneNumberScreen.kHorizontalPadding,
             bottom: max(20, MediaQuery.of(context).padding.bottom),
           ),
           child: Column(
@@ -59,13 +59,13 @@ class CheckYourEmailScreenBody extends StatelessWidget {
               SvgPicture.asset(Assets.icons.emailNotification),
               const SizedBox(height: 18),
               Text(
-                context.localization.login_signup_check_your_email,
+                context.localization.login_check_your_email,
                 style: AppTextStyles.h2Bold,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 18),
               Text(
-                context.localization.login_signup_link_send_info(email),
+                context.localization.login_link_send_info(email),
                 style: AppTextStyles.p2Medium,
                 textAlign: TextAlign.center,
               ),

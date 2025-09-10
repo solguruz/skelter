@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/empty_search_view.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_card.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
+import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/widgets/empty_search_view.dart';
+import 'package:skelter/presentation/home/widgets/product_card.dart';
 
 class TopProductGrid extends StatelessWidget {
   const TopProductGrid({super.key});
@@ -39,7 +40,10 @@ class TopProductGrid extends StatelessWidget {
             itemCount: products.take(6).length,
             itemBuilder: (context, index) {
               final product = products[index];
-              return ProductCard(product: product);
+              return ProductCard(
+                key: keys.homePage.productCardKey,
+                product: product,
+              );
             },
           );
   }

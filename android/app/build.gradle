@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.solguruz.flutter_skeleton"
+    namespace = "com.solguruz.skelter"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
@@ -25,13 +25,15 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.solguruz.flutter_skeleton"
+        applicationId = "com.solguruz.skelter"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        testInstrumentationRunner = "pl.leancode.patrol.PatrolJUnitRunner"
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
 
     buildTypes {
@@ -46,25 +48,33 @@ android {
     productFlavors {
         dev {
             dimension "app"
-            resValue "string", "app_name", "Flutter Skeleton Dev"
+            resValue "string", "app_name", "Skelter Dev"
             versionNameSuffix "-dev"
-            applicationId "com.solguruz.flutter_skeleton.dev"
+            applicationId "com.solguruz.skelter.dev"
         }
         prod {
             dimension "app"
-            resValue "string", "app_name", "Flutter Skeleton"
+            resValue "string", "app_name", "Skelter"
             versionNameSuffix "-prod"
-            applicationId "com.solguruz.flutter_skeleton"
+            applicationId "com.solguruz.skelter"
         }
         stage {
             dimension "app"
-            resValue "string", "app_name", "Flutter Skeleton Stage"
+            resValue "string", "app_name", "Skelter Stage"
             versionNameSuffix "-stage"
-            applicationId "com.solguruz.flutter_skeleton.stage"
+            applicationId "com.solguruz.skelter.stage"
         }
+    }
+
+    testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
     }
 }
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    androidTestUtil "androidx.test:orchestrator:1.5.1"
 }

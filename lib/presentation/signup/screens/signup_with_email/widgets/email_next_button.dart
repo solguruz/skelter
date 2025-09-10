@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
-import 'package:flutter_skeleton/validators/validators.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/validators/validators.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 
 class EmailNextButton extends StatelessWidget {
   const EmailNextButton({super.key});
@@ -22,7 +22,7 @@ class EmailNextButton extends StatelessWidget {
     );
 
     return AppButton(
-      label: context.localization.login_signup_next,
+      label: context.localization.next,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: email.isNotEmpty ? AppButtonState.normal : AppButtonState.disabled,

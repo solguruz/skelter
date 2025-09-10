@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
 
 abstract class SignupEvent with EquatableMixin {
   SignupEvent();
@@ -191,8 +191,8 @@ class CheckEmailAvailabilityEvent extends SignupEvent {
   List<Object?> get props => [email];
 }
 
-class ResetEmailStateEvent extends SignupEvent {
-  ResetEmailStateEvent();
+class ResetPasswordStateEvent extends SignupEvent {
+  ResetPasswordStateEvent();
 
   @override
   List<Object?> get props => [];

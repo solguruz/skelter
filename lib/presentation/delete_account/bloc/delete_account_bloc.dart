@@ -1,21 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_event.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
-import 'package:flutter_skeleton/services/firebase_auth_services.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/core/services/injection_container.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/services/firebase_auth_services.dart';
 
 class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
 
   DeleteAccountBloc() : super(const DeleteAccountState.initial()) {
-    _initialiseFirebaseServices();
     _setupEventListeners();
-  }
-
-  void _initialiseFirebaseServices() {
-    _firebaseAuthService.init();
   }
 
   void _setupEventListeners() {
@@ -62,11 +57,12 @@ class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
       onError: (error, {stackTrace}) async {
         hasErrorOccurred = true;
 
-        final user = FirebaseAuth.instance.currentUser;
+        final user = _firebaseAuthService.getCurrentUser();
         final providerList =
             user?.providerData.map((p) => p.providerId).toList() ?? [];
 
-        if (error == kFirebaseAuthRequiresRecentLogin) {
+        if (error == kFirebaseAuthRequiresRecentLogin ||
+            error == kEmailPasswordReAuthRequired) {
           if (providerList.contains(kProviderPassword)) {
             emit(
               state.copyWith(

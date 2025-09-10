@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ShimmerCircularImage extends StatelessWidget {
   const ShimmerCircularImage({super.key, required this.size});

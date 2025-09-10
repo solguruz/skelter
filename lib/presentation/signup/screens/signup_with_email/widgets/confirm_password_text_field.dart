@@ -1,13 +1,13 @@
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ConfirmPasswordTextField extends StatefulWidget {
   const ConfirmPasswordTextField({super.key});
@@ -69,7 +69,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.login_signup_confirm_password,
+          context.localization.signup_confirm_password,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
@@ -77,9 +77,9 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           controller: _passwordController,
           obscureText: !isPasswordVisible,
           decoration: InputDecoration(
-            hintText: context.localization.login_signup_confirm_password_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintText: context.localization.signup_confirm_password_hint,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null

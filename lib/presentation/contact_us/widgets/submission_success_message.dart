@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SubmissionSuccessMessage extends StatelessWidget {
   const SubmissionSuccessMessage({super.key});
@@ -17,8 +17,8 @@ class SubmissionSuccessMessage extends StatelessWidget {
         const SizedBox(height: 8.0),
         Text(
           context.localization.response_received,
-          style:
-              AppTextStyles.p2Regular.withColor(AppColors.textNeutralSecondary),
+          style: AppTextStyles.p2Regular
+              .copyWith(color: AppColors.textNeutralSecondary),
           textAlign: TextAlign.center,
         ),
       ],

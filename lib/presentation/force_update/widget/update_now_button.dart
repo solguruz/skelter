@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/force_update/feature/force_update_constants.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/force_update/feature/force_update_constants.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UpdateNowButton extends StatelessWidget {

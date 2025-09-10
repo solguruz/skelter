@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDH5sc8CESh2cds78wOZPcrTSu3gr-eo5g',
-    appId: '1:691451580239:android:dde89e47b02b261f5cbf3a',
+    appId: '1:691451580239:android:613f14bca62e72615cbf3a',
     messagingSenderId: '691451580239',
     projectId: 'sg-skeleton',
     storageBucket: 'sg-skeleton.firebasestorage.app',
@@ -59,14 +59,14 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDCbwpu3cQeo9HNUSdsRDdZe9EOh8jk5xk',
-    appId: '1:691451580239:ios:452d8eab287e44ee5cbf3a',
+    appId: '1:691451580239:ios:0d54b281ad1a25a65cbf3a',
     messagingSenderId: '691451580239',
     projectId: 'sg-skeleton',
     storageBucket: 'sg-skeleton.firebasestorage.app',
     androidClientId:
         '691451580239-2fr294msgu7vq266j0vf510i9vh1ahhl.apps.googleusercontent.com',
     iosClientId:
-        '691451580239-l616l5s443oaetllm4ntkprf70rf0rnp.apps.googleusercontent.com',
-    iosBundleId: 'com.solguruz.flutterskeleton',
+        '691451580239-arq7c19hmkgoqm4glgh232mqfkcrinn4.apps.googleusercontent.com',
+    iosBundleId: 'com.solguruz.skelter',
   );
 }

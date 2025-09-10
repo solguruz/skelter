@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class LoginOptionsDivider extends StatelessWidget {
   const LoginOptionsDivider({
@@ -13,7 +13,7 @@ class LoginOptionsDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: LoginScreen.kHorizontalPadding,
+        horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
       ),
       child: Row(
         children: [
@@ -26,9 +26,9 @@ class LoginOptionsDivider extends StatelessWidget {
           ),
           const SizedBox(width: 20),
           Text(
-            context.localization.login_signup_or,
-            style: AppTextStyles.p2Regular.withColor(
-              AppColors.textNeutralDisable,
+            context.localization.or,
+            style: AppTextStyles.p2Regular.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
           ),
           const SizedBox(width: 20),

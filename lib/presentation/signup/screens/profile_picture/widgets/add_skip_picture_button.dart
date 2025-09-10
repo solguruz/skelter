@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/profile_picture/widgets/image_source_bottom_sheet_body.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/signup/screens/profile_picture/widgets/image_source_bottom_sheet_body.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 
 class AddSkipPictureButton extends StatelessWidget {
   const AddSkipPictureButton({super.key});
@@ -22,7 +22,7 @@ class AddSkipPictureButton extends StatelessWidget {
     return Column(
       children: [
         AppButton(
-          label: context.localization.login_signup_add,
+          label: context.localization.add,
           shouldSetFullWidth: true,
           size: AppButtonSize.large,
           state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
@@ -44,7 +44,7 @@ class AddSkipPictureButton extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         AppButton(
-          label: context.localization.login_signup_skip,
+          label: context.localization.skip,
           shouldSetFullWidth: true,
           size: AppButtonSize.large,
           style: AppButtonStyle.outline,

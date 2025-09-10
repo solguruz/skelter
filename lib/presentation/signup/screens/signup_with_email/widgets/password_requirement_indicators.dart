@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PasswordRequirementIndicators extends StatelessWidget {
   const PasswordRequirementIndicators({super.key});
@@ -32,7 +32,7 @@ class CharacterLengthRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.isPasswordLongEnough,
       ),
-      text: context.localization.login_signup_password_requirements_length,
+      text: context.localization.signup_password_requirements_length,
     );
   }
 }
@@ -46,8 +46,7 @@ class LetterAndNumberRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.hasLetterAndNumberInPassword,
       ),
-      text:
-          context.localization.login_signup_password_requirements_letter_number,
+      text: context.localization.signup_password_requirements_letter_number,
     );
   }
 }
@@ -61,8 +60,7 @@ class SpecialCharacterRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.hasSpecialCharacterInPassword,
       ),
-      text:
-          context.localization.login_signup_password_requirements_special_char,
+      text: context.localization.signup_password_requirements_special_char,
     );
   }
 }
@@ -86,8 +84,8 @@ class _RequirementRow extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           text,
-          style: AppTextStyles.p4Regular.withColor(
-            isValid
+          style: AppTextStyles.p4Regular.copyWith(
+            color: isValid
                 ? AppColors.textSuccessSecondary
                 : AppColors.textNeutralSecondary,
           ),

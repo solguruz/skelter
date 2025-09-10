@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductPriceRating extends StatelessWidget {
   final Product product;
@@ -17,8 +17,8 @@ class ProductPriceRating extends StatelessWidget {
           child: Text(
             '\$${product.price.toStringAsFixed(2)}',
             maxLines: 1,
-            style: AppTextStyles.p3SemiBold.withColor(
-              AppColors.textBrandPrimary,
+            style: AppTextStyles.p3SemiBold.copyWith(
+              color: AppColors.textBrandPrimary,
             ),
           ),
         ),
@@ -30,8 +30,8 @@ class ProductPriceRating extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           product.rating.toString(),
-          style: AppTextStyles.p4Medium.withColor(
-            AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Medium.copyWith(
+            color: AppColors.textNeutralSecondary,
           ),
         ),
       ],

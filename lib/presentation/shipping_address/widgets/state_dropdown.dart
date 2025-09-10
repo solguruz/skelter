@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class StateDropdown extends StatefulWidget {
   const StateDropdown({super.key});
@@ -43,8 +43,8 @@ class _StateDropdownState extends State<StateDropdown> {
           icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
             context.localization.select_state,
-            style:
-                AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
+            style: AppTextStyles.p2Medium
+                .copyWith(color: AppColors.textNeutralDisable),
           ),
           items: _states.map((String state) {
             return DropdownMenuItem<String>(

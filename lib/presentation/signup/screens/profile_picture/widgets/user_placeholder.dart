@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/profile_picture/widgets/add_skip_picture_button.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/signup/screens/profile_picture/widgets/add_skip_picture_button.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class UserPlaceholder extends StatelessWidget {
   const UserPlaceholder({super.key});

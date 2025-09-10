@@ -4,29 +4,29 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_state.dart';
-import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/models/login_details.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
-import 'package:flutter_skeleton/services/firebase_auth_services.dart';
-import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
-import 'package:flutter_skeleton/validators/validators.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/core/services/injection_container.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/bloc/login_state.dart';
+import 'package:skelter/presentation/login/enum/enum_login_type.dart';
+import 'package:skelter/presentation/login/models/login_details.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/shared_pref/pref_keys.dart';
+import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/validators/validators.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginState> {
   static const kMinimumPasswordLength = 8;
 
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
   final AppLocalizations localizations;
 
   LoginBloc({
     required this.localizations,
   }) : super(LoginState.initial()) {
-    _initialiseFirebaseServices();
     _setupEventListener();
   }
 
@@ -86,7 +86,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   ) {
     emit(
       state.copyWith(
-        selectedLoginSignupType: event.selectedType,
+        selectedLoginType: event.selectedType,
       ),
     );
   }
@@ -407,6 +407,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       state.copyWith(emailPasswordLoginState: emailPasswordLoginState),
     );
     emit(EmailLoginLoadingState(state, isLoading: false));
+    emit(ClearLoginWithEmailControllerState(state));
   }
 
   void _onResetPhoneNumberStateEvent(
@@ -477,8 +478,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       emit(
         state.copyWith(
           phoneNumberLoginState: phoneNumberLoginState.copyWith(
-            phoneNumErrorMessage:
-                localizations.login_signup_invalid_mobile_number,
+            phoneNumErrorMessage: localizations.login_invalid_mobile_number,
           ),
         ),
       );
@@ -501,10 +501,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
     add(PhoneNumLoginLoadingEvent(isLoading: false));
     add(EmailLoginLoadingEvent(isLoading: false));
     add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
-  }
-
-  void _initialiseFirebaseServices() {
-    FirebaseAuthService().init();
   }
 
   Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({

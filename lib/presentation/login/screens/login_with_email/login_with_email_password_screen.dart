@@ -13,12 +13,17 @@ import 'package:flutter_skeleton/presentation/login/screens/login_with_email/wid
 import 'package:flutter_skeleton/presentation/login/screens/login_with_email/widgets/login_with_email_pass_button.dart';
 import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
 import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
+import 'package:flutter_skeleton/utils/extensions/build_context_ext.dart';
+import 'package:flutter_skeleton/utils/extensions/string.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {
-  const LoginWithEmailPasswordScreen({super.key, required this.loginBloc});
+  final bool isFromDeleteAccount;
+  const LoginWithEmailPasswordScreen({
+    super.key,
+    required this.loginBloc,
+    this.isFromDeleteAccount = false,
+  });
 
   final LoginBloc loginBloc;
 
@@ -37,14 +42,18 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: LoginScreen.kHorizontalPadding,
+                horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
               ),
               child: BlocListener<LoginBloc, LoginState>(
                 listener: (context, state) async {
                   if (state is AuthenticationExceptionState) {
                     _showAuthenticationError(state, context);
                   } else if (state is NavigateToHomeScreenState) {
-                    context.router.popUntilRoot();
+                    if (isFromDeleteAccount) {
+                      await context.router.replace(const DeleteAccountRoute());
+                    } else {
+                      context.router.popUntilRoot();
+                    }
                   } else if (state is NavigateToEmailVerifyScreenState) {
                     await context.router.push(
                       VerifyEmailRoute(
@@ -86,7 +95,7 @@ class _LoginWithEmailScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.localization.login_signup_login_with_email,
+              context.localization.login_login_with_email,
               style: AppTextStyles.h2Bold,
             ),
           ),

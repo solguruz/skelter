@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/login/bloc/login_state.dart';
+import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmailPasswordTextFields extends StatefulWidget {
   const EmailPasswordTextFields({super.key});
@@ -43,62 +44,70 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
     final String? passwordErrorMessage = context.select<LoginBloc, String?>(
       (bloc) => bloc.state.emailPasswordLoginState?.passwordErrorMessage,
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          context.localization.login_signup_email,
-          style: AppTextStyles.p3Medium,
-        ),
-        const SizedBox(height: 16),
-        TextField(
-          controller: _emailController,
-          decoration: InputDecoration(
-            hintText: context.localization.login_signup_email_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
-            ),
-            errorText:
-                emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
+    return BlocListener<LoginBloc, LoginState>(
+      listener: (context, state) {
+        if (state is ClearLoginWithEmailControllerState) {
+          _emailController.clear();
+          _passwordController.clear();
+        }
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            context.localization.email,
+            style: AppTextStyles.p3Medium,
           ),
-          textInputAction: TextInputAction.next,
-          keyboardType: TextInputType.emailAddress,
-        ),
-        const SizedBox(height: 16),
-        Text(
-          context.localization.login_signup_password,
-          style: AppTextStyles.p3Medium,
-        ),
-        const SizedBox(height: 8),
-        TextField(
-          controller: _passwordController,
-          obscureText: !isPasswordVisible,
-          decoration: InputDecoration(
-            hintText: context.localization.login_signup_password_hint,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
-            ),
-            errorText: passwordErrorMessage.isNullOrEmpty()
-                ? null
-                : passwordErrorMessage,
-            suffixIcon: IconButton(
-              icon: Icon(
-                size: 22,
-                isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: AppColors.strokeNeutralDisabled,
+          const SizedBox(height: 16),
+          TextField(
+            controller: _emailController,
+            decoration: InputDecoration(
+              hintText: context.localization.email_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
               ),
-              onPressed: () {
-                context.read<LoginBloc>().add(
-                      IsPasswordVisibleEvent(
-                        isPasswordVisible: !isPasswordVisible,
-                      ),
-                    );
-              },
+              errorText:
+                  emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
             ),
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
           ),
-          textInputAction: TextInputAction.done,
-        ),
-      ],
+          const SizedBox(height: 16),
+          Text(
+            context.localization.password,
+            style: AppTextStyles.p3Medium,
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _passwordController,
+            obscureText: !isPasswordVisible,
+            decoration: InputDecoration(
+              hintText: context.localization.password_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
+              ),
+              errorText: passwordErrorMessage.isNullOrEmpty()
+                  ? null
+                  : passwordErrorMessage,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  size: 22,
+                  isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
+                  color: AppColors.strokeNeutralDisabled,
+                ),
+                onPressed: () {
+                  context.read<LoginBloc>().add(
+                        IsPasswordVisibleEvent(
+                          isPasswordVisible: !isPasswordVisible,
+                        ),
+                      );
+                },
+              ),
+            ),
+            textInputAction: TextInputAction.done,
+          ),
+        ],
+      ),
     );
   }
 

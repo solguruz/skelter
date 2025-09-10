@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_bloc.dart';
-import 'package:flutter_skeleton/presentation/login/bloc/login_events.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/utils/internet_connectivity_util.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/utils/internet_connectivity_helper.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 
 class SendOTPButton extends StatelessWidget {
   const SendOTPButton({super.key});
@@ -35,9 +36,10 @@ class SendOTPButton extends StatelessWidget {
     }
 
     return AppButton(
+      key: keys.signInPage.sendOTPButton,
       label: isSignup
-          ? context.localization.login_signup_next
-          : context.localization.login_signup_send_otp,
+          ? context.localization.next
+          : context.localization.login_send_otp,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: phoneNumberOnly.isNotEmpty
@@ -46,7 +48,7 @@ class SendOTPButton extends StatelessWidget {
       isLoading: isLoading,
       onPressed: () async {
         final isConnected =
-            InternetConnectivityUtil().onConnectivityChange.value;
+            InternetConnectivityHelper().onConnectivityChange.value;
 
         if (!isConnected && context.mounted) {
           context.showSnackBar(context.localization.no_internet_connection);

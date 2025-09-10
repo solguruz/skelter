@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/presentation/home/data/models/product_model.dart';
+import 'package:skelter/presentation/home/data/models/product_model.dart';
 
 final List<ProductModel> dummyProductData = [
   const ProductModel(

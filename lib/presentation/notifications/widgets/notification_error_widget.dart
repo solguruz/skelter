@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationErrorWidget extends StatelessWidget {
   const NotificationErrorWidget({super.key, required this.msg});
@@ -21,7 +21,7 @@ class NotificationErrorWidget extends StatelessWidget {
           ),
           Text(
             msg.isEmpty ? context.localization.opps_something_went_wrong : msg,
-            style: AppTextStyles.p2Medium.withColor(AppColors.errorColor),
+            style: AppTextStyles.p2Medium.copyWith(color: AppColors.errorColor),
           ),
         ],
       ),

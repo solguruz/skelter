@@ -1,15 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar_plus/flutter_rating_bar_plus.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/checkout/model/product_cart.dart';
-import 'package:flutter_skeleton/utils/app_environment.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/checkout/model/product_cart.dart';
+import 'package:skelter/utils/app_environment.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class CartOrderItem extends StatelessWidget {
   const CartOrderItem({
@@ -53,8 +53,8 @@ class CartOrderItem extends StatelessWidget {
                     Expanded(
                       child: Text(
                         cartModel.product.category,
-                        style: AppTextStyles.p3Medium.withColor(
-                          AppColors.textNeutralSecondary,
+                        style: AppTextStyles.p3Medium.copyWith(
+                          color: AppColors.textNeutralSecondary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -70,7 +70,7 @@ class CartOrderItem extends StatelessWidget {
                 Text(
                   cartModel.product.title,
                   style: AppTextStyles.p2Medium
-                      .withColor(AppColors.textNeutralPrimary),
+                      .copyWith(color: AppColors.textNeutralPrimary),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
@@ -91,8 +91,8 @@ class CartOrderItem extends StatelessWidget {
                   children: [
                     Text(
                       '\$${cartModel.product.price.toStringAsFixed(2)}',
-                      style: AppTextStyles.p2SemiBold.withColor(
-                        AppColors.textNeutralPrimary,
+                      style: AppTextStyles.p2SemiBold.copyWith(
+                        color: AppColors.textNeutralPrimary,
                       ),
                     ),
                     const Spacer(),
@@ -105,8 +105,8 @@ class CartOrderItem extends StatelessWidget {
                     const SizedBox(width: 8),
                     Text(
                       cartModel.quantities.toString(),
-                      style: AppTextStyles.p2SemiBold.withColor(
-                        AppColors.textBrandSecondary,
+                      style: AppTextStyles.p2SemiBold.copyWith(
+                        color: AppColors.textBrandSecondary,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -119,8 +119,8 @@ class CartOrderItem extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   cartModel.product.category,
-                  style: AppTextStyles.p2Medium.withColor(
-                    AppColors.textNeutralSecondary,
+                  style: AppTextStyles.p2Medium.copyWith(
+                    color: AppColors.textNeutralSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
@@ -139,8 +139,8 @@ class CartOrderItem extends StatelessWidget {
                     Expanded(
                       child: Text(
                         '${context.localization.expected_delivery_by} ',
-                        style: AppTextStyles.p3Medium.withColor(
-                          AppColors.textNeutralPrimary,
+                        style: AppTextStyles.p3Medium.copyWith(
+                          color: AppColors.textNeutralPrimary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -148,8 +148,8 @@ class CartOrderItem extends StatelessWidget {
                     ),
                     Text(
                       cartModel.expectedDeliveryDate,
-                      style: AppTextStyles.p3Medium.withColor(
-                        AppColors.bgBrandDefault,
+                      style: AppTextStyles.p3Medium.copyWith(
+                        color: AppColors.bgBrandDefault,
                       ),
                       maxLines: 1,
                     ),

@@ -1,20 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
-import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_bloc.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/confirm_password_text_field.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_next_button.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_requirement_stats.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/presentation/signup/bloc/signup_state.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/confirm_password_text_field.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_next_button.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_stats.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/utils/extensions/string.dart';
 
 @RoutePage()
 class CreateYourPasswordScreen extends StatelessWidget {
@@ -29,7 +29,7 @@ class CreateYourPasswordScreen extends StatelessWidget {
       child: PopScope(
         onPopInvokedWithResult: (didPop, result) {
           if (didPop) {
-            signupBloc.add(ResetEmailStateEvent());
+            signupBloc.add(ResetPasswordStateEvent());
           }
         },
         child: Scaffold(
@@ -37,7 +37,7 @@ class CreateYourPasswordScreen extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: LoginScreen.kHorizontalPadding,
+                horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
               ),
               child: BlocListener<SignupBloc, SignupState>(
                 listener: (context, state) async {
@@ -60,10 +60,8 @@ class CreateYourPasswordScreen extends StatelessWidget {
     AuthenticationExceptionState state,
     BuildContext context,
   ) {
-    final String? error = state.authenticationErrorMessage;
-    context.showSnackBar(
-      error.isNullOrEmpty() ? kSomethingWentWrong : error!,
-    );
+    final String error = state.authenticationErrorMessage;
+    context.showSnackBar(error.isNullOrEmpty() ? kSomethingWentWrong : error);
   }
 }
 
@@ -77,7 +75,7 @@ class _CreateYourPasswordScreenBody extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           Text(
-            context.localization.login_signup_create_your_password,
+            context.localization.signup_create_your_password,
             style: AppTextStyles.h2Bold,
           ),
           const SizedBox(height: 25),

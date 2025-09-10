@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:flutter_skeleton/presentation/checkout/bloc/checkout_events.dart';
-import 'package:flutter_skeleton/presentation/checkout/cart_screen.dart';
-import 'package:flutter_skeleton/presentation/checkout/data/cart_sample_data.dart';
-import 'package:flutter_skeleton/presentation/checkout/order_review_screen.dart';
-import 'package:flutter_skeleton/presentation/checkout/payment_screen.dart';
-import 'package:flutter_skeleton/presentation/checkout/shipping_screen.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/bottom_items.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/checkout_app_bar.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/custom_stepper.dart';
-import 'package:flutter_skeleton/presentation/checkout/widget/empty_cart_view.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
+import 'package:skelter/presentation/checkout/cart_screen.dart';
+import 'package:skelter/presentation/checkout/data/cart_sample_data.dart';
+import 'package:skelter/presentation/checkout/order_review_screen.dart';
+import 'package:skelter/presentation/checkout/payment_screen.dart';
+import 'package:skelter/presentation/checkout/shipping_screen.dart';
+import 'package:skelter/presentation/checkout/widget/bottom_items.dart';
+import 'package:skelter/presentation/checkout/widget/checkout_app_bar.dart';
+import 'package:skelter/presentation/checkout/widget/custom_stepper.dart';
+import 'package:skelter/presentation/checkout/widget/empty_cart_view.dart';
 
 class InitialCheckoutScreen extends StatelessWidget {
   const InitialCheckoutScreen({super.key});

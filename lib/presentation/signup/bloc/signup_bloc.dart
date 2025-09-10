@@ -4,22 +4,23 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/presentation/login/enum/enum_login_type.dart';
-import 'package:flutter_skeleton/presentation/login/models/login_details.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_event.dart';
-import 'package:flutter_skeleton/presentation/signup/bloc/signup_state.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
-import 'package:flutter_skeleton/services/firebase_auth_services.dart';
-import 'package:flutter_skeleton/shared_pref/pref_keys.dart';
-import 'package:flutter_skeleton/shared_pref/prefs.dart';
-import 'package:flutter_skeleton/utils/extensions/primitive_extensions.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/core/services/injection_container.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/presentation/login/enum/enum_login_type.dart';
+import 'package:skelter/presentation/login/models/login_details.dart';
+import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/presentation/signup/bloc/signup_state.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/shared_pref/pref_keys.dart';
+import 'package:skelter/shared_pref/prefs.dart';
+import 'package:skelter/utils/extensions/string.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
   static const kMinimumPasswordLength = 8;
 
-  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+  final FirebaseAuthService _firebaseAuthService = sl();
   final AppLocalizations localizations;
 
   SignupBloc({
@@ -54,7 +55,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
 
     on<EmailSignUpLoadingEvent>(_onEmailSignUpLoadingEvent);
     on<CheckEmailAvailabilityEvent>(_onVerifyEmailAccountEvent);
-    on<ResetEmailStateEvent>(_onResetEmailStateEvent);
+    on<ResetPasswordStateEvent>(_onResetPasswordStateEvent);
     on<ChangeUserDetailsInputStatusEvent>(
       _onChangeUserDetailsInputStatusEvent,
     );
@@ -74,12 +75,17 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     );
   }
 
-  void _onResetEmailStateEvent(ResetEmailStateEvent event, Emitter emit) {
+  void _onResetPasswordStateEvent(ResetPasswordStateEvent event, Emitter emit) {
     emit(
-      SignupState.initial().copyWith(
-        email: '',
+      state.copyWith(
         password: '',
+        confirmPassword: '',
         isPasswordVisible: false,
+        isConfirmPasswordVisible: false,
+        passwordStrengthLevel: 0,
+        isPasswordLongEnough: false,
+        hasLetterAndNumberInPassword: false,
+        hasSpecialCharacterInPassword: false,
       ),
     );
   }
@@ -231,14 +237,14 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     if (confirmPassword.isEmpty) {
       add(
         ConfirmPasswordErrorEvent(
-          errorMessage: localizations.login_signup_error_enter_confirm_password,
+          errorMessage: localizations.signup_error_enter_confirm_password,
         ),
       );
       return;
     } else if (password != confirmPassword) {
       add(
         ConfirmPasswordErrorEvent(
-          errorMessage: localizations.login_signup_passwords_do_not_match,
+          errorMessage: localizations.signup_passwords_do_not_match,
         ),
       );
       return;
@@ -372,14 +378,14 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     final loginType = state.selectedLoginSignupType;
     if (firebaseUser == null) {
       debugPrint('firebaseUser is null');
-      onError(localizations.login_signup_user_info_not_retrieved);
+      onError(localizations.signup_user_info_not_retrieved);
       return;
     }
     if (loginType == LoginType.PHONE) {
       if (firebaseUser.phoneNumber.isNullOrEmpty()) {
         debugPrint('Authentication Current user phone number is null');
 
-        onError(localizations.login_signup_error_retrieving_phone_number);
+        onError(localizations.signup_error_retrieving_phone_number);
         return;
       }
 
@@ -388,7 +394,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       add(NavigateToHomeScreenEvent());
     } else if (loginType == LoginType.EMAIL) {
       if (firebaseUser.email.isNullOrEmpty()) {
-        onError(localizations.login_signup_error_retrieving_email);
+        onError(localizations.signup_error_retrieving_email);
         return;
       }
     } else if (loginType == LoginType.GOOGLE) {

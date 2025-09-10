@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/presentation/home/domain/entities/product.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_category_chip.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_image.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_price_rating.dart';
-import 'package:flutter_skeleton/presentation/home/widgets/product_title.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/home/domain/entities/product.dart';
+import 'package:skelter/presentation/home/widgets/product_category_chip.dart';
+import 'package:skelter/presentation/home/widgets/product_image.dart';
+import 'package:skelter/presentation/home/widgets/product_price_rating.dart';
+import 'package:skelter/presentation/home/widgets/product_title.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ZipCodeTextField extends StatefulWidget {
   const ZipCodeTextField({super.key});
@@ -32,8 +32,8 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
           controller: _zipCodeTextController,
           decoration: InputDecoration(
             hintText: context.localization.enter_zip_code,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.textNeutralDisable,
             ),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,

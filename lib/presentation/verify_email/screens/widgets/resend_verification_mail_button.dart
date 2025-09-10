@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_bloc.dart';
-import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_event.dart';
-import 'package:flutter_skeleton/widgets/app_button/app_button.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:flutter_skeleton/widgets/app_button/enums/app_button_state_enum.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/verify_email/bloc/verify_email_bloc.dart';
+import 'package:skelter/presentation/verify_email/bloc/verify_email_event.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 
 class ResendVerificationMailButton extends StatelessWidget {
   const ResendVerificationMailButton({super.key});
@@ -21,7 +21,7 @@ class ResendVerificationMailButton extends StatelessWidget {
         context.select<VerifyEmailBloc, bool>((bloc) => bloc.state.isLoading);
 
     final String resendLinkText =
-        '${context.localization.login_signup_resend_verification_email} '
+        '${context.localization.signup_resend_verification_email} '
         '${resendEmailVerificationTimeLeft > 0 ? ''
             '($resendEmailVerificationTimeLeft)' : ''}';
 

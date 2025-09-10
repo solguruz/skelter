@@ -6,20 +6,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fgbg/flutter_fgbg.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/gen/assets.gen.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/login/login_screen.dart';
-import 'package:flutter_skeleton/presentation/login/widgets/login_app_bar.dart';
-import 'package:flutter_skeleton/presentation/signup/enum/user_details_input_status.dart';
-import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_bloc.dart';
-import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_event.dart';
-import 'package:flutter_skeleton/presentation/verify_email/bloc/verify_email_state.dart';
-import 'package:flutter_skeleton/presentation/verify_email/screens/widgets/entered_wrong_email.dart';
-import 'package:flutter_skeleton/presentation/verify_email/screens/widgets/resend_verification_mail_button.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
+import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
+import 'package:skelter/presentation/verify_email/bloc/verify_email_bloc.dart';
+import 'package:skelter/presentation/verify_email/bloc/verify_email_event.dart';
+import 'package:skelter/presentation/verify_email/bloc/verify_email_state.dart';
+import 'package:skelter/presentation/verify_email/screens/widgets/entered_wrong_email.dart';
+import 'package:skelter/presentation/verify_email/screens/widgets/resend_verification_mail_button.dart';
+import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
 class VerifyEmailScreen extends StatefulWidget {
@@ -76,7 +76,6 @@ class _VerifyEmailScreenBody extends StatefulWidget {
 class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
   Timer? _verificationListenTimer, _resendVerificationMailTimer;
 
-  // TODO: check this if it works:
   bool _isEmailVerified() =>
       FirebaseAuth.instance.currentUser?.emailVerified ?? false;
 
@@ -113,8 +112,8 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(
-              left: LoginScreen.kHorizontalPadding,
-              right: LoginScreen.kHorizontalPadding,
+              left: LoginWithPhoneNumberScreen.kHorizontalPadding,
+              right: LoginWithPhoneNumberScreen.kHorizontalPadding,
               bottom: max(20, MediaQuery.of(context).padding.bottom),
             ),
             child: Column(
@@ -123,13 +122,13 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                 SvgPicture.asset(Assets.icons.emailNotification),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.login_signup_verify_your_email,
+                  context.localization.signup_verify_your_email,
                   style: AppTextStyles.h2Bold,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.login_signup_link_verify_info(
+                  context.localization.signup_link_verify_info(
                     widget.email,
                   ),
                   style: AppTextStyles.p2Medium,

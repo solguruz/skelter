@@ -1,17 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_skeleton/constants/constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_bloc.dart';
-import 'package:flutter_skeleton/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:flutter_skeleton/presentation/delete_account/feature/delete_account_constants.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_appbar.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_button.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_divider.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_reasons_options.dart';
-import 'package:flutter_skeleton/presentation/delete_account/widgets/delete_account_warnings.dart';
-import 'package:flutter_skeleton/routes.gr.dart';
-import 'package:flutter_skeleton/utils/extensions/build_context_extension.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
+import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
+import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_appbar.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_button.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_divider.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_reasons_options.dart';
+import 'package:skelter/presentation/delete_account/widgets/delete_account_warnings.dart';
+import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
 
 @RoutePage()
 class DeleteAccountScreen extends StatelessWidget {
@@ -36,15 +38,20 @@ class DeleteAccountScreen extends StatelessWidget {
     } else if (state is DeleteAccountFailureState) {
       context.showSnackBar(state.errorMessage ?? kSomethingWentWrong);
     } else if (state is DeleteAccountReAuthEmailPasswordRequiredState) {
-      context.showSnackBar('Navigate to email password screen');
-      // TODO: Navigate to email/password screen after dynamic login implement.
+      context.showSnackBar(kReAuthRequiredForPerformThisAction);
+      context.router.replace(
+        LoginWithEmailPasswordRoute(
+          isFromDeleteAccount: true,
+          loginBloc: LoginBloc(localizations: context.localization),
+        ),
+      );
     } else if (state is DeleteAccountReAuthPhoneRequiredState) {
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
-      context.router.replaceAll([
+      context.router.pushAndPopUntil(
         LoginWithPhoneNumberRoute(isFromDeleteAccount: true),
-      ]);
+        predicate: (_) => false,
+      );
     } else if (state is DeleteAccountReAuthGoogleRequiredState) {
-      // TODO: Trigger Google re-authentication after dynamic setup google auth.
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
     }
   }

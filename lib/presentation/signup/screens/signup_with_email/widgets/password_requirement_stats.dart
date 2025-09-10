@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/common/theme/text_style/app_text_styles.dart';
-import 'package:flutter_skeleton/i18n/localization.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_requirement_indicators.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_strength_indicator.dart';
-import 'package:flutter_skeleton/presentation/signup/screens/signup_with_email/widgets/password_strength_status.dart';
-import 'package:flutter_skeleton/widgets/styling/app_colors.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_indicators.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_indicator.dart';
+import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_status.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PasswordRequirementStats extends StatelessWidget {
   const PasswordRequirementStats({
@@ -23,9 +23,9 @@ class PasswordRequirementStats extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            context.localization.login_signup_password_requirements,
-            style: AppTextStyles.p4Bold.withColor(
-              AppColors.textNeutralPrimary,
+            context.localization.signup_password_requirements,
+            style: AppTextStyles.p4Bold.copyWith(
+              color: AppColors.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 5),
