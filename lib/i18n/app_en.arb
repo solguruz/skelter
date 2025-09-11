@@ -171,6 +171,7 @@
   "payment": "Payment",
   "personal_details": "Personal Details",
   "pick_image_error": "Something went wrong while picking images. Please try again.",
+  "pick_file_error": "Something went wrong while picking files. Please try again.",
   "pick_pdf_error": "Something went wrong while picking PDFs. Please try again.",
   "platform_not_supported": "Platform not supported",
   "please_select_at_least_one_reason": "Please select at least one reason",

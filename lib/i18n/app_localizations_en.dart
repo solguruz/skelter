@@ -423,6 +423,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Something went wrong while picking images. Please try again.';
 
   @override
+  String get pick_file_error =>
+      'Something went wrong while picking files. Please try again.';
+
+  @override
   String get pick_pdf_error =>
       'Something went wrong while picking PDFs. Please try again.';
 
@@ -650,8 +654,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signup_strong => 'Strong';
 
   @override
-  String get pick_pdf_error =>
-      'Something went wrong while picking PDFs. Please try again.';
+  String get signup_terms_and_conditions => 'Terms and Conditions';
 
   @override
   String get signup_user_info_not_retrieved =>

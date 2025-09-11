@@ -1,11 +1,19 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter_skeleton/constants/constants.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as path;
+import 'package:skelter/constants/constants.dart';
 
 class FileValidator {
+  /// List of acceptable MIME types mapped to their extensions
+  static const Map<String, String> kAllowedFileTypes = {
+    kPdf: kPdfMimeType,
+    kText: kTextMimeType,
+    kDoc: kDocMimeType,
+    kMp4: kVideoMimeType,
+  };
+
   static Future<bool> isValidByMimeAndExtension(File file) async {
     try {
       final extension =

@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 
-class InternetConnectivityUtil {
-  factory InternetConnectivityUtil() => _instance;
+class InternetConnectivityHelper {
+  factory InternetConnectivityHelper() => _instance;
 
-  InternetConnectivityUtil._internal() {
+  InternetConnectivityHelper._internal() {
     _initListener();
   }
 
-  static final InternetConnectivityUtil _instance =
-      InternetConnectivityUtil._internal();
+  static final InternetConnectivityHelper _instance =
+      InternetConnectivityHelper._internal();
 
   final Connectivity _connectivity = Connectivity();
 

@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_skeleton/utils/platform_util.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:skelter/utils/platform_util.dart';
 
 class PermissionUtil {
   static Future<bool> hasStoragePermission() async {

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_skeleton/i18n/app_localizations.dart';
-import 'package:flutter_skeleton/validators/validated_file_result.dart';
+import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/validators/validated_file_result.dart';
 
 class FilePickerUtil {
   /// Picks and validates files based on extension, size, and custom logic.
