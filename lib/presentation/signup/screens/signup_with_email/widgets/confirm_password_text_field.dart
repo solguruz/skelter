@@ -80,6 +80,10 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
             AppColors.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             hintText: context.localization.signup_confirm_password_hint,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.currentTheme.textNeutralDisable,
@@ -107,6 +111,22 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           textInputAction: TextInputAction.done,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 }

@@ -67,26 +67,10 @@ class _EmailTextFieldState extends State<EmailTextField> {
             color: AppColors.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.currentTheme.strokeNeutralLight200,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: AppColors.currentTheme.strokeBrandHover),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            hintText: context.localization.email_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
-            ),
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
             errorText:
@@ -96,6 +80,22 @@ class _EmailTextFieldState extends State<EmailTextField> {
           keyboardType: TextInputType.emailAddress,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 }

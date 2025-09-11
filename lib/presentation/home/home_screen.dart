@@ -25,9 +25,14 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class HomeScreenWrapper extends StatelessWidget {
+class HomeScreenWrapper extends StatefulWidget {
   const HomeScreenWrapper({super.key});
 
+  @override
+  State<HomeScreenWrapper> createState() => _HomeScreenWrapperState();
+}
+
+class _HomeScreenWrapperState extends State<HomeScreenWrapper> {
   @override
   Widget build(BuildContext context) {
     final int currentIndex = context.select<HomeBloc, int>(

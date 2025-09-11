@@ -66,6 +66,10 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
             ),
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,
@@ -84,6 +88,22 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           textInputAction: TextInputAction.done,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 }

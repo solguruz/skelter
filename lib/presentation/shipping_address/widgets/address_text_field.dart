@@ -51,6 +51,10 @@ class _AddressTextFieldState extends State<AddressTextField> {
             counterStyle: AppTextStyles.p3Regular.withColor(
               AppColors.currentTheme.textNeutralDisable,
             ),
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
           ),
           textInputAction: TextInputAction.newline,
           maxLength: 250,
@@ -59,6 +63,22 @@ class _AddressTextFieldState extends State<AddressTextField> {
           maxLines: 5,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 

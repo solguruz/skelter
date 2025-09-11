@@ -55,9 +55,29 @@ class _SearchTextFieldState extends State<SearchTextField> {
           TablerIcons.microphone,
           color: AppColors.currentTheme.strokeNeutralDisabled,
         ),
+        border: buildOutlineInputBorder(hasFocus: false),
+        enabledBorder: buildOutlineInputBorder(hasFocus: false),
+        focusedBorder: buildOutlineInputBorder(hasFocus: true),
+        errorBorder: buildOutlineInputBorder(isErrorBorder: true),
       ),
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.emailAddress,
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 }

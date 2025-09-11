@@ -83,6 +83,10 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
                 '${description.length}/${ContactUsScreen.kMessageMaxLength}',
             counterStyle: AppTextStyles.p4Regular
                 .withColor(AppColors.currentTheme.textNeutralDisable),
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
           ),
           maxLines: 4,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -94,6 +98,22 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           keyboardType: TextInputType.multiline,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 }

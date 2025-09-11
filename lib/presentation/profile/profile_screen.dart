@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
@@ -14,6 +15,8 @@ import 'package:skelter/presentation/profile/widgets/support_section.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -23,27 +26,19 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<ProfileBloc>(
       create: (context) => ProfileBloc(),
-      child: Scaffold(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
-        appBar: AppBar(
-          title: Text(
-            'Profile',
-            style: AppTextStyles.h6Bold.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
-            ),
-          ),
-          centerTitle: true,
-          backgroundColor: AppColors.currentTheme.bgSurfaceBase,
-        ),
-        body: const ProfileScreenBody(),
-      ),
+      child: const ProfileScreenBody(),
     );
   }
 }
 
-class ProfileScreenBody extends StatelessWidget {
+class ProfileScreenBody extends StatefulWidget {
   const ProfileScreenBody({super.key});
 
+  @override
+  State<ProfileScreenBody> createState() => _ProfileScreenBodyState();
+}
+
+class _ProfileScreenBodyState extends State<ProfileScreenBody> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ProfileBloc, ProfileState>(
@@ -57,25 +52,45 @@ class ProfileScreenBody extends StatelessWidget {
           _showSignOutError(state, context);
         }
       },
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ProfileDetails(),
-              SizedBox(height: 40.0),
-              AccountSection(),
-              SizedBox(height: 24.0),
-              ActivitySection(),
-              SizedBox(height: 32.0),
-              Settings(),
-              SizedBox(height: 24.0),
-              SupportSection(),
-              SizedBox(height: 24.0),
-              SignOut(),
-              SizedBox(height: 32.0),
-            ],
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            AppBar(
+              title: Text(
+                'Profile',
+                style: AppTextStyles.h6Bold.withColor(
+                  AppColors.currentTheme.textNeutralPrimary,
+                ),
+              ),
+              backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+              leading: AppButton.icon(
+                iconData: TablerIcons.arrow_left,
+                size: AppButtonSize.extraLarge,
+                onPressed: () => context.router.maybePop(),
+              ),
+              centerTitle: true,
+              foregroundColor: AppColors.currentTheme.strokeShadesBlack,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  ProfileDetails(),
+                  SizedBox(height: 40.0),
+                  AccountSection(),
+                  SizedBox(height: 24.0),
+                  ActivitySection(),
+                  SizedBox(height: 32.0),
+                  Settings(),
+                  SizedBox(height: 24.0),
+                  SupportSection(),
+                  SizedBox(height: 24.0),
+                  SignOut(),
+                  SizedBox(height: 32.0),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

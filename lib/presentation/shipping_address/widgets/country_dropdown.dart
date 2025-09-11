@@ -39,9 +39,12 @@ class _CountryDropdownState extends State<CountryDropdown> {
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.select_country,
-            border: const OutlineInputBorder(),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
           ),
           value: _selectedCountry,
           icon: const Icon(TablerIcons.chevron_down),
@@ -77,6 +80,22 @@ class _CountryDropdownState extends State<CountryDropdown> {
           isExpanded: true,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 

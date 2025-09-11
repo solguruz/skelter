@@ -39,6 +39,10 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.currentTheme.textNeutralDisable,
             ),
+            border: buildOutlineInputBorder(hasFocus: false),
+            enabledBorder: buildOutlineInputBorder(hasFocus: false),
+            focusedBorder: buildOutlineInputBorder(hasFocus: true),
+            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,
             counterText: '',
@@ -48,6 +52,22 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
           maxLength: 50,
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
     );
   }
 

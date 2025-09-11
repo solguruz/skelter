@@ -39,6 +39,7 @@ class CustomStepper extends StatelessWidget {
       activeStepIconColor: AppColors.shadesWhite,
       unreachedStepIconColor: AppColors.currentTheme.bgBrandDefault,
       finishedStepIconColor: AppColors.shadesWhite,
+      finishedStepBackgroundColor: AppColors.currentTheme.bgBrandDefault,
       showLoadingAnimation: false,
       steps: steps(context),
     );

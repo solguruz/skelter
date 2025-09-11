@@ -73,6 +73,10 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
               fillColor: AppColors.currentTheme.bgSurfaceBase2,
               errorText:
                   emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
+              border: buildOutlineInputBorder(hasFocus: false),
+              enabledBorder: buildOutlineInputBorder(hasFocus: false),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             ),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -95,6 +99,10 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
               ),
               filled: true,
               fillColor: AppColors.currentTheme.bgSurfaceBase2,
+              border: buildOutlineInputBorder(hasFocus: false),
+              enabledBorder: buildOutlineInputBorder(hasFocus: false),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
               errorText: passwordErrorMessage.isNullOrEmpty()
                   ? null
                   : passwordErrorMessage,
@@ -146,6 +154,22 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
     context.read<LoginBloc>().add(
           PasswordChangeEvent(password: _passwordController.text),
         );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({
+    bool? hasFocus,
+    bool? isErrorBorder,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: isErrorBorder ?? false
+            ? AppColors.currentTheme.strokeErrorDefault
+            : hasFocus ?? false
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
+      ),
+    );
   }
 
   @override

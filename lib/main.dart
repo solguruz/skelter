@@ -46,12 +46,16 @@ class _MainAppState extends State<MainApp> {
   final InternetConnectivityHelper _connectivityHelper =
       InternetConnectivityHelper();
 
+  late ThemeBloc themeBloc;
   @override
   void initState() {
     super.initState();
     Prefs.init();
     _connectivityHelper.onConnectivityChange
         .addListener(handleConnectivityStatusChange);
+
+    final themeService = ThemeService();
+    themeBloc = ThemeBloc(service: themeService)..add(const LoadTheme());
   }
 
   Future<void> handleConnectivityStatusChange() async {
@@ -76,9 +80,6 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    final themeService = ThemeService();
-    final themeBloc = ThemeBloc(service: themeService)..add(const LoadTheme());
-
     return BlocProvider.value(
       value: themeBloc,
       child: Sizer(
@@ -95,14 +96,18 @@ class _MainAppState extends State<MainApp> {
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                 ],
-                routerConfig: AppRouter().config(),
+                routerConfig: appRouter.config(),
                 theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
                 darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
+                themeMode: state.themeMode,
                 builder: (context, child) {
-                  AppColors.setDarkThemeMode(
-                    isDarkMode: Theme.of(context).brightness == Brightness.dark,
+                  final isDarkMode =
+                      Theme.of(context).brightness == Brightness.dark;
+                  AppColors.setDarkThemeMode(isDarkMode: isDarkMode);
+                  return SizedBox(
+                    key: GlobalKey(),
+                    child: child!,
                   );
-                  return child!;
                 },
               );
             },
