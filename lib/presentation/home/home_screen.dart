@@ -33,6 +33,9 @@ class HomeScreenWrapper extends StatelessWidget {
       (bloc) => bloc.state.currentBottomNavIndex,
     );
     return Scaffold(
+      // To switch to GoogleNavBar, replace BottomNavBar with GoogleBottomNavBar
+      // below.
+      // bottomNavigationBar: const GoogleBottomNavBar(),
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: IndexedStack(
