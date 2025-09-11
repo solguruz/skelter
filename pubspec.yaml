@@ -62,6 +62,7 @@ dependencies:
   flutter_dotenv: ^5.2.1
   http_certificate_pinning: ^3.0.1
   flutter_secure_storage: ^9.2.4
+  google_nav_bar: ^5.0.7
   mime: ^2.0.0
   device_info_plus: ^11.5.0
 
