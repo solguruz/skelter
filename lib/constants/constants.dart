@@ -26,3 +26,6 @@ final kAllowedFileExtensions = ['pdf'];
 
 // Network/SSL pinning constants
 const String kConnectionIsNotSecureError = 'Connection is not secure';
+
+// Cache Api Response
+const String kApiCache = 'api_cache';
