@@ -13,6 +13,7 @@ import 'package:skelter/presentation/home/domain/usecases/get_products.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/firebase_auth_services.dart';
 import 'package:skelter/utils/app_flavor_env.dart';
+import 'package:skelter/utils/cache_manager.dart';
 
 final sl = GetIt.instance;
 
@@ -28,6 +29,10 @@ Future<void> configureDependencies({
     () => FirebaseAuthService(firebaseAuth: sl<FirebaseAuth>()),
   );
 
+  final cacheManager = CacheManager();
+  await cacheManager.initialize();
+  sl.registerSingleton<CacheManager>(cacheManager);
+
   final pinnedDio = dio ??
       Dio(
         BaseOptions(
@@ -38,6 +43,7 @@ Future<void> configureDependencies({
       );
 
   _registerDioInterceptor(pinnedDio);
+  sl<CacheManager>().attachCacheInterceptor(pinnedDio);
 
   sl
     ..registerLazySingleton(() => GetProducts(sl()))

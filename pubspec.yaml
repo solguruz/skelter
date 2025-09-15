@@ -62,6 +62,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   http_certificate_pinning: ^3.0.1
   flutter_secure_storage: ^9.2.4
+  dio_cache_interceptor: ^4.0.3
+  http_cache_file_store: ^2.0.1
   google_nav_bar: ^5.0.7
 
 dev_dependencies:
