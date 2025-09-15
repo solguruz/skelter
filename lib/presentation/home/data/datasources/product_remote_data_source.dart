@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:skelter/core/errors/exceptions.dart';
+import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/home/data/models/product_model.dart';
+import 'package:skelter/utils/cache_manager.dart';
 import 'package:skelter/utils/typedef.dart';
 
 mixin ProductRemoteDatasource {
@@ -19,6 +22,7 @@ class ProductRemoteDataSrcImpl implements ProductRemoteDatasource {
     try {
       final response = await _dio.get(
         kGetProductEndpoint,
+        options: sl<CacheManager>().defaultCacheOptions.toOptions(),
       );
 
       if (response.statusCode != 200) {
