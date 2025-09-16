@@ -51,7 +51,8 @@ class PdfPreviewList extends StatelessWidget {
                             child: Text(
                               path.basename(pdf.path),
                               style: AppTextStyles.p4Regular.copyWith(
-                                  color: AppColors.textNeutralPrimary),
+                                color: AppColors.textNeutralPrimary,
+                              ),
                               textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,

@@ -44,6 +44,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     GetTopProductDataEvent event,
     Emitter<HomeState> emit,
   ) async {
+    emit(ProductLoadingState(state));
+
     final result = await _getProducts();
 
     result.fold(

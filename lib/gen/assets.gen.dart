@@ -11,6 +11,26 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsAnimationsGen {
+  const $AssetsAnimationsGen();
+
+  /// File path: assets/animations/app_under_maintenance .json
+  String get appUnderMaintenance =>
+      'assets/animations/app_under_maintenance .json';
+
+  /// File path: assets/animations/success_checkmark_blue_bg.json
+  String get successCheckmarkBlueBg =>
+      'assets/animations/success_checkmark_blue_bg.json';
+
+  /// File path: assets/animations/success_checkmark_red_bg.json
+  String get successCheckmarkRedBg =>
+      'assets/animations/success_checkmark_red_bg.json';
+
+  /// List of all assets
+  List<String> get values =>
+      [appUnderMaintenance, successCheckmarkBlueBg, successCheckmarkRedBg];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -197,6 +217,7 @@ class Assets {
   const Assets._();
 
   static const String aEnv = '.env';
+  static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsTestGen test = $AssetsTestGen();
