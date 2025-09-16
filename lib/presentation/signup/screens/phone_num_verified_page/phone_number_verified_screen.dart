@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
@@ -43,7 +43,15 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(Assets.icons.tick),
+            Transform.scale(
+              scale: 1.4,
+              child: Lottie.asset(
+                Assets.animations.successCheckmarkBlueBg,
+                width: 80,
+                height: 80,
+                repeat: false,
+              ),
+            ),
             const SizedBox(height: 18),
             Text(
               context.localization.signup_phone_no_verified,

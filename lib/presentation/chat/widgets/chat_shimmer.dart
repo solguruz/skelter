@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:skelter/widgets/shimmer/shimmer_circular_image.dart';
 import 'package:skelter/widgets/shimmer/shimmer_text.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ChatShimmer extends StatelessWidget {
   const ChatShimmer({super.key, this.showAnimation = true});
@@ -12,8 +13,8 @@ class ChatShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     const double profileImageSize = 14.0;
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade300,
-      highlightColor: Colors.grey.shade100,
+      baseColor: AppColors.neutral100,
+      highlightColor: AppColors.neutral50,
       enabled: showAnimation,
       child: const Row(
         mainAxisSize: MainAxisSize.min,

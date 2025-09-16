@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
@@ -59,10 +59,14 @@ class _AccountDeleteSuccessScreenState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  SvgPicture.asset(
-                    Assets.icons.accountDeletedSuccess,
-                    height: 80,
-                    width: 80,
+                  Transform.scale(
+                    scale: 1.4,
+                    child: Lottie.asset(
+                      Assets.animations.successCheckmarkRedBg,
+                      width: 80,
+                      height: 80,
+                      repeat: false,
+                    ),
                   ),
                   const SizedBox(height: 24),
                   Text(
