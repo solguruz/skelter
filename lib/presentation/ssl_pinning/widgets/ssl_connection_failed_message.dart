@@ -16,7 +16,7 @@ class SslFailedMessage extends StatelessWidget {
         context.localization.secure_connection_failed_message,
         textAlign: TextAlign.center,
         style: AppTextStyles.p3Regular
-            .copyWith(color: AppColors.textNeutralSecondary),
+            .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
       ),
     );
   }

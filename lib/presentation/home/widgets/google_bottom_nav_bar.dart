@@ -31,7 +31,7 @@ class GoogleBottomNavBar extends StatelessWidget {
       curve: Curves.easeOutExpo,
       duration: const Duration(milliseconds: 300),
       gap: 4,
-      color: AppColors.strokeNeutralDefault,
+      color: AppColors.currentTheme.strokeNeutralDefault,
       activeColor: AppColors.brand500,
       iconSize: 24,
       tabBackgroundColor: AppColors.brand50,

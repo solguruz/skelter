@@ -88,7 +88,7 @@ class _AccountDeleteSuccessScreenState
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
-                          text: context.localization.login_signup_sign_up,
+                          text: context.localization.signup_sign_up,
                           style: AppTextStyles.p2SemiBold.copyWith(
                             color: AppColors.currentTheme.textBrandSecondary,
                           ),
