@@ -12,7 +12,12 @@ class AccountSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.localization.account, style: AppTextStyles.h6SemiBold),
+        Text(
+          context.localization.account,
+          style: AppTextStyles.h6SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
+        ),
         const SizedBox(height: 12.0),
         Container(
           decoration: BoxDecoration(

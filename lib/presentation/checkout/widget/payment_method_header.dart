@@ -14,7 +14,8 @@ class PaymentMethodHeader extends StatelessWidget {
       children: [
         Text(
           context.localization.select_payment_method,
-          style: AppTextStyles.p2SemiBold,
+          style: AppTextStyles.p2SemiBold
+              .withColor(AppColors.currentTheme.textNeutralPrimary),
         ),
         const Spacer(),
         AppButton.icon(

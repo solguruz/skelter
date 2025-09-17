@@ -24,7 +24,9 @@ class ApplyCoupon extends StatelessWidget {
       children: [
         Text(
           context.localization.apply_coupon,
-          style: AppTextStyles.p2SemiBold,
+          style: AppTextStyles.p2SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         GestureDetector(

@@ -5,6 +5,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmptySearchView extends StatelessWidget {
   const EmptySearchView({super.key});
@@ -28,14 +29,16 @@ class EmptySearchView extends StatelessWidget {
           const SizedBox(height: 24),
           Text(
             context.localization.no_result_for(searchQuery),
-            style: AppTextStyles.p1SemiBold,
+            style: AppTextStyles.p1SemiBold
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             textAlign: TextAlign.center,
             maxLines: 2,
           ),
           const SizedBox(height: 8),
           Text(
             context.localization.no_search_result_message,
-            style: AppTextStyles.p3Regular,
+            style: AppTextStyles.p2Regular
+                .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
             textAlign: TextAlign.center,
           ),
         ],

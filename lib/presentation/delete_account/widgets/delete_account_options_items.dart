@@ -30,7 +30,7 @@ class DeleteAccountOptionsItems extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: isSelected
                     ? AppColors.currentTheme.bgBrandDefault
-                    : AppColors.transparent,
+                    : AppColors.currentTheme.bgSurfaceBase2,
                 border: isSelected
                     ? null
                     : Border.all(
@@ -43,9 +43,9 @@ class DeleteAccountOptionsItems extends StatelessWidget {
                       child: Container(
                         width: 10,
                         height: 24,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.currentTheme.bgShadesWhite,
+                          color: AppColors.shadesWhite,
                         ),
                       ),
                     )

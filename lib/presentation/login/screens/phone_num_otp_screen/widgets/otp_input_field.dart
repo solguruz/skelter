@@ -120,7 +120,8 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       width: pinWidth,
       height: pinHeight,
       decoration: _pinInputBoxDecoration(),
-      textStyle: AppTextStyles.h2Bold,
+      textStyle: AppTextStyles.h2Bold
+          .withColor(AppColors.currentTheme.textNeutralPrimary),
     );
   }
 
@@ -160,7 +161,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
   BoxDecoration _pinInputBoxDecoration() {
     return BoxDecoration(
       border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
-      color: AppColors.currentTheme.bgShadesWhite,
+      color: AppColors.currentTheme.bgSurfaceBase2,
       borderRadius: BorderRadius.circular(8),
     );
   }

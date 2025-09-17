@@ -8,6 +8,7 @@ import 'package:skelter/presentation/chat/widgets/chat_shimmer.dart';
 import 'package:skelter/presentation/chat/widgets/empty_chat_view.dart';
 import 'package:skelter/presentation/chat/widgets/search_text_field.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class ChatScreen extends StatelessWidget {
@@ -16,6 +17,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const ChatListAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(12.0),

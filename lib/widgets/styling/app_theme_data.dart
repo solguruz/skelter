@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:skelter/common/theme/text_style/app_text_styles.dart';
-import 'package:skelter/gen/fonts.gen.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
-import 'package:skelter/widgets/styling/input_decorations.dart';
 
 enum AppThemeEnum { DarkTheme, LightTheme }
 
@@ -13,79 +9,79 @@ class AppThemesData {
       splashFactory: NoSplash.splashFactory,
       useMaterial3: false,
       brightness: Brightness.light,
-      primaryColor: AppColors.brand600,
-      primaryColorLight: AppColors.brand600,
-      primaryColorDark: AppColors.brand600,
-      scaffoldBackgroundColor: Colors.white,
-      bottomAppBarTheme: const BottomAppBarTheme(
-        color: AppColors.bottomAppBarColorLight,
-      ),
-      unselectedWidgetColor: AppColors.unselectedColor,
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        titleTextStyle: AppTextStyles.h6SemiBold.copyWith(
-          color: AppColors.currentTheme.textNeutralPrimary,
-        ),
-      ),
-      bottomSheetTheme: BottomSheetThemeData(
-        dragHandleColor: AppColors.black.withOpacity(.10),
-        dragHandleSize: const Size(38, 4),
-      ),
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(color: Color.fromRGBO(41, 41, 52, 1)),
-      ),
-      fontFamily: FontFamily.inter,
-      indicatorColor: AppColors.brand600,
-      tabBarTheme: const TabBarThemeData(
-        labelColor: Colors.black,
-        unselectedLabelColor: Colors.black54,
-      ),
-      listTileTheme: const ListTileThemeData(
-        horizontalTitleGap: 0,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: InputDecorations.labelStyleBright,
-        hintStyle: AppTextStyles.p3Medium.copyWith(
-          color: AppColors.currentTheme.textNeutralDisable,
-        ),
-        isDense: true,
-        enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: AppColors.currentTheme.strokeNeutralLight200),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: AppColors.currentTheme.strokeBrandHover),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.currentTheme.strokeErrorDefault,
-          ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
-      colorScheme: ColorScheme.fromSwatch(
-        backgroundColor: Colors.white,
-        primarySwatch: AppColors.primarySwatches,
-        accentColor: AppColors.brand700,
-      ).copyWith(
-        secondary: AppColors.brand700,
-        primary: AppColors.brand600,
-        background: Colors.white,
-      ),
+      // primaryColor: AppColors.brand600,
+      // primaryColorLight: AppColors.brand600,
+      // primaryColorDark: AppColors.brand600,
+      // scaffoldBackgroundColor: Colors.white,
+      // bottomAppBarTheme: const BottomAppBarTheme(
+      //   color: AppColors.bottomAppBarColorLight,
+      // ),
+      // unselectedWidgetColor: AppColors.unselectedColor,
+      // appBarTheme: AppBarTheme(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   titleTextStyle: AppTextStyles.h6SemiBold.withColor(
+      //     AppColors.currentTheme.textNeutralPrimary,
+      //   ),
+      // ),
+      // bottomSheetTheme: BottomSheetThemeData(
+      //   dragHandleColor: AppColors.black.withOpacity(.10),
+      //   dragHandleSize: const Size(38, 4),
+      // ),
+      // textTheme: const TextTheme(
+      //   titleLarge: TextStyle(color: Color.fromRGBO(41, 41, 52, 1)),
+      // ),
+      // fontFamily: FontFamily.inter,
+      // indicatorColor: AppColors.brand600,
+      // tabBarTheme: const TabBarThemeData(
+      //   labelColor: Colors.black,
+      //   unselectedLabelColor: Colors.black54,
+      // ),
+      // listTileTheme: const ListTileThemeData(
+      //   horizontalTitleGap: 0,
+      // ),
+      // inputDecorationTheme: InputDecorationTheme(
+      //   labelStyle: InputDecorations.labelStyleBright,
+      //   hintStyle: AppTextStyles.p3Medium.withColor(
+      //     AppColors.currentTheme.textNeutralDisable,
+      //   ),
+      //   isDense: true,
+      //   enabledBorder: OutlineInputBorder(
+      //     borderSide:
+      //         BorderSide(color: AppColors.currentTheme.strokeNeutralLight200),
+      //     borderRadius: BorderRadius.circular(8),
+      //   ),
+      //   focusedBorder: OutlineInputBorder(
+      //     borderSide:
+      //         BorderSide(color: AppColors.currentTheme.strokeBrandHover),
+      //     borderRadius: BorderRadius.circular(8),
+      //   ),
+      //   errorBorder: OutlineInputBorder(
+      //     borderSide:
+      //         BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
+      //     borderRadius: BorderRadius.circular(8),
+      //   ),
+      //   focusedErrorBorder: OutlineInputBorder(
+      //     borderSide: BorderSide(
+      //       color: AppColors.currentTheme.strokeErrorDefault,
+      //     ),
+      //     borderRadius: BorderRadius.circular(8),
+      //   ),
+      // ),
+      // colorScheme: ColorScheme.fromSwatch(
+      //   backgroundColor: Colors.white,
+      //   primarySwatch: AppColors.primarySwatches,
+      //   accentColor: AppColors.brand700,
+      // ).copyWith(
+      //   secondary: AppColors.brand700,
+      //   primary: AppColors.brand600,
+      //   background: Colors.white,
+      // ),
     ),
     AppThemeEnum.DarkTheme: ThemeData(
       splashFactory: NoSplash.splashFactory,
       brightness: Brightness.dark,
-      appBarTheme: const AppBarTheme(
+      /*appBarTheme: const AppBarTheme(
         color: AppColors.bgColorDark,
         foregroundColor: Colors.white,
         elevation: 0,
@@ -146,7 +142,7 @@ class AppThemesData {
             background: AppColors.bgColorDark,
             primary: AppColors.brand600,
           )
-          .copyWith(background: AppColors.bgColorDark),
+          .copyWith(background: AppColors.bgColorDark),*/
     ),
   };
 }

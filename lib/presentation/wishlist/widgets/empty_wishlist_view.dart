@@ -5,6 +5,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmptyWishlistView extends StatelessWidget {
   const EmptyWishlistView({super.key});
@@ -24,12 +25,16 @@ class EmptyWishlistView extends StatelessWidget {
           const SizedBox(height: 24),
           Text(
             context.localization.empty_wishlist_title,
-            style: AppTextStyles.p1SemiBold,
+            style: AppTextStyles.p1SemiBold.withColor(
+              AppColors.currentTheme.textNeutralPrimary,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             context.localization.empty_wishlist_message,
-            style: AppTextStyles.p3Regular,
+            style: AppTextStyles.p3Regular.withColor(
+              AppColors.currentTheme.textNeutralSecondary,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),

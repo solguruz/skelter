@@ -26,9 +26,9 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
           right: 16,
           bottom: 16,
         ),
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        decoration: BoxDecoration(
+          color: AppColors.currentTheme.bgSurfaceBase2,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -106,6 +106,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                     },
                     label: context.localization.delete,
                     size: AppButtonSize.extraLarge,
+                    foregroundColor: AppColors.shadesWhite,
                     backgroundColor: AppColors.currentTheme.bgErrorDefault,
                   ),
                 ),

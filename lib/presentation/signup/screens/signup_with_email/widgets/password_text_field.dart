@@ -48,17 +48,24 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       children: [
         Text(
           context.localization.password,
-          style: AppTextStyles.p3Medium,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _passwordController,
           obscureText: !isPasswordVisible,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
           decoration: InputDecoration(
             hintText: context.localization.password_hint,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.currentTheme.textNeutralDisable,
             ),
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,

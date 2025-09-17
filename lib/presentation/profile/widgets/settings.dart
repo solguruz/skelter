@@ -17,13 +17,24 @@ class Settings extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomLeft: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+          ),
+        ),
+        tileColor: AppColors.currentTheme.bgSurfaceBase2,
         leading: Icon(
           TablerIcons.settings,
           color: AppColors.currentTheme.iconNeutralDefault,
         ),
         title: Text(
           context.localization.settings,
-          style: AppTextStyles.h6SemiBold,
+          style: AppTextStyles.h6SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         trailing: Icon(
           TablerIcons.chevron_right,

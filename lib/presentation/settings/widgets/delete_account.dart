@@ -17,9 +17,18 @@ class DeleteAccount extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomLeft: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+          ),
+        ),
+        tileColor: AppColors.currentTheme.bgSurfaceBase2,
         leading: Icon(
           TablerIcons.trash,
-          color: AppColors.currentTheme.bgErrorDefault,
+          color: AppColors.currentTheme.bgErrorHover,
         ),
         title: Text(
           context.localization.delete_account,

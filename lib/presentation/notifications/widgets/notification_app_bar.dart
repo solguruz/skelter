@@ -11,9 +11,11 @@ class NotificationAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       title: Text(
         context.localization.notifications,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold
+            .withColor(AppColors.currentTheme.textNeutralPrimary),
       ),
       centerTitle: true,
       leading: IconButton(

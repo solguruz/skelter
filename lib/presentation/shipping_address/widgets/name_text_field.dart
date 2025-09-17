@@ -28,7 +28,9 @@ class _NameTextFieldState extends State<NameTextField> {
       children: [
         Text(
           context.localization.name,
-          style: AppTextStyles.p3Medium,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         TextField(
@@ -38,6 +40,8 @@ class _NameTextFieldState extends State<NameTextField> {
             hintStyle: AppTextStyles.p3Medium.copyWith(
               color: AppColors.currentTheme.textNeutralDisable,
             ),
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             errorText: fullNameErrorMessage.isNullOrEmpty()
                 ? null
                 : fullNameErrorMessage,

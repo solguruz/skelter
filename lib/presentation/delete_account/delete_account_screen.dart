@@ -14,6 +14,7 @@ import 'package:skelter/presentation/delete_account/widgets/delete_account_warni
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class DeleteAccountScreen extends StatelessWidget {
@@ -62,9 +63,10 @@ class DeleteAccountBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: DeleteAccountAppbar(),
-      body: SafeArea(
+    return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      appBar: const DeleteAccountAppbar(),
+      body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(

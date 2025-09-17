@@ -14,6 +14,7 @@ import 'package:skelter/presentation/shipping_address/widgets/zip_code_text_fiel
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class AddAddressScreen extends StatelessWidget {
@@ -22,6 +23,7 @@ class AddAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const AddressAppBar(),
       body: SafeArea(
         child: Padding(

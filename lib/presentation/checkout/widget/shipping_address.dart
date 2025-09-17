@@ -26,6 +26,7 @@ class ShippingAddress extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
+        color: AppColors.currentTheme.bgSurfaceBase2,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,13 +37,16 @@ class ShippingAddress extends StatelessWidget {
               children: [
                 Text(
                   userName,
-                  style: AppTextStyles.p2Medium,
+                  style: AppTextStyles.p2Medium.withColor(
+                    AppColors.currentTheme.textNeutralPrimary,
+                  ),
                   maxLines: 2,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   address,
-                  style: AppTextStyles.p3Regular,
+                  style: AppTextStyles.p3Regular
+                      .withColor(AppColors.currentTheme.textNeutralSecondary),
                 ),
               ],
             ),
@@ -51,7 +55,10 @@ class ShippingAddress extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.bgShadesWhite,
+              color: AppColors.currentTheme.bgSurfaceBase2,
+              border: Border.all(
+                color: AppColors.currentTheme.strokeNeutralLight200,
+              ),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.shadowColor2.withAlpha(15),

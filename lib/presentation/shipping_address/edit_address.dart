@@ -18,6 +18,7 @@ class EditAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const AddressAppBar(isAddingAddress: false),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -40,7 +41,9 @@ class EditAddressScreen extends StatelessWidget {
                 children: [
                   Text(
                     context.localization.deliver_to,
-                    style: AppTextStyles.p2Bold,
+                    style: AppTextStyles.p2Bold.withColor(
+                      AppColors.currentTheme.textNeutralPrimary,
+                    ),
                   ),
                   const Spacer(flex: 2),
                   Flexible(

@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:skelter/presentation/coupons/widgets/available_coupons_app_bar.dart';
 import 'package:skelter/presentation/coupons/widgets/coupon_item.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class AvailableCouponsScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class AvailableCouponsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const ApplyCouponsAppBar(),
       body: SafeArea(
         child: Padding(

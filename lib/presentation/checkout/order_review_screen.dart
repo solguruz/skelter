@@ -7,6 +7,7 @@ import 'package:skelter/presentation/checkout/widget/cart_item_lists.dart';
 import 'package:skelter/presentation/checkout/widget/order_summary.dart';
 import 'package:skelter/presentation/checkout/widget/select_payment_method_from_list.dart';
 import 'package:skelter/presentation/checkout/widget/shipping_address.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class OrderReviewScreen extends StatelessWidget {
   const OrderReviewScreen({super.key});
@@ -24,14 +25,18 @@ class OrderReviewScreen extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           context.localization.shipping_address,
-          style: AppTextStyles.p2Bold,
+          style: AppTextStyles.p2SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 12),
         const ShippingAddress(),
         const SizedBox(height: 16),
         Text(
           context.localization.selected_payment_method,
-          style: AppTextStyles.p2SemiBold,
+          style: AppTextStyles.p2SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 12),
         if (isPaymentMethodOnline)

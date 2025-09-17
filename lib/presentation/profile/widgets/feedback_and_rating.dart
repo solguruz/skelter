@@ -11,13 +11,22 @@ class FeedbackAndRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+      ),
+      tileColor: AppColors.currentTheme.bgSurfaceBase2,
       leading: Icon(
         TablerIcons.star,
         color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.feedback_and_ratings,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

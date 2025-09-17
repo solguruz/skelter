@@ -60,12 +60,19 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
       children: [
         Text(
           context.localization.message,
-          style: AppTextStyles.p3Medium,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 6),
         TextFormField(
           controller: _messageController,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
           decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.message_description,
             hintStyle: AppTextStyles.p3Regular
                 .withColor(AppColors.currentTheme.textNeutralDisable),

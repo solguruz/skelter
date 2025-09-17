@@ -13,11 +13,14 @@ class WishlistAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       foregroundColor: AppColors.currentTheme.iconNeutralDefault,
       centerTitle: true,
       title: Text(
         context.localization.wishlist,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,

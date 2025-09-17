@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
 import 'package:skelter/presentation/profile/widgets/user_avatar.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProfileDetails extends StatelessWidget {
   const ProfileDetails({super.key});
@@ -27,13 +28,17 @@ class ProfileDetails extends StatelessWidget {
             children: [
               Text(
                 fullName,
-                style: AppTextStyles.h6SemiBold,
+                style: AppTextStyles.h6SemiBold.withColor(
+                  AppColors.currentTheme.textNeutralPrimary,
+                ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
               Text(
                 email,
-                style: AppTextStyles.p3Medium,
+                style: AppTextStyles.p3Medium.withColor(
+                  AppColors.currentTheme.textNeutralSecondary,
+                ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class EmptyViewsScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class EmptyViewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       body: SafeArea(
         child: Center(
           child: Column(

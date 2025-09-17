@@ -3,6 +3,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/widget/order_summary.dart';
 import 'package:skelter/presentation/checkout/widget/shipping_address.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ShippingScreen extends StatelessWidget {
   const ShippingScreen({super.key});
@@ -14,7 +15,9 @@ class ShippingScreen extends StatelessWidget {
       children: [
         Text(
           context.localization.shipping_address,
-          style: AppTextStyles.p2Bold,
+          style: AppTextStyles.p2Bold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 16),
         const ShippingAddress(),

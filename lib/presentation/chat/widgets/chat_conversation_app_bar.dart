@@ -17,6 +17,7 @@ class ChatConversationAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
         size: AppButtonSize.extraLarge,
@@ -32,7 +33,11 @@ class ChatConversationAppBar extends StatelessWidget
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(chatUser.name, style: AppTextStyles.p3SemiBold),
+                Text(
+                  chatUser.name,
+                  style: AppTextStyles.p3SemiBold
+                      .withColor(AppColors.currentTheme.textNeutralPrimary),
+                ),
                 Text(
                   'Last seen 04:00 pm',
                   style: AppTextStyles.p4Medium

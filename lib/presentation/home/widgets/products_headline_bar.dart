@@ -5,6 +5,7 @@ import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductsHeadlineBar extends StatelessWidget {
   const ProductsHeadlineBar({super.key});
@@ -16,7 +17,9 @@ class ProductsHeadlineBar extends StatelessWidget {
       children: [
         Text(
           context.localization.top_products,
-          style: AppTextStyles.p2SemiBold,
+          style: AppTextStyles.p2SemiBold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         AppButton(
           style: AppButtonStyle.textOrIcon,

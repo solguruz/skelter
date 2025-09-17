@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skelter/presentation/settings/widgets/delete_account.dart';
 import 'package:skelter/presentation/settings/widgets/settings.dart';
 import 'package:skelter/presentation/settings/widgets/settings_appbar.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class SettingsScreen extends StatelessWidget {
@@ -10,9 +11,10 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: SettingsAppbar(),
-      body: SettingsScreenBody(),
+    return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      appBar: const SettingsAppbar(),
+      body: const SettingsScreenBody(),
     );
   }
 }

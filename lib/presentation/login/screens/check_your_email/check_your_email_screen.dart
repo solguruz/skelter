@@ -11,6 +11,7 @@ import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/screens/check_your_email/widgets/continue_login_button.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class CheckYourEmailScreen extends StatelessWidget {
@@ -21,7 +22,8 @@ class CheckYourEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: AppColors.currentTheme.bgSurfaceBase),
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       body: BlocProvider<LoginBloc>.value(
         value: loginBloc,
         child: const CheckYourEmailScreenBody(),
@@ -60,13 +62,17 @@ class CheckYourEmailScreenBody extends StatelessWidget {
               const SizedBox(height: 18),
               Text(
                 context.localization.login_check_your_email,
-                style: AppTextStyles.h2Bold,
+                style: AppTextStyles.h2Bold.withColor(
+                  AppColors.currentTheme.textNeutralPrimary,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 18),
               Text(
                 context.localization.login_link_send_info(email),
-                style: AppTextStyles.p2Medium,
+                style: AppTextStyles.p2Medium.withColor(
+                  AppColors.currentTheme.textNeutralSecondary,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 25),

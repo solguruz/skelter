@@ -5,6 +5,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class DeleteAccountAppbar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -13,6 +14,7 @@ class DeleteAccountAppbar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
         size: AppButtonSize.extraLarge,
@@ -20,7 +22,9 @@ class DeleteAccountAppbar extends StatelessWidget
       ),
       title: Text(
         context.localization.delete_account,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       centerTitle: true,
     );

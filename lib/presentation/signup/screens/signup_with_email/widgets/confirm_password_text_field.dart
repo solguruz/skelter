@@ -68,19 +68,24 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          context.localization.signup_confirm_password,
-          style: AppTextStyles.p3Medium,
-        ),
+        Text(context.localization.signup_confirm_password,
+            style: AppTextStyles.p3Medium.withColor(
+              AppColors.currentTheme.textNeutralPrimary,
+            )),
         const SizedBox(height: 8),
         TextField(
           controller: _passwordController,
           obscureText: !isPasswordVisible,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
           decoration: InputDecoration(
             hintText: context.localization.signup_confirm_password_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.withColor(
+              AppColors.currentTheme.textNeutralDisable,
             ),
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null
                 : passwordErrorMessage,

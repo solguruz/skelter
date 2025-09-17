@@ -14,6 +14,7 @@ import 'package:skelter/presentation/signup/bloc/signup_state.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/email_next_button.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/email_text_field.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class SignupWithEmailPasswordScreen extends StatefulWidget {
@@ -43,6 +44,7 @@ class _SignupWithEmailPasswordScreenState
               }
             },
             child: Scaffold(
+              backgroundColor: AppColors.currentTheme.bgSurfaceBase,
               appBar: const LoginAppBar(removeLeading: false),
               body: SafeArea(
                 child: Padding(
@@ -95,7 +97,9 @@ class _SignupWithEmailPasswordScreenBody extends StatelessWidget {
           Center(
             child: Text(
               context.localization.signup_sign_up_with_email,
-              style: AppTextStyles.h2Bold,
+              style: AppTextStyles.h2Bold.withColor(
+                AppColors.currentTheme.textNeutralPrimary,
+              ),
             ),
           ),
           const SizedBox(height: 25),

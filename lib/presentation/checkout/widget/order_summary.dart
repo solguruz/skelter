@@ -32,6 +32,7 @@ class OrderSummary extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
+        color: AppColors.currentTheme.bgSurfaceBase2,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

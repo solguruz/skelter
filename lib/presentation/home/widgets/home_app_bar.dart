@@ -7,6 +7,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -14,13 +15,16 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       leading: Padding(
         padding: const EdgeInsets.all(14),
         child: Image.asset(Assets.icons.icon.path),
       ),
       title: Text(
         context.localization.home,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       actions: [
         AppButton.icon(

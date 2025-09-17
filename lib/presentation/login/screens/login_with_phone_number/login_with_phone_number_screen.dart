@@ -15,6 +15,7 @@ import 'package:skelter/presentation/login/screens/login_with_phone_number/widge
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {
@@ -43,6 +44,7 @@ class _LoginWithPhoneNumberScreenState
         localizations: appLocalizations,
       ),
       child: Scaffold(
+        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
         body: _LoginWithPhoneNumberBody(
           isFromDeleteAccount: widget.isFromDeleteAccount,
         ),

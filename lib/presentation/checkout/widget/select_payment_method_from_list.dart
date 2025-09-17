@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
@@ -47,7 +48,12 @@ class PaymentMethodOnline extends StatelessWidget {
       ),
       child: ListTile(
         leading: Assets.images.mastercard.image(),
-        title: const Text('Debit/Credit Card/Bank Transfer'),
+        title: Text(
+          'Debit/Credit Card/Bank Transfer',
+          style: AppTextStyles.p3Regular.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
+        ),
         onTap: () => context.read<CheckoutBloc>().add(
               const SelectPaymentMethodEvent(isPaymentMethodOnline: true),
             ),
@@ -79,7 +85,12 @@ class PaymentMethodCOD extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
-        title: Text(context.localization.cash_on_delivery),
+        title: Text(
+          context.localization.cash_on_delivery,
+          style: AppTextStyles.p3Regular.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
+        ),
         onTap: () => context.read<CheckoutBloc>().add(
               const SelectPaymentMethodEvent(isPaymentMethodOnline: false),
             ),

@@ -25,12 +25,16 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
       children: [
         Text(
           context.localization.zip_code,
-          style: AppTextStyles.p3Medium,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _zipCodeTextController,
           decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_zip_code,
             hintStyle: AppTextStyles.p3Medium.withColor(
               AppColors.currentTheme.textNeutralDisable,

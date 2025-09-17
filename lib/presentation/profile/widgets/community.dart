@@ -11,13 +11,22 @@ class Community extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+        ),
+      ),
+      tileColor: AppColors.currentTheme.bgSurfaceBase2,
       leading: Icon(
         TablerIcons.users,
         color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.community,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

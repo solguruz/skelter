@@ -80,7 +80,9 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         children: [
           Text(
             context.localization.mobile_number,
-            style: AppTextStyles.p3Medium,
+            style: AppTextStyles.p3Medium.withColor(
+              AppColors.currentTheme.textNeutralPrimary,
+            ),
           ),
           const SizedBox(height: 8),
           InternationalPhoneNumberInput(
@@ -89,7 +91,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             focusNode: _focusNode,
             textStyle: AppTextStyles.p3Medium
                 .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
-            selectorTextStyle: const TextStyle(fontWeight: FontWeight.w500),
+            selectorTextStyle: AppTextStyles.p3Medium
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             initialValue: phoneNumberData,
             inputDecoration: InputDecoration(
               hintText: context.localization.enter_phone_number,
@@ -101,6 +104,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
               enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
               focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
               errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              filled: true,
+              fillColor: AppColors.currentTheme.bgSurfaceBase2,
             ),
             searchBoxDecoration: _bottomSheatInputDecoration,
             validator: (_) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class DateSeparatorText extends StatelessWidget {
   const DateSeparatorText({
@@ -16,7 +17,9 @@ class DateSeparatorText extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         date,
-        style: AppTextStyles.p4Regular,
+        style: AppTextStyles.p4Regular.withColor(
+          AppColors.currentTheme.textNeutralSecondary,
+        ),
       ),
     );
   }

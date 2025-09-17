@@ -13,13 +13,24 @@ class PersonalDetails extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+              bottomLeft: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+            ),
+          ),
+          tileColor: AppColors.currentTheme.bgSurfaceBase2,
           leading: Icon(
             TablerIcons.user_circle,
             color: AppColors.currentTheme.iconNeutralDefault,
           ),
           title: Text(
             context.localization.personal_details,
-            style: AppTextStyles.h6SemiBold,
+            style: AppTextStyles.h6SemiBold.withColor(
+              AppColors.currentTheme.textNeutralPrimary,
+            ),
           ),
           trailing: Icon(
             TablerIcons.chevron_right,

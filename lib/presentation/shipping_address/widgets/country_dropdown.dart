@@ -29,11 +29,15 @@ class _CountryDropdownState extends State<CountryDropdown> {
       children: [
         Text(
           context.localization.country,
-          style: AppTextStyles.p3Medium,
+          style: AppTextStyles.p3Medium.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.select_country,
             border: const OutlineInputBorder(),
             contentPadding:
@@ -46,10 +50,16 @@ class _CountryDropdownState extends State<CountryDropdown> {
             style: AppTextStyles.p2Medium
                 .withColor(AppColors.currentTheme.textNeutralDisable),
           ),
+          dropdownColor: AppColors.currentTheme.bgSurfaceBase2,
           items: _countries.map((String country) {
             return DropdownMenuItem<String>(
               value: country,
-              child: Text(country),
+              child: Text(
+                country,
+                style: AppTextStyles.p2Regular.withColor(
+                  AppColors.currentTheme.textNeutralPrimary,
+                ),
+              ),
             );
           }).toList(),
           onChanged: (String? newValue) {

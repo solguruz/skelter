@@ -60,9 +60,17 @@ class CartOrderItem extends StatelessWidget {
                         maxLines: 1,
                       ),
                     ),
-                    Icon(
-                      TablerIcons.trash,
-                      color: AppColors.currentTheme.iconNeutralHover,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.currentTheme.bgSurfaceBase2,
+                        shape: BoxShape.circle,
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      child: Icon(
+                        TablerIcons.trash,
+                        color: AppColors.currentTheme.iconNeutralHover,
+                        size: 20,
+                      ),
                     ),
                   ],
                 ),

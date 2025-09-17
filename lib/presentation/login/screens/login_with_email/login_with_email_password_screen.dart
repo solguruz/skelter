@@ -15,6 +15,7 @@ import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {
@@ -36,6 +37,7 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
+        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
         appBar: const LoginAppBar(removeLeading: false),
         body: BlocProvider<LoginBloc>.value(
           value: loginBloc,
@@ -96,7 +98,9 @@ class _LoginWithEmailScreenBody extends StatelessWidget {
           Center(
             child: Text(
               context.localization.login_login_with_email,
-              style: AppTextStyles.h2Bold,
+              style: AppTextStyles.h2Bold.withColor(
+                AppColors.currentTheme.textNeutralPrimary,
+              ),
             ),
           ),
           const SizedBox(height: 25),

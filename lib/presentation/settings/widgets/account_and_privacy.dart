@@ -11,13 +11,21 @@ class AccountAndPrivacy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+        ),
+      ),
       leading: Icon(
         TablerIcons.user_circle,
         color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.account_and_privacy,
-        style: AppTextStyles.p2Regular,
+        style: AppTextStyles.p2Regular.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

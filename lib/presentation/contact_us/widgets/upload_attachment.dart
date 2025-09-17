@@ -32,6 +32,7 @@ class UploadAttachment extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 32),
               decoration: BoxDecoration(
+                color: AppColors.currentTheme.bgSurfaceBase2,
                 borderRadius: BorderRadius.circular(12),
                 border: DashedBorder.fromBorderSide(
                   dashLength: 6,
@@ -69,6 +70,7 @@ class UploadAttachment extends StatelessWidget {
 void _showImageSourceBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
+    backgroundColor: AppColors.currentTheme.bgSurfaceBase,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),

@@ -43,7 +43,9 @@ class AddressTile extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Roz Cooper',
-                        style: AppTextStyles.p2Medium,
+                        style: AppTextStyles.p2Medium.withColor(
+                          AppColors.currentTheme.textNeutralPrimary,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),

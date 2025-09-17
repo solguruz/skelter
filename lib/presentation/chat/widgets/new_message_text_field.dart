@@ -36,6 +36,8 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           Expanded(
             child: TextField(
               controller: _fullNameController,
+              style: AppTextStyles.p3Medium
+                  .withColor(AppColors.currentTheme.textNeutralPrimary),
               decoration: InputDecoration(
                 hintText: context.localization.send_a_new_message,
                 hintStyle: AppTextStyles.p3Medium.withColor(

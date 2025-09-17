@@ -24,7 +24,9 @@ class WarningNotes extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: AppTextStyles.p2Medium,
+              style: AppTextStyles.p2Medium.withColor(
+                AppColors.currentTheme.textNeutralPrimary,
+              ),
             ),
           ),
         ],

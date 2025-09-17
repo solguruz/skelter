@@ -11,13 +11,16 @@ class HelpAndSupport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      tileColor: AppColors.currentTheme.bgSurfaceBase2,
       leading: Icon(
         TablerIcons.lifebuoy,
         color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.help_and_support,
-        style: AppTextStyles.h6SemiBold,
+        style: AppTextStyles.h6SemiBold.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

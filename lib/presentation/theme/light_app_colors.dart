@@ -257,4 +257,10 @@ class LightAppColors implements ThemeColorPalette {
   Color get strokeShadesWhite => AppColors.white;
   @override
   Color get strokeShadesBlack => AppColors.black;
+
+  @override
+  Color get bgSurfaceBase2 => AppColors.bgSurfaceBase2;
+
+  @override
+  Color get bgSurfaceBase => AppColors.bgSurfaceBase;
 }

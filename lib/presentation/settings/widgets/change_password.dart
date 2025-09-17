@@ -17,7 +17,9 @@ class ChangePassword extends StatelessWidget {
       ),
       title: Text(
         context.localization.change_password,
-        style: AppTextStyles.p2Regular,
+        style: AppTextStyles.p2Regular.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

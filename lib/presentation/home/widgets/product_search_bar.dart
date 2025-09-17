@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
@@ -66,12 +67,17 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       },
       child: TextField(
         controller: searchController,
+        style: AppTextStyles.p3Medium.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
         decoration: InputDecoration(
           hintText: context.localization.search,
           prefixIcon: Icon(
             TablerIcons.search,
             color: AppColors.currentTheme.strokeNeutralDisabled,
           ),
+          filled: true,
+          fillColor: AppColors.currentTheme.bgSurfaceBase2,
           suffixIcon: searchQuery.isEmpty
               ? AvatarGlow(
                   animate: isAnimatingListenIcon,

@@ -11,13 +11,21 @@ class NotificationSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+      ),
       leading: Icon(
         TablerIcons.bell,
         color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.notification_settings,
-        style: AppTextStyles.p2Regular,
+        style: AppTextStyles.p2Regular.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

@@ -158,4 +158,10 @@ class AppColors {
 
   static const Color metaSectionBorderColor = Color(0xFFEAEAEA);
   static const Color bgOrangeLight = Color(0xFFFED7AA);
+
+  static const Color bgSurfaceBase2 = Color(0xFFFFFFFF);
+  static const Color bgSurfaceBase2dark = Color(0xFF1E1F23);
+
+  static const Color bgSurfaceBase = Color(0xFFFFFFFF);
+  static const Color bgSurfaceBaseDark = Color(0xFF121317);
 }

@@ -14,9 +14,9 @@ class NotificationShimmerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade300,
+      baseColor: AppColors.currentTheme.bgNeutralLight200,
       enabled: showAnimation,
-      highlightColor: Colors.grey.shade100,
+      highlightColor: AppColors.currentTheme.bgNeutralHover,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,

@@ -13,9 +13,9 @@ class ChatShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     const double profileImageSize = 14.0;
     return Shimmer.fromColors(
-      baseColor: AppColors.neutral100,
-      highlightColor: AppColors.neutral50,
+      baseColor: AppColors.currentTheme.bgNeutralLight200,
       enabled: showAnimation,
+      highlightColor: AppColors.currentTheme.bgNeutralHover,
       child: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [

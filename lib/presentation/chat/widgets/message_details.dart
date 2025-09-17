@@ -24,7 +24,8 @@ class MessageDetails extends StatelessWidget {
         if (chatModel.lastMessageTime != null)
           Text(
             chatModel.lastMessageTime!.timeAgo,
-            style: AppTextStyles.p3Regular,
+            style: AppTextStyles.p3Regular
+                .withColor(AppColors.currentTheme.textNeutralSecondary),
           ),
         const SizedBox(height: 12.0),
         if (unreadMessageCount > 0)

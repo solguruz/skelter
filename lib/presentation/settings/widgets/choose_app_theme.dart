@@ -17,7 +17,9 @@ class ChooseAppTheme extends StatelessWidget {
       ),
       title: Text(
         context.localization.choose_app_theme,
-        style: AppTextStyles.p2Regular,
+        style: AppTextStyles.p2Regular.withColor(
+          AppColors.currentTheme.textNeutralPrimary,
+        ),
       ),
       trailing: Icon(
         TablerIcons.chevron_right,

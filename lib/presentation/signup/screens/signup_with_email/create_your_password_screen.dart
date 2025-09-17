@@ -15,6 +15,7 @@ import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/pa
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class CreateYourPasswordScreen extends StatelessWidget {
@@ -33,6 +34,7 @@ class CreateYourPasswordScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
+          backgroundColor: AppColors.currentTheme.bgSurfaceBase,
           appBar: const LoginAppBar(removeLeading: false),
           body: SafeArea(
             child: Padding(
@@ -76,7 +78,9 @@ class _CreateYourPasswordScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             context.localization.signup_create_your_password,
-            style: AppTextStyles.h2Bold,
+            style: AppTextStyles.h2Bold.withColor(
+              AppColors.currentTheme.textNeutralPrimary,
+            ),
           ),
           const SizedBox(height: 25),
           const PasswordTextField(),

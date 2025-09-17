@@ -95,12 +95,13 @@ class _MainAppState extends State<MainApp> {
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                 ],
-                routerConfig: appRouter.config(),
+                routerConfig: AppRouter().config(),
                 theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
                 darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
-                themeMode: ThemeMode.dark,
                 builder: (context, child) {
-                  AppColors.setDarkThemeMode(isDarkMode: true);
+                  AppColors.setDarkThemeMode(
+                    isDarkMode: Theme.of(context).brightness == Brightness.dark,
+                  );
                   return child!;
                 },
               );

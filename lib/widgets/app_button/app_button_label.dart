@@ -4,6 +4,7 @@ import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:skelter/widgets/app_button/extensions/app_button_size_extension.dart';
 import 'package:skelter/widgets/app_button/extensions/app_button_style_text_colors.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class AppButtonLabel extends StatelessWidget {
   final String label;
@@ -31,7 +32,9 @@ class AppButtonLabel extends StatelessWidget {
       style: size.textStyle.copyWith(
         color: isLoading
             ? Colors.transparent
-            : foregroundColor ?? style.getTextColor(state),
+            : state == AppButtonState.disabled
+                ? AppColors.currentTheme.textNeutralDisable
+                : foregroundColor ?? style.getTextColor(state),
         fontWeight: size.textStyle.fontWeight,
         height: 0,
         decoration:

@@ -20,6 +20,7 @@ import 'package:skelter/presentation/verify_email/bloc/verify_email_state.dart';
 import 'package:skelter/presentation/verify_email/screens/widgets/entered_wrong_email.dart';
 import 'package:skelter/presentation/verify_email/screens/widgets/resend_verification_mail_button.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class VerifyEmailScreen extends StatefulWidget {
@@ -45,6 +46,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const LoginAppBar(),
       body: BlocProvider(
         create: (context) => VerifyEmailBloc(localizations: appLocalizations)
@@ -123,7 +125,9 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                 const SizedBox(height: 18),
                 Text(
                   context.localization.signup_verify_your_email,
-                  style: AppTextStyles.h2Bold,
+                  style: AppTextStyles.h2Bold.withColor(
+                    AppColors.currentTheme.textNeutralPrimary,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 18),
@@ -131,7 +135,8 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                   context.localization.signup_link_verify_info(
                     widget.email,
                   ),
-                  style: AppTextStyles.p2Medium,
+                  style: AppTextStyles.p2Medium
+                      .withColor(AppColors.currentTheme.textNeutralSecondary),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 25),

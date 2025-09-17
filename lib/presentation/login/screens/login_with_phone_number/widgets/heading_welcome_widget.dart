@@ -4,6 +4,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class HeadingWelcomeWidget extends StatelessWidget {
   const HeadingWelcomeWidget({
@@ -29,14 +30,18 @@ class HeadingWelcomeWidget extends StatelessWidget {
           isSignup
               ? context.localization.signup_lets_get_started
               : context.localization.login_welcome_back,
-          style: AppTextStyles.h2Bold,
+          style: AppTextStyles.h2Bold.withColor(
+            AppColors.currentTheme.textNeutralPrimary,
+          ),
           textAlign: TextAlign.center,
         ),
         Text(
           isSignup
               ? context.localization.signup_lets_get_started_info
               : context.localization.login_enter_your_registered_phone_number,
-          style: AppTextStyles.p2Regular,
+          style: AppTextStyles.p2Regular.withColor(
+            AppColors.currentTheme.textNeutralSecondary,
+          ),
           textAlign: TextAlign.center,
         ),
       ],

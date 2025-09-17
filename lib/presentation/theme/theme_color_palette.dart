@@ -77,6 +77,8 @@ abstract class ThemeColorPalette {
   Color get bgNeutralLight50;
   Color get bgNeutralLight100;
   Color get bgNeutralLight200;
+  Color get bgSurfaceBase2;
+  Color get bgSurfaceBase;
 
   // Background Colors - Shades
   Color get bgShadesWhite;

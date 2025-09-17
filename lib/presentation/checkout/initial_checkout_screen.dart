@@ -11,6 +11,7 @@ import 'package:skelter/presentation/checkout/widget/bottom_items.dart';
 import 'package:skelter/presentation/checkout/widget/checkout_app_bar.dart';
 import 'package:skelter/presentation/checkout/widget/custom_stepper.dart';
 import 'package:skelter/presentation/checkout/widget/empty_cart_view.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class InitialCheckoutScreen extends StatelessWidget {
   const InitialCheckoutScreen({super.key});
@@ -37,6 +38,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       appBar: const CheckoutAppBar(),
       bottomNavigationBar: cartSampleData.isEmpty ? null : const BottomItems(),
       body: cartSampleData.isEmpty
