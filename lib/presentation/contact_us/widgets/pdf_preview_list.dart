@@ -34,15 +34,15 @@ class PdfPreviewList extends StatelessWidget {
                     Container(
                       width: 80,
                       decoration: BoxDecoration(
-                        color: AppColors.currentTheme.redError50,
+                        color: AppColors.currentTheme.bgErrorLight50,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             TablerIcons.file_type_pdf,
-                            color: AppColors.currentTheme.red,
+                            color: AppColors.red,
                             size: 28,
                           ),
                           const SizedBox(height: 4),

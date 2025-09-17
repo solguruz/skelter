@@ -45,7 +45,7 @@ class DeleteAccountOptionsItems extends StatelessWidget {
                         height: 24,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.currentTheme.white,
+                          color: AppColors.currentTheme.bgShadesWhite,
                         ),
                       ),
                     )

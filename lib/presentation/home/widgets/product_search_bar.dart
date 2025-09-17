@@ -77,7 +77,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                   animate: isAnimatingListenIcon,
                   glowColor: isAnimatingListenIcon
                       ? AppColors.currentTheme.strokeNeutralDisabled
-                      : AppColors.currentTheme.white,
+                      : AppColors.currentTheme.bgShadesWhite,
                   child: IconButton(
                     onPressed: () => _onMicrophoneButtonPressed(
                       isAnimatingListenIcon: isAnimatingListenIcon,
@@ -87,7 +87,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                           ? TablerIcons.square_filled
                           : TablerIcons.microphone,
                       color: isAnimatingListenIcon
-                          ? AppColors.currentTheme.red
+                          ? AppColors.red
                           : AppColors.currentTheme.strokeNeutralDisabled,
                     ),
                   ),

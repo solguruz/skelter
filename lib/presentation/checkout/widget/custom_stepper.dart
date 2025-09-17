@@ -17,7 +17,7 @@ class CustomStepper extends StatelessWidget {
 
     return EasyStepper(
       activeStep: currentStepperIndex,
-      activeStepBackgroundColor: AppColors.currentTheme.brand500,
+      activeStepBackgroundColor: AppColors.currentTheme.bgBrandHover,
       internalPadding: 0,
       borderThickness: 2,
       disableScroll: true,
@@ -28,16 +28,16 @@ class CustomStepper extends StatelessWidget {
       lineStyle: LineStyle(
         lineType: LineType.normal,
         lineThickness: 5,
-        unreachedLineColor: AppColors.currentTheme.brand50,
-        activeLineColor: AppColors.currentTheme.brand50,
-        finishedLineColor: AppColors.currentTheme.brand500,
+        unreachedLineColor: AppColors.currentTheme.bgBrandLight50,
+        activeLineColor: AppColors.currentTheme.bgBrandLight50,
+        finishedLineColor: AppColors.currentTheme.bgBrandHover,
       ),
       stepRadius: 26,
-      unreachedStepBorderColor: AppColors.currentTheme.brand500,
-      unreachedStepBackgroundColor: AppColors.currentTheme.brand50,
-      activeStepIconColor: AppColors.currentTheme.white,
+      unreachedStepBorderColor: AppColors.currentTheme.bgBrandHover,
+      unreachedStepBackgroundColor: AppColors.currentTheme.bgBrandLight50,
+      activeStepIconColor: AppColors.currentTheme.bgShadesWhite,
       unreachedStepIconColor: AppColors.currentTheme.bgBrandDefault,
-      finishedStepIconColor: AppColors.currentTheme.white,
+      finishedStepIconColor: AppColors.currentTheme.bgShadesWhite,
       showLoadingAnimation: false,
       steps: steps(context),
     );

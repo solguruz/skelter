@@ -56,6 +56,9 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           obscureText: !isPasswordVisible,
           decoration: InputDecoration(
             hintText: context.localization.password_hint,
+            hintStyle: AppTextStyles.p3Medium.withColor(
+              AppColors.currentTheme.textNeutralDisable,
+            ),
             suffixIcon: IconButton(
               icon: Icon(
                 size: 22,

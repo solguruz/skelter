@@ -26,7 +26,7 @@ class NotificationShimmerCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              backgroundColor: AppColors.currentTheme.white,
+              backgroundColor: AppColors.currentTheme.bgShadesWhite,
               radius: 16.0,
             ),
             const SizedBox(

@@ -237,7 +237,8 @@ class AppButton extends StatelessWidget {
       style: style,
       size: size,
       state: state,
-      foregroundColor: foregroundColor,
+      foregroundColor:
+          foregroundColor ?? AppColors.currentTheme.textNeutralPrimary,
       isLoading: isLoading,
     );
   }

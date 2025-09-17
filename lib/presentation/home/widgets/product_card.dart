@@ -18,13 +18,13 @@ class ProductCard extends StatelessWidget {
       onTap: () => context.showSnackBar('Show product details'),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.currentTheme.white,
+          color: AppColors.currentTheme.bgShadesWhite,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
-            BoxShadow(
-              color: AppColors.currentTheme.shadowColor3,
+            const BoxShadow(
+              color: AppColors.shadowColor3,
               blurRadius: 2,
-              offset: const Offset(0, 1),
+              offset: Offset(0, 1),
             ),
           ],
         ),

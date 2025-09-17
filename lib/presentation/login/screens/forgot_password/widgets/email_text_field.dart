@@ -63,6 +63,22 @@ class _EmailTextFieldState extends State<EmailTextField> {
         TextField(
           controller: _emailController,
           decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.currentTheme.strokeNeutralLight200,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide:
+                  BorderSide(color: AppColors.currentTheme.strokeBrandHover),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide:
+                  BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
+              borderRadius: BorderRadius.circular(8),
+            ),
             hintText: context.localization.email_hint,
             hintStyle: AppTextStyles.p3Medium.copyWith(
               color: AppColors.currentTheme.textNeutralDisable,

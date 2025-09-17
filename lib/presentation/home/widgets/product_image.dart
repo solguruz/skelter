@@ -43,7 +43,7 @@ class ProductImage extends StatelessWidget {
                   color: AppColors.currentTheme.bgNeutralLight100,
                   child: Icon(
                     Icons.error_outline,
-                    color: AppColors.currentTheme.redError500,
+                    color: AppColors.currentTheme.bgErrorHover,
                   ),
                 ),
               ),

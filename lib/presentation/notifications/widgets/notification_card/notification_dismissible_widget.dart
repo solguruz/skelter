@@ -26,7 +26,7 @@ class NotificationDismissibleWidget extends StatelessWidget {
           children: [
             Icon(
               Icons.delete,
-              color: AppColors.currentTheme.white,
+              color: AppColors.currentTheme.strokeShadesWhite,
             ),
             const SizedBox(
               width: 16.0,

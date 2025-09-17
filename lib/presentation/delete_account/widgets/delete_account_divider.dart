@@ -9,7 +9,7 @@ class DeleteAccountDivider extends StatelessWidget {
     return Divider(
       indent: 8,
       endIndent: 8,
-      color: AppColors.currentTheme.neutral100,
+      color: AppColors.currentTheme.strokeNeutralLight100,
     );
   }
 }

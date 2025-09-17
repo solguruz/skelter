@@ -37,7 +37,7 @@ class UserAvatar extends StatelessWidget {
                 color: AppColors.currentTheme.bgSuccessDefault,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: AppColors.currentTheme.white,
+                  color: AppColors.currentTheme.strokeShadesWhite,
                 ),
               ),
               padding: const EdgeInsets.all(6),

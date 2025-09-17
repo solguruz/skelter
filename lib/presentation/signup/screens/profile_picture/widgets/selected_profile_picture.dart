@@ -21,11 +21,11 @@ class SelectedProfilePicture extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.white,
+              color: AppColors.currentTheme.strokeShadesWhite,
               boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: AppColors.currentTheme.shadowColor,
-                  offset: const Offset(0, 4),
+                const BoxShadow(
+                  color: AppColors.shadowColor,
+                  offset: Offset(0, 4),
                   spreadRadius: -2,
                   blurRadius: 2,
                 ),

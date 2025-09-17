@@ -19,7 +19,7 @@ class NotificationContentWidget extends StatelessWidget {
           Text(
             notificationModel.title,
             style: AppTextStyles.p2Medium
-                .withColor(AppColors.currentTheme.neutral700),
+                .withColor(AppColors.currentTheme.textNeutralArticleParagraph),
           ),
           const SizedBox(height: 4.0),
           Text(

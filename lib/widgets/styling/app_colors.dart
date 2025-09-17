@@ -13,7 +13,7 @@ class AppColors {
   }
 
   static ThemeColorPalette get currentTheme =>
-      isDarkMode ? LightAppColors() : DarkAppColors();
+      isDarkMode ? DarkAppColors() : LightAppColors();
 
   static const MaterialColor primarySwatches =
       MaterialColor(0xFF3559E9, <int, Color>{

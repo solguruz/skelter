@@ -28,7 +28,7 @@ class NetworkImageScreen extends StatelessWidget {
             errorWidget: (context, url, error) => Center(
               child: Icon(
                 Icons.error,
-                color: AppColors.currentTheme.strokeErrorDefault,
+                color: AppColors.currentTheme.strokeBrandPressed,
               ),
             ),
             imageBuilder: (context, imageProvider) {

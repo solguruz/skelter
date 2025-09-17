@@ -101,6 +101,27 @@ class AppThemesData {
         errorStyle: AppTextStyles.p4Regular
             .copyWith(color: AppColors.currentTheme.textErrorSecondary),
         isDense: true,
+        enabledBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeNeutralLight200),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeBrandHover),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.currentTheme.strokeErrorDefault,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
       fontFamily: FontFamily.inter,
       indicatorColor: AppColors.brand600,

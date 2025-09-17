@@ -30,7 +30,7 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           const SizedBox(width: 8),
           Icon(
             TablerIcons.plus,
-            color: AppColors.currentTheme.neutral400,
+            color: AppColors.currentTheme.iconNeutralPressed,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -70,7 +70,7 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           SvgPicture.asset(
             Assets.icons.send,
             colorFilter: ColorFilter.mode(
-              AppColors.currentTheme.brand500,
+              AppColors.currentTheme.bgBrandHover,
               BlendMode.srcIn,
             ),
           ),

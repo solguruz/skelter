@@ -19,7 +19,7 @@ class CouponItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.currentTheme.white,
+        color: AppColors.currentTheme.bgShadesWhite,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: AppColors.currentTheme.bgNeutralLight100,
@@ -43,7 +43,7 @@ class CouponItem extends StatelessWidget {
                     child: Text(
                       'FREEDELIVERY',
                       style: AppTextStyles.p3Bold
-                          .withColor(AppColors.currentTheme.white),
+                          .withColor(AppColors.currentTheme.textNeutralWhite),
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),

@@ -26,8 +26,8 @@ class MessageTypes extends StatelessWidget {
           message.message,
           style: AppTextStyles.p3Regular.withColor(
             message.isSentByMe
-                ? AppColors.currentTheme.white
-                : AppColors.currentTheme.neutral900,
+                ? AppColors.currentTheme.strokeShadesWhite
+                : AppColors.currentTheme.textNeutralPrimary,
           ),
         );
 
@@ -63,14 +63,14 @@ class MessageTypes extends StatelessWidget {
               quarterTurns: 45,
               child: Icon(
                 TablerIcons.triangle_filled,
-                color: AppColors.currentTheme.brand500,
+                color: AppColors.currentTheme.bgBrandHover,
               ),
             ),
             const SizedBox(width: 8),
             SvgPicture.asset(
               Assets.icons.waveforms,
               colorFilter: ColorFilter.mode(
-                AppColors.currentTheme.brand500,
+                AppColors.currentTheme.bgBrandHover,
                 BlendMode.srcIn,
               ),
             ),

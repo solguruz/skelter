@@ -44,7 +44,7 @@ class MessageDetails extends StatelessWidget {
               min(unreadMessageCount, 999).toString() +
                   (unreadMessageCount > 999 ? '+' : ''),
               style: AppTextStyles.c2SemiBold
-                  .withColor(AppColors.currentTheme.white),
+                  .withColor(AppColors.currentTheme.strokeShadesWhite),
             ),
           ),
       ],

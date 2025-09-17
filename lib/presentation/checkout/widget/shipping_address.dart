@@ -51,10 +51,10 @@ class ShippingAddress extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.white,
+              color: AppColors.currentTheme.bgShadesWhite,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.currentTheme.shadowColor2.withAlpha(15),
+                  color: AppColors.shadowColor2.withAlpha(15),
                   spreadRadius: 1,
                   blurRadius: 6,
                 ),

@@ -60,17 +60,17 @@ enum NotificationType {
     return switch (this) {
       NotificationType.shiftSchedule => Icon(
           TablerIcons.calendar_check,
-          color: AppColors.currentTheme.white,
+          color: AppColors.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       NotificationType.shiftFilled => Icon(
           TablerIcons.calendar_check,
-          color: AppColors.currentTheme.white,
+          color: AppColors.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       NotificationType.shiftCancel => Icon(
           TablerIcons.calendar_x,
-          color: AppColors.currentTheme.white,
+          color: AppColors.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       _ => null,
@@ -79,9 +79,9 @@ enum NotificationType {
 
   Color? get getBgColor {
     return switch (this) {
-      NotificationType.shiftSchedule => AppColors.currentTheme.brand400,
-      NotificationType.shiftCancel => AppColors.currentTheme.redError500,
-      NotificationType.shiftFilled => AppColors.currentTheme.brand600,
+      NotificationType.shiftSchedule => AppColors.currentTheme.iconBrandPressed,
+      NotificationType.shiftCancel => AppColors.currentTheme.bgErrorHover,
+      NotificationType.shiftFilled => AppColors.currentTheme.bgBrandDefault,
       _ => null
     };
   }

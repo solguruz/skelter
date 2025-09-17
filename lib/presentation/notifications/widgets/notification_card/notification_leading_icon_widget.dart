@@ -17,7 +17,7 @@ class NotificationLeadingIconWidget extends StatelessWidget {
         CircleAvatar(
           radius: 16.0,
           backgroundColor: notificationModel.notificationType.getBgColor,
-          foregroundColor: AppColors.currentTheme.white,
+          foregroundColor: AppColors.currentTheme.bgShadesWhite,
           child: notificationModel.notificationType.getIcon,
         ),
         if (!notificationModel.isSeen) ...[
@@ -28,7 +28,7 @@ class NotificationLeadingIconWidget extends StatelessWidget {
             height: 8.0,
             width: 8.0,
             decoration: BoxDecoration(
-              color: AppColors.currentTheme.brand500,
+              color: AppColors.currentTheme.bgBrandHover,
               shape: BoxShape.circle,
             ),
           ),

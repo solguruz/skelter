@@ -28,7 +28,7 @@ class RemoveFileButton extends StatelessWidget {
           child: Icon(
             TablerIcons.x,
             size: 16,
-            color: AppColors.currentTheme.shadesWhite,
+            color: AppColors.currentTheme.strokeShadesWhite,
           ),
         ),
       ),
