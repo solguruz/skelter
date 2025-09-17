@@ -23,7 +23,7 @@ class ForgotPasswordButton extends StatelessWidget {
       style: AppButtonStyle.textOrIcon,
       size: AppButtonSize.large,
       state: AppButtonState.disabled,
-      foregroundColor: AppColors.textNeutralDisable,
+      foregroundColor: AppColors.currentTheme.textNeutralDisable,
       onPressed: () {
         FocusManager.instance.primaryFocus?.unfocus();
         final String? emailError = context

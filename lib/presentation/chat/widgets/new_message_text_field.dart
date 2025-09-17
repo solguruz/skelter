@@ -28,9 +28,9 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
       child: Row(
         children: [
           const SizedBox(width: 8),
-          const Icon(
+          Icon(
             TablerIcons.plus,
-            color: AppColors.neutral400,
+            color: AppColors.currentTheme.neutral400,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -38,13 +38,13 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
               controller: _fullNameController,
               decoration: InputDecoration(
                 hintText: context.localization.send_a_new_message,
-                hintStyle: AppTextStyles.p3Medium.copyWith(
-                  color: AppColors.textNeutralDisable,
+                hintStyle: AppTextStyles.p3Medium.withColor(
+                  AppColors.currentTheme.textNeutralDisable,
                 ),
                 errorStyle: AppTextStyles.p3Regular,
                 errorMaxLines: 2,
                 counterText: '',
-                fillColor: AppColors.bgNeutralLight50,
+                fillColor: AppColors.currentTheme.bgNeutralLight50,
                 filled: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -69,8 +69,10 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           const SizedBox(width: 8),
           SvgPicture.asset(
             Assets.icons.send,
-            colorFilter:
-                const ColorFilter.mode(AppColors.brand500, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(
+              AppColors.currentTheme.brand500,
+              BlendMode.srcIn,
+            ),
           ),
         ],
       ),

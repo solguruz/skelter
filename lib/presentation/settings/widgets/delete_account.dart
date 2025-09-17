@@ -13,22 +13,22 @@ class DeleteAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.strokeNeutralLight200),
+        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
-        leading: const Icon(
+        leading: Icon(
           TablerIcons.trash,
-          color: AppColors.bgErrorDefault,
+          color: AppColors.currentTheme.bgErrorDefault,
         ),
         title: Text(
           context.localization.delete_account,
           style: AppTextStyles.p2Regular
-              .copyWith(color: AppColors.textErrorSecondary),
+              .withColor(AppColors.currentTheme.textErrorSecondary),
         ),
-        trailing: const Icon(
+        trailing: Icon(
           TablerIcons.chevron_right,
-          color: AppColors.iconNeutralDefault,
+          color: AppColors.currentTheme.iconNeutralDefault,
         ),
         onTap: () {
           context.router.push(const DeleteAccountRoute());

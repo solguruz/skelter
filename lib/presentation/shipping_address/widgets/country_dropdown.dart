@@ -44,7 +44,7 @@ class _CountryDropdownState extends State<CountryDropdown> {
           hint: Text(
             context.localization.select_country,
             style: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
+                .withColor(AppColors.currentTheme.textNeutralDisable),
           ),
           items: _countries.map((String country) {
             return DropdownMenuItem<String>(

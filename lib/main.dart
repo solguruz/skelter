@@ -5,16 +5,20 @@ import 'package:country_picker/country_picker.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/i18n/i18n.dart';
 import 'package:skelter/initialize_app.dart';
+import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
 import 'package:skelter/routes.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/services/theme_service.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -72,22 +76,38 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, screenType) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          supportedLocales: I18n.all,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            CountryLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-          ],
-          routerConfig: appRouter.config(),
-          theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
-        );
-      },
+    final themeService = ThemeService();
+    final themeBloc = ThemeBloc(service: themeService)..add(const LoadTheme());
+
+    return BlocProvider.value(
+      value: themeBloc,
+      child: Sizer(
+        builder: (context, orientation, screenType) {
+          return BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                supportedLocales: I18n.all,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  CountryLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                routerConfig: appRouter.config(),
+                theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
+                darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
+                themeMode: ThemeMode.dark,
+                builder: (context, child) {
+                  AppColors.setDarkThemeMode(isDarkMode: true);
+                  return child!;
+                },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

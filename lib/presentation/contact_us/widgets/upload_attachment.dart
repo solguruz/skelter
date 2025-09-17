@@ -33,29 +33,31 @@ class UploadAttachment extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 32),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                border: const DashedBorder.fromBorderSide(
+                border: DashedBorder.fromBorderSide(
                   dashLength: 6,
-                  side: BorderSide(color: AppColors.strokeNeutralDisabled),
+                  side: BorderSide(
+                    color: AppColors.currentTheme.strokeNeutralDisabled,
+                  ),
                 ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     TablerIcons.file_upload,
-                    color: AppColors.strokeNeutralHover,
+                    color: AppColors.currentTheme.strokeNeutralHover,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     context.localization.choose_a_file,
                     style: AppTextStyles.p3Medium
-                        .copyWith(color: AppColors.textNeutralPrimary),
+                        .withColor(AppColors.currentTheme.textNeutralPrimary),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     context.localization.supported_format,
                     style: AppTextStyles.p4Regular
-                        .copyWith(color: AppColors.textNeutralPrimary),
+                        .withColor(AppColors.currentTheme.textNeutralPrimary),
                   ),
                 ],
               ),
@@ -82,9 +84,9 @@ void _showImageSourceBottomSheet(BuildContext context) {
                 alignment: Alignment.centerRight,
                 child: InkWell(
                   onTap: () => context.router.maybePop(),
-                  child: const Icon(
+                  child: Icon(
                     TablerIcons.x,
-                    color: AppColors.iconNeutralHover,
+                    color: AppColors.currentTheme.iconNeutralHover,
                   ),
                 ),
               ),

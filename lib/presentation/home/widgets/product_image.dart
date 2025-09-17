@@ -32,17 +32,18 @@ class ProductImage extends StatelessWidget {
                 imageUrl: imageUrl,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: AppColors.bgNeutralLight100,
-                  highlightColor: AppColors.bgNeutralLight100.withOpacity(0.6),
-                  child: const ColoredBox(
-                    color: AppColors.bgNeutralLight100,
+                  baseColor: AppColors.currentTheme.bgNeutralLight100,
+                  highlightColor:
+                      AppColors.currentTheme.bgNeutralLight100.withOpacity(0.6),
+                  child: ColoredBox(
+                    color: AppColors.currentTheme.bgNeutralLight100,
                   ),
                 ),
-                errorWidget: (context, url, error) => const ColoredBox(
-                  color: AppColors.bgNeutralLight100,
+                errorWidget: (context, url, error) => ColoredBox(
+                  color: AppColors.currentTheme.bgNeutralLight100,
                   child: Icon(
                     Icons.error_outline,
-                    color: AppColors.redError500,
+                    color: AppColors.currentTheme.redError500,
                   ),
                 ),
               ),

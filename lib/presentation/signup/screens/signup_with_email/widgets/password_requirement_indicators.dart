@@ -77,17 +77,18 @@ class _RequirementRow extends StatelessWidget {
       children: [
         Icon(
           isValid ? TablerIcons.circle_check_filled : TablerIcons.circle_check,
-          color:
-              isValid ? AppColors.bgSuccessDefault : AppColors.iconNeutralHover,
+          color: isValid
+              ? AppColors.currentTheme.bgSuccessDefault
+              : AppColors.currentTheme.iconNeutralHover,
           size: 20,
         ),
         const SizedBox(width: 10),
         Text(
           text,
-          style: AppTextStyles.p4Regular.copyWith(
-            color: isValid
-                ? AppColors.textSuccessSecondary
-                : AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Regular.withColor(
+            isValid
+                ? AppColors.currentTheme.textSuccessSecondary
+                : AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
       ],

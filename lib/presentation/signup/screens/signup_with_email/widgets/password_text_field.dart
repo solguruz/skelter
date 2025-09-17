@@ -60,7 +60,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
               icon: Icon(
                 size: 22,
                 isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: AppColors.strokeNeutralDisabled,
+                color: AppColors.currentTheme.strokeNeutralDisabled,
               ),
               onPressed: () {
                 context.read<SignupBloc>().add(

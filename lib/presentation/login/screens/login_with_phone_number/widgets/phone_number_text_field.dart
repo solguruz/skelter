@@ -88,15 +88,15 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             textFieldController: _phoneInputController,
             focusNode: _focusNode,
             textStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             selectorTextStyle: const TextStyle(fontWeight: FontWeight.w500),
             initialValue: phoneNumberData,
             inputDecoration: InputDecoration(
               hintText: context.localization.enter_phone_number,
               hintStyle: AppTextStyles.p3Medium
-                  .copyWith(color: AppColors.textNeutralDisable),
+                  .copyWith(color: AppColors.currentTheme.textNeutralDisable),
               errorStyle: AppTextStyles.p4Regular
-                  .copyWith(color: AppColors.textErrorSecondary),
+                  .copyWith(color: AppColors.currentTheme.textErrorSecondary),
               border: buildOutlineInputBorder(hasFocus: hasFocus),
               enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
               focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
@@ -133,10 +133,10 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.strokeErrorDefault
+            ? AppColors.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.strokeBrandHover
-                : AppColors.strokeNeutralLight200,
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
       ),
     );
   }
@@ -148,8 +148,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
 
     return InputDecoration(
       hintText: context.localization.search_by_name_or_code,
-      hintStyle:
-          AppTextStyles.p3Medium.copyWith(color: AppColors.textNeutralDisable),
+      hintStyle: AppTextStyles.p3Medium
+          .copyWith(color: AppColors.currentTheme.textNeutralDisable),
       border: buildOutlineInputBorder(),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       enabledBorder: buildOutlineInputBorder(),
@@ -158,8 +158,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         padding: const EdgeInsets.all(14.0),
         child: SvgPicture.asset(
           Assets.icons.searchOutline,
-          colorFilter: const ColorFilter.mode(
-            AppColors.strokeNeutralDisabled,
+          colorFilter: ColorFilter.mode(
+            AppColors.currentTheme.strokeNeutralDisabled,
             BlendMode.srcIn,
           ),
         ),

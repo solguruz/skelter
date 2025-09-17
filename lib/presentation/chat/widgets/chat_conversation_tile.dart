@@ -36,7 +36,7 @@ class ChatConversationTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: message.isSentByMe
                     ? getBackgroundColor()
-                    : AppColors.brand50,
+                    : AppColors.currentTheme.brand50,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(!message.isSentByMe ? 0 : 10),
                   bottomRight: const Radius.circular(10),
@@ -68,11 +68,11 @@ class ChatConversationTile extends StatelessWidget {
   Color getBackgroundColor() {
     switch (message.messageType) {
       case MessageType.text:
-        return AppColors.brand500;
+        return AppColors.currentTheme.brand500;
       case MessageType.image:
-        return AppColors.redError500;
+        return AppColors.currentTheme.redError500;
       case MessageType.audio:
-        return AppColors.brand100;
+        return AppColors.currentTheme.brand100;
     }
   }
 }

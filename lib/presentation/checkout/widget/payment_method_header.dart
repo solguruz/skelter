@@ -19,7 +19,7 @@ class PaymentMethodHeader extends StatelessWidget {
         const Spacer(),
         AppButton.icon(
           iconData: TablerIcons.arrow_right,
-          iconOrTextColorOverride: AppColors.iconBrandPressed,
+          iconOrTextColorOverride: AppColors.currentTheme.iconBrandPressed,
           onPressed: () {},
         ),
       ],

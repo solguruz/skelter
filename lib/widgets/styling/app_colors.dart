@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:skelter/presentation/theme/dark_app_colors.dart';
+import 'package:skelter/presentation/theme/light_app_colors.dart';
+import 'package:skelter/presentation/theme/theme_color_palette.dart';
 
 class AppColors {
-  static bool isLightMode([BuildContext? context]) => true;
+  // static bool isLightMode([BuildContext? context]) => true;
+
+  static bool isDarkMode = false;
+
+  static void setDarkThemeMode({bool isDarkMode = false}) {
+    AppColors.isDarkMode = isDarkMode;
+  }
+
+  static ThemeColorPalette get currentTheme =>
+      isDarkMode ? LightAppColors() : DarkAppColors();
 
   static const MaterialColor primarySwatches =
       MaterialColor(0xFF3559E9, <int, Color>{
@@ -146,158 +158,4 @@ class AppColors {
 
   static const Color metaSectionBorderColor = Color(0xFFEAEAEA);
   static const Color bgOrangeLight = Color(0xFFFED7AA);
-
-// ------------------ Widget Colors ---------------------------
-
-  //  Text Colors
-  // Brand
-  static const Color textBrandPrimary = AppColors.brand800;
-  static const Color textBrandSecondary = AppColors.brand700;
-  static const Color textBrandDisable = AppColors.brand300;
-  static const Color textBrandLight = AppColors.brand100;
-
-  // Yellow (Warning)
-  static const Color textWarningPrimary = AppColors.yellowWarning900;
-  static const Color textWarningSecondary = AppColors.yellowWarning600;
-  static const Color textWarningDisable = AppColors.yellowWarning300;
-  static const Color textWarningLight = AppColors.yellowWarning100;
-
-  // Red (Error)
-  static const Color textErrorPrimary = AppColors.redError900;
-  static const Color textErrorSecondary = AppColors.redError600;
-  static const Color textErrorDisable = AppColors.redError300;
-  static const Color textErrorLight = AppColors.redError100;
-
-  // Green (Success)
-  static const Color textSuccessPrimary = AppColors.greenSuccess900;
-  static const Color textSuccessSecondary = AppColors.greenSuccess600;
-  static const Color textSuccessDisable = AppColors.greenSuccess300;
-  static const Color textSuccessLight = AppColors.greenSuccess100;
-
-  // Neutral
-  static const Color textNeutralPrimary = AppColors.neutral900;
-  static const Color textNeutralSecondary = AppColors.neutral600;
-  static const Color textNeutralDisable = AppColors.neutral400;
-  static const Color textNeutralLight = AppColors.neutral100;
-  static const Color textNeutralWhite = AppColors.white;
-  static const Color textNeutralArticleParagraph = AppColors.neutral700;
-
-  // Background Colors
-  // Brand
-  static const Color bgBrandDefault = AppColors.brand600;
-  static const Color bgBrandHover = AppColors.brand500;
-  static const Color bgBrandPressed = AppColors.brand700;
-  static const Color bgBrandDisabled = AppColors.brand300;
-  static const Color bgBrandLight50 = AppColors.brand50;
-  static const Color bgBrandLight100 = AppColors.brand100;
-  static const Color bgBrandLight200 = AppColors.brand200;
-
-  // Yellow (Warning)
-  static const Color bgWarningDefault = AppColors.yellowWarning600;
-  static const Color bgWarningHover = AppColors.yellowWarning500;
-  static const Color bgWarningPressed = AppColors.yellowWarning700;
-  static const Color bgWarningDisabled = AppColors.yellowWarning300;
-  static const Color bgWarningLight50 = AppColors.yellowWarning50;
-  static const Color bgWarningLight100 = AppColors.yellowWarning100;
-  static const Color bgWarningLight200 = AppColors.yellowWarning200;
-
-  // Red (Error)
-  static const Color bgErrorDefault = AppColors.redError600;
-  static const Color bgErrorHover = AppColors.redError500;
-  static const Color bgErrorPressed = AppColors.redError700;
-  static const Color bgErrorDisabled = AppColors.redError300;
-  static const Color bgErrorLight50 = AppColors.redError50;
-  static const Color bgErrorLight100 = AppColors.redError100;
-  static const Color bgErrorLight200 = AppColors.redError200;
-
-  // Green (Success)
-  static const Color bgSuccessDefault = AppColors.greenSuccess600;
-  static const Color bgSuccessHover = AppColors.greenSuccess500;
-  static const Color bgSuccessPressed = AppColors.greenSuccess700;
-  static const Color bgSuccessDisabled = AppColors.greenSuccess300;
-  static const Color bgSuccessLight50 = AppColors.greenSuccess50;
-  static const Color bgSuccessLight100 = AppColors.greenSuccess100;
-  static const Color bgSuccessLight200 = AppColors.greenSuccess200;
-
-  // Neutral
-  static const Color bgNeutralDefault = AppColors.neutral800;
-  static const Color bgNeutralHover = AppColors.neutral500;
-  static const Color bgNeutralPressed = AppColors.neutral700;
-  static const Color bgNeutralDisabled = AppColors.neutral100;
-  static const Color bgNeutralLight50 = AppColors.neutral50;
-  static const Color bgNeutralLight100 = AppColors.neutral100;
-  static const Color bgNeutralLight200 = AppColors.neutral200;
-
-  // Shades
-  static const Color bgShadesWhite = AppColors.shadesWhite;
-  static const Color bgShadesBlack = AppColors.shadesBlack;
-
-  // Icon Colors
-  // Brand
-  static const Color iconBrandPrimary = AppColors.brand800;
-  static const Color iconBrandHover = AppColors.brand700;
-  static const Color iconBrandPressed = AppColors.brand400;
-  static const Color iconBrandDisabled = AppColors.brand300;
-
-  // Yellow (Warning)
-  static const Color iconWarningDefault = AppColors.yellowWarning900;
-  static const Color iconWarningHover = AppColors.yellowWarning500;
-  static const Color iconWarningPressed = AppColors.yellowWarning400;
-  static const Color iconWarningDisabled = AppColors.yellowWarning300;
-
-  // Red (Error)
-  static const Color iconErrorDefault = AppColors.redError900;
-  static const Color iconErrorHover = AppColors.redError500;
-  static const Color iconErrorPressed = AppColors.redError400;
-  static const Color iconErrorDisabled = AppColors.redError300;
-
-  // Green (Success)
-  static const Color iconSuccessDefault = AppColors.greenSuccess900;
-  static const Color iconSuccessHover = AppColors.greenSuccess500;
-  static const Color iconSuccessPressed = AppColors.greenSuccess400;
-  static const Color iconSuccessDisabled = AppColors.greenSuccess300;
-
-  // Neutral
-  static const Color iconNeutralDefault = AppColors.neutral900;
-  static const Color iconNeutralHover = AppColors.neutral500;
-  static const Color iconNeutralPressed = AppColors.neutral400;
-  static const Color iconNeutralDisabled = AppColors.neutral300;
-
-  // Stroke Colors
-  // Brand
-  static const Color strokeBrandDefault = AppColors.brand700;
-  static const Color strokeBrandHover = AppColors.brand600;
-  static const Color strokeBrandPressed = AppColors.brand800;
-  static const Color strokeBrandDisabled = AppColors.brand300;
-
-  // Yellow (Warning)
-  static const Color strokeWarningDefault = AppColors.yellowWarning600;
-  static const Color strokeWarningHover = AppColors.yellowWarning500;
-  static const Color strokeWarningPressed = AppColors.yellowWarning700;
-  static const Color strokeWarningDisabled = AppColors.yellowWarning300;
-
-  // Red (Error)
-  static const Color strokeErrorDefault = AppColors.redError600;
-  static const Color strokeErrorHover = AppColors.redError500;
-  static const Color strokeErrorPressed = AppColors.redError700;
-  static const Color strokeErrorDisabled = AppColors.redError300;
-
-  // Green (Success)
-  static const Color strokeSuccessDefault = AppColors.greenSuccess600;
-  static const Color strokeSuccessHover = AppColors.greenSuccess500;
-  static const Color strokeSuccessPressed = AppColors.greenSuccess700;
-  static const Color strokeSuccessDisabled = AppColors.greenSuccess300;
-
-  // Neutral
-  static const Color strokeNeutralDefault = AppColors.neutral600;
-  static const Color strokeNeutralHover = AppColors.neutral500;
-  static const Color strokeNeutralPressed = AppColors.neutral700;
-  static const Color strokeNeutralDisabled = AppColors.neutral400;
-  static const Color strokeNeutralLight50 = AppColors.neutral50;
-  static const Color strokeNeutralLight100 = AppColors.neutral100;
-  static const Color strokeNeutralLight200 = AppColors.neutral200;
-
-  // Shades
-  static const Color strokeShadesWhite = AppColors.white;
-  static const Color strokeShadesBlack = AppColors.black;
 }

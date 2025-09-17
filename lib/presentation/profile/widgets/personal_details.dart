@@ -13,17 +13,17 @@ class PersonalDetails extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: const Icon(
+          leading: Icon(
             TablerIcons.user_circle,
-            color: AppColors.iconNeutralDefault,
+            color: AppColors.currentTheme.iconNeutralDefault,
           ),
           title: Text(
             context.localization.personal_details,
             style: AppTextStyles.h6SemiBold,
           ),
-          trailing: const Icon(
+          trailing: Icon(
             TablerIcons.chevron_right,
-            color: AppColors.iconNeutralDefault,
+            color: AppColors.currentTheme.iconNeutralDefault,
           ),
           onTap: () {
             context.showSnackBar('Show account details');

@@ -13,7 +13,9 @@ class NetworkImageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.black),
+        iconTheme: IconThemeData(
+          color: AppColors.currentTheme.strokeShadesBlack,
+        ),
       ),
       body: Center(
         child: Hero(
@@ -23,10 +25,10 @@ class NetworkImageScreen extends StatelessWidget {
             progressIndicatorBuilder: (context, url, progress) {
               return const Center(child: CircularProgressIndicator());
             },
-            errorWidget: (context, url, error) => const Center(
+            errorWidget: (context, url, error) => Center(
               child: Icon(
                 Icons.error,
-                color: AppColors.errorColor,
+                color: AppColors.currentTheme.strokeErrorDefault,
               ),
             ),
             imageBuilder: (context, imageProvider) {

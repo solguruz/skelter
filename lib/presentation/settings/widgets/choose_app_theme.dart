@@ -11,17 +11,17 @@ class ChooseAppTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         TablerIcons.palette,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.choose_app_theme,
         style: AppTextStyles.p2Regular,
       ),
-      trailing: const Icon(
+      trailing: Icon(
         TablerIcons.chevron_right,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
         context.showSnackBar('Choose app theme');

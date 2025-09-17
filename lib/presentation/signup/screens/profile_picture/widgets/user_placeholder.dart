@@ -29,11 +29,11 @@ class UserPlaceholder extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(4),
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.white,
+          color: AppColors.currentTheme.bgShadesWhite,
           boxShadow: <BoxShadow>[
-            BoxShadow(
+            const BoxShadow(
               color: AppColors.shadowColor,
               offset: Offset(0, 4),
               spreadRadius: -2,

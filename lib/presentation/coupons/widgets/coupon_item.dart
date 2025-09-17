@@ -19,10 +19,10 @@ class CouponItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.currentTheme.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: AppColors.bgNeutralLight100,
+          color: AppColors.currentTheme.bgNeutralLight100,
         ),
       ),
       child: Column(
@@ -42,8 +42,8 @@ class CouponItem extends StatelessWidget {
                     right: 20,
                     child: Text(
                       'FREEDELIVERY',
-                      style:
-                          AppTextStyles.p3Bold.copyWith(color: AppColors.white),
+                      style: AppTextStyles.p3Bold
+                          .withColor(AppColors.currentTheme.white),
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
@@ -70,8 +70,8 @@ class CouponItem extends StatelessWidget {
           Text(
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam '
             'nonumy eirmod tempor invidunt ut labore et dolore',
-            style: AppTextStyles.p4Regular.copyWith(
-              color: AppColors.textNeutralSecondary,
+            style: AppTextStyles.p4Regular.withColor(
+              AppColors.currentTheme.textNeutralSecondary,
             ),
           ),
         ],

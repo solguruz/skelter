@@ -20,13 +20,13 @@ class TotalAmount extends StatelessWidget {
         Text(
           context.localization.total_amount,
           style: AppTextStyles.p4Regular
-              .copyWith(color: AppColors.textNeutralSecondary),
+              .withColor(AppColors.currentTheme.textNeutralSecondary),
         ),
         const SizedBox(height: 6),
         Text(
           '\$$finalAmount',
           style: AppTextStyles.h6Bold
-              .copyWith(color: AppColors.textNeutralPrimary),
+              .withColor(AppColors.currentTheme.textNeutralPrimary),
         ),
       ],
     );

@@ -25,7 +25,7 @@ class AppThemesData {
         backgroundColor: Colors.white,
         elevation: 0,
         titleTextStyle: AppTextStyles.h6SemiBold.copyWith(
-          color: AppColors.textNeutralPrimary,
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
@@ -47,23 +47,28 @@ class AppThemesData {
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleBright,
         hintStyle: AppTextStyles.p3Medium.copyWith(
-          color: AppColors.textNeutralDisable,
+          color: AppColors.currentTheme.textNeutralDisable,
         ),
         isDense: true,
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.strokeNeutralLight200),
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeNeutralLight200),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.strokeBrandHover),
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeBrandHover),
           borderRadius: BorderRadius.circular(8),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
+          borderSide:
+              BorderSide(color: AppColors.currentTheme.strokeErrorDefault),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.strokeErrorDefault),
+          borderSide: BorderSide(
+            color: AppColors.currentTheme.strokeErrorDefault,
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
       ),
@@ -94,7 +99,7 @@ class AppThemesData {
         labelStyle: InputDecorations.labelStyleDark,
         hintStyle: InputDecorations.hintStyleDark,
         errorStyle: AppTextStyles.p4Regular
-            .copyWith(color: AppColors.textErrorSecondary),
+            .copyWith(color: AppColors.currentTheme.textErrorSecondary),
         isDense: true,
       ),
       fontFamily: FontFamily.inter,

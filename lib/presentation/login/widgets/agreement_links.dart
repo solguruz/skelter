@@ -25,13 +25,13 @@ class AgreementLinks extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p4Medium
-              .copyWith(color: AppColors.textNeutralSecondary),
+              .withColor(AppColors.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_agreement_info),
             TextSpan(
               text: context.localization.signup_terms_and_conditions,
               style: AppTextStyles.p4Bold.copyWith(
-                color: AppColors.textNeutralSecondary,
+                color: AppColors.currentTheme.textNeutralSecondary,
                 decoration: TextDecoration.underline,
               ),
               recognizer: TapGestureRecognizer()
@@ -43,7 +43,7 @@ class AgreementLinks extends StatelessWidget {
             TextSpan(
               text: context.localization.signup_privacy_policy,
               style: AppTextStyles.p4Bold.copyWith(
-                color: AppColors.textNeutralSecondary,
+                color: AppColors.currentTheme.textNeutralSecondary,
                 decoration: TextDecoration.underline,
               ),
               recognizer: TapGestureRecognizer()

@@ -34,10 +34,10 @@ class UserAvatar extends StatelessWidget {
             right: 1,
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.bgSuccessDefault,
+                color: AppColors.currentTheme.bgSuccessDefault,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: AppColors.white,
+                  color: AppColors.currentTheme.white,
                 ),
               ),
               padding: const EdgeInsets.all(6),

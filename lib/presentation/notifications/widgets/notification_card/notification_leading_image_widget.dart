@@ -27,9 +27,9 @@ class NotificationLeadingImageWidget extends StatelessWidget {
             progressIndicatorBuilder: (context, url, progress) {
               return const Center(child: CircularProgressIndicator());
             },
-            errorWidget: (context, url, error) => const Icon(
+            errorWidget: (context, url, error) => Icon(
               Icons.error,
-              color: AppColors.errorColor,
+              color: AppColors.currentTheme.errorColor,
             ),
             imageBuilder: (context, imageProvider) {
               return InkWell(

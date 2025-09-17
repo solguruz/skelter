@@ -11,17 +11,17 @@ class ChangePassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         TablerIcons.lock,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.change_password,
         style: AppTextStyles.p2Regular,
       ),
-      trailing: const Icon(
+      trailing: Icon(
         TablerIcons.chevron_right,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
         context.showSnackBar('Change Password');

@@ -21,14 +21,14 @@ class LoginOptionsDivider extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 1,
-              color: AppColors.strokeNeutralLight100,
+              color: AppColors.currentTheme.strokeNeutralLight100,
             ),
           ),
           const SizedBox(width: 20),
           Text(
             context.localization.or,
             style: AppTextStyles.p2Regular.copyWith(
-              color: AppColors.textNeutralDisable,
+              color: AppColors.currentTheme.textNeutralDisable,
             ),
           ),
           const SizedBox(width: 20),
@@ -36,7 +36,7 @@ class LoginOptionsDivider extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 1,
-              color: AppColors.strokeNeutralLight100,
+              color: AppColors.currentTheme.strokeNeutralLight100,
             ),
           ),
         ],

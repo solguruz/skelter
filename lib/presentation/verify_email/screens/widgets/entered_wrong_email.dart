@@ -25,15 +25,16 @@ class EnteredWrongEmail extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p2Medium
-              .copyWith(color: AppColors.textNeutralSecondary),
+              .withColor(AppColors.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(
               text: context.localization.signup_entered_wrong_email,
             ),
             TextSpan(
               text: context.localization.change_email,
-              style: AppTextStyles.p2Bold
-                  .copyWith(color: AppColors.textBrandSecondary),
+              style: AppTextStyles.p2Bold.copyWith(
+                color: AppColors.currentTheme.textBrandSecondary,
+              ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
                   if (isSignup) {

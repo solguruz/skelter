@@ -16,13 +16,13 @@ class SetDefaultAddress extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
           ),
-          side: const BorderSide(
-            color: AppColors.strokeNeutralLight200,
+          side: BorderSide(
+            color: AppColors.currentTheme.strokeNeutralLight200,
             width: 2,
           ),
           visualDensity: VisualDensity.compact,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          activeColor: AppColors.bgBrandDefault,
+          activeColor: AppColors.currentTheme.bgBrandDefault,
         ),
         const SizedBox(width: 8),
         Text(

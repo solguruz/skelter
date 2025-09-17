@@ -16,7 +16,7 @@ class PasswordRequirementStats extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.bgNeutralLight50,
+        color: AppColors.currentTheme.bgNeutralLight50,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -25,7 +25,7 @@ class PasswordRequirementStats extends StatelessWidget {
           Text(
             context.localization.signup_password_requirements,
             style: AppTextStyles.p4Bold.copyWith(
-              color: AppColors.textNeutralPrimary,
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 5),

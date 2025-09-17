@@ -34,14 +34,14 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? AppButton.icon(
               appIcon: Assets.icons.icon.path,
               size: AppButtonSize.extraLarge,
-              iconOrTextColorOverride: AppColors.bgBrandDefault,
+              iconOrTextColorOverride: AppColors.currentTheme.bgBrandDefault,
               onPressed: () {},
             )
           : null,
       actions: [if (rightAction != null) rightAction!],
       centerTitle: true,
       elevation: 0.01,
-      shadowColor: AppColors.strokeNeutralLight50,
+      shadowColor: AppColors.currentTheme.strokeNeutralLight50,
     );
   }
 

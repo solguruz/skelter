@@ -29,9 +29,9 @@ class MessageDetails extends StatelessWidget {
         const SizedBox(height: 12.0),
         if (unreadMessageCount > 0)
           Container(
-            decoration: const BoxDecoration(
-              color: AppColors.bgBrandHover,
-              borderRadius: BorderRadius.horizontal(
+            decoration: BoxDecoration(
+              color: AppColors.currentTheme.bgBrandHover,
+              borderRadius: const BorderRadius.horizontal(
                 left: Radius.circular(8),
                 right: Radius.circular(8),
               ),
@@ -43,7 +43,8 @@ class MessageDetails extends StatelessWidget {
             child: Text(
               min(unreadMessageCount, 999).toString() +
                   (unreadMessageCount > 999 ? '+' : ''),
-              style: AppTextStyles.c2SemiBold.copyWith(color: AppColors.white),
+              style: AppTextStyles.c2SemiBold
+                  .withColor(AppColors.currentTheme.white),
             ),
           ),
       ],

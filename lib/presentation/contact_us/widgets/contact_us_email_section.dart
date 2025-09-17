@@ -62,7 +62,7 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
           decoration: InputDecoration(
             hintText: context.localization.enter_your_email_id,
             hintStyle: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
+                .withColor(AppColors.currentTheme.textNeutralDisable),
             errorText: emailError.isNullOrEmpty() ? null : emailError,
           ),
           textInputAction: TextInputAction.next,

@@ -6,10 +6,10 @@ class DeleteAccountDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
+    return Divider(
       indent: 8,
       endIndent: 8,
-      color: AppColors.neutral100,
+      color: AppColors.currentTheme.neutral100,
     );
   }
 }

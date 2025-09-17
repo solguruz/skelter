@@ -14,7 +14,7 @@ class ShimmerCircularImage extends StatelessWidget {
       child: Container(
         height: size.w,
         width: size.w,
-        color: AppColors.white,
+        color: AppColors.currentTheme.bgShadesWhite,
       ),
     );
   }

@@ -20,8 +20,8 @@ class BottomNavBar extends StatelessWidget {
       onTap: (value) => context.read<HomeBloc>().add(
             BottomNavBarIndexChangedEvent(index: value),
           ),
-      selectedItemColor: AppColors.iconBrandHover,
-      unselectedItemColor: AppColors.strokeNeutralDefault,
+      selectedItemColor: AppColors.currentTheme.iconBrandHover,
+      unselectedItemColor: AppColors.currentTheme.strokeNeutralDefault,
       showUnselectedLabels: true,
       selectedLabelStyle: AppTextStyles.p4Medium,
       unselectedLabelStyle: AppTextStyles.p4Medium,

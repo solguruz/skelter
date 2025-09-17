@@ -23,9 +23,9 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.textNeutralWhite;
+        return AppColors.currentTheme.textNeutralWhite;
       case AppButtonState.disabled:
-        return AppColors.textNeutralDisable;
+        return AppColors.currentTheme.textNeutralDisable;
     }
   }
 
@@ -34,9 +34,9 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.textBrandSecondary;
+        return AppColors.currentTheme.textBrandSecondary;
       case AppButtonState.disabled:
-        return AppColors.textNeutralDisable;
+        return AppColors.currentTheme.textNeutralDisable;
     }
   }
 
@@ -45,9 +45,9 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.textNeutralPrimary;
+        return AppColors.currentTheme.textNeutralPrimary;
       case AppButtonState.disabled:
-        return AppColors.textNeutralDisable;
+        return AppColors.currentTheme.textNeutralDisable;
     }
   }
 
@@ -56,9 +56,9 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.textBrandSecondary;
+        return AppColors.currentTheme.textBrandSecondary;
       case AppButtonState.disabled:
-        return AppColors.textNeutralDisable;
+        return AppColors.currentTheme.textNeutralDisable;
     }
   }
 }

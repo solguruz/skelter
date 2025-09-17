@@ -16,7 +16,8 @@ class Settings extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.strokeNeutralLight200),
+            border:
+                Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: const Column(

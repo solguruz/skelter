@@ -34,15 +34,15 @@ class PdfPreviewList extends StatelessWidget {
                     Container(
                       width: 80,
                       decoration: BoxDecoration(
-                        color: AppColors.redError50,
+                        color: AppColors.currentTheme.redError50,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
+                          Icon(
                             TablerIcons.file_type_pdf,
-                            color: AppColors.red,
+                            color: AppColors.currentTheme.red,
                             size: 28,
                           ),
                           const SizedBox(height: 4),
@@ -50,8 +50,8 @@ class PdfPreviewList extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             child: Text(
                               path.basename(pdf.path),
-                              style: AppTextStyles.p4Regular.copyWith(
-                                color: AppColors.textNeutralPrimary,
+                              style: AppTextStyles.p4Regular.withColor(
+                                AppColors.currentTheme.textNeutralPrimary,
                               ),
                               textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,

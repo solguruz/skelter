@@ -29,12 +29,12 @@ class DeleteAccountOptionsItems extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: isSelected
-                    ? AppColors.bgBrandDefault
+                    ? AppColors.currentTheme.bgBrandDefault
                     : AppColors.transparent,
                 border: isSelected
                     ? null
                     : Border.all(
-                        color: AppColors.strokeNeutralLight200,
+                        color: AppColors.currentTheme.strokeNeutralLight200,
                         width: 1.5,
                       ),
               ),
@@ -43,9 +43,9 @@ class DeleteAccountOptionsItems extends StatelessWidget {
                       child: Container(
                         width: 10,
                         height: 24,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.white,
+                          color: AppColors.currentTheme.white,
                         ),
                       ),
                     )
@@ -56,7 +56,7 @@ class DeleteAccountOptionsItems extends StatelessWidget {
               child: Text(
                 reason,
                 style: AppTextStyles.p2Medium
-                    .copyWith(color: AppColors.textNeutralPrimary),
+                    .withColor(AppColors.currentTheme.textNeutralPrimary),
               ),
             ),
           ],

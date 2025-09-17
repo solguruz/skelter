@@ -21,21 +21,21 @@ class LoginSignUpButtonDivider extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 1,
-              color: AppColors.strokeNeutralLight100,
+              color: AppColors.currentTheme.strokeNeutralLight100,
             ),
           ),
           const SizedBox(width: 20),
           Text(
             context.localization.or,
             style: AppTextStyles.p2Regular
-                .copyWith(color: AppColors.textNeutralSecondary),
+                .withColor(AppColors.currentTheme.textNeutralSecondary),
           ),
           const SizedBox(width: 20),
           Expanded(
             child: Container(
               width: double.infinity,
               height: 1,
-              color: AppColors.strokeNeutralLight100,
+              color: AppColors.currentTheme.strokeNeutralLight100,
             ),
           ),
         ],

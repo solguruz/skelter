@@ -44,7 +44,7 @@ class _StateDropdownState extends State<StateDropdown> {
           hint: Text(
             context.localization.select_state,
             style: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
+                .withColor(AppColors.currentTheme.textNeutralDisable),
           ),
           items: _states.map((String state) {
             return DropdownMenuItem<String>(

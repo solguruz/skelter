@@ -23,8 +23,8 @@ class AttachmentErrorDisplay extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   pickedFilesError,
-                  style: AppTextStyles.p4Regular
-                      .copyWith(color: AppColors.textErrorSecondary),
+                  style: AppTextStyles.p4Regular.copyWith(
+                      color: AppColors.currentTheme.textErrorSecondary),
                 ),
               ),
             ],

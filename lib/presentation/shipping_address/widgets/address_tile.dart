@@ -21,11 +21,13 @@ class AddressTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.bgBrandLight50 : AppColors.white,
+        color: isSelected
+            ? AppColors.currentTheme.bgBrandLight50
+            : AppColors.currentTheme.white,
         border: Border.all(
           color: isDefault
-              ? AppColors.iconBrandHover
-              : AppColors.strokeNeutralLight200,
+              ? AppColors.currentTheme.iconBrandHover
+              : AppColors.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
@@ -48,9 +50,9 @@ class AddressTile extends StatelessWidget {
                     ),
                     SizedBox(width: isDefault ? 8 : 0),
                     if (isDefault)
-                      const AppButton(
+                      AppButton(
                         label: 'Default',
-                        backgroundColor: AppColors.bgBrandDefault,
+                        backgroundColor: AppColors.currentTheme.bgBrandDefault,
                         size: AppButtonSize.extraSmall,
                       ),
                   ],
@@ -69,10 +71,10 @@ class AddressTile extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.white,
+              color: AppColors.currentTheme.white,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.shadowColor2.withAlpha(15),
+                  color: AppColors.currentTheme.shadowColor2.withAlpha(15),
                   spreadRadius: 1,
                   blurRadius: 6,
                 ),

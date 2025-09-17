@@ -15,9 +15,9 @@ class WarningNotes extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(
+          Icon(
             TablerIcons.xbox_x,
-            color: AppColors.bgErrorDefault,
+            color: AppColors.currentTheme.bgErrorDefault,
             size: 24,
           ),
           const SizedBox(width: 12),

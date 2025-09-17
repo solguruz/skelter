@@ -40,8 +40,8 @@ class PaymentMethodOnline extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: isPaymentMethodOnline && currentStepperIndex != 3
-              ? AppColors.strokeBrandDisabled
-              : AppColors.strokeNeutralLight200,
+              ? AppColors.currentTheme.strokeBrandDisabled
+              : AppColors.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),
@@ -73,8 +73,8 @@ class PaymentMethodCOD extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: !isPaymentMethodOnline && currentStepperIndex != 3
-              ? AppColors.strokeBrandDisabled
-              : AppColors.strokeNeutralLight200,
+              ? AppColors.currentTheme.strokeBrandDisabled
+              : AppColors.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),

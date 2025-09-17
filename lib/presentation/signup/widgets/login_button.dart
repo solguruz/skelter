@@ -25,7 +25,7 @@ class LoginButton extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p2Medium
-              .copyWith(color: AppColors.textNeutralSecondary),
+              .withColor(AppColors.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(
               text: context.localization.signup_already_have_account,
@@ -33,7 +33,7 @@ class LoginButton extends StatelessWidget {
             TextSpan(
               text: context.localization.login,
               style: AppTextStyles.p2Bold
-                  .copyWith(color: AppColors.textBrandSecondary),
+                  .copyWith(color: AppColors.currentTheme.textBrandSecondary),
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
                   context

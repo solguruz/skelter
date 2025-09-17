@@ -68,16 +68,16 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
         controller: searchController,
         decoration: InputDecoration(
           hintText: context.localization.search,
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             TablerIcons.search,
-            color: AppColors.strokeNeutralDisabled,
+            color: AppColors.currentTheme.strokeNeutralDisabled,
           ),
           suffixIcon: searchQuery.isEmpty
               ? AvatarGlow(
                   animate: isAnimatingListenIcon,
                   glowColor: isAnimatingListenIcon
-                      ? AppColors.strokeNeutralDisabled
-                      : AppColors.white,
+                      ? AppColors.currentTheme.strokeNeutralDisabled
+                      : AppColors.currentTheme.white,
                   child: IconButton(
                     onPressed: () => _onMicrophoneButtonPressed(
                       isAnimatingListenIcon: isAnimatingListenIcon,
@@ -87,16 +87,16 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                           ? TablerIcons.square_filled
                           : TablerIcons.microphone,
                       color: isAnimatingListenIcon
-                          ? AppColors.red
-                          : AppColors.strokeNeutralDisabled,
+                          ? AppColors.currentTheme.red
+                          : AppColors.currentTheme.strokeNeutralDisabled,
                     ),
                   ),
                 )
               : IconButton(
                   onPressed: () => searchController.clear(),
-                  icon: const Icon(
+                  icon: Icon(
                     TablerIcons.x,
-                    color: AppColors.strokeNeutralDisabled,
+                    color: AppColors.currentTheme.strokeNeutralDisabled,
                   ),
                 ),
           contentPadding: const EdgeInsets.symmetric(vertical: 15),

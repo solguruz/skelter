@@ -44,8 +44,8 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                 child: Container(
                   height: 40,
                   width: 40,
-                  decoration: const BoxDecoration(
-                    color: AppColors.bgErrorLight100,
+                  decoration: BoxDecoration(
+                    color: AppColors.currentTheme.bgErrorLight100,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(

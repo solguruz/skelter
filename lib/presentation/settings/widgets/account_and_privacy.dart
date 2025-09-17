@@ -11,17 +11,17 @@ class AccountAndPrivacy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         TablerIcons.user_circle,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.account_and_privacy,
         style: AppTextStyles.p2Regular,
       ),
-      trailing: const Icon(
+      trailing: Icon(
         TablerIcons.chevron_right,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
         context.showSnackBar('Account and Privacy');

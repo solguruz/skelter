@@ -24,7 +24,7 @@ class ShippingAddress extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.strokeNeutralLight200),
+        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -51,10 +51,10 @@ class ShippingAddress extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.white,
+              color: AppColors.currentTheme.white,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.shadowColor2.withAlpha(15),
+                  color: AppColors.currentTheme.shadowColor2.withAlpha(15),
                   spreadRadius: 1,
                   blurRadius: 6,
                 ),

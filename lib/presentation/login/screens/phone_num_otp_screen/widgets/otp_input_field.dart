@@ -92,8 +92,8 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           pinAnimationType: PinAnimationType.fade,
           forceErrorState: true,
           errorText: errorText.isNullOrEmpty() ? null : errorText,
-          errorTextStyle: AppTextStyles.p4Regular.copyWith(
-            color: AppColors.textErrorSecondary,
+          errorTextStyle: AppTextStyles.p4Regular.withColor(
+            AppColors.currentTheme.textErrorSecondary,
           ),
           onChanged: (pin) {
             if (errorText.haveContent()) {
@@ -129,7 +129,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       width: pinWidth,
       height: pinHeight,
       decoration: _pinInputBoxDecoration().copyWith(
-        border: Border.all(color: AppColors.strokeBrandDefault),
+        border: Border.all(color: AppColors.currentTheme.strokeBrandDefault),
       ),
       textStyle: AppTextStyles.h2Bold,
     );
@@ -140,7 +140,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       width: pinWidth,
       height: pinHeight,
       decoration: _pinInputBoxDecoration().copyWith(
-        border: Border.all(color: AppColors.strokeNeutralDefault),
+        border: Border.all(color: AppColors.currentTheme.strokeNeutralDefault),
       ),
       textStyle: AppTextStyles.h2Bold,
     );
@@ -151,7 +151,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       width: pinWidth,
       height: pinHeight,
       decoration: _pinInputBoxDecoration().copyWith(
-        border: Border.all(color: AppColors.strokeErrorDefault),
+        border: Border.all(color: AppColors.currentTheme.strokeErrorDefault),
       ),
       textStyle: AppTextStyles.h2Bold,
     );
@@ -159,8 +159,8 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
 
   BoxDecoration _pinInputBoxDecoration() {
     return BoxDecoration(
-      border: Border.all(color: AppColors.strokeNeutralLight200),
-      color: AppColors.bgShadesWhite,
+      border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
+      color: AppColors.currentTheme.bgShadesWhite,
       borderRadius: BorderRadius.circular(8),
     );
   }

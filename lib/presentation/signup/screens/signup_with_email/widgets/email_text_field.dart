@@ -59,15 +59,15 @@ class _EmailTextFieldState extends State<EmailTextField> {
         TextField(
           controller: _emailController,
           style: AppTextStyles.p3Medium
-              .copyWith(color: AppColors.textNeutralPrimary),
+              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
           decoration: InputDecoration(
             hintText: context.localization.email_hint,
             hintStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.textNeutralDisable),
+                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
             errorText:
                 emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
             errorStyle: AppTextStyles.p3Regular
-                .copyWith(color: AppColors.textErrorSecondary),
+                .copyWith(color: AppColors.currentTheme.textErrorSecondary),
             border: buildOutlineInputBorder(),
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
@@ -92,10 +92,10 @@ class _EmailTextFieldState extends State<EmailTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.strokeErrorDefault
+            ? AppColors.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.strokeBrandHover
-                : AppColors.strokeNeutralLight200,
+                ? AppColors.currentTheme.strokeBrandHover
+                : AppColors.currentTheme.strokeNeutralLight200,
       ),
     );
   }

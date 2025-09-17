@@ -17,21 +17,21 @@ class ProductPriceRating extends StatelessWidget {
           child: Text(
             '\$${product.price.toStringAsFixed(2)}',
             maxLines: 1,
-            style: AppTextStyles.p3SemiBold.copyWith(
-              color: AppColors.textBrandPrimary,
+            style: AppTextStyles.p3SemiBold.withColor(
+              AppColors.currentTheme.textBrandPrimary,
             ),
           ),
         ),
-        const Icon(
+        Icon(
           Icons.star,
-          color: AppColors.bgWarningHover,
+          color: AppColors.currentTheme.bgWarningHover,
           size: 16,
         ),
         const SizedBox(width: 4),
         Text(
           product.rating.toString(),
-          style: AppTextStyles.p4Medium.copyWith(
-            color: AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Medium.withColor(
+            AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
       ],

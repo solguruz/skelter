@@ -19,7 +19,7 @@ class RepliedTo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.currentTheme.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -49,14 +49,14 @@ class RepliedTo extends StatelessWidget {
                       ? context.localization.you
                       : '${chatUser?.name}',
                   style: AppTextStyles.p4Medium
-                      .copyWith(color: AppColors.brand500),
+                      .withColor(AppColors.currentTheme.brand500),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 Text(
                   repliedToMessage?.message ?? '',
                   style: AppTextStyles.p3Regular
-                      .copyWith(color: AppColors.neutral900),
+                      .withColor(AppColors.currentTheme.neutral900),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),

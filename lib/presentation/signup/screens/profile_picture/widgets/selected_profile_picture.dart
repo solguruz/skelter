@@ -19,13 +19,13 @@ class SelectedProfilePicture extends StatelessWidget {
         ? const SizedBox.shrink()
         : Container(
             padding: const EdgeInsets.all(4),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.white,
+              color: AppColors.currentTheme.white,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: AppColors.shadowColor,
-                  offset: Offset(0, 4),
+                  color: AppColors.currentTheme.shadowColor,
+                  offset: const Offset(0, 4),
                   spreadRadius: -2,
                   blurRadius: 2,
                 ),

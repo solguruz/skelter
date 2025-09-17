@@ -18,7 +18,7 @@ class SubmissionSuccessMessage extends StatelessWidget {
         Text(
           context.localization.response_received,
           style: AppTextStyles.p2Regular
-              .copyWith(color: AppColors.textNeutralSecondary),
+              .withColor(AppColors.currentTheme.textNeutralSecondary),
           textAlign: TextAlign.center,
         ),
       ],

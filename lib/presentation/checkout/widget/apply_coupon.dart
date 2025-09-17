@@ -37,13 +37,13 @@ class ApplyCoupon extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.bgBrandLight50,
+              color: AppColors.currentTheme.bgBrandLight50,
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Text(
               context.localization.coupon_message(couponCount),
               style: AppTextStyles.p3SemiBold
-                  .copyWith(color: AppColors.textBrandPrimary),
+                  .copyWith(color: AppColors.currentTheme.textBrandPrimary),
             ),
           ),
         ),

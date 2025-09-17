@@ -24,8 +24,10 @@ class MessageTypes extends StatelessWidget {
       case MessageType.text:
         return Text(
           message.message,
-          style: AppTextStyles.p3Regular.copyWith(
-            color: message.isSentByMe ? AppColors.white : AppColors.neutral900,
+          style: AppTextStyles.p3Regular.withColor(
+            message.isSentByMe
+                ? AppColors.currentTheme.white
+                : AppColors.currentTheme.neutral900,
           ),
         );
 
@@ -57,18 +59,20 @@ class MessageTypes extends StatelessWidget {
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const RotatedBox(
+            RotatedBox(
               quarterTurns: 45,
               child: Icon(
                 TablerIcons.triangle_filled,
-                color: AppColors.brand500,
+                color: AppColors.currentTheme.brand500,
               ),
             ),
             const SizedBox(width: 8),
             SvgPicture.asset(
               Assets.icons.waveforms,
-              colorFilter:
-                  const ColorFilter.mode(AppColors.brand500, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                AppColors.currentTheme.brand500,
+                BlendMode.srcIn,
+              ),
             ),
           ],
         );

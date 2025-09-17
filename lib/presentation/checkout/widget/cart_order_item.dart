@@ -25,7 +25,7 @@ class CartOrderItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.strokeNeutralLight200),
+        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -54,23 +54,23 @@ class CartOrderItem extends StatelessWidget {
                       child: Text(
                         cartModel.product.category,
                         style: AppTextStyles.p3Medium.copyWith(
-                          color: AppColors.textNeutralSecondary,
+                          color: AppColors.currentTheme.textNeutralSecondary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
                     ),
-                    const Icon(
+                    Icon(
                       TablerIcons.trash,
-                      color: AppColors.iconNeutralHover,
+                      color: AppColors.currentTheme.iconNeutralHover,
                     ),
                   ],
                 ),
                 const SizedBox(height: 6),
                 Text(
                   cartModel.product.title,
-                  style: AppTextStyles.p2Medium
-                      .copyWith(color: AppColors.textNeutralPrimary),
+                  style: AppTextStyles.p2Medium.copyWith(
+                      color: AppColors.currentTheme.textNeutralPrimary),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
@@ -80,9 +80,9 @@ class CartOrderItem extends StatelessWidget {
                   minRating: 1,
                   itemSize: 20,
                   itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-                  itemBuilder: (context, _) => const Icon(
+                  itemBuilder: (context, _) => Icon(
                     TablerIcons.star_filled,
-                    color: AppColors.bgWarningHover,
+                    color: AppColors.currentTheme.bgWarningHover,
                   ),
                   onRatingUpdate: (rating) {},
                 ),
@@ -91,36 +91,36 @@ class CartOrderItem extends StatelessWidget {
                   children: [
                     Text(
                       '\$${cartModel.product.price.toStringAsFixed(2)}',
-                      style: AppTextStyles.p2SemiBold.copyWith(
-                        color: AppColors.textNeutralPrimary,
+                      style: AppTextStyles.p2SemiBold.withColor(
+                        AppColors.currentTheme.textNeutralPrimary,
                       ),
                     ),
                     const Spacer(),
                     Icon(
                       TablerIcons.circle_minus,
                       color: cartModel.quantities > 1
-                          ? AppColors.textBrandSecondary
-                          : AppColors.bgBrandLight100,
+                          ? AppColors.currentTheme.textBrandSecondary
+                          : AppColors.currentTheme.bgBrandLight100,
                     ),
                     const SizedBox(width: 8),
                     Text(
                       cartModel.quantities.toString(),
-                      style: AppTextStyles.p2SemiBold.copyWith(
-                        color: AppColors.textBrandSecondary,
+                      style: AppTextStyles.p2SemiBold.withColor(
+                        AppColors.currentTheme.textBrandSecondary,
                       ),
                     ),
                     const SizedBox(width: 8),
-                    const Icon(
+                    Icon(
                       TablerIcons.circle_plus,
-                      color: AppColors.textBrandSecondary,
+                      color: AppColors.currentTheme.textBrandSecondary,
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
                 Text(
                   cartModel.product.category,
-                  style: AppTextStyles.p2Medium.copyWith(
-                    color: AppColors.textNeutralSecondary,
+                  style: AppTextStyles.p2Medium.withColor(
+                    AppColors.currentTheme.textNeutralSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
@@ -130,8 +130,8 @@ class CartOrderItem extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       Assets.icons.deliveryParcel,
-                      colorFilter: const ColorFilter.mode(
-                        AppColors.bgBrandDefault,
+                      colorFilter: ColorFilter.mode(
+                        AppColors.currentTheme.bgBrandDefault,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -139,8 +139,8 @@ class CartOrderItem extends StatelessWidget {
                     Expanded(
                       child: Text(
                         '${context.localization.expected_delivery_by} ',
-                        style: AppTextStyles.p3Medium.copyWith(
-                          color: AppColors.textNeutralPrimary,
+                        style: AppTextStyles.p3Medium.withColor(
+                          AppColors.currentTheme.textNeutralPrimary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -148,8 +148,8 @@ class CartOrderItem extends StatelessWidget {
                     ),
                     Text(
                       cartModel.expectedDeliveryDate,
-                      style: AppTextStyles.p3Medium.copyWith(
-                        color: AppColors.bgBrandDefault,
+                      style: AppTextStyles.p3Medium.withColor(
+                        AppColors.currentTheme.bgBrandDefault,
                       ),
                       maxLines: 1,
                     ),

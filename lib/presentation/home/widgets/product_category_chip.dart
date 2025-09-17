@@ -12,15 +12,15 @@ class ProductCategoryChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
-        color: AppColors.bgBrandLight50,
+        color: AppColors.currentTheme.bgBrandLight50,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
         category,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: AppTextStyles.c1SemiBold.copyWith(
-          color: AppColors.textBrandSecondary,
+        style: AppTextStyles.c1SemiBold.withColor(
+          AppColors.currentTheme.textBrandSecondary,
         ),
       ),
     );

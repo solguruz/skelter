@@ -36,7 +36,7 @@ class _NameTextFieldState extends State<NameTextField> {
           decoration: InputDecoration(
             hintText: context.localization.enter_your_name,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.textNeutralDisable,
+              color: AppColors.currentTheme.textNeutralDisable,
             ),
             errorText: fullNameErrorMessage.isNullOrEmpty()
                 ? null

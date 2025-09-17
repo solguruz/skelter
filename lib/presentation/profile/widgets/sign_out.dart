@@ -14,21 +14,21 @@ class SignOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.strokeNeutralLight200),
+        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
-        leading: const Icon(
+        leading: Icon(
           TablerIcons.arrow_left_from_arc,
-          color: AppColors.iconNeutralDefault,
+          color: AppColors.currentTheme.iconNeutralDefault,
         ),
         title: Text(
           context.localization.sign_out,
           style: AppTextStyles.h6SemiBold,
         ),
-        trailing: const Icon(
+        trailing: Icon(
           TablerIcons.chevron_right,
-          color: AppColors.iconNeutralDefault,
+          color: AppColors.currentTheme.iconNeutralDefault,
         ),
         onTap: () {
           context.read<ProfileBloc>().add(const SignOutEvent());

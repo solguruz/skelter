@@ -79,7 +79,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           decoration: InputDecoration(
             hintText: context.localization.signup_confirm_password_hint,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.textNeutralDisable,
+              color: AppColors.currentTheme.textNeutralDisable,
             ),
             errorText: passwordErrorMessage.isNullOrEmpty()
                 ? null
@@ -88,7 +88,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
               icon: Icon(
                 size: 22,
                 isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: AppColors.strokeNeutralDisabled,
+                color: AppColors.currentTheme.strokeNeutralDisabled,
               ),
               onPressed: () {
                 context.read<SignupBloc>().add(

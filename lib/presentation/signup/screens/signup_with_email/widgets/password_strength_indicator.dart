@@ -27,17 +27,17 @@ class PasswordStrengthProgressIndicator extends StatelessWidget {
 
     switch (progressValue) {
       case 1.0:
-        progressColor = AppColors.bgBrandDefault;
+        progressColor = AppColors.currentTheme.bgBrandDefault;
       case >= 0.66:
-        progressColor = AppColors.bgWarningDefault;
+        progressColor = AppColors.currentTheme.bgWarningDefault;
       default:
-        progressColor = AppColors.bgNeutralDefault;
+        progressColor = AppColors.currentTheme.bgNeutralDefault;
     }
 
     return LinearProgressIndicator(
       minHeight: 1.5,
       color: progressColor,
-      backgroundColor: AppColors.bgNeutralLight100,
+      backgroundColor: AppColors.currentTheme.bgNeutralLight100,
       value: progressValue,
     );
   }

@@ -22,7 +22,7 @@ class NotificationAppBar extends StatelessWidget
         },
         icon: Icon(
           Icons.adaptive.arrow_back,
-          color: AppColors.iconNeutralDefault,
+          color: AppColors.currentTheme.iconNeutralDefault,
         ),
       ),
     );

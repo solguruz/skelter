@@ -64,7 +64,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             decoration: InputDecoration(
               hintText: context.localization.email_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(
-                color: AppColors.textNeutralDisable,
+                color: AppColors.currentTheme.textNeutralDisable,
               ),
               errorText:
                   emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
@@ -84,7 +84,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             decoration: InputDecoration(
               hintText: context.localization.password_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(
-                color: AppColors.textNeutralDisable,
+                color: AppColors.currentTheme.textNeutralDisable,
               ),
               errorText: passwordErrorMessage.isNullOrEmpty()
                   ? null
@@ -93,7 +93,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
                 icon: Icon(
                   size: 22,
                   isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                  color: AppColors.strokeNeutralDisabled,
+                  color: AppColors.currentTheme.strokeNeutralDisabled,
                 ),
                 onPressed: () {
                   context.read<LoginBloc>().add(

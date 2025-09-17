@@ -74,7 +74,7 @@ class AppButton extends StatelessWidget {
     AppButtonSize? size,
     AppButtonState? state,
     required VoidCallback onPressed,
-    Color? iconOrTextColorOverride = AppColors.iconNeutralDefault,
+    Color? iconOrTextColorOverride,
     bool isAppBarAction = false,
     double? appBarActionRightPadding,
   }) {
@@ -86,7 +86,8 @@ class AppButton extends StatelessWidget {
       isIconButton: true,
       iconPath: appIcon,
       onPressed: onPressed,
-      foregroundColor: iconOrTextColorOverride,
+      foregroundColor:
+          iconOrTextColorOverride ?? AppColors.currentTheme.iconNeutralDefault,
       isAppBarAction: isAppBarAction,
       appBarActionRightPadding: appBarActionRightPadding,
     );

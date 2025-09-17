@@ -41,23 +41,23 @@ class UserAvatar extends StatelessWidget {
                 vertical: 4.0,
               ),
               decoration: BoxDecoration(
-                color: AppColors.bgBrandLight50,
+                color: AppColors.currentTheme.bgBrandLight50,
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     TablerIcons.star,
-                    color: AppColors.iconBrandHover,
+                    color: AppColors.currentTheme.iconBrandHover,
                     size: 16,
                   ),
                   const SizedBox(width: 4.0),
                   Text(
                     context.localization.pro,
-                    style: AppTextStyles.p4SemiBold.copyWith(
-                      color: AppColors.iconBrandHover,
+                    style: AppTextStyles.p4SemiBold.withColor(
+                      AppColors.currentTheme.iconBrandHover,
                     ),
                   ),
                 ],

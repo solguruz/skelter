@@ -21,8 +21,8 @@ class NotificationList extends StatelessWidget {
         context.read<NotificationBloc>().add(GetNotificationDataEvent());
       },
       child: ListView.separated(
-        separatorBuilder: (context, index) => const Divider(
-          color: AppColors.strokeNeutralLight200,
+        separatorBuilder: (context, index) => Divider(
+          color: AppColors.currentTheme.strokeNeutralLight200,
         ),
         itemCount: notificationList.length,
         padding: const EdgeInsets.symmetric(vertical: 4.0),

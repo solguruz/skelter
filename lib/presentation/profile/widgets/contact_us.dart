@@ -12,17 +12,17 @@ class ContactUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         TablerIcons.headphones,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.contact_us,
         style: AppTextStyles.h6SemiBold,
       ),
-      trailing: const Icon(
+      trailing: Icon(
         TablerIcons.chevron_right,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
         context.router.push(const ContactUsRoute());

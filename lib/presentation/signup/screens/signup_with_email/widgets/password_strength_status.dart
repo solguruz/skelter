@@ -35,13 +35,13 @@ class PasswordStrengthStatus extends StatelessWidget {
         Text(
           context.localization.signup_password_strength,
           style: AppTextStyles.p4Medium.copyWith(
-            color: AppColors.textNeutralSecondary,
+            color: AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
         Text(
           ' $strengthLabel',
-          style: AppTextStyles.p4Bold.copyWith(
-            color: AppColors.textNeutralSecondary,
+          style: AppTextStyles.p4Bold.withColor(
+            AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
       ],

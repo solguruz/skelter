@@ -19,16 +19,16 @@ class NotificationDismissibleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dismissible(
       key: ValueKey(notificationModel.id),
-      background: const ColoredBox(
-        color: AppColors.bgErrorDefault,
+      background: ColoredBox(
+        color: AppColors.currentTheme.bgErrorDefault,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Icon(
               Icons.delete,
-              color: AppColors.white,
+              color: AppColors.currentTheme.white,
             ),
-            SizedBox(
+            const SizedBox(
               width: 16.0,
             ),
           ],

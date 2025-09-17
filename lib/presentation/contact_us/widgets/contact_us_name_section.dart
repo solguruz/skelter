@@ -60,7 +60,7 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
           decoration: InputDecoration(
             hintText: context.localization.enter_your_name,
             hintStyle: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
+                .withColor(AppColors.currentTheme.textNeutralDisable),
             errorText: nameError.isNullOrEmpty() ? null : nameError,
           ),
           textInputAction: TextInputAction.next,

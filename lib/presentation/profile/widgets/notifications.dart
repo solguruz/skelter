@@ -11,17 +11,17 @@ class Notifications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         TablerIcons.bell,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       title: Text(
         context.localization.notifications,
         style: AppTextStyles.h6SemiBold,
       ),
-      trailing: const Icon(
+      trailing: Icon(
         TablerIcons.chevron_right,
-        color: AppColors.iconNeutralDefault,
+        color: AppColors.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
         context.showSnackBar('Show Notification details');
