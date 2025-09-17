@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
@@ -17,10 +17,14 @@ class UnderMaintenanceScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              Assets.icons.appUnderMaintenance,
-              height: 194,
-              width: 209,
+            Transform.scale(
+              scale: 1.4,
+              child: Lottie.asset(
+                Assets.animations.appUnderMaintenance,
+                width: 160,
+                height: 160,
+                repeat: false,
+              ),
             ),
             const SizedBox(height: 24),
             Text(

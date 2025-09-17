@@ -8,42 +8,91 @@ import 'package:skelter/presentation/chat/widgets/chat_conversation_tile.dart';
 import 'package:skelter/presentation/chat/widgets/date_separator_text.dart';
 import 'package:skelter/utils/extensions/date_time_extensions.dart';
 
-class ChatMessageList extends StatelessWidget {
+class ChatMessageList extends StatefulWidget {
   const ChatMessageList({super.key, required this.chatUser});
 
   final ChatModel chatUser;
 
   @override
+  State<ChatMessageList> createState() => _ChatMessageListState();
+}
+
+class _ChatMessageListState extends State<ChatMessageList>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<Offset> _slideAnimation;
+  late final Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.05),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeOut,
+      ),
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      reverse: true,
-      itemCount: messages.length,
-      itemBuilder: (context, index) {
-        final message = messages[index];
-        final bool showDateSeparator = index == messages.length - 1 ||
-            messages[index + 1].date.day != message.date.day;
-        ChatMessage? repliedToMessage;
-        final repliedToMessageId = message.replyingToId;
-        if (repliedToMessageId != null) {
-          repliedToMessage = messages.firstWhereOrNull(
-            (msg) => msg.id == repliedToMessageId,
-          );
-        }
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (showDateSeparator)
-              DateSeparatorText(
-                date: _formatDate(context, message.date),
-              ),
-            ChatConversationTile(
-              message: message,
-              repliedToMessage: repliedToMessage,
-              chatUser: chatUser,
-            ),
-          ],
-        );
-      },
+    return SlideTransition(
+      position: _slideAnimation,
+      child: FadeTransition(
+        opacity: _fadeAnimation,
+        child: ListView.builder(
+          reverse: true,
+          itemCount: messages.length,
+          itemBuilder: (context, index) {
+            final message = messages[index];
+            final bool showDateSeparator = index == messages.length - 1 ||
+                messages[index + 1].date.day != message.date.day;
+            ChatMessage? repliedToMessage;
+            final repliedToMessageId = message.replyingToId;
+            if (repliedToMessageId != null) {
+              repliedToMessage = messages.firstWhereOrNull(
+                (msg) => msg.id == repliedToMessageId,
+              );
+            }
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (showDateSeparator)
+                  DateSeparatorText(
+                    date: _formatDate(context, message.date),
+                  ),
+                ChatConversationTile(
+                  message: message,
+                  repliedToMessage: repliedToMessage,
+                  chatUser: widget.chatUser,
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 

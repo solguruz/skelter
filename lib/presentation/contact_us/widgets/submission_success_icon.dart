@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:skelter/gen/assets.gen.dart';
 
 class SubmissionSuccessIcon extends StatelessWidget {
@@ -7,6 +7,14 @@ class SubmissionSuccessIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(Assets.icons.mdiTick, height: 80, width: 80);
+    return Transform.scale(
+      scale: 1.4,
+      child: Lottie.asset(
+        Assets.animations.successCheckmarkBlueBg,
+        width: 80,
+        height: 80,
+        repeat: false,
+      ),
+    );
   }
 }
