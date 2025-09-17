@@ -17,8 +17,8 @@ class ProductsHeadlineBar extends StatelessWidget {
       children: [
         Text(
           context.localization.top_products,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         AppButton(

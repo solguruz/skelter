@@ -18,8 +18,8 @@ class ContactUsAttachmentSection extends StatelessWidget {
       children: [
         Text(
           context.localization.attachment,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 6),

@@ -40,8 +40,8 @@ class OrderSummary extends StatelessWidget {
         children: [
           Text(
             context.localization.order_summary,
-            style: AppTextStyles.h6Bold.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
+            style: AppTextStyles.h6Bold.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
@@ -52,13 +52,13 @@ class OrderSummary extends StatelessWidget {
               Text(
                 context.localization.price_of_items(cartItemsCount),
                 style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
               const Spacer(),
               Text(
                 '\$${totalPrice.toStringAsFixed(2)}',
                 style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
             ],
           ),
@@ -68,13 +68,14 @@ class OrderSummary extends StatelessWidget {
               Text(
                 context.localization.discount,
                 style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
               const Spacer(),
               Text(
                 '\$$discount',
-                style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textSuccessSecondary),
+                style: AppTextStyles.p3Regular.copyWith(
+                  color: AppColors.currentTheme.textSuccessSecondary,
+                ),
               ),
             ],
           ),
@@ -84,13 +85,13 @@ class OrderSummary extends StatelessWidget {
               Text(
                 context.localization.delivery_charges,
                 style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
               const Spacer(),
               Text(
                 '\$$deliveryCharges',
                 style: AppTextStyles.p3Regular
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
             ],
           ),
@@ -100,13 +101,13 @@ class OrderSummary extends StatelessWidget {
               Text(
                 context.localization.total_amount,
                 style: AppTextStyles.h6Medium
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
               const Spacer(),
               Text(
                 '\$$finalAmount',
                 style: AppTextStyles.h6Bold
-                    .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               ),
             ],
           ),

@@ -15,8 +15,8 @@ class ShippingScreen extends StatelessWidget {
       children: [
         Text(
           context.localization.shipping_address,
-          style: AppTextStyles.p2Bold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2Bold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 16),

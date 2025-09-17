@@ -39,11 +39,11 @@ class _SearchTextFieldState extends State<SearchTextField> {
     return TextField(
       controller: _searchTextController,
       style: AppTextStyles.p3Medium
-          .withColor(AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
       decoration: InputDecoration(
         hintText: context.localization.search,
-        hintStyle: AppTextStyles.p3Medium.withColor(
-          AppColors.currentTheme.textNeutralDisable,
+        hintStyle: AppTextStyles.p3Medium.copyWith(
+          color: AppColors.currentTheme.textNeutralDisable,
         ),
         filled: true,
         fillColor: AppColors.currentTheme.bgSurfaceBase2,

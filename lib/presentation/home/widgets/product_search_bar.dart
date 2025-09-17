@@ -67,8 +67,8 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       },
       child: TextField(
         controller: searchController,
-        style: AppTextStyles.p3Medium.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.p3Medium.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
         decoration: InputDecoration(
           hintText: context.localization.search,

@@ -28,8 +28,8 @@ class PersonalDetails extends StatelessWidget {
           ),
           title: Text(
             context.localization.personal_details,
-            style: AppTextStyles.h6SemiBold.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
+            style: AppTextStyles.h6SemiBold.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
           ),
           trailing: Icon(

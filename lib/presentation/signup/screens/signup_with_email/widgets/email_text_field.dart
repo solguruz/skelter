@@ -51,10 +51,12 @@ class _EmailTextFieldState extends State<EmailTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.localization.email,
-            style: AppTextStyles.p3Medium.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
-            )),
+        Text(
+          context.localization.email,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
+          ),
+        ),
         const SizedBox(height: 16),
         TextField(
           controller: _emailController,

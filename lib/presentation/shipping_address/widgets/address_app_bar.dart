@@ -27,8 +27,8 @@ class AddressAppBar extends StatelessWidget implements PreferredSizeWidget {
         isAddingAddress
             ? context.localization.add_new_address
             : context.localization.select_address,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       centerTitle: true,

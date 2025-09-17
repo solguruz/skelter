@@ -27,7 +27,7 @@ class DeleteAccountReasonOptions extends StatelessWidget {
         Text(
           context.localization.delete_reason_title,
           style: AppTextStyles.p1Medium
-              .withColor(AppColors.currentTheme.textNeutralPrimary),
+              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
         ),
         const SizedBox(height: 24),
         ...reasons.map((reason) {

@@ -28,8 +28,8 @@ class _NameTextFieldState extends State<NameTextField> {
       children: [
         Text(
           context.localization.name,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),

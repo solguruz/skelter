@@ -17,8 +17,8 @@ class DateSeparatorText extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         date,
-        style: AppTextStyles.p4Regular.withColor(
-          AppColors.currentTheme.textNeutralSecondary,
+        style: AppTextStyles.p4Regular.copyWith(
+          color: AppColors.currentTheme.textNeutralSecondary,
         ),
       ),
     );

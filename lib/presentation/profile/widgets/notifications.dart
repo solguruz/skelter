@@ -24,8 +24,8 @@ class Notifications extends StatelessWidget {
       ),
       title: Text(
         context.localization.notifications,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       trailing: Icon(

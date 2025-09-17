@@ -50,8 +50,8 @@ class PaymentMethodOnline extends StatelessWidget {
         leading: Assets.images.mastercard.image(),
         title: Text(
           'Debit/Credit Card/Bank Transfer',
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         onTap: () => context.read<CheckoutBloc>().add(
@@ -87,8 +87,8 @@ class PaymentMethodCOD extends StatelessWidget {
       child: ListTile(
         title: Text(
           context.localization.cash_on_delivery,
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         onTap: () => context.read<CheckoutBloc>().add(

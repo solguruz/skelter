@@ -40,8 +40,8 @@ class PasswordStrengthStatus extends StatelessWidget {
         ),
         Text(
           ' $strengthLabel',
-          style: AppTextStyles.p4Bold.withColor(
-            AppColors.currentTheme.textNeutralSecondary,
+          style: AppTextStyles.p4Bold.copyWith(
+            color: AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
       ],

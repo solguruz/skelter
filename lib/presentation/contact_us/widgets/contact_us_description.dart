@@ -11,7 +11,7 @@ class ContactUsDescription extends StatelessWidget {
     return Text(
       context.localization.contact_us_message,
       style: AppTextStyles.p2Regular
-          .withColor(AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
     );
   }
 }

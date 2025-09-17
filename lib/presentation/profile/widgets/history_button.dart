@@ -18,8 +18,8 @@ class History extends StatelessWidget {
       ),
       title: Text(
         context.localization.history,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       trailing: Icon(

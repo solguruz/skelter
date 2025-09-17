@@ -34,8 +34,8 @@ class _ChangeThemeScreenState extends State<ChangeThemeScreen> {
         ),
         title: Text(
           context.localization.choose_app_theme,
-          style: AppTextStyles.h6SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.h6SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
       ),

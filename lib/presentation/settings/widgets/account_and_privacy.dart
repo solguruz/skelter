@@ -23,8 +23,8 @@ class AccountAndPrivacy extends StatelessWidget {
       ),
       title: Text(
         context.localization.account_and_privacy,
-        style: AppTextStyles.p2Regular.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.p2Regular.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       trailing: Icon(

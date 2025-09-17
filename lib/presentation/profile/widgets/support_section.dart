@@ -17,8 +17,8 @@ class SupportSection extends StatelessWidget {
       children: [
         Text(
           context.localization.support,
-          style: AppTextStyles.h6SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.h6SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 12.0),

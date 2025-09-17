@@ -50,8 +50,9 @@ class PdfPreviewList extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             child: Text(
                               path.basename(pdf.path),
-                              style: AppTextStyles.p4Regular.withColor(
-                                AppColors.currentTheme.textNeutralPrimary,
+                              style: AppTextStyles.p4Regular.copyWith(
+                                color:
+                                    AppColors.currentTheme.textNeutralPrimary,
                               ),
                               textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,

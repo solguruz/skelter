@@ -23,8 +23,8 @@ class ChatListAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         context.localization.chat,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       actions: [

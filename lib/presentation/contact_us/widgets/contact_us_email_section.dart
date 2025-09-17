@@ -54,22 +54,22 @@ class _ContactUsEmailSectionState extends State<ContactUsEmailSection> {
       children: [
         Text(
           context.localization.email_id,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 6),
         TextField(
           controller: _emailController,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_your_email_id,
             hintStyle: AppTextStyles.p2Medium
-                .withColor(AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
             errorText: emailError.isNullOrEmpty() ? null : emailError,
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),

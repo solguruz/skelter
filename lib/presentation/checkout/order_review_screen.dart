@@ -25,8 +25,8 @@ class OrderReviewScreen extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           context.localization.shipping_address,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 12),
@@ -34,8 +34,8 @@ class OrderReviewScreen extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           context.localization.selected_payment_method,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 12),

@@ -25,7 +25,7 @@ class SignUpButton extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p2Medium
-              .withColor(AppColors.currentTheme.textNeutralSecondary),
+              .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_no_account),
             TextSpan(

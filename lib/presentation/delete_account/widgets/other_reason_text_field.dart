@@ -62,7 +62,7 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
       controller: _otherReasonController,
       maxLines: 3,
       style: AppTextStyles.p2Regular
-          .withColor(AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
       decoration: InputDecoration(
         hintText: context.localization.specify_reason,
         border: buildOutlineInputBorder(hasFocus: false),

@@ -29,8 +29,8 @@ class _StateDropdownState extends State<StateDropdown> {
       children: [
         Text(
           context.localization.state,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -51,7 +51,7 @@ class _StateDropdownState extends State<StateDropdown> {
           hint: Text(
             context.localization.select_state,
             style: AppTextStyles.p2Medium
-                .withColor(AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
           ),
           dropdownColor: AppColors.currentTheme.bgSurfaceBase2,
           items: _states.map((String state) {
@@ -59,8 +59,8 @@ class _StateDropdownState extends State<StateDropdown> {
               value: state,
               child: Text(
                 state,
-                style: AppTextStyles.p2Regular.withColor(
-                  AppColors.currentTheme.textNeutralPrimary,
+                style: AppTextStyles.p2Regular.copyWith(
+                  color: AppColors.currentTheme.textNeutralPrimary,
                 ),
               ),
             );

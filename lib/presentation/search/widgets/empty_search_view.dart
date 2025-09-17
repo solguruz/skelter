@@ -24,13 +24,13 @@ class EmptySearchView extends StatelessWidget {
           Text(
             context.localization.no_result_for('Home'),
             style: AppTextStyles.p1SemiBold
-                .withColor(AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
           ),
           const SizedBox(height: 8),
           Text(
             context.localization.no_search_result_message,
             style: AppTextStyles.p2Regular
-                .withColor(AppColors.currentTheme.textNeutralSecondary),
+                .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
             textAlign: TextAlign.center,
           ),
         ],

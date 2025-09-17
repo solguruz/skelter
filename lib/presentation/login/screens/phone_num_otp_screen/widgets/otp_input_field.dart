@@ -92,8 +92,8 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           pinAnimationType: PinAnimationType.fade,
           forceErrorState: true,
           errorText: errorText.isNullOrEmpty() ? null : errorText,
-          errorTextStyle: AppTextStyles.p4Regular.withColor(
-            AppColors.currentTheme.textErrorSecondary,
+          errorTextStyle: AppTextStyles.p4Regular.copyWith(
+            color: AppColors.currentTheme.textErrorSecondary,
           ),
           onChanged: (pin) {
             if (errorText.haveContent()) {
@@ -121,7 +121,7 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
       height: pinHeight,
       decoration: _pinInputBoxDecoration(),
       textStyle: AppTextStyles.h2Bold
-          .withColor(AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
     );
   }
 

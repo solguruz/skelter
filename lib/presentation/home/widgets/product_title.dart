@@ -13,8 +13,8 @@ class ProductTitle extends StatelessWidget {
       title,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
-      style: AppTextStyles.p4SemiBold.withColor(
-        AppColors.currentTheme.textNeutralPrimary,
+      style: AppTextStyles.p4SemiBold.copyWith(
+        color: AppColors.currentTheme.textNeutralPrimary,
       ),
     );
   }

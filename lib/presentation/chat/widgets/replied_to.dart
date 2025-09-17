@@ -49,14 +49,15 @@ class RepliedTo extends StatelessWidget {
                       ? context.localization.you
                       : '${chatUser?.name}',
                   style: AppTextStyles.p4Medium
-                      .withColor(AppColors.currentTheme.bgBrandHover),
+                      .copyWith(color: AppColors.currentTheme.bgBrandHover),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 Text(
                   repliedToMessage?.message ?? '',
-                  style: AppTextStyles.p3Regular
-                      .withColor(AppColors.currentTheme.textNeutralPrimary),
+                  style: AppTextStyles.p3Regular.copyWith(
+                    color: AppColors.currentTheme.textNeutralPrimary,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),

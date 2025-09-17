@@ -24,8 +24,8 @@ class ApplyCouponsAppBar extends StatelessWidget
       ),
       title: Text(
         context.localization.available_coupons,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       centerTitle: true,

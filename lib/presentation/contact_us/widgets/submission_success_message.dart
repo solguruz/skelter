@@ -12,15 +12,15 @@ class SubmissionSuccessMessage extends StatelessWidget {
       children: [
         Text(
           context.localization.alright,
-          style: AppTextStyles.h4SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.h4SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8.0),
         Text(
           context.localization.response_received,
-          style: AppTextStyles.p2Regular.withColor(
-            AppColors.currentTheme.textNeutralSecondary,
+          style: AppTextStyles.p2Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralSecondary,
           ),
           textAlign: TextAlign.center,
         ),

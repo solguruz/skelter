@@ -30,8 +30,8 @@ class HeadingWelcomeWidget extends StatelessWidget {
           isSignup
               ? context.localization.signup_lets_get_started
               : context.localization.login_welcome_back,
-          style: AppTextStyles.h2Bold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.h2Bold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
           textAlign: TextAlign.center,
         ),
@@ -39,8 +39,8 @@ class HeadingWelcomeWidget extends StatelessWidget {
           isSignup
               ? context.localization.signup_lets_get_started_info
               : context.localization.login_enter_your_registered_phone_number,
-          style: AppTextStyles.p2Regular.withColor(
-            AppColors.currentTheme.textNeutralSecondary,
+          style: AppTextStyles.p2Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralSecondary,
           ),
           textAlign: TextAlign.center,
         ),

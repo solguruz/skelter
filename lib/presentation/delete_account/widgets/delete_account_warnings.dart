@@ -14,8 +14,8 @@ class DeleteAccountWarnings extends StatelessWidget {
       children: [
         Text(
           context.localization.delete_warning_title,
-          style: AppTextStyles.p1Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p1Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 24),

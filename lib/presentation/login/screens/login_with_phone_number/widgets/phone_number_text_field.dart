@@ -80,8 +80,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         children: [
           Text(
             context.localization.mobile_number,
-            style: AppTextStyles.p3Medium.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
+            style: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 8),

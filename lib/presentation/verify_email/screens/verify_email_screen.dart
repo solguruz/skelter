@@ -125,8 +125,8 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                 const SizedBox(height: 18),
                 Text(
                   context.localization.signup_verify_your_email,
-                  style: AppTextStyles.h2Bold.withColor(
-                    AppColors.currentTheme.textNeutralPrimary,
+                  style: AppTextStyles.h2Bold.copyWith(
+                    color: AppColors.currentTheme.textNeutralPrimary,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -135,8 +135,9 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                   context.localization.signup_link_verify_info(
                     widget.email,
                   ),
-                  style: AppTextStyles.p2Medium
-                      .withColor(AppColors.currentTheme.textNeutralSecondary),
+                  style: AppTextStyles.p2Medium.copyWith(
+                    color: AppColors.currentTheme.textNeutralSecondary,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 25),

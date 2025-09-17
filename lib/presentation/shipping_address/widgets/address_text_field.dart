@@ -25,8 +25,8 @@ class _AddressTextFieldState extends State<AddressTextField> {
       children: [
         Text(
           context.localization.address,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -36,20 +36,20 @@ class _AddressTextFieldState extends State<AddressTextField> {
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_your_address,
-            hintStyle: AppTextStyles.p3Medium.withColor(
-              AppColors.currentTheme.textNeutralDisable,
+            hintStyle: AppTextStyles.p3Medium.copyWith(
+              color: AppColors.currentTheme.textNeutralDisable,
             ),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,
             counterText: '',
             suffix: Text(
               '${_addressTextController.text.length}/250',
-              style: AppTextStyles.p3Regular.withColor(
-                AppColors.currentTheme.textNeutralDisable,
+              style: AppTextStyles.p3Regular.copyWith(
+                color: AppColors.currentTheme.textNeutralDisable,
               ),
             ),
-            counterStyle: AppTextStyles.p3Regular.withColor(
-              AppColors.currentTheme.textNeutralDisable,
+            counterStyle: AppTextStyles.p3Regular.copyWith(
+              color: AppColors.currentTheme.textNeutralDisable,
             ),
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),

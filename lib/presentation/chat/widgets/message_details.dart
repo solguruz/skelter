@@ -25,7 +25,7 @@ class MessageDetails extends StatelessWidget {
           Text(
             chatModel.lastMessageTime!.timeAgo,
             style: AppTextStyles.p3Regular
-                .withColor(AppColors.currentTheme.textNeutralSecondary),
+                .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
           ),
         const SizedBox(height: 12.0),
         if (unreadMessageCount > 0)
@@ -45,7 +45,7 @@ class MessageDetails extends StatelessWidget {
               min(unreadMessageCount, 999).toString() +
                   (unreadMessageCount > 999 ? '+' : ''),
               style: AppTextStyles.c2SemiBold
-                  .withColor(AppColors.currentTheme.strokeShadesWhite),
+                  .copyWith(color: AppColors.currentTheme.strokeShadesWhite),
             ),
           ),
       ],

@@ -62,16 +62,16 @@ class CheckYourEmailScreenBody extends StatelessWidget {
               const SizedBox(height: 18),
               Text(
                 context.localization.login_check_your_email,
-                style: AppTextStyles.h2Bold.withColor(
-                  AppColors.currentTheme.textNeutralPrimary,
+                style: AppTextStyles.h2Bold.copyWith(
+                  color: AppColors.currentTheme.textNeutralPrimary,
                 ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 18),
               Text(
                 context.localization.login_link_send_info(email),
-                style: AppTextStyles.p2Medium.withColor(
-                  AppColors.currentTheme.textNeutralSecondary,
+                style: AppTextStyles.p2Medium.copyWith(
+                  color: AppColors.currentTheme.textNeutralSecondary,
                 ),
                 textAlign: TextAlign.center,
               ),

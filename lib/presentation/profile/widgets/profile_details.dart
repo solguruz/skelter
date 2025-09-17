@@ -28,16 +28,16 @@ class ProfileDetails extends StatelessWidget {
             children: [
               Text(
                 fullName,
-                style: AppTextStyles.h6SemiBold.withColor(
-                  AppColors.currentTheme.textNeutralPrimary,
+                style: AppTextStyles.h6SemiBold.copyWith(
+                  color: AppColors.currentTheme.textNeutralPrimary,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
               Text(
                 email,
-                style: AppTextStyles.p3Medium.withColor(
-                  AppColors.currentTheme.textNeutralSecondary,
+                style: AppTextStyles.p3Medium.copyWith(
+                  color: AppColors.currentTheme.textNeutralSecondary,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,

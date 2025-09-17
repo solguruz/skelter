@@ -17,8 +17,8 @@ class ProductPriceRating extends StatelessWidget {
           child: Text(
             '\$${product.price.toStringAsFixed(2)}',
             maxLines: 1,
-            style: AppTextStyles.p3SemiBold.withColor(
-              AppColors.currentTheme.textBrandPrimary,
+            style: AppTextStyles.p3SemiBold.copyWith(
+              color: AppColors.currentTheme.textBrandPrimary,
             ),
           ),
         ),
@@ -30,8 +30,8 @@ class ProductPriceRating extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           product.rating.toString(),
-          style: AppTextStyles.p4Medium.withColor(
-            AppColors.currentTheme.textNeutralSecondary,
+          style: AppTextStyles.p4Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralSecondary,
           ),
         ),
       ],

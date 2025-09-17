@@ -57,13 +57,13 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
           Text(
             context.localization.email,
             style: AppTextStyles.p3Medium
-                .withColor(AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _emailController,
             style: AppTextStyles.p3Medium
-                .withColor(AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             decoration: InputDecoration(
               hintText: context.localization.email_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(
@@ -91,7 +91,7 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             controller: _passwordController,
             obscureText: !isPasswordVisible,
             style: AppTextStyles.p3Medium
-                .withColor(AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             decoration: InputDecoration(
               hintText: context.localization.password_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(

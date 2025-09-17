@@ -22,8 +22,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         context.localization.home,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       actions: [

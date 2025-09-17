@@ -24,8 +24,8 @@ class FeedbackAndRating extends StatelessWidget {
       ),
       title: Text(
         context.localization.feedback_and_ratings,
-        style: AppTextStyles.h6SemiBold.withColor(
-          AppColors.currentTheme.textNeutralPrimary,
+        style: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.currentTheme.textNeutralPrimary,
         ),
       ),
       trailing: Icon(

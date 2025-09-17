@@ -35,13 +35,15 @@ class ChatConversationAppBar extends StatelessWidget
               children: [
                 Text(
                   chatUser.name,
-                  style: AppTextStyles.p3SemiBold
-                      .withColor(AppColors.currentTheme.textNeutralPrimary),
+                  style: AppTextStyles.p3SemiBold.copyWith(
+                    color: AppColors.currentTheme.textNeutralPrimary,
+                  ),
                 ),
                 Text(
                   'Last seen 04:00 pm',
-                  style: AppTextStyles.p4Medium
-                      .withColor(AppColors.currentTheme.textNeutralSecondary),
+                  style: AppTextStyles.p4Medium.copyWith(
+                    color: AppColors.currentTheme.textNeutralSecondary,
+                  ),
                 ),
               ],
             ),

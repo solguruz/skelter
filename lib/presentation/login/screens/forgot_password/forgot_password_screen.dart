@@ -59,7 +59,7 @@ class ForgotPasswordV2ScreenBody extends StatelessWidget {
             child: Text(
               context.localization.login_forgot_password,
               style: AppTextStyles.h2Bold
-                  .withColor(AppColors.currentTheme.textNeutralPrimary),
+                  .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
             ),
           ),
           const SizedBox(height: 16),

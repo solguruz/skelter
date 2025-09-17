@@ -33,7 +33,7 @@ class DeleteAccount extends StatelessWidget {
         title: Text(
           context.localization.delete_account,
           style: AppTextStyles.p2Regular
-              .withColor(AppColors.currentTheme.textErrorSecondary),
+              .copyWith(color: AppColors.currentTheme.textErrorSecondary),
         ),
         trailing: Icon(
           TablerIcons.chevron_right,

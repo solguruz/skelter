@@ -37,16 +37,17 @@ class ShippingAddress extends StatelessWidget {
               children: [
                 Text(
                   userName,
-                  style: AppTextStyles.p2Medium.withColor(
-                    AppColors.currentTheme.textNeutralPrimary,
+                  style: AppTextStyles.p2Medium.copyWith(
+                    color: AppColors.currentTheme.textNeutralPrimary,
                   ),
                   maxLines: 2,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   address,
-                  style: AppTextStyles.p3Regular
-                      .withColor(AppColors.currentTheme.textNeutralSecondary),
+                  style: AppTextStyles.p3Regular.copyWith(
+                    color: AppColors.currentTheme.textNeutralSecondary,
+                  ),
                 ),
               ],
             ),

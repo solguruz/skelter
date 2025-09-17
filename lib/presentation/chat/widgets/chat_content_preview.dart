@@ -22,8 +22,8 @@ class ChatContentPreview extends StatelessWidget {
         children: [
           Text(
             chatModel.name,
-            style: AppTextStyles.p2Medium.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
+            style: AppTextStyles.p2Medium.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
@@ -50,8 +50,8 @@ class ChatContentPreview extends StatelessWidget {
               Expanded(
                 child: Text(
                   chatModel.lastMessage,
-                  style: AppTextStyles.p3Regular.withColor(
-                    AppColors.currentTheme.textNeutralSecondary,
+                  style: AppTextStyles.p3Regular.copyWith(
+                    color: AppColors.currentTheme.textNeutralSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,

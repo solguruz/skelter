@@ -37,11 +37,11 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
             child: TextField(
               controller: _fullNameController,
               style: AppTextStyles.p3Medium
-                  .withColor(AppColors.currentTheme.textNeutralPrimary),
+                  .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
               decoration: InputDecoration(
                 hintText: context.localization.send_a_new_message,
-                hintStyle: AppTextStyles.p3Medium.withColor(
-                  AppColors.currentTheme.textNeutralDisable,
+                hintStyle: AppTextStyles.p3Medium.copyWith(
+                  color: AppColors.currentTheme.textNeutralDisable,
                 ),
                 errorStyle: AppTextStyles.p3Regular,
                 errorMaxLines: 2,

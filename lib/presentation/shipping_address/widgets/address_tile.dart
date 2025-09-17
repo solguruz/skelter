@@ -43,8 +43,8 @@ class AddressTile extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Roz Cooper',
-                        style: AppTextStyles.p2Medium.withColor(
-                          AppColors.currentTheme.textNeutralPrimary,
+                        style: AppTextStyles.p2Medium.copyWith(
+                          color: AppColors.currentTheme.textNeutralPrimary,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -62,8 +62,9 @@ class AddressTile extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   '2118 Thornridge Cir. Syracuse, Connecticut 35624 2118',
-                  style: AppTextStyles.p3Regular
-                      .withColor(AppColors.currentTheme.textNeutralSecondary),
+                  style: AppTextStyles.p3Regular.copyWith(
+                    color: AppColors.currentTheme.textNeutralSecondary,
+                  ),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),

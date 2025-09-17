@@ -35,16 +35,16 @@ class NoInternetScreen extends StatelessWidget {
                   const SizedBox(height: 24),
                   Text(
                     context.localization.lost_connection,
-                    style: AppTextStyles.p1SemiBold.withColor(
-                      AppColors.currentTheme.textNeutralPrimary,
+                    style: AppTextStyles.p1SemiBold.copyWith(
+                      color: AppColors.currentTheme.textNeutralPrimary,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   Text(
                     context.localization.lost_connection_message,
-                    style: AppTextStyles.p3Regular.withColor(
-                      AppColors.currentTheme.textNeutralSecondary,
+                    style: AppTextStyles.p3Regular.copyWith(
+                      color: AppColors.currentTheme.textNeutralSecondary,
                     ),
                     textAlign: TextAlign.center,
                   ),

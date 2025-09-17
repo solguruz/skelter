@@ -97,8 +97,8 @@ class _SignupWithEmailPasswordScreenBody extends StatelessWidget {
           Center(
             child: Text(
               context.localization.signup_sign_up_with_email,
-              style: AppTextStyles.h2Bold.withColor(
-                AppColors.currentTheme.textNeutralPrimary,
+              style: AppTextStyles.h2Bold.copyWith(
+                color: AppColors.currentTheme.textNeutralPrimary,
               ),
             ),
           ),

@@ -58,8 +58,8 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
             AppBar(
               title: Text(
                 'Profile',
-                style: AppTextStyles.h6Bold.withColor(
-                  AppColors.currentTheme.textNeutralPrimary,
+                style: AppTextStyles.h6Bold.copyWith(
+                  color: AppColors.currentTheme.textNeutralPrimary,
                 ),
               ),
               backgroundColor: AppColors.currentTheme.bgSurfaceBase,

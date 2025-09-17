@@ -78,8 +78,8 @@ class _CreateYourPasswordScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             context.localization.signup_create_your_password,
-            style: AppTextStyles.h2Bold.withColor(
-              AppColors.currentTheme.textNeutralPrimary,
+            style: AppTextStyles.h2Bold.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 25),

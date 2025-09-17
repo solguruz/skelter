@@ -54,29 +54,29 @@ class AppBarTitleText extends StatelessWidget {
       case 0:
         return Text(
           context.localization.cart_and_checkout,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         );
       case 1:
         return Text(
           context.localization.shipping_details,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         );
       case 2:
         return Text(
           context.localization.payment,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         );
       case 3:
         return Text(
           context.localization.order_review,
-          style: AppTextStyles.p2SemiBold.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p2SemiBold.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         );
       default:

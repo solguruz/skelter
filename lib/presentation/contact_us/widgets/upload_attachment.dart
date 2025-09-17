@@ -51,14 +51,16 @@ class UploadAttachment extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     context.localization.choose_a_file,
-                    style: AppTextStyles.p3Medium
-                        .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    style: AppTextStyles.p3Medium.copyWith(
+                      color: AppColors.currentTheme.textNeutralPrimary,
+                    ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     context.localization.supported_format,
-                    style: AppTextStyles.p4Regular
-                        .withColor(AppColors.currentTheme.textNeutralPrimary),
+                    style: AppTextStyles.p4Regular.copyWith(
+                      color: AppColors.currentTheme.textNeutralPrimary,
+                    ),
                   ),
                 ],
               ),

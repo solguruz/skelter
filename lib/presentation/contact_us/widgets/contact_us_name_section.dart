@@ -52,22 +52,22 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
       children: [
         Text(
           context.localization.name,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 6),
         TextField(
           controller: _nameController,
-          style: AppTextStyles.p3Medium.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Medium.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColors.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_your_name,
             hintStyle: AppTextStyles.p2Medium
-                .withColor(AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
             errorText: nameError.isNullOrEmpty() ? null : nameError,
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),

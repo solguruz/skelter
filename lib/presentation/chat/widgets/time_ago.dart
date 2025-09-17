@@ -21,7 +21,7 @@ class TimeAgo extends StatelessWidget {
           '${message.date.to12HourFormat}${message.isSentByMe ? ' '
               '• ${message.status}' : ''}',
           style: AppTextStyles.c2Medium
-              .withColor(AppColors.currentTheme.textNeutralDisable),
+              .copyWith(color: AppColors.currentTheme.textNeutralDisable),
         ),
       ],
     );

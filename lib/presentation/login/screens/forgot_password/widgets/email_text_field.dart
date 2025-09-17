@@ -58,7 +58,7 @@ class _EmailTextFieldState extends State<EmailTextField> {
         Text(
           context.localization.email,
           style: AppTextStyles.p3Medium
-              .withColor(AppColors.currentTheme.textNeutralPrimary),
+              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
         ),
         const SizedBox(height: 8),
         TextField(

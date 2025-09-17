@@ -19,13 +19,13 @@ class NotificationContentWidget extends StatelessWidget {
           Text(
             notificationModel.title,
             style: AppTextStyles.p2Medium
-                .withColor(AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
           ),
           const SizedBox(height: 4.0),
           Text(
             notificationModel.message,
-            style: AppTextStyles.p3Regular.withColor(
-              AppColors.currentTheme.textNeutralSecondary,
+            style: AppTextStyles.p3Regular.copyWith(
+              color: AppColors.currentTheme.textNeutralSecondary,
             ),
           ),
           const SizedBox(height: 4.0),
@@ -34,8 +34,8 @@ class NotificationContentWidget extends StatelessWidget {
               notificationModel.insertedOn,
               locale: context.localization.localeName,
             ),
-            style: AppTextStyles.p4Regular.withColor(
-              AppColors.currentTheme.textNeutralSecondary,
+            style: AppTextStyles.p4Regular.copyWith(
+              color: AppColors.currentTheme.textNeutralSecondary,
             ),
           ),
         ],

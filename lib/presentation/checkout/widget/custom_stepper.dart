@@ -52,8 +52,8 @@ class CustomStepper extends StatelessWidget {
         customTitle: Text(
           context.localization.cart,
           textAlign: TextAlign.center,
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -62,8 +62,8 @@ class CustomStepper extends StatelessWidget {
         customTitle: Text(
           context.localization.shipping,
           textAlign: TextAlign.center,
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -72,8 +72,8 @@ class CustomStepper extends StatelessWidget {
         customTitle: Text(
           context.localization.payment,
           textAlign: TextAlign.center,
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -82,8 +82,8 @@ class CustomStepper extends StatelessWidget {
         customTitle: Text(
           context.localization.order_review,
           textAlign: TextAlign.center,
-          style: AppTextStyles.p3Regular.withColor(
-            AppColors.currentTheme.textNeutralPrimary,
+          style: AppTextStyles.p3Regular.copyWith(
+            color: AppColors.currentTheme.textNeutralPrimary,
           ),
           softWrap: false,
         ),
