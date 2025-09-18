@@ -7,7 +7,7 @@ import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:skelter/presentation/contact_us/feature/contact_us_constants.dart';
+import 'package:skelter/presentation/contact_us/constant/contact_us_constants.dart';
 import 'package:skelter/utils/file_picker_util.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
