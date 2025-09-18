@@ -36,8 +36,6 @@ const List<int> kDocOleFileSignature = [
   0xE1,
 ];
 
-// General app constants
-const int kMessageMaxLength = 250;
 const String kSomethingWentWrong = 'Oops! Something went wrong';
 
 // Chat messaging constants
