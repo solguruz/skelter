@@ -304,6 +304,12 @@ abstract class AppLocalizations {
   /// **'Creating new account?'**
   String get creating_new_account;
 
+  /// Indicates how many days ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days ago'**
+  String daysAgo(int count);
+
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:
@@ -574,6 +580,12 @@ abstract class AppLocalizations {
   /// **'Home'**
   String get home;
 
+  /// Indicates how many hours ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hrs ago'**
+  String hoursAgo(int count);
+
   /// No description provided for @invalid_email.
   ///
   /// In en, this message translates to:
@@ -585,6 +597,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'It’s time to Update!'**
   String get its_time_to_update;
+
+  /// No description provided for @justNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get justNow;
+
+  /// No description provided for @lastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Last month'**
+  String get lastMonth;
+
+  /// No description provided for @lastYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Last year'**
+  String get lastYear;
 
   /// No description provided for @login.
   ///
@@ -730,11 +760,23 @@ abstract class AppLocalizations {
   /// **'Microphone permission is permanently denied. Please go to settings and enable it.'**
   String get microphone_permission_permanently_denied;
 
+  /// Indicates how many minutes ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String minutesAgo(int count);
+
   /// No description provided for @mobile_number.
   ///
   /// In en, this message translates to:
   /// **'Mobile number'**
   String get mobile_number;
+
+  /// Indicates how many months ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} months ago'**
+  String monthsAgo(int count);
 
   /// No description provided for @name.
   ///
@@ -796,6 +838,18 @@ abstract class AppLocalizations {
   /// **'Notification Delete Successfully'**
   String get notifications_delete_successfully;
 
+  /// No description provided for @oneHourAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 hr ago'**
+  String get oneHourAgo;
+
+  /// No description provided for @oneMinuteAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 min ago'**
+  String get oneMinuteAgo;
+
   /// No description provided for @opps_something_went_wrong.
   ///
   /// In en, this message translates to:
@@ -850,17 +904,17 @@ abstract class AppLocalizations {
   /// **'Personal Details'**
   String get personal_details;
 
-  /// No description provided for @pick_image_error.
-  ///
-  /// In en, this message translates to:
-  /// **'Something went wrong while picking images. Please try again.'**
-  String get pick_image_error;
-
   /// No description provided for @pick_file_error.
   ///
   /// In en, this message translates to:
   /// **'Something went wrong while picking files. Please try again.'**
   String get pick_file_error;
+
+  /// No description provided for @pick_image_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong while picking images. Please try again.'**
+  String get pick_image_error;
 
   /// No description provided for @pick_pdf_error.
   ///
@@ -1372,12 +1426,6 @@ abstract class AppLocalizations {
   /// **'Try Again'**
   String get try_again;
 
-  /// No description provided for @update_app.
-  ///
-  /// In en, this message translates to:
-  /// **'Update App'**
-  String get update_app;
-
   /// No description provided for @under_maintenance.
   ///
   /// In en, this message translates to:
@@ -1395,6 +1443,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The selected file is not a valid PDF. Please choose a proper PDF file to continue.'**
   String get unsupported_file_format_error;
+
+  /// No description provided for @update_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Update App'**
+  String get update_app;
 
   /// No description provided for @update_now.
   ///
@@ -1437,6 +1491,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wishlist'**
   String get wishlist;
+
+  /// Indicates how many years ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} years ago'**
+  String yearsAgo(int count);
 
   /// No description provided for @yesterday.
   ///

@@ -1,15 +1,23 @@
-import 'dart:io' show Platform;
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/utils/app_environment.dart';
 
 extension DateTimeExtensions on DateTime {
-  DateTime get current {
-    final bool isTest = Platform.environment.containsKey('FLUTTER_TEST');
-    return isTest ? DateTime(2025, 4, 11, 8, 30, 20) : DateTime.now();
+  static DateTime current({DateTime? testDate}) {
+    if (AppEnvironment.isTestEnvironment) {
+      if (testDate != null) return testDate;
+      throw ArgumentError(
+        'testDate must be provided in test environment',
+      );
+    }
+    return DateTime.now();
   }
 
-  String format({String pattern = 'dd-MM-yyyy'}) {
+  String format({
+    String pattern = kDefaultDateFormat,
+  }) {
     try {
       return DateFormat(pattern).format(this);
     } catch (_) {
@@ -27,30 +35,34 @@ extension DateTimeExtensions on DateTime {
   bool isInRange(DateTime start, DateTime end) =>
       isAfter(start) && isBefore(end);
 
-  String get timeAgo {
+  String timeAgo(BuildContext context) {
     try {
-      final Duration difference = current.difference(this);
+      final Duration difference = DateTime.now().difference(this);
 
       if (difference.inDays >= 365) {
         final years = (difference.inDays / 365).floor();
-        return years == 1 ? 'Last year' : '$years years ago';
+        return years == 1
+            ? context.localization.lastYear
+            : context.localization.yearsAgo(years);
       } else if (difference.inDays >= 30) {
         final months = (difference.inDays / 30).floor();
-        return months == 1 ? 'Last month' : '$months months ago';
+        return months == 1
+            ? context.localization.lastMonth
+            : context.localization.monthsAgo(months);
       } else if (difference.inDays > 1) {
-        return '${difference.inDays} days ago';
+        return context.localization.daysAgo(difference.inDays);
       } else if (difference.inDays == 1) {
-        return 'Yesterday';
+        return context.localization.yesterday;
       } else if (difference.inHours > 1) {
-        return '${difference.inHours} hrs ago';
+        return context.localization.hoursAgo(difference.inHours);
       } else if (difference.inHours == 1) {
-        return '1 hr ago';
+        return context.localization.oneHourAgo;
       } else if (difference.inMinutes > 1) {
-        return '${difference.inMinutes} min ago';
+        return context.localization.minutesAgo(difference.inMinutes);
       } else if (difference.inMinutes == 1) {
-        return '1 min ago';
+        return context.localization.oneMinuteAgo;
       } else {
-        return 'Just now';
+        return context.localization.justNow;
       }
     } catch (error) {
       debugPrint('Error parsing time ago: $error');
@@ -58,9 +70,9 @@ extension DateTimeExtensions on DateTime {
     }
   }
 
-  String get to12HourFormat {
+  String to12HourFormat({String pattern = kDefaultTimeFormat12Hour}) {
     try {
-      return DateFormat('hh:mm a').format(toLocal());
+      return DateFormat(pattern).format(toLocal());
     } catch (_) {
       return '';
     }

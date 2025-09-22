@@ -61,3 +61,7 @@ const String kConnectionIsNotSecureError = 'Connection is not secure';
 
 // Cache Api Response
 const String kApiCache = 'api_cache';
+
+// Date formats
+const String kDefaultDateFormat = 'dd-MM-yyyy';
+const String kDefaultTimeFormat12Hour = 'hh:mm a';
