@@ -39,6 +39,9 @@ class _HomeScreenWrapperState extends State<HomeScreenWrapper> {
       (bloc) => bloc.state.currentBottomNavIndex,
     );
     return Scaffold(
+      // To switch to GoogleNavBar, replace BottomNavBar with GoogleBottomNavBar
+      // below.
+      // bottomNavigationBar: const GoogleBottomNavBar(),
       backgroundColor: AppColors.currentTheme.bgSurfaceBase,
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(

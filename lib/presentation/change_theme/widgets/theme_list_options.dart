@@ -42,7 +42,7 @@ class ThemeListOptions extends StatelessWidget {
                   ? Center(
                       child: Container(
                         width: 10,
-                        height: 24,
+                        height: 10,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: AppColors.shadesWhite,

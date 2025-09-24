@@ -1,3 +1,4 @@
 extension NameExtension on String {
-  String get capitalizeFirst => this[0].toUpperCase() + this.substring(1);
+  String get capitalizeFirst =>
+      isNotEmpty ? this[0].toUpperCase() + substring(1) : this;
 }
