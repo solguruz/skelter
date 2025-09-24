@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/enum/enum_login_type.dart';
@@ -297,7 +296,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     if (firebaseCurrentUser == null) {
       debugPrint('Firebase current user == null');
 
-      add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+      add(
+        AuthenticationExceptionEvent(
+          errorMessage: localizations.opps_something_went_wrong,
+        ),
+      );
       return;
     }
     final String? token =
@@ -327,7 +330,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       debugPrint('Firebase current user phone number == null');
 
       add(PhoneNumSignUpLoadingEvent(isLoading: false));
-      add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+      add(
+        AuthenticationExceptionEvent(
+          errorMessage: localizations.opps_something_went_wrong,
+        ),
+      );
       return;
     }
   }
@@ -341,7 +348,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       debugPrint('Firebase current user email == null');
 
       add(EmailSignUpLoadingEvent(isLoading: false));
-      add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+      add(
+        AuthenticationExceptionEvent(
+          errorMessage: localizations.opps_something_went_wrong,
+        ),
+      );
       return;
     }
   }
@@ -406,7 +417,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   }
 
   void hideAllLoadingsAndShowError() {
-    add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+    add(
+      AuthenticationExceptionEvent(
+        errorMessage: localizations.opps_something_went_wrong,
+      ),
+    );
   }
 
   Future<void> _storeLoginDetailsInPrefs(User firebaseUser) async {

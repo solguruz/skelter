@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/constants/constants.dart';
+import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
 import 'package:skelter/presentation/profile/bloc/profile_state.dart';
 import 'package:skelter/presentation/profile/widgets/account_section.dart';
@@ -78,7 +78,9 @@ class ProfileScreenBody extends StatelessWidget {
   ) {
     final String error = state.errorMessage;
     context.showSnackBar(
-      error.isNullOrEmpty() ? kSomethingWentWrong : error,
+      error.isNullOrEmpty()
+          ? context.localization.opps_something_went_wrong
+          : error,
     );
   }
 }

@@ -1,13 +1,14 @@
+import 'dart:io' show Platform;
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:skelter/utils/platform_util.dart';
 
 class PermissionUtil {
   static Future<bool> hasStoragePermission() async {
     try {
-      if (PlatformUtil.isIOS) return true;
-      if (PlatformUtil.isAndroid) {
+      if (Platform.isIOS) return true;
+      if (Platform.isAndroid) {
         final sdkVersion = await _getAndroidSdkVersion();
         if (sdkVersion >= 33) return true;
         final status = await Permission.storage.request();

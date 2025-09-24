@@ -2,19 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/utils/app_environment.dart';
 
 extension DateTimeExtensions on DateTime {
-  static DateTime current({DateTime? testDate}) {
-    if (AppEnvironment.isTestEnvironment) {
-      if (testDate != null) return testDate;
-      throw ArgumentError(
-        'testDate must be provided in test environment',
-      );
-    }
-    return DateTime.now();
-  }
-
   String format({
     String pattern = kDefaultDateFormat,
   }) {
@@ -26,11 +15,11 @@ extension DateTimeExtensions on DateTime {
   }
 
   bool isFuture([DateTime? currentDateTime]) {
-    return isAfter(currentDateTime ?? DateTimeExtensions.current());
+    return isAfter(currentDateTime ?? DateTime.now());
   }
 
   bool isPast([DateTime? currentDateTime]) {
-    return isBefore(currentDateTime ?? DateTimeExtensions.current());
+    return isBefore(currentDateTime ?? DateTime.now());
   }
 
   bool isSameDay(DateTime other) =>

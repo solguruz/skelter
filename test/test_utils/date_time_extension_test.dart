@@ -11,23 +11,20 @@ void main() {
   group('DateTimeExtensions Tests', () {
     final testCurrentDate = DateTime(2025, 9, 22, 12);
 
-    // ---------------- CURRENT ----------------
-    test(
-      'current returns provided testDate in test environment',
-      () {
-        final providedTestDate = DateTime(2025, 10, 22);
-        final currentDate =
-            DateTimeExtensions.current(testDate: providedTestDate);
-        expect(currentDate, providedTestDate);
-      },
-    );
+    // ---------------- IS FUTURE & IS PAST ----------------
+    test('isFuture returns true for a date after now', () {
+      final now = DateTime(2025, 9, 20);
+      final futureDate = now.add(const Duration(days: 5));
 
-    test(
-      'current throws ArgumentError if no testDate provided in test env',
-      () {
-        expect(() => DateTimeExtensions.current(), throwsArgumentError);
-      },
-    );
+      expect(futureDate.isFuture(now), true);
+    });
+
+    test('isPast returns true for a date before now', () {
+      final now = DateTime(2025, 9, 20);
+      final pastDate = now.subtract(const Duration(days: 5));
+
+      expect(pastDate.isPast(now), true);
+    });
 
     // ---------------- FORMAT ----------------
     test(
@@ -37,21 +34,6 @@ void main() {
         expect(testCurrentDate.format(pattern: 'MM/dd/yyyy'), '09/22/2025');
       },
     );
-
-    // ---------------- IS FUTURE & IS PAST ----------------
-    test('isFuture returns true for a date after now', () {
-      final now = DateTime(2025, 09, 20); // fixed test "today"
-      final futureDate = now.add(const Duration(days: 5));
-
-      expect(futureDate.isFuture(now), true);
-    });
-
-    test('isPast returns true for a date before now', () {
-      final now = DateTime(2025, 09, 20);
-      final pastDate = now.subtract(const Duration(days: 5));
-
-      expect(pastDate.isPast(now), true);
-    });
 
     // ---------------- IS SAME DAY ----------------
     test(
@@ -140,8 +122,8 @@ void main() {
             ],
             home: Builder(
               builder: (context) {
-                final testCurrentTime =
-                    DateTimeExtensions.current(testDate: testCurrentDate);
+                // Use fixed test date directly
+                final testCurrentTime = testCurrentDate;
 
                 final testCases = [
                   (testCurrentTime, 'Just now'),

@@ -21,7 +21,7 @@ class ImagePickerUtil {
       }
     } catch (e) {
       debugPrint('ImagePickerUtil error: $e');
-      return [];
+      rethrow;
     }
   }
 }

@@ -500,7 +500,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   void hideAllLoadingsAndShowError() {
     add(PhoneNumLoginLoadingEvent(isLoading: false));
     add(EmailLoginLoadingEvent(isLoading: false));
-    add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+    add(
+      AuthenticationExceptionEvent(
+        errorMessage: localizations.opps_something_went_wrong,
+      ),
+    );
   }
 
   Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({

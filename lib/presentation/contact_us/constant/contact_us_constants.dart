@@ -1,3 +1,5 @@
+import 'package:skelter/constants/constants.dart';
+
 // Max number of files allowed for uploads
 const int kMaxFileLimit = 5;
 
@@ -9,8 +11,8 @@ const int kMessageMaxLength = 250;
 
 // Allowed file extensions (currently only PDF enabled)
 const List<String> kAllowedFileExtensions = [
-  'pdf',
-  // 'txt',
-  // 'doc',
-  // 'mp4',
+  kPdfExtension,
+  // kTextExtension,
+  // kDocExtension,
+  // kMp4Extension,
 ];

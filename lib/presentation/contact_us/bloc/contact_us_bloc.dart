@@ -9,6 +9,7 @@ import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_state.dart';
 import 'package:skelter/presentation/contact_us/constant/contact_us_constants.dart';
 import 'package:skelter/utils/file_picker_util.dart';
+import 'package:skelter/utils/image_picker_util.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
   final AppLocalizations localizations;
@@ -119,15 +120,10 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     Emitter<ContactUsState> emit,
   ) async {
     try {
-      final picker = ImagePicker();
-      List<XFile> pickedImages = [];
-
-      if (event.source == ImageSource.gallery) {
-        pickedImages = await picker.pickMultiImage(limit: kMaxFileLimit);
-      } else {
-        final XFile? image = await picker.pickImage(source: ImageSource.camera);
-        if (image != null) pickedImages = [image];
-      }
+      final pickedImages = await ImagePickerUtil().pickImages(
+        source: event.source,
+        maxFileLimit: kMaxFileLimit,
+      );
 
       if (pickedImages.isNotEmpty) {
         emit(
