@@ -13,6 +13,7 @@ import 'package:skelter/presentation/delete_account/bloc/delete_account_state.da
 import 'package:skelter/presentation/delete_account/delete_account_screen.dart';
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../../integration_test/mock_firebase_auth.dart';
 import '../../flutter_test_config.dart';
@@ -56,23 +57,32 @@ void main() {
 
       testExecutable(() {
         goldenTest(
-          'No reason selected',
+          'no reason selected',
           fileName: 'no_reason_selected',
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
-
-            const deleteAccountState = DeleteAccountState.test();
-
-            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
+            when(() => deleteAccountBloc.state)
+                .thenReturn(const DeleteAccountState.test());
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
                   const FixedColumnWidth(pixel5DeviceWidth),
               children: [
                 createTestScenario(
-                  name: 'No reason selected',
-                  addScaffold: true,
+                  name: 'no reason selected Light Theme',
                   child: const DeleteAccountScreen(),
+                  addScaffold: true,
+                  providers: [
+                    BlocProvider<DeleteAccountBloc>.value(
+                      value: deleteAccountBloc,
+                    ),
+                  ],
+                ),
+                createTestScenario(
+                  name: 'no reason selected Dark Theme',
+                  child: const DeleteAccountScreen(),
+                  addScaffold: true,
+                  theme: AppThemeEnum.DarkTheme,
                   providers: [
                     BlocProvider<DeleteAccountBloc>.value(
                       value: deleteAccountBloc,

@@ -52,45 +52,44 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
           _showSignOutError(state, context);
         }
       },
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            AppBar(
-              title: Text(
-                'Profile',
-                style: AppTextStyles.h6Bold.copyWith(
-                  color: AppColors.currentTheme.textNeutralPrimary,
-                ),
-              ),
-              backgroundColor: AppColors.currentTheme.bgSurfaceBase,
-              leading: AppButton.icon(
-                iconData: TablerIcons.arrow_left,
-                size: AppButtonSize.extraLarge,
-                onPressed: () => context.router.maybePop(),
-              ),
-              centerTitle: true,
-              foregroundColor: AppColors.currentTheme.strokeShadesBlack,
+      child: Scaffold(
+        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        appBar: AppBar(
+          title: Text(
+            'Profile',
+            style: AppTextStyles.h6Bold.copyWith(
+              color: AppColors.currentTheme.textNeutralPrimary,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  ProfileDetails(),
-                  SizedBox(height: 40.0),
-                  AccountSection(),
-                  SizedBox(height: 24.0),
-                  ActivitySection(),
-                  SizedBox(height: 32.0),
-                  Settings(),
-                  SizedBox(height: 24.0),
-                  SupportSection(),
-                  SizedBox(height: 24.0),
-                  SignOut(),
-                  SizedBox(height: 32.0),
-                ],
-              ),
+          ),
+          backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+          leading: AppButton.icon(
+            iconData: TablerIcons.arrow_left,
+            size: AppButtonSize.extraLarge,
+            onPressed: () => context.router.maybePop(),
+          ),
+          centerTitle: true,
+          foregroundColor: AppColors.currentTheme.strokeShadesBlack,
+        ),
+        body: const SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                ProfileDetails(),
+                SizedBox(height: 40.0),
+                AccountSection(),
+                SizedBox(height: 24.0),
+                ActivitySection(),
+                SizedBox(height: 32.0),
+                Settings(),
+                SizedBox(height: 24.0),
+                SupportSection(),
+                SizedBox(height: 24.0),
+                SignOut(),
+                SizedBox(height: 32.0),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

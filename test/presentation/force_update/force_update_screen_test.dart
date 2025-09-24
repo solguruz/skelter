@@ -10,6 +10,7 @@ import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_event.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_state.dart';
 import 'package:skelter/presentation/force_update/force_update_screen.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -52,8 +53,19 @@ void main() {
                   const FixedColumnWidth(pixel5DeviceWidth),
               children: [
                 createTestScenario(
-                  name: 'Optional update (skip allowed)',
+                  name: 'Optional update (skip allowed) Light Theme',
                   addScaffold: true,
+                  child: const ForceUpdateScreenBody(),
+                  providers: [
+                    BlocProvider<ForceUpdateBloc>.value(
+                      value: forceUpdateBloc,
+                    ),
+                  ],
+                ),
+                createTestScenario(
+                  name: 'Optional update (skip allowed) Dark Theme',
+                  addScaffold: true,
+                  theme: AppThemeEnum.DarkTheme,
                   child: const ForceUpdateScreenBody(),
                   providers: [
                     BlocProvider<ForceUpdateBloc>.value(
@@ -85,8 +97,19 @@ void main() {
                   const FixedColumnWidth(pixel5DeviceWidth),
               children: [
                 createTestScenario(
-                  name: 'Mandatory update (no skip)',
+                  name: 'Mandatory update (no skip) Light Theme',
                   addScaffold: true,
+                  child: const ForceUpdateScreenBody(),
+                  providers: [
+                    BlocProvider<ForceUpdateBloc>.value(
+                      value: mockBloc,
+                    ),
+                  ],
+                ),
+                createTestScenario(
+                  name: 'Mandatory update (no skip) Dark Theme',
+                  addScaffold: true,
+                  theme: AppThemeEnum.DarkTheme,
                   child: const ForceUpdateScreenBody(),
                   providers: [
                     BlocProvider<ForceUpdateBloc>.value(

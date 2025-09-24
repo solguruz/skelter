@@ -9,6 +9,11 @@ class ThemeState with EquatableMixin {
         themeMode: themeMode ?? this.themeMode,
       );
 
+  @visibleForTesting
+  const ThemeState.test({
+    this.themeMode = ThemeMode.system,
+  });
+
   @override
   List<Object?> get props => [themeMode];
 }

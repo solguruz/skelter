@@ -16,6 +16,7 @@ import 'package:skelter/presentation/contact_us/widgets/contact_us_attachment_se
 import 'package:skelter/presentation/contact_us/widgets/contact_us_email_section.dart';
 import 'package:skelter/presentation/contact_us/widgets/contact_us_message_section.dart';
 import 'package:skelter/presentation/contact_us/widgets/contact_us_name_section.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -67,7 +68,7 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'default name state',
+              name: 'Contact Us Name Section Empty Light Theme',
               child: const ContactUsNameSection(),
               addScaffold: true,
               providers: [
@@ -77,7 +78,18 @@ void main() {
               ],
             ),
             createTestScenario(
-              name: 'valid name state',
+              name: 'Contact Us Name Section Empty Dark Theme',
+              child: const ContactUsNameSection(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
+              providers: [
+                BlocProvider<ContactUsBloc>.value(
+                  value: contactUsBlocEmptyName,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Contact Us Name Section Valid Light Theme',
               child: const ContactUsNameSection(),
               addScaffold: true,
               providers: [
@@ -87,19 +99,48 @@ void main() {
               ],
             ),
             createTestScenario(
-              name: 'long name state',
+              name: 'Contact Us Name Section Valid Dark Theme',
               child: const ContactUsNameSection(),
               addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<ContactUsBloc>.value(
-                  value: contactUsBlocLongName,
+                  value: contactUsBlocValidName,
                 ),
               ],
             ),
             createTestScenario(
-              name: 'error name state',
+              name: 'Contact Us Name Section Long Light Theme',
               child: const ContactUsNameSection(),
               addScaffold: true,
+              providers: [
+                BlocProvider<ContactUsBloc>.value(value: contactUsBlocLongName),
+              ],
+            ),
+            createTestScenario(
+              name: 'Contact Us Name Section Long Dark Theme',
+              child: const ContactUsNameSection(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
+              providers: [
+                BlocProvider<ContactUsBloc>.value(value: contactUsBlocLongName),
+              ],
+            ),
+            createTestScenario(
+              name: 'Contact Us Name Section Error Light Theme',
+              child: const ContactUsNameSection(),
+              addScaffold: true,
+              providers: [
+                BlocProvider<ContactUsBloc>.value(
+                  value: contactUsBlocErrorName,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Contact Us Name Section Error Dark Theme',
+              child: const ContactUsNameSection(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<ContactUsBloc>.value(
                   value: contactUsBlocErrorName,

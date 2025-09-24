@@ -14,6 +14,7 @@ import 'package:skelter/presentation/profile/bloc/profile_event.dart';
 import 'package:skelter/presentation/profile/bloc/profile_state.dart';
 import 'package:skelter/presentation/profile/profile_screen.dart';
 import 'package:skelter/presentation/profile/widgets/profile_details.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -42,14 +43,26 @@ void main() {
   group('Profile Page', () {
     testWidgets('Profile page', (tester) async {
       //arrange
+      final mockProfileBloc = MockProfileBloc();
+      when(() => mockProfileBloc.state).thenReturn(
+        ProfileState.test(
+          name: 'Test User',
+          email: 'test@example.com',
+          isProUser: true,
+        ),
+      );
 
       //act
       await tester.runWidgetTest(
-        child: const ProfileScreen(),
+        providers: [
+          BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
+        ],
+        child: const ProfileScreenBody(), // Use ProfileScreenBody instead of
+        // ProfileScreen to avoid duplicate BlocProvider
       );
 
       // assert
-      expect(find.byType(ProfileScreen), findsOneWidget);
+      expect(find.byType(ProfileScreenBody), findsOneWidget);
       expect(find.text('Sign out'), findsOneWidget);
     });
 
@@ -82,7 +95,7 @@ void main() {
                     const FixedColumnWidth(pixel5DeviceWidth),
                 children: [
                   createTestScenario(
-                    name: 'Profile page',
+                    name: 'Profile page Light Theme',
                     child: const ProfileScreenBody(),
                     addScaffold: true,
                     providers: [
@@ -90,9 +103,27 @@ void main() {
                     ],
                   ),
                   createTestScenario(
-                    name: 'Profile details',
+                    name: 'Profile page Dark Theme',
+                    child: const ProfileScreenBody(),
+                    addScaffold: true,
+                    theme: AppThemeEnum.DarkTheme,
+                    providers: [
+                      BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
+                    ],
+                  ),
+                  createTestScenario(
+                    name: 'Profile details Light Theme',
                     child: const ProfileDetails(),
                     addScaffold: true,
+                    providers: [
+                      BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
+                    ],
+                  ),
+                  createTestScenario(
+                    name: 'Profile details Dark Theme',
+                    child: const ProfileDetails(),
+                    addScaffold: true,
+                    theme: AppThemeEnum.DarkTheme,
                     providers: [
                       BlocProvider<ProfileBloc>.value(value: mockProfileBloc),
                     ],
@@ -127,9 +158,18 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Profile details with long name',
+              name: 'Profile details with long name Light Theme',
               child: const ProfileDetails(),
               addScaffold: true,
+              providers: [
+                BlocProvider<ProfileBloc>.value(value: profileBloc),
+              ],
+            ),
+            createTestScenario(
+              name: 'Profile details with long name Dark Theme',
+              child: const ProfileDetails(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<ProfileBloc>.value(value: profileBloc),
               ],
@@ -160,9 +200,18 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Regular User Profile details',
+              name: 'Regular User Profile details Light Theme',
               child: const ProfileDetails(),
               addScaffold: true,
+              providers: [
+                BlocProvider<ProfileBloc>.value(value: profileBloc),
+              ],
+            ),
+            createTestScenario(
+              name: 'Regular User Profile details Dark Theme',
+              child: const ProfileDetails(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<ProfileBloc>.value(value: profileBloc),
               ],

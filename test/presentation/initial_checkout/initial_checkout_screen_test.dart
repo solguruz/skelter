@@ -20,6 +20,7 @@ import 'package:skelter/presentation/checkout/widget/order_summary.dart';
 import 'package:skelter/presentation/checkout/widget/payment_method_header.dart';
 import 'package:skelter/presentation/checkout/widget/select_payment_method_from_list.dart';
 import 'package:skelter/presentation/checkout/widget/shipping_address.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -61,9 +62,18 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Cart screen',
+              name: 'Cart screen Light Theme',
               child: const CheckoutScreenBody(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(value: checkoutBlocCartScreen),
+              ],
+            ),
+            createTestScenario(
+              name: 'Cart screen Dark Theme',
+              child: const CheckoutScreenBody(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(value: checkoutBlocCartScreen),
               ],
@@ -86,9 +96,18 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Empty Cart View',
+              name: 'Empty Cart View Light Theme',
               child: const EmptyCartView(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(value: checkoutBlocEmptyCart),
+              ],
+            ),
+            createTestScenario(
+              name: 'Empty Cart View Dark Theme',
+              child: const EmptyCartView(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(value: checkoutBlocEmptyCart),
               ],
@@ -112,9 +131,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Cart Details Appbar',
+              name: 'Cart Details Appbar Light Theme',
               child: const CheckoutAppBar(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocCartDetailsAppBar,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Cart Details Appbar Dark Theme',
+              child: const CheckoutAppBar(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocCartDetailsAppBar,
@@ -141,9 +171,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Cart Details Custom Stepper',
+              name: 'Cart Details Custom Stepper Light Theme',
               child: const CustomStepper(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocCartDetailsStepper,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Cart Details Custom Stepper Dark Theme',
+              child: const CustomStepper(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocCartDetailsStepper,
@@ -643,9 +684,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Shipping detail screen',
+              name: 'Shipping detail screen Light Theme',
               child: const CheckoutScreenBody(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocShippingDetailScreen,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Shipping detail screen Dark Theme',
+              child: const CheckoutScreenBody(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocShippingDetailScreen,
@@ -670,9 +722,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Shipping Details Appbar',
+              name: 'Shipping Details Appbar Light Theme',
               child: const CheckoutAppBar(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocShippingDetailAppBar,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Shipping Details Appbar Dark Theme',
+              child: const CheckoutAppBar(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocShippingDetailAppBar,
@@ -699,9 +762,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Shipping details Custom Stepper',
+              name: 'Shipping details Custom Stepper Light Theme',
               child: const CustomStepper(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocShippingDetailStepper,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Shipping details Custom Stepper Dark Theme',
+              child: const CustomStepper(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocShippingDetailStepper,
@@ -888,9 +962,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Payment screen',
+              name: 'Payment screen Light Theme',
               child: const CheckoutScreenBody(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocShippingDetailScreen,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Payment screen Dark Theme',
+              child: const CheckoutScreenBody(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocShippingDetailScreen,
@@ -915,9 +1000,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Payment appbar',
+              name: 'Payment appbar Light Theme',
               child: const CheckoutAppBar(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocPaymentAppBar,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Payment appbar Dark Theme',
+              child: const CheckoutAppBar(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocPaymentAppBar,
@@ -944,9 +1040,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'payment stepper',
+              name: 'payment stepper Light Theme',
               child: const CustomStepper(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocPaymentStepper,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'payment stepper Dark Theme',
+              child: const CustomStepper(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocPaymentStepper,
@@ -979,7 +1086,7 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'payment method online',
+              name: 'payment method online Light Theme',
               addScaffold: true,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
@@ -1000,7 +1107,47 @@ void main() {
               ),
             ),
             createTestScenario(
-              name: 'payment method cash on delivery',
+              name: 'payment method online Dark Theme',
+              addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocPaymentMethodOnline,
+                ),
+              ],
+              child: Builder(
+                builder: (context) {
+                  return const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      PaymentMethodHeader(),
+                      SelectPaymentMethodFromList(),
+                    ],
+                  );
+                },
+              ),
+            ),
+            createTestScenario(
+              name: 'payment method cash on delivery Light Theme',
+              addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(value: checkoutBlocPaymentCOD),
+              ],
+              child: Builder(
+                builder: (context) {
+                  return const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      PaymentMethodHeader(),
+                      SelectPaymentMethodFromList(),
+                    ],
+                  );
+                },
+              ),
+            ),
+            createTestScenario(
+              name: 'payment method cash on delivery Dark Theme',
               addScaffold: true,
               providers: [
                 BlocProvider<CheckoutBloc>.value(value: checkoutBlocPaymentCOD),
@@ -1038,7 +1185,17 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'one coupon available',
+              name: 'one coupon available Light Theme',
+              addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocPaymentOneCoupon,
+                ),
+              ],
+              child: const ApplyCoupon(),
+            ),
+            createTestScenario(
+              name: 'one coupon available Dark Theme',
               addScaffold: true,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
@@ -1078,9 +1235,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Order review screen',
+              name: 'Order review screen Light Theme',
               child: const CheckoutScreenBody(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocShippingDetailScreen,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Order review screen Dark Theme',
+              child: const CheckoutScreenBody(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocShippingDetailScreen,
@@ -1105,9 +1273,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Order review appbar',
+              name: 'Order review appbar Light Theme',
               child: const CheckoutAppBar(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocOrderReviewAppBar,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Order review appbar Dark Theme',
+              child: const CheckoutAppBar(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocOrderReviewAppBar,
@@ -1134,9 +1313,20 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Order review stepper',
+              name: 'Order review stepper Light Theme',
               child: const CustomStepper(),
               addScaffold: true,
+              providers: [
+                BlocProvider<CheckoutBloc>.value(
+                  value: checkoutBlocOrderReviewStepper,
+                ),
+              ],
+            ),
+            createTestScenario(
+              name: 'Order review stepper Dark Theme',
+              child: const CustomStepper(),
+              addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocOrderReviewStepper,

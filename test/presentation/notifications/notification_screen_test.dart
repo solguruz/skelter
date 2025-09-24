@@ -11,6 +11,7 @@ import 'package:skelter/presentation/notifications/bloc/notification_event.dart'
 import 'package:skelter/presentation/notifications/bloc/notification_state.dart';
 import 'package:skelter/presentation/notifications/data/notification_data_list.dart';
 import 'package:skelter/presentation/notifications/notifications_screen.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -64,9 +65,20 @@ void main() {
                     const FixedColumnWidth(pixel5DeviceWidth),
                 children: [
                   createTestScenario(
-                    name: 'Notification Page',
+                    name: 'Notification Page Light Theme',
                     addScaffold: true,
                     child: const NotificationScreenBody(),
+                    providers: [
+                      BlocProvider<NotificationBloc>.value(
+                        value: notificationBloc,
+                      ),
+                    ],
+                  ),
+                  createTestScenario(
+                    name: 'Notification Page Dark Theme',
+                    addScaffold: true,
+                    child: const NotificationScreenBody(),
+                    theme: AppThemeEnum.DarkTheme,
                     providers: [
                       BlocProvider<NotificationBloc>.value(
                         value: notificationBloc,

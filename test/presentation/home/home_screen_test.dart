@@ -11,6 +11,7 @@ import 'package:skelter/presentation/home/bloc/home_event.dart';
 import 'package:skelter/presentation/home/bloc/home_state.dart';
 import 'package:skelter/presentation/home/data/dummy_product_data.dart';
 import 'package:skelter/presentation/home/home_screen.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -75,11 +76,19 @@ void main() {
                 const FixedColumnWidth(pixel5DeviceWidth),
             children: [
               createTestScenario(
-                name: 'home_screen',
+                name: 'home_screen Light Theme',
                 providers: [
                   BlocProvider<HomeBloc>.value(value: homeBloc),
                 ],
                 child: const HomeScreenWrapper(),
+              ),
+              createTestScenario(
+                name: 'home_screen Dark Theme',
+                providers: [
+                  BlocProvider<HomeBloc>.value(value: homeBloc),
+                ],
+                child: const HomeScreenWrapper(),
+                theme: AppThemeEnum.DarkTheme,
               ),
             ],
           );

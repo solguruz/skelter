@@ -2,6 +2,7 @@ import 'package:alchemist/alchemist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:skelter/presentation/settings/settings_screen.dart';
+import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -32,8 +33,13 @@ void main() {
                 const FixedColumnWidth(pixel5DeviceWidth),
             children: [
               createTestScenario(
-                name: 'SettingsScreen',
+                name: 'SettingsScreen Light Theme',
                 child: const SettingsScreen(),
+              ),
+              createTestScenario(
+                name: 'SettingsScreen Dark Theme',
+                child: const SettingsScreen(),
+                theme: AppThemeEnum.DarkTheme,
               ),
             ],
           );

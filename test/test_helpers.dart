@@ -1,33 +1,52 @@
 import 'package:alchemist/alchemist.dart';
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
+import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import 'flutter_test_config.dart';
+
+class MockThemeBloc extends MockBloc<ThemeEvent, ThemeState>
+    implements ThemeBloc {}
 
 extension WidgetTestHelper on WidgetTester {
   Future<void> runWidgetTest({
     required Widget child,
     List<BlocProvider> providers = const [],
+    AppThemeEnum theme = AppThemeEnum.LightTheme,
   }) async {
+    final themeBloc = MockThemeBloc();
+
+    const themeState = ThemeState.test();
+    when(() => themeBloc.state).thenReturn(themeState);
+
+    // Set the theme mode for AppColors
+    AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
+
     return pumpWidget(
       Sizer(
         builder: (context, orientation, screenType) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider<ThemeBloc>(
+                create: (context) => themeBloc,
+              ),
+              ...providers,
             ],
-            home: providers.isNotEmpty
-                ? MultiBlocProvider(
-                    providers: providers,
-                    child: child,
-                  )
-                : child,
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: AppThemesData.themeData[theme],
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+              ],
+              home: child,
+            ),
           );
         },
       ),
@@ -40,6 +59,7 @@ GoldenTestScenario createTestScenario({
   required Widget child,
   List<BlocProvider> providers = const [],
   bool addScaffold = false,
+  AppThemeEnum theme = AppThemeEnum.LightTheme,
 }) {
   final childWithDeviceSize = SizedBox(
     width: pixel5DeviceWidth,
@@ -58,18 +78,29 @@ GoldenTestScenario createTestScenario({
     name: name,
     child: Sizer(
       builder: (context, orientation, screenType) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppThemesData.themeData[AppThemeEnum.LightTheme],
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
+        final themeBloc = MockThemeBloc();
+
+        const themeState = ThemeState.test();
+        when(() => themeBloc.state).thenReturn(themeState);
+
+        // Set the theme mode for AppColors
+        AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
+
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<ThemeBloc>(
+              create: (context) => themeBloc,
+            ),
+            ...providers,
           ],
-          home: providers.isNotEmpty
-              ? MultiBlocProvider(
-                  providers: providers,
-                  child: childWithDeviceSize,
-                )
-              : childWithDeviceSize,
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppThemesData.themeData[theme],
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+            ],
+            home: childWithDeviceSize,
+          ),
         );
       },
     ),
