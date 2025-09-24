@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
@@ -15,8 +14,6 @@ import 'package:skelter/presentation/profile/widgets/support_section.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/app_button/app_button.dart';
-import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -62,11 +59,6 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
             ),
           ),
           backgroundColor: AppColors.currentTheme.bgSurfaceBase,
-          leading: AppButton.icon(
-            iconData: TablerIcons.arrow_left,
-            size: AppButtonSize.extraLarge,
-            onPressed: () => context.router.maybePop(),
-          ),
           centerTitle: true,
           foregroundColor: AppColors.currentTheme.strokeShadesBlack,
         ),
