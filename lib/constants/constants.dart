@@ -5,10 +5,10 @@ const kMimeTypeImage = 'image/';
 const kSVGExtension = '.svg';
 const kPNGExtension = '.png';
 
-const kPdf = 'pdf';
-const kText = 'txt';
-const kDoc = 'doc';
-const kMp4 = 'mp4';
+const kPdfExtension = 'pdf';
+const kTextExtension = 'txt';
+const kDocExtension = 'doc';
+const kMp4Extension = 'mp4';
 
 /// MIME types for identifying PDF, TXT, Word DOC, and MP4 files
 const kPdfMimeType = 'application/pdf';
@@ -39,7 +39,7 @@ const List<int> kDocOleFileSignature = [
 const String kSomethingWentWrong = 'Oops! Something went wrong';
 
 // Chat messaging constants
-const String kHereAnimationPrefix = 'fullscreen_image_0';
+const String kHeroAnimationPrefix = 'fullscreen_image_0';
 
 // Regex patterns
 final kEmailRegex = RegExp(

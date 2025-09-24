@@ -39,21 +39,19 @@ void main() {
     );
 
     // ---------------- IS FUTURE & IS PAST ----------------
-    test(
-      'isFuture returns true for a date after now',
-      () {
-        final futureDate = testCurrentDate.add(const Duration(days: 1));
-        expect(futureDate.isFuture, true);
-      },
-    );
+    test('isFuture returns true for a date after now', () {
+      final now = DateTime(2025, 09, 20); // fixed test "today"
+      final futureDate = now.add(const Duration(days: 5));
 
-    test(
-      'isPast returns true for a date before now',
-      () {
-        final pastDate = testCurrentDate.subtract(const Duration(days: 1));
-        expect(pastDate.isPast, true);
-      },
-    );
+      expect(futureDate.isFuture(now), true);
+    });
+
+    test('isPast returns true for a date before now', () {
+      final now = DateTime(2025, 09, 20);
+      final pastDate = now.subtract(const Duration(days: 5));
+
+      expect(pastDate.isPast(now), true);
+    });
 
     // ---------------- IS SAME DAY ----------------
     test(

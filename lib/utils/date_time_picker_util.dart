@@ -7,13 +7,13 @@ class DateTimePickerUtil {
 
   /// Returns the earliest selectable date, defaults to 5 years ago.
   static DateTime _defaultFirstDate(DateTime? date) =>
-      date ?? DateTime(_now.year - 5);
+      date ?? DateTime(_now.year - 5, _now.month, _now.day);
 
   /// Returns the latest selectable date, defaults to 5 years ahead.
   static DateTime _defaultLastDate(DateTime? date) =>
-      date ?? DateTime(_now.year + 5);
+      date ?? DateTime(_now.year + 5, _now.month, _now.day);
 
-  /// Shows a calendar **range picker** with a customizable date range.
+  /// Shows a calendar range picker with a customizable date range.
   ///
   /// [initialRange] - Optional default selected range.
   /// [firstDate] - Minimum selectable date.
@@ -28,10 +28,17 @@ class DateTimePickerUtil {
     String? helpText,
     required ValueChanged<DateTimeRange> onRangeSelected,
   }) async {
+    final first = _defaultFirstDate(firstDate);
+    final last = _defaultLastDate(lastDate);
+
+    if (first.isAfter(last)) {
+      throw ArgumentError('firstDate must be before or equal to lastDate');
+    }
+
     final pickedRange = await showDateRangePicker(
       context: context,
-      firstDate: _defaultFirstDate(firstDate),
-      lastDate: _defaultLastDate(lastDate),
+      firstDate: first,
+      lastDate: last,
       initialDateRange: initialRange,
       helpText: helpText,
     );

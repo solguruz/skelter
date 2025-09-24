@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerUtil {
@@ -19,6 +20,7 @@ class ImagePickerUtil {
         return image != null ? [image] : [];
       }
     } catch (e) {
+      debugPrint('ImagePickerUtil error: $e');
       return [];
     }
   }

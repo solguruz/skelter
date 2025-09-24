@@ -25,9 +25,13 @@ extension DateTimeExtensions on DateTime {
     }
   }
 
-  bool get isFuture => isAfter(DateTime.now());
+  bool isFuture([DateTime? currentDateTime]) {
+    return isAfter(currentDateTime ?? DateTimeExtensions.current());
+  }
 
-  bool get isPast => isBefore(DateTime.now());
+  bool isPast([DateTime? currentDateTime]) {
+    return isBefore(currentDateTime ?? DateTimeExtensions.current());
+  }
 
   bool isSameDay(DateTime other) =>
       year == other.year && month == other.month && day == other.day;
