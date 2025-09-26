@@ -4,14 +4,15 @@ import 'dart:typed_data';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as path;
 import 'package:skelter/constants/constants.dart';
+import 'package:skelter/presentation/contact_us/constant/contact_us_constants.dart';
 
 class FileValidator {
   /// List of acceptable MIME types mapped to their extensions
   static const Map<String, String> kAllowedFileTypes = {
-    kPdfExtension: kPdfMimeType,
-    kTextExtension: kTextMimeType,
-    kDocExtension: kDocMimeType,
-    kMp4Extension: kVideoMimeType,
+    kPdfWithDot: kPdfMimeType,
+    kTextWithDot: kTextMimeType,
+    kDocWithDot: kDocMimeType,
+    kMp4WithDot: kVideoMimeType,
   };
 
   static Future<bool> isValidByMimeAndExtension(File file) async {
@@ -27,13 +28,13 @@ class FileValidator {
       final detectedMime = lookupMimeType(file.path, headerBytes: header);
 
       switch (extension) {
-        case kPdfExtension:
+        case kPdfWithDot:
           return _isValidPdfFile(header, detectedMime);
-        case kDocExtension:
+        case kDocWithDot:
           return _isValidDocFile(header, detectedMime);
-        case kTextExtension:
+        case kTextWithDot:
           return _isValidTextFile(detectedMime);
-        case kMp4Extension:
+        case kMp4WithDot:
           return _isValidMp4File(header, detectedMime);
         default:
           return detectedMime == allowedMime;

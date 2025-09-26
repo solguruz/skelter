@@ -9,10 +9,14 @@ const int kMaxFileSizeInBytes = 5 * 1024 * 1024;
 // Maximum allowed message length (in characters)
 const int kMessageMaxLength = 250;
 
-// Allowed file extensions (currently only PDF enabled)
+const String kPdfWithDot = kPdf;
+const String kTextWithDot = kText;
+const String kDocWithDot = kDoc;
+const String kMp4WithDot = kMp4;
+
 const List<String> kAllowedFileExtensions = [
-  kPdfExtension,
-  // kTextExtension,
-  // kDocExtension,
-  // kMp4Extension,
+  kPdfWithDot,
+  // kTextWithDot,
+  // kDocWithDot,
+  // kMp4WithDot,
 ];

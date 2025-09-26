@@ -2,13 +2,13 @@ const String kLogFileName = 'app.log';
 
 const kMimeTypeVideo = 'video/';
 const kMimeTypeImage = 'image/';
-const kSVGExtension = '.svg';
-const kPNGExtension = '.png';
+const kSVGWithDot = '.svg';
+const kPNGWithDot = '.png';
 
-const kPdfExtension = 'pdf';
-const kTextExtension = 'txt';
-const kDocExtension = 'doc';
-const kMp4Extension = 'mp4';
+const  kPdf = 'pdf';
+const  kText = 'txt';
+const  kDoc = 'doc';
+const  kMp4 = 'mp4';
 
 /// MIME types for identifying PDF, TXT, Word DOC, and MP4 files
 const kPdfMimeType = 'application/pdf';
