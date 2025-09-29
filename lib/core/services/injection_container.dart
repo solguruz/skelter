@@ -115,7 +115,7 @@ InterceptorsWrapper _authErrorInterceptor() => InterceptorsWrapper(
               );
             }
           } catch (e) {
-            debugPrint('[AuthErrorInterceptor] logout failed: $e');
+            debugPrint('[AuthErrorInterceptor] Logout failed: $e');
           } finally {
             _isForceLoggingOutUser = false;
           }
