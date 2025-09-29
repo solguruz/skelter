@@ -99,16 +99,26 @@ InterceptorsWrapper _authErrorInterceptor() => InterceptorsWrapper(
 
         if (shouldLogout) {
           _isForceLoggingOutUser = true;
+          try {
+            await Prefs.clear();
+            await sl<CacheManager>().clearCachedApiResponse();
+            await sl<FirebaseAuthService>().signOut();
+            await GoogleSignIn().signOut();
 
-          await Prefs.clear();
-          await sl<CacheManager>().clearCachedApiResponse();
-          await sl<FirebaseAuthService>().signOut();
-          await GoogleSignIn().signOut();
-
-          await rootNavigatorKey.currentContext!.router
-              .replaceAll([LoginWithPhoneNumberRoute()]);
-
-          _isForceLoggingOutUser = false;
+            final currentContext = rootNavigatorKey.currentContext;
+            if (currentContext != null) {
+              await currentContext.router
+                  .replaceAll([LoginWithPhoneNumberRoute()]);
+            } else {
+              debugPrint(
+                '[AuthErrorInterceptor] No navigator context available',
+              );
+            }
+          } catch (e) {
+            debugPrint('[AuthErrorInterceptor] logout failed: $e');
+          } finally {
+            _isForceLoggingOutUser = false;
+          }
         }
 
         handler.next(dioError);
