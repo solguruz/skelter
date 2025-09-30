@@ -5,7 +5,7 @@ import 'package:skelter/presentation/contact_us/widgets/attachment_error_display
 import 'package:skelter/presentation/contact_us/widgets/image_preview_list.dart';
 import 'package:skelter/presentation/contact_us/widgets/pdf_preview_list.dart';
 import 'package:skelter/presentation/contact_us/widgets/upload_attachment.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class ContactUsAttachmentSection extends StatelessWidget {
   const ContactUsAttachmentSection({super.key});
@@ -19,7 +19,7 @@ class ContactUsAttachmentSection extends StatelessWidget {
         Text(
           context.localization.attachment,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 6),

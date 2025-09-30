@@ -7,8 +7,8 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({
@@ -25,13 +25,13 @@ class SignUpButton extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p2Medium
-              .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
+              .copyWith(color: context.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_no_account),
             TextSpan(
               text: context.localization.signup_sign_up,
               style: AppTextStyles.p2Bold
-                  .copyWith(color: AppColors.currentTheme.textBrandSecondary),
+                  .copyWith(color: context.currentTheme.textBrandSecondary),
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
                   context

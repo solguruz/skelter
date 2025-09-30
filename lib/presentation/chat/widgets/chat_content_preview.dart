@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class ChatContentPreview extends StatelessWidget {
   const ChatContentPreview({
@@ -23,7 +23,7 @@ class ChatContentPreview extends StatelessWidget {
           Text(
             chatModel.name,
             style: AppTextStyles.p2Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralPrimary,
+              color: context.currentTheme.textNeutralPrimary,
             ),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
@@ -51,7 +51,7 @@ class ChatContentPreview extends StatelessWidget {
                 child: Text(
                   chatModel.lastMessage,
                   style: AppTextStyles.p3Regular.copyWith(
-                    color: AppColors.currentTheme.textNeutralSecondary,
+                    color: context.currentTheme.textNeutralSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,

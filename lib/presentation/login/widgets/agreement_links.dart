@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class AgreementLinks extends StatelessWidget {
   const AgreementLinks({
@@ -25,13 +25,13 @@ class AgreementLinks extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p4Medium
-              .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
+              .copyWith(color: context.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_agreement_info),
             TextSpan(
               text: context.localization.signup_terms_and_conditions,
               style: AppTextStyles.p4Bold.copyWith(
-                color: AppColors.currentTheme.textNeutralSecondary,
+                color: context.currentTheme.textNeutralSecondary,
                 decoration: TextDecoration.underline,
               ),
               recognizer: TapGestureRecognizer()
@@ -43,7 +43,7 @@ class AgreementLinks extends StatelessWidget {
             TextSpan(
               text: context.localization.signup_privacy_policy,
               style: AppTextStyles.p4Bold.copyWith(
-                color: AppColors.currentTheme.textNeutralSecondary,
+                color: context.currentTheme.textNeutralSecondary,
                 decoration: TextDecoration.underline,
               ),
               recognizer: TapGestureRecognizer()

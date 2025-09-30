@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/presentation/verify_email/bloc/verify_email_bloc.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EnteredWrongEmail extends StatelessWidget {
   const EnteredWrongEmail({super.key});
@@ -25,7 +25,7 @@ class EnteredWrongEmail extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppTextStyles.p2Medium
-              .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
+              .copyWith(color: context.currentTheme.textNeutralSecondary),
           children: [
             TextSpan(
               text: context.localization.signup_entered_wrong_email,
@@ -33,7 +33,7 @@ class EnteredWrongEmail extends StatelessWidget {
             TextSpan(
               text: context.localization.change_email,
               style: AppTextStyles.p2Bold.copyWith(
-                color: AppColors.currentTheme.textBrandSecondary,
+                color: context.currentTheme.textBrandSecondary,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {

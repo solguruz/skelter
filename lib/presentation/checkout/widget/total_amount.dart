@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class TotalAmount extends StatelessWidget {
   const TotalAmount({super.key});
@@ -20,13 +20,13 @@ class TotalAmount extends StatelessWidget {
         Text(
           context.localization.total_amount,
           style: AppTextStyles.p4Regular
-              .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
+              .copyWith(color: context.currentTheme.textNeutralSecondary),
         ),
         const SizedBox(height: 6),
         Text(
           '\$$finalAmount',
           style: AppTextStyles.h6Bold
-              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+              .copyWith(color: context.currentTheme.textNeutralPrimary),
         ),
       ],
     );

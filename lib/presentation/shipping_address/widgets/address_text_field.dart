@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class AddressTextField extends StatefulWidget {
   const AddressTextField({super.key});
@@ -26,7 +26,7 @@ class _AddressTextFieldState extends State<AddressTextField> {
         Text(
           context.localization.address,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -34,10 +34,10 @@ class _AddressTextFieldState extends State<AddressTextField> {
           controller: _addressTextController,
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_your_address,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+              color: context.currentTheme.textNeutralDisable,
             ),
             errorStyle: AppTextStyles.p3Regular,
             errorMaxLines: 2,
@@ -45,11 +45,11 @@ class _AddressTextFieldState extends State<AddressTextField> {
             suffix: Text(
               '${_addressTextController.text.length}/250',
               style: AppTextStyles.p3Regular.copyWith(
-                color: AppColors.currentTheme.textNeutralDisable,
+                color: context.currentTheme.textNeutralDisable,
               ),
             ),
             counterStyle: AppTextStyles.p3Regular.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+              color: context.currentTheme.textNeutralDisable,
             ),
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),
@@ -74,10 +74,10 @@ class _AddressTextFieldState extends State<AddressTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

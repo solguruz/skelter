@@ -9,8 +9,8 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
   const PhoneNumberTextField({
@@ -81,7 +81,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
           Text(
             context.localization.mobile_number,
             style: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralPrimary,
+              color: context.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 8),
@@ -90,22 +90,22 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             textFieldController: _phoneInputController,
             focusNode: _focusNode,
             textStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: context.currentTheme.textNeutralPrimary),
             selectorTextStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+                .copyWith(color: context.currentTheme.textNeutralPrimary),
             initialValue: phoneNumberData,
             inputDecoration: InputDecoration(
               hintText: context.localization.enter_phone_number,
               hintStyle: AppTextStyles.p3Medium
-                  .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+                  .copyWith(color: context.currentTheme.textNeutralDisable),
               errorStyle: AppTextStyles.p4Regular
-                  .copyWith(color: AppColors.currentTheme.textErrorSecondary),
+                  .copyWith(color: context.currentTheme.textErrorSecondary),
               border: buildOutlineInputBorder(hasFocus: hasFocus),
               enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
               focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
               errorBorder: buildOutlineInputBorder(isErrorBorder: true),
               filled: true,
-              fillColor: AppColors.currentTheme.bgSurfaceBase2,
+              fillColor: context.currentTheme.bgSurfaceBase2,
             ),
             searchBoxDecoration: _bottomSheatInputDecoration,
             validator: (_) {
@@ -138,10 +138,10 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }
@@ -154,7 +154,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
     return InputDecoration(
       hintText: context.localization.search_by_name_or_code,
       hintStyle: AppTextStyles.p3Medium
-          .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+          .copyWith(color: context.currentTheme.textNeutralDisable),
       border: buildOutlineInputBorder(),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       enabledBorder: buildOutlineInputBorder(),
@@ -164,7 +164,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         child: SvgPicture.asset(
           Assets.icons.searchOutline,
           colorFilter: ColorFilter.mode(
-            AppColors.currentTheme.strokeNeutralDisabled,
+            context.currentTheme.strokeNeutralDisabled,
             BlendMode.srcIn,
           ),
         ),

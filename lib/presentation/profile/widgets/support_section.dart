@@ -5,7 +5,7 @@ import 'package:skelter/presentation/profile/widgets/contact_us.dart';
 import 'package:skelter/presentation/profile/widgets/divider.dart';
 import 'package:skelter/presentation/profile/widgets/feedback_and_rating.dart';
 import 'package:skelter/presentation/profile/widgets/help_and_support.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SupportSection extends StatelessWidget {
   const SupportSection({super.key});
@@ -18,14 +18,14 @@ class SupportSection extends StatelessWidget {
         Text(
           context.localization.support,
           style: AppTextStyles.h6SemiBold.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 12.0),
         Container(
           decoration: BoxDecoration(
             border:
-                Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
+                Border.all(color: context.currentTheme.strokeNeutralLight200),
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: const Column(

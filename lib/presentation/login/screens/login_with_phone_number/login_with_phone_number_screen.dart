@@ -12,10 +12,10 @@ import 'package:skelter/presentation/login/screens/login_with_phone_number/widge
 import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/more_login_options_button.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/phone_number_text_field.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/send_otp_button.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {
@@ -44,7 +44,7 @@ class _LoginWithPhoneNumberScreenState
         localizations: appLocalizations,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        backgroundColor: context.currentTheme.bgSurfaceBase,
         body: _LoginWithPhoneNumberBody(
           isFromDeleteAccount: widget.isFromDeleteAccount,
         ),

@@ -9,6 +9,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
 import 'package:skelter/presentation/home/bloc/home_state.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
@@ -68,22 +69,22 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       child: TextField(
         controller: searchController,
         style: AppTextStyles.p3Medium.copyWith(
-          color: AppColors.currentTheme.textNeutralPrimary,
+          color: context.currentTheme.textNeutralPrimary,
         ),
         decoration: InputDecoration(
           hintText: context.localization.search,
           prefixIcon: Icon(
             TablerIcons.search,
-            color: AppColors.currentTheme.strokeNeutralDisabled,
+            color: context.currentTheme.strokeNeutralDisabled,
           ),
           filled: true,
-          fillColor: AppColors.currentTheme.bgSurfaceBase2,
+          fillColor: context.currentTheme.bgSurfaceBase2,
           suffixIcon: searchQuery.isEmpty
               ? AvatarGlow(
                   animate: isAnimatingListenIcon,
                   glowColor: isAnimatingListenIcon
-                      ? AppColors.currentTheme.strokeNeutralDisabled
-                      : AppColors.currentTheme.bgShadesWhite,
+                      ? context.currentTheme.strokeNeutralDisabled
+                      : context.currentTheme.bgShadesWhite,
                   child: IconButton(
                     onPressed: () => _onMicrophoneButtonPressed(
                       isAnimatingListenIcon: isAnimatingListenIcon,
@@ -94,7 +95,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                           : TablerIcons.microphone,
                       color: isAnimatingListenIcon
                           ? AppColors.red
-                          : AppColors.currentTheme.strokeNeutralDisabled,
+                          : context.currentTheme.strokeNeutralDisabled,
                     ),
                   ),
                 )
@@ -102,7 +103,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                   onPressed: () => searchController.clear(),
                   icon: Icon(
                     TablerIcons.x,
-                    color: AppColors.currentTheme.strokeNeutralDisabled,
+                    color: context.currentTheme.strokeNeutralDisabled,
                   ),
                 ),
           border: buildOutlineInputBorder(hasFocus: false),
@@ -123,10 +124,10 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

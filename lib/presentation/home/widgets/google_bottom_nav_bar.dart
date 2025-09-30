@@ -6,6 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class GoogleBottomNavBar extends StatelessWidget {
@@ -31,7 +32,7 @@ class GoogleBottomNavBar extends StatelessWidget {
       curve: Curves.easeOutExpo,
       duration: const Duration(milliseconds: 300),
       gap: 4,
-      color: AppColors.currentTheme.strokeNeutralDefault,
+      color: context.currentTheme.strokeNeutralDefault,
       activeColor: AppColors.brand500,
       iconSize: 24,
       tabBackgroundColor: AppColors.brand50,

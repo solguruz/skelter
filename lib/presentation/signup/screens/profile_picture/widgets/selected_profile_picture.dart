@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SelectedProfilePicture extends StatelessWidget {
@@ -21,7 +22,7 @@ class SelectedProfilePicture extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.strokeShadesWhite,
+              color: context.currentTheme.strokeShadesWhite,
               boxShadow: <BoxShadow>[
                 const BoxShadow(
                   color: AppColors.shadowColor,

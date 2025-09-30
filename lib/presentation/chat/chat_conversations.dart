@@ -4,7 +4,7 @@ import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/presentation/chat/widgets/chat_conversation_app_bar.dart';
 import 'package:skelter/presentation/chat/widgets/chat_message_list.dart';
 import 'package:skelter/presentation/chat/widgets/new_message_text_field.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class ChatConversationScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class ChatConversationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: ChatConversationAppBar(chatUser: chatUser),
       body: SafeArea(
         child: Column(

@@ -4,6 +4,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_alert_bottom_sheet.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
@@ -22,7 +23,7 @@ class DeleteAccountButton extends StatelessWidget {
     return AppButton(
       label: context.localization.delete_account,
       size: AppButtonSize.extraLarge,
-      backgroundColor: AppColors.currentTheme.bgErrorDefault,
+      backgroundColor: context.currentTheme.bgErrorDefault,
       foregroundColor: AppColors.shadesWhite,
       shouldSetFullWidth: true,
       isLoading: isLoading,

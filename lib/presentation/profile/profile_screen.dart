@@ -11,10 +11,10 @@ import 'package:skelter/presentation/profile/widgets/profile_details.dart';
 import 'package:skelter/presentation/profile/widgets/settings.dart';
 import 'package:skelter/presentation/profile/widgets/sign_out.dart';
 import 'package:skelter/presentation/profile/widgets/support_section.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -50,17 +50,17 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
         }
       },
       child: Scaffold(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        backgroundColor: context.currentTheme.bgSurfaceBase,
         appBar: AppBar(
           title: Text(
             'Profile',
             style: AppTextStyles.h6Bold.copyWith(
-              color: AppColors.currentTheme.textNeutralPrimary,
+              color: context.currentTheme.textNeutralPrimary,
             ),
           ),
-          backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+          backgroundColor: context.currentTheme.bgSurfaceBase,
           centerTitle: true,
-          foregroundColor: AppColors.currentTheme.strokeShadesBlack,
+          foregroundColor: context.currentTheme.strokeShadesBlack,
         ),
         body: const SingleChildScrollView(
           child: Padding(

@@ -4,7 +4,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class HeadingWelcomeWidget extends StatelessWidget {
   const HeadingWelcomeWidget({
@@ -31,7 +31,7 @@ class HeadingWelcomeWidget extends StatelessWidget {
               ? context.localization.signup_lets_get_started
               : context.localization.login_welcome_back,
           style: AppTextStyles.h2Bold.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
           textAlign: TextAlign.center,
         ),
@@ -40,7 +40,7 @@ class HeadingWelcomeWidget extends StatelessWidget {
               ? context.localization.signup_lets_get_started_info
               : context.localization.login_enter_your_registered_phone_number,
           style: AppTextStyles.p2Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralSecondary,
+            color: context.currentTheme.textNeutralSecondary,
           ),
           textAlign: TextAlign.center,
         ),

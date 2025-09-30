@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:skelter/main.dart';
 import 'package:skelter/presentation/chat/enum/message_type_enum.dart';
 import 'package:skelter/presentation/chat/model/chat_message_model.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/presentation/chat/widgets/message_types.dart';
 import 'package:skelter/presentation/chat/widgets/replied_to.dart';
 import 'package:skelter/presentation/chat/widgets/time_ago.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ChatConversationTile extends StatelessWidget {
@@ -36,7 +38,7 @@ class ChatConversationTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: message.isSentByMe
                     ? getBackgroundColor()
-                    : AppColors.currentTheme.bgBrandLight50,
+                    : context.currentTheme.bgBrandLight50,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(!message.isSentByMe ? 0 : 10),
                   bottomRight: const Radius.circular(10),
@@ -68,7 +70,8 @@ class ChatConversationTile extends StatelessWidget {
   Color getBackgroundColor() {
     switch (message.messageType) {
       case MessageType.text:
-        return AppColors.currentTheme.bgBrandHover;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandHover ??
+            AppColors.bgSurfaceBase2;
       case MessageType.image:
         return AppColors.redError500;
       case MessageType.audio:

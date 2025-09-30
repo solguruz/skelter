@@ -5,8 +5,8 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmailTextField extends StatefulWidget {
   const EmailTextField({super.key});
@@ -54,24 +54,24 @@ class _EmailTextFieldState extends State<EmailTextField> {
         Text(
           context.localization.email,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 16),
         TextField(
           controller: _emailController,
           style: AppTextStyles.p3Medium
-              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+              .copyWith(color: context.currentTheme.textNeutralPrimary),
           decoration: InputDecoration(
             hintText: context.localization.email_hint,
             hintStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: context.currentTheme.textNeutralDisable),
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             errorText:
                 emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
             errorStyle: AppTextStyles.p3Regular
-                .copyWith(color: AppColors.currentTheme.textErrorSecondary),
+                .copyWith(color: context.currentTheme.textErrorSecondary),
             border: buildOutlineInputBorder(),
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
@@ -96,10 +96,10 @@ class _EmailTextFieldState extends State<EmailTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

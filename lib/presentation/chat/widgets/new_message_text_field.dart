@@ -4,6 +4,7 @@ import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NewMessageTextField extends StatefulWidget {
@@ -30,23 +31,23 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           const SizedBox(width: 8),
           Icon(
             TablerIcons.plus,
-            color: AppColors.currentTheme.iconNeutralPressed,
+            color: context.currentTheme.iconNeutralPressed,
           ),
           const SizedBox(width: 16),
           Expanded(
             child: TextField(
               controller: _fullNameController,
               style: AppTextStyles.p3Medium
-                  .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+                  .copyWith(color: context.currentTheme.textNeutralPrimary),
               decoration: InputDecoration(
                 hintText: context.localization.send_a_new_message,
                 hintStyle: AppTextStyles.p3Medium.copyWith(
-                  color: AppColors.currentTheme.textNeutralDisable,
+                  color: context.currentTheme.textNeutralDisable,
                 ),
                 errorStyle: AppTextStyles.p3Regular,
                 errorMaxLines: 2,
                 counterText: '',
-                fillColor: AppColors.currentTheme.bgNeutralLight50,
+                fillColor: context.currentTheme.bgNeutralLight50,
                 filled: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -72,7 +73,7 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
           SvgPicture.asset(
             Assets.icons.send,
             colorFilter: ColorFilter.mode(
-              AppColors.currentTheme.bgBrandHover,
+              context.currentTheme.bgBrandHover,
               BlendMode.srcIn,
             ),
           ),

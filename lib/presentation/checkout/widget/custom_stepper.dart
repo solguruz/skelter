@@ -5,6 +5,7 @@ import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class CustomStepper extends StatelessWidget {
@@ -18,7 +19,7 @@ class CustomStepper extends StatelessWidget {
 
     return EasyStepper(
       activeStep: currentStepperIndex,
-      activeStepBackgroundColor: AppColors.currentTheme.bgBrandDefault,
+      activeStepBackgroundColor: context.currentTheme.bgBrandDefault,
       internalPadding: 0,
       borderThickness: 2,
       disableScroll: true,
@@ -29,17 +30,17 @@ class CustomStepper extends StatelessWidget {
       lineStyle: LineStyle(
         lineType: LineType.normal,
         lineThickness: 5,
-        unreachedLineColor: AppColors.currentTheme.bgBrandLight50,
-        activeLineColor: AppColors.currentTheme.bgBrandLight50,
-        finishedLineColor: AppColors.currentTheme.bgBrandDefault,
+        unreachedLineColor: context.currentTheme.bgBrandLight50,
+        activeLineColor: context.currentTheme.bgBrandLight50,
+        finishedLineColor: context.currentTheme.bgBrandDefault,
       ),
       stepRadius: 26,
-      unreachedStepBorderColor: AppColors.currentTheme.bgBrandHover,
-      unreachedStepBackgroundColor: AppColors.currentTheme.bgBrandLight50,
+      unreachedStepBorderColor: context.currentTheme.bgBrandHover,
+      unreachedStepBackgroundColor: context.currentTheme.bgBrandLight50,
       activeStepIconColor: AppColors.shadesWhite,
-      unreachedStepIconColor: AppColors.currentTheme.bgBrandDefault,
+      unreachedStepIconColor: context.currentTheme.bgBrandDefault,
       finishedStepIconColor: AppColors.shadesWhite,
-      finishedStepBackgroundColor: AppColors.currentTheme.bgBrandDefault,
+      finishedStepBackgroundColor: context.currentTheme.bgBrandDefault,
       showLoadingAnimation: false,
       steps: steps(context),
     );
@@ -53,7 +54,7 @@ class CustomStepper extends StatelessWidget {
           context.localization.cart,
           textAlign: TextAlign.center,
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -63,7 +64,7 @@ class CustomStepper extends StatelessWidget {
           context.localization.shipping,
           textAlign: TextAlign.center,
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -73,7 +74,7 @@ class CustomStepper extends StatelessWidget {
           context.localization.payment,
           textAlign: TextAlign.center,
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
       ),
@@ -83,7 +84,7 @@ class CustomStepper extends StatelessWidget {
           context.localization.order_review,
           textAlign: TextAlign.center,
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
           softWrap: false,
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SetDefaultAddress extends StatelessWidget {
   const SetDefaultAddress({super.key});
@@ -17,18 +17,18 @@ class SetDefaultAddress extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
           side: BorderSide(
-            color: AppColors.currentTheme.strokeNeutralLight200,
+            color: context.currentTheme.strokeNeutralLight200,
             width: 2,
           ),
           visualDensity: VisualDensity.compact,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          activeColor: AppColors.currentTheme.bgBrandDefault,
+          activeColor: context.currentTheme.bgBrandDefault,
         ),
         const SizedBox(width: 8),
         Text(
           context.localization.set_as_default_address,
           style: AppTextStyles.p2Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
       ],

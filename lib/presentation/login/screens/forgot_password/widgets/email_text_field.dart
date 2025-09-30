@@ -4,7 +4,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class EmailTextField extends StatefulWidget {
   const EmailTextField({super.key});
@@ -58,13 +58,13 @@ class _EmailTextFieldState extends State<EmailTextField> {
         Text(
           context.localization.email,
           style: AppTextStyles.p3Medium
-              .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+              .copyWith(color: context.currentTheme.textNeutralPrimary),
         ),
         const SizedBox(height: 8),
         TextField(
           controller: _emailController,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
             border: buildOutlineInputBorder(hasFocus: false),
@@ -72,7 +72,7 @@ class _EmailTextFieldState extends State<EmailTextField> {
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
             errorBorder: buildOutlineInputBorder(isErrorBorder: true),
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             errorText:
                 emailError != null && emailError.isNotEmpty ? emailError : null,
           ),
@@ -91,10 +91,10 @@ class _EmailTextFieldState extends State<EmailTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

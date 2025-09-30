@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class ProductCategoryChip extends StatelessWidget {
   final String category;
@@ -12,7 +12,7 @@ class ProductCategoryChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
-        color: AppColors.currentTheme.bgBrandLight50,
+        color: context.currentTheme.bgBrandLight50,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
@@ -20,7 +20,7 @@ class ProductCategoryChip extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.c1SemiBold.copyWith(
-          color: AppColors.currentTheme.textBrandSecondary,
+          color: context.currentTheme.textBrandSecondary,
         ),
       ),
     );

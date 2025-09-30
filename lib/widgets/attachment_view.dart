@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class NetworkImageScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class NetworkImageScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: AppColors.currentTheme.strokeShadesBlack,
+          color: context.currentTheme.strokeShadesBlack,
         ),
       ),
       body: Center(
@@ -28,7 +28,7 @@ class NetworkImageScreen extends StatelessWidget {
             errorWidget: (context, url, error) => Center(
               child: Icon(
                 Icons.error,
-                color: AppColors.currentTheme.strokeBrandPressed,
+                color: context.currentTheme.strokeBrandPressed,
               ),
             ),
             imageBuilder: (context, imageProvider) {

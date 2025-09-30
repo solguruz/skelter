@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/shimmer/shimmer_text.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationShimmerCard extends StatelessWidget {
   const NotificationShimmerCard({
@@ -14,9 +14,9 @@ class NotificationShimmerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: AppColors.currentTheme.bgNeutralLight200,
+      baseColor: context.currentTheme.bgNeutralLight200,
       enabled: showAnimation,
-      highlightColor: AppColors.currentTheme.bgNeutralHover,
+      highlightColor: context.currentTheme.bgNeutralHover,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
@@ -26,7 +26,7 @@ class NotificationShimmerCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              backgroundColor: AppColors.currentTheme.bgShadesWhite,
+              backgroundColor: context.currentTheme.bgShadesWhite,
               radius: 16.0,
             ),
             const SizedBox(

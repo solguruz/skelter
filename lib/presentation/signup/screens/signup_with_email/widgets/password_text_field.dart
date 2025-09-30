@@ -5,7 +5,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class PasswordTextField extends StatefulWidget {
   const PasswordTextField({super.key});
@@ -49,7 +49,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         Text(
           context.localization.password,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -57,15 +57,15 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           controller: _passwordController,
           obscureText: !isPasswordVisible,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
             hintText: context.localization.password_hint,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+              color: context.currentTheme.textNeutralDisable,
             ),
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
@@ -74,7 +74,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
               icon: Icon(
                 size: 22,
                 isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: AppColors.currentTheme.strokeNeutralDisabled,
+                color: context.currentTheme.strokeNeutralDisabled,
               ),
               onPressed: () {
                 context.read<SignupBloc>().add(
@@ -99,10 +99,10 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SettingsSectionDivider extends StatelessWidget {
   const SettingsSectionDivider({super.key});
@@ -8,7 +8,7 @@ class SettingsSectionDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       height: 1,
-      color: AppColors.currentTheme.strokeNeutralLight100,
+      color: context.currentTheme.strokeNeutralLight100,
       indent: 8.0,
       endIndent: 8.0,
     );

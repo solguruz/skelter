@@ -18,7 +18,6 @@ import 'package:skelter/services/theme_service.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -101,13 +100,10 @@ class _MainAppState extends State<MainApp> {
                 darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
                 themeMode: state.themeMode,
                 builder: (context, child) {
-                  final isDarkMode =
-                      Theme.of(context).brightness == Brightness.dark;
-                  AppColors.setDarkThemeMode(isDarkMode: isDarkMode);
-                  return SizedBox(
-                    key: GlobalKey(),
-                    child: child!,
-                  );
+                  // final isDarkMode =
+                  //     Theme.of(context).brightness == Brightness.dark;
+                  // AppColors.setDarkThemeMode(isDarkMode: isDarkMode);
+                  return child!;
                 },
               );
             },

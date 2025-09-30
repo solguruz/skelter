@@ -4,7 +4,7 @@ import 'package:skelter/presentation/notifications/bloc/notification_bloc.dart';
 import 'package:skelter/presentation/notifications/bloc/notification_event.dart';
 import 'package:skelter/presentation/notifications/model/notification_model.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_card.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class NotificationList extends StatelessWidget {
   const NotificationList({super.key});
@@ -22,7 +22,7 @@ class NotificationList extends StatelessWidget {
       },
       child: ListView.separated(
         separatorBuilder: (context, index) => Divider(
-          color: AppColors.currentTheme.strokeNeutralLight200,
+          color: context.currentTheme.strokeNeutralLight200,
         ),
         itemCount: notificationList.length,
         padding: const EdgeInsets.symmetric(vertical: 4.0),

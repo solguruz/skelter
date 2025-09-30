@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/app_environment.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductImage extends StatelessWidget {
   final String imageUrl;
@@ -32,18 +32,18 @@ class ProductImage extends StatelessWidget {
                 imageUrl: imageUrl,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: AppColors.currentTheme.bgNeutralLight100,
+                  baseColor: context.currentTheme.bgNeutralLight100,
                   highlightColor:
-                      AppColors.currentTheme.bgNeutralLight100.withOpacity(0.6),
+                      context.currentTheme.bgNeutralLight100.withOpacity(0.6),
                   child: ColoredBox(
-                    color: AppColors.currentTheme.bgNeutralLight100,
+                    color: context.currentTheme.bgNeutralLight100,
                   ),
                 ),
                 errorWidget: (context, url, error) => ColoredBox(
-                  color: AppColors.currentTheme.bgNeutralLight100,
+                  color: context.currentTheme.bgNeutralLight100,
                   child: Icon(
                     Icons.error_outline,
-                    color: AppColors.currentTheme.bgErrorHover,
+                    color: context.currentTheme.bgErrorHover,
                   ),
                 ),
               ),

@@ -9,8 +9,8 @@ import 'package:skelter/presentation/login/bloc/login_state.dart';
 import 'package:skelter/presentation/login/screens/phone_num_otp_screen/widgets/otp_input_field.dart';
 import 'package:skelter/presentation/login/screens/phone_num_otp_screen/widgets/otp_verification_button.dart';
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class PhoneNumberOTPScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
         }
       },
       child: Scaffold(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        backgroundColor: context.currentTheme.bgSurfaceBase,
         appBar: const LoginAppBar(removeLeading: false),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -93,7 +93,7 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
             context.localization.enter_otp,
             textAlign: TextAlign.center,
             style: AppTextStyles.h2Bold.copyWith(
-              color: AppColors.currentTheme.textNeutralPrimary,
+              color: context.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 10),
@@ -102,7 +102,7 @@ class _PhoneNumberOTPScreenBody extends StatelessWidget {
             '$phoneNumber',
             textAlign: TextAlign.center,
             style: AppTextStyles.p2Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralSecondary,
+              color: context.currentTheme.textNeutralSecondary,
             ),
           ),
           const SizedBox(height: 20),

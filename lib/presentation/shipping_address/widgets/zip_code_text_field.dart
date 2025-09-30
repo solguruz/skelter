@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class ZipCodeTextField extends StatefulWidget {
   const ZipCodeTextField({super.key});
@@ -26,7 +26,7 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
         Text(
           context.localization.zip_code,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -34,10 +34,10 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
           controller: _zipCodeTextController,
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             hintText: context.localization.enter_zip_code,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+              color: context.currentTheme.textNeutralDisable,
             ),
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),
@@ -63,10 +63,10 @@ class _ZipCodeTextFieldState extends State<ZipCodeTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
@@ -24,9 +25,9 @@ class ShippingAddress extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
+        border: Border.all(color: context.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
-        color: AppColors.currentTheme.bgSurfaceBase2,
+        color: context.currentTheme.bgSurfaceBase2,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +39,7 @@ class ShippingAddress extends StatelessWidget {
                 Text(
                   userName,
                   style: AppTextStyles.p2Medium.copyWith(
-                    color: AppColors.currentTheme.textNeutralPrimary,
+                    color: context.currentTheme.textNeutralPrimary,
                   ),
                   maxLines: 2,
                 ),
@@ -46,7 +47,7 @@ class ShippingAddress extends StatelessWidget {
                 Text(
                   address,
                   style: AppTextStyles.p3Regular.copyWith(
-                    color: AppColors.currentTheme.textNeutralSecondary,
+                    color: context.currentTheme.textNeutralSecondary,
                   ),
                 ),
               ],
@@ -56,9 +57,9 @@ class ShippingAddress extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.bgSurfaceBase2,
+              color: context.currentTheme.bgSurfaceBase2,
               border: Border.all(
-                color: AppColors.currentTheme.strokeNeutralLight200,
+                color: context.currentTheme.strokeNeutralLight200,
               ),
               boxShadow: [
                 BoxShadow(

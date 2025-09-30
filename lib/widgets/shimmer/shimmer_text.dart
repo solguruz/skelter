@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class ShimmerText extends StatelessWidget {
   const ShimmerText({super.key, required this.width, this.radius = 4});
@@ -13,7 +13,7 @@ class ShimmerText extends StatelessWidget {
       height: 16,
       width: width,
       decoration: BoxDecoration(
-        color: AppColors.currentTheme.bgShadesWhite,
+        color: context.currentTheme.bgShadesWhite,
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(radius),
           right: Radius.circular(radius),

@@ -5,11 +5,11 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/shipping_address/widgets/address_app_bar.dart';
 import 'package:skelter/presentation/shipping_address/widgets/address_tile.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class EditAddressScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class EditAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: const AddressAppBar(isAddingAddress: false),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -42,7 +42,7 @@ class EditAddressScreen extends StatelessWidget {
                   Text(
                     context.localization.deliver_to,
                     style: AppTextStyles.p2Bold.copyWith(
-                      color: AppColors.currentTheme.textNeutralPrimary,
+                      color: context.currentTheme.textNeutralPrimary,
                     ),
                   ),
                   const Spacer(flex: 2),
@@ -52,8 +52,7 @@ class EditAddressScreen extends StatelessWidget {
                       label: context.localization.add,
                       leftIcon: TablerIcons.plus,
                       isLeftIconAttachedToText: true,
-                      foregroundColor:
-                          AppColors.currentTheme.textBrandSecondary,
+                      foregroundColor: context.currentTheme.textBrandSecondary,
                       onPressed: () {
                         context.router.push(const AddAddressRoute());
                       },

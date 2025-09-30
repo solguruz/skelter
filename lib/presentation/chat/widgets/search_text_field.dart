@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SearchTextField extends StatefulWidget {
   const SearchTextField({super.key});
@@ -39,21 +39,21 @@ class _SearchTextFieldState extends State<SearchTextField> {
     return TextField(
       controller: _searchTextController,
       style: AppTextStyles.p3Medium
-          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: context.currentTheme.textNeutralPrimary),
       decoration: InputDecoration(
         hintText: context.localization.search,
         hintStyle: AppTextStyles.p3Medium.copyWith(
-          color: AppColors.currentTheme.textNeutralDisable,
+          color: context.currentTheme.textNeutralDisable,
         ),
         filled: true,
-        fillColor: AppColors.currentTheme.bgSurfaceBase2,
+        fillColor: context.currentTheme.bgSurfaceBase2,
         prefixIcon: Icon(
           TablerIcons.search,
-          color: AppColors.currentTheme.strokeNeutralDisabled,
+          color: context.currentTheme.strokeNeutralDisabled,
         ),
         suffixIcon: Icon(
           TablerIcons.microphone,
-          color: AppColors.currentTheme.strokeNeutralDisabled,
+          color: context.currentTheme.strokeNeutralDisabled,
         ),
         border: buildOutlineInputBorder(hasFocus: false),
         enabledBorder: buildOutlineInputBorder(hasFocus: false),
@@ -73,10 +73,10 @@ class _SearchTextFieldState extends State<SearchTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

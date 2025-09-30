@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
@@ -22,12 +23,12 @@ class AddressTile extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: isSelected
-            ? AppColors.currentTheme.bgBrandLight50
-            : AppColors.currentTheme.bgShadesWhite,
+            ? context.currentTheme.bgBrandLight50
+            : context.currentTheme.bgShadesWhite,
         border: Border.all(
           color: isDefault
-              ? AppColors.currentTheme.iconBrandHover
-              : AppColors.currentTheme.strokeNeutralLight200,
+              ? context.currentTheme.iconBrandHover
+              : context.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
@@ -44,7 +45,7 @@ class AddressTile extends StatelessWidget {
                       child: Text(
                         'Roz Cooper',
                         style: AppTextStyles.p2Medium.copyWith(
-                          color: AppColors.currentTheme.textNeutralPrimary,
+                          color: context.currentTheme.textNeutralPrimary,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -54,7 +55,7 @@ class AddressTile extends StatelessWidget {
                     if (isDefault)
                       AppButton(
                         label: 'Default',
-                        backgroundColor: AppColors.currentTheme.bgBrandDefault,
+                        backgroundColor: context.currentTheme.bgBrandDefault,
                         size: AppButtonSize.extraSmall,
                       ),
                   ],
@@ -63,7 +64,7 @@ class AddressTile extends StatelessWidget {
                 Text(
                   '2118 Thornridge Cir. Syracuse, Connecticut 35624 2118',
                   style: AppTextStyles.p3Regular.copyWith(
-                    color: AppColors.currentTheme.textNeutralSecondary,
+                    color: context.currentTheme.textNeutralSecondary,
                   ),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -75,7 +76,7 @@ class AddressTile extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.currentTheme.bgShadesWhite,
+              color: context.currentTheme.bgShadesWhite,
               boxShadow: [
                 BoxShadow(
                   color: AppColors.shadowColor2.withAlpha(15),
@@ -84,12 +85,12 @@ class AddressTile extends StatelessWidget {
                 ),
               ],
               border: Border.all(
-                color: AppColors.currentTheme.strokeNeutralLight200,
+                color: context.currentTheme.strokeNeutralLight200,
               ),
             ),
             child: AppButton.icon(
               iconData: TablerIcons.trash,
-              iconOrTextColorOverride: AppColors.currentTheme.iconNeutralHover,
+              iconOrTextColorOverride: context.currentTheme.iconNeutralHover,
               onPressed: () {
                 context.showSnackBar('Delete Address');
               },

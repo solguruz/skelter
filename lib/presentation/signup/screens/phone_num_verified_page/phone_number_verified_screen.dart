@@ -10,7 +10,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/presentation/signup/screens/phone_num_verified_page/widgets/next_button.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class PhoneNumberVerifiedScreen extends StatelessWidget {
@@ -21,7 +21,7 @@ class PhoneNumberVerifiedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       body: BlocProvider<LoginBloc>.value(
         value: loginBloc,
         child: const PhoneNumberVerifiedScreenBody(),
@@ -58,7 +58,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
             Text(
               context.localization.signup_phone_no_verified,
               style: AppTextStyles.h2Bold.copyWith(
-                color: AppColors.currentTheme.textNeutralPrimary,
+                color: context.currentTheme.textNeutralPrimary,
               ),
               textAlign: TextAlign.center,
             ),
@@ -68,7 +68,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
               child: Text(
                 context.localization.signup_phone_no_verified_info,
                 style: AppTextStyles.p2Medium.copyWith(
-                  color: AppColors.currentTheme.textNeutralSecondary,
+                  color: context.currentTheme.textNeutralSecondary,
                 ),
                 textAlign: TextAlign.center,
               ),

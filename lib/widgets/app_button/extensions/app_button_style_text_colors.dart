@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
@@ -23,9 +25,12 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.currentTheme.textNeutralWhite;
+        return rootNavigatorKey.currentContext?.currentTheme.textNeutralWhite ??
+            AppColors.white;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.textNeutralDisable;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textNeutralDisable ??
+            AppColors.white;
     }
   }
 
@@ -34,9 +39,13 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.currentTheme.textBrandSecondary;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textBrandSecondary ??
+            AppColors.brand700;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.textNeutralDisable;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textNeutralDisable ??
+            AppColors.neutral400;
     }
   }
 
@@ -45,9 +54,13 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.currentTheme.textNeutralPrimary;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textNeutralPrimary ??
+            AppColors.neutral900;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.textNeutralDisable;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textNeutralDisable ??
+            AppColors.neutral400;
     }
   }
 
@@ -56,9 +69,13 @@ extension AppButtonStyleTextColors on AppButtonStyle {
       case AppButtonState.normal:
       case AppButtonState.hovered:
       case AppButtonState.focused:
-        return AppColors.currentTheme.textBrandSecondary;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textBrandSecondary ??
+            AppColors.brand700;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.textNeutralDisable;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.textNeutralDisable ??
+            AppColors.neutral400;
     }
   }
 }

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:skelter/presentation/contact_us/widgets/back_to_home_button.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_icon.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_message.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class ContactUsSubmittedScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class ContactUsSubmittedScreen extends StatelessWidget {
         context.router.replaceAll([const HomeRoute()]);
       },
       child: Scaffold(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        backgroundColor: context.currentTheme.bgSurfaceBase,
         body: const ContactUsSubmittedBody(),
       ),
     );

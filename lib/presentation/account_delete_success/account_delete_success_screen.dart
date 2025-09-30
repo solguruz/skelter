@@ -7,8 +7,8 @@ import 'package:lottie/lottie.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class AccountDeleteSuccessScreen extends StatefulWidget {
@@ -83,14 +83,14 @@ class _AccountDeleteSuccessScreenState
                         TextSpan(
                           text: context.localization.creating_new_account,
                           style: AppTextStyles.p2Regular.copyWith(
-                            color: AppColors.currentTheme.textNeutralPrimary,
+                            color: context.currentTheme.textNeutralPrimary,
                           ),
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: context.localization.signup_sign_up,
                           style: AppTextStyles.p2SemiBold.copyWith(
-                            color: AppColors.currentTheme.textBrandSecondary,
+                            color: context.currentTheme.textBrandSecondary,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {

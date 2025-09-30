@@ -5,7 +5,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SelectPaymentMethodFromList extends StatelessWidget {
   const SelectPaymentMethodFromList({super.key});
@@ -41,8 +41,8 @@ class PaymentMethodOnline extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: isPaymentMethodOnline && currentStepperIndex != 3
-              ? AppColors.currentTheme.strokeBrandDisabled
-              : AppColors.currentTheme.strokeNeutralLight200,
+              ? context.currentTheme.strokeBrandDisabled
+              : context.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),
@@ -51,7 +51,7 @@ class PaymentMethodOnline extends StatelessWidget {
         title: Text(
           'Debit/Credit Card/Bank Transfer',
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         onTap: () => context.read<CheckoutBloc>().add(
@@ -79,8 +79,8 @@ class PaymentMethodCOD extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: !isPaymentMethodOnline && currentStepperIndex != 3
-              ? AppColors.currentTheme.strokeBrandDisabled
-              : AppColors.currentTheme.strokeNeutralLight200,
+              ? context.currentTheme.strokeBrandDisabled
+              : context.currentTheme.strokeNeutralLight200,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),
@@ -88,7 +88,7 @@ class PaymentMethodCOD extends StatelessWidget {
         title: Text(
           context.localization.cash_on_delivery,
           style: AppTextStyles.p3Regular.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         onTap: () => context.read<CheckoutBloc>().add(

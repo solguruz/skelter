@@ -5,7 +5,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -20,13 +20,13 @@ class BottomNavBar extends StatelessWidget {
       onTap: (value) => context.read<HomeBloc>().add(
             BottomNavBarIndexChangedEvent(index: value),
           ),
-      selectedItemColor: AppColors.currentTheme.iconBrandHover,
-      unselectedItemColor: AppColors.currentTheme.strokeNeutralDefault,
+      selectedItemColor: context.currentTheme.iconBrandHover,
+      unselectedItemColor: context.currentTheme.strokeNeutralDefault,
       showUnselectedLabels: true,
       selectedLabelStyle: AppTextStyles.p4Medium,
       unselectedLabelStyle: AppTextStyles.p4Medium,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       items: [
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.home),

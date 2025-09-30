@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class NotificationModel {
   final String id;
@@ -60,17 +61,20 @@ enum NotificationType {
     return switch (this) {
       NotificationType.shiftSchedule => Icon(
           TablerIcons.calendar_check,
-          color: AppColors.currentTheme.strokeShadesWhite,
+          color:
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       NotificationType.shiftFilled => Icon(
           TablerIcons.calendar_check,
-          color: AppColors.currentTheme.strokeShadesWhite,
+          color:
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       NotificationType.shiftCancel => Icon(
           TablerIcons.calendar_x,
-          color: AppColors.currentTheme.strokeShadesWhite,
+          color:
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
           size: 20,
         ),
       _ => null,
@@ -79,9 +83,12 @@ enum NotificationType {
 
   Color? get getBgColor {
     return switch (this) {
-      NotificationType.shiftSchedule => AppColors.currentTheme.iconBrandPressed,
-      NotificationType.shiftCancel => AppColors.currentTheme.bgErrorHover,
-      NotificationType.shiftFilled => AppColors.currentTheme.bgBrandDefault,
+      NotificationType.shiftSchedule =>
+        rootNavigatorKey.currentContext?.currentTheme.iconBrandPressed,
+      NotificationType.shiftCancel =>
+        rootNavigatorKey.currentContext?.currentTheme.bgErrorHover,
+      NotificationType.shiftFilled =>
+        rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault,
       _ => null
     };
   }

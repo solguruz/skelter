@@ -6,6 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
@@ -27,7 +28,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
           bottom: 16,
         ),
         decoration: BoxDecoration(
-          color: AppColors.currentTheme.bgSurfaceBase2,
+          color: context.currentTheme.bgSurfaceBase2,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Column(
@@ -45,7 +46,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                   height: 40,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: AppColors.currentTheme.bgErrorLight100,
+                    color: context.currentTheme.bgErrorLight100,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
@@ -60,7 +61,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
             Text(
               context.localization.delete_account_alert_title,
               style: AppTextStyles.h6SemiBold.copyWith(
-                color: AppColors.currentTheme.textNeutralPrimary,
+                color: context.currentTheme.textNeutralPrimary,
               ),
             ),
             const SizedBox(height: 10),
@@ -70,7 +71,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                 context.localization.delete_account_confirmation_message,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.p3Regular.copyWith(
-                  color: AppColors.currentTheme.textNeutralSecondary,
+                  color: context.currentTheme.textNeutralSecondary,
                 ),
               ),
             ),
@@ -107,7 +108,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                     label: context.localization.delete,
                     size: AppButtonSize.extraLarge,
                     foregroundColor: AppColors.shadesWhite,
-                    backgroundColor: AppColors.currentTheme.bgErrorDefault,
+                    backgroundColor: context.currentTheme.bgErrorDefault,
                   ),
                 ),
               ],

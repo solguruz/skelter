@@ -8,8 +8,8 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/model/product_cart.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/app_environment.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class CartOrderItem extends StatelessWidget {
   const CartOrderItem({
@@ -25,7 +25,7 @@ class CartOrderItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.currentTheme.strokeNeutralLight200),
+        border: Border.all(color: context.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -54,7 +54,7 @@ class CartOrderItem extends StatelessWidget {
                       child: Text(
                         cartModel.product.category,
                         style: AppTextStyles.p3Medium.copyWith(
-                          color: AppColors.currentTheme.textNeutralSecondary,
+                          color: context.currentTheme.textNeutralSecondary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -62,13 +62,13 @@ class CartOrderItem extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: AppColors.currentTheme.bgSurfaceBase2,
+                        color: context.currentTheme.bgSurfaceBase2,
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(8),
                       child: Icon(
                         TablerIcons.trash,
-                        color: AppColors.currentTheme.iconNeutralHover,
+                        color: context.currentTheme.iconNeutralHover,
                         size: 20,
                       ),
                     ),
@@ -78,7 +78,7 @@ class CartOrderItem extends StatelessWidget {
                 Text(
                   cartModel.product.title,
                   style: AppTextStyles.p2Medium.copyWith(
-                    color: AppColors.currentTheme.textNeutralPrimary,
+                    color: context.currentTheme.textNeutralPrimary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -91,7 +91,7 @@ class CartOrderItem extends StatelessWidget {
                   itemPadding: const EdgeInsets.symmetric(horizontal: 4),
                   itemBuilder: (context, _) => Icon(
                     TablerIcons.star_filled,
-                    color: AppColors.currentTheme.bgWarningHover,
+                    color: context.currentTheme.bgWarningHover,
                   ),
                   onRatingUpdate: (rating) {},
                 ),
@@ -101,27 +101,27 @@ class CartOrderItem extends StatelessWidget {
                     Text(
                       '\$${cartModel.product.price.toStringAsFixed(2)}',
                       style: AppTextStyles.p2SemiBold.copyWith(
-                        color: AppColors.currentTheme.textNeutralPrimary,
+                        color: context.currentTheme.textNeutralPrimary,
                       ),
                     ),
                     const Spacer(),
                     Icon(
                       TablerIcons.circle_minus,
                       color: cartModel.quantities > 1
-                          ? AppColors.currentTheme.textBrandSecondary
-                          : AppColors.currentTheme.bgBrandLight100,
+                          ? context.currentTheme.textBrandSecondary
+                          : context.currentTheme.bgBrandLight100,
                     ),
                     const SizedBox(width: 8),
                     Text(
                       cartModel.quantities.toString(),
                       style: AppTextStyles.p2SemiBold.copyWith(
-                        color: AppColors.currentTheme.textBrandSecondary,
+                        color: context.currentTheme.textBrandSecondary,
                       ),
                     ),
                     const SizedBox(width: 8),
                     Icon(
                       TablerIcons.circle_plus,
-                      color: AppColors.currentTheme.textBrandSecondary,
+                      color: context.currentTheme.textBrandSecondary,
                     ),
                   ],
                 ),
@@ -129,7 +129,7 @@ class CartOrderItem extends StatelessWidget {
                 Text(
                   cartModel.product.category,
                   style: AppTextStyles.p2Medium.copyWith(
-                    color: AppColors.currentTheme.textNeutralSecondary,
+                    color: context.currentTheme.textNeutralSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
@@ -140,7 +140,7 @@ class CartOrderItem extends StatelessWidget {
                     SvgPicture.asset(
                       Assets.icons.deliveryParcel,
                       colorFilter: ColorFilter.mode(
-                        AppColors.currentTheme.bgBrandDefault,
+                        context.currentTheme.bgBrandDefault,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -149,7 +149,7 @@ class CartOrderItem extends StatelessWidget {
                       child: Text(
                         '${context.localization.expected_delivery_by} ',
                         style: AppTextStyles.p3Medium.copyWith(
-                          color: AppColors.currentTheme.textNeutralPrimary,
+                          color: context.currentTheme.textNeutralPrimary,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -158,7 +158,7 @@ class CartOrderItem extends StatelessWidget {
                     Text(
                       cartModel.expectedDeliveryDate,
                       style: AppTextStyles.p3Medium.copyWith(
-                        color: AppColors.currentTheme.bgBrandDefault,
+                        color: context.currentTheme.bgBrandDefault,
                       ),
                       maxLines: 1,
                     ),

@@ -4,6 +4,7 @@ import 'package:skelter/presentation/home/widgets/product_category_chip.dart';
 import 'package:skelter/presentation/home/widgets/product_image.dart';
 import 'package:skelter/presentation/home/widgets/product_price_rating.dart';
 import 'package:skelter/presentation/home/widgets/product_title.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
@@ -18,7 +19,7 @@ class ProductCard extends StatelessWidget {
       onTap: () => context.showSnackBar('Show product details'),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.currentTheme.bgShadesWhite,
+          color: context.currentTheme.bgShadesWhite,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             const BoxShadow(

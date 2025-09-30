@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class CountryDropdown extends StatefulWidget {
   const CountryDropdown({super.key});
@@ -30,14 +30,14 @@ class _CountryDropdownState extends State<CountryDropdown> {
         Text(
           context.localization.country,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             hintText: context.localization.select_country,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
@@ -51,16 +51,16 @@ class _CountryDropdownState extends State<CountryDropdown> {
           hint: Text(
             context.localization.select_country,
             style: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: context.currentTheme.textNeutralDisable),
           ),
-          dropdownColor: AppColors.currentTheme.bgSurfaceBase2,
+          dropdownColor: context.currentTheme.bgSurfaceBase2,
           items: _countries.map((String country) {
             return DropdownMenuItem<String>(
               value: country,
               child: Text(
                 country,
                 style: AppTextStyles.p2Regular.copyWith(
-                  color: AppColors.currentTheme.textNeutralPrimary,
+                  color: context.currentTheme.textNeutralPrimary,
                 ),
               ),
             );
@@ -91,10 +91,10 @@ class _CountryDropdownState extends State<CountryDropdown> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

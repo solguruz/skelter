@@ -8,13 +8,13 @@ import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/enum/enum_login_type.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class MoreLoginOptionsButton extends StatelessWidget {
   const MoreLoginOptionsButton({
@@ -39,7 +39,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.mail,
             size: AppButtonSize.extraLarge,
-            backgroundColor: AppColors.currentTheme.bgSurfaceBase2,
+            backgroundColor: context.currentTheme.bgSurfaceBase2,
             onPressed: () {
               if (isSignup) {
                 context.pushRoute(const SignupWithEmailPasswordRoute());
@@ -63,7 +63,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             style: AppButtonStyle.outline,
             leftIconPath: Assets.icons.google.path,
             size: AppButtonSize.extraLarge,
-            backgroundColor: AppColors.currentTheme.bgSurfaceBase2,
+            backgroundColor: context.currentTheme.bgSurfaceBase2,
             onPressed: () async {
               final isConnected =
                   InternetConnectivityHelper().onConnectivityChange.value;
@@ -115,7 +115,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             size: AppButtonSize.extraLarge,
-            backgroundColor: AppColors.currentTheme.bgSurfaceBase2,
+            backgroundColor: context.currentTheme.bgSurfaceBase2,
             onPressed: () async {
               context
                   .read<LoginBloc>()

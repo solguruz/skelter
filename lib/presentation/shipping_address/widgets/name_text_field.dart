@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/string.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NameTextField extends StatefulWidget {
   const NameTextField({super.key});
@@ -29,7 +29,7 @@ class _NameTextFieldState extends State<NameTextField> {
         Text(
           context.localization.name,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
@@ -38,10 +38,10 @@ class _NameTextFieldState extends State<NameTextField> {
           decoration: InputDecoration(
             hintText: context.localization.enter_your_name,
             hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.currentTheme.textNeutralDisable,
+              color: context.currentTheme.textNeutralDisable,
             ),
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             errorText: fullNameErrorMessage.isNullOrEmpty()
                 ? null
                 : fullNameErrorMessage,
@@ -69,10 +69,10 @@ class _NameTextFieldState extends State<NameTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

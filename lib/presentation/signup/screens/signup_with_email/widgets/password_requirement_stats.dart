@@ -4,7 +4,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_indicators.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_indicator.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_status.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class PasswordRequirementStats extends StatelessWidget {
   const PasswordRequirementStats({
@@ -16,7 +16,7 @@ class PasswordRequirementStats extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.currentTheme.bgNeutralLight50,
+        color: context.currentTheme.bgNeutralLight50,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -25,7 +25,7 @@ class PasswordRequirementStats extends StatelessWidget {
           Text(
             context.localization.signup_password_requirements,
             style: AppTextStyles.p4Bold.copyWith(
-              color: AppColors.currentTheme.textNeutralPrimary,
+              color: context.currentTheme.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 5),

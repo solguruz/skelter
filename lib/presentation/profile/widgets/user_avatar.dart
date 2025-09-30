@@ -6,7 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class UserAvatar extends StatelessWidget {
   const UserAvatar({super.key});
@@ -41,7 +41,7 @@ class UserAvatar extends StatelessWidget {
                 vertical: 4.0,
               ),
               decoration: BoxDecoration(
-                color: AppColors.currentTheme.bgBrandLight50,
+                color: context.currentTheme.bgBrandLight50,
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Row(
@@ -50,14 +50,14 @@ class UserAvatar extends StatelessWidget {
                 children: [
                   Icon(
                     TablerIcons.star,
-                    color: AppColors.currentTheme.iconBrandHover,
+                    color: context.currentTheme.iconBrandHover,
                     size: 16,
                   ),
                   const SizedBox(width: 4.0),
                   Text(
                     context.localization.pro,
                     style: AppTextStyles.p4SemiBold.copyWith(
-                      color: AppColors.currentTheme.iconBrandHover,
+                      color: context.currentTheme.iconBrandHover,
                     ),
                   ),
                 ],

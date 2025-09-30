@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class NotificationAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -11,11 +11,11 @@ class NotificationAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       title: Text(
         context.localization.notifications,
         style: AppTextStyles.h6SemiBold
-            .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+            .copyWith(color: context.currentTheme.textNeutralPrimary),
       ),
       centerTitle: true,
       leading: IconButton(
@@ -24,7 +24,7 @@ class NotificationAppBar extends StatelessWidget
         },
         icon: Icon(
           Icons.adaptive.arrow_back,
-          color: AppColors.currentTheme.iconNeutralDefault,
+          color: context.currentTheme.iconNeutralDefault,
         ),
       ),
     );

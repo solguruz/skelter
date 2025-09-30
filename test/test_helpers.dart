@@ -7,7 +7,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 import 'flutter_test_config.dart';
@@ -27,7 +26,7 @@ extension WidgetTestHelper on WidgetTester {
     when(() => themeBloc.state).thenReturn(themeState);
 
     // Set the theme mode for AppColors
-    AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
+    // AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
 
     return pumpWidget(
       Sizer(
@@ -84,7 +83,8 @@ GoldenTestScenario createTestScenario({
         when(() => themeBloc.state).thenReturn(themeState);
 
         // Set the theme mode for AppColors
-        AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
+        // AppColors.setDarkThemeMode
+        // (isDarkMode: theme == AppThemeEnum.DarkTheme);
 
         return MultiBlocProvider(
           providers: [

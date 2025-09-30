@@ -3,9 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmptySavedCardView extends StatelessWidget {
   const EmptySavedCardView({super.key});
@@ -27,14 +27,14 @@ class EmptySavedCardView extends StatelessWidget {
             Text(
               context.localization.empty_cards_list_title,
               style: AppTextStyles.p1SemiBold.copyWith(
-                color: AppColors.currentTheme.textNeutralPrimary,
+                color: context.currentTheme.textNeutralPrimary,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               context.localization.empty_cards_list_message,
               style: AppTextStyles.p3Regular
-                  .copyWith(color: AppColors.currentTheme.textNeutralSecondary),
+                  .copyWith(color: context.currentTheme.textNeutralSecondary),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),

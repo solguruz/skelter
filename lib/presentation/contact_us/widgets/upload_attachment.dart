@@ -8,10 +8,10 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class UploadAttachment extends StatelessWidget {
   const UploadAttachment({super.key});
@@ -32,12 +32,12 @@ class UploadAttachment extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 32),
               decoration: BoxDecoration(
-                color: AppColors.currentTheme.bgSurfaceBase2,
+                color: context.currentTheme.bgSurfaceBase2,
                 borderRadius: BorderRadius.circular(12),
                 border: DashedBorder.fromBorderSide(
                   dashLength: 6,
                   side: BorderSide(
-                    color: AppColors.currentTheme.strokeNeutralDisabled,
+                    color: context.currentTheme.strokeNeutralDisabled,
                   ),
                 ),
               ),
@@ -46,20 +46,20 @@ class UploadAttachment extends StatelessWidget {
                 children: [
                   Icon(
                     TablerIcons.file_upload,
-                    color: AppColors.currentTheme.strokeNeutralHover,
+                    color: context.currentTheme.strokeNeutralHover,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     context.localization.choose_a_file,
                     style: AppTextStyles.p3Medium.copyWith(
-                      color: AppColors.currentTheme.textNeutralPrimary,
+                      color: context.currentTheme.textNeutralPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     context.localization.supported_format,
                     style: AppTextStyles.p4Regular.copyWith(
-                      color: AppColors.currentTheme.textNeutralPrimary,
+                      color: context.currentTheme.textNeutralPrimary,
                     ),
                   ),
                 ],
@@ -72,7 +72,7 @@ class UploadAttachment extends StatelessWidget {
 void _showImageSourceBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+    backgroundColor: context.currentTheme.bgSurfaceBase,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
@@ -90,7 +90,7 @@ void _showImageSourceBottomSheet(BuildContext context) {
                   onTap: () => context.router.maybePop(),
                   child: Icon(
                     TablerIcons.x,
-                    color: AppColors.currentTheme.iconNeutralHover,
+                    color: context.currentTheme.iconNeutralHover,
                   ),
                 ),
               ),

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LoginAppBar({
@@ -21,7 +21,7 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       leading: removeLeading
           ? const SizedBox.shrink()
           : AppButton.icon(
@@ -35,14 +35,14 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? AppButton.icon(
               appIcon: Assets.icons.icon.path,
               size: AppButtonSize.extraLarge,
-              iconOrTextColorOverride: AppColors.currentTheme.bgBrandDefault,
+              iconOrTextColorOverride: context.currentTheme.bgBrandDefault,
               onPressed: () {},
             )
           : null,
       actions: [if (rightAction != null) rightAction!],
       centerTitle: true,
       elevation: 0.01,
-      shadowColor: AppColors.currentTheme.strokeNeutralLight50,
+      shadowColor: context.currentTheme.strokeNeutralLight50,
     );
   }
 

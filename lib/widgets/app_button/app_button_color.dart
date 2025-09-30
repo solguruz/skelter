@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
@@ -6,26 +8,36 @@ class AppButtonColor {
   static Color resolvePrimaryBg(AppButtonState state) {
     switch (state) {
       case AppButtonState.normal:
-        return AppColors.currentTheme.bgBrandDefault;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault ??
+            AppColors.brand600;
       case AppButtonState.hovered:
-        return AppColors.currentTheme.bgBrandHover;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandHover ??
+            AppColors.brand500;
       case AppButtonState.focused:
-        return AppColors.currentTheme.bgBrandPressed;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandPressed ??
+            AppColors.brand700;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.bgNeutralDisabled;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.bgNeutralDisabled ??
+            AppColors.brand600;
     }
   }
 
   static Color resolveSecondaryBg(AppButtonState state) {
     switch (state) {
       case AppButtonState.normal:
-        return AppColors.currentTheme.bgBrandLight50;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandLight50 ??
+            AppColors.brand50;
       case AppButtonState.hovered:
-        return AppColors.currentTheme.bgBrandLight100;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandLight100 ??
+            AppColors.brand100;
       case AppButtonState.focused:
-        return AppColors.currentTheme.bgBrandLight200;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandLight200 ??
+            AppColors.brand200;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.bgNeutralDisabled;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.bgNeutralDisabled ??
+            AppColors.neutral100;
     }
   }
 
@@ -33,9 +45,13 @@ class AppButtonColor {
     switch (state) {
       case AppButtonState.normal:
       case AppButtonState.hovered:
-        return AppColors.currentTheme.strokeNeutralLight200;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.strokeNeutralLight200 ??
+            AppColors.neutral200;
       case AppButtonState.focused:
-        return AppColors.currentTheme.strokeNeutralDisabled;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.strokeNeutralDisabled ??
+            AppColors.neutral400;
       case AppButtonState.disabled:
         return Colors.transparent;
     }
@@ -45,11 +61,15 @@ class AppButtonColor {
     switch (state) {
       case AppButtonState.normal:
       case AppButtonState.focused:
-        return AppColors.currentTheme.bgShadesWhite;
+        return rootNavigatorKey.currentContext?.currentTheme.bgShadesWhite ??
+            AppColors.shadesWhite;
       case AppButtonState.hovered:
-        return AppColors.currentTheme.bgShadesWhite;
+        return rootNavigatorKey.currentContext?.currentTheme.bgShadesWhite ??
+            AppColors.shadesWhite;
       case AppButtonState.disabled:
-        return AppColors.currentTheme.bgNeutralDisabled;
+        return rootNavigatorKey
+                .currentContext?.currentTheme.bgNeutralDisabled ??
+            AppColors.brand600;
     }
   }
 }

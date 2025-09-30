@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skelter/main.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button_icon.dart';
 import 'package:skelter/widgets/app_button/app_button_label.dart';
 import 'package:skelter/widgets/app_button/app_button_loader.dart';
@@ -86,8 +88,8 @@ class AppButton extends StatelessWidget {
       isIconButton: true,
       iconPath: appIcon,
       onPressed: onPressed,
-      foregroundColor:
-          iconOrTextColorOverride ?? AppColors.currentTheme.iconNeutralDefault,
+      foregroundColor: iconOrTextColorOverride ??
+          rootNavigatorKey.currentContext?.currentTheme.iconNeutralDefault,
       isAppBarAction: isAppBarAction,
       appBarActionRightPadding: appBarActionRightPadding,
     );
@@ -237,8 +239,8 @@ class AppButton extends StatelessWidget {
       style: style,
       size: size,
       state: state,
-      foregroundColor:
-          foregroundColor ?? AppColors.currentTheme.textNeutralPrimary,
+      foregroundColor: foregroundColor ??
+          rootNavigatorKey.currentContext?.currentTheme.textNeutralPrimary,
       isLoading: isLoading,
     );
   }

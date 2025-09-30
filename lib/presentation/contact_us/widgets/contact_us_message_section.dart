@@ -5,9 +5,9 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/string.dart';
 import 'package:skelter/validators/validators.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ContactUsMessageSection extends StatefulWidget {
   const ContactUsMessageSection({super.key});
@@ -61,28 +61,28 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
         Text(
           context.localization.message,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 6),
         TextFormField(
           controller: _messageController,
           style: AppTextStyles.p3Medium.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.currentTheme.bgSurfaceBase2,
+            fillColor: context.currentTheme.bgSurfaceBase2,
             hintText: context.localization.message_description,
             hintStyle: AppTextStyles.p3Regular
-                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: context.currentTheme.textNeutralDisable),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
             counterText:
                 '${description.length}/${ContactUsScreen.kMessageMaxLength}',
             counterStyle: AppTextStyles.p4Regular
-                .copyWith(color: AppColors.currentTheme.textNeutralDisable),
+                .copyWith(color: context.currentTheme.textNeutralDisable),
             border: buildOutlineInputBorder(hasFocus: false),
             enabledBorder: buildOutlineInputBorder(hasFocus: false),
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
@@ -109,10 +109,10 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

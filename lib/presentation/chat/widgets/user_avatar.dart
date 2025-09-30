@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class UserAvatar extends StatelessWidget {
   const UserAvatar({
@@ -34,10 +34,10 @@ class UserAvatar extends StatelessWidget {
             right: 1,
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.currentTheme.bgSuccessDefault,
+                color: context.currentTheme.bgSuccessDefault,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: AppColors.currentTheme.strokeShadesWhite,
+                  color: context.currentTheme.strokeShadesWhite,
                 ),
               ),
               padding: const EdgeInsets.all(6),

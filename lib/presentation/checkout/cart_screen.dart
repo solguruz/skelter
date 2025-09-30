@@ -3,7 +3,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/widget/cart_item_lists.dart';
 import 'package:skelter/presentation/checkout/widget/order_summary.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({
@@ -18,7 +18,7 @@ class CartScreen extends StatelessWidget {
         Text(
           context.localization.cart_items,
           style: AppTextStyles.p2Bold.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 16),

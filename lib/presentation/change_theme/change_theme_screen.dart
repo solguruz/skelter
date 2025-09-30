@@ -7,9 +7,9 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/change_theme/extension/name_extension.dart';
 import 'package:skelter/presentation/change_theme/widgets/theme_list_options.dart';
 import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class ChangeThemeScreen extends StatefulWidget {
@@ -23,9 +23,9 @@ class _ChangeThemeScreenState extends State<ChangeThemeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: AppBar(
-        backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+        backgroundColor: context.currentTheme.bgSurfaceBase,
         centerTitle: true,
         leading: AppButton.icon(
           iconData: TablerIcons.arrow_left,
@@ -35,7 +35,7 @@ class _ChangeThemeScreenState extends State<ChangeThemeScreen> {
         title: Text(
           context.localization.choose_app_theme,
           style: AppTextStyles.h6SemiBold.copyWith(
-            color: AppColors.currentTheme.textNeutralPrimary,
+            color: context.currentTheme.textNeutralPrimary,
           ),
         ),
       ),

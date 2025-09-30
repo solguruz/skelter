@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class DeleteAccountOptionsItems extends StatelessWidget {
@@ -29,12 +30,12 @@ class DeleteAccountOptionsItems extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: isSelected
-                    ? AppColors.currentTheme.bgBrandDefault
-                    : AppColors.currentTheme.bgSurfaceBase2,
+                    ? context.currentTheme.bgBrandDefault
+                    : context.currentTheme.bgSurfaceBase2,
                 border: isSelected
                     ? null
                     : Border.all(
-                        color: AppColors.currentTheme.strokeNeutralLight200,
+                        color: context.currentTheme.strokeNeutralLight200,
                         width: 1.5,
                       ),
               ),
@@ -56,7 +57,7 @@ class DeleteAccountOptionsItems extends StatelessWidget {
               child: Text(
                 reason,
                 style: AppTextStyles.p2Medium
-                    .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+                    .copyWith(color: context.currentTheme.textNeutralPrimary),
               ),
             ),
           ],

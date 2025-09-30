@@ -9,7 +9,7 @@ import 'package:skelter/presentation/home/widgets/bottom_nav_bar.dart';
 import 'package:skelter/presentation/home/widgets/home_screen_body.dart';
 import 'package:skelter/presentation/profile/profile_screen.dart';
 import 'package:skelter/presentation/search/search_screen.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -42,7 +42,7 @@ class _HomeScreenWrapperState extends State<HomeScreenWrapper> {
       // To switch to GoogleNavBar, replace BottomNavBar with GoogleBottomNavBar
       // below.
       // bottomNavigationBar: const GoogleBottomNavBar(),
-      backgroundColor: AppColors.currentTheme.bgSurfaceBase,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: IndexedStack(

@@ -6,7 +6,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class OtherReasonTextField extends StatefulWidget {
   const OtherReasonTextField({super.key});
@@ -62,7 +62,7 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
       controller: _otherReasonController,
       maxLines: 3,
       style: AppTextStyles.p2Regular
-          .copyWith(color: AppColors.currentTheme.textNeutralPrimary),
+          .copyWith(color: context.currentTheme.textNeutralPrimary),
       decoration: InputDecoration(
         hintText: context.localization.specify_reason,
         border: buildOutlineInputBorder(hasFocus: false),
@@ -81,10 +81,10 @@ class _OtherReasonTextFieldState extends State<OtherReasonTextField> {
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
-            ? AppColors.currentTheme.strokeErrorDefault
+            ? context.currentTheme.strokeErrorDefault
             : hasFocus ?? false
-                ? AppColors.currentTheme.strokeBrandHover
-                : AppColors.currentTheme.strokeNeutralLight200,
+                ? context.currentTheme.strokeBrandHover
+                : context.currentTheme.strokeNeutralLight200,
       ),
     );
   }

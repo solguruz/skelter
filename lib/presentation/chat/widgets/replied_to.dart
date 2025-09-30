@@ -3,7 +3,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/chat/model/chat_message_model.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class RepliedTo extends StatelessWidget {
   const RepliedTo({
@@ -19,7 +19,7 @@ class RepliedTo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.currentTheme.bgShadesWhite,
+        color: context.currentTheme.bgShadesWhite,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -49,14 +49,14 @@ class RepliedTo extends StatelessWidget {
                       ? context.localization.you
                       : '${chatUser?.name}',
                   style: AppTextStyles.p4Medium
-                      .copyWith(color: AppColors.currentTheme.bgBrandHover),
+                      .copyWith(color: context.currentTheme.bgBrandHover),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 Text(
                   repliedToMessage?.message ?? '',
                   style: AppTextStyles.p3Regular.copyWith(
-                    color: AppColors.currentTheme.textNeutralPrimary,
+                    color: context.currentTheme.textNeutralPrimary,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
