@@ -7,3 +7,5 @@ const String kProviderGoogle = 'google.com';
 const String kProviderPhone = 'phone';
 const String kProviderPassword = 'password';
 const String kEmailScope = 'email';
+
+

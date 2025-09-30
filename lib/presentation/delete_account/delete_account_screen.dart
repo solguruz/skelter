@@ -5,7 +5,7 @@ import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/constants/delete_account_constants.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_appbar.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_button.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_divider.dart';

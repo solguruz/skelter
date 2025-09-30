@@ -1,6 +1,6 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:skelter/presentation/force_update/feature/force_update_constants.dart';
+import 'package:skelter/presentation/force_update/constants/force_update_constants.dart';
 
 class RemoteConfigService {
   static RemoteConfigService? _instance;

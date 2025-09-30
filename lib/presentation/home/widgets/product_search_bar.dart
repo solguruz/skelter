@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
 import 'package:skelter/presentation/home/bloc/home_state.dart';
+import 'package:skelter/presentation/home/constants/analytics_constant.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
@@ -115,8 +117,12 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       );
       return;
     }
-    isAnimatingListenIcon
-        ? context.read<HomeBloc>().add(const StopSpeechToTextEvent())
-        : context.read<HomeBloc>().add(const StartSpeechToTextEvent());
+    if (isAnimatingListenIcon) {
+      context.read<HomeBloc>().add(const StopSpeechToTextEvent());
+      Clarity.sendCustomEvent(kClarityCustomEventSpeechToTextStopped);
+    } else {
+      context.read<HomeBloc>().add(const StartSpeechToTextEvent());
+      Clarity.sendCustomEvent(kClarityCustomEventSpeechToTextStarted);
+    }
   }
 }

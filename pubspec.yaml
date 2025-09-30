@@ -66,6 +66,7 @@ dependencies:
   dio_cache_interceptor: ^4.0.3
   http_cache_file_store: ^2.0.1
   google_nav_bar: ^5.0.7
+  clarity_flutter: ^1.4.0
 
 dev_dependencies:
   flutter_test:

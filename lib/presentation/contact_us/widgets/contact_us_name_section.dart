@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
@@ -55,15 +56,17 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        TextField(
-          controller: _nameController,
-          decoration: InputDecoration(
-            hintText: context.localization.enter_your_name,
-            hintStyle: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
-            errorText: nameError.isNullOrEmpty() ? null : nameError,
+        ClarityMask(
+          child: TextField(
+            controller: _nameController,
+            decoration: InputDecoration(
+              hintText: context.localization.enter_your_name,
+              hintStyle: AppTextStyles.p2Medium
+                  .copyWith(color: AppColors.textNeutralDisable),
+              errorText: nameError.isNullOrEmpty() ? null : nameError,
+            ),
+            textInputAction: TextInputAction.next,
           ),
-          textInputAction: TextInputAction.next,
         ),
       ],
     );

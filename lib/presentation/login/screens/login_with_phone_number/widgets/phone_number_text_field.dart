@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,42 +84,44 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             style: AppTextStyles.p3Medium,
           ),
           const SizedBox(height: 8),
-          InternationalPhoneNumberInput(
-            key: keys.signInPage.mobileNoTextField,
-            textFieldController: _phoneInputController,
-            focusNode: _focusNode,
-            textStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.textNeutralPrimary),
-            selectorTextStyle: const TextStyle(fontWeight: FontWeight.w500),
-            initialValue: phoneNumberData,
-            inputDecoration: InputDecoration(
-              hintText: context.localization.enter_phone_number,
-              hintStyle: AppTextStyles.p3Medium
-                  .copyWith(color: AppColors.textNeutralDisable),
-              errorStyle: AppTextStyles.p4Regular
-                  .copyWith(color: AppColors.textErrorSecondary),
-              border: buildOutlineInputBorder(hasFocus: hasFocus),
-              enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-              focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+          ClarityMask(
+            child: InternationalPhoneNumberInput(
+              key: keys.signInPage.mobileNoTextField,
+              textFieldController: _phoneInputController,
+              focusNode: _focusNode,
+              textStyle: AppTextStyles.p3Medium
+                  .copyWith(color: AppColors.textNeutralPrimary),
+              selectorTextStyle: const TextStyle(fontWeight: FontWeight.w500),
+              initialValue: phoneNumberData,
+              inputDecoration: InputDecoration(
+                hintText: context.localization.enter_phone_number,
+                hintStyle: AppTextStyles.p3Medium
+                    .copyWith(color: AppColors.textNeutralDisable),
+                errorStyle: AppTextStyles.p4Regular
+                    .copyWith(color: AppColors.textErrorSecondary),
+                border: buildOutlineInputBorder(hasFocus: hasFocus),
+                enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              ),
+              searchBoxDecoration: _bottomSheatInputDecoration,
+              validator: (_) {
+                return phoneNumError;
+              },
+              onInputChanged: (PhoneNumber number) =>
+                  _updatePhoneNumberEvent(number),
+              ignoreBlank: true,
+              hintText: null,
+              selectorConfig: const SelectorConfig(
+                leadingPadding: 12,
+                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                trailingSpace: false,
+                useEmoji: true,
+                setSelectorButtonAsPrefixIcon: true,
+                useBottomSheetSafeArea: true,
+              ),
+              autoValidateMode: AutovalidateMode.always,
             ),
-            searchBoxDecoration: _bottomSheatInputDecoration,
-            validator: (_) {
-              return phoneNumError;
-            },
-            onInputChanged: (PhoneNumber number) =>
-                _updatePhoneNumberEvent(number),
-            ignoreBlank: true,
-            hintText: null,
-            selectorConfig: const SelectorConfig(
-              leadingPadding: 12,
-              selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-              trailingSpace: false,
-              useEmoji: true,
-              setSelectorButtonAsPrefixIcon: true,
-              useBottomSheetSafeArea: true,
-            ),
-            autoValidateMode: AutovalidateMode.always,
           ),
         ],
       ),
