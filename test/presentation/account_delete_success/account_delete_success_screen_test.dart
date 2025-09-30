@@ -9,7 +9,7 @@ import '../../test_helpers.dart';
 void main() {
   group('AccountDeleteSuccessScreen Golden Tests', () {
     goldenTest(
-      'AccountDeleteSuccessScreen - Default UI',
+      'AccountDeleteSuccessScreen UI',
       fileName: 'account_delete_success_screen',
       pumpBeforeTest: precacheImages,
       builder: () {
@@ -17,7 +17,7 @@ void main() {
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
             createTestScenario(
-              name: 'Default AccountDeleteSuccessScreen',
+              name: 'AccountDeleteSuccessScreen',
               child: const AccountDeleteSuccessScreen(),
               addScaffold: true,
             ),

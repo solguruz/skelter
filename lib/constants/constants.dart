@@ -23,3 +23,9 @@ const String kHereAnimationPrefix = 'fullscreen_image_0';
 // Contact us constants
 final kEmailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
 final kAllowedFileExtensions = ['pdf'];
+
+// Network/SSL pinning constants
+const String kConnectionIsNotSecureError = 'Connection is not secure';
+
+// Cache Api Response
+const String kApiCache = 'api_cache';

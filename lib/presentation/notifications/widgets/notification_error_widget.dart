@@ -21,7 +21,7 @@ class NotificationErrorWidget extends StatelessWidget {
           ),
           Text(
             msg.isEmpty ? context.localization.opps_something_went_wrong : msg,
-            style: AppTextStyles.p2Medium.withColor(AppColors.errorColor),
+            style: AppTextStyles.p2Medium.copyWith(color: AppColors.errorColor),
           ),
         ],
       ),

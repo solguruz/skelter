@@ -3,7 +3,7 @@ import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/constants/delete_account_constants.dart';
 import 'package:skelter/services/firebase_auth_services.dart';
 
 class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
@@ -61,7 +61,8 @@ class DeleteAccountBloc extends Bloc<DeleteAccountEvent, DeleteAccountState> {
         final providerList =
             user?.providerData.map((p) => p.providerId).toList() ?? [];
 
-        if (error == kFirebaseAuthRequiresRecentLogin) {
+        if (error == kFirebaseAuthRequiresRecentLogin ||
+            error == kEmailPasswordReAuthRequired) {
           if (providerList.contains(kProviderPassword)) {
             emit(
               state.copyWith(

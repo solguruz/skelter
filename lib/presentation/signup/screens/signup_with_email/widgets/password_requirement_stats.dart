@@ -24,8 +24,8 @@ class PasswordRequirementStats extends StatelessWidget {
         children: [
           Text(
             context.localization.signup_password_requirements,
-            style: AppTextStyles.p4Bold.withColor(
-              AppColors.textNeutralPrimary,
+            style: AppTextStyles.p4Bold.copyWith(
+              color: AppColors.textNeutralPrimary,
             ),
           ),
           const SizedBox(height: 5),

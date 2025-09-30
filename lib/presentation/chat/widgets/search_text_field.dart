@@ -40,8 +40,8 @@ class _SearchTextFieldState extends State<SearchTextField> {
       controller: _searchTextController,
       decoration: InputDecoration(
         hintText: context.localization.search,
-        hintStyle: AppTextStyles.p3Medium.withColor(
-          AppColors.textNeutralDisable,
+        hintStyle: AppTextStyles.p3Medium.copyWith(
+          color: AppColors.textNeutralDisable,
         ),
         prefixIcon: const Icon(
           TablerIcons.search,

@@ -24,14 +24,14 @@ class SignUpButton extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          style:
-              AppTextStyles.p2Medium.withColor(AppColors.textNeutralSecondary),
+          style: AppTextStyles.p2Medium
+              .copyWith(color: AppColors.textNeutralSecondary),
           children: [
             TextSpan(text: context.localization.signup_no_account),
             TextSpan(
               text: context.localization.signup_sign_up,
-              style:
-                  AppTextStyles.p2Bold.withColor(AppColors.textBrandSecondary),
+              style: AppTextStyles.p2Bold
+                  .copyWith(color: AppColors.textBrandSecondary),
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
                   context

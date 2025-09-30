@@ -43,7 +43,7 @@ class ApplyCoupon extends StatelessWidget {
             child: Text(
               context.localization.coupon_message(couponCount),
               style: AppTextStyles.p3SemiBold
-                  .withColor(AppColors.textBrandPrimary),
+                  .copyWith(color: AppColors.textBrandPrimary),
             ),
           ),
         ),

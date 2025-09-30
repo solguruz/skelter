@@ -205,10 +205,3 @@ class AppTextStyles {
     height: 1.5,
   );
 }
-
-extension AppTextStyleExtension on TextStyle {
-  TextStyle withColor(Color color) => copyWith(color: color);
-
-  TextStyle withDecoration(TextDecoration decoration) =>
-      copyWith(decoration: decoration);
-}

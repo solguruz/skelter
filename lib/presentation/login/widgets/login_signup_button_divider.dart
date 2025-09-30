@@ -28,7 +28,7 @@ class LoginSignUpButtonDivider extends StatelessWidget {
           Text(
             context.localization.or,
             style: AppTextStyles.p2Regular
-                .withColor(AppColors.textNeutralSecondary),
+                .copyWith(color: AppColors.textNeutralSecondary),
           ),
           const SizedBox(width: 20),
           Expanded(

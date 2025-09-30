@@ -43,8 +43,8 @@ class _CountryDropdownState extends State<CountryDropdown> {
           icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
             context.localization.select_country,
-            style:
-                AppTextStyles.p2Medium.withColor(AppColors.textNeutralDisable),
+            style: AppTextStyles.p2Medium
+                .copyWith(color: AppColors.textNeutralDisable),
           ),
           items: _countries.map((String country) {
             return DropdownMenuItem<String>(

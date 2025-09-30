@@ -24,8 +24,8 @@ class AppThemesData {
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.white,
         elevation: 0,
-        titleTextStyle: AppTextStyles.h6SemiBold.withColor(
-          AppColors.textNeutralPrimary,
+        titleTextStyle: AppTextStyles.h6SemiBold.copyWith(
+          color: AppColors.textNeutralPrimary,
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
@@ -46,8 +46,8 @@ class AppThemesData {
       ),
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleBright,
-        hintStyle: AppTextStyles.p3Medium.withColor(
-          AppColors.textNeutralDisable,
+        hintStyle: AppTextStyles.p3Medium.copyWith(
+          color: AppColors.textNeutralDisable,
         ),
         isDense: true,
         enabledBorder: OutlineInputBorder(
@@ -93,8 +93,8 @@ class AppThemesData {
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: InputDecorations.labelStyleDark,
         hintStyle: InputDecorations.hintStyleDark,
-        errorStyle:
-            AppTextStyles.p4Regular.withColor(AppColors.textErrorSecondary),
+        errorStyle: AppTextStyles.p4Regular
+            .copyWith(color: AppColors.textErrorSecondary),
         isDense: true,
       ),
       fontFamily: FontFamily.inter,

@@ -9,13 +9,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i33;
-import 'package:flutter/material.dart' as _i34;
+import 'package:auto_route/auto_route.dart' as _i34;
+import 'package:flutter/material.dart' as _i35;
 import 'package:skelter/presentation/account_delete_success/account_delete_success_screen.dart'
     as _i1;
 import 'package:skelter/presentation/chat/chat_conversations.dart' as _i5;
 import 'package:skelter/presentation/chat/chat_screen.dart' as _i6;
-import 'package:skelter/presentation/chat/model/chat_model.dart' as _i36;
+import 'package:skelter/presentation/chat/model/chat_model.dart' as _i37;
 import 'package:skelter/presentation/contact_us/contact_us_screen.dart' as _i8;
 import 'package:skelter/presentation/contact_us/contact_us_submitted_screen.dart'
     as _i9;
@@ -28,7 +28,7 @@ import 'package:skelter/presentation/force_update/force_update_screen.dart'
     as _i14;
 import 'package:skelter/presentation/home/home_screen.dart' as _i16;
 import 'package:skelter/presentation/initial/initial_screen.dart' as _i17;
-import 'package:skelter/presentation/login/bloc/login_bloc.dart' as _i35;
+import 'package:skelter/presentation/login/bloc/login_bloc.dart' as _i36;
 import 'package:skelter/presentation/login/screens/check_your_email/check_your_email_screen.dart'
     as _i7;
 import 'package:skelter/presentation/login/screens/forgot_password/forgot_password_screen.dart'
@@ -52,7 +52,7 @@ import 'package:skelter/presentation/settings/settings_screen.dart' as _i28;
 import 'package:skelter/presentation/shipping_address/add_address.dart' as _i2;
 import 'package:skelter/presentation/shipping_address/edit_address.dart'
     as _i12;
-import 'package:skelter/presentation/signup/bloc/signup_bloc.dart' as _i37;
+import 'package:skelter/presentation/signup/bloc/signup_bloc.dart' as _i38;
 import 'package:skelter/presentation/signup/screens/phone_num_verified_page/phone_number_verified_screen.dart'
     as _i25;
 import 'package:skelter/presentation/signup/screens/profile_picture/add_profile_picture_screen.dart'
@@ -61,22 +61,24 @@ import 'package:skelter/presentation/signup/screens/signup_with_email/create_you
     as _i10;
 import 'package:skelter/presentation/signup/screens/signup_with_email/signup_with_email_password_screen.dart'
     as _i29;
-import 'package:skelter/presentation/under_maintainace/under_maintenance_screen.dart'
+import 'package:skelter/presentation/ssl_pinning/ssl_connection_failed_screen.dart'
     as _i30;
-import 'package:skelter/presentation/verify_email/screens/verify_email_screen.dart'
+import 'package:skelter/presentation/under_maintainace/under_maintenance_screen.dart'
     as _i31;
-import 'package:skelter/presentation/wishlist/wishlist_screen.dart' as _i32;
+import 'package:skelter/presentation/verify_email/screens/verify_email_screen.dart'
+    as _i32;
+import 'package:skelter/presentation/wishlist/wishlist_screen.dart' as _i33;
 import 'package:skelter/widgets/attachment_view.dart' as _i21;
 
 /// generated route for
 /// [_i1.AccountDeleteSuccessScreen]
-class AccountDeleteSuccessRoute extends _i33.PageRouteInfo<void> {
-  const AccountDeleteSuccessRoute({List<_i33.PageRouteInfo>? children})
+class AccountDeleteSuccessRoute extends _i34.PageRouteInfo<void> {
+  const AccountDeleteSuccessRoute({List<_i34.PageRouteInfo>? children})
       : super(AccountDeleteSuccessRoute.name, initialChildren: children);
 
   static const String name = 'AccountDeleteSuccessRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i1.AccountDeleteSuccessScreen();
@@ -86,13 +88,13 @@ class AccountDeleteSuccessRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AddAddressScreen]
-class AddAddressRoute extends _i33.PageRouteInfo<void> {
-  const AddAddressRoute({List<_i33.PageRouteInfo>? children})
+class AddAddressRoute extends _i34.PageRouteInfo<void> {
+  const AddAddressRoute({List<_i34.PageRouteInfo>? children})
       : super(AddAddressRoute.name, initialChildren: children);
 
   static const String name = 'AddAddressRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i2.AddAddressScreen();
@@ -103,11 +105,11 @@ class AddAddressRoute extends _i33.PageRouteInfo<void> {
 /// generated route for
 /// [_i3.AddProfilePictureScreen]
 class AddProfilePictureRoute
-    extends _i33.PageRouteInfo<AddProfilePictureRouteArgs> {
+    extends _i34.PageRouteInfo<AddProfilePictureRouteArgs> {
   AddProfilePictureRoute({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           AddProfilePictureRoute.name,
           args: AddProfilePictureRouteArgs(key: key, loginBloc: loginBloc),
@@ -116,7 +118,7 @@ class AddProfilePictureRoute
 
   static const String name = 'AddProfilePictureRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<AddProfilePictureRouteArgs>();
@@ -131,9 +133,9 @@ class AddProfilePictureRoute
 class AddProfilePictureRouteArgs {
   const AddProfilePictureRouteArgs({this.key, required this.loginBloc});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -153,13 +155,13 @@ class AddProfilePictureRouteArgs {
 
 /// generated route for
 /// [_i4.AvailableCouponsScreen]
-class AvailableCouponsRoute extends _i33.PageRouteInfo<void> {
-  const AvailableCouponsRoute({List<_i33.PageRouteInfo>? children})
+class AvailableCouponsRoute extends _i34.PageRouteInfo<void> {
+  const AvailableCouponsRoute({List<_i34.PageRouteInfo>? children})
       : super(AvailableCouponsRoute.name, initialChildren: children);
 
   static const String name = 'AvailableCouponsRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i4.AvailableCouponsScreen();
@@ -170,11 +172,11 @@ class AvailableCouponsRoute extends _i33.PageRouteInfo<void> {
 /// generated route for
 /// [_i5.ChatConversationScreen]
 class ChatConversationRoute
-    extends _i33.PageRouteInfo<ChatConversationRouteArgs> {
+    extends _i34.PageRouteInfo<ChatConversationRouteArgs> {
   ChatConversationRoute({
-    _i34.Key? key,
-    required _i36.ChatModel chatUser,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i37.ChatModel chatUser,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           ChatConversationRoute.name,
           args: ChatConversationRouteArgs(key: key, chatUser: chatUser),
@@ -183,7 +185,7 @@ class ChatConversationRoute
 
   static const String name = 'ChatConversationRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<ChatConversationRouteArgs>();
@@ -195,9 +197,9 @@ class ChatConversationRoute
 class ChatConversationRouteArgs {
   const ChatConversationRouteArgs({this.key, required this.chatUser});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i36.ChatModel chatUser;
+  final _i37.ChatModel chatUser;
 
   @override
   String toString() {
@@ -217,13 +219,13 @@ class ChatConversationRouteArgs {
 
 /// generated route for
 /// [_i6.ChatScreen]
-class ChatRoute extends _i33.PageRouteInfo<void> {
-  const ChatRoute({List<_i33.PageRouteInfo>? children})
+class ChatRoute extends _i34.PageRouteInfo<void> {
+  const ChatRoute({List<_i34.PageRouteInfo>? children})
       : super(ChatRoute.name, initialChildren: children);
 
   static const String name = 'ChatRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i6.ChatScreen();
@@ -233,11 +235,11 @@ class ChatRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.CheckYourEmailScreen]
-class CheckYourEmailRoute extends _i33.PageRouteInfo<CheckYourEmailRouteArgs> {
+class CheckYourEmailRoute extends _i34.PageRouteInfo<CheckYourEmailRouteArgs> {
   CheckYourEmailRoute({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           CheckYourEmailRoute.name,
           args: CheckYourEmailRouteArgs(key: key, loginBloc: loginBloc),
@@ -246,7 +248,7 @@ class CheckYourEmailRoute extends _i33.PageRouteInfo<CheckYourEmailRouteArgs> {
 
   static const String name = 'CheckYourEmailRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CheckYourEmailRouteArgs>();
@@ -258,9 +260,9 @@ class CheckYourEmailRoute extends _i33.PageRouteInfo<CheckYourEmailRouteArgs> {
 class CheckYourEmailRouteArgs {
   const CheckYourEmailRouteArgs({this.key, required this.loginBloc});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -280,13 +282,13 @@ class CheckYourEmailRouteArgs {
 
 /// generated route for
 /// [_i8.ContactUsScreen]
-class ContactUsRoute extends _i33.PageRouteInfo<void> {
-  const ContactUsRoute({List<_i33.PageRouteInfo>? children})
+class ContactUsRoute extends _i34.PageRouteInfo<void> {
+  const ContactUsRoute({List<_i34.PageRouteInfo>? children})
       : super(ContactUsRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i8.ContactUsScreen();
@@ -296,13 +298,13 @@ class ContactUsRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.ContactUsSubmittedScreen]
-class ContactUsSubmittedRoute extends _i33.PageRouteInfo<void> {
-  const ContactUsSubmittedRoute({List<_i33.PageRouteInfo>? children})
+class ContactUsSubmittedRoute extends _i34.PageRouteInfo<void> {
+  const ContactUsSubmittedRoute({List<_i34.PageRouteInfo>? children})
       : super(ContactUsSubmittedRoute.name, initialChildren: children);
 
   static const String name = 'ContactUsSubmittedRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i9.ContactUsSubmittedScreen();
@@ -313,11 +315,11 @@ class ContactUsSubmittedRoute extends _i33.PageRouteInfo<void> {
 /// generated route for
 /// [_i10.CreateYourPasswordScreen]
 class CreateYourPasswordRoute
-    extends _i33.PageRouteInfo<CreateYourPasswordRouteArgs> {
+    extends _i34.PageRouteInfo<CreateYourPasswordRouteArgs> {
   CreateYourPasswordRoute({
-    _i34.Key? key,
-    required _i37.SignupBloc signupBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i38.SignupBloc signupBloc,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           CreateYourPasswordRoute.name,
           args: CreateYourPasswordRouteArgs(key: key, signupBloc: signupBloc),
@@ -326,7 +328,7 @@ class CreateYourPasswordRoute
 
   static const String name = 'CreateYourPasswordRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CreateYourPasswordRouteArgs>();
@@ -341,9 +343,9 @@ class CreateYourPasswordRoute
 class CreateYourPasswordRouteArgs {
   const CreateYourPasswordRouteArgs({this.key, required this.signupBloc});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i37.SignupBloc signupBloc;
+  final _i38.SignupBloc signupBloc;
 
   @override
   String toString() {
@@ -363,13 +365,13 @@ class CreateYourPasswordRouteArgs {
 
 /// generated route for
 /// [_i11.DeleteAccountScreen]
-class DeleteAccountRoute extends _i33.PageRouteInfo<void> {
-  const DeleteAccountRoute({List<_i33.PageRouteInfo>? children})
+class DeleteAccountRoute extends _i34.PageRouteInfo<void> {
+  const DeleteAccountRoute({List<_i34.PageRouteInfo>? children})
       : super(DeleteAccountRoute.name, initialChildren: children);
 
   static const String name = 'DeleteAccountRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i11.DeleteAccountScreen();
@@ -379,13 +381,13 @@ class DeleteAccountRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.EditAddressScreen]
-class EditAddressRoute extends _i33.PageRouteInfo<void> {
-  const EditAddressRoute({List<_i33.PageRouteInfo>? children})
+class EditAddressRoute extends _i34.PageRouteInfo<void> {
+  const EditAddressRoute({List<_i34.PageRouteInfo>? children})
       : super(EditAddressRoute.name, initialChildren: children);
 
   static const String name = 'EditAddressRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i12.EditAddressScreen();
@@ -395,13 +397,13 @@ class EditAddressRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.EmptyViewsScreen]
-class EmptyViewsRoute extends _i33.PageRouteInfo<void> {
-  const EmptyViewsRoute({List<_i33.PageRouteInfo>? children})
+class EmptyViewsRoute extends _i34.PageRouteInfo<void> {
+  const EmptyViewsRoute({List<_i34.PageRouteInfo>? children})
       : super(EmptyViewsRoute.name, initialChildren: children);
 
   static const String name = 'EmptyViewsRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i13.EmptyViewsScreen();
@@ -411,11 +413,11 @@ class EmptyViewsRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.ForceUpdateScreen]
-class ForceUpdateRoute extends _i33.PageRouteInfo<ForceUpdateRouteArgs> {
+class ForceUpdateRoute extends _i34.PageRouteInfo<ForceUpdateRouteArgs> {
   ForceUpdateRoute({
-    _i34.Key? key,
+    _i35.Key? key,
     required bool isMandatoryUpdate,
-    List<_i33.PageRouteInfo>? children,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           ForceUpdateRoute.name,
           args: ForceUpdateRouteArgs(
@@ -427,7 +429,7 @@ class ForceUpdateRoute extends _i33.PageRouteInfo<ForceUpdateRouteArgs> {
 
   static const String name = 'ForceUpdateRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<ForceUpdateRouteArgs>();
@@ -442,7 +444,7 @@ class ForceUpdateRoute extends _i33.PageRouteInfo<ForceUpdateRouteArgs> {
 class ForceUpdateRouteArgs {
   const ForceUpdateRouteArgs({this.key, required this.isMandatoryUpdate});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final bool isMandatoryUpdate;
 
@@ -465,11 +467,11 @@ class ForceUpdateRouteArgs {
 /// generated route for
 /// [_i15.ForgotPasswordV2Screen]
 class ForgotPasswordV2Route
-    extends _i33.PageRouteInfo<ForgotPasswordV2RouteArgs> {
+    extends _i34.PageRouteInfo<ForgotPasswordV2RouteArgs> {
   ForgotPasswordV2Route({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           ForgotPasswordV2Route.name,
           args: ForgotPasswordV2RouteArgs(key: key, loginBloc: loginBloc),
@@ -478,7 +480,7 @@ class ForgotPasswordV2Route
 
   static const String name = 'ForgotPasswordV2Route';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<ForgotPasswordV2RouteArgs>();
@@ -493,9 +495,9 @@ class ForgotPasswordV2Route
 class ForgotPasswordV2RouteArgs {
   const ForgotPasswordV2RouteArgs({this.key, required this.loginBloc});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -515,13 +517,13 @@ class ForgotPasswordV2RouteArgs {
 
 /// generated route for
 /// [_i16.HomeScreen]
-class HomeRoute extends _i33.PageRouteInfo<void> {
-  const HomeRoute({List<_i33.PageRouteInfo>? children})
+class HomeRoute extends _i34.PageRouteInfo<void> {
+  const HomeRoute({List<_i34.PageRouteInfo>? children})
       : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i16.HomeScreen();
@@ -531,13 +533,13 @@ class HomeRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i17.InitialScreen]
-class InitialRoute extends _i33.PageRouteInfo<void> {
-  const InitialRoute({List<_i33.PageRouteInfo>? children})
+class InitialRoute extends _i34.PageRouteInfo<void> {
+  const InitialRoute({List<_i34.PageRouteInfo>? children})
       : super(InitialRoute.name, initialChildren: children);
 
   static const String name = 'InitialRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i17.InitialScreen();
@@ -548,62 +550,77 @@ class InitialRoute extends _i33.PageRouteInfo<void> {
 /// generated route for
 /// [_i18.LoginWithEmailPasswordScreen]
 class LoginWithEmailPasswordRoute
-    extends _i33.PageRouteInfo<LoginWithEmailPasswordRouteArgs> {
+    extends _i34.PageRouteInfo<LoginWithEmailPasswordRouteArgs> {
   LoginWithEmailPasswordRoute({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
+    bool isFromDeleteAccount = false,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           LoginWithEmailPasswordRoute.name,
-          args: LoginWithEmailPasswordRouteArgs(key: key, loginBloc: loginBloc),
+          args: LoginWithEmailPasswordRouteArgs(
+            key: key,
+            loginBloc: loginBloc,
+            isFromDeleteAccount: isFromDeleteAccount,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'LoginWithEmailPasswordRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<LoginWithEmailPasswordRouteArgs>();
       return _i18.LoginWithEmailPasswordScreen(
         key: args.key,
         loginBloc: args.loginBloc,
+        isFromDeleteAccount: args.isFromDeleteAccount,
       );
     },
   );
 }
 
 class LoginWithEmailPasswordRouteArgs {
-  const LoginWithEmailPasswordRouteArgs({this.key, required this.loginBloc});
+  const LoginWithEmailPasswordRouteArgs({
+    this.key,
+    required this.loginBloc,
+    this.isFromDeleteAccount = false,
+  });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
+
+  final bool isFromDeleteAccount;
 
   @override
   String toString() {
-    return 'LoginWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc}';
+    return 'LoginWithEmailPasswordRouteArgs{key: $key, loginBloc: $loginBloc, isFromDeleteAccount: $isFromDeleteAccount}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! LoginWithEmailPasswordRouteArgs) return false;
-    return key == other.key && loginBloc == other.loginBloc;
+    return key == other.key &&
+        loginBloc == other.loginBloc &&
+        isFromDeleteAccount == other.isFromDeleteAccount;
   }
 
   @override
-  int get hashCode => key.hashCode ^ loginBloc.hashCode;
+  int get hashCode =>
+      key.hashCode ^ loginBloc.hashCode ^ isFromDeleteAccount.hashCode;
 }
 
 /// generated route for
 /// [_i19.LoginWithPhoneNumberScreen]
 class LoginWithPhoneNumberRoute
-    extends _i33.PageRouteInfo<LoginWithPhoneNumberRouteArgs> {
+    extends _i34.PageRouteInfo<LoginWithPhoneNumberRouteArgs> {
   LoginWithPhoneNumberRoute({
-    _i34.Key? key,
+    _i35.Key? key,
     bool isFromDeleteAccount = false,
-    List<_i33.PageRouteInfo>? children,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           LoginWithPhoneNumberRoute.name,
           args: LoginWithPhoneNumberRouteArgs(
@@ -615,7 +632,7 @@ class LoginWithPhoneNumberRoute
 
   static const String name = 'LoginWithPhoneNumberRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<LoginWithPhoneNumberRouteArgs>(
@@ -635,7 +652,7 @@ class LoginWithPhoneNumberRouteArgs {
     this.isFromDeleteAccount = false,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final bool isFromDeleteAccount;
 
@@ -657,13 +674,13 @@ class LoginWithPhoneNumberRouteArgs {
 
 /// generated route for
 /// [_i20.MyOrdersScreen]
-class MyOrdersRoute extends _i33.PageRouteInfo<void> {
-  const MyOrdersRoute({List<_i33.PageRouteInfo>? children})
+class MyOrdersRoute extends _i34.PageRouteInfo<void> {
+  const MyOrdersRoute({List<_i34.PageRouteInfo>? children})
       : super(MyOrdersRoute.name, initialChildren: children);
 
   static const String name = 'MyOrdersRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i20.MyOrdersScreen();
@@ -673,11 +690,11 @@ class MyOrdersRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i21.NetworkImageScreen]
-class NetworkImageRoute extends _i33.PageRouteInfo<NetworkImageRouteArgs> {
+class NetworkImageRoute extends _i34.PageRouteInfo<NetworkImageRouteArgs> {
   NetworkImageRoute({
-    _i34.Key? key,
+    _i35.Key? key,
     required String link,
-    List<_i33.PageRouteInfo>? children,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           NetworkImageRoute.name,
           args: NetworkImageRouteArgs(key: key, link: link),
@@ -686,7 +703,7 @@ class NetworkImageRoute extends _i33.PageRouteInfo<NetworkImageRouteArgs> {
 
   static const String name = 'NetworkImageRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<NetworkImageRouteArgs>();
@@ -698,7 +715,7 @@ class NetworkImageRoute extends _i33.PageRouteInfo<NetworkImageRouteArgs> {
 class NetworkImageRouteArgs {
   const NetworkImageRouteArgs({this.key, required this.link});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String link;
 
@@ -720,13 +737,13 @@ class NetworkImageRouteArgs {
 
 /// generated route for
 /// [_i22.NoInternetScreen]
-class NoInternetRoute extends _i33.PageRouteInfo<void> {
-  const NoInternetRoute({List<_i33.PageRouteInfo>? children})
+class NoInternetRoute extends _i34.PageRouteInfo<void> {
+  const NoInternetRoute({List<_i34.PageRouteInfo>? children})
       : super(NoInternetRoute.name, initialChildren: children);
 
   static const String name = 'NoInternetRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i22.NoInternetScreen();
@@ -736,13 +753,13 @@ class NoInternetRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i23.NotificationsScreen]
-class NotificationsRoute extends _i33.PageRouteInfo<void> {
-  const NotificationsRoute({List<_i33.PageRouteInfo>? children})
+class NotificationsRoute extends _i34.PageRouteInfo<void> {
+  const NotificationsRoute({List<_i34.PageRouteInfo>? children})
       : super(NotificationsRoute.name, initialChildren: children);
 
   static const String name = 'NotificationsRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i23.NotificationsScreen();
@@ -752,12 +769,12 @@ class NotificationsRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i24.PhoneNumberOTPScreen]
-class PhoneNumberOTPRoute extends _i33.PageRouteInfo<PhoneNumberOTPRouteArgs> {
+class PhoneNumberOTPRoute extends _i34.PageRouteInfo<PhoneNumberOTPRouteArgs> {
   PhoneNumberOTPRoute({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
     bool isFromDeleteAccount = false,
-    List<_i33.PageRouteInfo>? children,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           PhoneNumberOTPRoute.name,
           args: PhoneNumberOTPRouteArgs(
@@ -770,7 +787,7 @@ class PhoneNumberOTPRoute extends _i33.PageRouteInfo<PhoneNumberOTPRouteArgs> {
 
   static const String name = 'PhoneNumberOTPRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberOTPRouteArgs>();
@@ -790,9 +807,9 @@ class PhoneNumberOTPRouteArgs {
     this.isFromDeleteAccount = false,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
 
   final bool isFromDeleteAccount;
 
@@ -818,11 +835,11 @@ class PhoneNumberOTPRouteArgs {
 /// generated route for
 /// [_i25.PhoneNumberVerifiedScreen]
 class PhoneNumberVerifiedRoute
-    extends _i33.PageRouteInfo<PhoneNumberVerifiedRouteArgs> {
+    extends _i34.PageRouteInfo<PhoneNumberVerifiedRouteArgs> {
   PhoneNumberVerifiedRoute({
-    _i34.Key? key,
-    required _i35.LoginBloc loginBloc,
-    List<_i33.PageRouteInfo>? children,
+    _i35.Key? key,
+    required _i36.LoginBloc loginBloc,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           PhoneNumberVerifiedRoute.name,
           args: PhoneNumberVerifiedRouteArgs(key: key, loginBloc: loginBloc),
@@ -831,7 +848,7 @@ class PhoneNumberVerifiedRoute
 
   static const String name = 'PhoneNumberVerifiedRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PhoneNumberVerifiedRouteArgs>();
@@ -846,9 +863,9 @@ class PhoneNumberVerifiedRoute
 class PhoneNumberVerifiedRouteArgs {
   const PhoneNumberVerifiedRouteArgs({this.key, required this.loginBloc});
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
-  final _i35.LoginBloc loginBloc;
+  final _i36.LoginBloc loginBloc;
 
   @override
   String toString() {
@@ -868,13 +885,13 @@ class PhoneNumberVerifiedRouteArgs {
 
 /// generated route for
 /// [_i26.SavedCardScreen]
-class SavedCardRoute extends _i33.PageRouteInfo<void> {
-  const SavedCardRoute({List<_i33.PageRouteInfo>? children})
+class SavedCardRoute extends _i34.PageRouteInfo<void> {
+  const SavedCardRoute({List<_i34.PageRouteInfo>? children})
       : super(SavedCardRoute.name, initialChildren: children);
 
   static const String name = 'SavedCardRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i26.SavedCardScreen();
@@ -884,13 +901,13 @@ class SavedCardRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i27.ServerErrorScreen]
-class ServerErrorRoute extends _i33.PageRouteInfo<void> {
-  const ServerErrorRoute({List<_i33.PageRouteInfo>? children})
+class ServerErrorRoute extends _i34.PageRouteInfo<void> {
+  const ServerErrorRoute({List<_i34.PageRouteInfo>? children})
       : super(ServerErrorRoute.name, initialChildren: children);
 
   static const String name = 'ServerErrorRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i27.ServerErrorScreen();
@@ -900,13 +917,13 @@ class ServerErrorRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i28.SettingsScreen]
-class SettingsRoute extends _i33.PageRouteInfo<void> {
-  const SettingsRoute({List<_i33.PageRouteInfo>? children})
+class SettingsRoute extends _i34.PageRouteInfo<void> {
+  const SettingsRoute({List<_i34.PageRouteInfo>? children})
       : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i28.SettingsScreen();
@@ -916,13 +933,13 @@ class SettingsRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i29.SignupWithEmailPasswordScreen]
-class SignupWithEmailPasswordRoute extends _i33.PageRouteInfo<void> {
-  const SignupWithEmailPasswordRoute({List<_i33.PageRouteInfo>? children})
+class SignupWithEmailPasswordRoute extends _i34.PageRouteInfo<void> {
+  const SignupWithEmailPasswordRoute({List<_i34.PageRouteInfo>? children})
       : super(SignupWithEmailPasswordRoute.name, initialChildren: children);
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       return const _i29.SignupWithEmailPasswordScreen();
@@ -931,29 +948,45 @@ class SignupWithEmailPasswordRoute extends _i33.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i30.UnderMaintenanceScreen]
-class UnderMaintenanceRoute extends _i33.PageRouteInfo<void> {
-  const UnderMaintenanceRoute({List<_i33.PageRouteInfo>? children})
-      : super(UnderMaintenanceRoute.name, initialChildren: children);
+/// [_i30.SslConnectionFailedScreen]
+class SslConnectionFailedRoute extends _i34.PageRouteInfo<void> {
+  const SslConnectionFailedRoute({List<_i34.PageRouteInfo>? children})
+      : super(SslConnectionFailedRoute.name, initialChildren: children);
 
-  static const String name = 'UnderMaintenanceRoute';
+  static const String name = 'SslConnectionFailedRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
-      return const _i30.UnderMaintenanceScreen();
+      return const _i30.SslConnectionFailedScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i31.VerifyEmailScreen]
-class VerifyEmailRoute extends _i33.PageRouteInfo<VerifyEmailRouteArgs> {
+/// [_i31.UnderMaintenanceScreen]
+class UnderMaintenanceRoute extends _i34.PageRouteInfo<void> {
+  const UnderMaintenanceRoute({List<_i34.PageRouteInfo>? children})
+      : super(UnderMaintenanceRoute.name, initialChildren: children);
+
+  static const String name = 'UnderMaintenanceRoute';
+
+  static _i34.PageInfo page = _i34.PageInfo(
+    name,
+    builder: (data) {
+      return const _i31.UnderMaintenanceScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i32.VerifyEmailScreen]
+class VerifyEmailRoute extends _i34.PageRouteInfo<VerifyEmailRouteArgs> {
   VerifyEmailRoute({
-    _i34.Key? key,
+    _i35.Key? key,
     required String email,
     bool isSignUp = false,
-    List<_i33.PageRouteInfo>? children,
+    List<_i34.PageRouteInfo>? children,
   }) : super(
           VerifyEmailRoute.name,
           args:
@@ -963,11 +996,11 @@ class VerifyEmailRoute extends _i33.PageRouteInfo<VerifyEmailRouteArgs> {
 
   static const String name = 'VerifyEmailRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<VerifyEmailRouteArgs>();
-      return _i31.VerifyEmailScreen(
+      return _i32.VerifyEmailScreen(
         key: args.key,
         email: args.email,
         isSignUp: args.isSignUp,
@@ -983,7 +1016,7 @@ class VerifyEmailRouteArgs {
     this.isSignUp = false,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String email;
 
@@ -1008,17 +1041,17 @@ class VerifyEmailRouteArgs {
 }
 
 /// generated route for
-/// [_i32.WishlistScreen]
-class WishlistRoute extends _i33.PageRouteInfo<void> {
-  const WishlistRoute({List<_i33.PageRouteInfo>? children})
+/// [_i33.WishlistScreen]
+class WishlistRoute extends _i34.PageRouteInfo<void> {
+  const WishlistRoute({List<_i34.PageRouteInfo>? children})
       : super(WishlistRoute.name, initialChildren: children);
 
   static const String name = 'WishlistRoute';
 
-  static _i33.PageInfo page = _i33.PageInfo(
+  static _i34.PageInfo page = _i34.PageInfo(
     name,
     builder: (data) {
-      return const _i32.WishlistScreen();
+      return const _i33.WishlistScreen();
     },
   );
 }

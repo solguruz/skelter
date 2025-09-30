@@ -94,3 +94,10 @@ class MicrophoneVoiceInputtedState extends HomeState {
           ),
         );
 }
+
+class ProductLoadingState extends HomeState {
+  ProductLoadingState(HomeState state)
+      : super.copy(
+          state.copyWith(),
+        );
+}

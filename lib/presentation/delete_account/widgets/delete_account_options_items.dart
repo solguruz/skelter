@@ -56,7 +56,7 @@ class DeleteAccountOptionsItems extends StatelessWidget {
               child: Text(
                 reason,
                 style: AppTextStyles.p2Medium
-                    .withColor(AppColors.textNeutralPrimary),
+                    .copyWith(color: AppColors.textNeutralPrimary),
               ),
             ),
           ],

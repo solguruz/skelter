@@ -43,7 +43,7 @@ class MessageDetails extends StatelessWidget {
             child: Text(
               min(unreadMessageCount, 999).toString() +
                   (unreadMessageCount > 999 ? '+' : ''),
-              style: AppTextStyles.c2SemiBold.withColor(AppColors.white),
+              style: AppTextStyles.c2SemiBold.copyWith(color: AppColors.white),
             ),
           ),
       ],
