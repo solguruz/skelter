@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:skelter/presentation/force_update/feature/force_update_constants.dart';
+import 'package:skelter/presentation/force_update/constants/force_update_constants.dart';
 import 'package:skelter/presentation/login/models/login_details.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/remote_config_service.dart';

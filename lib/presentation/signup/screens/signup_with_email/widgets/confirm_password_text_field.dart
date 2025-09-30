@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,33 +74,35 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _passwordController,
-          obscureText: !isPasswordVisible,
-          decoration: InputDecoration(
-            hintText: context.localization.signup_confirm_password_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.textNeutralDisable,
-            ),
-            errorText: passwordErrorMessage.isNullOrEmpty()
-                ? null
-                : passwordErrorMessage,
-            suffixIcon: IconButton(
-              icon: Icon(
-                size: 22,
-                isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: AppColors.strokeNeutralDisabled,
+        ClarityMask(
+          child: TextField(
+            controller: _passwordController,
+            obscureText: !isPasswordVisible,
+            decoration: InputDecoration(
+              hintText: context.localization.signup_confirm_password_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
               ),
-              onPressed: () {
-                context.read<SignupBloc>().add(
-                      ToggleConfirmPasswordVisibilityEvent(
-                        isVisible: !isPasswordVisible,
-                      ),
-                    );
-              },
+              errorText: passwordErrorMessage.isNullOrEmpty()
+                  ? null
+                  : passwordErrorMessage,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  size: 22,
+                  isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
+                  color: AppColors.strokeNeutralDisabled,
+                ),
+                onPressed: () {
+                  context.read<SignupBloc>().add(
+                        ToggleConfirmPasswordVisibilityEvent(
+                          isVisible: !isPasswordVisible,
+                        ),
+                      );
+                },
+              ),
             ),
+            textInputAction: TextInputAction.done,
           ),
-          textInputAction: TextInputAction.done,
         ),
       ],
     );
