@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/presentation/chat/widgets/chat_conversation_app_bar.dart';
@@ -16,12 +17,14 @@ class ChatConversationScreen extends StatelessWidget {
     return Scaffold(
       appBar: ChatConversationAppBar(chatUser: chatUser),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(child: ChatMessageList(chatUser: chatUser)),
-            const Divider(),
-            const NewMessageTextField(),
-          ],
+        child: ClarityMask(
+          child: Column(
+            children: [
+              Expanded(child: ChatMessageList(chatUser: chatUser)),
+              const Divider(),
+              const NewMessageTextField(),
+            ],
+          ),
         ),
       ),
     );

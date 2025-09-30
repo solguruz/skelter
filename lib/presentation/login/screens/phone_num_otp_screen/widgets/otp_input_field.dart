@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
@@ -81,35 +82,37 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
                 .add(IsResendOTPEnabledEvent(isResendOTPEnabled: false));
           }
         },
-        child: Pinput(
-          key: keys.signInPage.otpTextField,
-          length: 6,
-          controller: _pinController,
-          focusedPinTheme: _focusedPinTheme(),
-          defaultPinTheme: _defaultPinTheme(),
-          submittedPinTheme: _submittedPinTheme(),
-          errorPinTheme: errorText.isNullOrEmpty() ? null : _errorPinTheme(),
-          pinAnimationType: PinAnimationType.fade,
-          forceErrorState: true,
-          errorText: errorText.isNullOrEmpty() ? null : errorText,
-          errorTextStyle: AppTextStyles.p4Regular.copyWith(
-            color: AppColors.textErrorSecondary,
-          ),
-          onChanged: (pin) {
-            if (errorText.haveContent()) {
+        child: ClarityMask(
+          child: Pinput(
+            key: keys.signInPage.otpTextField,
+            length: 6,
+            controller: _pinController,
+            focusedPinTheme: _focusedPinTheme(),
+            defaultPinTheme: _defaultPinTheme(),
+            submittedPinTheme: _submittedPinTheme(),
+            errorPinTheme: errorText.isNullOrEmpty() ? null : _errorPinTheme(),
+            pinAnimationType: PinAnimationType.fade,
+            forceErrorState: true,
+            errorText: errorText.isNullOrEmpty() ? null : errorText,
+            errorTextStyle: AppTextStyles.p4Regular.copyWith(
+              color: AppColors.textErrorSecondary,
+            ),
+            onChanged: (pin) {
+              if (errorText.haveContent()) {
+                context
+                    .read<LoginBloc>()
+                    .add(PhoneOtpErrorEvent(errorMessage: ''));
+              }
               context
                   .read<LoginBloc>()
-                  .add(PhoneOtpErrorEvent(errorMessage: ''));
-            }
-            context
-                .read<LoginBloc>()
-                .add(PhoneOtpTextChangeEvent(phoneOtpText: pin));
-          },
-          onCompleted: (phoneOtpText) {
-            if (phoneOtpText.isNotEmpty && phoneOtpText.length == 6) {
-              context.read<LoginBloc>().add(FirebaseOTPVerificationEvent());
-            }
-          },
+                  .add(PhoneOtpTextChangeEvent(phoneOtpText: pin));
+            },
+            onCompleted: (phoneOtpText) {
+              if (phoneOtpText.isNotEmpty && phoneOtpText.length == 6) {
+                context.read<LoginBloc>().add(FirebaseOTPVerificationEvent());
+              }
+            },
+          ),
         ),
       ),
     );

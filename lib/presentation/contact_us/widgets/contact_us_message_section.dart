@@ -63,27 +63,30 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        TextFormField(
-          controller: _messageController,
-          decoration: InputDecoration(
-            hintText: context.localization.message_description,
-            hintStyle: AppTextStyles.p3Regular
-                .copyWith(color: AppColors.textNeutralDisable),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-            errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
-            counterText: '${description.length}/$kMessageMaxLength',
-            counterStyle: AppTextStyles.p4Regular
-                .copyWith(color: AppColors.textNeutralDisable),
+        ClarityMask(
+          child: TextFormField(
+            controller: _messageController,
+            decoration: InputDecoration(
+              hintText: context.localization.message_description,
+              hintStyle: AppTextStyles.p3Regular
+                  .copyWith(color: AppColors.textNeutralDisable),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+              errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
+              counterText:
+                  '${description.length}/$kMessageMaxLength',
+              counterStyle: AppTextStyles.p4Regular
+                  .copyWith(color: AppColors.textNeutralDisable),
+            ),
+            maxLines: 4,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (value) => maxLengthValidator(
+              value,
+              kMessageMaxLength,
+              context,
+            ),
+            keyboardType: TextInputType.multiline,
           ),
-          maxLines: 4,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: (value) => maxLengthValidator(
-            value,
-            kMessageMaxLength,
-            context,
-          ),
-          keyboardType: TextInputType.multiline,
         ),
       ],
     );
