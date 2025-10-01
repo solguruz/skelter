@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
