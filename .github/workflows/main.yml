@@ -30,12 +30,7 @@ jobs:
           missing=0
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
-#          check "${{ secrets.KEYCHAIN_PASSWORD }}" KEYCHAIN_PASSWORD
-#          check "${{ secrets.P12_BASE64 }}" P12_BASE64
-#          check "${{ secrets.P12_PASSWORD }}" P12_PASSWORD
-#          check "${{ secrets.PROFILE_DEV_BASE64 }}" PROFILE_DEV_BASE64
-#          check "${{ secrets.EXPORTOPTIONS_DEV_BASE64 }}" EXPORTOPTIONS_DEV_BASE64
-          [ "$missing" -eq 0 ]
+          [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
