@@ -22,7 +22,7 @@ boiler plate code for rapid application development.
 - For **detailed guides, configuration setup, and best practices**, visit our documentation:
 
 ## 🔗 Get Started
-👉 [**Explore the Skelter Docs**](https://example.domain/skeleton-docs/docs/intro)
+👉 [**Explore the Skelter Docs**](https://solguruz.com/open-source-contributions/flutter-skelter-docs)
 
 ## Technology Stack
 
@@ -130,7 +130,31 @@ Follow these steps to configure SSL pinning in your Flutter project.
 4. **Reference**  
    For a detailed guide, see:  
    [Securing Your Flutter App by Adding SSL Pinning](https://dwirandyh.medium.com/securing-your-flutter-app-by-adding-ssl-pinning-474722e38518)
+---
 
+## Analytics
+
+This project contains Microsoft Clarity, a free analytics tool that helps you understand user interactions within your app.
+It offers session replays, heatmaps, and behavior insights.
+
+### Key Features
+
+* Session Replays
+* Heatmaps
+* Behavior Insights (rage/dead taps)
+* Custom Tags & Events
+* GDPR/CCPA compliant
+
+### Privacy & Security
+
+* Mask sensitive fields & manual consent control
+
+### Important Links
+
+* [Clarity Flutter SDK](https://pub.dev/packages/clarity_flutter)
+* [Clarity Official Blog](https://clarity.microsoft.com/blog/clarity-sdk-for-flutter-mobile-apps/)
+
+---
 
 ## Architecture and Coding Standards
 
@@ -246,9 +270,9 @@ library.
 
 ### Branching Strategy
 
-We use GitLab for version control with the following branch structure:
+We use GitHub for version control with the following branch structure:
 
-- `main`: Production-ready code
+- `master`: Production-ready code
 - `develop`: Integration branch for features
 - `feature/[feature-name]`: For new features
 - `bugfix/[bug-description]`: For bug fixes
@@ -268,11 +292,6 @@ We use GitLab for version control with the following branch structure:
 - Use clear, descriptive commit messages
 - Reference issue numbers in commits and PRs
 - Keep commits focused on single logical changes
-
-## Important Links
-
-- **Repository**: [GitLab](https://gitlab.solguruzsolutions.com/solguruz/skelter)
-- **UI Design**: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
 
 ## How to Contribute
 
