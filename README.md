@@ -22,7 +22,7 @@ boiler plate code for rapid application development.
 - For **detailed guides, configuration setup, and best practices**, visit our documentation:
 
 ## 🔗 Get Started
-👉 [**Explore the Skelter Docs**](https://solguruz.com/open-source-contributions/flutter-skelter-docs)
+👉 [**Explore the Skelter Docs**](https://docs.solz.me/docs/intro)
 
 ## Technology Stack
 
@@ -266,39 +266,23 @@ visual changes during development.
 For more details, refer to the **Technical Document on Golden Test Cases** and **alchemist**
 library.
 
-## Git Workflow & Contribution Guidelines
+## 🤝 Contributing
 
-### Branching Strategy
+We welcome contributions! If you find a bug, want to add a feature, or improve the documentation, feel free to create an issue or submit a pull request.
 
-We use GitHub for version control with the following branch structure:
+Please follow our [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-- `master`: Production-ready code
-- `develop`: Integration branch for features
-- `feature/[feature-name]`: For new features
-- `bugfix/[bug-description]`: For bug fixes
-- `hotfix/[hotfix-description]`: For urgent production fixes
+## 💡 Why Open Source?
 
-### Pull Request Process
+At SolGuruz, we believe in giving back to the developer community.
+We’ve built apps for global clients using these internal practices and decided to share our foundation with YOU — the builders of tomorrow.
 
-1. Create a branch from `develop` for your task
-2. Make your changes and test thoroughly
-3. Push your branch and create a Merge Request to `develop`
-4. Ensure CI passes and request reviews
-5. Address review comments
-6. Request for review and merge the PR
+## ❤️ Credit & Attribution
 
-### Commit Guidelines
+If you use Skelter in your project, we’d love to hear about it!
+Give us a ⭐ on GitHub and mention [SolGuruz](https://solguruz.com) in your credits or README.
+It keeps us motivated to share more tools, kits, and open-source love.
 
-- Use clear, descriptive commit messages
-- Reference issue numbers in commits and PRs
-- Keep commits focused on single logical changes
+## License
 
-## How to Contribute
-
-1. Understand the project structure and coding standards
-2. Pick an issue from the issue tracker or create a new one
-3. Follow the Git workflow described above
-4. Ensure your code passes all tests
-5. Submit a Pull Request with a clear description of changes
-
-We appreciate your contributions to make this skelter project even better!
+This project is licensed under the MIT License - see the [MIT License](./LICENSE) file for details.
