@@ -3,15 +3,13 @@
 # Skelter Project
 
 ![Quality gate](https://sonarqube.solz.me/api/project_badges/quality_gate?project=Skelter-Flutter&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
+<br/>
 
-<br>
-
+![Flutter](https://img.shields.io/badge/Flutter-v3.13.0-blue?logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.2.0-blue?logo=dart)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![Flutter](https://img.shields.io/badge/Flutter-v3.32.0-blue?logo=flutter)
-![Dart](https://img.shields.io/badge/Dart-3.8.0-blue?logo=dart)
-![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-
-<br>
+![MIT](https://img.shields.io/badge/license-MIT-purple.svg)
+<br/>
 ![Quality Gate Status](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=alert_status&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Maintainability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Reliability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_reliability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
