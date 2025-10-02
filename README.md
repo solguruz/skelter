@@ -8,7 +8,7 @@
 ![Flutter](https://img.shields.io/badge/Flutter-v3.13.0-blue?logo=flutter)
 ![Dart](https://img.shields.io/badge/Dart-3.2.0-blue?logo=dart)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![MIT](https://img.shields.io/badge/license-MIT-purple.svg)
+![Apache](https://img.shields.io/badge/license-Apache-purple.svg)
 <br/>
 ![Quality Gate Status](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=alert_status&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Maintainability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
