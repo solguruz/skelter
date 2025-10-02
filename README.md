@@ -3,7 +3,13 @@
 # Skelter Project
 
 ![Quality gate](https://sonarqube.solz.me/api/project_badges/quality_gate?project=Skelter-Flutter&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
-<br>
+<br/>
+
+![Flutter](https://img.shields.io/badge/Flutter-v3.13.0-blue?logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.2.0-blue?logo=dart)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Apache](https://img.shields.io/badge/license-Apache-purple.svg)
+<br/>
 ![Quality Gate Status](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=alert_status&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Maintainability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Reliability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_reliability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
@@ -285,4 +291,16 @@ It keeps us motivated to share more tools, kits, and open-source love.
 
 ## License
 
-This project is licensed under the MIT License - see the [MIT License](./LICENSE) file for details.
+Copyright 2025 SolGuruz
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the [License](./LICENSE) for the specific language governing permissions and
+limitations under the License.

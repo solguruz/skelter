@@ -23,7 +23,7 @@
 - [ ] My code follows the project's coding style guidelines
 - [ ] I have added any necessary tests
 - [ ] New and existing tests pass locally with my changes
-- [ ] Jenkins pipeline passes with my changes
+- [ ] Github pipeline passes with my changes
 
 ## Additional Notes
 <!-- Any additional information that reviewers should know -->
