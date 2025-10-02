@@ -30,6 +30,7 @@ jobs:
           missing=0
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
+          check "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" DEV_GOOGLE_SERVICES_JSON
           [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
@@ -86,8 +87,20 @@ jobs:
         run: |
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
-          echo "STAGE_API_BASE_URL=${{ secrets.STAGE_API_BASE_URL }}" >> .env
-          echo "PROD_API_BASE_URL=${{ secrets.PROD_API_BASE_URL }}"  >> .env
+
+      - name: 3.2 Setup Google Services
+        run: |
+          set -euo pipefail
+          decode() { base64 -d 2>/dev/null || base64 -D; }
+          
+          # Create flavor directories
+          mkdir -p android/app/src/dev
+          
+          # Decode and write the files
+          echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
+         
+          # Verify file exists
+          test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
 
       # 4. ANDROID + COMMON BUILD ────────────────
       # Clean previous builds (fail-fast)
@@ -182,13 +195,11 @@ jobs:
       - name: Setup Gradle cache
         uses: gradle/actions/setup-gradle@v4
 
-      # Build Android APKs for dev and stage flavors (fail-fast)
-      - name: 5.3 Build Android APKs (dev and stage)
+      # Build Android APK
+      - name: 5.3 Build Android APK
         run: |
           set -euo pipefail
-          flutter build apk --flavor dev   --dart-define=APP_FLAVOR=DEV --release
-          flutter build apk --flavor stage --dart-define=APP_FLAVOR=STAGE --release
-          flutter build apk --flavor prod --dart-define=APP_FLAVOR=PROD --release
+          flutter build apk --flavor dev --dart-define=APP_FLAVOR=DEV --release
 
       #      # 7. iOS SETUP ─────────────────────────────
       #      # Set up Xcode environment
@@ -252,48 +263,6 @@ jobs:
       #          set -euo pipefail;
       #          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
       #          mv "$IPA" build/ios/ipa/app-dev.ipa
-      #
-      #      # --- STAGE FLAVOR ---
-      #      # Install provisioning profile for stage flavor (fail-fast)
-      #      - name: 7.2.1 Install provisioning profile (stage)
-      #        run: |
-      #          set -euo pipefail
-      #          decode() { base64 -d 2>/dev/null || base64 -D; }
-      #          echo "${{ secrets.PROFILE_STAGE_BASE64 }}" | decode > profile_stage.mobileprovision
-      #          cp profile_stage.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-      #          echo "${{ secrets.EXPORTOPTIONS_STAGE_BASE64 }}" | decode > ExportOptionsStage.plist
-      #
-      #      # Build IPA for stage flavor (fail-fast)
-      #      - name: 7.2.2 Build IPA (stage)
-      #        run: set -euo pipefail; flutter build ipa --flavor stage --export-options-plist=ExportOptionsStage.plist --release
-      #
-      #      # Rename IPA for stage flavor (fail-fast)
-      #      - name: Rename IPA (stage)
-      #        run: |
-      #          set -euo pipefail;
-      #          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
-      #          mv "$IPA" build/ios/ipa/app-stage.ipa
-      #
-      #      # --- PROD FLAVOR ---
-      #      # Install provisioning profile for prod flavor (fail-fast)
-      #      - name: 7.3.1 Install provisioning profile (prod)
-      #        run: |
-      #          set -euo pipefail
-      #          decode() { base64 -d 2>/dev/null || base64 -D; }
-      #          echo "${{ secrets.PROFILE_PROD_BASE64 }}" | decode > profile_prod.mobileprovision
-      #          cp profile_prod.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-      #          echo "${{ secrets.EXPORTOPTIONS_PROD_BASE64 }}" | decode > ExportOptionsProd.plist
-      #
-      #      # Build IPA for prod flavor (fail-fast)
-      #      - name: 7.3.2 Build IPA (prod)
-      #        run: set -euo pipefail; flutter build ipa --flavor prod --export-options-plist=ExportOptionsProd.plist --release
-      #
-      #      # Rename IPA for prod flavor (fail-fast)
-      #      - name: Rename IPA (prod)
-      #        run: |
-      #          set -euo pipefail
-      #          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
-      #          mv "$IPA" build/ios/ipa/app-prod.ipa
 
       # 9. UPLOAD ARTIFACTS ──────────────────────
       # Upload Android dev APK
@@ -305,23 +274,6 @@ jobs:
           path: build/app/outputs/flutter-apk/app-dev-release.apk
           if-no-files-found: error
 
-      # Upload Android stage APK
-      - name: 8.2 Upload APK (stage)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: apk-stage-release
-          path: build/app/outputs/flutter-apk/app-stage-release.apk
-          if-no-files-found: error
-
-      - name: 8.6 Upload APK (prod)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: apk-prod-release
-          path: build/app/outputs/flutter-apk/app-prod-release.apk
-          if-no-files-found: error
-
       # Upload iOS dev IPA
       #      - name: 8.3 Upload IPA (dev)
       #        if: success()
@@ -331,24 +283,6 @@ jobs:
       #          path: build/ios/ipa/app-dev.ipa
       #          if-no-files-found: error
       #          retention-days: 14
-      #
-      #      # Upload iOS stage IPA
-      #      - name: 8.4 Upload IPA (stage)
-      #        if: success()
-      #        uses: actions/upload-artifact@v4.6.2
-      #        with:
-      #          name: ipa-stage-release
-      #          path: build/ios/ipa/app-stage.ipa
-      #          if-no-files-found: error
-      #
-      #      # Upload iOS prod IPA
-      #      - name: 8.5 Upload IPA (prod)
-      #        if: success()
-      #        uses: actions/upload-artifact@v4.6.2
-      #        with:
-      #          name: ipa-prod-release
-      #          path: build/ios/ipa/app-prod.ipa
-      #          if-no-files-found: error
 
       # Upload build logs on failure for debug
       - name: Upload build logs (on failure)
