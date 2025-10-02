@@ -96,9 +96,17 @@ jobs:
         run: |
           set -euo pipefail
           decode() { base64 -d 2>/dev/null || base64 -D; }
+          
+          # Create flavor directories
+          mkdir -p android/app/src/dev
+          mkdir -p android/app/src/stage
+          mkdir -p android/app/src/prod
+          
+          # Decode and write the files
           echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
           echo "${{ secrets.STAGE_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/stage/google-services.json
           echo "${{ secrets.PROD_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/prod/google-services.json
+         
           # Verify file exists
           test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
           test -f android/app/src/stage/google-services.json || { echo "Failed to create stage google-services.json"; exit 1; }
