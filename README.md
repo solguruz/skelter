@@ -22,7 +22,7 @@ boiler plate code for rapid application development.
 - For **detailed guides, configuration setup, and best practices**, visit our documentation:
 
 ## 🔗 Get Started
-👉 [**Explore the Skelter Docs**](https://solguruz.com/open-source-contributions/flutter-skelter-docs)
+👉 [**Explore the Skelter Docs**](https://docs.solz.me/docs/intro)
 
 ## Technology Stack
 
