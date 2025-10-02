@@ -30,6 +30,9 @@ jobs:
           missing=0
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
+          check "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" DEV_GOOGLE_SERVICES_JSON
+          check "${{ secrets.STAGE_GOOGLE_SERVICES_JSON }}" STAGE_GOOGLE_SERVICES_JSON
+          check "${{ secrets.PROD_GOOGLE_SERVICES_JSON }}" PROD_GOOGLE_SERVICES_JSON
           [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
@@ -88,6 +91,18 @@ jobs:
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
           echo "STAGE_API_BASE_URL=${{ secrets.STAGE_API_BASE_URL }}" >> .env
           echo "PROD_API_BASE_URL=${{ secrets.PROD_API_BASE_URL }}"  >> .env
+
+      - name: 3.2 Setup Google Services
+        run: |
+          set -euo pipefail
+          decode() { base64 -d 2>/dev/null || base64 -D; }
+          echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
+          echo "${{ secrets.STAGE_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/stage/google-services.json
+          echo "${{ secrets.PROD_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/prod/google-services.json
+          # Verify file exists
+          test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
+          test -f android/app/src/stage/google-services.json || { echo "Failed to create stage google-services.json"; exit 1; }
+          test -f android/app/src/prod/google-services.json || { echo "Failed to create prod google-services.json"; exit 1; }
 
       # 4. ANDROID + COMMON BUILD ────────────────
       # Clean previous builds (fail-fast)
