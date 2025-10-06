@@ -30,11 +30,7 @@ jobs:
           missing=0
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
-          check "${{ secrets.KEYCHAIN_PASSWORD }}" KEYCHAIN_PASSWORD
-          check "${{ secrets.P12_BASE64 }}" P12_BASE64
-          check "${{ secrets.P12_PASSWORD }}" P12_PASSWORD
-          check "${{ secrets.PROFILE_DEV_BASE64 }}" PROFILE_DEV_BASE64
-          check "${{ secrets.EXPORTOPTIONS_DEV_BASE64 }}" EXPORTOPTIONS_DEV_BASE64
+          check "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" DEV_GOOGLE_SERVICES_JSON
           [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
@@ -91,8 +87,20 @@ jobs:
         run: |
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
-          echo "STAGE_API_BASE_URL=${{ secrets.STAGE_API_BASE_URL }}" >> .env
-          echo "PROD_API_BASE_URL=${{ secrets.PROD_API_BASE_URL }}"  >> .env
+
+      - name: 3.2 Setup Google Services
+        run: |
+          set -euo pipefail
+          decode() { base64 -d 2>/dev/null || base64 -D; }
+          
+          # Create flavor directories
+          mkdir -p android/app/src/dev
+          
+          # Decode and write the files
+          echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
+         
+          # Verify file exists
+          test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
 
       # 4. ANDROID + COMMON BUILD ────────────────
       # Clean previous builds (fail-fast)
@@ -187,118 +195,74 @@ jobs:
       - name: Setup Gradle cache
         uses: gradle/actions/setup-gradle@v4
 
-      # Build Android APKs for dev and stage flavors (fail-fast)
-      - name: 5.3 Build Android APKs (dev and stage)
+      # Build Android APK
+      - name: 5.3 Build Android APK
         run: |
           set -euo pipefail
-          flutter build apk --flavor dev   --dart-define=APP_FLAVOR=DEV --release
-          flutter build apk --flavor stage --dart-define=APP_FLAVOR=STAGE --release
-          flutter build apk --flavor prod --dart-define=APP_FLAVOR=PROD --release
+          flutter build apk --flavor dev --dart-define=APP_FLAVOR=DEV --release
 
-      # 7. iOS SETUP ─────────────────────────────
-      # Set up Xcode environment
-      - name: 6.1 Setup Xcode environment
-        uses: maxim-lobanov/setup-xcode@v1.6.0
-        with:
-          xcode-version: latest-stable
-
-      # Install CocoaPods and dependencies (fail-fast)
-      - name: 6.2 Fresh CocoaPods install
-        run: |
-          set -euo pipefail
-          cd ios
-          pod install --repo-update
-          cd ..
-
-      # 8. iOS CERTIFICATES, PROFILES, AND BUILD ─────────────────────
-      # --- DEV FLAVOR ---
-      # Decode dev certificates and ExportOptions (fail-fast)
-      - name: 7.1.1 Decode iOS Certificates & Profiles (dev)
-        run: |
-          set -euo pipefail
-          decode() { base64 -d 2>/dev/null || base64 -D; }
-          echo "${{ secrets.P12_BASE64 }}" | decode > certificate.p12
-          echo "${{ secrets.P12_PASSWORD }}" > p12_password.txt
-          echo "${{ secrets.PROFILE_DEV_BASE64 }}" | decode > profile_dev.mobileprovision
-          echo "${{ secrets.EXPORTOPTIONS_DEV_BASE64 }}" | decode > ExportOptionsDev.plist
-
-      # Set up keychain and import certificate (fail-fast)
-      - name: 7.1.2 Set up iOS keychain & import certificate
-        run: |
-          set -euo pipefail
-          security create-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-          security set-keychain-settings -lut 21600 build.keychain
-          security list-keychains -d user -s build.keychain login.keychain
-          security default-keychain -s build.keychain
-          security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-          security import certificate.p12 -k build.keychain -P "$(cat p12_password.txt)" -A
-          security set-key-partition-list -S apple-tool:,apple: -k "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-
-
-      # create a new folder for profiles
-      - name: create a new folder for profiles
-        run: |
-          set -euo pipefail
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-
-      # Install provisioning profile for dev flavor (fail-fast)
-      - name: 7.1.3 Install provisioning profile (dev)
-        run: |
-          set -euo pipefail
-          cp profile_dev.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-
-      # Build IPA for dev flavor (fail-fast)
-      - name: 7.1.4 Build IPA (dev)
-        run: set -euo pipefail; flutter build ipa --flavor dev --export-options-plist=ExportOptionsDev.plist --release
-
-      # Rename IPA for dev flavor (fail-fast)
-      - name: Rename IPA (dev)
-        run: |
-          set -euo pipefail; 
-          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
-          mv "$IPA" build/ios/ipa/app-dev.ipa
-
-      # --- STAGE FLAVOR ---
-      # Install provisioning profile for stage flavor (fail-fast)
-      - name: 7.2.1 Install provisioning profile (stage)
-        run: |
-          set -euo pipefail
-          decode() { base64 -d 2>/dev/null || base64 -D; }
-          echo "${{ secrets.PROFILE_STAGE_BASE64 }}" | decode > profile_stage.mobileprovision
-          cp profile_stage.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-          echo "${{ secrets.EXPORTOPTIONS_STAGE_BASE64 }}" | decode > ExportOptionsStage.plist
-
-      # Build IPA for stage flavor (fail-fast)
-      - name: 7.2.2 Build IPA (stage)
-        run: set -euo pipefail; flutter build ipa --flavor stage --export-options-plist=ExportOptionsStage.plist --release
-
-      # Rename IPA for stage flavor (fail-fast)
-      - name: Rename IPA (stage)
-        run: |
-          set -euo pipefail;
-          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
-          mv "$IPA" build/ios/ipa/app-stage.ipa
-
-      # --- PROD FLAVOR ---
-      # Install provisioning profile for prod flavor (fail-fast)
-      - name: 7.3.1 Install provisioning profile (prod)
-        run: |
-          set -euo pipefail
-          decode() { base64 -d 2>/dev/null || base64 -D; }
-          echo "${{ secrets.PROFILE_PROD_BASE64 }}" | decode > profile_prod.mobileprovision
-          cp profile_prod.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-          echo "${{ secrets.EXPORTOPTIONS_PROD_BASE64 }}" | decode > ExportOptionsProd.plist
-
-      # Build IPA for prod flavor (fail-fast)
-      - name: 7.3.2 Build IPA (prod)
-        run: set -euo pipefail; flutter build ipa --flavor prod --export-options-plist=ExportOptionsProd.plist --release
-
-      # Rename IPA for prod flavor (fail-fast)
-      - name: Rename IPA (prod)
-        run: |
-          set -euo pipefail
-          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
-          mv "$IPA" build/ios/ipa/app-prod.ipa
+      #      # 7. iOS SETUP ─────────────────────────────
+      #      # Set up Xcode environment
+      #      - name: 6.1 Setup Xcode environment
+      #        uses: maxim-lobanov/setup-xcode@v1.6.0
+      #        with:
+      #          xcode-version: latest-stable
+      #
+      #      # Install CocoaPods and dependencies (fail-fast)
+      #      - name: 6.2 Fresh CocoaPods install
+      #        run: |
+      #          set -euo pipefail
+      #          cd ios
+      #          pod install --repo-update
+      #          cd ..
+      #
+      #      # 8. iOS CERTIFICATES, PROFILES, AND BUILD ─────────────────────
+      #      # --- DEV FLAVOR ---
+      #      # Decode dev certificates and ExportOptions (fail-fast)
+      #      - name: 7.1.1 Decode iOS Certificates & Profiles (dev)
+      #        run: |
+      #          set -euo pipefail
+      #          decode() { base64 -d 2>/dev/null || base64 -D; }
+      #          echo "${{ secrets.P12_BASE64 }}" | decode > certificate.p12
+      #          echo "${{ secrets.P12_PASSWORD }}" > p12_password.txt
+      #          echo "${{ secrets.PROFILE_DEV_BASE64 }}" | decode > profile_dev.mobileprovision
+      #          echo "${{ secrets.EXPORTOPTIONS_DEV_BASE64 }}" | decode > ExportOptionsDev.plist
+      #
+      #      # Set up keychain and import certificate (fail-fast)
+      #      - name: 7.1.2 Set up iOS keychain & import certificate
+      #        run: |
+      #          set -euo pipefail
+      #          security create-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+      #          security set-keychain-settings -lut 21600 build.keychain
+      #          security list-keychains -d user -s build.keychain login.keychain
+      #          security default-keychain -s build.keychain
+      #          security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+      #          security import certificate.p12 -k build.keychain -P "$(cat p12_password.txt)" -A
+      #          security set-key-partition-list -S apple-tool:,apple: -k "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+      #
+      #
+      #      # create a new folder for profiles
+      #      - name: create a new folder for profiles
+      #        run: |
+      #          set -euo pipefail
+      #          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+      #
+      #      # Install provisioning profile for dev flavor (fail-fast)
+      #      - name: 7.1.3 Install provisioning profile (dev)
+      #        run: |
+      #          set -euo pipefail
+      #          cp profile_dev.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+      #
+      #      # Build IPA for dev flavor (fail-fast)
+      #      - name: 7.1.4 Build IPA (dev)
+      #        run: set -euo pipefail; flutter build ipa --flavor dev --export-options-plist=ExportOptionsDev.plist --release
+      #
+      #      # Rename IPA for dev flavor (fail-fast)
+      #      - name: Rename IPA (dev)
+      #        run: |
+      #          set -euo pipefail;
+      #          IPA=$(ls -1t build/ios/ipa/*.ipa | head -n1)
+      #          mv "$IPA" build/ios/ipa/app-dev.ipa
 
       # 9. UPLOAD ARTIFACTS ──────────────────────
       # Upload Android dev APK
@@ -310,50 +274,15 @@ jobs:
           path: build/app/outputs/flutter-apk/app-dev-release.apk
           if-no-files-found: error
 
-      # Upload Android stage APK
-      - name: 8.2 Upload APK (stage)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: apk-stage-release
-          path: build/app/outputs/flutter-apk/app-stage-release.apk
-          if-no-files-found: error
-
-      - name: 8.6 Upload APK (prod)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: apk-prod-release
-          path: build/app/outputs/flutter-apk/app-prod-release.apk
-          if-no-files-found: error
-
       # Upload iOS dev IPA
-      - name: 8.3 Upload IPA (dev)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: ipa-dev-release
-          path: build/ios/ipa/app-dev.ipa
-          if-no-files-found: error
-          retention-days: 14
-
-      # Upload iOS stage IPA
-      - name: 8.4 Upload IPA (stage)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: ipa-stage-release
-          path: build/ios/ipa/app-stage.ipa
-          if-no-files-found: error
-
-      # Upload iOS prod IPA
-      - name: 8.5 Upload IPA (prod)
-        if: success()
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: ipa-prod-release
-          path: build/ios/ipa/app-prod.ipa
-          if-no-files-found: error
+      #      - name: 8.3 Upload IPA (dev)
+      #        if: success()
+      #        uses: actions/upload-artifact@v4.6.2
+      #        with:
+      #          name: ipa-dev-release
+      #          path: build/ios/ipa/app-dev.ipa
+      #          if-no-files-found: error
+      #          retention-days: 14
 
       # Upload build logs on failure for debug
       - name: Upload build logs (on failure)

@@ -3,7 +3,13 @@
 # Skelter Project
 
 ![Quality gate](https://sonarqube.solz.me/api/project_badges/quality_gate?project=Skelter-Flutter&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
-<br>
+<br/>
+
+![Flutter](https://img.shields.io/badge/Flutter-v3.13.0-blue?logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.2.0-blue?logo=dart)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Apache](https://img.shields.io/badge/license-Apache-purple.svg)
+<br/>
 ![Quality Gate Status](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=alert_status&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Maintainability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_maintainability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
 ![Reliability Rating](https://sonarqube.solz.me/api/project_badges/measure?project=Skelter-Flutter&metric=software_quality_reliability_rating&token=sqb_85d4c55a7bc25fe595483b116c4cf8f58723cb10)
@@ -22,7 +28,7 @@ boiler plate code for rapid application development.
 - For **detailed guides, configuration setup, and best practices**, visit our documentation:
 
 ## 🔗 Get Started
-👉 [**Explore the Skelter Docs**](https://example.domain/skeleton-docs/docs/intro)
+👉 [**Explore the Skelter Docs**](https://docs.solz.me/docs/intro)
 
 ## Technology Stack
 
@@ -130,7 +136,31 @@ Follow these steps to configure SSL pinning in your Flutter project.
 4. **Reference**  
    For a detailed guide, see:  
    [Securing Your Flutter App by Adding SSL Pinning](https://dwirandyh.medium.com/securing-your-flutter-app-by-adding-ssl-pinning-474722e38518)
+---
 
+## Analytics
+
+This project contains Microsoft Clarity, a free analytics tool that helps you understand user interactions within your app.
+It offers session replays, heatmaps, and behavior insights.
+
+### Key Features
+
+* Session Replays
+* Heatmaps
+* Behavior Insights (rage/dead taps)
+* Custom Tags & Events
+* GDPR/CCPA compliant
+
+### Privacy & Security
+
+* Mask sensitive fields & manual consent control
+
+### Important Links
+
+* [Clarity Flutter SDK](https://pub.dev/packages/clarity_flutter)
+* [Clarity Official Blog](https://clarity.microsoft.com/blog/clarity-sdk-for-flutter-mobile-apps/)
+
+---
 
 ## Architecture and Coding Standards
 
@@ -242,44 +272,35 @@ visual changes during development.
 For more details, refer to the **Technical Document on Golden Test Cases** and **alchemist**
 library.
 
-## Git Workflow & Contribution Guidelines
+## 🤝 Contributing
 
-### Branching Strategy
+We welcome contributions! If you find a bug, want to add a feature, or improve the documentation, feel free to create an issue or submit a pull request.
 
-We use GitLab for version control with the following branch structure:
+Please follow our [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-- `main`: Production-ready code
-- `develop`: Integration branch for features
-- `feature/[feature-name]`: For new features
-- `bugfix/[bug-description]`: For bug fixes
-- `hotfix/[hotfix-description]`: For urgent production fixes
+## 💡 Why Open Source?
 
-### Pull Request Process
+At SolGuruz, we believe in giving back to the developer community.
+We’ve built apps for global clients using these internal practices and decided to share our foundation with YOU — the builders of tomorrow.
 
-1. Create a branch from `develop` for your task
-2. Make your changes and test thoroughly
-3. Push your branch and create a Merge Request to `develop`
-4. Ensure CI passes and request reviews
-5. Address review comments
-6. Request for review and merge the PR
+## ❤️ Credit & Attribution
 
-### Commit Guidelines
+If you use Skelter in your project, we’d love to hear about it!
+Give us a ⭐ on GitHub and mention [SolGuruz](https://solguruz.com) in your credits or README.
+It keeps us motivated to share more tools, kits, and open-source love.
 
-- Use clear, descriptive commit messages
-- Reference issue numbers in commits and PRs
-- Keep commits focused on single logical changes
+## License
 
-## Important Links
+Copyright 2025 SolGuruz
 
-- **Repository**: [GitLab](https://gitlab.solguruzsolutions.com/solguruz/skelter)
-- **UI Design**: [Figma](https://www.figma.com/design/UAlwJgBc22roZbBbhazeuz/Common-Design?m=auto&t=Q9noRhDkDETSvQy5-6)
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-## How to Contribute
+    http://www.apache.org/licenses/LICENSE-2.0
 
-1. Understand the project structure and coding standards
-2. Pick an issue from the issue tracker or create a new one
-3. Follow the Git workflow described above
-4. Ensure your code passes all tests
-5. Submit a Pull Request with a clear description of changes
-
-We appreciate your contributions to make this skelter project even better!
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the [License](./LICENSE) for the specific language governing permissions and
+limitations under the License.
