@@ -172,7 +172,7 @@ class FirebaseAuthService {
     GIVEN NAME = ${appleCred.givenName}
     EMAIL =${appleCred.email}''',
       );
-      final OAuthCredential cred = OAuthProvider('apple.com').credential(
+      final OAuthCredential cred = OAuthProvider(kProviderApple).credential(
         idToken: appleCred.identityToken,
         accessToken: appleCred.authorizationCode,
         rawNonce: rawNonce,
