@@ -31,6 +31,9 @@ jobs:
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
           check "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" DEV_GOOGLE_SERVICES_JSON
+          check "${{ secrets.FIREBASE_OPTIONS_DEV }}" FIREBASE_OPTIONS_DEV
+          check "${{ secrets.FIREBASE_OPTIONS_PROD }}" FIREBASE_OPTIONS_PROD
+          check "${{ secrets.FIREBASE_OPTIONS_STAGE }}" FIREBASE_OPTIONS_STAGE
           [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
@@ -88,7 +91,20 @@ jobs:
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
 
-      - name: 3.2 Setup Google Services
+      # Create Firebase options files
+      - name: 3.2 Create Firebase options files
+        run: |
+          set -euo pipefail
+          echo "${{ secrets.FIREBASE_OPTIONS_DEV }}" > lib/firebase_options_dev.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_PROD }}" > lib/firebase_options_prod.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_STAGE }}" > lib/firebase_options_stage.dart
+          
+          # Verify files were created
+          test -f lib/firebase_options_dev.dart || { echo "Failed to create firebase_options_dev.dart"; exit 1; }
+          test -f lib/firebase_options_prod.dart || { echo "Failed to create firebase_options_prod.dart"; exit 1; }
+          test -f lib/firebase_options_stage.dart || { echo "Failed to create firebase_options_stage.dart"; exit 1; }
+
+      - name: 3.3 Setup Google Services
         run: |
           set -euo pipefail
           decode() { base64 -d 2>/dev/null || base64 -D; }
@@ -98,7 +114,7 @@ jobs:
           
           # Decode and write the files
           echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
-         
+          
           # Verify file exists
           test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
 
@@ -304,6 +320,7 @@ jobs:
           set -euo pipefail
           rm -f android/app/keystore.jks android/key.properties
           rm -f certificate.p12 p12_password.txt profile_*.mobileprovision ExportOptions*.plist .env
+          rm -f lib/firebase_options_dev.dart lib/firebase_options_prod.dart lib/firebase_options_stage.dart
           rm -f build/ios/ipa/app-*.ipa
           security default-keychain -s login.keychain || true
           security delete-keychain build.keychain || true
