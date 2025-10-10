@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:skelter/presentation/home/domain/entities/product.dart';
 import 'package:skelter/presentation/home/widgets/product_category_chip.dart';
 import 'package:skelter/presentation/home/widgets/product_image.dart';
 import 'package:skelter/presentation/home/widgets/product_price_rating.dart';
 import 'package:skelter/presentation/home/widgets/product_title.dart';
-import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/routes.gr.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
@@ -15,7 +16,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar('Show product details'),
+      onTap: () => context.router.push(
+        const ProductDetailRoute(),
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.white,

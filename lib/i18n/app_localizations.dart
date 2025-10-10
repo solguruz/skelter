@@ -142,6 +142,12 @@ abstract class AppLocalizations {
   /// **'Add Shipping Details'**
   String get add_shipping_details;
 
+  /// No description provided for @add_to_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart'**
+  String get add_to_cart;
+
   /// No description provided for @address.
   ///
   /// In en, this message translates to:
@@ -580,6 +586,12 @@ abstract class AppLocalizations {
   /// **'Please enter a valid email address'**
   String get invalid_email;
 
+  /// No description provided for @inclusive_of_taxes.
+  ///
+  /// In en, this message translates to:
+  /// **'(incl. of all taxes)'**
+  String get inclusive_of_taxes;
+
   /// No description provided for @its_time_to_update.
   ///
   /// In en, this message translates to:
@@ -699,6 +711,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Map'**
   String get map;
+
+  /// No description provided for @mark_favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark Favorite'**
+  String get mark_favorite;
 
   /// No description provided for @message.
   ///
@@ -897,6 +915,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PRO'**
   String get pro;
+
+  /// No description provided for @product_information.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Information'**
+  String get product_information;
+
+  /// No description provided for @product_photos.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Photos'**
+  String get product_photos;
 
   /// No description provided for @profile.
   ///
@@ -1425,6 +1455,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verify'**
   String get verify;
+
+  /// No description provided for @view_product_review.
+  ///
+  /// In en, this message translates to:
+  /// **'View Product Reviews'**
+  String get view_product_review;
 
   /// No description provided for @wishlist.
   ///
