@@ -19,7 +19,7 @@ class AppButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (iconPath != null) {
-      if (iconPath!.endsWith(kSVGExtension)) {
+      if (iconPath!.endsWith(kSVGWithDot)) {
         return SvgPicture.asset(
           iconPath!,
           height: size,
@@ -27,7 +27,7 @@ class AppButtonIcon extends StatelessWidget {
           colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
         );
       }
-      if (iconPath!.endsWith(kPNGExtension)) {
+      if (iconPath!.endsWith(kPNGWithDot)) {
         return Image.asset(
           iconPath!,
           height: size,
