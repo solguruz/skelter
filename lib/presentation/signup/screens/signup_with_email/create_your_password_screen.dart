@@ -13,7 +13,7 @@ import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/pa
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_stats.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 @RoutePage()
 class CreateYourPasswordScreen extends StatelessWidget {

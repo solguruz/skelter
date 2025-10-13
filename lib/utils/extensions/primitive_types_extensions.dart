@@ -1,3 +1,4 @@
+// String Extensions
 extension RegexHelperExtension on String {
   bool hasLetterAndNumber() =>
       RegExp(r'^(?=.*[A-Za-z])(?=.*\d)').hasMatch(this);
@@ -8,12 +9,25 @@ extension RegexHelperExtension on String {
   String get reversed => split('').reversed.join();
 }
 
-/// Extension to round a double to a fixed number of decimal places.
+extension StringNullCheck on String? {
+  bool isNullOrEmpty() {
+    if (this == null) {
+      return true;
+    }
+    if (this!.isEmpty) {
+      return true;
+    }
+    return false;
+  }
+
+  bool haveContent() => this != null && this!.isNotEmpty;
+}
+
+// Numeric Type Extensions
 extension Precision on double {
   double toPrecision(int fractionDigits) =>
       double.parse(toStringAsFixed(fractionDigits));
 
-  /// Checks if the value lies within a specific range (inclusive).
   bool isWithinRange(double min, double max) => this > min && this <= max;
 }
 
@@ -21,7 +35,7 @@ extension IntRange on int {
   bool withRange(int min, int max) => this >= min && this <= max;
 }
 
-// List Extensions
+// Collection Extensions
 extension DistinctList<T> on List<T> {
   List<T> distinct() => toSet().toList();
 }

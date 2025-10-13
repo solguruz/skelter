@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PasswordStrengthProgressIndicator extends StatelessWidget {
