@@ -1,0 +1,105 @@
+import 'package:alchemist/alchemist.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_state.dart';
+import 'package:skelter/presentation/product_detail/product_detail_screen.dart';
+
+import '../../flutter_test_config.dart';
+import '../../test_helpers.dart';
+
+class MockProductDetailBloc
+    extends MockBloc<ProductDetailEvent, ProductDetailState>
+    implements ProductDetailBloc {}
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  group('ProductDetail Screen', () {
+    testWidgets('ProductDetailBody', (tester) async {
+      final productDetailBloc = MockProductDetailBloc();
+      when(() => productDetailBloc.state).thenReturn(
+        const ProductDetailState.test().copyWith(selectedImageIndex: 0),
+      );
+
+      await tester.runWidgetTest(
+        providers: [
+          BlocProvider<ProductDetailBloc>.value(value: productDetailBloc),
+        ],
+        child: const ProductDetailBody(),
+      );
+
+      expect(find.byType(ProductDetailBody), findsOneWidget);
+    });
+
+    testExecutable(() {
+      goldenTest(
+        'ProductDetailScreen Default UI test',
+        fileName: 'product_detail_screen',
+        pumpBeforeTest: precacheImages,
+        builder: () {
+          final productDetailBloc = MockProductDetailBloc();
+          when(() => productDetailBloc.state).thenReturn(
+            const ProductDetailState.test().copyWith(selectedImageIndex: 0),
+          );
+
+          return GoldenTestGroup(
+            columnWidthBuilder: (_) =>
+                const FixedColumnWidth(pixel5DeviceWidth),
+            children: [
+              createTestScenario(
+                name: 'Product Detail Screen',
+                addScaffold: true,
+                providers: [
+                  BlocProvider<ProductDetailBloc>.value(
+                    value: productDetailBloc,
+                  ),
+                ],
+                child: const ProductDetailBody(),
+              ),
+            ],
+          );
+        },
+      );
+    });
+
+    // Golden tests for selected image indexes 1 and 2
+    for (final index in [1, 2]) {
+      testExecutable(() {
+        goldenTest(
+          'Selected Image Index: $index',
+          fileName: 'selected_image_index_$index',
+          pumpBeforeTest: precacheImages,
+          builder: () {
+            final productDetailBloc = MockProductDetailBloc();
+            when(() => productDetailBloc.state).thenReturn(
+              const ProductDetailState.test()
+                  .copyWith(selectedImageIndex: index),
+            );
+
+            return GoldenTestGroup(
+              columnWidthBuilder: (_) =>
+                  const FixedColumnWidth(pixel5DeviceWidth),
+              children: [
+                createTestScenario(
+                  name: 'Selected Image Index: $index',
+                  addScaffold: true,
+                  providers: [
+                    BlocProvider<ProductDetailBloc>.value(
+                      value: productDetailBloc,
+                    ),
+                  ],
+                  child: const ProductDetailBody(),
+                ),
+              ],
+            );
+          },
+        );
+      });
+    }
+  });
+}

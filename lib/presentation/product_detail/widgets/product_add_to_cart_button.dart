@@ -17,6 +17,8 @@ class ProductAddToCartButton extends StatelessWidget {
         size: AppButtonSize.extraLarge,
         backgroundColor: AppColors.bgWarningDefault,
         leftIcon: TablerIcons.shopping_cart_plus,
+        isLeftIconAttachedToText: true,
+        paddingOverride: EdgeInsets.zero,
         onPressed: () {
           context.showSnackBar('Item added to cart');
         },
