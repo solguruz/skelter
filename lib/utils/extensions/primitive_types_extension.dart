@@ -25,3 +25,19 @@ extension IntRange on int {
 extension DistinctList<T> on List<T> {
   List<T> distinct() => toSet().toList();
 }
+
+extension StringNullCheck on String? {
+  bool isNullOrEmpty() {
+    if (this == null) {
+      return true;
+    }
+    if (this!.isEmpty) {
+      return true;
+    }
+    return false;
+  }
+}
+
+extension NullableStringHelperExtension on String? {
+  bool haveContent() => this != null && this!.isNotEmpty;
+}
