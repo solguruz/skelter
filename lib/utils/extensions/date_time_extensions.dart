@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:skelter/constants/constants.dart';
-import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/utils/app_environment.dart';
 
 extension DateTimeExtensions on DateTime {
@@ -29,34 +29,34 @@ extension DateTimeExtensions on DateTime {
   bool isInRange(DateTime start, DateTime end) =>
       isAfter(start) && isBefore(end);
 
-  String timeAgo(BuildContext context) {
+  String timeAgo(AppLocalizations localization) {
     try {
       final Duration difference = getCurrentDateTime().difference(this);
 
       if (difference.inDays >= 365) {
         final years = (difference.inDays / 365).floor();
         return years == 1
-            ? context.localization.lastYear
-            : context.localization.yearsAgo(years);
+            ? localization.lastYear
+            : localization.yearsAgo(years);
       } else if (difference.inDays >= 30) {
         final months = (difference.inDays / 30).floor();
         return months == 1
-            ? context.localization.lastMonth
-            : context.localization.monthsAgo(months);
+            ? localization.lastMonth
+            : localization.monthsAgo(months);
       } else if (difference.inDays > 1) {
-        return context.localization.daysAgo(difference.inDays);
+        return localization.daysAgo(difference.inDays);
       } else if (difference.inDays == 1) {
-        return context.localization.yesterday;
+        return localization.yesterday;
       } else if (difference.inHours > 1) {
-        return context.localization.hoursAgo(difference.inHours);
+        return localization.hoursAgo(difference.inHours);
       } else if (difference.inHours == 1) {
-        return context.localization.oneHourAgo;
+        return localization.oneHourAgo;
       } else if (difference.inMinutes > 1) {
-        return context.localization.minutesAgo(difference.inMinutes);
+        return localization.minutesAgo(difference.inMinutes);
       } else if (difference.inMinutes == 1) {
-        return context.localization.oneMinuteAgo;
+        return localization.oneMinuteAgo;
       } else {
-        return context.localization.justNow;
+        return localization.justNow;
       }
     } catch (error) {
       debugPrint('Error parsing time ago: $error');

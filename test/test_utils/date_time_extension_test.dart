@@ -170,7 +170,7 @@ void main() {
                 ];
 
                 for (final (dateTime, expectedString) in testCases) {
-                  final result = dateTime.timeAgo(context);
+                  final result = dateTime.timeAgo(mockLocalizations);
                   expect(
                     result,
                     expectedString,
