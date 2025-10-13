@@ -67,6 +67,8 @@ dependencies:
   http_cache_file_store: ^2.0.1
   google_nav_bar: ^5.0.7
   clarity_flutter: ^1.4.0
+  mime: ^2.0.0
+  device_info_plus: ^11.5.0
 
 dev_dependencies:
   flutter_test:

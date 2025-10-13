@@ -5,7 +5,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
+import 'package:skelter/presentation/contact_us/constant/contact_us_constants.dart';
 import 'package:skelter/utils/extensions/string.dart';
 import 'package:skelter/validators/validators.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
@@ -75,7 +75,7 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
                   const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
               errorText: errorMessage.isNullOrEmpty() ? null : errorMessage,
               counterText:
-                  '${description.length}/${ContactUsScreen.kMessageMaxLength}',
+                  '${description.length}/$kMessageMaxLength',
               counterStyle: AppTextStyles.p4Regular
                   .copyWith(color: AppColors.textNeutralDisable),
             ),
@@ -83,7 +83,7 @@ class _ContactUsMessageSectionState extends State<ContactUsMessageSection> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (value) => maxLengthValidator(
               value,
-              ContactUsScreen.kMessageMaxLength,
+              kMessageMaxLength,
               context,
             ),
             keyboardType: TextInputType.multiline,

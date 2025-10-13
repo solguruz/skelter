@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
@@ -500,7 +499,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   void hideAllLoadingsAndShowError() {
     add(PhoneNumLoginLoadingEvent(isLoading: false));
     add(EmailLoginLoadingEvent(isLoading: false));
-    add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+    add(
+      AuthenticationExceptionEvent(
+        errorMessage: localizations.opps_something_went_wrong,
+      ),
+    );
   }
 
   Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({

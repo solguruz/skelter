@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
@@ -61,7 +60,11 @@ class CreateYourPasswordScreen extends StatelessWidget {
     BuildContext context,
   ) {
     final String error = state.authenticationErrorMessage;
-    context.showSnackBar(error.isNullOrEmpty() ? kSomethingWentWrong : error);
+    context.showSnackBar(
+      error.isNullOrEmpty()
+          ? context.localization.opps_something_went_wrong
+          : error,
+    );
   }
 }
 
