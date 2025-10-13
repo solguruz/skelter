@@ -71,3 +71,6 @@ lib/firebase_options_*.dart
 
 # Firebase CLI config
 firebase.json
+
+# Code coverage
+/coverage/*
