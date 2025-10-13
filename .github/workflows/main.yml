@@ -91,18 +91,20 @@ jobs:
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
 
-      # Create Firebase options files
-      - name: 3.2 Create Firebase options files
+      # 🔄 UPDATED: decode base64 to the three Dart files
+      - name: 3.2 Create Firebase options files (decode from base64)
         run: |
           set -euo pipefail
-          echo "${{ secrets.FIREBASE_OPTIONS_DEV }}" > lib/firebase_options_dev.dart
-          echo "${{ secrets.FIREBASE_OPTIONS_PROD }}" > lib/firebase_options_prod.dart
-          echo "${{ secrets.FIREBASE_OPTIONS_STAGE }}" > lib/firebase_options_stage.dart
-          
-          # Verify files were created
-          test -f lib/firebase_options_dev.dart || { echo "Failed to create firebase_options_dev.dart"; exit 1; }
-          test -f lib/firebase_options_prod.dart || { echo "Failed to create firebase_options_prod.dart"; exit 1; }
-          test -f lib/firebase_options_stage.dart || { echo "Failed to create firebase_options_stage.dart"; exit 1; }
+          decode() { base64 -d 2>/dev/null || base64 -D; }
+
+          echo "${{ secrets.FIREBASE_OPTIONS_DEV }}"   | decode > lib/firebase_options_dev.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_PROD }}"  | decode > lib/firebase_options_prod.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_STAGE }}" | decode > lib/firebase_options_stage.dart
+
+          # Verify files were created and are non-empty
+          for f in lib/firebase_options_dev.dart lib/firebase_options_prod.dart lib/firebase_options_stage.dart; do
+            [ -s "$f" ] || { echo "Failed to create or empty: $f"; exit 1; }
+          done
 
       - name: 3.3 Setup Google Services
         run: |
