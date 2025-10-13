@@ -74,3 +74,6 @@ firebase.json
 
 # Code coverage
 /coverage/*
+
+# VS Code settings
+/.vscode/launch.json
