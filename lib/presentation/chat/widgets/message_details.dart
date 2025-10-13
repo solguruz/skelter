@@ -23,7 +23,7 @@ class MessageDetails extends StatelessWidget {
       children: [
         if (chatModel.lastMessageTime != null)
           Text(
-            chatModel.lastMessageTime!.timeAgo,
+            chatModel.lastMessageTime!.timeAgo(context),
             style: AppTextStyles.p3Regular,
           ),
         const SizedBox(height: 12.0),

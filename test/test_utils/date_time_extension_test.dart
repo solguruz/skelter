@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/i18n/app_localizations.dart';
-import 'package:skelter/utils/extensions/date_time_extension.dart';
+import 'package:skelter/utils/extensions/date_time_extensions.dart';
 
 // Mock class for AppLocalizations
 class MockAppLocalizations extends Mock implements AppLocalizations {}
