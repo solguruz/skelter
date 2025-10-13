@@ -1,6 +1,6 @@
 name: skelter
 description: >
-  A production-grade Flutter boilerplate by SolGuruz, designed to jumpstart
+  A production-grade Flutter boilerplate by SolGuruz, designed to jump-start
   app development with prebuilt utility functions, reusable UI components,
   state management, test-ready setup, and a clean scalable architecture.
 
@@ -141,7 +141,7 @@ flutter:
           weight: 600
 
 patrol:
-  app_name: Flutter Skeleton
+  app_name: Flutter Skelter
   flavors: dev
   android:
     package_name: com.solguruz.skelter.dev
