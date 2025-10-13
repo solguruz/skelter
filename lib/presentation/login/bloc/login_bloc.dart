@@ -14,7 +14,7 @@ import 'package:skelter/presentation/signup/enum/user_details_input_status.dart'
 import 'package:skelter/services/firebase_auth_services.dart';
 import 'package:skelter/shared_pref/pref_keys.dart';
 import 'package:skelter/shared_pref/prefs.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/validators/validators.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginState> {

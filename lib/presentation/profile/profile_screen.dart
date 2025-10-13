@@ -12,7 +12,7 @@ import 'package:skelter/presentation/profile/widgets/sign_out.dart';
 import 'package:skelter/presentation/profile/widgets/support_section.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

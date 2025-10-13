@@ -13,7 +13,7 @@ import 'package:skelter/presentation/login/screens/login_with_phone_number/login
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {

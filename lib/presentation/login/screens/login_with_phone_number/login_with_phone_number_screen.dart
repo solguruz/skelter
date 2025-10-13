@@ -13,7 +13,7 @@ import 'package:skelter/presentation/login/screens/login_with_phone_number/widge
 import 'package:skelter/presentation/login/screens/login_with_phone_number/widgets/send_otp_button.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 @RoutePage()
 class LoginWithPhoneNumberScreen extends StatefulWidget {

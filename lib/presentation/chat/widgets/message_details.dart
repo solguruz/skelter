@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/utils/extensions/date_time_extensions.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
@@ -23,7 +24,7 @@ class MessageDetails extends StatelessWidget {
       children: [
         if (chatModel.lastMessageTime != null)
           Text(
-            chatModel.lastMessageTime!.timeAgo,
+            chatModel.lastMessageTime!.timeAgo(context.localization),
             style: AppTextStyles.p3Regular,
           ),
         const SizedBox(height: 12.0),
