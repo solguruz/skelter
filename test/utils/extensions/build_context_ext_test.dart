@@ -192,36 +192,30 @@ void main() {
         ),
       );
 
-      // Tap the button to show the snackbar
       await tester.tap(find.byKey(testKey));
-      // Wait for the snackbar to animate in
+
       await tester.pumpAndSettle();
 
-      // Verify the snackbar is shown
       final snackBarFinder = find.byType(SnackBar);
       expect(snackBarFinder, findsOneWidget);
-      
-      // Find and tap the snackbar action
+
       final actionFinder = find.byKey(const ValueKey('snackbar-action'));
       expect(actionFinder, findsOneWidget);
-      
+
       await tester.tap(actionFinder);
-      // Wait for any animations to complete
+
       await tester.pumpAndSettle();
-      
-      // Verify the action was triggered
+
       expect(actionTapped, isTrue);
     });
 
     testWidgets('hideSnackBar removes the current snackbar', (tester) async {
       await tester.pumpWidget(testWidget);
 
-      // Show snackbar
       await tester.tap(find.text('Show Snackbar'));
       await tester.pump();
       expect(find.byType(SnackBar), findsOneWidget);
 
-      // Hide snackbar
       await tester.tap(find.text('Hide Snackbar'));
       await tester.pump();
       expect(find.byType(SnackBar), findsNothing);

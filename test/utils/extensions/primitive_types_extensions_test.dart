@@ -4,7 +4,6 @@ import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 void main() {
   group('String Extensions', () {
     group('RegexHelperExtension', () {
-      // Test hasLetterAndNumber()
       test(
           'hasLetterAndNumber returns true for strings with both letters and '
           'numbers', () {
@@ -20,7 +19,6 @@ void main() {
         expect(''.hasLetterAndNumber(), isFalse);
       });
 
-      // Test hasSpecialCharacter()
       test(
           'hasSpecialCharacter returns true for strings with special '
           'characters', () {
@@ -39,9 +37,7 @@ void main() {
         expect('with spaces'.hasSpecialCharacter(), isFalse);
       });
 
-      // Test reversed getter
       test('reversed returns the string in reverse order', () {
-        // Arrange & Act & Assert
         expect('hello'.reversed, equals('olleh'));
         expect('12345'.reversed, equals('54321'));
         expect('a'.reversed, equals('a'));
@@ -50,13 +46,12 @@ void main() {
     });
 
     group('StringNullCheck', () {
-      // Test isNullOrEmpty()
       test('isNullOrEmpty returns true for null or empty strings', () {
         String? nullString;
 
         expect(nullString.isNullOrEmpty(), isTrue);
         expect(''.isNullOrEmpty(), isTrue);
-        // Whitespace string is not considered empty
+
         expect('   '.isNullOrEmpty(), isFalse);
       });
 
@@ -66,12 +61,11 @@ void main() {
         expect('123'.isNullOrEmpty(), isFalse);
       });
 
-      // Test haveContent()
       test('haveContent returns true for non-null and non-empty strings', () {
         expect('hello'.haveContent(), isTrue);
         expect('  a  '.haveContent(), isTrue);
         expect('123'.haveContent(), isTrue);
-        // Whitespace string is considered to have content
+
         expect('   '.haveContent(), isTrue);
       });
 
@@ -86,7 +80,6 @@ void main() {
 
   group('Numeric Type Extensions', () {
     group('Precision (double)', () {
-      // Test toPrecision()
       test('toPrecision rounds to specified decimal places', () {
         expect(3.14159.toPrecision(2), equals(3.14));
         expect(2.71828.toPrecision(3), equals(2.718));
@@ -95,29 +88,28 @@ void main() {
         expect(9.999.toPrecision(2), equals(10.0));
       });
 
-      // Test isWithinRange()
       test(
           'isWithinRange returns true for values within range '
           '(inclusive upper bound)', () {
         expect(5.5.isWithinRange(1.0, 10.0), isTrue);
         expect(1.1.isWithinRange(1.0, 2.0), isTrue);
-        // Boundary cases (inclusive upper bound, exclusive lower bound)
+
         expect(
           10.0.isWithinRange(1.0, 10.0),
           isTrue,
-        ); // Equal to upper bound (included)
+        );
         expect(
           1.0.isWithinRange(1.0, 10.0),
           isFalse,
-        ); // Equal to lower bound (excluded)
+        );
         expect(
           1.0001.isWithinRange(1.0, 10.0),
           isTrue,
-        ); // Just above lower bound
+        );
         expect(
           0.9999.isWithinRange(1.0, 10.0),
           isFalse,
-        ); // Just below lower bound
+        );
       });
 
       test('isWithinRange returns false for values outside range', () {
@@ -127,7 +119,6 @@ void main() {
     });
 
     group('IntRange', () {
-      // Test withRange()
       test('withRange returns true for values within range (inclusive)', () {
         expect(5.withRange(1, 10), isTrue);
         expect(1.withRange(1, 10), isTrue);
@@ -143,7 +134,6 @@ void main() {
   });
 
   group('Collection Extensions', () {
-    // Test distinct()
     test('distinct returns list with unique elements', () {
       final list = [1, 2, 2, 3, 3, 3, 4];
       final stringList = ['a', 'b', 'a', 'c', 'b'];
