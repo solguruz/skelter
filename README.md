@@ -301,8 +301,6 @@ void main() {
    await $('Username').enterText('testuser');
    await $('Password').enterText('password123');
    await $('Login').tap();
-   await $.native.openNotifications();
-   await $.native.tap($.native.getNotificationTile(RegExp('Login Successful')));
  });
 }
 ```
