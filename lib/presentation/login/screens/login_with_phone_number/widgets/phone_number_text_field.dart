@@ -10,7 +10,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PhoneNumberTextField extends StatefulWidget {

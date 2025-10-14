@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
@@ -14,7 +13,7 @@ import 'package:skelter/presentation/login/screens/login_with_phone_number/login
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {
@@ -78,7 +77,9 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
     final String? error =
         state.emailPasswordLoginState?.authenticationErrorMessage;
     context.showSnackBar(
-      error.isNullOrEmpty() ? kSomethingWentWrong : error!,
+      error.isNullOrEmpty()
+          ? context.localization.opps_something_went_wrong
+          : error!,
     );
   }
 }

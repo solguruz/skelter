@@ -41,7 +41,7 @@ class MessageTypes extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(6)),
                   child: Hero(
-                    tag: kHereAnimationPrefix,
+                    tag: kHeroAnimationPrefix,
                     child: CachedNetworkImage(
                       imageUrl: message.message,
                       fit: BoxFit.cover,

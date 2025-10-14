@@ -18,11 +18,6 @@ import 'package:skelter/routes.gr.dart';
 class ContactUsScreen extends StatefulWidget {
   const ContactUsScreen({super.key});
 
-  static int kMaxFileLimit = 5;
-  static int kMaxFileSizeInBytes = 5 * 1024 * 1024;
-  static int kMessageMaxLength = 250;
-  static String kPdfFileSignature = '%PDF-';
-
   @override
   State<ContactUsScreen> createState() => _ContactUsScreenState();
 }
