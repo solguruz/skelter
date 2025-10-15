@@ -20,6 +20,8 @@ class ProductReviewsButton extends StatelessWidget {
         backgroundColor: AppColors.bgBrandDefault,
         size: AppButtonSize.extraLarge,
         leftIcon: TablerIcons.star,
+        isLeftIconAttachedToText: true,
+        paddingOverride: EdgeInsets.zero,
         onPressed: () {
           context.showSnackBar('View product reviews');
         },
