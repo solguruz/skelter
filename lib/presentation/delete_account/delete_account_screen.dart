@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_state.dart';
-import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/constants/delete_account_constants.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_appbar.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_button.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_divider.dart';
@@ -36,7 +35,9 @@ class DeleteAccountScreen extends StatelessWidget {
         const AccountDeleteSuccessRoute(),
       );
     } else if (state is DeleteAccountFailureState) {
-      context.showSnackBar(state.errorMessage ?? kSomethingWentWrong);
+      context.showSnackBar(
+        state.errorMessage ?? context.localization.opps_something_went_wrong,
+      );
     } else if (state is DeleteAccountReAuthEmailPasswordRequiredState) {
       context.showSnackBar(kReAuthRequiredForPerformThisAction);
       context.router.replace(

@@ -1,10 +1,11 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ContactUsNameSection extends StatefulWidget {
@@ -55,15 +56,17 @@ class _ContactUsNameSectionState extends State<ContactUsNameSection> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 6),
-        TextField(
-          controller: _nameController,
-          decoration: InputDecoration(
-            hintText: context.localization.enter_your_name,
-            hintStyle: AppTextStyles.p2Medium
-                .copyWith(color: AppColors.textNeutralDisable),
-            errorText: nameError.isNullOrEmpty() ? null : nameError,
+        ClarityMask(
+          child: TextField(
+            controller: _nameController,
+            decoration: InputDecoration(
+              hintText: context.localization.enter_your_name,
+              hintStyle: AppTextStyles.p2Medium
+                  .copyWith(color: AppColors.textNeutralDisable),
+              errorText: nameError.isNullOrEmpty() ? null : nameError,
+            ),
+            textInputAction: TextInputAction.next,
           ),
-          textInputAction: TextInputAction.next,
         ),
       ],
     );

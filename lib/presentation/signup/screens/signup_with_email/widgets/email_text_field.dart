@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,7 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class EmailTextField extends StatefulWidget {
@@ -56,29 +57,31 @@ class _EmailTextFieldState extends State<EmailTextField> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 16),
-        TextField(
-          controller: _emailController,
-          style: AppTextStyles.p3Medium
-              .copyWith(color: AppColors.textNeutralPrimary),
-          decoration: InputDecoration(
-            hintText: context.localization.email_hint,
-            hintStyle: AppTextStyles.p3Medium
-                .copyWith(color: AppColors.textNeutralDisable),
-            errorText:
-                emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
-            errorStyle: AppTextStyles.p3Regular
-                .copyWith(color: AppColors.textErrorSecondary),
-            border: buildOutlineInputBorder(),
-            enabledBorder: buildOutlineInputBorder(),
-            focusedBorder: buildOutlineInputBorder(hasFocus: true),
-            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-            focusedErrorBorder: buildOutlineInputBorder(
-              hasFocus: true,
-              isErrorBorder: true,
+        ClarityMask(
+          child: TextField(
+            controller: _emailController,
+            style: AppTextStyles.p3Medium
+                .copyWith(color: AppColors.textNeutralPrimary),
+            decoration: InputDecoration(
+              hintText: context.localization.email_hint,
+              hintStyle: AppTextStyles.p3Medium
+                  .copyWith(color: AppColors.textNeutralDisable),
+              errorText:
+                  emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
+              errorStyle: AppTextStyles.p3Regular
+                  .copyWith(color: AppColors.textErrorSecondary),
+              border: buildOutlineInputBorder(),
+              enabledBorder: buildOutlineInputBorder(),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              focusedErrorBorder: buildOutlineInputBorder(
+                hasFocus: true,
+                isErrorBorder: true,
+              ),
             ),
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
           ),
-          textInputAction: TextInputAction.next,
-          keyboardType: TextInputType.emailAddress,
         ),
       ],
     );

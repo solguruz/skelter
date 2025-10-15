@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
@@ -60,18 +61,21 @@ class _EmailTextFieldState extends State<EmailTextField> {
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _emailController,
-          decoration: InputDecoration(
-            hintText: context.localization.email_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: AppColors.textNeutralDisable,
+        ClarityMask(
+          child: TextField(
+            controller: _emailController,
+            decoration: InputDecoration(
+              hintText: context.localization.email_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: AppColors.textNeutralDisable,
+              ),
+              errorText: emailError != null && emailError.isNotEmpty
+                  ? emailError
+                  : null,
             ),
-            errorText:
-                emailError != null && emailError.isNotEmpty ? emailError : null,
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
           ),
-          textInputAction: TextInputAction.next,
-          keyboardType: TextInputType.emailAddress,
         ),
       ],
     );

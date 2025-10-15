@@ -9,7 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
-import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/constants/delete_account_constants.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/cache_manager.dart';
 
