@@ -1,27 +1,31 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:skelter/gen/assets.gen.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
+import 'package:skelter/presentation/product_detail/model/product_detail_model.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductPrimaryImageSection extends StatelessWidget {
-  final String mainImage;
-  final List<String> additionalImages;
-  final int selectedImageIndex;
-  final Function(int) onImageChanged;
+  final ProductDetailModel productDetail;
 
   const ProductPrimaryImageSection({
     super.key,
-    required this.mainImage,
-    this.additionalImages = const [],
-    required this.selectedImageIndex,
-    required this.onImageChanged,
+    required this.productDetail,
   });
 
   @override
   Widget build(BuildContext context) {
-    final allImages = [mainImage, ...additionalImages];
+    final int selectedImageIndex = context.select<ProductDetailBloc, int>(
+      (bloc) => bloc.state.selectedImageIndex,
+    );
+    final allImages = [
+      productDetail.mainImage,
+      ...productDetail.additionalImages,
+    ];
     final imageUrl = allImages[selectedImageIndex];
     final isFromTestEnvironment = AppEnvironment.isTestEnvironment;
 
@@ -30,7 +34,11 @@ class ProductPrimaryImageSection extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            onImageChanged(selectedImageIndex);
+            context.read<ProductDetailBloc>().add(
+                  ProductImageSelectedEvent(
+                    selectedIndex: selectedImageIndex,
+                  ),
+                );
           },
           child: Container(
             height: 300,

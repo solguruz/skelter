@@ -7,7 +7,7 @@ abstract class ProductDetailEvent with EquatableMixin {
 class ProductImageSelectedEvent extends ProductDetailEvent {
   final int selectedIndex;
 
-  const ProductImageSelectedEvent(this.selectedIndex);
+  const ProductImageSelectedEvent({required this.selectedIndex});
 
   @override
   List<Object?> get props => [selectedIndex];
