@@ -58,17 +58,25 @@ void main() {
       );
     });
 
-    for (final index in [1, 2]) {
+    final imageList = [1, 2];
+    final imageLabels = ['second', 'third'];
+
+    for (var i = 0; i < imageList.length; i++) {
+      final imageIndex = imageList[i];
+      final imageLabel = imageLabels[i];
+
       testExecutable(() {
         goldenTest(
-          'Selected Image Index: $index',
-          fileName: 'selected_image_index_$index',
+          'product detail $imageLabel image selected',
+          fileName: 'product_detail_${imageLabel}_image_selected',
           pumpBeforeTest: precacheImages,
           builder: () {
-            final productDetailBloc = MockProductDetailBloc();
-            when(() => productDetailBloc.state).thenReturn(
-              const ProductDetailState.test()
-                  .copyWith(selectedImageIndex: index),
+            final mockProductDetailBloc = MockProductDetailBloc();
+
+            when(() => mockProductDetailBloc.state).thenReturn(
+              const ProductDetailState.test().copyWith(
+                selectedImageIndex: imageIndex,
+              ),
             );
 
             return GoldenTestGroup(
@@ -76,11 +84,11 @@ void main() {
                   const FixedColumnWidth(pixel5DeviceWidth),
               children: [
                 createTestScenario(
-                  name: 'Selected Image Index: $index',
+                  name: '$imageLabel image selected',
                   addScaffold: true,
                   providers: [
                     BlocProvider<ProductDetailBloc>.value(
-                      value: productDetailBloc,
+                      value: mockProductDetailBloc,
                     ),
                   ],
                   child: const ProductDetailBody(),
