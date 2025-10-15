@@ -20,20 +20,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('ProductDetail Screen', () {
-    testWidgets('ProductDetailBody', (tester) async {
-      final productDetailBloc = MockProductDetailBloc();
-      when(() => productDetailBloc.state).thenReturn(
-        const ProductDetailState.test().copyWith(selectedImageIndex: 0),
-      );
-
+    testWidgets('ProductDetailScreen', (tester) async {
       await tester.runWidgetTest(
-        providers: [
-          BlocProvider<ProductDetailBloc>.value(value: productDetailBloc),
-        ],
-        child: const ProductDetailBody(),
+        child: const ProductDetailScreen(),
       );
-
-      expect(find.byType(ProductDetailBody), findsOneWidget);
+      expect(find.byType(ProductDetailScreen), findsOneWidget);
     });
 
     testExecutable(() {
@@ -67,7 +58,6 @@ void main() {
       );
     });
 
-    // Golden tests for selected image indexes 1 and 2
     for (final index in [1, 2]) {
       testExecutable(() {
         goldenTest(

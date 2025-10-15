@@ -24,8 +24,8 @@ class ProductImage extends StatelessWidget {
         child: isFromTestEnvironment
             ? Image.asset(
                 Assets.test.images.testImage.path,
-                height: 88,
-                width: 88,
+                height: 100,
+                width: 100,
                 fit: BoxFit.cover,
               )
             : CachedNetworkImage(

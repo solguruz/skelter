@@ -67,6 +67,7 @@ class _ProductPhotosListState extends State<ProductPhotosList> {
         controller: _scrollController,
         scrollDirection: Axis.horizontal,
         itemCount: widget.photos.length,
+        physics: const ClampingScrollPhysics(),
         separatorBuilder: (_, __) => const SizedBox(width: 10),
         itemBuilder: (context, index) {
           final isImageSelected = index == widget.selectedImageIndex;
