@@ -232,7 +232,18 @@ The project uses code generation for type-safe asset access. When adding new ass
 2. Run `flutter pub run build_runner build` to update generated asset references
 3. Access assets using the generated constants
 
-## Golden Testing
+## Unit/Widget Test
+
+The project includes unit and widget tests to ensure code quality and reliability.
+
+### Running Tests
+To run all tests, use the following command:
+
+```bash
+flutter test
+```
+
+## Golden Test
 
 The project uses Alchemist for golden testing, a powerful tool for UI regression testing.
 
@@ -271,6 +282,36 @@ visual changes during development.
 
 For more details, refer to the **Technical Document on Golden Test Cases** and **alchemist**
 library.
+
+## Patrol Test
+
+The project uses Patrol for end-to-end testing, a robust framework for simulating user interactions
+and verifying app behavior.
+
+### What is Patrol test?
+Patrol test allows you to write tests that interact with your app as a user would, ensuring that
+features work as expected across different devices and platforms.
+
+### How to add Patrol test
+
+```dart
+void main() {
+ patrolTest('Login screen test with system interaction', ($) async {
+   await $.pumpApp(MyApp());
+   await $('Username').enterText('testuser');
+   await $('Password').enterText('password123');
+   await $('Login').tap();
+ });
+}
+```
+
+### Running a Patrol test
+
+```bash
+patrol test --target integration_test/app_test.dart --flavor dev --dart-define APP_FLAVOR=dev
+```
+
+for more details, refer to the [Patrol test documentation](https://patrol.leancode.co/documentation)
 
 ## 🤝 Contributing
 
