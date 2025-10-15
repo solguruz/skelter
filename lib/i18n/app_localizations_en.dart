@@ -124,6 +124,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get creating_new_account => 'Creating new account?';
 
   @override
+  String daysAgo(int count) {
+    return '$count days ago';
+  }
+
+  @override
   String get delete => 'Delete';
 
   @override
@@ -270,10 +275,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home => 'Home';
 
   @override
+  String hoursAgo(int count) {
+    return '$count hrs ago';
+  }
+
+  @override
   String get invalid_email => 'Please enter a valid email address';
 
   @override
   String get its_time_to_update => 'It’s time to Update!';
+
+  @override
+  String get justNow => 'Just now';
+
+  @override
+  String get lastMonth => 'Last month';
+
+  @override
+  String get lastYear => 'Last year';
 
   @override
   String get login => 'Login';
@@ -355,7 +374,17 @@ class AppLocalizationsEn extends AppLocalizations {
       'Microphone permission is permanently denied. Please go to settings and enable it.';
 
   @override
+  String minutesAgo(int count) {
+    return '$count min ago';
+  }
+
+  @override
   String get mobile_number => 'Mobile number';
+
+  @override
+  String monthsAgo(int count) {
+    return '$count months ago';
+  }
 
   @override
   String get name => 'Name';
@@ -392,6 +421,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'Notification Delete Successfully';
 
   @override
+  String get oneHourAgo => '1 hr ago';
+
+  @override
+  String get oneMinuteAgo => '1 min ago';
+
+  @override
   String get opps_something_went_wrong => 'Opps Something Went Wrong';
 
   @override
@@ -417,6 +452,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get personal_details => 'Personal Details';
+
+  @override
+  String get pick_file_error =>
+      'Something went wrong while picking files. Please try again.';
 
   @override
   String get pick_image_error =>
@@ -703,9 +742,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get try_again => 'Try Again';
 
   @override
-  String get update_app => 'Update App';
-
-  @override
   String get under_maintenance => 'App is Under Maintenance !';
 
   @override
@@ -715,6 +751,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get unsupported_file_format_error =>
       'The selected file is not a valid PDF. Please choose a proper PDF file to continue.';
+
+  @override
+  String get update_app => 'Update App';
 
   @override
   String get update_now => 'Update Now';
@@ -737,6 +776,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wishlist => 'Wishlist';
+
+  @override
+  String yearsAgo(int count) {
+    return '$count years ago';
+  }
 
   @override
   String get yesterday => 'Yesterday';

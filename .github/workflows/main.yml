@@ -31,6 +31,9 @@ jobs:
           check() { [ -z "$1" ] && echo "Missing secret: $2" && missing=1 || true; }
           check "${{ secrets.KEYSTORE_BASE64 }}" KEYSTORE_BASE64
           check "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" DEV_GOOGLE_SERVICES_JSON
+          check "${{ secrets.FIREBASE_OPTIONS_DEV }}" FIREBASE_OPTIONS_DEV
+          check "${{ secrets.FIREBASE_OPTIONS_PROD }}" FIREBASE_OPTIONS_PROD
+          check "${{ secrets.FIREBASE_OPTIONS_STAGE }}" FIREBASE_OPTIONS_STAGE
           [ "$missing" -eq 0 ] || exit 1
 
       - name: Set up JDK 17
@@ -88,7 +91,21 @@ jobs:
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
 
-      - name: 3.2 Setup Google Services
+      - name: 3.2 Create Firebase options files (decode from base64)
+        run: |
+          set -euo pipefail
+          decode() { base64 -d 2>/dev/null || base64 -D; }
+
+          echo "${{ secrets.FIREBASE_OPTIONS_DEV }}"   | decode > lib/firebase_options_dev.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_PROD }}"  | decode > lib/firebase_options_prod.dart
+          echo "${{ secrets.FIREBASE_OPTIONS_STAGE }}" | decode > lib/firebase_options_stage.dart
+
+          # Verify files were created and are non-empty
+          for f in lib/firebase_options_dev.dart lib/firebase_options_prod.dart lib/firebase_options_stage.dart; do
+            [ -s "$f" ] || { echo "Failed to create or empty: $f"; exit 1; }
+          done
+
+      - name: 3.3 Setup Google Services
         run: |
           set -euo pipefail
           decode() { base64 -d 2>/dev/null || base64 -D; }
@@ -98,7 +115,7 @@ jobs:
           
           # Decode and write the files
           echo "${{ secrets.DEV_GOOGLE_SERVICES_JSON }}" | decode > android/app/src/dev/google-services.json
-         
+          
           # Verify file exists
           test -f android/app/src/dev/google-services.json || { echo "Failed to create dev google-services.json"; exit 1; }
 
@@ -304,6 +321,7 @@ jobs:
           set -euo pipefail
           rm -f android/app/keystore.jks android/key.properties
           rm -f certificate.p12 p12_password.txt profile_*.mobileprovision ExportOptions*.plist .env
+          rm -f lib/firebase_options_dev.dart lib/firebase_options_prod.dart lib/firebase_options_stage.dart
           rm -f build/ios/ipa/app-*.ipa
           security default-keychain -s login.keychain || true
           security delete-keychain build.keychain || true
