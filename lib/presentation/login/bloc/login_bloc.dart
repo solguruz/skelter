@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
@@ -15,7 +14,7 @@ import 'package:skelter/presentation/signup/enum/user_details_input_status.dart'
 import 'package:skelter/services/firebase_auth_services.dart';
 import 'package:skelter/shared_pref/pref_keys.dart';
 import 'package:skelter/shared_pref/prefs.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/validators/validators.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginState> {
@@ -500,7 +499,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
   void hideAllLoadingsAndShowError() {
     add(PhoneNumLoginLoadingEvent(isLoading: false));
     add(EmailLoginLoadingEvent(isLoading: false));
-    add(AuthenticationExceptionEvent(errorMessage: kSomethingWentWrong));
+    add(
+      AuthenticationExceptionEvent(
+        errorMessage: localizations.opps_something_went_wrong,
+      ),
+    );
   }
 
   Future<void> _firebaseVerifyAndOpenOtpScreenOnCodeSent({

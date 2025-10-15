@@ -10,7 +10,7 @@ import 'package:skelter/services/remote_config_service.dart';
 import 'package:skelter/shared_pref/pref_keys.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_version_helper.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 @RoutePage()
 class InitialScreen extends StatefulWidget {
