@@ -103,7 +103,6 @@ InterceptorsWrapper _authErrorInterceptor() => InterceptorsWrapper(
             await Prefs.clear();
             await sl<CacheManager>().clearCachedApiResponse();
             await sl<FirebaseAuthService>().signOut();
-            await GoogleSignIn().signOut();
 
             final currentContext = rootNavigatorKey.currentContext;
             if (currentContext != null) {
