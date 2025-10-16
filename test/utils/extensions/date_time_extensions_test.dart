@@ -4,14 +4,12 @@ import 'package:mocktail/mocktail.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/utils/extensions/date_time_extensions.dart';
 
-// Mock class for AppLocalizations
 class MockAppLocalizations extends Mock implements AppLocalizations {}
 
 void main() {
   group('DateTimeExtensions Tests', () {
     final testCurrentDate = DateTime(2025, 9, 22, 12);
 
-    // ---------------- IS FUTURE & IS PAST ----------------
     test('isFuture returns true for a date after now', () {
       final now = DateTime(2025, 9, 20);
       final futureDate = now.add(const Duration(days: 5));
@@ -26,7 +24,6 @@ void main() {
       expect(pastDate.isPast(now), true);
     });
 
-    // ---------------- FORMAT ----------------
     test(
       'format returns correctly formatted date string',
       () {
@@ -35,7 +32,6 @@ void main() {
       },
     );
 
-    // ---------------- IS SAME DAY ----------------
     test(
       'isSameDay returns true when two dates fall on the same day',
       () {
@@ -52,7 +48,6 @@ void main() {
       },
     );
 
-    // ---------------- IS IN RANGE ----------------
     test(
       'isInRange returns true when date is within a start-end range',
       () {
@@ -71,25 +66,22 @@ void main() {
       },
     );
 
-    // ---------------- TO 12-HOUR FORMAT ----------------
     test(
       'to12HourFormat formats time correctly in 12-hour format',
       () {
-        final testTimeMorning = DateTime(2025, 9, 22, 9, 15); // 9:15 AM
-        final testTimeEvening = DateTime(2025, 9, 22, 21, 45); // 9:45 PM
+        final testTimeMorning = DateTime(2025, 9, 22, 9, 15);
+        final testTimeEvening = DateTime(2025, 9, 22, 21, 45);
 
         expect(testTimeMorning.to12HourFormat(), '09:15 AM');
         expect(testTimeEvening.to12HourFormat(), '09:45 PM');
       },
     );
 
-    // ---------------- TIME AGO ----------------
     testWidgets(
       'timeAgo returns correct localized strings for different ranges',
       (tester) async {
         final mockLocalizations = MockAppLocalizations();
 
-        // Static strings
         when(() => mockLocalizations.justNow).thenReturn('Just now');
         when(() => mockLocalizations.oneMinuteAgo).thenReturn('1 min ago');
         when(() => mockLocalizations.oneHourAgo).thenReturn('1 hr ago');
@@ -97,7 +89,6 @@ void main() {
         when(() => mockLocalizations.lastMonth).thenReturn('Last month');
         when(() => mockLocalizations.lastYear).thenReturn('Last year');
 
-        // Dynamic strings
         when(() => mockLocalizations.minutesAgo(any())).thenAnswer(
           (mockCall) => '${mockCall.positionalArguments.first} min ago',
         );
@@ -122,7 +113,6 @@ void main() {
             ],
             home: Builder(
               builder: (context) {
-                // Use fixed test date directly
                 final testCurrentTime = testCurrentDate;
 
                 final testCases = [
@@ -188,7 +178,6 @@ void main() {
   });
 }
 
-// Custom LocalizationsDelegate that returns mock localization
 class _MockLocalizationsDelegate
     extends LocalizationsDelegate<AppLocalizations> {
   final AppLocalizations mockLocalizations;
