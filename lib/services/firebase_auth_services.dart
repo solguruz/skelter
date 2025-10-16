@@ -312,8 +312,6 @@ class FirebaseAuthService {
     }
   }
 
-  //Todo : Dynamic Implementation/Test Pending for _reAuthWithGoogle
-  // Re-authenticates with Google credentials
   Future<void> _reAuthWithGoogle(User user) async {
     final googleSignIn = GoogleSignIn(scopes: [kEmailScope]);
     final googleUser = await googleSignIn.signIn();
