@@ -236,14 +236,14 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     if (confirmPassword.isEmpty) {
       add(
         ConfirmPasswordErrorEvent(
-          errorMessage: localizations.signup_error_enter_confirm_password,
+          errorMessage: localizations.error_enter_confirm_password,
         ),
       );
       return;
     } else if (password != confirmPassword) {
       add(
         ConfirmPasswordErrorEvent(
-          errorMessage: localizations.signup_passwords_do_not_match,
+          errorMessage: localizations.passwords_do_not_match,
         ),
       );
       return;
@@ -389,14 +389,14 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     final loginType = state.selectedLoginSignupType;
     if (firebaseUser == null) {
       debugPrint('firebaseUser is null');
-      onError(localizations.signup_user_info_not_retrieved);
+      onError(localizations.user_info_not_retrieved);
       return;
     }
     if (loginType == LoginType.PHONE) {
       if (firebaseUser.phoneNumber.isNullOrEmpty()) {
         debugPrint('Authentication Current user phone number is null');
 
-        onError(localizations.signup_error_retrieving_phone_number);
+        onError(localizations.error_retrieving_phone_number);
         return;
       }
 
@@ -405,7 +405,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       add(NavigateToHomeScreenEvent());
     } else if (loginType == LoginType.EMAIL) {
       if (firebaseUser.email.isNullOrEmpty()) {
-        onError(localizations.signup_error_retrieving_email);
+        onError(localizations.error_retrieving_email);
         return;
       }
     } else if (loginType == LoginType.GOOGLE) {

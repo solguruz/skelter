@@ -622,17 +622,17 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
-  /// No description provided for @login_ask_forgot_password.
+  /// No description provided for @ask_forgot_password.
   ///
   /// In en, this message translates to:
   /// **'Forgot password?'**
-  String get login_ask_forgot_password;
+  String get ask_forgot_password;
 
-  /// No description provided for @login_check_your_email.
+  /// No description provided for @check_your_email.
   ///
   /// In en, this message translates to:
   /// **'Check Your Email'**
-  String get login_check_your_email;
+  String get check_your_email;
 
   /// No description provided for @login_continue.
   ///
@@ -640,77 +640,77 @@ abstract class AppLocalizations {
   /// **'Continue'**
   String get login_continue;
 
-  /// No description provided for @login_continue_with_apple.
+  /// No description provided for @continue_with_apple.
   ///
   /// In en, this message translates to:
   /// **'Continue with Apple'**
-  String get login_continue_with_apple;
+  String get continue_with_apple;
 
-  /// No description provided for @login_continue_with_email.
+  /// No description provided for @continue_with_email.
   ///
   /// In en, this message translates to:
   /// **'Continue with Email'**
-  String get login_continue_with_email;
+  String get continue_with_email;
 
-  /// No description provided for @login_continue_with_google.
+  /// No description provided for @continue_with_google.
   ///
   /// In en, this message translates to:
   /// **'Continue with Google'**
-  String get login_continue_with_google;
+  String get continue_with_google;
 
-  /// No description provided for @login_continue_with_number.
+  /// No description provided for @continue_with_number.
   ///
   /// In en, this message translates to:
   /// **'Continue with Phone Number'**
-  String get login_continue_with_number;
+  String get continue_with_number;
 
-  /// No description provided for @login_enter_your_registered_phone_number.
+  /// No description provided for @enter_your_registered_phone_number.
   ///
   /// In en, this message translates to:
   /// **'Enter your registered phone number'**
-  String get login_enter_your_registered_phone_number;
+  String get enter_your_registered_phone_number;
 
-  /// No description provided for @login_forgot_password.
+  /// No description provided for @forgot_password.
   ///
   /// In en, this message translates to:
   /// **'Forgot password'**
-  String get login_forgot_password;
+  String get forgot_password;
 
-  /// No description provided for @login_invalid_mobile_number.
+  /// No description provided for @invalid_mobile_number.
   ///
   /// In en, this message translates to:
   /// **'Invalid mobile number'**
-  String get login_invalid_mobile_number;
+  String get invalid_mobile_number;
 
-  /// No description provided for @login_link_send_info.
+  /// Email where reset link has been sent
   ///
   /// In en, this message translates to:
   /// **'A reset link has been sent to {email}. Please check your inbox and click the link to reset the password.'**
-  String login_link_send_info(Object email);
+  String link_send_info(String email);
 
-  /// No description provided for @login_login_with_email.
+  /// No description provided for @login_with_email.
   ///
   /// In en, this message translates to:
   /// **'Login with email'**
-  String get login_login_with_email;
+  String get login_with_email;
 
-  /// No description provided for @login_send_otp.
+  /// No description provided for @send_otp.
   ///
   /// In en, this message translates to:
   /// **'Send OTP'**
-  String get login_send_otp;
+  String get send_otp;
 
-  /// No description provided for @login_send_reset_link.
+  /// No description provided for @send_reset_link.
   ///
   /// In en, this message translates to:
   /// **'Send Reset Link'**
-  String get login_send_reset_link;
+  String get send_reset_link;
 
-  /// No description provided for @login_welcome_back.
+  /// No description provided for @welcome_back.
   ///
   /// In en, this message translates to:
   /// **'Welcome back!'**
-  String get login_welcome_back;
+  String get welcome_back;
 
   /// No description provided for @lost_connection.
   ///
@@ -1138,215 +1138,215 @@ abstract class AppLocalizations {
   /// **'Sign out'**
   String get sign_out;
 
-  /// No description provided for @signup_agreement_info.
+  /// No description provided for @agreement_info.
   ///
   /// In en, this message translates to:
   /// **'By continuing, you are acknowledge and accept our'**
-  String get signup_agreement_info;
+  String get agreement_info;
 
-  /// No description provided for @signup_already_have_account.
+  /// No description provided for @already_have_account.
   ///
   /// In en, this message translates to:
   /// **'Already have an account? '**
-  String get signup_already_have_account;
+  String get already_have_account;
 
-  /// No description provided for @signup_and.
+  /// No description provided for @and.
   ///
   /// In en, this message translates to:
   /// **'and'**
-  String get signup_and;
+  String get and;
 
-  /// No description provided for @signup_back_to_login.
+  /// No description provided for @back_to_login.
   ///
   /// In en, this message translates to:
   /// **'Back to login'**
-  String get signup_back_to_login;
+  String get back_to_login;
 
-  /// No description provided for @signup_confirm_password.
+  /// No description provided for @confirm_password.
   ///
   /// In en, this message translates to:
   /// **'Confirm password'**
-  String get signup_confirm_password;
+  String get confirm_password;
 
-  /// No description provided for @signup_confirm_password_hint.
+  /// No description provided for @confirm_password_hint.
   ///
   /// In en, this message translates to:
   /// **'Enter confirm password'**
-  String get signup_confirm_password_hint;
+  String get confirm_password_hint;
 
-  /// No description provided for @signup_create_your_password.
+  /// No description provided for @create_your_password.
   ///
   /// In en, this message translates to:
   /// **'Create your password'**
-  String get signup_create_your_password;
+  String get create_your_password;
 
-  /// No description provided for @signup_entered_wrong_email.
+  /// No description provided for @entered_wrong_email.
   ///
   /// In en, this message translates to:
   /// **'Entered the wrong email?'**
-  String get signup_entered_wrong_email;
+  String get entered_wrong_email;
 
-  /// No description provided for @signup_error_enter_confirm_password.
+  /// No description provided for @error_enter_confirm_password.
   ///
   /// In en, this message translates to:
   /// **'Please enter confirm password'**
-  String get signup_error_enter_confirm_password;
+  String get error_enter_confirm_password;
 
-  /// No description provided for @signup_error_retrieving_email.
+  /// No description provided for @error_retrieving_email.
   ///
   /// In en, this message translates to:
   /// **'Error retrieving your email'**
-  String get signup_error_retrieving_email;
+  String get error_retrieving_email;
 
-  /// No description provided for @signup_error_retrieving_phone_number.
+  /// No description provided for @error_retrieving_phone_number.
   ///
   /// In en, this message translates to:
   /// **'Error retrieving your phone number'**
-  String get signup_error_retrieving_phone_number;
+  String get error_retrieving_phone_number;
 
-  /// No description provided for @signup_lets_get_started.
+  /// No description provided for @lets_get_started.
   ///
   /// In en, this message translates to:
   /// **'Let\'s get started'**
-  String get signup_lets_get_started;
+  String get lets_get_started;
 
-  /// No description provided for @signup_lets_get_started_info.
+  /// No description provided for @lets_get_started_info.
   ///
   /// In en, this message translates to:
   /// **'Enter your phone number, we will send you a verification code'**
-  String get signup_lets_get_started_info;
+  String get lets_get_started_info;
 
   /// Email where verification link has been sent
   ///
   /// In en, this message translates to:
   /// **'A verification link has been sent to {email}. Click the link to verify your account.'**
-  String signup_link_verify_info(String email);
+  String link_verify_info(String email);
 
-  /// No description provided for @signup_no_account.
+  /// No description provided for @no_account.
   ///
   /// In en, this message translates to:
   /// **'Don’t have an account? '**
-  String get signup_no_account;
+  String get no_account;
 
-  /// No description provided for @signup_password_requirements.
+  /// No description provided for @password_requirements.
   ///
   /// In en, this message translates to:
   /// **'Your password must have at least:'**
-  String get signup_password_requirements;
+  String get password_requirements;
 
-  /// No description provided for @signup_password_requirements_length.
+  /// No description provided for @password_requirements_length.
   ///
   /// In en, this message translates to:
   /// **'8 characters or more'**
-  String get signup_password_requirements_length;
+  String get password_requirements_length;
 
-  /// No description provided for @signup_password_requirements_letter_number.
+  /// No description provided for @password_requirements_letter_number.
   ///
   /// In en, this message translates to:
   /// **'1 letter and number'**
-  String get signup_password_requirements_letter_number;
+  String get password_requirements_letter_number;
 
-  /// No description provided for @signup_password_requirements_special_char.
+  /// No description provided for @password_requirements_special_char.
   ///
   /// In en, this message translates to:
   /// **'1 special character (Example: # ? ! \$ & @)'**
-  String get signup_password_requirements_special_char;
+  String get password_requirements_special_char;
 
-  /// No description provided for @signup_password_strength.
+  /// No description provided for @password_strength.
   ///
   /// In en, this message translates to:
   /// **'Password strength:'**
-  String get signup_password_strength;
+  String get password_strength;
 
-  /// No description provided for @signup_passwords_do_not_match.
+  /// No description provided for @passwords_do_not_match.
   ///
   /// In en, this message translates to:
   /// **'Passwords do not match'**
-  String get signup_passwords_do_not_match;
+  String get passwords_do_not_match;
 
-  /// No description provided for @signup_phone_no_verified.
+  /// No description provided for @phone_no_verified.
   ///
   /// In en, this message translates to:
   /// **'Phone number verified!'**
-  String get signup_phone_no_verified;
+  String get phone_no_verified;
 
-  /// No description provided for @signup_phone_no_verified_info.
+  /// No description provided for @phone_no_verified_info.
   ///
   /// In en, this message translates to:
   /// **'Your Phone number has been successfully verified. You can now complete your profile.'**
-  String get signup_phone_no_verified_info;
+  String get phone_no_verified_info;
 
-  /// No description provided for @signup_poor.
+  /// No description provided for @poor.
   ///
   /// In en, this message translates to:
   /// **'Poor'**
-  String get signup_poor;
+  String get poor;
 
-  /// No description provided for @signup_privacy_policy.
+  /// No description provided for @privacy_policy.
   ///
   /// In en, this message translates to:
   /// **'Privacy Policy'**
-  String get signup_privacy_policy;
+  String get privacy_policy;
 
-  /// No description provided for @signup_resend_verification_email.
+  /// No description provided for @resend_verification_email.
   ///
   /// In en, this message translates to:
   /// **'Resend Verification Email'**
-  String get signup_resend_verification_email;
+  String get resend_verification_email;
 
-  /// No description provided for @signup_sign_up.
+  /// No description provided for @sign_up.
   ///
   /// In en, this message translates to:
   /// **'Sign up'**
-  String get signup_sign_up;
+  String get sign_up;
 
-  /// No description provided for @signup_sign_up_with_apple.
+  /// No description provided for @sign_up_with_apple.
   ///
   /// In en, this message translates to:
   /// **'Sign up with Apple'**
-  String get signup_sign_up_with_apple;
+  String get sign_up_with_apple;
 
-  /// No description provided for @signup_sign_up_with_email.
+  /// No description provided for @sign_up_with_email.
   ///
   /// In en, this message translates to:
   /// **'Sign up with Email'**
-  String get signup_sign_up_with_email;
+  String get sign_up_with_email;
 
-  /// No description provided for @signup_sign_up_with_google.
+  /// No description provided for @sign_up_with_google.
   ///
   /// In en, this message translates to:
   /// **'Sign up with Google'**
-  String get signup_sign_up_with_google;
+  String get sign_up_with_google;
 
-  /// No description provided for @signup_strong.
+  /// No description provided for @strong.
   ///
   /// In en, this message translates to:
   /// **'Strong'**
-  String get signup_strong;
+  String get strong;
 
-  /// No description provided for @signup_terms_and_conditions.
+  /// No description provided for @terms_and_conditions.
   ///
   /// In en, this message translates to:
   /// **'Terms and Conditions'**
-  String get signup_terms_and_conditions;
+  String get terms_and_conditions;
 
-  /// No description provided for @signup_user_info_not_retrieved.
+  /// No description provided for @user_info_not_retrieved.
   ///
   /// In en, this message translates to:
   /// **'User information could not be retrieved.'**
-  String get signup_user_info_not_retrieved;
+  String get user_info_not_retrieved;
 
-  /// No description provided for @signup_verify_your_email.
+  /// No description provided for @verify_your_email.
   ///
   /// In en, this message translates to:
   /// **'Verify your email'**
-  String get signup_verify_your_email;
+  String get verify_your_email;
 
-  /// No description provided for @signup_weak.
+  /// No description provided for @weak.
   ///
   /// In en, this message translates to:
   /// **'Weak'**
-  String get signup_weak;
+  String get weak;
 
   /// No description provided for @skip.
   ///

@@ -54,7 +54,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             Text(
-              context.localization.signup_phone_no_verified,
+              context.localization.phone_no_verified,
               style: AppTextStyles.h2Bold,
               textAlign: TextAlign.center,
             ),
@@ -62,7 +62,7 @@ class PhoneNumberVerifiedScreenBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Text(
-                context.localization.signup_phone_no_verified_info,
+                context.localization.phone_no_verified_info,
                 style: AppTextStyles.p2Medium,
                 textAlign: TextAlign.center,
               ),

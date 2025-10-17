@@ -27,9 +27,9 @@ class AgreementLinks extends StatelessWidget {
           style: AppTextStyles.p4Medium
               .copyWith(color: AppColors.textNeutralSecondary),
           children: [
-            TextSpan(text: context.localization.signup_agreement_info),
+            TextSpan(text: context.localization.agreement_info),
             TextSpan(
-              text: context.localization.signup_terms_and_conditions,
+              text: context.localization.terms_and_conditions,
               style: AppTextStyles.p4Bold.copyWith(
                 color: AppColors.textNeutralSecondary,
                 decoration: TextDecoration.underline,
@@ -39,9 +39,9 @@ class AgreementLinks extends StatelessWidget {
                   // TODO: open terms and conditions
                 },
             ),
-            TextSpan(text: ' ${context.localization.signup_and} '),
+            TextSpan(text: ' ${context.localization.and} '),
             TextSpan(
-              text: context.localization.signup_privacy_policy,
+              text: context.localization.privacy_policy,
               style: AppTextStyles.p4Bold.copyWith(
                 color: AppColors.textNeutralSecondary,
                 decoration: TextDecoration.underline,

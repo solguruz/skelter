@@ -32,7 +32,7 @@ class CharacterLengthRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.isPasswordLongEnough,
       ),
-      text: context.localization.signup_password_requirements_length,
+      text: context.localization.password_requirements_length,
     );
   }
 }
@@ -46,7 +46,7 @@ class LetterAndNumberRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.hasLetterAndNumberInPassword,
       ),
-      text: context.localization.signup_password_requirements_letter_number,
+      text: context.localization.password_requirements_letter_number,
     );
   }
 }
@@ -60,7 +60,7 @@ class SpecialCharacterRequirement extends StatelessWidget {
       isValid: context.select<SignupBloc, bool>(
         (bloc) => bloc.state.hasSpecialCharacterInPassword,
       ),
-      text: context.localization.signup_password_requirements_special_char,
+      text: context.localization.password_requirements_special_char,
     );
   }
 }
