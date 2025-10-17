@@ -29,7 +29,7 @@ class LoginButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.localization.login_continue_with_google,
+            label: context.localization.continue_with_google,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIconPath: Assets.icons.icon.path,
@@ -45,7 +45,7 @@ class LoginButton extends StatelessWidget {
           if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
               Theme.of(context).platform == TargetPlatform.iOS) ...[
             AppButton(
-              label: context.localization.login_continue_with_apple,
+              label: context.localization.continue_with_apple,
               shouldSetFullWidth: true,
               style: AppButtonStyle.outline,
               leftIconPath: Assets.icons.apple,
@@ -60,7 +60,7 @@ class LoginButton extends StatelessWidget {
             const SizedBox(height: 16),
           ],
           AppButton(
-            label: context.localization.login_continue_with_number,
+            label: context.localization.continue_with_number,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.device_mobile,
@@ -76,7 +76,7 @@ class LoginButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.localization.login_continue_with_email,
+            label: context.localization.continue_with_email,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.mail,

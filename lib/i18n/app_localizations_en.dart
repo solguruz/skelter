@@ -298,52 +298,52 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
-  String get login_ask_forgot_password => 'Forgot password?';
+  String get ask_forgot_password => 'Forgot password?';
 
   @override
-  String get login_check_your_email => 'Check Your Email';
+  String get check_your_email => 'Check Your Email';
 
   @override
   String get login_continue => 'Continue';
 
   @override
-  String get login_continue_with_apple => 'Continue with Apple';
+  String get continue_with_apple => 'Continue with Apple';
 
   @override
-  String get login_continue_with_email => 'Continue with Email';
+  String get continue_with_email => 'Continue with Email';
 
   @override
-  String get login_continue_with_google => 'Continue with Google';
+  String get continue_with_google => 'Continue with Google';
 
   @override
-  String get login_continue_with_number => 'Continue with Phone Number';
+  String get continue_with_number => 'Continue with Phone Number';
 
   @override
-  String get login_enter_your_registered_phone_number =>
+  String get enter_your_registered_phone_number =>
       'Enter your registered phone number';
 
   @override
-  String get login_forgot_password => 'Forgot password';
+  String get forgot_password => 'Forgot password';
 
   @override
-  String get login_invalid_mobile_number => 'Invalid mobile number';
+  String get invalid_mobile_number => 'Invalid mobile number';
 
   @override
-  String login_link_send_info(Object email) {
+  String link_send_info(String email) {
     return 'A reset link has been sent to $email. Please check your inbox and click the link to reset the password.';
   }
 
   @override
-  String get login_login_with_email => 'Login with email';
+  String get login_with_email => 'Login with email';
 
   @override
-  String get login_send_otp => 'Send OTP';
+  String get send_otp => 'Send OTP';
 
   @override
-  String get login_send_reset_link => 'Send Reset Link';
+  String get send_reset_link => 'Send Reset Link';
 
   @override
-  String get login_welcome_back => 'Welcome back!';
+  String get welcome_back => 'Welcome back!';
 
   @override
   String get lost_connection => 'You Lost Connection';
@@ -586,120 +586,117 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sign_out => 'Sign out';
 
   @override
-  String get signup_agreement_info =>
+  String get agreement_info =>
       'By continuing, you are acknowledge and accept our';
 
   @override
-  String get signup_already_have_account => 'Already have an account? ';
+  String get already_have_account => 'Already have an account? ';
 
   @override
-  String get signup_and => 'and';
+  String get and => 'and';
 
   @override
-  String get signup_back_to_login => 'Back to login';
+  String get back_to_login => 'Back to login';
 
   @override
-  String get signup_confirm_password => 'Confirm password';
+  String get confirm_password => 'Confirm password';
 
   @override
-  String get signup_confirm_password_hint => 'Enter confirm password';
+  String get confirm_password_hint => 'Enter confirm password';
 
   @override
-  String get signup_create_your_password => 'Create your password';
+  String get create_your_password => 'Create your password';
 
   @override
-  String get signup_entered_wrong_email => 'Entered the wrong email?';
+  String get entered_wrong_email => 'Entered the wrong email?';
 
   @override
-  String get signup_error_enter_confirm_password =>
-      'Please enter confirm password';
+  String get error_enter_confirm_password => 'Please enter confirm password';
 
   @override
-  String get signup_error_retrieving_email => 'Error retrieving your email';
+  String get error_retrieving_email => 'Error retrieving your email';
 
   @override
-  String get signup_error_retrieving_phone_number =>
+  String get error_retrieving_phone_number =>
       'Error retrieving your phone number';
 
   @override
-  String get signup_lets_get_started => 'Let\'s get started';
+  String get lets_get_started => 'Let\'s get started';
 
   @override
-  String get signup_lets_get_started_info =>
+  String get lets_get_started_info =>
       'Enter your phone number, we will send you a verification code';
 
   @override
-  String signup_link_verify_info(String email) {
+  String link_verify_info(String email) {
     return 'A verification link has been sent to $email. Click the link to verify your account.';
   }
 
   @override
-  String get signup_no_account => 'Don’t have an account? ';
+  String get no_account => 'Don’t have an account? ';
 
   @override
-  String get signup_password_requirements =>
-      'Your password must have at least:';
+  String get password_requirements => 'Your password must have at least:';
 
   @override
-  String get signup_password_requirements_length => '8 characters or more';
+  String get password_requirements_length => '8 characters or more';
 
   @override
-  String get signup_password_requirements_letter_number =>
-      '1 letter and number';
+  String get password_requirements_letter_number => '1 letter and number';
 
   @override
-  String get signup_password_requirements_special_char =>
+  String get password_requirements_special_char =>
       '1 special character (Example: # ? ! \$ & @)';
 
   @override
-  String get signup_password_strength => 'Password strength:';
+  String get password_strength => 'Password strength:';
 
   @override
-  String get signup_passwords_do_not_match => 'Passwords do not match';
+  String get passwords_do_not_match => 'Passwords do not match';
 
   @override
-  String get signup_phone_no_verified => 'Phone number verified!';
+  String get phone_no_verified => 'Phone number verified!';
 
   @override
-  String get signup_phone_no_verified_info =>
+  String get phone_no_verified_info =>
       'Your Phone number has been successfully verified. You can now complete your profile.';
 
   @override
-  String get signup_poor => 'Poor';
+  String get poor => 'Poor';
 
   @override
-  String get signup_privacy_policy => 'Privacy Policy';
+  String get privacy_policy => 'Privacy Policy';
 
   @override
-  String get signup_resend_verification_email => 'Resend Verification Email';
+  String get resend_verification_email => 'Resend Verification Email';
 
   @override
-  String get signup_sign_up => 'Sign up';
+  String get sign_up => 'Sign up';
 
   @override
-  String get signup_sign_up_with_apple => 'Sign up with Apple';
+  String get sign_up_with_apple => 'Sign up with Apple';
 
   @override
-  String get signup_sign_up_with_email => 'Sign up with Email';
+  String get sign_up_with_email => 'Sign up with Email';
 
   @override
-  String get signup_sign_up_with_google => 'Sign up with Google';
+  String get sign_up_with_google => 'Sign up with Google';
 
   @override
-  String get signup_strong => 'Strong';
+  String get strong => 'Strong';
 
   @override
-  String get signup_terms_and_conditions => 'Terms and Conditions';
+  String get terms_and_conditions => 'Terms and Conditions';
 
   @override
-  String get signup_user_info_not_retrieved =>
+  String get user_info_not_retrieved =>
       'User information could not be retrieved.';
 
   @override
-  String get signup_verify_your_email => 'Verify your email';
+  String get verify_your_email => 'Verify your email';
 
   @override
-  String get signup_weak => 'Weak';
+  String get weak => 'Weak';
 
   @override
   String get skip => 'Skip';

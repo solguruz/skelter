@@ -87,7 +87,7 @@ class _AccountDeleteSuccessScreenState
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
-                          text: context.localization.signup_sign_up,
+                          text: context.localization.sign_up,
                           style: AppTextStyles.p2SemiBold
                               .copyWith(color: AppColors.textBrandSecondary),
                           recognizer: TapGestureRecognizer()

@@ -27,7 +27,7 @@ class SignupButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.localization.signup_sign_up_with_google,
+            label: context.localization.sign_up_with_google,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIconPath: Assets.icons.icon.path,
@@ -43,7 +43,7 @@ class SignupButton extends StatelessWidget {
           if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
               Theme.of(context).platform == TargetPlatform.iOS) ...[
             AppButton(
-              label: context.localization.signup_sign_up_with_apple,
+              label: context.localization.sign_up_with_apple,
               shouldSetFullWidth: true,
               style: AppButtonStyle.outline,
               leftIconPath: Assets.icons.apple,
@@ -58,7 +58,7 @@ class SignupButton extends StatelessWidget {
             const SizedBox(height: 16),
           ],
           AppButton(
-            label: context.localization.signup_lets_get_started,
+            label: context.localization.lets_get_started,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.device_mobile,
@@ -74,7 +74,7 @@ class SignupButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.localization.signup_sign_up_with_email,
+            label: context.localization.sign_up_with_email,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.mail,
