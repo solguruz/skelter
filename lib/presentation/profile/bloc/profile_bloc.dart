@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/profile/bloc/profile_event.dart';
 import 'package:skelter/presentation/profile/bloc/profile_state.dart';
