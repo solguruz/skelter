@@ -33,6 +33,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_shipping_details => 'Add Shipping Details';
 
   @override
+  String get add_to_cart => 'Add to cart';
+
+  @override
   String get address => 'Address';
 
   @override
@@ -283,6 +286,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalid_email => 'Please enter a valid email address';
 
   @override
+  String get inclusive_of_taxes => '(incl. of all taxes)';
+
+  @override
   String get its_time_to_update => 'It’s time to Update!';
 
   @override
@@ -354,6 +360,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get map => 'Map';
+
+  @override
+  String get mark_favorite => 'Mark Favorite';
 
   @override
   String get message => 'Message';
@@ -491,6 +500,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pro => 'PRO';
+
+  @override
+  String get product_information => 'Product Information';
+
+  @override
+  String get product_photos => 'Product Photos';
 
   @override
   String get profile => 'Profile';
@@ -773,6 +788,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verify => 'Verify';
+
+  @override
+  String get view_product_review => 'View Product Reviews';
 
   @override
   String get wishlist => 'Wishlist';

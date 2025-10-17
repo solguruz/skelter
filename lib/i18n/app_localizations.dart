@@ -62,7 +62,7 @@ import 'app_localizations_en.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -85,11 +85,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
@@ -141,6 +141,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Shipping Details'**
   String get add_shipping_details;
+
+  /// No description provided for @add_to_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart'**
+  String get add_to_cart;
 
   /// No description provided for @address.
   ///
@@ -592,6 +598,12 @@ abstract class AppLocalizations {
   /// **'Please enter a valid email address'**
   String get invalid_email;
 
+  /// No description provided for @inclusive_of_taxes.
+  ///
+  /// In en, this message translates to:
+  /// **'(incl. of all taxes)'**
+  String get inclusive_of_taxes;
+
   /// No description provided for @its_time_to_update.
   ///
   /// In en, this message translates to:
@@ -729,6 +741,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Map'**
   String get map;
+
+  /// No description provided for @mark_favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark Favorite'**
+  String get mark_favorite;
 
   /// No description provided for @message.
   ///
@@ -957,6 +975,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PRO'**
   String get pro;
+
+  /// No description provided for @product_information.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Information'**
+  String get product_information;
+
+  /// No description provided for @product_photos.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Photos'**
+  String get product_photos;
 
   /// No description provided for @profile.
   ///
@@ -1486,6 +1516,12 @@ abstract class AppLocalizations {
   /// **'Verify'**
   String get verify;
 
+  /// No description provided for @view_product_review.
+  ///
+  /// In en, this message translates to:
+  /// **'View Product Reviews'**
+  String get view_product_review;
+
   /// No description provided for @wishlist.
   ///
   /// In en, this message translates to:
@@ -1548,9 +1584,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
