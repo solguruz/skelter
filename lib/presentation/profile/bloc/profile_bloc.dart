@@ -52,7 +52,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       await Prefs.clear();
       await sl<CacheManager>().clearCachedApiResponse();
       await FirebaseAuthService().signOut();
-      await GoogleSignIn().signOut();
       emit(SignOutState());
     } catch (e) {
       debugPrint('Error signing out: $e');
