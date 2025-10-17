@@ -3,11 +3,11 @@ import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductTitleRating extends StatelessWidget {
+class ProductTitleAndRating extends StatelessWidget {
   final String title;
   final double rating;
 
-  const ProductTitleRating({
+  const ProductTitleAndRating({
     super.key,
     required this.title,
     required this.rating,

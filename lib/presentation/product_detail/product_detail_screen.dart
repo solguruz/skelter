@@ -10,9 +10,9 @@ import 'package:skelter/presentation/product_detail/widgets/product_info_headlin
 import 'package:skelter/presentation/product_detail/widgets/product_mark_favorite_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_photos_section.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_price.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_primary_image_section.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_reviews_button.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_title_rating.dart';
+import 'package:skelter/presentation/product_detail/widgets/product_title_and_rating.dart';
+import 'package:skelter/presentation/product_detail/widgets/selected_product_image.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
@@ -74,7 +74,7 @@ class ProductDetailBody extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     const ProductInfoHeadlineBar(),
-                    ProductPrimaryImageSection(
+                    SelectedProductImage(
                       productDetail: productDetail,
                     ),
                     Padding(
@@ -85,7 +85,7 @@ class ProductDetailBody extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ProductTitleRating(
+                          ProductTitleAndRating(
                             title: productDetail.title,
                             rating: productDetail.rating,
                           ),

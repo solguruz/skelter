@@ -13,7 +13,7 @@ class AppButtonLabel extends StatelessWidget {
   final Color? foregroundColor;
   final bool isLoading;
 
-  const   AppButtonLabel({
+  const AppButtonLabel({
     super.key,
     required this.label,
     required this.style,

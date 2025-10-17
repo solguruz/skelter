@@ -9,10 +9,10 @@ import 'package:skelter/presentation/product_detail/model/product_detail_model.d
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductPrimaryImageSection extends StatelessWidget {
+class SelectedProductImage extends StatelessWidget {
   final ProductDetailModel productDetail;
 
-  const ProductPrimaryImageSection({
+  const SelectedProductImage({
     super.key,
     required this.productDetail,
   });

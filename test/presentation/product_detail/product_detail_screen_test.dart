@@ -35,7 +35,7 @@ void main() {
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
           when(() => productDetailBloc.state).thenReturn(
-            const ProductDetailState.test().copyWith(selectedImageIndex: 0),
+            const ProductDetailState.test(),
           );
 
           return GoldenTestGroup(
@@ -74,9 +74,7 @@ void main() {
             final mockProductDetailBloc = MockProductDetailBloc();
 
             when(() => mockProductDetailBloc.state).thenReturn(
-              const ProductDetailState.test().copyWith(
-                selectedImageIndex: imageIndex,
-              ),
+              ProductDetailState.test(selectedImageIndex: imageIndex),
             );
 
             return GoldenTestGroup(
