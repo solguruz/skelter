@@ -213,7 +213,24 @@ class FirebaseAuthService {
     return _firebaseAuth.currentUser;
   }
 
+  bool get isSignedInWithGoogle {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) return false;
+
+    final providerData = user.providerData;
+    return providerData
+        .any((userInfo) => userInfo.providerId == kProviderGoogle);
+  }
+
   Future<void> signOut() async {
+    if (isSignedInWithGoogle) {
+      try {
+        await GoogleSignIn().signOut();
+      } catch (e) {
+        debugPrint('Error during Google sign out: $e');
+      }
+    }
+
     await _firebaseAuth.signOut();
   }
 
