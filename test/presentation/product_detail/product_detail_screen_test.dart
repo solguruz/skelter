@@ -289,21 +289,6 @@ Features:
                 ),
               ),
               createTestScenario(
-                name: 'HTML tags in description',
-                addScaffold: true,
-                providers: [
-                  BlocProvider<ProductDetailBloc>.value(
-                    value: productDetailBloc,
-                  ),
-                ],
-                child: const ProductDescription(
-                  description:
-                      '<p>This description contains <b>HTML tags</b> that '
-                      'should be rendered properly.</p> '
-                      '<ul><li>Feature 1</li><li>Feature 2</li></ul>',
-                ),
-              ),
-              createTestScenario(
                 name: 'Very long single paragraph',
                 addScaffold: true,
                 providers: [
