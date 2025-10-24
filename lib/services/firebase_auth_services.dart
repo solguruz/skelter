@@ -172,7 +172,7 @@ class FirebaseAuthService {
     GIVEN NAME = ${appleCred.givenName}
     EMAIL =${appleCred.email}''',
       );
-      final OAuthCredential cred = OAuthProvider('apple.com').credential(
+      final OAuthCredential cred = OAuthProvider(kProviderApple).credential(
         idToken: appleCred.identityToken,
         accessToken: appleCred.authorizationCode,
         rawNonce: rawNonce,
@@ -312,6 +312,9 @@ class FirebaseAuthService {
         case kProviderPhone:
           onError(kPhoneAuthRequired);
 
+        case kProviderApple:
+          await _reAuthWithApple(user);
+
         //Todo : Dynamic Implementation/Test Pending for Email/Password reAuth
         case kProviderPassword:
           onError(kEmailPasswordReAuthRequired);
@@ -326,8 +329,6 @@ class FirebaseAuthService {
     }
   }
 
-  //Todo : Dynamic Implementation/Test Pending for _reAuthWithGoogle
-  // Re-authenticates with Google credentials
   Future<void> _reAuthWithGoogle(User user) async {
     final googleSignIn = GoogleSignIn(scopes: [kEmailScope]);
     final googleUser = await googleSignIn.signIn();
@@ -340,6 +341,25 @@ class FirebaseAuthService {
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
+    );
+
+    await user.reauthenticateWithCredential(credential);
+  }
+
+  Future<void> _reAuthWithApple(User user) async {
+    final rawNonce = generateNonce();
+    final appleCred = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+      nonce: _sha256OfString(rawNonce),
+    );
+
+    final credential = OAuthProvider(kProviderApple).credential(
+      idToken: appleCred.identityToken,
+      accessToken: appleCred.authorizationCode,
+      rawNonce: rawNonce,
     );
 
     await user.reauthenticateWithCredential(credential);

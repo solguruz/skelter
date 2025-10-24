@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,34 +78,31 @@ class MoreLoginOptionsButton extends StatelessWidget {
               context.read<LoginBloc>().add(LoginWithGoogleEvent());
             },
           ),
+          if (Platform.isIOS) ...[
+            const SizedBox(height: 16),
+            AppButton(
+              label: context.localization.login_continue_with_apple,
+              shouldSetFullWidth: true,
+              style: AppButtonStyle.outline,
+              leftIconPath: Assets.icons.apple,
+              size: AppButtonSize.extraLarge,
+              onPressed: () async {
+                final isConnected =
+                    InternetConnectivityHelper().onConnectivityChange.value;
 
-          /// TODO: Enable Apple Sign In
-          // if (debugDefaultTargetPlatformOverride == TargetPlatform.iOS ||
-          //     Theme.of(context).platform == TargetPlatform.iOS) ...[
-          //   const SizedBox(height: 16),
-          //   AppButton(
-          //     label: context.localization.login_signup_continue_with_apple,
-          //     shouldSetFullWidth: true,
-          //     style: AppButtonStyle.outline,
-          //     leftIconPath: Assets.icons.apple,
-          //     size: AppButtonSize.extraLarge,
-          //     onPressed: () async {
-          //       final isConnected =
-          //           InternetConnectivityHelper().onConnectivityChange.value;
-          //
-          //       if (!isConnected && context.mounted) {
-          //         context.showSnackBar(
-          //           context.localization.no_internet_connection,
-          //         );
-          //         return;
-          //       }
-          //       context
-          //           .read<LoginBloc>()
-          //           .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
-          //       context.read<LoginBloc>().add(LoginWithAppleEvent());
-          //     },
-          //   ),
-          // ],
+                if (!isConnected && context.mounted) {
+                  context.showSnackBar(
+                    context.localization.no_internet_connection,
+                  );
+                  return;
+                }
+                context
+                    .read<LoginBloc>()
+                    .add(SelectLoginSignupTypeEvent(LoginType.APPLE));
+                context.read<LoginBloc>().add(LoginWithAppleEvent());
+              },
+            ),
+          ],
           const SizedBox(height: 16),
           AppButton(
             label: isSignup
