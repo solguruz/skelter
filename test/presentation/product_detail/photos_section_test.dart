@@ -7,7 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_state.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_photos_section.dart';
+import 'package:skelter/presentation/product_detail/widgets/photos_section.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -20,8 +20,8 @@ class MockProductDetailBloc
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('ProductPhotosSection', () {
-    testWidgets('ProductPhotosSection', (tester) async {
+  group('PhotosSection', () {
+    testWidgets('PhotosSection', (tester) async {
       final productDetailBloc = MockProductDetailBloc();
       when(() => productDetailBloc.state).thenReturn(
         const ProductDetailState.test(),
@@ -31,17 +31,17 @@ void main() {
         providers: [
           BlocProvider<ProductDetailBloc>.value(value: productDetailBloc),
         ],
-        child: ProductPhotosSection(
+        child: PhotosSection(
           productDetail: generateSampleProductDetail(),
         ),
       );
-      expect(find.byType(ProductPhotosSection), findsOneWidget);
+      expect(find.byType(PhotosSection), findsOneWidget);
     });
 
     testExecutable(() {
       goldenTest(
-        'ProductPhotosSection with different photo gallery variations',
-        fileName: 'product_with_multiple_images',
+        'Multiple product images',
+        fileName: 'multiple_product_images',
         pumpBeforeTest: precacheImages,
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
@@ -61,7 +61,7 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: ProductPhotosSection(
+                child: PhotosSection(
                   productDetail: generateSampleProductDetail(),
                 ),
               ),

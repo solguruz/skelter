@@ -3,8 +3,8 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductPhotosTitle extends StatelessWidget {
-  const ProductPhotosTitle({super.key});
+class PhotosTitle extends StatelessWidget {
+  const PhotosTitle({super.key});
 
   @override
   Widget build(BuildContext context) {

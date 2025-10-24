@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
 import 'package:skelter/presentation/product_detail/model/product_detail_model.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_photos_list.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_photos_title.dart';
+import 'package:skelter/presentation/product_detail/widgets/photos_list.dart';
+import 'package:skelter/presentation/product_detail/widgets/photos_title.dart';
 
-class ProductPhotosSection extends StatelessWidget {
+class PhotosSection extends StatelessWidget {
   final ProductDetailModel productDetail;
 
-  const ProductPhotosSection({
+  const PhotosSection({
     super.key,
     required this.productDetail,
   });
@@ -29,9 +29,9 @@ class ProductPhotosSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ProductPhotosTitle(),
+          const PhotosTitle(),
           const SizedBox(height: 10),
-          ProductPhotosList(
+          PhotosList(
             photos: photos,
             selectedImageIndex: selectedImageIndex,
             onImageChanged: (index) {

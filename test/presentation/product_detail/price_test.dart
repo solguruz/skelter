@@ -7,7 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_state.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_price.dart';
+import 'package:skelter/presentation/product_detail/widgets/price.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
@@ -19,18 +19,18 @@ class MockProductDetailBloc
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('ProductPrice', () {
+  group('Price', () {
     testWidgets('display price correctly', (tester) async {
       await tester.runWidgetTest(
-        child: const ProductPrice(price: 99.99),
+        child: const Price(price: 99.99),
       );
       expect(find.textContaining('99.99'), findsOneWidget);
     });
 
     testExecutable(() {
       goldenTest(
-        'ProductPrice with different price formats',
-        fileName: 'product_price_variations',
+        'Price variants',
+        fileName: 'price_variations',
         pumpBeforeTest: precacheImages,
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
@@ -50,7 +50,7 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: const ProductPrice(price: 99.99),
+                child: const Price(price: 99.99),
               ),
               createTestScenario(
                 name: 'High price',
@@ -60,7 +60,7 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: const ProductPrice(price: 1999.99),
+                child: const Price(price: 1999.99),
               ),
               createTestScenario(
                 name: 'Low price',
@@ -70,7 +70,7 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: const ProductPrice(price: 0.99),
+                child: const Price(price: 0.99),
               ),
               createTestScenario(
                 name: 'Very high price',
@@ -80,7 +80,7 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: const ProductPrice(price: 9999.99),
+                child: const Price(price: 9999.99),
               ),
             ],
           );

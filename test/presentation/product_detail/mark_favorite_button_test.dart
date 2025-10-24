@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_mark_favorite_button.dart';
+import 'package:skelter/presentation/product_detail/widgets/mark_favorite_button.dart';
 import '../../test_helpers.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('ProductMarkFavoriteButton', () {
-    testWidgets('ProductMarkFavoriteButton', (tester) async {
+  group('MarkFavoriteButton', () {
+    testWidgets('MarkFavoriteButton', (tester) async {
       await tester.runWidgetTest(
         child: const Scaffold(
           body: Row(
             children: [
-              ProductMarkFavoriteButton(),
+              MarkFavoriteButton(),
             ],
           ),
         ),
       );
-      expect(find.byType(ProductMarkFavoriteButton), findsOneWidget);
+      expect(find.byType(MarkFavoriteButton), findsOneWidget);
     });
   });
 }

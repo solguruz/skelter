@@ -23,8 +23,8 @@ void main() {
   group('SelectedProductImage', () {
     testExecutable(() {
       goldenTest(
-        'Product with one image available',
-        fileName: 'product_with_one_image',
+        'Only one image available',
+        fileName: 'only_one_image_available',
         pumpBeforeTest: precacheImages,
         builder: () {
           final mockBloc = MockProductDetailBloc();

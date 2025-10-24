@@ -3,10 +3,10 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductPrice extends StatelessWidget {
+class Price extends StatelessWidget {
   final double price;
 
-  const ProductPrice({super.key, required this.price});
+  const Price({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {

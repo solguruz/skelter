@@ -5,12 +5,12 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductPhotosList extends StatelessWidget {
+class PhotosList extends StatelessWidget {
   final List<String> photos;
   final int selectedImageIndex;
   final ValueChanged<int> onImageChanged;
 
-  const ProductPhotosList({
+  const PhotosList({
     super.key,
     required this.photos,
     required this.selectedImageIndex,

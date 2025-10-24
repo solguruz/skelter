@@ -5,8 +5,8 @@ import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 
-class ProductMarkFavoriteButton extends StatelessWidget {
-  const ProductMarkFavoriteButton({super.key});
+class MarkFavoriteButton extends StatelessWidget {
+  const MarkFavoriteButton({super.key});
 
   @override
   Widget build(BuildContext context) {

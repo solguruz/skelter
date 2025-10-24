@@ -6,24 +6,21 @@ import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
-class ProductReviewsButton extends StatelessWidget {
-  const ProductReviewsButton({
-    super.key,
-  });
+class AddToCartButton extends StatelessWidget {
+  const AddToCartButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.sizeOf(context).width * 0.62,
+    return Expanded(
       child: AppButton(
-        label: context.localization.view_product_review,
-        backgroundColor: AppColors.bgBrandDefault,
+        label: context.localization.add_to_cart,
         size: AppButtonSize.extraLarge,
-        leftIcon: TablerIcons.star,
+        backgroundColor: AppColors.bgWarningDefault,
+        leftIcon: TablerIcons.shopping_cart_plus,
         isLeftIconAttachedToText: true,
         paddingOverride: EdgeInsets.zero,
         onPressed: () {
-          context.showSnackBar('View product reviews');
+          context.showSnackBar('Item added to cart');
         },
       ),
     );

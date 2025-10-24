@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/data/product_detail_sample_data.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_add_to_cart_button.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_description.dart';
+import 'package:skelter/presentation/product_detail/widgets/add_to_cart_button.dart';
+import 'package:skelter/presentation/product_detail/widgets/description.dart';
+import 'package:skelter/presentation/product_detail/widgets/info_headline_bar.dart';
+import 'package:skelter/presentation/product_detail/widgets/mark_favorite_button.dart';
+import 'package:skelter/presentation/product_detail/widgets/photos_section.dart';
+import 'package:skelter/presentation/product_detail/widgets/price.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_detail_app_bar.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_info_headline_bar.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_mark_favorite_button.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_photos_section.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_price.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_reviews_button.dart';
-import 'package:skelter/presentation/product_detail/widgets/product_title_and_rating.dart';
+import 'package:skelter/presentation/product_detail/widgets/reviews_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/selected_product_image.dart';
+import 'package:skelter/presentation/product_detail/widgets/title_and_rating.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
@@ -60,7 +60,7 @@ class ProductDetailBody extends StatelessWidget {
                 ),
               ),
             ),
-            const ProductReviewsButton(),
+            const ReviewsButton(),
           ],
         ),
       ),
@@ -73,7 +73,7 @@ class ProductDetailBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 10),
-                    const ProductInfoHeadlineBar(),
+                    const InfoHeadlineBar(),
                     SelectedProductImage(
                       productDetail: productDetail,
                     ),
@@ -85,24 +85,24 @@ class ProductDetailBody extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ProductTitleAndRating(
+                          TitleAndRating(
                             title: productDetail.title,
                             rating: productDetail.rating,
                           ),
                           const SizedBox(height: 8),
-                          ProductPrice(price: productDetail.price),
+                          Price(price: productDetail.price),
                           const SizedBox(height: 25),
                           const Row(
                             children: [
-                              ProductAddToCartButton(),
+                              AddToCartButton(),
                               SizedBox(width: 16),
-                              ProductMarkFavoriteButton(),
+                              MarkFavoriteButton(),
                             ],
                           ),
-                          ProductPhotosSection(
+                          PhotosSection(
                             productDetail: productDetail,
                           ),
-                          ProductDescription(
+                          Description(
                             description: productDetail.description,
                           ),
                         ],

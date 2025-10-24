@@ -67,8 +67,8 @@ void main() {
 
       testExecutable(() {
         goldenTest(
-          'product detail $imageLabel image selected',
-          fileName: 'product_detail_${imageLabel}_image_selected',
+          '$imageLabel image selected',
+          fileName: '${imageLabel}_image_selected',
           pumpBeforeTest: precacheImages,
           builder: () {
             final mockProductDetailBloc = MockProductDetailBloc();
