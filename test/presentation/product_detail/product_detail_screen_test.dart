@@ -22,7 +22,9 @@ void main() {
   group('ProductDetail Screen', () {
     testWidgets('ProductDetailScreen', (tester) async {
       await tester.runWidgetTest(
-        child: const ProductDetailScreen(),
+        child: const ProductDetailScreen(
+          productId: 'P001',
+        ),
       );
       expect(find.byType(ProductDetailScreen), findsOneWidget);
     });

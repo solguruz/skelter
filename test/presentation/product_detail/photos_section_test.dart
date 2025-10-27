@@ -31,8 +31,8 @@ void main() {
         providers: [
           BlocProvider<ProductDetailBloc>.value(value: productDetailBloc),
         ],
-        child: PhotosSection(
-          productDetail: generateSampleProductDetail(),
+        child: const PhotosSection(
+          productDetail: sampleProductDetailData,
         ),
       );
       expect(find.byType(PhotosSection), findsOneWidget);
@@ -61,8 +61,8 @@ void main() {
                     value: productDetailBloc,
                   ),
                 ],
-                child: PhotosSection(
-                  productDetail: generateSampleProductDetail(),
+                child: const PhotosSection(
+                  productDetail: sampleProductDetailData,
                 ),
               ),
             ],

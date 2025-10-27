@@ -10,6 +10,10 @@ import 'package:skelter/presentation/home/data/datasources/product_remote_data_s
 import 'package:skelter/presentation/home/data/repositories/product_repository_impl.dart';
 import 'package:skelter/presentation/home/domain/repositories/product_repository.dart';
 import 'package:skelter/presentation/home/domain/usecases/get_products.dart';
+import 'package:skelter/presentation/product_detail/data/datasources/product_detail_remote_data_source.dart';
+import 'package:skelter/presentation/product_detail/data/repositories/product_detail_repository_impl.dart';
+import 'package:skelter/presentation/product_detail/domain/repositories/product_detail_repository.dart';
+import 'package:skelter/presentation/product_detail/domain/usecases/get_product_detail.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/firebase_auth_services.dart';
 import 'package:skelter/shared_pref/prefs.dart';
@@ -54,6 +58,13 @@ Future<void> configureDependencies({
     )
     ..registerLazySingleton<ProductRemoteDatasource>(
       () => ProductRemoteDataSrcImpl(sl()),
+    )
+    ..registerLazySingleton(() => GetProductDetail(sl()))
+    ..registerLazySingleton<ProductDetailRepository>(
+      () => ProductDetailRepositoryImpl(sl()),
+    )
+    ..registerLazySingleton<ProductDetailRemoteDatasource>(
+      () => ProductDetailRemoteDataSrcImpl(sl()),
     )
     ..registerLazySingleton<Dio>(() => pinnedDio);
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
-import 'package:skelter/presentation/product_detail/model/product_detail_model.dart';
+import 'package:skelter/presentation/product_detail/domain/entities/product_detail.dart';
 import 'package:skelter/presentation/product_detail/widgets/photos_list.dart';
 import 'package:skelter/presentation/product_detail/widgets/photos_title.dart';
 
 class PhotosSection extends StatelessWidget {
-  final ProductDetailModel productDetail;
+  final ProductDetail productDetail;
 
   const PhotosSection({
     super.key,
@@ -20,8 +20,8 @@ class PhotosSection extends StatelessWidget {
       (bloc) => bloc.state.selectedImageIndex,
     );
     final photos = [
-      productDetail.mainImage,
-      ...productDetail.additionalImages,
+      productDetail.image,
+      ...productDetail.productImages,
     ];
 
     return Padding(

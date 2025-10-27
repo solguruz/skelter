@@ -42,8 +42,8 @@ void main() {
                 providers: [
                   BlocProvider<ProductDetailBloc>.value(value: mockBloc),
                 ],
-                child: SelectedProductImage(
-                  productDetail: generateSampleProductDetail(),
+                child: const SelectedProductImage(
+                  productDetail: sampleProductDetailData,
                 ),
               ),
             ],
