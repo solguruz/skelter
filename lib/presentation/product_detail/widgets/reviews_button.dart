@@ -16,7 +16,7 @@ class ReviewsButton extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * 0.62,
       child: AppButton(
-        label: context.localization.view_product_review,
+        label: context.localization.view_product_reviews,
         backgroundColor: AppColors.bgBrandDefault,
         size: AppButtonSize.extraLarge,
         leftIcon: TablerIcons.star,

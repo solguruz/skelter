@@ -28,7 +28,7 @@ class LoginButton extends StatelessWidget {
               .copyWith(color: AppColors.textNeutralSecondary),
           children: [
             TextSpan(
-              text: context.localization.signup_already_have_account,
+              text: context.localization.already_have_account,
             ),
             TextSpan(
               text: context.localization.login,
