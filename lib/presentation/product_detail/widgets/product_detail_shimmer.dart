@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/widgets/shimmer/shimmer_button.dart';
+import 'package:skelter/widgets/shimmer/shimmer_content.dart';
+import 'package:skelter/widgets/shimmer/shimmer_image.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductDetailShimmer extends StatelessWidget {
@@ -17,125 +20,67 @@ class ProductDetailShimmer extends StatelessWidget {
       highlightColor: AppColors.neutral50,
       enabled: showAnimation,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 35, horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product image placeholder
-            Container(
-              height: 280,
+            const SizedBox(height: 60),
+            ShimmerImage(
+              height: MediaQuery.of(context).size.height * 0.28,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: AppColors.white,
-              ),
             ),
             const SizedBox(height: 20),
-
-            // Title shimmer
-            Container(
-              height: 20,
-              width: 180,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // Price shimmer
-            Container(
-              height: 16,
-              width: 120,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
+            const ShimmerContent(
+              height: 69,
+              width: double.infinity,
             ),
             const SizedBox(height: 20),
-
-            // Buttons shimmer (Add to cart, Mark favorite)
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Container(
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+                ShimmerButton(
+                  height: 56,
+                  width: MediaQuery.of(context).size.width * 0.42,
+                  radius: 10,
                 ),
                 const SizedBox(width: 16),
-                Expanded(
-                  child: Container(
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+                ShimmerButton(
+                  height: 56,
+                  width: MediaQuery.of(context).size.width * 0.42,
+                  radius: 10,
                 ),
               ],
             ),
-            const SizedBox(height: 32),
-
-            // Product Photos shimmer
-            Container(
-              height: 16,
-              width: 140,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
+            const SizedBox(height: 20),
+            const ShimmerContent(
+              width: double.infinity,
+              height: 24,
+              radius: 4,
             ),
-            const SizedBox(height: 16),
-
-            SizedBox(
-              height: 80,
+            const SizedBox(height: 10),
+            Container(
+              height: 100,
+              padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 separatorBuilder: (_, __) => const SizedBox(width: 12),
-                itemBuilder: (_, __) => Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                itemBuilder: (_, __) => const ShimmerImage(
+                  width: 100,
+                  height: 100,
+                  radius: 12,
                 ),
               ),
             ),
-            const SizedBox(height: 24),
-
-            // Product description line shimmer
-            Container(
-              height: 16,
+            const SizedBox(height: 20),
+            const ShimmerContent(
+              height: 120,
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
             ),
-            const SizedBox(height: 8),
-            Container(
-              height: 16,
-              width: MediaQuery.of(context).size.width * 0.7,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            const SizedBox(height: 32),
-
-            // View Product Reviews button shimmer
-            Container(
-              height: 48,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
+            const SizedBox(height: 10),
+            ShimmerButton(
+              height: 56,
+              width: MediaQuery.of(context).size.width * 0.60,
+              radius: 12,
             ),
           ],
         ),

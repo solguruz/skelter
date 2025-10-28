@@ -68,12 +68,12 @@ class ProductDetailBody extends StatelessWidget {
 
     if (isProductDetailLoading) {
       return const Scaffold(
-        // Todo : Implement ProductDetailShimmer from figma design
-        body: Center(child: ProductDetailShimmer()),
+        body: SafeArea(child: Center(child: ProductDetailShimmer())),
       );
     }
 
     if (productDetail == null) {
+      // Todo : Add here No detail Found Svg
       return const Scaffold(
         body: Center(child: Text('No product details available')),
       );
