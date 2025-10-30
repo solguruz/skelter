@@ -120,8 +120,7 @@ void main() {
     blocTest<LoginBloc, LoginState>(
       'should emit error state when phone number is invalid',
       build: () {
-        when(() => l10n.login_invalid_mobile_number)
-            .thenReturn('Invalid number');
+        when(() => l10n.invalid_mobile_number).thenReturn('Invalid number');
         return LoginBloc(localizations: l10n);
       },
       act: (bloc) => bloc.add(LoginWithPhoneNumEvent('+91abc')),
@@ -141,8 +140,7 @@ void main() {
     blocTest<LoginBloc, LoginState>(
       'should navigate to OTP screen when phone number is valid',
       build: () {
-        when(() => l10n.login_invalid_mobile_number)
-            .thenReturn('Invalid number');
+        when(() => l10n.invalid_mobile_number).thenReturn('Invalid number');
         return LoginBloc(localizations: l10n);
       },
       act: (bloc) => bloc.add(LoginWithPhoneNumEvent('+919876543210')),
@@ -162,8 +160,7 @@ void main() {
     blocTest<LoginBloc, LoginState>(
       'should navigate to OTP screen in signup mode',
       build: () {
-        when(() => l10n.login_invalid_mobile_number)
-            .thenReturn('Invalid number');
+        when(() => l10n.invalid_mobile_number).thenReturn('Invalid number');
         return LoginBloc(localizations: l10n);
       },
       act: (bloc) {
