@@ -11,6 +11,7 @@ import 'package:skelter/presentation/product_detail/product_detail_screen.dart';
 
 import '../../flutter_test_config.dart';
 import '../../test_helpers.dart';
+import 'data/product_detail_sample_data.dart';
 
 class MockProductDetailBloc
     extends MockBloc<ProductDetailEvent, ProductDetailState>
@@ -20,11 +21,22 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('ProductDetail Screen', () {
-    testWidgets('ProductDetailScreen', (tester) async {
-      await tester.runWidgetTest(
-        child: const ProductDetailScreen(),
+    testWidgets('ProductDetailBody', (tester) async {
+      final productDetailBloc = MockProductDetailBloc();
+      when(() => productDetailBloc.state).thenReturn(
+        const ProductDetailState.test(productDetail: sampleProductDetailData),
       );
-      expect(find.byType(ProductDetailScreen), findsOneWidget);
+
+      await tester.runWidgetTest(
+        providers: [
+          BlocProvider<ProductDetailBloc>.value(
+            value: productDetailBloc,
+          ),
+        ],
+        child: const ProductDetailBody(),
+      );
+
+      expect(find.byType(ProductDetailBody), findsOneWidget);
     });
 
     testExecutable(() {
@@ -35,7 +47,9 @@ void main() {
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
           when(() => productDetailBloc.state).thenReturn(
-            const ProductDetailState.test(),
+            const ProductDetailState.test(
+              productDetail: sampleProductDetailData,
+            ),
           );
 
           return GoldenTestGroup(
@@ -74,7 +88,10 @@ void main() {
             final mockProductDetailBloc = MockProductDetailBloc();
 
             when(() => mockProductDetailBloc.state).thenReturn(
-              ProductDetailState.test(selectedImageIndex: imageIndex),
+              ProductDetailState.test(
+                productDetail: sampleProductDetailData,
+                selectedImageIndex: imageIndex,
+              ),
             );
 
             return GoldenTestGroup(

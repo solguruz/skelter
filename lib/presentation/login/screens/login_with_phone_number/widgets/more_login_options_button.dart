@@ -35,7 +35,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppButton(
-            label: context.localization.login_continue_with_email,
+            label: context.localization.continue_with_email,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIcon: TablerIcons.mail,
@@ -58,7 +58,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           AppButton(
-            label: context.localization.login_continue_with_google,
+            label: context.localization.continue_with_google,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             leftIconPath: Assets.icons.google.path,
@@ -81,7 +81,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           if (Platform.isIOS) ...[
             const SizedBox(height: 16),
             AppButton(
-              label: context.localization.login_continue_with_apple,
+              label: context.localization.continue_with_apple,
               shouldSetFullWidth: true,
               style: AppButtonStyle.outline,
               leftIconPath: Assets.icons.apple,
@@ -107,7 +107,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
           AppButton(
             label: isSignup
                 ? context.localization.login
-                : context.localization.signup_sign_up,
+                : context.localization.sign_up,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
             size: AppButtonSize.extraLarge,

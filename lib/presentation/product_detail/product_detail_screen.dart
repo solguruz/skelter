@@ -1,8 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/core/services/injection_container.dart';
+import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
-import 'package:skelter/presentation/product_detail/data/product_detail_sample_data.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
+import 'package:skelter/presentation/product_detail/bloc/product_detail_state.dart';
+import 'package:skelter/presentation/product_detail/domain/entities/product_detail.dart';
 import 'package:skelter/presentation/product_detail/widgets/add_to_cart_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/description.dart';
 import 'package:skelter/presentation/product_detail/widgets/info_headline_bar.dart';
@@ -10,21 +14,42 @@ import 'package:skelter/presentation/product_detail/widgets/mark_favorite_button
 import 'package:skelter/presentation/product_detail/widgets/photos_section.dart';
 import 'package:skelter/presentation/product_detail/widgets/price.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_detail_app_bar.dart';
+import 'package:skelter/presentation/product_detail/widgets/product_detail_shimmer.dart';
 import 'package:skelter/presentation/product_detail/widgets/reviews_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/selected_product_image.dart';
 import 'package:skelter/presentation/product_detail/widgets/title_and_rating.dart';
+import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  final String productId;
+
+  const ProductDetailScreen({
+    super.key,
+    required this.productId,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProductDetailBloc>(
-      create: (_) => ProductDetailBloc(),
-      child: const ProductDetailBody(),
+      create: (_) => ProductDetailBloc(getProductDetail: sl())
+        ..add(
+          GetProductDetailDataEvent(productId: productId),
+        ),
+      child: BlocListener<ProductDetailBloc, ProductDetailState>(
+        listener: _listenStateChanged,
+        child: const ProductDetailBody(),
+      ),
     );
+  }
+
+  void _listenStateChanged(BuildContext context, ProductDetailState state) {
+    if (state is ProductDetailErrorState) {
+      context.showSnackBar(
+        state.errorMessage ?? context.localization.opps_something_went_wrong,
+      );
+    }
   }
 }
 
@@ -33,7 +58,26 @@ class ProductDetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productDetail = generateSampleProductDetail();
+    final isProductDetailLoading = context.select<ProductDetailBloc, bool>(
+      (bloc) => bloc.state is ProductDetailLoading,
+    );
+
+    final productDetail = context.select<ProductDetailBloc, ProductDetail?>(
+      (bloc) => bloc.state.productDetail,
+    );
+
+    if (isProductDetailLoading) {
+      return const Scaffold(
+        body: SafeArea(child: Center(child: ProductDetailShimmer())),
+      );
+    }
+
+    if (productDetail == null) {
+      // Todo : Add here No detail Found Svg
+      return const Scaffold(
+        body: Center(child: Text('No product details available')),
+      );
+    }
 
     return Scaffold(
       backgroundColor: AppColors.white,

@@ -70,7 +70,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.signup_confirm_password,
+          context.localization.confirm_password,
           style: AppTextStyles.p3Medium,
         ),
         const SizedBox(height: 8),
@@ -79,7 +79,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
             controller: _passwordController,
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
-              hintText: context.localization.signup_confirm_password_hint,
+              hintText: context.localization.confirm_password_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(
                 color: AppColors.textNeutralDisable,
               ),

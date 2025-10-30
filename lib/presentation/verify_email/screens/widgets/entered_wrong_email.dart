@@ -28,7 +28,7 @@ class EnteredWrongEmail extends StatelessWidget {
               .copyWith(color: AppColors.textNeutralSecondary),
           children: [
             TextSpan(
-              text: context.localization.signup_entered_wrong_email,
+              text: context.localization.entered_wrong_email,
             ),
             TextSpan(
               text: context.localization.change_email,

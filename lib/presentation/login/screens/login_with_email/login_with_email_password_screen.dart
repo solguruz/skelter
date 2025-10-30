@@ -96,7 +96,7 @@ class _LoginWithEmailScreenBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              context.localization.login_login_with_email,
+              context.localization.login_with_email,
               style: AppTextStyles.h2Bold,
             ),
           ),

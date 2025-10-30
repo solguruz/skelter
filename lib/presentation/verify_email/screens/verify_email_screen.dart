@@ -122,13 +122,13 @@ class _VerifyEmailScreenBodyState extends State<_VerifyEmailScreenBody> {
                 SvgPicture.asset(Assets.icons.emailNotification),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.signup_verify_your_email,
+                  context.localization.verify_your_email,
                   style: AppTextStyles.h2Bold,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  context.localization.signup_link_verify_info(
+                  context.localization.link_verify_info(
                     widget.email,
                   ),
                   style: AppTextStyles.p2Medium,

@@ -887,18 +887,49 @@ class PhoneNumberVerifiedRouteArgs {
 
 /// generated route for
 /// [_i26.ProductDetailScreen]
-class ProductDetailRoute extends _i35.PageRouteInfo<void> {
-  const ProductDetailRoute({List<_i35.PageRouteInfo>? children})
-      : super(ProductDetailRoute.name, initialChildren: children);
+class ProductDetailRoute extends _i35.PageRouteInfo<ProductDetailRouteArgs> {
+  ProductDetailRoute({
+    _i36.Key? key,
+    required String productId,
+    List<_i35.PageRouteInfo>? children,
+  }) : super(
+          ProductDetailRoute.name,
+          args: ProductDetailRouteArgs(key: key, productId: productId),
+          initialChildren: children,
+        );
 
   static const String name = 'ProductDetailRoute';
 
   static _i35.PageInfo page = _i35.PageInfo(
     name,
     builder: (data) {
-      return const _i26.ProductDetailScreen();
+      final args = data.argsAs<ProductDetailRouteArgs>();
+      return _i26.ProductDetailScreen(key: args.key, productId: args.productId);
     },
   );
+}
+
+class ProductDetailRouteArgs {
+  const ProductDetailRouteArgs({this.key, required this.productId});
+
+  final _i36.Key? key;
+
+  final String productId;
+
+  @override
+  String toString() {
+    return 'ProductDetailRouteArgs{key: $key, productId: $productId}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ProductDetailRouteArgs) return false;
+    return key == other.key && productId == other.productId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ productId.hashCode;
 }
 
 /// generated route for

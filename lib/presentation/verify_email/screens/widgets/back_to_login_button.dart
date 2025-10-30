@@ -10,7 +10,7 @@ class BackToLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      label: context.localization.signup_back_to_login,
+      label: context.localization.back_to_login,
       shouldSetFullWidth: true,
       style: AppButtonStyle.outline,
       size: AppButtonSize.large,
