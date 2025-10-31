@@ -7,7 +7,6 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
 import 'package:skelter/presentation/profile/bloc/profile_event.dart';
 import 'package:skelter/presentation/profile/constants/analytics_constant.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class SignOut extends StatelessWidget {

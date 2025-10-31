@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,9 +7,8 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
-import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 class ConfirmPasswordTextField extends StatefulWidget {
   const ConfirmPasswordTextField({super.key});
@@ -88,7 +88,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
               enabledBorder: buildOutlineInputBorder(hasFocus: false),
               focusedBorder: buildOutlineInputBorder(hasFocus: true),
               errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-              hintText: context.localization.signup_confirm_password_hint,
+              hintText: context.localization.confirm_password_hint,
               hintStyle: AppTextStyles.p3Medium.copyWith(
                 color: context.currentTheme.textNeutralDisable,
               ),

@@ -9,7 +9,6 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class AccountDeleteSuccessScreen extends StatefulWidget {

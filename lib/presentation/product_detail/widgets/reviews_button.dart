@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/i18n/localization.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ReviewsButton extends StatelessWidget {
   const ReviewsButton({
@@ -17,7 +17,7 @@ class ReviewsButton extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width * 0.62,
       child: AppButton(
         label: context.localization.view_product_reviews,
-        backgroundColor: AppColors.bgBrandDefault,
+        backgroundColor: context.currentTheme.bgBrandDefault,
         size: AppButtonSize.extraLarge,
         leftIcon: TablerIcons.star,
         isLeftIconAttachedToText: true,

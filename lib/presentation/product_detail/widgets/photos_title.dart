@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 class PhotosTitle extends StatelessWidget {
   const PhotosTitle({super.key});
@@ -14,7 +14,7 @@ class PhotosTitle extends StatelessWidget {
         Text(
           context.localization.product_photos,
           style: AppTextStyles.p2SemiBold
-              .copyWith(color: AppColors.textNeutralPrimary),
+              .copyWith(color: context.currentTheme.textNeutralPrimary),
         ),
       ],
     );

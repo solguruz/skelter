@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
+import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
 import 'package:skelter/presentation/profile/bloc/profile_state.dart';
 import 'package:skelter/presentation/profile/widgets/account_section.dart';

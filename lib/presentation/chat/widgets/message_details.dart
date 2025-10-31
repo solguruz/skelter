@@ -31,9 +31,9 @@ class MessageDetails extends StatelessWidget {
         const SizedBox(height: 12.0),
         if (unreadMessageCount > 0)
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: context.currentTheme.bgBrandHover,
-              borderRadius: BorderRadius.horizontal(
+              borderRadius: const BorderRadius.horizontal(
                 left: Radius.circular(8),
                 right: Radius.circular(8),
               ),
