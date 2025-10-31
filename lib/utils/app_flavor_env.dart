@@ -42,4 +42,16 @@ class AppConfig {
         return dotenv.env['CERT_HASH_PROD']?.trim() ?? '';
     }
   }
+
+  static String getClarityProjectId() {
+    switch (appFlavor) {
+      case AppFlavor.stage:
+        return dotenv.env['CLARITY_PROJECT_ID_STAGE']?.trim() ?? '';
+      case AppFlavor.prod:
+        return dotenv.env['CLARITY_PROJECT_ID_PROD']?.trim() ?? '';
+      case AppFlavor.dev:
+        // Note: Dev flavor — Clarity analytics excluded
+        return '';
+    }
+  }
 }

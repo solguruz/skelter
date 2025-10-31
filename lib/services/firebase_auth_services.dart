@@ -9,7 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
-import 'package:skelter/presentation/delete_account/feature/delete_account_constants.dart';
+import 'package:skelter/presentation/delete_account/constants/delete_account_constants.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/cache_manager.dart';
 
@@ -172,7 +172,7 @@ class FirebaseAuthService {
     GIVEN NAME = ${appleCred.givenName}
     EMAIL =${appleCred.email}''',
       );
-      final OAuthCredential cred = OAuthProvider('apple.com').credential(
+      final OAuthCredential cred = OAuthProvider(kProviderApple).credential(
         idToken: appleCred.identityToken,
         accessToken: appleCred.authorizationCode,
         rawNonce: rawNonce,
@@ -213,7 +213,24 @@ class FirebaseAuthService {
     return _firebaseAuth.currentUser;
   }
 
+  bool get isSignedInWithGoogle {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) return false;
+
+    final providerData = user.providerData;
+    return providerData
+        .any((userInfo) => userInfo.providerId == kProviderGoogle);
+  }
+
   Future<void> signOut() async {
+    if (isSignedInWithGoogle) {
+      try {
+        await GoogleSignIn().signOut();
+      } catch (e) {
+        debugPrint('Error during Google sign out: $e');
+      }
+    }
+
     await _firebaseAuth.signOut();
   }
 
@@ -295,6 +312,9 @@ class FirebaseAuthService {
         case kProviderPhone:
           onError(kPhoneAuthRequired);
 
+        case kProviderApple:
+          await _reAuthWithApple(user);
+
         //Todo : Dynamic Implementation/Test Pending for Email/Password reAuth
         case kProviderPassword:
           onError(kEmailPasswordReAuthRequired);
@@ -309,8 +329,6 @@ class FirebaseAuthService {
     }
   }
 
-  //Todo : Dynamic Implementation/Test Pending for _reAuthWithGoogle
-  // Re-authenticates with Google credentials
   Future<void> _reAuthWithGoogle(User user) async {
     final googleSignIn = GoogleSignIn(scopes: [kEmailScope]);
     final googleUser = await googleSignIn.signIn();
@@ -323,6 +341,25 @@ class FirebaseAuthService {
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
+    );
+
+    await user.reauthenticateWithCredential(credential);
+  }
+
+  Future<void> _reAuthWithApple(User user) async {
+    final rawNonce = generateNonce();
+    final appleCred = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+      nonce: _sha256OfString(rawNonce),
+    );
+
+    final credential = OAuthProvider(kProviderApple).credential(
+      idToken: appleCred.identityToken,
+      accessToken: appleCred.authorizationCode,
+      rawNonce: rawNonce,
     );
 
     await user.reauthenticateWithCredential(credential);

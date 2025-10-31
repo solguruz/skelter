@@ -18,7 +18,7 @@ class TimeAgo extends StatelessWidget {
       children: [
         const SizedBox(height: 5),
         Text(
-          '${message.date.to12HourFormat}${message.isSentByMe ? ' '
+          '${message.date.to12HourFormat()}${message.isSentByMe ? ' '
               '• ${message.status}' : ''}',
           style: AppTextStyles.c2Medium
               .copyWith(color: context.currentTheme.textNeutralDisable),

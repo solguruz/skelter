@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,7 +7,9 @@ import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_event.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_state.dart';
-import 'package:skelter/presentation/contact_us/contact_us_screen.dart';
+import 'package:skelter/presentation/contact_us/constant/contact_us_constants.dart';
+import 'package:skelter/utils/file_picker_util.dart';
+import 'package:skelter/utils/image_picker_util.dart';
 
 class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
   final AppLocalizations localizations;
@@ -73,13 +74,11 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     if (state.description.trim().isEmpty) {
       hasError = true;
       add(DescriptionErrorEvent(error: localizations.message_cannot_be_empty));
-    } else if (state.description.trim().length >
-        ContactUsScreen.kMessageMaxLength) {
+    } else if (state.description.trim().length > kMessageMaxLength) {
       hasError = true;
       add(
         DescriptionErrorEvent(
-          error:
-              localizations.messageTooLong(ContactUsScreen.kMessageMaxLength),
+          error: localizations.messageTooLong(kMessageMaxLength),
         ),
       );
     }
@@ -121,22 +120,15 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     Emitter<ContactUsState> emit,
   ) async {
     try {
-      final picker = ImagePicker();
-      List<XFile> pickedImages = [];
-
-      if (event.source == ImageSource.gallery) {
-        pickedImages =
-            await picker.pickMultiImage(limit: ContactUsScreen.kMaxFileLimit);
-      } else {
-        final XFile? image = await picker.pickImage(source: ImageSource.camera);
-        if (image != null) pickedImages = [image];
-      }
+      final pickedImages = await ImagePickerUtil().pickImages(
+        source: event.source,
+        maxFileLimit: kMaxFileLimit,
+      );
 
       if (pickedImages.isNotEmpty) {
         emit(
           state.copyWith(
-            selectedImages:
-                pickedImages.take(ContactUsScreen.kMaxFileLimit).toList(),
+            selectedImages: pickedImages.take(kMaxFileLimit).toList(),
           ),
         );
         emit(ResetPickedFilesErrorState(state));
@@ -161,60 +153,27 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
     Emitter<ContactUsState> emit,
   ) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
+      final result = await FilePickerUtil.pickAndValidateFiles(
+        localizations: localizations,
         allowedExtensions: kAllowedFileExtensions,
+        maxSizeInBytes: kMaxFileSizeInBytes,
+        maxFiles: kMaxFileLimit,
         allowMultiple: true,
+        isValidFile: isValidPdf,
       );
 
-      if (result == null) return;
-
-      final files = <File>[];
-
-      for (final path in result.paths) {
-        if (path != null) {
-          final file = File(path);
-          final fileSize = await file.length();
-
-          if (fileSize == 0) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.file_empty_error,
-              ),
-            );
-            return;
-          }
-
-          if (fileSize > ContactUsScreen.kMaxFileSizeInBytes) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.file_too_large_error,
-              ),
-            );
-            return;
-          }
-
-          if (!await isValidPdf(file)) {
-            emit(
-              PickedFilesErrorState(
-                state,
-                error: localizations.unsupported_file_format_error,
-              ),
-            );
-            return;
-          }
-
-          files.add(file);
-        }
+      if (result.error != null) {
+        emit(PickedFilesErrorState(state, error: result.error!));
+        return;
       }
 
-      final updated = [...?state.selectedPdfs, ...files];
+      if (result.validFiles.isEmpty) return;
+
+      final updated = [...?state.selectedPdfs, ...result.validFiles];
       emit(ResetPickedFilesErrorState(state));
       emit(
         state.copyWith(
-          selectedPdfs: updated.take(ContactUsScreen.kMaxFileLimit).toList(),
+          selectedPdfs: updated.take(kMaxFileLimit).toList(),
         ),
       );
     } catch (e) {
@@ -234,7 +193,7 @@ Future<bool> isValidPdf(File file) async {
   try {
     final bytes = await file.openRead(0, 5).first;
     final signature = String.fromCharCodes(bytes);
-    return signature == ContactUsScreen.kPdfFileSignature;
+    return signature == kPdfFileSignature;
   } catch (e) {
     return false;
   }

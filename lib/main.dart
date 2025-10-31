@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skelter/core/clarity_analytics/clarity_route_observer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/i18n/i18n.dart';
 import 'package:skelter/initialize_app.dart';
@@ -17,6 +19,7 @@ import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/theme_service.dart';
 import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_environment.dart';
+import 'package:skelter/utils/app_flavor_env.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
@@ -52,6 +55,7 @@ class _MainAppState extends State<MainApp> {
     Prefs.init();
     _connectivityHelper.onConnectivityChange
         .addListener(handleConnectivityStatusChange);
+    _initializeClarity();
 
     final themeService = ThemeService();
     themeBloc = ThemeBloc(service: themeService)..add(const LoadTheme());
@@ -77,6 +81,26 @@ class _MainAppState extends State<MainApp> {
     }
   }
 
+  void _initializeClarity() {
+    final projectId = AppConfig.getClarityProjectId();
+
+    if (projectId.isEmpty ||
+        AppEnvironment.isTestEnvironment ||
+        AppConfig.appFlavor == AppFlavor.dev ||
+        kIsWeb) {
+      debugPrint(
+        'Clarity not initialized for flavor: '
+            '${AppConfig.appFlavor.name} or in test environment',
+      );
+      return;
+    }
+
+    final config = ClarityConfig(projectId: projectId);
+    Clarity.initialize(context, config);
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
@@ -95,7 +119,11 @@ class _MainAppState extends State<MainApp> {
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                 ],
-                routerConfig: appRouter.config(),
+                routerConfig: appRouter.config(
+                  navigatorObservers: () => [
+                    ClarityRouteObserver(),
+                  ],
+                ),
                 theme: AppThemesData.themeData[AppThemeEnum.LightTheme]!,
                 darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
                 themeMode: state.themeMode,

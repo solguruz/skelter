@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:skelter/i18n/localization.dart';
-import 'package:skelter/presentation/force_update/feature/force_update_constants.dart';
+import 'package:skelter/presentation/force_update/constants/force_update_constants.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';

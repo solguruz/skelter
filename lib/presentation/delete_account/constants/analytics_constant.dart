@@ -1,0 +1,1 @@
+const String kClarityEventDeleteAccountConfirmed = 'delete_account_confirmed';

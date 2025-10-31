@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -53,39 +54,41 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _passwordController,
-          obscureText: !isPasswordVisible,
-          style: AppTextStyles.p3Medium.copyWith(
-            color: context.currentTheme.textNeutralPrimary,
-          ),
-          decoration: InputDecoration(
-            hintText: context.localization.password_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: context.currentTheme.textNeutralDisable,
+        ClarityMask(
+          child: TextField(
+            controller: _passwordController,
+            obscureText: !isPasswordVisible,
+            style: AppTextStyles.p3Medium.copyWith(
+              color: context.currentTheme.textNeutralPrimary,
             ),
-            filled: true,
-            fillColor: context.currentTheme.bgSurfaceBase2,
-            border: buildOutlineInputBorder(hasFocus: false),
-            enabledBorder: buildOutlineInputBorder(hasFocus: false),
-            focusedBorder: buildOutlineInputBorder(hasFocus: true),
-            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-            suffixIcon: IconButton(
-              icon: Icon(
-                size: 22,
-                isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: context.currentTheme.strokeNeutralDisabled,
+            decoration: InputDecoration(
+              hintText: context.localization.password_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: context.currentTheme.textNeutralDisable,
               ),
-              onPressed: () {
-                context.read<SignupBloc>().add(
-                      TogglePasswordVisibilityEvent(
-                        isVisible: !isPasswordVisible,
-                      ),
-                    );
-              },
+              filled: true,
+              fillColor: context.currentTheme.bgSurfaceBase2,
+              border: buildOutlineInputBorder(hasFocus: false),
+              enabledBorder: buildOutlineInputBorder(hasFocus: false),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  size: 22,
+                  isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
+                  color: context.currentTheme.strokeNeutralDisabled,
+                ),
+                onPressed: () {
+                  context.read<SignupBloc>().add(
+                        TogglePasswordVisibilityEvent(
+                          isVisible: !isPasswordVisible,
+                        ),
+                      );
+                },
+              ),
             ),
+            textInputAction: TextInputAction.done,
           ),
-          textInputAction: TextInputAction.done,
         ),
       ],
     );

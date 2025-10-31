@@ -10,12 +10,18 @@ import 'package:skelter/presentation/home/data/datasources/product_remote_data_s
 import 'package:skelter/presentation/home/data/repositories/product_repository_impl.dart';
 import 'package:skelter/presentation/home/domain/repositories/product_repository.dart';
 import 'package:skelter/presentation/home/domain/usecases/get_products.dart';
+import 'package:skelter/presentation/product_detail/data/datasources/product_detail_remote_data_source.dart';
+import 'package:skelter/presentation/product_detail/data/repositories/product_detail_repository_impl.dart';
+import 'package:skelter/presentation/product_detail/domain/repositories/product_detail_repository.dart';
+import 'package:skelter/presentation/product_detail/domain/usecases/get_product_detail.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/firebase_auth_services.dart';
+import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_flavor_env.dart';
 import 'package:skelter/utils/cache_manager.dart';
 
 final sl = GetIt.instance;
+bool _isForceLoggingOutUser = false;
 
 Future<void> configureDependencies({
   FirebaseAuth? firebaseAuth,
@@ -53,6 +59,13 @@ Future<void> configureDependencies({
     ..registerLazySingleton<ProductRemoteDatasource>(
       () => ProductRemoteDataSrcImpl(sl()),
     )
+    ..registerLazySingleton(() => GetProductDetail(sl()))
+    ..registerLazySingleton<ProductDetailRepository>(
+      () => ProductDetailRepositoryImpl(sl()),
+    )
+    ..registerLazySingleton<ProductDetailRemoteDatasource>(
+      () => ProductDetailRemoteDataSrcImpl(sl()),
+    )
     ..registerLazySingleton<Dio>(() => pinnedDio);
 }
 
@@ -64,6 +77,7 @@ void _registerDioInterceptor(Dio dio) {
       callFollowingErrorInterceptor: true,
     ),
     _sslPinningErrorInterceptor,
+    _authErrorInterceptor(),
   ]);
 }
 
@@ -81,6 +95,44 @@ InterceptorsWrapper get _sslPinningErrorInterceptor {
     },
   );
 }
+
+InterceptorsWrapper _authErrorInterceptor() => InterceptorsWrapper(
+      onError: (DioException dioError, ErrorInterceptorHandler handler) async {
+        final statusCode = dioError.response?.statusCode ?? 0;
+
+        debugPrint(
+          '[AuthErrorInterceptor] status: $statusCode',
+        );
+
+        final shouldLogout =
+            !_isForceLoggingOutUser && (statusCode == 401 || statusCode == 403);
+
+        if (shouldLogout) {
+          _isForceLoggingOutUser = true;
+          try {
+            await Prefs.clear();
+            await sl<CacheManager>().clearCachedApiResponse();
+            await sl<FirebaseAuthService>().signOut();
+
+            final currentContext = rootNavigatorKey.currentContext;
+            if (currentContext != null) {
+              await currentContext.router
+                  .replaceAll([LoginWithPhoneNumberRoute()]);
+            } else {
+              debugPrint(
+                '[AuthErrorInterceptor] No navigator context available',
+              );
+            }
+          } catch (e) {
+            debugPrint('[AuthErrorInterceptor] Logout failed: $e');
+          } finally {
+            _isForceLoggingOutUser = false;
+          }
+        }
+
+        handler.next(dioError);
+      },
+    );
 
 String _getCertHash() {
   final certificateHash = AppConfig.getDioCertHash();

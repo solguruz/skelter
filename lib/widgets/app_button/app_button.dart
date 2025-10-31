@@ -41,6 +41,7 @@ class AppButton extends StatelessWidget {
   final double? appBarActionVerticalPadding;
   final double? appBarActionRightPadding;
   final double? appBarActionLeftPadding;
+  final EdgeInsets? paddingOverride;
 
   const AppButton({
     super.key,
@@ -68,6 +69,7 @@ class AppButton extends StatelessWidget {
     this.appBarActionVerticalPadding,
     this.shouldSetFullWidth = false,
     this.borderRadius,
+    this.paddingOverride,
   });
 
   factory AppButton.icon({
@@ -260,6 +262,7 @@ class AppButton extends StatelessWidget {
   }
 
   EdgeInsets? _resolvePadding() {
+    if (paddingOverride != null) return paddingOverride;
     if (isIconButton) return EdgeInsets.zero;
     if (style == AppButtonStyle.link || style == AppButtonStyle.textOrIcon) {
       return EdgeInsets.zero;

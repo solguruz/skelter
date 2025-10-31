@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
@@ -61,23 +62,30 @@ class _EmailTextFieldState extends State<EmailTextField> {
               .copyWith(color: context.currentTheme.textNeutralPrimary),
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _emailController,
-          style: AppTextStyles.p3Medium.copyWith(
-            color: context.currentTheme.textNeutralPrimary,
+        ClarityMask(
+          child: TextField(
+            controller: _emailController,
+            style: AppTextStyles.p3Medium.copyWith(
+              color: context.currentTheme.textNeutralPrimary,
+            ),
+            decoration: InputDecoration(
+              hintText: context.localization.email_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: context.currentTheme.textNeutralDisable,
+              ),
+              border: buildOutlineInputBorder(hasFocus: false),
+              enabledBorder: buildOutlineInputBorder(hasFocus: false),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              filled: true,
+              fillColor: context.currentTheme.bgSurfaceBase2,
+              errorText: emailError != null && emailError.isNotEmpty
+                  ? emailError
+                  : null,
+            ),
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
           ),
-          decoration: InputDecoration(
-            border: buildOutlineInputBorder(hasFocus: false),
-            enabledBorder: buildOutlineInputBorder(hasFocus: false),
-            focusedBorder: buildOutlineInputBorder(hasFocus: true),
-            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-            filled: true,
-            fillColor: context.currentTheme.bgSurfaceBase2,
-            errorText:
-                emailError != null && emailError.isNotEmpty ? emailError : null,
-          ),
-          textInputAction: TextInputAction.next,
-          keyboardType: TextInputType.emailAddress,
         ),
       ],
     );

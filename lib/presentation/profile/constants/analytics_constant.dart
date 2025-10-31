@@ -1,0 +1,1 @@
+const String kClarityEventSignOutClicked = 'sign_out_clicked';

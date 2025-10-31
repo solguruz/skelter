@@ -6,6 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
+import 'package:skelter/presentation/delete_account/constants/analytics_constant.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
@@ -100,6 +101,9 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                         );
                         return;
                       }
+                      Clarity.sendCustomEvent(
+                        kClarityEventDeleteAccountConfirmed,
+                      );
                       context
                           .read<DeleteAccountBloc>()
                           .add(const DeleteAccountSubmittedEvent());

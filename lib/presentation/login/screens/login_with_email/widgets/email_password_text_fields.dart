@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -6,8 +7,9 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/bloc/login_state.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
-import 'package:skelter/utils/extensions/string.dart';
 
 class EmailPasswordTextFields extends StatefulWidget {
   const EmailPasswordTextFields({super.key});
@@ -60,26 +62,28 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
                 .copyWith(color: context.currentTheme.textNeutralPrimary),
           ),
           const SizedBox(height: 16),
-          TextField(
-            controller: _emailController,
-            style: AppTextStyles.p3Medium
-                .copyWith(color: context.currentTheme.textNeutralPrimary),
-            decoration: InputDecoration(
-              hintText: context.localization.email_hint,
-              hintStyle: AppTextStyles.p3Medium.copyWith(
-                color: context.currentTheme.textNeutralDisable,
+          ClarityMask(
+            child: TextField(
+              controller: _emailController,
+              style: AppTextStyles.p3Medium
+                  .copyWith(color: context.currentTheme.textNeutralPrimary),
+              decoration: InputDecoration(
+                hintText: context.localization.email_hint,
+                hintStyle: AppTextStyles.p3Medium.copyWith(
+                  color: context.currentTheme.textNeutralDisable,
+                ),
+                filled: true,
+                fillColor: context.currentTheme.bgSurfaceBase2,
+                errorText:
+                emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
+                border: buildOutlineInputBorder(hasFocus: false),
+                enabledBorder: buildOutlineInputBorder(hasFocus: false),
+                focusedBorder: buildOutlineInputBorder(hasFocus: true),
+                errorBorder: buildOutlineInputBorder(isErrorBorder: true),
               ),
-              filled: true,
-              fillColor: context.currentTheme.bgSurfaceBase2,
-              errorText:
-                  emailErrorMessage.isNullOrEmpty() ? null : emailErrorMessage,
-              border: buildOutlineInputBorder(hasFocus: false),
-              enabledBorder: buildOutlineInputBorder(hasFocus: false),
-              focusedBorder: buildOutlineInputBorder(hasFocus: true),
-              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              textInputAction: TextInputAction.next,
+              keyboardType: TextInputType.emailAddress,
             ),
-            textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: 16),
           Text(
@@ -87,41 +91,43 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
             style: AppTextStyles.p3Medium,
           ),
           const SizedBox(height: 8),
-          TextField(
-            controller: _passwordController,
-            obscureText: !isPasswordVisible,
-            style: AppTextStyles.p3Medium
-                .copyWith(color: context.currentTheme.textNeutralPrimary),
-            decoration: InputDecoration(
-              hintText: context.localization.password_hint,
-              hintStyle: AppTextStyles.p3Medium.copyWith(
-                color: context.currentTheme.textNeutralDisable,
-              ),
-              filled: true,
-              fillColor: context.currentTheme.bgSurfaceBase2,
-              border: buildOutlineInputBorder(hasFocus: false),
-              enabledBorder: buildOutlineInputBorder(hasFocus: false),
-              focusedBorder: buildOutlineInputBorder(hasFocus: true),
-              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-              errorText: passwordErrorMessage.isNullOrEmpty()
-                  ? null
-                  : passwordErrorMessage,
-              suffixIcon: IconButton(
-                icon: Icon(
-                  size: 22,
-                  isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                  color: context.currentTheme.strokeNeutralDisabled,
+          ClarityMask(
+            child: TextField(
+              controller: _passwordController,
+              obscureText: !isPasswordVisible,
+              style: AppTextStyles.p3Medium
+                  .copyWith(color: context.currentTheme.textNeutralPrimary),
+              decoration: InputDecoration(
+                hintText: context.localization.password_hint,
+                hintStyle: AppTextStyles.p3Medium.copyWith(
+                  color: context.currentTheme.textNeutralDisable,
                 ),
-                onPressed: () {
-                  context.read<LoginBloc>().add(
-                        IsPasswordVisibleEvent(
-                          isPasswordVisible: !isPasswordVisible,
-                        ),
-                      );
-                },
+                filled: true,
+                fillColor: context.currentTheme.bgSurfaceBase2,
+                border: buildOutlineInputBorder(hasFocus: false),
+                enabledBorder: buildOutlineInputBorder(hasFocus: false),
+                focusedBorder: buildOutlineInputBorder(hasFocus: true),
+                errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+                errorText: passwordErrorMessage.isNullOrEmpty()
+                    ? null
+                    : passwordErrorMessage,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    size: 22,
+                    isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
+                    color: context.currentTheme.strokeNeutralDisabled,
+                  ),
+                  onPressed: () {
+                    context.read<LoginBloc>().add(
+                          IsPasswordVisibleEvent(
+                            isPasswordVisible: !isPasswordVisible,
+                          ),
+                        );
+                  },
+                ),
               ),
+              textInputAction: TextInputAction.done,
             ),
-            textInputAction: TextInputAction.done,
           ),
         ],
       ),

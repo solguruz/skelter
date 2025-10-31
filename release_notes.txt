@@ -1,1 +1,13 @@
-- Initial release: First version of the project with core features implemented.
+🌟 What's New
+   * Add Apple signing capability
+   * Integrate Product Detail API with Clean Architecture
+   * Add utility extensions
+   * Create product detail screen ui and add related golden test cases
+   * Remove unused date time extension and move string null check in primitive extension
+   * Add Unit/Widget test and patrol test info in README file
+   * Force Logout on Auth Errors
+   * Update localization keys by removing signup/login prefixes and sort feature wise
+
+🐛 What's Fixed
+   * Mock API result not showing in patrol test due to missing options parameter in test
+   * Update dependency to resolve missing meta import issue

@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +10,9 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
-import 'package:skelter/utils/extensions/string.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
   const PhoneNumberTextField({
@@ -85,45 +87,47 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
             ),
           ),
           const SizedBox(height: 8),
-          InternationalPhoneNumberInput(
-            key: keys.signInPage.mobileNoTextField,
-            textFieldController: _phoneInputController,
-            focusNode: _focusNode,
-            textStyle: AppTextStyles.p3Medium
-                .copyWith(color: context.currentTheme.textNeutralPrimary),
-            selectorTextStyle: AppTextStyles.p3Medium
-                .copyWith(color: context.currentTheme.textNeutralPrimary),
-            initialValue: phoneNumberData,
-            inputDecoration: InputDecoration(
-              hintText: context.localization.enter_phone_number,
-              hintStyle: AppTextStyles.p3Medium
-                  .copyWith(color: context.currentTheme.textNeutralDisable),
-              errorStyle: AppTextStyles.p4Regular
-                  .copyWith(color: context.currentTheme.textErrorSecondary),
-              border: buildOutlineInputBorder(hasFocus: hasFocus),
-              enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-              focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-              filled: true,
-              fillColor: context.currentTheme.bgSurfaceBase2,
+          ClarityMask(
+            child: InternationalPhoneNumberInput(
+              key: keys.signInPage.mobileNoTextField,
+              textFieldController: _phoneInputController,
+              focusNode: _focusNode,
+              textStyle: AppTextStyles.p3Medium
+                  .copyWith(color: context.currentTheme.textNeutralPrimary),
+              selectorTextStyle: AppTextStyles.p3Medium
+                  .copyWith(color: context.currentTheme.textNeutralPrimary),
+              initialValue: phoneNumberData,
+              inputDecoration: InputDecoration(
+                hintText: context.localization.enter_phone_number,
+                hintStyle: AppTextStyles.p3Medium
+                    .copyWith(color: context.currentTheme.textNeutralDisable),
+                errorStyle: AppTextStyles.p4Regular
+                    .copyWith(color: context.currentTheme.textErrorSecondary),
+                border: buildOutlineInputBorder(hasFocus: hasFocus),
+                enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+                filled: true,
+                fillColor: context.currentTheme.bgSurfaceBase2,
+              ),
+              searchBoxDecoration: _bottomSheatInputDecoration,
+              validator: (_) {
+                return phoneNumError;
+              },
+              onInputChanged: (PhoneNumber number) =>
+                  _updatePhoneNumberEvent(number),
+              ignoreBlank: true,
+              hintText: null,
+              selectorConfig: const SelectorConfig(
+                leadingPadding: 12,
+                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                trailingSpace: false,
+                useEmoji: true,
+                setSelectorButtonAsPrefixIcon: true,
+                useBottomSheetSafeArea: true,
+              ),
+              autoValidateMode: AutovalidateMode.always,
             ),
-            searchBoxDecoration: _bottomSheatInputDecoration,
-            validator: (_) {
-              return phoneNumError;
-            },
-            onInputChanged: (PhoneNumber number) =>
-                _updatePhoneNumberEvent(number),
-            ignoreBlank: true,
-            hintText: null,
-            selectorConfig: const SelectorConfig(
-              leadingPadding: 12,
-              selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-              trailingSpace: false,
-              useEmoji: true,
-              setSelectorButtonAsPrefixIcon: true,
-              useBottomSheetSafeArea: true,
-            ),
-            autoValidateMode: AutovalidateMode.always,
           ),
         ],
       ),

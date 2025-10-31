@@ -6,8 +6,9 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
-import 'package:skelter/utils/extensions/string.dart';
 
 class ConfirmPasswordTextField extends StatefulWidget {
   const ConfirmPasswordTextField({super.key});
@@ -69,48 +70,50 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.signup_confirm_password,
+          context.localization.confirm_password,
           style: AppTextStyles.p3Medium.copyWith(
             color: context.currentTheme.textNeutralPrimary,
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _passwordController,
-          obscureText: !isPasswordVisible,
-          style: AppTextStyles.p3Medium.copyWith(
-            color: context.currentTheme.textNeutralPrimary,
-          ),
-          decoration: InputDecoration(
-            border: buildOutlineInputBorder(hasFocus: false),
-            enabledBorder: buildOutlineInputBorder(hasFocus: false),
-            focusedBorder: buildOutlineInputBorder(hasFocus: true),
-            errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-            hintText: context.localization.signup_confirm_password_hint,
-            hintStyle: AppTextStyles.p3Medium.copyWith(
-              color: context.currentTheme.textNeutralDisable,
+        ClarityMask(
+          child: TextField(
+            controller: _passwordController,
+            obscureText: !isPasswordVisible,
+            style: AppTextStyles.p3Medium.copyWith(
+              color: context.currentTheme.textNeutralPrimary,
             ),
-            filled: true,
-            fillColor: context.currentTheme.bgSurfaceBase2,
-            errorText: passwordErrorMessage.isNullOrEmpty()
-                ? null
-                : passwordErrorMessage,
-            suffixIcon: IconButton(
-              icon: Icon(
-                size: 22,
-                isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
-                color: context.currentTheme.strokeNeutralDisabled,
+            decoration: InputDecoration(
+              border: buildOutlineInputBorder(hasFocus: false),
+              enabledBorder: buildOutlineInputBorder(hasFocus: false),
+              focusedBorder: buildOutlineInputBorder(hasFocus: true),
+              errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+              hintText: context.localization.signup_confirm_password_hint,
+              hintStyle: AppTextStyles.p3Medium.copyWith(
+                color: context.currentTheme.textNeutralDisable,
               ),
-              onPressed: () {
-                context.read<SignupBloc>().add(
-                      ToggleConfirmPasswordVisibilityEvent(
-                        isVisible: !isPasswordVisible,
-                      ),
-                    );
-              },
+              filled: true,
+              fillColor: context.currentTheme.bgSurfaceBase2,
+              errorText: passwordErrorMessage.isNullOrEmpty()
+                  ? null
+                  : passwordErrorMessage,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  size: 22,
+                  isPasswordVisible ? TablerIcons.eye_off : TablerIcons.eye,
+                  color: context.currentTheme.strokeNeutralDisabled,
+                ),
+                onPressed: () {
+                  context.read<SignupBloc>().add(
+                        ToggleConfirmPasswordVisibilityEvent(
+                          isVisible: !isPasswordVisible,
+                        ),
+                      );
+                },
+              ),
             ),
+            textInputAction: TextInputAction.done,
           ),
-          textInputAction: TextInputAction.done,
         ),
       ],
     );

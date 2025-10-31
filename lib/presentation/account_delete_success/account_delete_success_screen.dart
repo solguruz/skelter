@@ -9,6 +9,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class AccountDeleteSuccessScreen extends StatefulWidget {
@@ -88,7 +89,7 @@ class _AccountDeleteSuccessScreenState
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
-                          text: context.localization.signup_sign_up,
+                          text: context.localization.sign_up,
                           style: AppTextStyles.p2SemiBold.copyWith(
                             color: context.currentTheme.textBrandSecondary,
                           ),

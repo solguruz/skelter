@@ -21,7 +21,12 @@ void main() {
 
     when(() => mockResponse.statusCode).thenReturn(200);
     when(() => mockResponse.data).thenReturn(productsResponse);
-    when(() => mockDio.get(any())).thenAnswer((_) async => mockResponse);
+    when(
+      () => mockDio.get(
+        any(),
+        options: any(named: 'options'), // ignore the CacheOptions in test
+      ),
+    ).thenAnswer((_) async => mockResponse);
     when(() => mockDio.interceptors).thenReturn(Interceptors());
   });
 

@@ -21,7 +21,7 @@ class ResendVerificationMailButton extends StatelessWidget {
         context.select<VerifyEmailBloc, bool>((bloc) => bloc.state.isLoading);
 
     final String resendLinkText =
-        '${context.localization.signup_resend_verification_email} '
+        '${context.localization.resend_verification_email} '
         '${resendEmailVerificationTimeLeft > 0 ? ''
             '($resendEmailVerificationTimeLeft)' : ''}';
 

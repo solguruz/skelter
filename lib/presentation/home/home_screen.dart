@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/core/services/injection_container.dart';
@@ -25,34 +26,31 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class HomeScreenWrapper extends StatefulWidget {
+class HomeScreenWrapper extends StatelessWidget {
   const HomeScreenWrapper({super.key});
 
   @override
-  State<HomeScreenWrapper> createState() => _HomeScreenWrapperState();
-}
-
-class _HomeScreenWrapperState extends State<HomeScreenWrapper> {
-  @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      const HomeScreenBody(),
+      const SearchScreen(),
+      const InitialCheckoutScreen(),
+      const ProfileScreen(),
+    ];
+
     final int currentIndex = context.select<HomeBloc, int>(
       (bloc) => bloc.state.currentBottomNavIndex,
     );
+    final String screenName = pages[currentIndex].runtimeType.toString();
+    Clarity.setCurrentScreenName(screenName);
+
     return Scaffold(
-      // To switch to GoogleNavBar, replace BottomNavBar with GoogleBottomNavBar
-      // below.
-      // bottomNavigationBar: const GoogleBottomNavBar(),
       backgroundColor: context.currentTheme.bgSurfaceBase,
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: IndexedStack(
           index: currentIndex,
-          children: const [
-            HomeScreenBody(),
-            SearchScreen(),
-            InitialCheckoutScreen(),
-            ProfileScreen(),
-          ],
+          children: pages,
         ),
       ),
     );
