@@ -49,6 +49,7 @@ class ServerErrorScreen extends StatelessWidget {
                   Expanded(
                     child: AppButton(
                       label: context.localization.try_again,
+                      foregroundColor: context.currentTheme.textBrandSecondary,
                       onPressed: () {},
                       size: AppButtonSize.extraLarge,
                       style: AppButtonStyle.secondary,
@@ -58,6 +59,7 @@ class ServerErrorScreen extends StatelessWidget {
                   Expanded(
                     child: AppButton(
                       label: context.localization.back_to_home,
+                      foregroundColor: context.currentTheme.textNeutralLight,
                       onPressed: () {},
                       size: AppButtonSize.extraLarge,
                     ),

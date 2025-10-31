@@ -53,7 +53,7 @@ class DarkAppColors implements ThemeColorPalette {
   @override
   Color get textNeutralLight => AppColors.neutral100;
   @override
-  Color get textNeutralWhite => AppColors.black;
+  Color get textNeutralWhite => AppColors.white;
   @override
   Color get textNeutralArticleParagraph => AppColors.neutral300;
 

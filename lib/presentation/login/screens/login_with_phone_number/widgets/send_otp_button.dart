@@ -4,6 +4,7 @@ import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
@@ -40,6 +41,7 @@ class SendOTPButton extends StatelessWidget {
       label: isSignup
           ? context.localization.next
           : context.localization.send_otp,
+      foregroundColor: context.currentTheme.textNeutralLight,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: phoneNumberOnly.isNotEmpty

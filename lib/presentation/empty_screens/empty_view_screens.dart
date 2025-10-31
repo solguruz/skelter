@@ -20,6 +20,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.wishlist,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const WishlistRoute());
                 },
@@ -27,6 +28,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.server_error,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const ServerErrorRoute());
                 },
@@ -34,6 +36,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.lost_connection,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const NoInternetRoute());
                 },
@@ -41,6 +44,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.under_maintenance,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const UnderMaintenanceRoute());
                 },
@@ -48,6 +52,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.empty_order_title,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const MyOrdersRoute());
                 },
@@ -55,6 +60,7 @@ class EmptyViewsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               AppButton(
                 label: context.localization.empty_cards_list_title,
+                foregroundColor: context.currentTheme.textNeutralLight,
                 onPressed: () {
                   context.pushRoute(const SavedCardRoute());
                 },

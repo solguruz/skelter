@@ -51,6 +51,7 @@ class NoInternetScreen extends StatelessWidget {
                   const SizedBox(height: 30),
                   AppButton(
                     label: context.localization.try_again,
+                    foregroundColor: context.currentTheme.textBrandSecondary,
                     onPressed: () {
                       final isConnected = InternetConnectivityHelper()
                           .onConnectivityChange

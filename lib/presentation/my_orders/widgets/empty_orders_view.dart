@@ -41,6 +41,7 @@ class EmptyOrdersView extends StatelessWidget {
           const SizedBox(height: 30),
           AppButton(
             label: context.localization.explore_products,
+            foregroundColor: context.currentTheme.textNeutralLight,
             onPressed: () =>
                 context.showSnackBar('Explore products button pressed'),
             size: AppButtonSize.extraLarge,

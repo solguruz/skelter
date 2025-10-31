@@ -40,6 +40,7 @@ class EmptyWishlistView extends StatelessWidget {
           const SizedBox(height: 30),
           AppButton(
             label: context.localization.explore_products,
+            foregroundColor: context.currentTheme.textNeutralLight,
             onPressed: () {},
             size: AppButtonSize.extraLarge,
           ),
