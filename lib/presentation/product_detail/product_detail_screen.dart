@@ -18,8 +18,8 @@ import 'package:skelter/presentation/product_detail/widgets/product_detail_shimm
 import 'package:skelter/presentation/product_detail/widgets/reviews_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/selected_product_image.dart';
 import 'package:skelter/presentation/product_detail/widgets/title_and_rating.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 @RoutePage()
 class ProductDetailScreen extends StatelessWidget {
@@ -67,20 +67,22 @@ class ProductDetailBody extends StatelessWidget {
     );
 
     if (isProductDetailLoading) {
-      return const Scaffold(
-        body: SafeArea(child: Center(child: ProductDetailShimmer())),
+      return Scaffold(
+        backgroundColor: context.currentTheme.bgSurfaceBase,
+        body: const SafeArea(child: Center(child: ProductDetailShimmer())),
       );
     }
 
     if (productDetail == null) {
       // Todo : Add here No detail Found Svg
-      return const Scaffold(
-        body: Center(child: Text('No product details available')),
+      return Scaffold(
+        backgroundColor: context.currentTheme.bgSurfaceBase,
+        body: const Center(child: Text('No product details available')),
       );
     }
 
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: ProductDetailAppBar(category: productDetail.category),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
@@ -96,9 +98,9 @@ class ProductDetailBody extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    AppColors.white.withOpacity(0.0),
-                    AppColors.white.withOpacity(0.78),
-                    AppColors.white,
+                    context.currentTheme.gradientOverlayTransparent,
+                    context.currentTheme.gradientOverlayMedium,
+                    context.currentTheme.gradientOverlaySolid,
                   ],
                   stops: const [0.0, 0.4, 1.0],
                 ),

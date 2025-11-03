@@ -14,6 +14,7 @@ class AddToCartButton extends StatelessWidget {
     return Expanded(
       child: AppButton(
         label: context.localization.add_to_cart,
+        foregroundColor: context.currentTheme.textNeutralLight,
         size: AppButtonSize.extraLarge,
         backgroundColor: context.currentTheme.bgWarningDefault,
         leftIcon: TablerIcons.shopping_cart_plus,

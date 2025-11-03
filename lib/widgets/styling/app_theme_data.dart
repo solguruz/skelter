@@ -14,6 +14,7 @@ class AppThemesData {
     AppThemeEnum.DarkTheme: ThemeData(
       splashFactory: NoSplash.splashFactory,
       brightness: Brightness.dark,
+      useMaterial3: false,
       appBarTheme: const AppBarTheme(elevation: 0),
     ),
   };

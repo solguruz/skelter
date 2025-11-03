@@ -150,4 +150,9 @@ abstract class ThemeColorPalette {
   // Stroke Colors - Shades
   Color get strokeShadesWhite;
   Color get strokeShadesBlack;
+
+  // Gradient Overlay Colors
+  Color get gradientOverlayTransparent;
+  Color get gradientOverlayMedium;
+  Color get gradientOverlaySolid;
 }

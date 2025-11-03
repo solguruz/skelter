@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/shimmer/shimmer_button.dart';
 import 'package:skelter/widgets/shimmer/shimmer_content.dart';
 import 'package:skelter/widgets/shimmer/shimmer_image.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductDetailShimmer extends StatelessWidget {
   const ProductDetailShimmer({
@@ -16,8 +16,8 @@ class ProductDetailShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: AppColors.neutral100,
-      highlightColor: AppColors.neutral50,
+      baseColor: context.currentTheme.bgNeutralLight100,
+      highlightColor: context.currentTheme.bgNeutralLight50,
       enabled: showAnimation,
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 5),
