@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductShimmer extends StatelessWidget {
@@ -27,8 +28,8 @@ class ProductShimmer extends StatelessWidget {
       itemCount: itemCount,
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
-          baseColor: AppColors.neutral100,
-          highlightColor: AppColors.neutral50,
+          baseColor: context.currentTheme.bgNeutralLight100,
+          highlightColor: context.currentTheme.bgNeutralLight50,
           enabled: showAnimation,
           child: Container(
             decoration: BoxDecoration(

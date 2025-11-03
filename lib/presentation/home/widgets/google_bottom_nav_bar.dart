@@ -7,7 +7,6 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
 import 'package:skelter/presentation/theme/extention/theme_extension.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class GoogleBottomNavBar extends StatelessWidget {
   const GoogleBottomNavBar({super.key});
@@ -27,15 +26,16 @@ class GoogleBottomNavBar extends StatelessWidget {
       tabMargin:
           const EdgeInsets.only(bottom: 26, top: 21, left: 22, right: 22),
       selectedIndex: currentIndex,
-      textStyle: AppTextStyles.p4Medium.copyWith(color: AppColors.brand600),
+      textStyle: AppTextStyles.p4Medium
+          .copyWith(color: context.currentTheme.textBrandSecondary),
       tabBorderRadius: 20,
       curve: Curves.easeOutExpo,
       duration: const Duration(milliseconds: 300),
       gap: 4,
       color: context.currentTheme.strokeNeutralDefault,
-      activeColor: AppColors.brand500,
+      activeColor: context.currentTheme.bgBrandHover,
       iconSize: 24,
-      tabBackgroundColor: AppColors.brand50,
+      tabBackgroundColor: context.currentTheme.bgBrandLight50,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       tabs: [
         GButton(
