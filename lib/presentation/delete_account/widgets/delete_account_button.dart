@@ -24,7 +24,7 @@ class DeleteAccountButton extends StatelessWidget {
       label: context.localization.delete_account,
       size: AppButtonSize.extraLarge,
       backgroundColor: context.currentTheme.bgErrorDefault,
-      foregroundColor: AppColors.shadesWhite,
+      foregroundColor: context.currentTheme.textNeutralLight,
       shouldSetFullWidth: true,
       isLoading: isLoading,
       state: isLoading ? AppButtonState.disabled : AppButtonState.normal,
