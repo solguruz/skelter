@@ -9,6 +9,7 @@ import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_state.dart';
 import 'package:skelter/presentation/force_update/widget/skip_update_button.dart';
 import 'package:skelter/presentation/force_update/widget/update_now_button.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class ForceUpdateScreen extends StatelessWidget {
@@ -64,13 +65,15 @@ class ForceUpdateScreenBody extends StatelessWidget {
               const SizedBox(height: 24),
               Text(
                 context.localization.its_time_to_update,
-                style: AppTextStyles.p1SemiBold,
+                style: AppTextStyles.p1SemiBold
+                    .copyWith(color: context.currentTheme.textNeutralPrimary),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
                 context.localization.update_required_description,
-                style: AppTextStyles.p3Regular,
+                style: AppTextStyles.p3Regular
+                    .copyWith(color: context.currentTheme.textNeutralSecondary),
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
