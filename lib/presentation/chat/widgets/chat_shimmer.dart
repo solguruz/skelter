@@ -15,7 +15,7 @@ class ChatShimmer extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: context.currentTheme.bgNeutralLight200,
       enabled: showAnimation,
-      highlightColor: context.currentTheme.bgNeutralHover,
+      highlightColor: context.currentTheme.bgNeutralLight100,
       child: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [

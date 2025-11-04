@@ -70,12 +70,13 @@ class ChatConversationTile extends StatelessWidget {
   Color getBackgroundColor() {
     switch (message.messageType) {
       case MessageType.text:
-        return rootNavigatorKey.currentContext?.currentTheme.bgBrandHover ??
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault ??
             AppColors.bgSurfaceBase2;
       case MessageType.image:
         return AppColors.redError500;
       case MessageType.audio:
-        return AppColors.brand100;
+        return rootNavigatorKey.currentContext?.currentTheme.bgBrandLight50 ??
+            AppColors.brand100;
     }
   }
 }

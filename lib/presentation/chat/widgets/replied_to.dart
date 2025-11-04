@@ -29,9 +29,9 @@ class RepliedTo extends StatelessWidget {
               Container(
                 width: 5,
                 height: 55,
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: context.currentTheme.bgBrandDefault,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(4),
                     bottomLeft: Radius.circular(4),
                   ),
