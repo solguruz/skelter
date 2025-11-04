@@ -27,7 +27,6 @@ class ShippingAddress extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: context.currentTheme.strokeNeutralLight200),
         borderRadius: BorderRadius.circular(8),
-        color: context.currentTheme.bgSurfaceBase2,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,6 +70,7 @@ class ShippingAddress extends StatelessWidget {
             ),
             child: AppButton.icon(
               iconData: TablerIcons.pencil,
+              iconOrTextColorOverride: context.currentTheme.iconNeutralHover,
               onPressed: () {
                 context.router.push(const EditAddressRoute());
               },

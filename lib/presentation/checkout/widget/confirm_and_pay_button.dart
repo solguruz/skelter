@@ -6,6 +6,7 @@ import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
 import 'package:skelter/presentation/checkout/constants/analytics_constant.dart';
 import 'package:skelter/presentation/checkout/widget/custom_stepper.dart';
+import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 
@@ -18,6 +19,7 @@ class ConfirmAndPayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppButton(
       label: context.localization.confirm_and_pay,
+      foregroundColor: context.currentTheme.textNeutralLight,
       size: AppButtonSize.extraLarge,
       onPressed: () {
         final currentStepperIndex =
