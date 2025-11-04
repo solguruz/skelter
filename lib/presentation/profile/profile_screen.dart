@@ -50,7 +50,6 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
         }
       },
       child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
         appBar: AppBar(
           title: Text(
             'Profile',
@@ -58,7 +57,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
               color: context.currentTheme.textNeutralPrimary,
             ),
           ),
-          backgroundColor: context.currentTheme.bgSurfaceBase,
+
           centerTitle: true,
           foregroundColor: context.currentTheme.strokeShadesBlack,
         ),

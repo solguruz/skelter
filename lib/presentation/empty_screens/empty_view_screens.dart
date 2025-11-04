@@ -12,7 +12,7 @@ class EmptyViewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       body: SafeArea(
         child: Center(
           child: Column(

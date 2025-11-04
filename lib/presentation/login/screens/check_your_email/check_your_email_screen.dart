@@ -23,7 +23,7 @@ class CheckYourEmailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: context.currentTheme.bgSurfaceBase),
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       body: BlocProvider<LoginBloc>.value(
         value: loginBloc,
         child: const CheckYourEmailScreenBody(),

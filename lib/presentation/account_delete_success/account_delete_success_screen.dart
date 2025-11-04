@@ -51,7 +51,6 @@ class _AccountDeleteSuccessScreenState
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
         body: SafeArea(
           child: Center(
             child: Padding(

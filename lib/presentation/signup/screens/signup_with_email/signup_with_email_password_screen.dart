@@ -44,7 +44,7 @@ class _SignupWithEmailPasswordScreenState
               }
             },
             child: Scaffold(
-              backgroundColor: context.currentTheme.bgSurfaceBase,
+
               appBar: const LoginAppBar(removeLeading: false),
               body: SafeArea(
                 child: Padding(

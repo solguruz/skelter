@@ -43,7 +43,6 @@ class PhoneNumberOTPScreenState extends State<PhoneNumberOTPScreen> {
         }
       },
       child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
         appBar: const LoginAppBar(removeLeading: false),
         body: Padding(
           padding: const EdgeInsets.all(16.0),

@@ -67,22 +67,19 @@ class ProductDetailBody extends StatelessWidget {
     );
 
     if (isProductDetailLoading) {
-      return Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
-        body: const SafeArea(child: Center(child: ProductDetailShimmer())),
+      return const Scaffold(
+        body: SafeArea(child: Center(child: ProductDetailShimmer())),
       );
     }
 
     if (productDetail == null) {
       // Todo : Add here No detail Found Svg
-      return Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
-        body: const Center(child: Text('No product details available')),
+      return const Scaffold(
+        body: Center(child: Text('No product details available')),
       );
     }
 
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: ProductDetailAppBar(category: productDetail.category),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(

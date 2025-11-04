@@ -21,7 +21,7 @@ class PhoneNumberVerifiedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       body: BlocProvider<LoginBloc>.value(
         value: loginBloc,
         child: const PhoneNumberVerifiedScreenBody(),

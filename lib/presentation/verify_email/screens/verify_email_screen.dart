@@ -46,7 +46,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       appBar: const LoginAppBar(),
       body: BlocProvider(
         create: (context) => VerifyEmailBloc(localizations: appLocalizations)

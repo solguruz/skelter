@@ -15,7 +15,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       leading: Padding(
         padding: const EdgeInsets.all(14),
         child: Image.asset(Assets.icons.icon.path),

@@ -11,7 +11,6 @@ import 'package:skelter/presentation/delete_account/widgets/delete_account_divid
 import 'package:skelter/presentation/delete_account/widgets/delete_account_reasons_options.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_warnings.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 
@@ -64,10 +63,9 @@ class DeleteAccountBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
-      appBar: const DeleteAccountAppbar(),
-      body: const SafeArea(
+    return const Scaffold(
+      appBar: DeleteAccountAppbar(),
+      body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(

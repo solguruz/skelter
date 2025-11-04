@@ -19,7 +19,6 @@ class NoInternetScreen extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
         body: SafeArea(
           child: Center(
             child: Padding(

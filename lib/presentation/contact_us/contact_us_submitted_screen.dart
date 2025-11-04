@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:skelter/presentation/contact_us/widgets/back_to_home_button.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_icon.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_message.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
@@ -17,9 +16,8 @@ class ContactUsSubmittedScreen extends StatelessWidget {
       onPopInvoked: (didPop) {
         context.router.replaceAll([const HomeRoute()]);
       },
-      child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
-        body: const ContactUsSubmittedBody(),
+      child: const Scaffold(
+        body: ContactUsSubmittedBody(),
       ),
     );
   }

@@ -12,7 +12,6 @@ import 'package:skelter/presentation/contact_us/widgets/contact_us_email_section
 import 'package:skelter/presentation/contact_us/widgets/contact_us_message_section.dart';
 import 'package:skelter/presentation/contact_us/widgets/contact_us_name_section.dart';
 import 'package:skelter/presentation/contact_us/widgets/contact_us_submit_button.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 
 @RoutePage()
@@ -55,7 +54,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         child: GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Scaffold(
-            backgroundColor: context.currentTheme.bgSurfaceBase,
             appBar: const ContactUsAppBar(),
             body: SingleChildScrollView(
               controller: _scrollController,

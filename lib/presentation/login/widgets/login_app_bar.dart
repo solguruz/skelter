@@ -21,7 +21,7 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       leading: removeLeading
           ? const SizedBox.shrink()
           : AppButton.icon(

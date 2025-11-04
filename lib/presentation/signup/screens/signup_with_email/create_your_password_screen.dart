@@ -33,7 +33,7 @@ class CreateYourPasswordScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
-          backgroundColor: context.currentTheme.bgSurfaceBase,
+
           appBar: const LoginAppBar(removeLeading: false),
           body: SafeArea(
             child: Padding(

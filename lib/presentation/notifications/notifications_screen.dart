@@ -10,7 +10,6 @@ import 'package:skelter/presentation/notifications/widgets/empty_notifications_v
 import 'package:skelter/presentation/notifications/widgets/notification_app_bar.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_list.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_loading_shimmer_list.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 
 @RoutePage()
@@ -21,10 +20,9 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NotificationBloc()..add(GetNotificationDataEvent()),
-      child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
-        appBar: const NotificationAppBar(),
-        body: const NotificationScreenBody(),
+      child: const Scaffold(
+        appBar: NotificationAppBar(),
+        body: NotificationScreenBody(),
       ),
     );
   }

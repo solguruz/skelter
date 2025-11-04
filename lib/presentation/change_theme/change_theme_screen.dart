@@ -23,9 +23,9 @@ class _ChangeThemeScreenState extends State<ChangeThemeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       appBar: AppBar(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
+
         centerTitle: true,
         leading: AppButton.icon(
           iconData: TablerIcons.arrow_left,

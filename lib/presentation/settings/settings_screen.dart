@@ -5,7 +5,6 @@ import 'package:skelter/presentation/settings/widgets/delete_account.dart';
 import 'package:skelter/presentation/settings/widgets/settings.dart';
 import 'package:skelter/presentation/settings/widgets/settings_appbar.dart';
 import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class SettingsScreen extends StatelessWidget {
@@ -28,7 +27,6 @@ class _SettingsScreenBodyState extends State<SettingsScreenBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
       appBar: const SettingsAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

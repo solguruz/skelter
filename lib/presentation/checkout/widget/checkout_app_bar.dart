@@ -19,7 +19,7 @@ class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
     final bool canGoBack = currentStepperIndex > 0;
     return AppBar(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       leading: canGoBack
           ? AppButton.icon(
               iconData: TablerIcons.arrow_left,

@@ -36,7 +36,6 @@ class LoginWithEmailPasswordScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: context.currentTheme.bgSurfaceBase,
         appBar: const LoginAppBar(removeLeading: false),
         body: BlocProvider<LoginBloc>.value(
           value: loginBloc,

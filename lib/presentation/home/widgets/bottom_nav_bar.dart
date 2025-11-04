@@ -26,7 +26,7 @@ class BottomNavBar extends StatelessWidget {
       selectedLabelStyle: AppTextStyles.p4Medium,
       unselectedLabelStyle: AppTextStyles.p4Medium,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       items: [
         BottomNavigationBarItem(
           icon: const Icon(TablerIcons.home),

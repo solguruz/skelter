@@ -17,7 +17,7 @@ class ChatConversationAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
+
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
         size: AppButtonSize.extraLarge,

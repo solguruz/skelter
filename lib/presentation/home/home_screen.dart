@@ -10,7 +10,6 @@ import 'package:skelter/presentation/home/widgets/bottom_nav_bar.dart';
 import 'package:skelter/presentation/home/widgets/home_screen_body.dart';
 import 'package:skelter/presentation/profile/profile_screen.dart';
 import 'package:skelter/presentation/search/search_screen.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -45,7 +44,6 @@ class HomeScreenWrapper extends StatelessWidget {
     Clarity.setCurrentScreenName(screenName);
 
     return Scaffold(
-      backgroundColor: context.currentTheme.bgSurfaceBase,
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: IndexedStack(
