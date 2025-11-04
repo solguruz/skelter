@@ -16,7 +16,7 @@ class NotificationShimmerCard extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: context.currentTheme.bgNeutralLight200,
       enabled: showAnimation,
-      highlightColor: context.currentTheme.bgNeutralHover,
+      highlightColor: context.currentTheme.bgNeutralLight100,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,

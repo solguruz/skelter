@@ -14,7 +14,7 @@ class NetworkImageScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: context.currentTheme.strokeShadesBlack,
+          color: context.currentTheme.iconNeutralDefault,
         ),
       ),
       body: Center(
