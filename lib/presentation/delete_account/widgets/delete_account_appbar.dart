@@ -17,6 +17,7 @@ class DeleteAccountAppbar extends StatelessWidget
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
         size: AppButtonSize.extraLarge,
+        iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
         onPressed: () => context.router.maybePop(),
       ),
       title: Text(

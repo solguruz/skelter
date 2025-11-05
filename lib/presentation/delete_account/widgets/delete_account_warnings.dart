@@ -12,6 +12,7 @@ class DeleteAccountWarnings extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 24),
         Text(
           context.localization.delete_warning_title,
           style: AppTextStyles.p1Medium.copyWith(
