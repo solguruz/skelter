@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/main.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class NotificationModel {
   final String id;

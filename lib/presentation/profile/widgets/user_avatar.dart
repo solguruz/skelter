@@ -6,7 +6,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class UserAvatar extends StatelessWidget {
   const UserAvatar({super.key});

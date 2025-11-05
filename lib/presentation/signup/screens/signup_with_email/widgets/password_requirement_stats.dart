@@ -4,7 +4,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_indicators.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_indicator.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_strength_status.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class PasswordRequirementStats extends StatelessWidget {
   const PasswordRequirementStats({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class RemoveFileButton extends StatelessWidget {

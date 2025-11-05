@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/widgets/warning_notes.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class DeleteAccountWarnings extends StatelessWidget {
   const DeleteAccountWarnings({super.key});

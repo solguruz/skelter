@@ -5,7 +5,7 @@ import 'package:skelter/presentation/profile/widgets/contact_us.dart';
 import 'package:skelter/presentation/profile/widgets/divider.dart';
 import 'package:skelter/presentation/profile/widgets/feedback_and_rating.dart';
 import 'package:skelter/presentation/profile/widgets/help_and_support.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class SupportSection extends StatelessWidget {
   const SupportSection({super.key});

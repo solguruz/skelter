@@ -22,7 +22,6 @@ class AddAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const AddressAppBar(),
       body: SafeArea(
         child: Padding(

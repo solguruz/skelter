@@ -10,6 +10,7 @@ import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/enum/enum_login_type.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
@@ -30,7 +31,10 @@ class SignupButton extends StatelessWidget {
             label: context.localization.sign_up_with_google,
             shouldSetFullWidth: true,
             style: AppButtonStyle.outline,
-            leftIconPath: Assets.icons.icon.path,
+            leftIconPath: context.themeAsset(
+              light: Assets.icons.companyLogoLt.path,
+              dark: Assets.icons.companyLogoDt.path,
+            ),
             size: AppButtonSize.large,
             onPressed: () {
               context

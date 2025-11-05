@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:skelter/presentation/theme/theme_color_palette.dart';
+import 'package:skelter/utils/theme/theme_color_palette.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class DarkAppColors implements ThemeColorPalette {

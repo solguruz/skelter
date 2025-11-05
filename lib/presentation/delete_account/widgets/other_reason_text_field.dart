@@ -6,7 +6,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_event.dart';
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class OtherReasonTextField extends StatefulWidget {
   const OtherReasonTextField({super.key});

@@ -12,9 +12,9 @@ import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/co
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_next_button.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_requirement_stats.dart';
 import 'package:skelter/presentation/signup/screens/signup_with_email/widgets/password_text_field.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class CreateYourPasswordScreen extends StatelessWidget {
@@ -33,7 +33,6 @@ class CreateYourPasswordScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
-
           appBar: const LoginAppBar(removeLeading: false),
           body: SafeArea(
             child: Padding(

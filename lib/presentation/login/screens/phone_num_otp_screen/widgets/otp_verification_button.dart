@@ -6,7 +6,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/presentation/login/screens/phone_num_otp_screen/phone_number_otp_screen.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';

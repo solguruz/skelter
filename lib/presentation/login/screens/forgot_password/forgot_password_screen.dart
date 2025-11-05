@@ -9,8 +9,8 @@ import 'package:skelter/presentation/login/screens/forgot_password/widgets/email
 import 'package:skelter/presentation/login/screens/forgot_password/widgets/send_reset_link_button.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class ForgotPasswordV2Screen extends StatelessWidget {
@@ -21,7 +21,6 @@ class ForgotPasswordV2Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const LoginAppBar(removeLeading: false),
       body: SafeArea(
         child: BlocProvider<LoginBloc>.value(

@@ -5,7 +5,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_bloc.dart';
 import 'package:skelter/presentation/checkout/bloc/checkout_events.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class SelectPaymentMethodFromList extends StatelessWidget {
   const SelectPaymentMethodFromList({super.key});

@@ -9,7 +9,7 @@ import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_state.dart';
 import 'package:skelter/presentation/force_update/widget/skip_update_button.dart';
 import 'package:skelter/presentation/force_update/widget/update_now_button.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class ForceUpdateScreen extends StatelessWidget {

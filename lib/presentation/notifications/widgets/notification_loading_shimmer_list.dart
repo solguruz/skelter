@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_shimmer_card.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class NotificationLoadigShimmerList extends StatelessWidget {
   const NotificationLoadigShimmerList({super.key, this.showAnimation = true});

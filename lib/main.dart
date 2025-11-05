@@ -13,7 +13,6 @@ import 'package:skelter/core/clarity_analytics/clarity_route_observer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/i18n/i18n.dart';
 import 'package:skelter/initialize_app.dart';
-import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
 import 'package:skelter/routes.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/services/theme_service.dart';
@@ -21,6 +20,7 @@ import 'package:skelter/shared_pref/prefs.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/app_flavor_env.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
+import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -90,7 +90,7 @@ class _MainAppState extends State<MainApp> {
         kIsWeb) {
       debugPrint(
         'Clarity not initialized for flavor: '
-            '${AppConfig.appFlavor.name} or in test environment',
+        '${AppConfig.appFlavor.name} or in test environment',
       );
       return;
     }
@@ -98,8 +98,6 @@ class _MainAppState extends State<MainApp> {
     final config = ClarityConfig(projectId: projectId);
     Clarity.initialize(context, config);
   }
-
-
 
   @override
   Widget build(BuildContext context) {

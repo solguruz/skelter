@@ -11,10 +11,10 @@ import 'package:skelter/presentation/login/screens/login_with_email/widgets/forg
 import 'package:skelter/presentation/login/screens/login_with_email/widgets/login_with_email_pass_button.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class LoginWithEmailPasswordScreen extends StatelessWidget {

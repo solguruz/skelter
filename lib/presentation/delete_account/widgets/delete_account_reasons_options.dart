@@ -7,7 +7,7 @@ import 'package:skelter/presentation/delete_account/bloc/delete_account_event.da
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';
 import 'package:skelter/presentation/delete_account/widgets/delete_account_options_items.dart';
 import 'package:skelter/presentation/delete_account/widgets/other_reason_text_field.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class DeleteAccountReasonOptions extends StatelessWidget {
   const DeleteAccountReasonOptions({super.key});

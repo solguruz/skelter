@@ -6,7 +6,7 @@ import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/presentation/chat/widgets/message_types.dart';
 import 'package:skelter/presentation/chat/widgets/replied_to.dart';
 import 'package:skelter/presentation/chat/widgets/time_ago.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ChatConversationTile extends StatelessWidget {

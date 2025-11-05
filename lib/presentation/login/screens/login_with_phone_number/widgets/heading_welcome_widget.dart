@@ -4,7 +4,7 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class HeadingWelcomeWidget extends StatelessWidget {
   const HeadingWelcomeWidget({
@@ -21,7 +21,10 @@ class HeadingWelcomeWidget extends StatelessWidget {
       children: [
         const SizedBox(height: 16),
         Image.asset(
-          Assets.icons.icon.path,
+          context.themeAsset(
+            light: Assets.icons.companyLogoLt.path,
+            dark: Assets.icons.companyLogoDt.path,
+          ),
           width: 100,
           height: 56,
         ),

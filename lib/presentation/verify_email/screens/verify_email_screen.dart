@@ -14,13 +14,13 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
 import 'package:skelter/presentation/login/widgets/login_app_bar.dart';
 import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/presentation/verify_email/bloc/verify_email_bloc.dart';
 import 'package:skelter/presentation/verify_email/bloc/verify_email_event.dart';
 import 'package:skelter/presentation/verify_email/bloc/verify_email_state.dart';
 import 'package:skelter/presentation/verify_email/screens/widgets/entered_wrong_email.dart';
 import 'package:skelter/presentation/verify_email/screens/widgets/resend_verification_mail_button.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class VerifyEmailScreen extends StatefulWidget {
@@ -46,7 +46,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const LoginAppBar(),
       body: BlocProvider(
         create: (context) => VerifyEmailBloc(localizations: appLocalizations)

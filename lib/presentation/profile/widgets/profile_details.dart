@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/presentation/profile/bloc/profile_bloc.dart';
 import 'package:skelter/presentation/profile/widgets/user_avatar.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class ProfileDetails extends StatelessWidget {
   const ProfileDetails({super.key});

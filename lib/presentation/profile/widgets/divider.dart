@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class ProfileItemsDivider extends StatelessWidget {
   const ProfileItemsDivider({super.key});

@@ -11,8 +11,8 @@ import 'package:skelter/presentation/home/bloc/home_bloc.dart';
 import 'package:skelter/presentation/home/bloc/home_event.dart';
 import 'package:skelter/presentation/home/bloc/home_state.dart';
 import 'package:skelter/presentation/home/constants/analytics_constant.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ProductSearchBar extends StatefulWidget {

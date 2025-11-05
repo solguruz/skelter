@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_state_enum.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';

@@ -10,7 +10,6 @@ class AvailableCouponsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const ApplyCouponsAppBar(),
       body: SafeArea(
         child: Padding(

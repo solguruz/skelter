@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/settings/widgets/delete_account.dart';
 import 'package:skelter/presentation/settings/widgets/settings.dart';
 import 'package:skelter/presentation/settings/widgets/settings_appbar.dart';
-import 'package:skelter/presentation/theme/bloc/theme_bloc.dart';
+import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
 
 @RoutePage()
 class SettingsScreen extends StatelessWidget {

@@ -11,10 +11,10 @@ import 'package:skelter/presentation/profile/widgets/profile_details.dart';
 import 'package:skelter/presentation/profile/widgets/settings.dart';
 import 'package:skelter/presentation/profile/widgets/sign_out.dart';
 import 'package:skelter/presentation/profile/widgets/support_section.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/routes.gr.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -57,7 +57,6 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
               color: context.currentTheme.textNeutralPrimary,
             ),
           ),
-
           centerTitle: true,
           foregroundColor: context.currentTheme.strokeShadesBlack,
         ),

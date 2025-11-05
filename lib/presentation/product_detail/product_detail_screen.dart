@@ -18,8 +18,8 @@ import 'package:skelter/presentation/product_detail/widgets/product_detail_shimm
 import 'package:skelter/presentation/product_detail/widgets/reviews_button.dart';
 import 'package:skelter/presentation/product_detail/widgets/selected_product_image.dart';
 import 'package:skelter/presentation/product_detail/widgets/title_and_rating.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 @RoutePage()
 class ProductDetailScreen extends StatelessWidget {

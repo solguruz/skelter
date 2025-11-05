@@ -7,7 +7,7 @@ import 'package:skelter/presentation/checkout/widget/cart_item_lists.dart';
 import 'package:skelter/presentation/checkout/widget/order_summary.dart';
 import 'package:skelter/presentation/checkout/widget/select_payment_method_from_list.dart';
 import 'package:skelter/presentation/checkout/widget/shipping_address.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class OrderReviewScreen extends StatelessWidget {
   const OrderReviewScreen({super.key});

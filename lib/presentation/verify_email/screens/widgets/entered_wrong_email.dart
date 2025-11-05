@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/screens/login_with_phone_number/login_with_phone_number_screen.dart';
-import 'package:skelter/presentation/theme/extention/theme_extension.dart';
 import 'package:skelter/presentation/verify_email/bloc/verify_email_bloc.dart';
 import 'package:skelter/routes.gr.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
 class EnteredWrongEmail extends StatelessWidget {
   const EnteredWrongEmail({super.key});
