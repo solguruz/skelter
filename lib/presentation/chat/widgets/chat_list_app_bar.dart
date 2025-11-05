@@ -15,6 +15,7 @@ class ChatListAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
+        iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
         size: AppButtonSize.extraLarge,
         onPressed: () {
           context.router.maybePop();
@@ -29,6 +30,7 @@ class ChatListAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         AppButton.icon(
           iconData: TablerIcons.dots_vertical,
+          iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
           size: AppButtonSize.extraLarge,
           onPressed: () {},
         ),

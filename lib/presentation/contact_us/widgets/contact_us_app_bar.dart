@@ -15,6 +15,7 @@ class ContactUsAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: AppButton.icon(
         iconData: TablerIcons.arrow_left,
+        iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
         size: AppButtonSize.extraLarge,
         onPressed: () => context.router.maybePop(),
       ),

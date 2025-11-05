@@ -25,6 +25,7 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? const SizedBox.shrink()
           : AppButton.icon(
               iconData: TablerIcons.arrow_left,
+              iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
               size: AppButtonSize.extraLarge,
               onPressed: () {
                 context.router.maybePop();

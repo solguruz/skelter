@@ -27,6 +27,7 @@ class _ChangeThemeScreenState extends State<ChangeThemeScreen> {
         centerTitle: true,
         leading: AppButton.icon(
           iconData: TablerIcons.arrow_left,
+          iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
           size: AppButtonSize.extraLarge,
           onPressed: () => context.router.maybePop(),
         ),

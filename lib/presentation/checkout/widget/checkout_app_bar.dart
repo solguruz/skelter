@@ -22,6 +22,7 @@ class CheckoutAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: canGoBack
           ? AppButton.icon(
               iconData: TablerIcons.arrow_left,
+              iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
               size: AppButtonSize.extraLarge,
               onPressed: () {
                 if (canGoBack) {

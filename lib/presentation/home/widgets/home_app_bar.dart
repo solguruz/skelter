@@ -35,14 +35,17 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () => context.pushRoute(const NotificationsRoute()),
           size: AppButtonSize.extraLarge,
           iconData: TablerIcons.bell,
+          iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
         ),
         AppButton.icon(
           iconData: TablerIcons.message,
+          iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
           size: AppButtonSize.extraLarge,
           onPressed: () => context.pushRoute(const ChatRoute()),
         ),
         AppButton.icon(
           iconData: TablerIcons.info_circle,
+          iconOrTextColorOverride: context.currentTheme.iconNeutralDefault,
           size: AppButtonSize.extraLarge,
           onPressed: () => context.pushRoute(const EmptyViewsRoute()),
         ),
