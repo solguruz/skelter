@@ -17,11 +17,13 @@ class CacheManager {
     debugPrint('Cache directory: $_cacheDirectoryPath');
 
     final store = FileCacheStore(_cacheDirectoryPath);
-
     _defaultCacheOptions = CacheOptions(
       store: store,
       policy: CachePolicy.forceCache,
       maxStale: const Duration(hours: 1),
+      // hitCacheOnErrorCodes: [304], // Enable Smart Cache: Returns cached data
+      // when the server responds with 304 (Not Modified).
+      // This leverages backend conditional requests.
     );
   }
 
