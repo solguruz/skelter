@@ -72,7 +72,7 @@ class UploadAttachment extends StatelessWidget {
 void _showImageSourceBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: context.currentTheme.bgSurfaceBase,
+    backgroundColor: context.currentTheme.bgSurfaceBase2,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
@@ -97,6 +97,8 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 22),
               AppButton(
                 label: context.localization.take_a_photo,
+                foregroundColor: context.currentTheme.textNeutralPrimary,
+                backgroundColor: context.currentTheme.bgSurfaceBase2,
                 shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
                 leftIcon: TablerIcons.camera,
@@ -111,6 +113,8 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 16.0),
               AppButton(
                 label: context.localization.upload_from_gallery,
+                foregroundColor: context.currentTheme.textNeutralPrimary,
+                backgroundColor: context.currentTheme.bgSurfaceBase2,
                 shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
                 leftIcon: TablerIcons.photo,
@@ -125,6 +129,8 @@ void _showImageSourceBottomSheet(BuildContext context) {
               const SizedBox(height: 16.0),
               AppButton(
                 label: context.localization.upload_from_files,
+                foregroundColor: context.currentTheme.textNeutralPrimary,
+                backgroundColor: context.currentTheme.bgSurfaceBase2,
                 shouldSetFullWidth: true,
                 style: AppButtonStyle.outline,
                 leftIcon: TablerIcons.folders,

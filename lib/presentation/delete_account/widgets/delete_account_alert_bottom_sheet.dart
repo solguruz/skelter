@@ -84,6 +84,7 @@ Future<void> showDeleteAccountAlertBottomSheet(BuildContext context) async {
                   child: AppButton(
                     onPressed: () => context.router.pop(),
                     foregroundColor: context.currentTheme.textNeutralPrimary,
+                    backgroundColor: context.currentTheme.bgSurfaceBase2,
                     style: AppButtonStyle.outline,
                     label: context.localization.cancel,
                     size: AppButtonSize.extraLarge,
