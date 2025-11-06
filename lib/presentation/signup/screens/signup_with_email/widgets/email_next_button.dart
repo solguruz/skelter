@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_event.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/validators/validators.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
@@ -23,6 +24,7 @@ class EmailNextButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.next,
+      foregroundColor: context.currentTheme.textNeutralLight,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: email.isNotEmpty ? AppButtonState.normal : AppButtonState.disabled,
