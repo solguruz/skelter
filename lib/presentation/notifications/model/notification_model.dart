@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:skelter/main.dart';
 import 'package:skelter/utils/theme/extention/theme_extension.dart';
+import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NotificationModel {
   final String id;
@@ -62,19 +63,22 @@ enum NotificationType {
       NotificationType.shiftSchedule => Icon(
           TablerIcons.calendar_check,
           color:
-              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite ??
+                  AppColors.white,
           size: 20,
         ),
       NotificationType.shiftFilled => Icon(
           TablerIcons.calendar_check,
           color:
-              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite ??
+                  AppColors.white,
           size: 20,
         ),
       NotificationType.shiftCancel => Icon(
           TablerIcons.calendar_x,
           color:
-              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite,
+              rootNavigatorKey.currentContext?.currentTheme.strokeShadesWhite ??
+                  AppColors.white,
           size: 20,
         ),
       _ => null,
@@ -84,11 +88,14 @@ enum NotificationType {
   Color? get getBgColor {
     return switch (this) {
       NotificationType.shiftSchedule =>
-        rootNavigatorKey.currentContext?.currentTheme.iconBrandPressed,
+        rootNavigatorKey.currentContext?.currentTheme.iconBrandPressed ??
+            AppColors.brand600,
       NotificationType.shiftCancel =>
-        rootNavigatorKey.currentContext?.currentTheme.bgErrorHover,
+        rootNavigatorKey.currentContext?.currentTheme.bgErrorHover ??
+            AppColors.redError500,
       NotificationType.shiftFilled =>
-        rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault,
+        rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault ??
+            AppColors.brand600,
       _ => null
     };
   }
