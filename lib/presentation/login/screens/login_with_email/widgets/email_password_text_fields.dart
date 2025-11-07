@@ -25,6 +25,11 @@ class _EmailPasswordTextFieldsState extends State<EmailPasswordTextFields> {
   @override
   void initState() {
     super.initState();
+    final emailPasswordLoginState =
+        context.read<LoginBloc>().state.emailPasswordLoginState;
+
+    _emailController.text = emailPasswordLoginState?.email ?? '';
+    _passwordController.text = emailPasswordLoginState?.password ?? '';
     _emailController.addListener(() {
       _emailControllerListener();
     });
