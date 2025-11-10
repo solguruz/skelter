@@ -982,18 +982,58 @@ class SettingsRoute extends _i35.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i30.SignupWithEmailPasswordScreen]
-class SignupWithEmailPasswordRoute extends _i35.PageRouteInfo<void> {
-  const SignupWithEmailPasswordRoute({List<_i35.PageRouteInfo>? children})
-      : super(SignupWithEmailPasswordRoute.name, initialChildren: children);
+class SignupWithEmailPasswordRoute
+    extends _i35.PageRouteInfo<SignupWithEmailPasswordRouteArgs> {
+  SignupWithEmailPasswordRoute({
+    _i36.Key? key,
+    _i39.SignupBloc? signupBloc,
+    List<_i35.PageRouteInfo>? children,
+  }) : super(
+          SignupWithEmailPasswordRoute.name,
+          args: SignupWithEmailPasswordRouteArgs(
+            key: key,
+            signupBloc: signupBloc,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'SignupWithEmailPasswordRoute';
 
   static _i35.PageInfo page = _i35.PageInfo(
     name,
     builder: (data) {
-      return const _i30.SignupWithEmailPasswordScreen();
+      final args = data.argsAs<SignupWithEmailPasswordRouteArgs>(
+        orElse: () => const SignupWithEmailPasswordRouteArgs(),
+      );
+      return _i30.SignupWithEmailPasswordScreen(
+        key: args.key,
+        signupBloc: args.signupBloc,
+      );
     },
   );
+}
+
+class SignupWithEmailPasswordRouteArgs {
+  const SignupWithEmailPasswordRouteArgs({this.key, this.signupBloc});
+
+  final _i36.Key? key;
+
+  final _i39.SignupBloc? signupBloc;
+
+  @override
+  String toString() {
+    return 'SignupWithEmailPasswordRouteArgs{key: $key, signupBloc: $signupBloc}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SignupWithEmailPasswordRouteArgs) return false;
+    return key == other.key && signupBloc == other.signupBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ signupBloc.hashCode;
 }
 
 /// generated route for
