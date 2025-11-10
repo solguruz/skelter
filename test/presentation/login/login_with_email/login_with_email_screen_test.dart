@@ -136,7 +136,8 @@ void main() {
             createTestScenario(
               name: 'error password state',
               child: LoginWithEmailPasswordScreen(
-                  loginBloc: loginBlocPasswordError),
+                loginBloc: loginBlocPasswordError,
+              ),
             ),
             createTestScenario(
               name: 'error both fields state',

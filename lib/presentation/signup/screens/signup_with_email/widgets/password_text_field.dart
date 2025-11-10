@@ -21,6 +21,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   void initState() {
     super.initState();
+    _passwordController.text = context.read<SignupBloc>().state.password;
     _passwordController.addListener(() {
       _passwordControllerListener();
     });

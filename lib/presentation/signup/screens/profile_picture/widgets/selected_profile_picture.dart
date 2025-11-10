@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class SelectedProfilePicture extends StatelessWidget {
@@ -36,12 +37,19 @@ class SelectedProfilePicture extends StatelessWidget {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
-              child: Image.file(
-                profilePicture,
-                fit: BoxFit.cover,
-                height: profilePictureSize,
-                width: profilePictureSize,
-              ),
+              child: AppEnvironment.isTestEnvironment
+                  ? Image.asset(
+                      profilePicture.path,
+                      fit: BoxFit.cover,
+                      height: profilePictureSize,
+                      width: profilePictureSize,
+                    )
+                  : Image.file(
+                      profilePicture,
+                      fit: BoxFit.cover,
+                      height: profilePictureSize,
+                      width: profilePictureSize,
+                    ),
             ),
           );
   }
