@@ -25,9 +25,6 @@ extension WidgetTestHelper on WidgetTester {
     const themeState = ThemeState.test();
     when(() => themeBloc.state).thenReturn(themeState);
 
-    // Set the theme mode for AppColors
-    // AppColors.setDarkThemeMode(isDarkMode: theme == AppThemeEnum.DarkTheme);
-
     return pumpWidget(
       Sizer(
         builder: (context, orientation, screenType) {
@@ -81,10 +78,6 @@ GoldenTestScenario createTestScenario({
 
         const themeState = ThemeState.test();
         when(() => themeBloc.state).thenReturn(themeState);
-
-        // Set the theme mode for AppColors
-        // AppColors.setDarkThemeMode
-        // (isDarkMode: theme == AppThemeEnum.DarkTheme);
 
         return MultiBlocProvider(
           providers: [
