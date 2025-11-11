@@ -885,4 +885,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get view_product_reviews => 'View Product Reviews';
+
+  @override
+  String get no_product_detail_found => 'No Product Detail Found!';
+
+  @override
+  String get product_details => 'Product Details';
 }
