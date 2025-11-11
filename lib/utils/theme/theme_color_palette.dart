@@ -155,4 +155,7 @@ abstract class ThemeColorPalette {
   Color get gradientOverlayTransparent;
   Color get gradientOverlayMedium;
   Color get gradientOverlaySolid;
+
+  // Indigo
+  Color get bgIndigoDefault;
 }

@@ -271,4 +271,8 @@ class LightAppColors implements ThemeColorPalette {
   Color get gradientOverlayMedium => AppColors.white.withOpacity(0.78);
   @override
   Color get gradientOverlaySolid => AppColors.white;
+
+  // Indigo
+  @override
+  Color get bgIndigoDefault => AppColors.bgIndigoDefault;
 }

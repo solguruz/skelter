@@ -15,7 +15,7 @@ class MarkFavoriteButton extends StatelessWidget {
       child: AppButton(
         label: context.localization.mark_favorite,
         foregroundColor: context.currentTheme.textNeutralLight,
-        backgroundColor: context.currentTheme.bgBrandDefault,
+        backgroundColor: context.currentTheme.bgIndigoDefault,
         size: AppButtonSize.extraLarge,
         leftIcon: TablerIcons.heart,
         isLeftIconAttachedToText: true,

@@ -279,4 +279,8 @@ class DarkAppColors implements ThemeColorPalette {
   Color get gradientOverlayMedium => AppColors.black.withOpacity(0.78);
   @override
   Color get gradientOverlaySolid => AppColors.black;
+
+  // Indigo
+  @override
+  Color get bgIndigoDefault => AppColors.bgIndigoDefault;
 }
