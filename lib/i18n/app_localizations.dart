@@ -1683,6 +1683,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'View Product Reviews'**
   String get view_product_reviews;
+
+  /// No description provided for @no_product_detail_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No Product Detail Found!'**
+  String get no_product_detail_found;
+
+  /// No description provided for @product_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Details'**
+  String get product_details;
 }
 
 class _AppLocalizationsDelegate

@@ -92,6 +92,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/no_notifications.svg
   String get noNotifications => 'assets/icons/no_notifications.svg';
 
+  /// File path: assets/icons/no_product_detail_found.svg
+  String get noProductDetailFound => 'assets/icons/no_product_detail_found.svg';
+
   /// File path: assets/icons/search_outline.svg
   String get searchOutline => 'assets/icons/search_outline.svg';
 
@@ -134,6 +137,7 @@ class $AssetsIconsGen {
         noChats,
         noInternetConnection,
         noNotifications,
+        noProductDetailFound,
         searchOutline,
         send,
         serverError,

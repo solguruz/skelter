@@ -377,6 +377,8 @@
   "mark_favorite" : "Mark Favorite",
   "inclusive_of_taxes": "(incl. of all taxes)",
   "product_photos": "Product Photos",
-  "view_product_reviews": "View Product Reviews"
+  "view_product_reviews": "View Product Reviews",
+  "no_product_detail_found": "No Product Detail Found!",
+  "product_details": "Product Details"
 
 }

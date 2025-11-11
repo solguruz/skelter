@@ -11,6 +11,7 @@ import 'package:skelter/presentation/product_detail/widgets/add_to_cart_button.d
 import 'package:skelter/presentation/product_detail/widgets/description.dart';
 import 'package:skelter/presentation/product_detail/widgets/info_headline_bar.dart';
 import 'package:skelter/presentation/product_detail/widgets/mark_favorite_button.dart';
+import 'package:skelter/presentation/product_detail/widgets/no_product_detail_found.dart';
 import 'package:skelter/presentation/product_detail/widgets/photos_section.dart';
 import 'package:skelter/presentation/product_detail/widgets/price.dart';
 import 'package:skelter/presentation/product_detail/widgets/product_detail_app_bar.dart';
@@ -73,10 +74,7 @@ class ProductDetailBody extends StatelessWidget {
     }
 
     if (productDetail == null) {
-      // Todo : Add here No detail Found Svg
-      return const Scaffold(
-        body: Center(child: Text('No product details available')),
-      );
+      return const NoProductDetailFound();
     }
 
     return Scaffold(
