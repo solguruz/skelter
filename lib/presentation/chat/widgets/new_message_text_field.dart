@@ -51,19 +51,24 @@ class _NewMessageTextFieldState extends State<NewMessageTextField> {
                 filled: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.transparent),
+                  borderSide: BorderSide(
+                    color: context.currentTheme.textNeutralLight,
+                  ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.transparent),
+                  borderSide:
+                      BorderSide(color: context.currentTheme.textNeutralLight),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.transparent),
+                  borderSide:
+                      BorderSide(color: context.currentTheme.textNeutralLight),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.transparent),
+                  borderSide:
+                      BorderSide(color: context.currentTheme.textErrorLight),
                 ),
               ),
               textInputAction: TextInputAction.send,

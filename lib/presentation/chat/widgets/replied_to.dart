@@ -49,7 +49,7 @@ class RepliedTo extends StatelessWidget {
                       ? context.localization.you
                       : '${chatUser?.name}',
                   style: AppTextStyles.p4Medium
-                      .copyWith(color: context.currentTheme.bgBrandHover),
+                      .copyWith(color: context.currentTheme.textBrandSecondary),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
