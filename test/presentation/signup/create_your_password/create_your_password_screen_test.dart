@@ -113,6 +113,32 @@ void main() {
           ),
         );
 
+        final signupBlocOnlyLetters = MockSignupBloc();
+        when(() => signupBlocOnlyLetters.state).thenReturn(
+          SignupState.test(
+            email: 'test@example.com',
+            password: 'LettersOnly',
+            passwordStrengthLevel: 1,
+            isPasswordLongEnough: true,
+            hasLetterAndNumberInPassword: false,
+            hasSpecialCharacterInPassword: false,
+            isPasswordVisible: true,
+          ),
+        );
+
+        final signupBlocOnlyNumbers = MockSignupBloc();
+        when(() => signupBlocOnlyNumbers.state).thenReturn(
+          SignupState.test(
+            email: 'test@example.com',
+            password: '123456789',
+            passwordStrengthLevel: 1,
+            isPasswordLongEnough: true,
+            hasLetterAndNumberInPassword: false,
+            hasSpecialCharacterInPassword: false,
+            isPasswordVisible: true,
+          ),
+        );
+
         return GoldenTestGroup(
           columnWidthBuilder: (_) => const FixedColumnWidth(pixel5DeviceWidth),
           children: [
@@ -141,6 +167,18 @@ void main() {
               name: 'password mismatch state',
               child: CreateYourPasswordScreen(
                 signupBloc: signupBlocPasswordMismatch,
+              ),
+            ),
+            createTestScenario(
+              name: 'only letters password state',
+              child: CreateYourPasswordScreen(
+                signupBloc: signupBlocOnlyLetters,
+              ),
+            ),
+            createTestScenario(
+              name: 'only numbers password state',
+              child: CreateYourPasswordScreen(
+                signupBloc: signupBlocOnlyNumbers,
               ),
             ),
           ],

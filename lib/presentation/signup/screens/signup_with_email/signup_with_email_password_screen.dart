@@ -32,46 +32,37 @@ class _SignupWithEmailPasswordScreenState
 
   @override
   Widget build(BuildContext context) {
-    if (widget.signupBloc != null) {
-      return BlocProvider<SignupBloc>.value(
-        value: widget.signupBloc!,
-        child: _buildScreenContent(context),
-      );
-    }
-
     return BlocProvider(
-      create: (context) => SignupBloc(localizations: appLocalizations),
-      child: _buildScreenContent(context),
-    );
-  }
-
-  Widget _buildScreenContent(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return PopScope(
-          onPopInvokedWithResult: (didPop, result) {
-            if (didPop) {
-              context
-                  .read<SignupBloc>()
-                  .add(ResetSignUpStateOnScreenClosedEvent());
-            }
-          },
-          child: Scaffold(
-            appBar: const LoginAppBar(removeLeading: false),
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
-                ),
-                child: BlocListener<SignupBloc, SignupState>(
-                  listener: _onListener,
-                  child: const _SignupWithEmailPasswordScreenBody(),
+      create: widget.signupBloc != null
+          ? (_) => widget.signupBloc!
+          : (context) => SignupBloc(localizations: appLocalizations),
+      child: Builder(
+        builder: (context) {
+          return PopScope(
+            onPopInvokedWithResult: (didPop, result) {
+              if (didPop) {
+                context
+                    .read<SignupBloc>()
+                    .add(ResetSignUpStateOnScreenClosedEvent());
+              }
+            },
+            child: Scaffold(
+              appBar: const LoginAppBar(removeLeading: false),
+              body: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: LoginWithPhoneNumberScreen.kHorizontalPadding,
+                  ),
+                  child: BlocListener<SignupBloc, SignupState>(
+                    listener: _onListener,
+                    child: const _SignupWithEmailPasswordScreenBody(),
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 

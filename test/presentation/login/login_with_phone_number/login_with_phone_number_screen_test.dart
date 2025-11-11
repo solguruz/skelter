@@ -79,7 +79,7 @@ void main() {
           LoginState.test(
             phoneNumberLoginState: PhoneNumberLoginState.test(
               countryCode: '+91',
-              phoneNumber: 'abc',
+              phoneNumber: '123456',
               phoneNumErrorMessage: 'Invalid phone number',
             ),
           ),
