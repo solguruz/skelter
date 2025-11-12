@@ -216,7 +216,7 @@ class SignupState with EquatableMixin {
       selectedLoginSignupType: LoginType.PHONE,
       email: email ?? '',
       password: password ?? '',
-      confirmPassword: '',
+      confirmPassword: confirmPassword ?? '',
       confirmPasswordErrorMessage: confirmPasswordErrorMessage,
       emailErrorMessage: emailErrorMessage,
       isPasswordVisible: isPasswordVisible ?? false,

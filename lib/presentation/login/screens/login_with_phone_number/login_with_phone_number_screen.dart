@@ -42,7 +42,7 @@ class _LoginWithPhoneNumberScreenState
         localizations: appLocalizations,
       ),
       child: Scaffold(
-        body: _LoginWithPhoneNumberBody(
+        body: LoginWithPhoneNumberBody(
           isFromDeleteAccount: widget.isFromDeleteAccount,
         ),
       ),
@@ -50,11 +50,12 @@ class _LoginWithPhoneNumberScreenState
   }
 }
 
-class _LoginWithPhoneNumberBody extends StatelessWidget {
+class LoginWithPhoneNumberBody extends StatelessWidget {
   final bool isFromDeleteAccount;
 
-  const _LoginWithPhoneNumberBody({
+  const LoginWithPhoneNumberBody({
     required this.isFromDeleteAccount,
+    super.key,
   });
 
   @override

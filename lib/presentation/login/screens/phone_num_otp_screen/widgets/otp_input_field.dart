@@ -28,7 +28,11 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
 
   @override
   void initState() {
-    _pinController = TextEditingController();
+    _pinController = TextEditingController(
+      text:
+          context.read<LoginBloc>().state.phoneNumberLoginState?.phoneOTPText ??
+              '',
+    );
     super.initState();
     // TODO: prevent in test environment
     SmsAutoFill().listenForCode();

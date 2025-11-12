@@ -10,6 +10,7 @@ import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
+import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/utils/theme/extention/theme_extension.dart';
 
@@ -33,7 +34,11 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
   @override
   void initState() {
     super.initState();
-    _phoneInputController = TextEditingController();
+    _phoneInputController = TextEditingController(
+      text:
+          context.read<LoginBloc>().state.phoneNumberLoginState?.phoneNumber ??
+              '',
+    );
     _focusNode.addListener(() {
       context
           .read<LoginBloc>()
@@ -117,11 +122,11 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
                   _updatePhoneNumberEvent(number),
               ignoreBlank: true,
               hintText: null,
-              selectorConfig: const SelectorConfig(
+              selectorConfig: SelectorConfig(
                 leadingPadding: 12,
                 selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                 trailingSpace: false,
-                useEmoji: true,
+                useEmoji: !AppEnvironment.isTestEnvironment,
                 setSelectorButtonAsPrefixIcon: true,
                 useBottomSheetSafeArea: true,
               ),

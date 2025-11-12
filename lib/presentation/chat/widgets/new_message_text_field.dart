@@ -5,7 +5,6 @@ import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/utils/theme/extention/theme_extension.dart';
-import 'package:skelter/widgets/styling/app_colors.dart';
 
 class NewMessageTextField extends StatefulWidget {
   const NewMessageTextField({super.key});

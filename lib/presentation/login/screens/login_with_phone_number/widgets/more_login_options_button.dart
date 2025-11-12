@@ -45,7 +45,7 @@ class MoreLoginOptionsButton extends StatelessWidget {
             backgroundColor: context.currentTheme.bgSurfaceBase2,
             onPressed: () {
               if (isSignup) {
-                context.pushRoute(const SignupWithEmailPasswordRoute());
+                context.pushRoute(SignupWithEmailPasswordRoute());
               } else {
                 context
                     .read<LoginBloc>()

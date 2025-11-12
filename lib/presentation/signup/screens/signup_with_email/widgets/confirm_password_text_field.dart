@@ -26,7 +26,7 @@ class _ConfirmPasswordTextFieldState extends State<ConfirmPasswordTextField> {
   @override
   void initState() {
     super.initState();
-
+    _passwordController.text = context.read<SignupBloc>().state.confirmPassword;
     _passwordController.addListener(() {
       _passwordControllerListener();
     });
