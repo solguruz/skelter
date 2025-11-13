@@ -148,6 +148,7 @@ class AppButton extends StatelessWidget {
                 : null,
         padding: _resolvePadding(),
         decoration: style.toBoxDecoration(
+          context,
           state,
           bgColorOverride: backgroundColor,
           borderColorOverride: borderColor,

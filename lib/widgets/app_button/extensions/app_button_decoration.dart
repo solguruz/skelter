@@ -5,6 +5,7 @@ import 'package:skelter/widgets/app_button/enums/app_button_style_enum.dart';
 
 extension AppButtonDecorationExtension on AppButtonStyle {
   BoxDecoration? toBoxDecoration(
+    BuildContext context,
     AppButtonState buttonState, {
     Color? bgColorOverride,
     Color? borderColorOverride,
@@ -14,8 +15,8 @@ extension AppButtonDecorationExtension on AppButtonStyle {
 
     switch (this) {
       case AppButtonStyle.primary:
-        final backgroundColor =
-            bgColorOverride ?? AppButtonColor.resolvePrimaryBg(buttonState);
+        final backgroundColor = bgColorOverride ??
+            AppButtonColor.resolvePrimaryBg(context, buttonState);
         return BoxDecoration(
           color: backgroundColor,
           border: Border.all(color: backgroundColor),
@@ -23,8 +24,8 @@ extension AppButtonDecorationExtension on AppButtonStyle {
         );
 
       case AppButtonStyle.secondary:
-        final backgroundColor =
-            bgColorOverride ?? AppButtonColor.resolveSecondaryBg(buttonState);
+        final backgroundColor = bgColorOverride ??
+            AppButtonColor.resolveSecondaryBg(context, buttonState);
         return BoxDecoration(
           color: backgroundColor,
           border: Border.all(color: backgroundColor),
@@ -33,11 +34,11 @@ extension AppButtonDecorationExtension on AppButtonStyle {
 
       case AppButtonStyle.outline:
         return BoxDecoration(
-          color:
-              bgColorOverride ?? AppButtonColor.resolveOutlineBg(buttonState),
+          color: bgColorOverride ??
+              AppButtonColor.resolveOutlineBg(context, buttonState),
           border: Border.all(
             color: borderColorOverride ??
-                AppButtonColor.resolveOutlineBorder(buttonState),
+                AppButtonColor.resolveOutlineBorder(context, buttonState),
           ),
           borderRadius: radius,
         );
