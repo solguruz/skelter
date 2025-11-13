@@ -6,6 +6,7 @@ import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';
 import 'package:skelter/utils/internet_connectivity_helper.dart';
+import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/validators/validators.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';
@@ -33,6 +34,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
 
     return AppButton(
       label: context.localization.login,
+      foregroundColor: context.currentTheme.textNeutralLight,
       shouldSetFullWidth: true,
       size: AppButtonSize.large,
       state: email.isNotEmpty && _isPasswordLongEnough(password)
