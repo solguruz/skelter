@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:skelter/main.dart';
 import 'package:skelter/presentation/chat/enum/message_type_enum.dart';
 import 'package:skelter/presentation/chat/model/chat_message_model.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
@@ -37,7 +36,7 @@ class ChatConversationTile extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: message.isSentByMe
-                    ? getBackgroundColor()
+                    ? getBackgroundColor(context)
                     : context.currentTheme.bgBrandLight100,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(!message.isSentByMe ? 0 : 10),
@@ -67,16 +66,14 @@ class ChatConversationTile extends StatelessWidget {
     );
   }
 
-  Color getBackgroundColor() {
+  Color getBackgroundColor(BuildContext context) {
     switch (message.messageType) {
       case MessageType.text:
-        return rootNavigatorKey.currentContext?.currentTheme.bgBrandDefault ??
-            AppColors.brand600;
+        return context.currentTheme.bgBrandDefault;
       case MessageType.image:
         return AppColors.redError500;
       case MessageType.audio:
-        return rootNavigatorKey.currentContext?.currentTheme.bgBrandLight50 ??
-            AppColors.brand100;
+        return context.currentTheme.bgBrandLight50;
     }
   }
 }
