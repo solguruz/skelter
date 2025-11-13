@@ -55,15 +55,15 @@ class _ChangeThemeScreenBody extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
-          children: ThemeMode.values.map((reason) {
+          children: ThemeMode.values.map((themeMode) {
             return Padding(
               padding: const EdgeInsets.all(16),
               child: ThemeListOptions(
-                reason: reason.name.toLowerCase().capitalizeFirst,
-                isSelected: selectedThemeMode == reason,
+                themeMode: themeMode.name.toLowerCase().capitalizeFirst,
+                isSelected: selectedThemeMode == themeMode,
                 onSelected: () => context
                     .read<ThemeBloc>()
-                    .add(SetThemeModeEvent(mode: reason)),
+                    .add(SetThemeModeEvent(mode: themeMode)),
               ),
             );
           }).toList(),

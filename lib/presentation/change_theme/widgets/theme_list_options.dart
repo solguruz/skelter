@@ -4,13 +4,13 @@ import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/styling/app_colors.dart';
 
 class ThemeListOptions extends StatelessWidget {
-  final String reason;
+  final String themeMode;
   final bool isSelected;
   final VoidCallback onSelected;
 
   const ThemeListOptions({
     super.key,
-    required this.reason,
+    required this.themeMode,
     required this.isSelected,
     required this.onSelected,
   });
@@ -55,7 +55,7 @@ class ThemeListOptions extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Text(
-                reason,
+                themeMode,
                 style: AppTextStyles.p2Medium
                     .copyWith(color: context.currentTheme.textNeutralPrimary),
               ),
