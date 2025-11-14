@@ -1108,6 +1108,7 @@ void main() {
             ),
             createTestScenario(
               name: 'payment method online Dark Theme',
+              theme: AppThemeEnum.DarkTheme,
               addScaffold: true,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
@@ -1149,6 +1150,7 @@ void main() {
             createTestScenario(
               name: 'payment method cash on delivery Dark Theme',
               addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(value: checkoutBlocPaymentCOD),
               ],
