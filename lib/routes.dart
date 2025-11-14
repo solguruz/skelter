@@ -5,7 +5,6 @@ import 'package:skelter/routes.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   AppRouter() : super(navigatorKey: rootNavigatorKey);
-  // AppRouter() : super(navigatorKey: GlobalKey<NavigatorState>());
 
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
