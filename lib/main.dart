@@ -126,9 +126,6 @@ class _MainAppState extends State<MainApp> {
                 darkTheme: AppThemesData.themeData[AppThemeEnum.DarkTheme]!,
                 themeMode: state.themeMode,
                 builder: (context, child) {
-                  // final isDarkMode =
-                  //     Theme.of(context).brightness == Brightness.dark;
-                  // AppColors.setDarkThemeMode(isDarkMode: isDarkMode);
                   return child!;
                 },
               );
