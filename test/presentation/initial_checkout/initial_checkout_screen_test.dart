@@ -1197,6 +1197,7 @@ void main() {
             createTestScenario(
               name: 'one coupon available Dark Theme',
               addScaffold: true,
+              theme: AppThemeEnum.DarkTheme,
               providers: [
                 BlocProvider<CheckoutBloc>.value(
                   value: checkoutBlocPaymentOneCoupon,
