@@ -16,14 +16,9 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-class SettingsScreenBody extends StatefulWidget {
+class SettingsScreenBody extends StatelessWidget {
   const SettingsScreenBody({super.key});
 
-  @override
-  State<SettingsScreenBody> createState() => _SettingsScreenBodyState();
-}
-
-class _SettingsScreenBodyState extends State<SettingsScreenBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
