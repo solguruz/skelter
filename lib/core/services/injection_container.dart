@@ -25,6 +25,7 @@ bool _isForceLoggingOutUser = false;
 
 Future<void> configureDependencies({
   FirebaseAuth? firebaseAuth,
+  FirebaseAuthService? firebaseAuthService,
   Dio? dio,
 }) async {
   sl.registerLazySingleton<FirebaseAuth>(
@@ -32,7 +33,9 @@ Future<void> configureDependencies({
   );
 
   sl.registerLazySingleton<FirebaseAuthService>(
-    () => FirebaseAuthService(firebaseAuth: sl<FirebaseAuth>()),
+    () =>
+        firebaseAuthService ??
+        FirebaseAuthService(firebaseAuth: sl<FirebaseAuth>()),
   );
 
   final cacheManager = CacheManager();

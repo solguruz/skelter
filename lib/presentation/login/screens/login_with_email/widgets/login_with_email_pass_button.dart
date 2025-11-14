@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/login/bloc/login_bloc.dart';
 import 'package:skelter/presentation/login/bloc/login_events.dart';
@@ -33,6 +34,7 @@ class LoginWithEmailPassButton extends StatelessWidget {
     );
 
     return AppButton(
+      key: keys.signInPage.loginWithEmailButton,
       label: context.localization.login,
       foregroundColor: context.currentTheme.textNeutralLight,
       shouldSetFullWidth: true,

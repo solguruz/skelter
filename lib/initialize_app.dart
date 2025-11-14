@@ -12,11 +12,16 @@ import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/firebase_options_dev.dart' as dev;
 import 'package:skelter/firebase_options_prod.dart' as prod;
 import 'package:skelter/firebase_options_stage.dart' as stage;
+import 'package:skelter/services/firebase_auth_services.dart';
 import 'package:skelter/services/remote_config_service.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/app_flavor_env.dart';
 
-Future<void> initializeApp({FirebaseAuth? firebaseAuth, Dio? dio}) async {
+Future<void> initializeApp({
+  FirebaseAuth? firebaseAuth,
+  FirebaseAuthService? firebaseAuthService,
+  Dio? dio,
+}) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final firebaseOptions = switch (AppConfig.appFlavor) {
@@ -50,5 +55,9 @@ Future<void> initializeApp({FirebaseAuth? firebaseAuth, Dio? dio}) async {
 
   await dotenv.load();
 
-  await configureDependencies(firebaseAuth: firebaseAuth, dio: dio);
+  await configureDependencies(
+    firebaseAuth: firebaseAuth,
+    firebaseAuthService: firebaseAuthService,
+    dio: dio,
+  );
 }
