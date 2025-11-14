@@ -27,7 +27,6 @@ class ChooseAppTheme extends StatelessWidget {
         color: context.currentTheme.iconNeutralDefault,
       ),
       onTap: () {
-        // context.showSnackBar('Choose app theme');
         context.router.push(const ChangeThemeRoute());
       },
     );
