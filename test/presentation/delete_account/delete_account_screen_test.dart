@@ -57,21 +57,23 @@ void main() {
 
       testExecutable(() {
         goldenTest(
-          'no reason selected',
+          'No reason selected',
           fileName: 'no_reason_selected',
           builder: () {
             final deleteAccountBloc = MockDeleteAccountBloc();
-            when(() => deleteAccountBloc.state)
-                .thenReturn(const DeleteAccountState.test());
+
+            const deleteAccountState = DeleteAccountState.test();
+
+            when(() => deleteAccountBloc.state).thenReturn(deleteAccountState);
 
             return GoldenTestGroup(
               columnWidthBuilder: (_) =>
                   const FixedColumnWidth(pixel5DeviceWidth),
               children: [
                 createTestScenario(
-                  name: 'no reason selected Light Theme',
-                  child: const DeleteAccountScreen(),
+                  name: 'No reason selected Light Theme',
                   addScaffold: true,
+                  child: const DeleteAccountScreen(),
                   providers: [
                     BlocProvider<DeleteAccountBloc>.value(
                       value: deleteAccountBloc,
@@ -79,9 +81,9 @@ void main() {
                   ],
                 ),
                 createTestScenario(
-                  name: 'no reason selected Dark Theme',
-                  child: const DeleteAccountScreen(),
+                  name: 'No reason selected Dark Theme',
                   addScaffold: true,
+                  child: const DeleteAccountScreen(),
                   theme: AppThemeEnum.DarkTheme,
                   providers: [
                     BlocProvider<DeleteAccountBloc>.value(
