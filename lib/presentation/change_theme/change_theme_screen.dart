@@ -7,6 +7,7 @@ import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/change_theme/widgets/theme_list_options.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
+import 'package:skelter/utils/theme/bloc/theme_event.dart';
 import 'package:skelter/utils/theme/extention/theme_extension.dart';
 import 'package:skelter/widgets/app_button/app_button.dart';
 import 'package:skelter/widgets/app_button/enums/app_button_size_enum.dart';

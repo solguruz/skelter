@@ -1,4 +1,5 @@
-part of 'theme_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class ThemeState with EquatableMixin {
   final ThemeMode? themeMode;
