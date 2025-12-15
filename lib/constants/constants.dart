@@ -68,6 +68,5 @@ const String kHome = 'home';
 
 // RevenueCat subscription constants
 const revenueCatGoogleApiKey = 'REVENEUCAT_GOOGLE_API_KEY';
-const revenueCatDummyGoogleReleaseApiKey =
-    'REVENEUCAT_DUMMY_GOOGLE_RELEASE_API_KEY';
+const revenueCatDummyGoogleReleaseApiKey = 'REVENEUCAT_GOOGLE_RELEASE_API_KEY';
 const revenueCatMonthly = 'monthly';
