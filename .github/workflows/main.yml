@@ -91,6 +91,7 @@ jobs:
           set -euo pipefail
           echo "DEV_API_BASE_URL=${{ secrets.DEV_API_BASE_URL }}"  > .env
           echo "REVENEUCAT_GOOGLE_API_KEY=${{ secrets.REVENEUCAT_GOOGLE_API_KEY }}" >> .env
+          echo "REVENEUCAT_GOOGLE_RELEASE_API_KEY=${{ secrets.REVENEUCAT_GOOGLE_RELEASE_API_KEY }}" >> .env
 
       - name: 3.2 Create Firebase options files (decode from base64)
         run: |
