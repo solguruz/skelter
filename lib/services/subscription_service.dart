@@ -42,7 +42,15 @@ class SubscriptionService {
 
     try {
       await Purchases.setLogLevel(LogLevel.debug);
-      final revenueCatApiKey = dotenv.env[revenueCatGoogleApiKey] ?? '';
+      // Note: Release builds require a separate RevenueCat API key.
+      // Ensure the release API key is configured before app publishing.
+      final revenueCatApiKey = kReleaseMode
+          ? dotenv.env[revenueCatDummyGoogleReleaseApiKey] // dummy release key
+          : dotenv.env[revenueCatGoogleApiKey];
+      if (revenueCatApiKey == null || revenueCatApiKey.isEmpty) {
+        debugPrint('RevenueCat API key is missing!');
+        return;
+      }
       await Purchases.configure(PurchasesConfiguration(revenueCatApiKey));
       _isPurchaseConfigured = true;
       debugPrint('Purchase configuration initialized successfully');
@@ -135,8 +143,9 @@ class SubscriptionService {
   }
 
   void _updateSubscriptionStatus(CustomerInfo customerInfo) {
-    isUserSubscribed.value =
-        customerInfo.entitlements.active.containsKey(subscriptionEntitlement);
+    isUserSubscribed.value = customerInfo.entitlements.active.containsKey(
+      subscriptionEntitlement,
+    );
     debugPrint('Subscription status updated: ${isUserSubscribed.value}');
   }
 
