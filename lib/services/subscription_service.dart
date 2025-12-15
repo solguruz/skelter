@@ -45,7 +45,7 @@ class SubscriptionService {
       // Note: Release builds require a separate RevenueCat API key.
       // Ensure the release API key is configured before app publishing.
       final revenueCatApiKey = kReleaseMode
-          ? dotenv.env[revenueCatDummyGoogleReleaseApiKey] // dummy release key
+          ? dotenv.env[revenueCatGoogleReleaseApiKey]
           : dotenv.env[revenueCatGoogleApiKey];
       if (revenueCatApiKey == null || revenueCatApiKey.isEmpty) {
         debugPrint('RevenueCat API key is missing!');
