@@ -59,7 +59,8 @@ Future<void> main() async {
     // Maybe somewhat counterintuitively, this callback runs *after* the calls
     // to group() below.
     final topLevelGroup = Invoker.current!.liveTest.groups.first;
-    final dartTestGroup = createDartTestGroup(topLevelGroup,
+    final dartTestGroup = createDartTestGroup(
+      topLevelGroup,
       tags: null,
       excludeTags: null,
     );

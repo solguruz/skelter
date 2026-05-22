@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -191,6 +192,7 @@ class MockGoogleSignIn extends Mock implements GoogleSignIn {
   bool _shouldFail = false;
 
   void setIsCancelled({required bool value}) => _isCancelled = value;
+
   void setShouldFail({required bool value}) => _shouldFail = value;
 
   /// Implements authenticate() for GoogleSignIn v7.x API

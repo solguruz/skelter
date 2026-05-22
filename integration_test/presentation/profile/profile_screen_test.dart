@@ -41,8 +41,9 @@ void main() {
       await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
 
       // Stub phone sign-in
-      when(() => mockFirebaseAuth.signInWithCredential(any()))
-          .thenAnswer((_) async {
+      when(() => mockFirebaseAuth.signInWithCredential(any())).thenAnswer((
+        _,
+      ) async {
         final phoneUser = MockUser(phoneNumber: '9999988888');
         mockFirebaseAuth.setMockUser(phoneUser);
         return MockUserCredential(phoneUser);

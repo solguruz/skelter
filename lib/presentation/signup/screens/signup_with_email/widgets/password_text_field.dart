@@ -29,7 +29,6 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   }
 
   void _passwordControllerListener() {
-    // TODO: add a debouncer
     context.read<SignupBloc>().add(
       SignupPasswordChangeEvent(password: _passwordController.text),
     );

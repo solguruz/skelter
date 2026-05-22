@@ -36,7 +36,7 @@ final List<Map<String, dynamic>> productsResponse = [
           'https://images.unsplash.com/photo-1503602642458-232111445657',
           'https://images.unsplash.com/photo-1560343090-f0409e92791a',
         ],
-      }
+      },
     ],
   },
   {
@@ -61,7 +61,7 @@ final List<Map<String, dynamic>> productsResponse = [
         'images': [
           'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6',
         ],
-      }
+      },
     ],
   },
 ];

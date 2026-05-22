@@ -27,10 +27,7 @@ void main() {
     when(() => mockResponse.statusCode).thenReturn(200);
     when(() => mockResponse.data).thenReturn(productsResponse);
     when(
-      () => mockDio.get(
-        any(),
-        options: any(named: 'options'),
-      ),
+      () => mockDio.get(any(), options: any(named: 'options')),
     ).thenAnswer((_) async => mockResponse);
     when(() => mockDio.interceptors).thenReturn(Interceptors());
   });
@@ -43,9 +40,7 @@ void main() {
       await $.pumpWidgetAndSettle(const MainApp());
 
       // SCENARIO 1: Successful signup with email verification
-      final newUser = MockUser(
-        email: 'newuser@example.com',
-      );
+      final newUser = MockUser(email: 'newuser@example.com');
 
       when(
         () => mockFirebaseAuth.createUserWithEmailAndPassword(
@@ -152,8 +147,9 @@ void main() {
       ).tap(settlePolicy: SettlePolicy.noSettle);
 
       // Wait for error to be processed and displayed
-      await $(find.text('Email already in use, please login to continue.'))
-          .waitUntilVisible();
+      await $(
+        find.text('Email already in use, please login to continue.'),
+      ).waitUntilVisible();
       expect(
         find.text('Email already in use, please login to continue.'),
         findsOneWidget,
