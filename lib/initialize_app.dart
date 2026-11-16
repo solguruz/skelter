@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -42,6 +43,23 @@ Future<void> initializeApp({
   };
 
   await Firebase.initializeApp(options: firebaseOptions);
+
+  // Firebase AI Logic attaches an App Check token to every request. Without
+  // activate() the native SDK sends a placeholder token that the backend
+  // rejects ("Firebase App Check token is invalid").
+  // Debug builds use the debug provider: on first launch the native SDK logs
+  // a debug secret, which must be added in Firebase Console → App Check →
+  // Apps → Manage debug tokens.
+  if (!AppEnvironment.isTestEnvironment && !kIsWeb) {
+    await FirebaseAppCheck.instance.activate(
+      providerAndroid: kDebugMode
+          ? const AndroidDebugProvider()
+          : const AndroidPlayIntegrityProvider(),
+      providerApple: kDebugMode
+          ? const AppleDebugProvider()
+          : const AppleAppAttestWithDeviceCheckFallbackProvider(),
+    );
+  }
 
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 

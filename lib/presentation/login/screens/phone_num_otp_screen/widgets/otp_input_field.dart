@@ -1,6 +1,9 @@
 import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// pinput 7 is built on package:material_ui, whose Material type differs from
+// flutter/material's, so the Scaffold above doesn't satisfy its Material check.
+import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:pinput/pinput.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/constants/integration_test_keys.dart';
@@ -86,35 +89,40 @@ class _OTPCodeInputFieldState extends State<OTPCodeInputField>
           }
         },
         child: ClarityMask(
-          child: Pinput(
-            key: keys.signInPage.otpTextField,
-            length: 6,
-            controller: _pinController,
-            focusedPinTheme: _focusedPinTheme(),
-            defaultPinTheme: _defaultPinTheme(),
-            submittedPinTheme: _submittedPinTheme(),
-            errorPinTheme: errorText.isNullOrEmpty() ? null : _errorPinTheme(),
-            pinAnimationType: PinAnimationType.fade,
-            forceErrorState: true,
-            errorText: errorText.isNullOrEmpty() ? null : errorText,
-            errorTextStyle: AppTextStyles.p4Regular.copyWith(
-              color: context.currentTheme.textErrorSecondary,
-            ),
-            onChanged: (pin) {
-              if (errorText.haveContent()) {
+          child: material_ui.Material(
+            type: material_ui.MaterialType.transparency,
+            child: Pinput(
+              key: keys.signInPage.otpTextField,
+              length: 6,
+              controller: _pinController,
+              focusedPinTheme: _focusedPinTheme(),
+              defaultPinTheme: _defaultPinTheme(),
+              submittedPinTheme: _submittedPinTheme(),
+              errorPinTheme: errorText.isNullOrEmpty()
+                  ? null
+                  : _errorPinTheme(),
+              pinAnimationType: PinAnimationType.fade,
+              forceErrorState: true,
+              errorText: errorText.isNullOrEmpty() ? null : errorText,
+              errorTextStyle: AppTextStyles.p4Regular.copyWith(
+                color: context.currentTheme.textErrorSecondary,
+              ),
+              onChanged: (pin) {
+                if (errorText.haveContent()) {
+                  context.read<LoginBloc>().add(
+                    PhoneOtpErrorEvent(errorMessage: ''),
+                  );
+                }
                 context.read<LoginBloc>().add(
-                  PhoneOtpErrorEvent(errorMessage: ''),
+                  PhoneOtpTextChangeEvent(phoneOtpText: pin),
                 );
-              }
-              context.read<LoginBloc>().add(
-                PhoneOtpTextChangeEvent(phoneOtpText: pin),
-              );
-            },
-            onCompleted: (phoneOtpText) {
-              if (phoneOtpText.isNotEmpty && phoneOtpText.length == 6) {
-                context.read<LoginBloc>().add(FirebaseOTPVerificationEvent());
-              }
-            },
+              },
+              onCompleted: (phoneOtpText) {
+                if (phoneOtpText.isNotEmpty && phoneOtpText.length == 6) {
+                  context.read<LoginBloc>().add(FirebaseOTPVerificationEvent());
+                }
+              },
+            ),
           ),
         ),
       ),

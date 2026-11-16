@@ -176,7 +176,10 @@ class SubscriptionService {
     StackTrace? stackTrace,
   }) {
     final errorMessage = switch (e.code) {
-      PurchasesErrorCode.storeProblemError =>
+      // purchases_flutter 11 reports a blocked Play Store as
+      // purchaseNotAllowedError instead of storeProblemError.
+      PurchasesErrorCode.storeProblemError ||
+      PurchasesErrorCode.purchaseNotAllowedError =>
         _localization.store_login_required,
       PurchasesErrorCode.purchaseCancelledError =>
         _localization.purchase_cancelled,

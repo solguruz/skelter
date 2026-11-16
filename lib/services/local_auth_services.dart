@@ -1,6 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth_android/local_auth_android.dart';
 import 'package:local_auth_darwin/local_auth_darwin.dart';
@@ -106,14 +104,9 @@ class LocalAuthService {
     try {
       final didAuthenticate = await _localAuth.authenticate(
         localizedReason: localization.biometric_auth_reason_access_app,
-        options: const AuthenticationOptions(
-          stickyAuth: true,
-          useErrorDialogs: false,
-        ),
+        persistAcrossBackgrounding: true,
         authMessages: [
           IOSAuthMessages(
-            goToSettingsButton: localization.go_to_settings,
-            goToSettingsDescription: localization.biometric_auth_not_setup,
             cancelButton: localization.cancel,
           ),
           AndroidAuthMessages(
@@ -126,16 +119,22 @@ class LocalAuthService {
       return didAuthenticate
           ? BiometricAuthStatus.success
           : BiometricAuthStatus.cancelled;
-    } on PlatformException catch (e) {
-      const enrollmentErrors = {
-        auth_error.passcodeNotSet,
-        auth_error.notEnrolled,
-        auth_error.notAvailable,
-      };
-
-      return enrollmentErrors.contains(e.code)
-          ? BiometricAuthStatus.notEnrolled
-          : BiometricAuthStatus.error;
+    } on LocalAuthException catch (e) {
+      // local_auth 3.x reports cancellation as an exception instead of
+      // returning false, so map it back to `cancelled`.
+      switch (e.code) {
+        case LocalAuthExceptionCode.noCredentialsSet:
+        case LocalAuthExceptionCode.noBiometricsEnrolled:
+        case LocalAuthExceptionCode.noBiometricHardware:
+          return BiometricAuthStatus.notEnrolled;
+        case LocalAuthExceptionCode.userCanceled:
+        case LocalAuthExceptionCode.systemCanceled:
+        case LocalAuthExceptionCode.timeout:
+          return BiometricAuthStatus.cancelled;
+        default:
+          debugPrint('[LocalAuthService] authenticate error: ${e.code}');
+          return BiometricAuthStatus.error;
+      }
     } catch (e) {
       debugPrint('[LocalAuthService] authenticate Error: $e');
       return BiometricAuthStatus.error;
