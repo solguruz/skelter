@@ -216,7 +216,7 @@ class _MainAppState extends State<MainApp> {
           return BlocBuilder<ThemeBloc, ThemeState>(
             builder: (context, state) {
               // Speeds up `liquid_glass_widgets` rendering when multiple glass
-              // widgets appear on screen. Safe to keep even if no glass is used.
+              // widgets appear on screen. Safe to keep even if no glass is used
               return GlassBackdropScope(
                 child: MaterialApp.router(
                   debugShowCheckedModeBanner: false,
