@@ -460,10 +460,12 @@ class PdfService {
 
     // share_plus requires iPad users to provide the
     // sharePositionOrigin parameter.
-    await Share.shareXFiles(
-      [XFile(filePath)],
-      subject: 'Invoice - $fileName',
-      sharePositionOrigin: sharePositionOrigin,
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(filePath)],
+        subject: 'Invoice - $fileName',
+        sharePositionOrigin: sharePositionOrigin,
+      ),
     );
   }
 }

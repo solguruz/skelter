@@ -58,7 +58,9 @@ class ProductDetailAppBar extends StatelessWidget
       productUrl.toString(),
     );
 
-    await Share.share(shareMessage, subject: shareSubject);
+    await SharePlus.instance.share(
+      ShareParams(text: shareMessage, subject: shareSubject),
+    );
   }
 
   @override

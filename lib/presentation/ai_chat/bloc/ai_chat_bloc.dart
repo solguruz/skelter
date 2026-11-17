@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/i18n/app_localizations.dart';
@@ -148,6 +149,7 @@ class AiChatBloc extends Bloc<AiChatEvent, AiChatState> {
     StreamResponseErrorEvent event,
     Emitter<AiChatState> emit,
   ) {
+    debugPrint('[AiChat] Stream error: ${event.errorMessage}');
     final userFriendlyMessage = _parseErrorMessage(event.errorMessage);
 
     if (state.messages.isNotEmpty) {

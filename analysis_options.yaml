@@ -116,6 +116,9 @@ analyzer:
     - "**/*.pbenum.dart"
     - "**/*.pbgrpc.dart"
     - "**/*.pbjson.dart"
+    - build/**
+    - android/**
+    - ios/**
 linter:
   rules:
     avoid_bool_literals_in_conditional_expressions: false

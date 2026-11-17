@@ -53,7 +53,7 @@ Future<void> main() async {
   // A special test to explore the hierarchy of groups and tests. This is a hack
   // around https://github.com/dart-lang/test/issues/1998.
   //
-  // This test must be the first to run. If not, the native side likely won't
+  // This test must be the first to run. If not, the native side likely won't 
   // receive any tests, and everything will fall apart.
   test('patrol_test_explorer', () {
     // Maybe somewhat counterintuitively, this callback runs *after* the calls

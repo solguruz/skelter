@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/validators/validated_file_result.dart';
 
@@ -15,22 +16,28 @@ class FilePickerUtil {
     required Future<bool> Function(File file) isValidFile,
   }) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: allowedExtensions,
-        allowMultiple: allowMultiple,
-      );
+      final List<PlatformFile> pickedFiles;
+      if (allowMultiple) {
+        pickedFiles = await FilePicker.pickFiles(
+          type: FileType.custom,
+          allowedExtensions: allowedExtensions,
+        );
+      } else {
+        final pickedFile = await FilePicker.pickFile(
+          type: FileType.custom,
+          allowedExtensions: allowedExtensions,
+        );
+        pickedFiles = [if (pickedFile != null) pickedFile];
+      }
 
-      if (result == null || result.paths.isEmpty) {
+      if (pickedFiles.isEmpty) {
         return const ValidatedFileResult(validFiles: []);
       }
 
       final files = <File>[];
 
-      for (final path in result.paths) {
-        if (path == null) continue;
-
-        final file = File(path);
+      for (final pickedFile in pickedFiles) {
+        final file = await _toLocalFile(pickedFile);
         final fileSize = await file.length();
 
         if (fileSize == 0) {
@@ -66,5 +73,21 @@ class FilePickerUtil {
         error: localizations.pick_file_error,
       );
     }
+  }
+
+  /// Returns a [File] on local disk for [pickedFile].
+  ///
+  /// Since file_picker 12, a picked file may only be reachable through a
+  /// non-file URI (e.g. Android `content://`), in which case [PlatformFile.path]
+  /// is null. Such files are copied into the temporary directory.
+  static Future<File> _toLocalFile(PlatformFile pickedFile) async {
+    final path = pickedFile.path;
+    if (path != null) return File(path);
+
+    final tempDir = await getTemporaryDirectory();
+    final localPath = '${tempDir.path}/'
+        '${DateTime.now().microsecondsSinceEpoch}_${pickedFile.name}';
+    await pickedFile.xFile.saveTo(localPath);
+    return File(localPath);
   }
 }
