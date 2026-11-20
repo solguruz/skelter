@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class ForceUpdateEvent with EquatableMixin {
+abstract class ForceUpdateEvent with Equatable {
   ForceUpdateEvent();
 }
 

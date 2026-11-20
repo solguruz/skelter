@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class ReminderEvent with EquatableMixin {
+abstract class ReminderEvent with Equatable {
   ReminderEvent();
 }
 

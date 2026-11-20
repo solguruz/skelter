@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class ReminderState with EquatableMixin {
+class ReminderState with Equatable {
   final String title;
   final String description;
   final DateTime selectedDateTime;

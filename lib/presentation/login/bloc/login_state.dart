@@ -7,7 +7,7 @@ import 'package:skelter/presentation/signup/enum/user_details_input_status.dart'
 part 'email_password_login_state.dart';
 part 'phone_number_login_state.dart';
 
-class LoginState with EquatableMixin {
+class LoginState with Equatable {
   final bool isSignup;
   final PhoneNumberLoginState? phoneNumberLoginState;
   final EmailPasswordLoginState? emailPasswordLoginState;

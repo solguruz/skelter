@@ -12,7 +12,8 @@ plugins {
 
 android {
     namespace = "com.solguruz.skelter"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android and sms_autofill need API 37 to compile.
+    compileSdk = 37
     ndkVersion = "28.2.13676358"
 
     compileOptions {
@@ -45,6 +46,11 @@ android {
             signingConfig = signingConfigs.debug
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
+    }
+
+    buildFeatures {
+        // Needed by the `resValue` app_name in each product flavor.
+        resValues = true
     }
 
     flavorDimensions "app"

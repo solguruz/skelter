@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
 import 'package:skelter/presentation/verify_email/screens/verify_email_screen.dart';
 
-class VerifyEmailState with EquatableMixin {
+class VerifyEmailState with Equatable {
   final UserDetailsInputStatus userDetailsInputStatus;
   final int resendTimeLeft;
   final bool isLoading;

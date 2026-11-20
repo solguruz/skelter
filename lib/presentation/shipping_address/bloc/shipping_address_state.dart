@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class ShippingAddressState with EquatableMixin {
+class ShippingAddressState with Equatable {
   final int selectedAddressIndex;
 
   ShippingAddressState({required this.selectedAddressIndex});

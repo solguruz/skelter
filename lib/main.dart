@@ -215,9 +215,10 @@ class _MainAppState extends State<MainApp> {
         builder: (context, orientation, screenType) {
           return BlocBuilder<ThemeBloc, ThemeState>(
             builder: (context, state) {
-              // Speeds up `liquid_glass_widgets` rendering when multiple glass
-              // widgets appear on screen. Safe to keep even if no glass is used.
-              return GlassBackdropScope(
+              // Keeps the classic `liquid_glass_widgets` look; since 1.17 the
+              // default style is iOS 27.
+              return GlassTheme(
+                data: const GlassThemeData.classic(),
                 child: MaterialApp.router(
                   debugShowCheckedModeBanner: false,
                   supportedLocales: I18n.all,

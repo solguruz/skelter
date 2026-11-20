@@ -17,9 +17,7 @@ class SecureStorageService {
   static const _true = 'true';
   static const _false = 'false';
 
-  final _storage = const FlutterSecureStorage(
-    aOptions: AndroidOptions(encryptedSharedPreferences: true),
-  );
+  final _storage = const FlutterSecureStorage();
 
   Future<void> setBool(String key, {required bool value}) async {
     await _storage.write(key: key, value: value ? _true : _false);

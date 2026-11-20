@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'dart:typed_data' as _i49;
 
 import 'package:auto_route/auto_route.dart' as _i44;

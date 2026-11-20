@@ -35,13 +35,13 @@ class FileValidator {
 
       switch (extension) {
         case kPdfWithDot:
-          return _isValidPdfFile(header, detectedMime);
+          return await _isValidPdfFile(header, detectedMime);
         case kDocWithDot:
-          return _isValidDocFile(header, detectedMime);
+          return await _isValidDocFile(header, detectedMime);
         case kTextWithDot:
-          return _isValidTextFile(detectedMime);
+          return await _isValidTextFile(detectedMime);
         case kMp4WithDot:
-          return _isValidMp4File(header, detectedMime);
+          return await _isValidMp4File(header, detectedMime);
         default:
           return detectedMime == allowedMime;
       }

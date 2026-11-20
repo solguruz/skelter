@@ -6,7 +6,7 @@ import 'package:skelter/presentation/login/enum/enum_login_type.dart';
 import 'package:skelter/presentation/signup/enum/user_details_input_status.dart';
 import 'package:skelter/presentation/verify_email/screens/verify_email_screen.dart';
 
-class SignupState with EquatableMixin {
+class SignupState with Equatable {
   final String handle;
   final String? handleErrorMessage;
   final HandleNameStatus handleNameStatus;

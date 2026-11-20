@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:skelter/presentation/feedback/enum/feedback_category.dart';
 
-class FeedbackState with EquatableMixin {
+class FeedbackState with Equatable {
   const FeedbackState({
     required this.rating,
     required this.message,

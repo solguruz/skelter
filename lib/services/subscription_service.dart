@@ -134,7 +134,7 @@ class SubscriptionService {
     }
 
     try {
-      await Purchases.purchasePackage(package);
+      await Purchases.purchase(PurchaseParams.package(package));
       return true;
     } on PurchasesError catch (e, stack) {
       _handlePurchaseError(e, onError, stackTrace: stack);

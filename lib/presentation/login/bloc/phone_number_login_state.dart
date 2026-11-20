@@ -1,6 +1,6 @@
 part of 'login_state.dart';
 
-class PhoneNumberLoginState with EquatableMixin {
+class PhoneNumberLoginState with Equatable {
   final bool phoneInputHasFocus;
   final bool isPhoneNumValid;
   final String countryCode;
