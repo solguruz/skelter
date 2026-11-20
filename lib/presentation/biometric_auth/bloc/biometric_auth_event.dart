@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class BiometricAuthEvent with EquatableMixin {
+abstract class BiometricAuthEvent with Equatable {
   const BiometricAuthEvent();
 }
 

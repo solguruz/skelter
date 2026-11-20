@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:skelter/presentation/ai_chat/model/ai_chat_message.dart';
 
-class AiChatState with EquatableMixin {
+class AiChatState with Equatable {
   const AiChatState({
     required this.messages,
     this.isGenerating = false,

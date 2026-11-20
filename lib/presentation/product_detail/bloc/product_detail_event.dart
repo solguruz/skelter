@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:skelter/presentation/product_detail/domain/entities/product_detail.dart';
 
-abstract class ProductDetailEvent with EquatableMixin {
+abstract class ProductDetailEvent with Equatable {
   const ProductDetailEvent();
 }
 

@@ -1,6 +1,6 @@
 part of 'login_state.dart';
 
-class EmailPasswordLoginState with EquatableMixin {
+class EmailPasswordLoginState with Equatable {
   final String email;
   final String password;
   final String? emailErrorMessage;

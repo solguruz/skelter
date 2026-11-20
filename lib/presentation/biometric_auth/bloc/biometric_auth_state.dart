@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class BiometricAuthState with EquatableMixin {
+class BiometricAuthState with Equatable {
   final bool isBiometricEnrolled;
   final bool isBiometricSupported;
   final bool isLoading;

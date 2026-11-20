@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class EmailPasswordSignUpState with EquatableMixin {
+class EmailPasswordSignUpState with Equatable {
   final String email;
   final String password;
   final String? emailErrorMessage;

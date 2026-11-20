@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:skelter/presentation/product_detail/domain/entities/ai_product_description.dart';
 import 'package:skelter/presentation/product_detail/domain/entities/product_detail.dart';
 
-class ProductDetailState with EquatableMixin {
+class ProductDetailState with Equatable {
   final int selectedImageIndex;
   final ProductDetail? productDetail;
   final String? errorMessage;

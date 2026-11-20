@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ContactUsState with EquatableMixin {
+class ContactUsState with Equatable {
   final String name;
   final String email;
   final String description;

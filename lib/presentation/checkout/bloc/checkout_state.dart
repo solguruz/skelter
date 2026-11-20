@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:skelter/presentation/checkout/data/cart_sample_data.dart';
 import 'package:skelter/presentation/checkout/model/product_cart.dart';
 
-class CheckoutState with EquatableMixin {
+class CheckoutState with Equatable {
   final int stepperIndex;
   final double totalPrice;
   final double discount;
