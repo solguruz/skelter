@@ -75,44 +75,49 @@ class AppTourService {
         contents: [
           TargetContent(
             builder: (context, controller) {
-              return Container(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisSize: .min,
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      context.localization.tour_search_title,
-                      style: AppTextStyles.h2Bold.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      context.localization.tour_search_description,
-                      style: AppTextStyles.p2Regular.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: .end,
-                      children: [
-                        AppButton(
-                          onPressed: () => controller.skip(),
-                          label: context.localization.skip,
-                          style: AppButtonStyle.textOrIcon,
-                          foregroundColor: AppColors.white,
+              // tutorial_coach_mark draws its overlay on a legacy Material,
+              // so AppButton's InkWell needs a material_ui Material here.
+              return Material(
+                type: MaterialType.transparency,
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisSize: .min,
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        context.localization.tour_search_title,
+                        style: AppTextStyles.h2Bold.copyWith(
+                          color: AppColors.white,
                         ),
-                        const SizedBox(width: 16),
-                        AppButton(
-                          onPressed: () => controller.next(),
-                          label: context.localization.next,
-                          foregroundColor: AppColors.white,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        context.localization.tour_search_description,
+                        style: AppTextStyles.p2Regular.copyWith(
+                          color: AppColors.white,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: .end,
+                        children: [
+                          AppButton(
+                            onPressed: () => controller.skip(),
+                            label: context.localization.skip,
+                            style: AppButtonStyle.textOrIcon,
+                            foregroundColor: AppColors.white,
+                          ),
+                          const SizedBox(width: 16),
+                          AppButton(
+                            onPressed: () => controller.next(),
+                            label: context.localization.next,
+                            foregroundColor: AppColors.white,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -129,37 +134,42 @@ class AppTourService {
           TargetContent(
             align: ContentAlign.top,
             builder: (context, controller) {
-              return Container(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisSize: .min,
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      context.localization.tour_nav_title,
-                      style: AppTextStyles.h2Bold.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      context.localization.tour_nav_description,
-                      style: AppTextStyles.p2Regular.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: .end,
-                      children: [
-                        AppButton(
-                          onPressed: () => controller.next(),
-                          label: context.localization.got_it,
-                          foregroundColor: AppColors.white,
+              // tutorial_coach_mark draws its overlay on a legacy Material,
+              // so AppButton's InkWell needs a material_ui Material here.
+              return Material(
+                type: MaterialType.transparency,
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisSize: .min,
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        context.localization.tour_nav_title,
+                        style: AppTextStyles.h2Bold.copyWith(
+                          color: AppColors.white,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        context.localization.tour_nav_description,
+                        style: AppTextStyles.p2Regular.copyWith(
+                          color: AppColors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: .end,
+                        children: [
+                          AppButton(
+                            onPressed: () => controller.next(),
+                            label: context.localization.got_it,
+                            foregroundColor: AppColors.white,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
