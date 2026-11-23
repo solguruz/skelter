@@ -80,3 +80,6 @@ firebase.json
 
 # Claude
 .claude/
+
+# Patrol generated test bundle
+integration_test/test_bundle.dart

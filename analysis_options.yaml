@@ -13,7 +13,6 @@ analyzer:
     avoid_final_parameters: warning
     avoid_function_literals_in_foreach_calls: warning
     avoid_positional_boolean_parameters: warning
-    avoid_private_typedef_functions: warning
     avoid_redundant_argument_values: warning
     avoid_relative_lib_imports: warning
     avoid_renaming_method_parameters: warning
@@ -45,7 +44,6 @@ analyzer:
     non_constant_identifier_names: warning
     null_check_on_nullable_type_parameter: warning
     null_closures: warning
-    one_member_abstracts: warning
     only_throw_errors: warning
     overridden_fields: warning
     parameter_assignments: warning
@@ -102,7 +100,6 @@ analyzer:
     use_enums: warning
     use_full_hex_values_for_flutter_colors: warning
     use_function_type_syntax_for_parameters: warning
-    use_if_null_to_convert_nulls_to_bools: warning
     use_late_for_private_fields_and_variables: warning
     use_named_constants: warning
     use_super_parameters: warning
@@ -116,6 +113,9 @@ analyzer:
     - "**/*.pbenum.dart"
     - "**/*.pbgrpc.dart"
     - "**/*.pbjson.dart"
+    - build/**
+    - android/**
+    - ios/**
 linter:
   rules:
     avoid_bool_literals_in_conditional_expressions: false
@@ -136,7 +136,6 @@ linter:
     avoid_final_parameters: true
     avoid_function_literals_in_foreach_calls: true
     avoid_positional_boolean_parameters: true
-    avoid_private_typedef_functions: true
     avoid_redundant_argument_values: true
     avoid_relative_lib_imports: true
     avoid_renaming_method_parameters: true
@@ -168,7 +167,6 @@ linter:
     non_constant_identifier_names: true
     null_check_on_nullable_type_parameter: true
     null_closures: true
-    one_member_abstracts: true
     only_throw_errors: true
     overridden_fields: true
     parameter_assignments: true
@@ -224,7 +222,6 @@ linter:
     use_enums: true
     use_full_hex_values_for_flutter_colors: true
     use_function_type_syntax_for_parameters: true
-    use_if_null_to_convert_nulls_to_bools: true
     use_late_for_private_fields_and_variables: true
     use_named_constants: true
     use_super_parameters: true
