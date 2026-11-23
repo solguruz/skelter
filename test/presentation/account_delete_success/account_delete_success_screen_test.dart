@@ -1,6 +1,6 @@
 import 'package:alchemist/alchemist.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/account_delete_success/account_delete_success_screen.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 

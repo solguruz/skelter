@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:skelter/presentation/home/domain/entities/product.dart';
 
-class HomeState with EquatableMixin {
+class HomeState with Equatable {
   final int currentBottomNavIndex;
   final List<Product> topProducts;
   final List<Product> filteredProducts;

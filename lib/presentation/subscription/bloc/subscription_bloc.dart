@@ -15,11 +15,9 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
   final PerformanceMonitoringService _performanceService = sl();
 
   SubscriptionBloc({
-    required AppLocalizations localization,
-    required SubscriptionService subscriptionService,
-  }) : _localization = localization,
-       _subscriptionService = subscriptionService,
-       super(FetchSubscriptionPlanLoadingState()) {
+    required this._localization,
+    required this._subscriptionService,
+  }) : super(FetchSubscriptionPlanLoadingState()) {
     on<FetchSubscriptionPackagesEvent>(_onFetchSubscriptionPackagesEvent);
     on<PurchaseSubscriptionEvent>(_onPurchaseSubscriptionEvent);
     on<SelectSubscriptionPlanEvent>(_onSelectSubscriptionPlanEvent);

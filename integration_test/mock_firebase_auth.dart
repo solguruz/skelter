@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -71,10 +72,7 @@ class MockUserCredential extends Mock implements UserCredential {
 }
 
 class MockUser extends Mock implements User {
-  MockUser({String? email, bool emailVerified = false, String? phoneNumber})
-    : _email = email,
-      _emailVerified = emailVerified,
-      _phoneNumber = phoneNumber;
+  MockUser({this._email, this._emailVerified = false, this._phoneNumber});
 
   final String? _email;
   bool _emailVerified;

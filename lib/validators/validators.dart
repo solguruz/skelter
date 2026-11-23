@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:skelter/i18n/localization.dart';
 
@@ -27,9 +27,8 @@ bool isValidUrl({required String url}) {
 String? isEmailValid(String email, BuildContext context) {
   if (email.isEmpty) {
     return context.localization.email_cant_be_empty;
-  } else if (!RegExp(
-    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-  ).hasMatch(email)) {
+  } else if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+      .hasMatch(email)) {
     return context.localization.invalid_email;
   }
   return null;

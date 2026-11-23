@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/biometric_auth/bloc/biometric_auth_bloc.dart';
 import 'package:skelter/presentation/biometric_auth/bloc/biometric_auth_event.dart';

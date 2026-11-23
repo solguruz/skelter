@@ -7,10 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:liquid_glass_widgets/liquid_glass_widgets.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/clarity_analytics/clarity_route_observer.dart';
@@ -32,6 +31,7 @@ import 'package:skelter/utils/internet_connectivity_helper.dart';
 import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
 import 'package:skelter/utils/theme/bloc/theme_event.dart';
 import 'package:skelter/utils/theme/bloc/theme_state.dart';
+import 'package:skelter/widgets/legacy_material_scope.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -117,10 +117,10 @@ class _MainAppState extends State<MainApp> {
     await _notificationSubscription?.cancel();
     _notificationSubscription = null;
     try {
-      await FirebaseMessaging.instance.deleteToken();
-      debugPrint('FCM token deleted on logout');
+      await FirebaseMessaging.instance.unregister();
+      debugPrint('FCM registration removed on logout');
     } catch (e) {
-      debugPrint('Failed to delete FCM token: $e');
+      debugPrint('Failed to remove FCM registration: $e');
     }
   }
 
@@ -215,18 +215,17 @@ class _MainAppState extends State<MainApp> {
         builder: (context, orientation, screenType) {
           return BlocBuilder<ThemeBloc, ThemeState>(
             builder: (context, state) {
-              // Speeds up `liquid_glass_widgets` rendering when multiple glass
-              // widgets appear on screen. Safe to keep even if no glass is used.
-              return GlassBackdropScope(
+              // Keeps the classic `liquid_glass_widgets` look; since 1.17 the
+              // default style is iOS 27.
+              return GlassTheme(
+                data: const GlassThemeData.classic(),
                 child: MaterialApp.router(
                   debugShowCheckedModeBanner: false,
                   supportedLocales: I18n.all,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,
                     CountryLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
+                    ...GlobalMaterialLocalizations.delegates,
                   ],
                   routerConfig: appRouter.config(
                     navigatorObservers: () => [ClarityRouteObserver()],
@@ -237,7 +236,7 @@ class _MainAppState extends State<MainApp> {
                   builder: (context, child) {
                     final localization = AppLocalizations.of(context)!;
                     SubscriptionService().setLocalization(localization);
-                    return child!;
+                    return LegacyMaterialScope(child: child!);
                   },
                 ),
               );

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/ssl_pinning/widgets/ssl_connection_failed_button.dart';
 import 'package:skelter/presentation/ssl_pinning/widgets/ssl_connection_failed_icon.dart';
 import 'package:skelter/presentation/ssl_pinning/widgets/ssl_connection_failed_message.dart';

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
-class ThemeState with EquatableMixin {
+class ThemeState with Equatable {
   final ThemeMode? themeMode;
 
   const ThemeState({this.themeMode = ThemeMode.system});

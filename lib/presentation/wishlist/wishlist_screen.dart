@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/wishlist/widgets/empty_wishlist_view.dart';
 import 'package:skelter/presentation/wishlist/widgets/wishlist_app_bar.dart';
 

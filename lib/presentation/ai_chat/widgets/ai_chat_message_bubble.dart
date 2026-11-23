@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/ai_chat/model/ai_chat_message.dart';
@@ -64,7 +64,9 @@ class AiChatMessageBubble extends StatelessWidget {
               borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
-                  color: context.currentTheme.bgBrandDefault.withOpacity(0.22),
+                  color: context.currentTheme.bgBrandDefault.withValues(
+                    alpha: 0.22,
+                  ),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),

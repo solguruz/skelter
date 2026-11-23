@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_bloc.dart';
 import 'package:skelter/presentation/force_update/bloc/force_update_event.dart';

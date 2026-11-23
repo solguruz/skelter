@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/i18n/app_localizations.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/utils/theme/extension/theme_extension.dart';
@@ -48,7 +48,7 @@ class _StateDropdownState extends State<StateDropdown> {
             focusedBorder: buildOutlineInputBorder(hasFocus: true),
             errorBorder: buildOutlineInputBorder(isErrorBorder: true),
           ),
-          value: _selectedState,
+          initialValue: _selectedState,
           icon: const Icon(TablerIcons.chevron_down),
           hint: Text(
             context.localization.select_state,

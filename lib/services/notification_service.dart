@@ -39,7 +39,7 @@ class NotificationService {
 
   StreamSubscription<RemoteMessage>? _onMessageSubscription;
   StreamSubscription<RemoteMessage>? _onMessageOpenedAppSubscription;
-  StreamSubscription<String>? _onTokenRefreshSubscription;
+  StreamSubscription<String>? _onRegisteredSubscription;
 
   RemoteMessage? _initialMessage;
 
@@ -52,7 +52,7 @@ class NotificationService {
     await _initializeAwesomeNotifications();
     await _requestPermissions();
     await _setupFCMListeners();
-    await _getFCMToken();
+    await _registerFCM();
   }
 
   Future<void> _initializeAwesomeNotifications() async {
@@ -135,28 +135,24 @@ class NotificationService {
     _onNotificationTapController.add(message.data);
   }
 
-  Future<String?> _getFCMToken() async {
+  Future<void> _registerFCM() async {
     try {
       final user = _firebaseAuth.currentUser;
       if (user == null) {
-        debugPrint('User not logged in, skipping FCM token retrieval');
-        return null;
+        debugPrint('User not logged in, skipping FCM registration');
+        return;
       }
       final apnsToken = await _firebaseMessaging.getAPNSToken();
       debugPrint('APNS Token: $apnsToken');
-      final token = await _firebaseMessaging.getToken();
-      debugPrint('FCM Token: $token');
 
-      _onTokenRefreshSubscription = _firebaseMessaging.onTokenRefresh.listen((
-        newToken,
+      _onRegisteredSubscription = _firebaseMessaging.onRegistered.listen((
+        registrationId,
       ) {
-        debugPrint('FCM Token refreshed: $newToken');
+        debugPrint('FCM registration ID: $registrationId');
       });
-
-      return token;
+      await _firebaseMessaging.register();
     } catch (e) {
-      debugPrint('Error getting FCM token: $e');
-      return null;
+      debugPrint('Error registering with FCM: $e');
     }
   }
 
@@ -257,7 +253,7 @@ class NotificationService {
   void dispose() {
     _onMessageSubscription?.cancel();
     _onMessageOpenedAppSubscription?.cancel();
-    _onTokenRefreshSubscription?.cancel();
+    _onRegisteredSubscription?.cancel();
     _onNotificationTapController.close();
   }
 }

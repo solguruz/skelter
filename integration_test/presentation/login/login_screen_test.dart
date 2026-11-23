@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:patrol/patrol.dart';
 import 'package:skelter/constants/integration_test_keys.dart';
@@ -43,21 +43,19 @@ void main() {
 
   patrolTest(
     'open app, login with mobile number, verify products are displayed',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
       await $.pumpWidgetAndSettle(const MainApp());
 
-      when(() => mockFirebaseAuth.signInWithCredential(any())).thenAnswer((
-        _,
-      ) async {
-        final phoneUser = MockUser(
-          phoneNumber: '9999988888',
-          email: 'phone@example.com',
-        );
-        mockFirebaseAuth.setMockUser(phoneUser);
-        return MockUserCredential(phoneUser);
-      });
+      when(() => mockFirebaseAuth.signInWithCredential(any()))
+          .thenAnswer((_) async {
+            final phoneUser = MockUser(
+              phoneNumber: '9999988888',
+              email: 'phone@example.com',
+            );
+            mockFirebaseAuth.setMockUser(phoneUser);
+            return MockUserCredential(phoneUser);
+          });
 
       await $(keys.signInPage.mobileNoTextField).enterText('9999988888');
       await $(keys.signInPage.sendOTPButton).tap();
@@ -80,188 +78,177 @@ void main() {
     },
   );
 
-  patrolTest(
-    'login with email and password test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
-    ($) async {
-      // Initialise the App
-      await initializeApp(
-        firebaseAuth: mockFirebaseAuth,
-        googleSignIn: mockGoogleSignIn,
-        dio: mockDio,
-      );
+  patrolTest('login with email and password test', ($) async {
+    // Initialise the App
+    await initializeApp(
+      firebaseAuth: mockFirebaseAuth,
+      googleSignIn: mockGoogleSignIn,
+      dio: mockDio,
+    );
 
-      // Stub signOut to reset mock state
-      when(() => mockFirebaseAuth.signOut()).thenAnswer((_) async {
-        mockFirebaseAuth.setMockUser(null);
-      });
+    // Stub signOut to reset mock state
+    when(() => mockFirebaseAuth.signOut()).thenAnswer((_) async {
+      mockFirebaseAuth.setMockUser(null);
+    });
 
-      await $.pumpWidgetAndSettle(const MainApp());
+    await $.pumpWidgetAndSettle(const MainApp());
 
-      // Login with email
-      final testUser = MockUser(email: 'test@example.com', emailVerified: true);
+    // Login with email
+    final testUser = MockUser(email: 'test@example.com', emailVerified: true);
 
-      when(
-        () => mockFirebaseAuth.signInWithEmailAndPassword(
-          email: any(named: 'email'),
-          password: any(named: 'password'),
-        ),
-      ).thenAnswer((_) async {
-        mockFirebaseAuth.setMockUser(testUser);
-        return MockUserCredential(testUser);
-      });
+    when(
+      () => mockFirebaseAuth.signInWithEmailAndPassword(
+        email: any(named: 'email'),
+        password: any(named: 'password'),
+      ),
+    ).thenAnswer((_) async {
+      mockFirebaseAuth.setMockUser(testUser);
+      return MockUserCredential(testUser);
+    });
 
-      await $(keys.signInPage.continueWithEmailButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.continueWithEmailButton).tap();
+    await $.pumpAndSettle();
 
-      expect(find.text('Login with email'), findsOneWidget);
+    expect(find.text('Login with email'), findsOneWidget);
 
-      await $(keys.signInPage.emailTextField).enterText('test@example.com');
-      await $(keys.signInPage.passwordTextField).enterText('password123');
-      await $.pump();
+    await $(keys.signInPage.emailTextField).enterText('test@example.com');
+    await $(keys.signInPage.passwordTextField).enterText('password123');
+    await $.pump();
 
-      await $(keys.signInPage.loginWithEmailButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.loginWithEmailButton).tap();
+    await $.pumpAndSettle();
 
-      expect(find.text('Premium Wireless Headphones'), findsOneWidget);
-      expect(find.text('Smart Fitness Watch'), findsOneWidget);
-      expect(find.byKey(keys.homePage.productCardKey), findsExactly(2));
+    expect(find.text('Premium Wireless Headphones'), findsOneWidget);
+    expect(find.text('Smart Fitness Watch'), findsOneWidget);
+    expect(find.byKey(keys.homePage.productCardKey), findsExactly(2));
 
-      await $(TablerIcons.user).tap();
-      await $.pumpAndSettle();
-      await $('Sign out').scrollTo().tap();
-      await $.pumpAndSettle();
+    await $(TablerIcons.user).tap();
+    await $.pumpAndSettle();
+    await $('Sign out').scrollTo().tap();
+    await $.pumpAndSettle();
 
-      expect(find.byKey(keys.signInPage.mobileNoTextField), findsOneWidget);
+    expect(find.byKey(keys.signInPage.mobileNoTextField), findsOneWidget);
 
-      final unverifiedUser = MockUser(email: 'unverified@example.com');
+    final unverifiedUser = MockUser(email: 'unverified@example.com');
 
-      when(
-        () => mockFirebaseAuth.signInWithEmailAndPassword(
-          email: any(named: 'email'),
-          password: any(named: 'password'),
-        ),
-      ).thenAnswer((_) async {
-        mockFirebaseAuth.setMockUser(unverifiedUser);
-        return MockUserCredential(unverifiedUser);
-      });
+    when(
+      () => mockFirebaseAuth.signInWithEmailAndPassword(
+        email: any(named: 'email'),
+        password: any(named: 'password'),
+      ),
+    ).thenAnswer((_) async {
+      mockFirebaseAuth.setMockUser(unverifiedUser);
+      return MockUserCredential(unverifiedUser);
+    });
 
-      await $(keys.signInPage.continueWithEmailButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.continueWithEmailButton).tap();
+    await $.pumpAndSettle();
 
-      await $(
-        keys.signInPage.emailTextField,
-      ).enterText('unverified@example.com');
-      await $(keys.signInPage.passwordTextField).enterText('password123');
-      await $.pump();
+    await $(keys.signInPage.emailTextField).enterText('unverified@example.com');
+    await $(keys.signInPage.passwordTextField).enterText('password123');
+    await $.pump();
 
-      await $(keys.signInPage.loginWithEmailButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.loginWithEmailButton).tap();
+    await $.pumpAndSettle();
 
-      expect(find.text('Verify your email'), findsOneWidget);
+    expect(find.text('Verify your email'), findsOneWidget);
 
-      final NavigatorState navigator = $.tester.state(find.byType(Navigator));
-      navigator.pop();
-      navigator.pop();
-      await $.pump();
+    final NavigatorState navigator = $.tester.state(find.byType(Navigator));
+    navigator.pop();
+    navigator.pop();
+    await $.pump();
 
-      await $(keys.signInPage.continueWithEmailButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.continueWithEmailButton).tap();
+    await $.pumpAndSettle();
 
-      when(
-        () => mockFirebaseAuth.signInWithEmailAndPassword(
-          email: any(named: 'email'),
-          password: any(named: 'password'),
-        ),
-      ).thenThrow(
-        FirebaseAuthException(
-          code: 'wrong-password',
-          message: 'The password you entered is incorrect. Please try again.',
-        ),
-      );
+    when(
+      () => mockFirebaseAuth.signInWithEmailAndPassword(
+        email: any(named: 'email'),
+        password: any(named: 'password'),
+      ),
+    ).thenThrow(
+      FirebaseAuthException(
+        code: 'wrong-password',
+        message: 'The password you entered is incorrect. Please try again.',
+      ),
+    );
 
-      await $(keys.signInPage.emailTextField).enterText('invalid@example.com');
-      await $(keys.signInPage.passwordTextField).enterText('wrongpassword');
-      await $.pump();
+    await $(keys.signInPage.emailTextField).enterText('invalid@example.com');
+    await $(keys.signInPage.passwordTextField).enterText('wrongpassword');
+    await $.pump();
 
-      await $(keys.signInPage.loginWithEmailButton).tap();
-      await $.pumpAndSettle();
-      // NOTE:
-      // This below test expects the exact FirebaseAuthException
-      // message for ErrorCode - `wrong-password`returned by Firebase.
-      // Do NOT customize the message, otherwise the test will fail.
-      expect(
-        find.text('The password you entered is incorrect. Please try again.'),
-        findsOneWidget,
-      );
+    await $(keys.signInPage.loginWithEmailButton).tap();
+    await $.pumpAndSettle();
+    // NOTE:
+    // This below test expects the exact FirebaseAuthException
+    // message for ErrorCode - `wrong-password`returned by Firebase.
+    // Do NOT customize the message, otherwise the test will fail.
+    expect(
+      find.text('The password you entered is incorrect. Please try again.'),
+      findsOneWidget,
+    );
 
-      await $(find.byIcon(TablerIcons.arrow_left)).tap();
-    },
-  );
+    await $(find.byIcon(TablerIcons.arrow_left)).tap();
+  });
 
-  patrolTest(
-    'sign in with Google test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
-    ($) async {
-      await initializeApp(
-        firebaseAuth: mockFirebaseAuth,
-        googleSignIn: mockGoogleSignIn,
-        dio: mockDio,
-      );
-      await $.pumpWidgetAndSettle(const MainApp());
+  patrolTest('sign in with Google test', ($) async {
+    await initializeApp(
+      firebaseAuth: mockFirebaseAuth,
+      googleSignIn: mockGoogleSignIn,
+      dio: mockDio,
+    );
+    await $.pumpWidgetAndSettle(const MainApp());
 
-      // Stub signOut to reset mock state
-      when(() => mockFirebaseAuth.signOut()).thenAnswer((_) async {
-        mockFirebaseAuth.setMockUser(null);
-      });
+    // Stub signOut to reset mock state
+    when(() => mockFirebaseAuth.signOut()).thenAnswer((_) async {
+      mockFirebaseAuth.setMockUser(null);
+    });
 
-      // Ensure Google login is NOT cancelled
-      mockGoogleSignIn.setIsCancelled(value: false);
+    // Ensure Google login is NOT cancelled
+    mockGoogleSignIn.setIsCancelled(value: false);
 
-      // Mock FirebaseAuth signInWithCredential
-      when(() => mockFirebaseAuth.signInWithCredential(any())).thenAnswer((
-        _,
-      ) async {
-        final googleUser = MockUser(
-          email: 'google@example.com',
-          emailVerified: true,
-        );
-        mockFirebaseAuth.setMockUser(googleUser);
-        return MockUserCredential(googleUser);
-      });
+    // Mock FirebaseAuth signInWithCredential
+    when(() => mockFirebaseAuth.signInWithCredential(any()))
+        .thenAnswer((_) async {
+          final googleUser = MockUser(
+            email: 'google@example.com',
+            emailVerified: true,
+          );
+          mockFirebaseAuth.setMockUser(googleUser);
+          return MockUserCredential(googleUser);
+        });
 
-      // Give Flutter a frame before interaction
-      await $.pump();
-      await $.pump(const Duration(milliseconds: 300));
+    // Give Flutter a frame before interaction
+    await $.pump();
+    await $.pump(const Duration(milliseconds: 300));
 
-      // Tap "Continue with Google"
-      await $(keys.signInPage.continueWithGoogleButton).tap();
-      await $.pumpAndSettle();
+    // Tap "Continue with Google"
+    await $(keys.signInPage.continueWithGoogleButton).tap();
+    await $.pumpAndSettle();
 
-      // Assert Home screen loaded
-      expect(find.text('Premium Wireless Headphones'), findsOneWidget);
-      expect(find.text('Smart Fitness Watch'), findsOneWidget);
-      expect(find.byKey(keys.homePage.productCardKey), findsNWidgets(2));
+    // Assert Home screen loaded
+    expect(find.text('Premium Wireless Headphones'), findsOneWidget);
+    expect(find.text('Smart Fitness Watch'), findsOneWidget);
+    expect(find.byKey(keys.homePage.productCardKey), findsNWidgets(2));
 
-      await $.pumpAndSettle();
+    await $.pumpAndSettle();
 
-      // Sign out
-      await $(TablerIcons.user).tap();
-      await $.pumpAndSettle();
-      await $('Sign out').scrollTo().tap();
-      await $.pumpAndSettle();
+    // Sign out
+    await $(TablerIcons.user).tap();
+    await $.pumpAndSettle();
+    await $('Sign out').scrollTo().tap();
+    await $.pumpAndSettle();
 
-      // FAILED / CANCELLED GOOGLE LOGIN
+    // FAILED / CANCELLED GOOGLE LOGIN
 
-      // Simulate user cancelling Google login
-      mockGoogleSignIn.setIsCancelled(value: true);
+    // Simulate user cancelling Google login
+    mockGoogleSignIn.setIsCancelled(value: true);
 
-      // Tap "Continue with Google" again
-      await $(keys.signInPage.continueWithGoogleButton).tap();
-      await $.pumpAndSettle();
+    // Tap "Continue with Google" again
+    await $(keys.signInPage.continueWithGoogleButton).tap();
+    await $.pumpAndSettle();
 
-      // Assert error message shown
-      expect(find.text('Google sign-in failed'), findsOneWidget);
-    },
-  );
+    // Assert error message shown
+    expect(find.text('Google sign-in failed'), findsOneWidget);
+  });
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/checkout/widget/apply_coupon.dart';
 import 'package:skelter/presentation/checkout/widget/order_summary.dart';
 import 'package:skelter/presentation/checkout/widget/payment_method_header.dart';

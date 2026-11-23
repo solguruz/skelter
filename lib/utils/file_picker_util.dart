@@ -15,19 +15,26 @@ class FilePickerUtil {
     required Future<bool> Function(File file) isValidFile,
   }) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: allowedExtensions,
-        allowMultiple: allowMultiple,
-      );
+      final pickedFiles = allowMultiple
+          ? await FilePicker.pickFiles(
+              type: FileType.custom,
+              allowedExtensions: allowedExtensions,
+            )
+          : [
+              ?await FilePicker.pickFile(
+                type: FileType.custom,
+                allowedExtensions: allowedExtensions,
+              ),
+            ];
 
-      if (result == null || result.paths.isEmpty) {
+      if (pickedFiles.isEmpty) {
         return const ValidatedFileResult(validFiles: []);
       }
 
       final files = <File>[];
 
-      for (final path in result.paths) {
+      for (final pickedFile in pickedFiles) {
+        final path = pickedFile.path;
         if (path == null) continue;
 
         final file = File(path);

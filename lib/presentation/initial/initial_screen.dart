@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_exit_app/flutter_exit_app.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:skelter/core/deep_link/app_deep_link_manager.dart';
 import 'package:skelter/core/services/injection_container.dart';

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/i18n/localization.dart';
@@ -58,7 +58,9 @@ class ProductDetailAppBar extends StatelessWidget
       productUrl.toString(),
     );
 
-    await Share.share(shareMessage, subject: shareSubject);
+    await SharePlus.instance.share(
+      ShareParams(text: shareMessage, subject: shareSubject),
+    );
   }
 
   @override

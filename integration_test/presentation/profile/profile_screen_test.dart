@@ -32,38 +32,34 @@ void main() {
     when(() => mockDio.interceptors).thenReturn(Interceptors());
   });
 
-  patrolTest(
-    'profile screen end to end test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
-    ($) async {
-      final mockFirebaseAuth = MockFirebaseAuth();
+  patrolTest('profile screen end to end test', ($) async {
+    final mockFirebaseAuth = MockFirebaseAuth();
 
-      await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
+    await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
 
-      // Stub phone sign-in
-      when(() => mockFirebaseAuth.signInWithCredential(any()))
-          .thenAnswer((_) async {
-        final phoneUser = MockUser(phoneNumber: '9999988888');
-        mockFirebaseAuth.setMockUser(phoneUser);
-        return MockUserCredential(phoneUser);
-      });
+    // Stub phone sign-in
+    when(() => mockFirebaseAuth.signInWithCredential(any()))
+        .thenAnswer((_) async {
+          final phoneUser = MockUser(phoneNumber: '9999988888');
+          mockFirebaseAuth.setMockUser(phoneUser);
+          return MockUserCredential(phoneUser);
+        });
 
-      await $.pumpWidgetAndSettle(const MainApp());
+    await $.pumpWidgetAndSettle(const MainApp());
 
-      await $(keys.signInPage.mobileNoTextField).enterText('9999988888');
-      await $(keys.signInPage.sendOTPButton).tap();
-      await $.pumpAndSettle();
+    await $(keys.signInPage.mobileNoTextField).enterText('9999988888');
+    await $(keys.signInPage.sendOTPButton).tap();
+    await $.pumpAndSettle();
 
-      expect(find.text('Invalid mobile number'), findsNothing);
+    expect(find.text('Invalid mobile number'), findsNothing);
 
-      await $(keys.signInPage.otpTextField).waitUntilVisible();
-      await $(keys.signInPage.otpTextField).enterText('123456');
-      await $.pumpAndSettle();
+    await $(keys.signInPage.otpTextField).waitUntilVisible();
+    await $(keys.signInPage.otpTextField).enterText('123456');
+    await $.pumpAndSettle();
 
-      await $(TablerIcons.user).tap();
-      await $.pumpAndSettle();
+    await $(TablerIcons.user).tap();
+    await $.pumpAndSettle();
 
-      await $('Sign out').scrollTo().tap();
-    },
-  );
+    await $('Sign out').scrollTo().tap();
+  });
 }

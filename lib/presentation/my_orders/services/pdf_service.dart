@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
@@ -460,10 +460,12 @@ class PdfService {
 
     // share_plus requires iPad users to provide the
     // sharePositionOrigin parameter.
-    await Share.shareXFiles(
-      [XFile(filePath)],
-      subject: 'Invoice - $fileName',
-      sharePositionOrigin: sharePositionOrigin,
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(filePath)],
+        subject: 'Invoice - $fileName',
+        sharePositionOrigin: sharePositionOrigin,
+      ),
     );
   }
 }

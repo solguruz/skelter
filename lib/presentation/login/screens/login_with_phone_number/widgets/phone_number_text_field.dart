@@ -1,9 +1,13 @@
 import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
-import 'package:flutter/material.dart';
+// intl_phone_number_input still builds its field with the legacy
+// `package:flutter/material.dart`, so its decorations and Material come from
+// that library.
+import 'package:flutter/material.dart' as legacy;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/constants/integration_test_keys.dart';
 import 'package:skelter/gen/assets.gen.dart';
@@ -13,6 +17,7 @@ import 'package:skelter/presentation/login/bloc/login_events.dart';
 import 'package:skelter/utils/app_environment.dart';
 import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:skelter/utils/theme/extension/theme_extension.dart';
+import 'package:skelter/widgets/legacy_material_scope.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
   const PhoneNumberTextField({super.key});
@@ -92,49 +97,54 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
           ),
           const SizedBox(height: 6),
           ClarityMask(
-            child: InternationalPhoneNumberInput(
-              key: keys.signInPage.mobileNoTextField,
-              textFieldController: _phoneInputController,
-              focusNode: _focusNode,
-              textStyle: AppTextStyles.p3Medium.copyWith(
-                color: context.currentTheme.textNeutralPrimary,
-              ),
-              selectorTextStyle: AppTextStyles.p3Medium.copyWith(
-                color: context.currentTheme.textNeutralPrimary,
-              ),
-              initialValue: phoneNumberData,
-              inputDecoration: InputDecoration(
-                hintText: context.localization.enter_phone_number,
-                hintStyle: AppTextStyles.p3Medium.copyWith(
-                  color: context.currentTheme.textNeutralDisable,
+            child: LegacyMaterialScope(
+              child: legacy.Material(
+                type: legacy.MaterialType.transparency,
+                child: InternationalPhoneNumberInput(
+                  key: keys.signInPage.mobileNoTextField,
+                  textFieldController: _phoneInputController,
+                  focusNode: _focusNode,
+                  textStyle: AppTextStyles.p3Medium.copyWith(
+                    color: context.currentTheme.textNeutralPrimary,
+                  ),
+                  selectorTextStyle: AppTextStyles.p3Medium.copyWith(
+                    color: context.currentTheme.textNeutralPrimary,
+                  ),
+                  initialValue: phoneNumberData,
+                  inputDecoration: legacy.InputDecoration(
+                    hintText: context.localization.enter_phone_number,
+                    hintStyle: AppTextStyles.p3Medium.copyWith(
+                      color: context.currentTheme.textNeutralDisable,
+                    ),
+                    errorStyle: AppTextStyles.p4Regular.copyWith(
+                      color: context.currentTheme.textErrorSecondary,
+                    ),
+                    border: buildOutlineInputBorder(hasFocus: hasFocus),
+                    enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                    focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
+                    errorBorder: buildOutlineInputBorder(isErrorBorder: true),
+                    filled: true,
+                    fillColor: context.currentTheme.bgSurfaceBase2,
+                  ),
+                  searchBoxDecoration: _bottomSheatInputDecoration,
+                  validator: (_) {
+                    return phoneNumError;
+                  },
+                  onInputChanged: (PhoneNumber number) =>
+                      _updatePhoneNumberEvent(number),
+                  ignoreBlank: true,
+                  hintText: null,
+                  selectorConfig: SelectorConfig(
+                    leadingPadding: 12,
+                    selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                    trailingSpace: false,
+                    useEmoji: !AppEnvironment.isTestEnvironment,
+                    setSelectorButtonAsPrefixIcon: true,
+                    useBottomSheetSafeArea: true,
+                  ),
+                  autoValidateMode: AutovalidateMode.always,
                 ),
-                errorStyle: AppTextStyles.p4Regular.copyWith(
-                  color: context.currentTheme.textErrorSecondary,
-                ),
-                border: buildOutlineInputBorder(hasFocus: hasFocus),
-                enabledBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-                focusedBorder: buildOutlineInputBorder(hasFocus: hasFocus),
-                errorBorder: buildOutlineInputBorder(isErrorBorder: true),
-                filled: true,
-                fillColor: context.currentTheme.bgSurfaceBase2,
               ),
-              searchBoxDecoration: _bottomSheatInputDecoration,
-              validator: (_) {
-                return phoneNumError;
-              },
-              onInputChanged: (PhoneNumber number) =>
-                  _updatePhoneNumberEvent(number),
-              ignoreBlank: true,
-              hintText: null,
-              selectorConfig: SelectorConfig(
-                leadingPadding: 12,
-                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                trailingSpace: false,
-                useEmoji: !AppEnvironment.isTestEnvironment,
-                setSelectorButtonAsPrefixIcon: true,
-                useBottomSheetSafeArea: true,
-              ),
-              autoValidateMode: AutovalidateMode.always,
             ),
           ),
         ],
@@ -142,11 +152,11 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder({
+  legacy.OutlineInputBorder buildOutlineInputBorder({
     bool? hasFocus,
     bool? isErrorBorder,
   }) {
-    return OutlineInputBorder(
+    return legacy.OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
         color: isErrorBorder ?? false
@@ -158,12 +168,12 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
     );
   }
 
-  InputDecoration get _bottomSheatInputDecoration {
+  legacy.InputDecoration get _bottomSheatInputDecoration {
     // Due to limitations of intl_phone_number, we can only add padding
     // to BottomSheetInput this way.
     final maxWidth = MediaQuery.sizeOf(context).width - 28;
 
-    return InputDecoration(
+    return legacy.InputDecoration(
       hintText: context.localization.search_by_name_or_code,
       hintStyle: AppTextStyles.p3Medium.copyWith(
         color: context.currentTheme.textNeutralDisable,

@@ -1,7 +1,7 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/signup/bloc/signup_bloc.dart';
@@ -64,9 +64,8 @@ void main() {
         when(() => signupBlocDefault.state).thenReturn(SignupState.test());
 
         final signupBlocValidEmail = MockSignupBloc();
-        when(
-          () => signupBlocValidEmail.state,
-        ).thenReturn(SignupState.test(email: 'test@example.com'));
+        when(() => signupBlocValidEmail.state)
+            .thenReturn(SignupState.test(email: 'test@example.com'));
 
         final signupBlocLongEmail = MockSignupBloc();
         when(() => signupBlocLongEmail.state).thenReturn(

@@ -348,10 +348,11 @@ class LightAppColors implements ThemeColorPalette {
 
   // Gradient Overlay Colors
   @override
-  Color get gradientOverlayTransparent => AppColors.white.withOpacity(0.0);
+  Color get gradientOverlayTransparent =>
+      AppColors.white.withValues(alpha: 0.0);
 
   @override
-  Color get gradientOverlayMedium => AppColors.white.withOpacity(0.78);
+  Color get gradientOverlayMedium => AppColors.white.withValues(alpha: 0.78);
 
   @override
   Color get gradientOverlaySolid => AppColors.white;

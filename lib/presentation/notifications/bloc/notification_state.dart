@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:skelter/presentation/notifications/data/notification_data_list.dart';
 import 'package:skelter/presentation/notifications/model/notification_model.dart';
 
-class NotificationState with EquatableMixin {
+class NotificationState with Equatable {
   final bool isLoading;
   final List<NotificationModel> notificationList;
   final String message;

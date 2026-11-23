@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class ForceUpdateState with EquatableMixin {
+class ForceUpdateState with Equatable {
   final bool isMandatoryUpdate;
 
   const ForceUpdateState({required this.isMandatoryUpdate});

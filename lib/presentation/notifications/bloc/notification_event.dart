@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class NotificationEvent with EquatableMixin {}
+abstract class NotificationEvent with Equatable {}
 
 class NotificationLoadingEvent extends NotificationEvent {
   final bool isLoading;

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/common/theme/text_style/app_text_styles.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/i18n/localization.dart';
@@ -52,7 +52,7 @@ class _AiChatInputFieldState extends State<AiChatInputField> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF181B25).withOpacity(0.04),
+                    color: const Color(0xFF181B25).withValues(alpha: 0.04),
                     offset: const Offset(0, 1),
                     blurRadius: 2,
                   ),

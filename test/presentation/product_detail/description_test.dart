@@ -1,8 +1,8 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
@@ -41,9 +41,8 @@ void main() {
         pumpBeforeTest: precacheImages,
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
-          when(
-            () => productDetailBloc.state,
-          ).thenReturn(const ProductDetailState.test());
+          when(() => productDetailBloc.state)
+              .thenReturn(const ProductDetailState.test());
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>
@@ -110,8 +109,7 @@ Features:
                   ),
                 ],
                 child: const description.Description(
-                  description:
-                      '''This is an extremely long product description that goes on and on without any line breaks. It should properly wrap and handle the text overflow gracefully. The description contains important details about the product features, specifications, and benefits. It should be displayed in a readable format with proper line height and padding. The text should be clear and easy to read on all screen sizes. This is just more text to make the description even longer and test how it handles large amounts of text in a single paragraph.''',
+                  description: '''This is an extremely long product description that goes on and on without any line breaks. It should properly wrap and handle the text overflow gracefully. The description contains important details about the product features, specifications, and benefits. It should be displayed in a readable format with proper line height and padding. The text should be clear and easy to read on all screen sizes. This is just more text to make the description even longer and test how it handles large amounts of text in a single paragraph.''',
                 ),
               ),
             ],

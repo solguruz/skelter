@@ -17,7 +17,7 @@ class AppRouter extends RootStackRouter {
       page: InitialRoute.page,
       initial: true,
       transitionsBuilder: TransitionsBuilders.noTransition,
-      durationInMilliseconds: 2,
+      duration: const Duration(milliseconds: 2),
     );
 
     final List<AutoRoute> routes = [
@@ -106,7 +106,7 @@ class AppRouter extends RootStackRouter {
               (page) => CustomRoute(
                 page: page,
                 transitionsBuilder: TransitionsBuilders.noTransition,
-                durationInMilliseconds: 2,
+                duration: const Duration(milliseconds: 2),
               ),
             )
             .toList();

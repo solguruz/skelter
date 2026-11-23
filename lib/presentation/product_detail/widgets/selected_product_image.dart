@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
@@ -45,7 +45,7 @@ class SelectedProductImage extends StatelessWidget {
                     placeholder: (context, url) => Shimmer.fromColors(
                       baseColor: context.currentTheme.bgNeutralLight100,
                       highlightColor: context.currentTheme.bgNeutralLight100
-                          .withOpacity(0.6),
+                          .withValues(alpha: 0.6),
                       child: ColoredBox(
                         color: context.currentTheme.bgNeutralLight100,
                       ),

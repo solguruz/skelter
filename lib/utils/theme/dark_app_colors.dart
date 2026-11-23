@@ -90,10 +90,10 @@ class DarkAppColors implements ThemeColorPalette {
 
   // how?
   @override
-  Color get bgBrandLight50 => AppColors.brand500.withOpacity(0.3);
+  Color get bgBrandLight50 => AppColors.brand500.withValues(alpha: 0.3);
 
   @override
-  Color get bgBrandLight100 => AppColors.brand500.withOpacity(0.5);
+  Color get bgBrandLight100 => AppColors.brand500.withValues(alpha: 0.5);
 
   @override
   Color get bgBrandLight200 => AppColors.brand200;
@@ -352,10 +352,11 @@ class DarkAppColors implements ThemeColorPalette {
 
   // Gradient Overlay Colors
   @override
-  Color get gradientOverlayTransparent => AppColors.black.withOpacity(0.0);
+  Color get gradientOverlayTransparent =>
+      AppColors.black.withValues(alpha: 0.0);
 
   @override
-  Color get gradientOverlayMedium => AppColors.black.withOpacity(0.78);
+  Color get gradientOverlayMedium => AppColors.black.withValues(alpha: 0.78);
 
   @override
   Color get gradientOverlaySolid => AppColors.black;

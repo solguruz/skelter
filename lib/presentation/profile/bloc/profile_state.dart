@@ -1,7 +1,7 @@
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 
-class ProfileState with EquatableMixin {
+class ProfileState with Equatable {
   final String name;
   final String email;
   final bool isProUser;

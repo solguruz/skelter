@@ -11,13 +11,10 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 class ChatUsersBloc extends Bloc<ChatUsersEvent, ChatUsersState> {
   ChatUsersBloc({
-    required WatchOtherUsers watchOtherUsers,
-    required WatchMyChats watchMyChats,
-    required String currentUserId,
-  }) : _watchOtherUsers = watchOtherUsers,
-       _watchMyChats = watchMyChats,
-       _currentUserId = currentUserId,
-       super(const ChatUsersState.initial()) {
+    required this._watchOtherUsers,
+    required this._watchMyChats,
+    required this._currentUserId,
+  }) : super(const ChatUsersState.initial()) {
     on<ChatUsersSubscribedEvent>(_onChatUsersSubscribedEvent);
     on<ChatUsersReceivedEvent>(_onChatUsersReceivedEvent);
     on<ChatPreviewsReceivedEvent>(_onChatPreviewsReceivedEvent);

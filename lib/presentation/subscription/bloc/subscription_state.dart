@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/subscription/model/subscription_package_model.dart';
 
-class SubscriptionState with EquatableMixin {
+class SubscriptionState with Equatable {
   final List<SubscriptionPackageModel> packages;
   final SubscriptionPackageModel? selectedPackage;
   final bool isLoadingPackages;

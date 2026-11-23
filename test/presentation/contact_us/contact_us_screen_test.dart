@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/presentation/contact_us/bloc/contact_us_bloc.dart';
@@ -42,14 +42,12 @@ void main() {
       fileName: 'contact_us_name_section',
       builder: () {
         final contactUsBlocEmptyName = MockContactusBloc();
-        when(
-          () => contactUsBlocEmptyName.state,
-        ).thenReturn(ContactUsState.test());
+        when(() => contactUsBlocEmptyName.state)
+            .thenReturn(ContactUsState.test());
 
         final contactUsBlocValidName = MockContactusBloc();
-        when(
-          () => contactUsBlocValidName.state,
-        ).thenReturn(ContactUsState.test(name: 'John Doe'));
+        when(() => contactUsBlocValidName.state)
+            .thenReturn(ContactUsState.test(name: 'John Doe'));
 
         final contactUsBlocLongName = MockContactusBloc();
         when(() => contactUsBlocLongName.state).thenReturn(
@@ -158,14 +156,12 @@ void main() {
       fileName: 'contact_us_email_section',
       builder: () {
         final contactUsBlocEmptyEmail = MockContactusBloc();
-        when(
-          () => contactUsBlocEmptyEmail.state,
-        ).thenReturn(ContactUsState.test());
+        when(() => contactUsBlocEmptyEmail.state)
+            .thenReturn(ContactUsState.test());
 
         final contactUsBlocValidEmail = MockContactusBloc();
-        when(
-          () => contactUsBlocValidEmail.state,
-        ).thenReturn(ContactUsState.test(email: 'john@example.com'));
+        when(() => contactUsBlocValidEmail.state)
+            .thenReturn(ContactUsState.test(email: 'john@example.com'));
 
         final contactUsBlocEmptyEmailError = MockContactusBloc();
         when(() => contactUsBlocEmptyEmailError.state).thenReturn(
@@ -254,9 +250,8 @@ void main() {
       fileName: 'contact_us_message_section',
       builder: () {
         final contactUsBlocEmptyMessage = MockContactusBloc();
-        when(
-          () => contactUsBlocEmptyMessage.state,
-        ).thenReturn(ContactUsState.test());
+        when(() => contactUsBlocEmptyMessage.state)
+            .thenReturn(ContactUsState.test());
 
         final contactUsBlocValidMessage = MockContactusBloc();
         when(() => contactUsBlocValidMessage.state).thenReturn(
@@ -338,9 +333,8 @@ void main() {
       pumpBeforeTest: precacheImages,
       builder: () {
         final contactUsBlocEmptyAttachment = MockContactusBloc();
-        when(
-          () => contactUsBlocEmptyAttachment.state,
-        ).thenReturn(ContactUsState.test());
+        when(() => contactUsBlocEmptyAttachment.state)
+            .thenReturn(ContactUsState.test());
 
         final contactUsBlocSingleImageAttachment = MockContactusBloc();
         when(() => contactUsBlocSingleImageAttachment.state).thenReturn(

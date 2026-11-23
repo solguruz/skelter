@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/notifications/model/notification_model.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_card/notification_content_widget.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_card/notification_dismissible_widget.dart';

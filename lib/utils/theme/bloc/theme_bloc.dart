@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/services/theme_service.dart';
 import 'package:skelter/utils/theme/bloc/theme_event.dart';
 import 'package:skelter/utils/theme/bloc/theme_state.dart';
