@@ -116,6 +116,9 @@ analyzer:
     - "**/*.pbenum.dart"
     - "**/*.pbgrpc.dart"
     - "**/*.pbjson.dart"
+    - build/**
+    - android/**
+    - ios/**
 linter:
   rules:
     avoid_bool_literals_in_conditional_expressions: false
@@ -136,7 +139,6 @@ linter:
     avoid_final_parameters: true
     avoid_function_literals_in_foreach_calls: true
     avoid_positional_boolean_parameters: true
-    avoid_private_typedef_functions: true
     avoid_redundant_argument_values: true
     avoid_relative_lib_imports: true
     avoid_renaming_method_parameters: true
@@ -168,7 +170,6 @@ linter:
     non_constant_identifier_names: true
     null_check_on_nullable_type_parameter: true
     null_closures: true
-    one_member_abstracts: true
     only_throw_errors: true
     overridden_fields: true
     parameter_assignments: true
