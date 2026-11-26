@@ -1,9 +1,9 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skelter/i18n/app_localizations.dart';
@@ -11,6 +11,7 @@ import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
 import 'package:skelter/utils/theme/bloc/theme_event.dart';
 import 'package:skelter/utils/theme/bloc/theme_state.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
+import 'package:skelter/widgets/styling/legacy_material_bridge.dart';
 
 import 'flutter_test_config.dart';
 
@@ -60,6 +61,7 @@ extension WidgetTestHelper on WidgetTester {
               debugShowCheckedModeBanner: false,
               theme: AppThemesData.themeData[theme],
               localizationsDelegates: const [AppLocalizations.delegate],
+              builder: (context, child) => LegacyMaterialBridge(child: child!),
               home: child,
             ),
           );
@@ -127,6 +129,7 @@ GoldenTestScenario createTestScenario({
             debugShowCheckedModeBanner: false,
             theme: AppThemesData.themeData[theme],
             localizationsDelegates: const [AppLocalizations.delegate],
+            builder: (context, child) => LegacyMaterialBridge(child: child!),
             home: childWithDeviceSize,
           ),
         );

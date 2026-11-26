@@ -21,10 +21,10 @@ packages:
     dependency: "direct dev"
     description:
       name: alchemist
-      sha256: "6a43c6a973403abfc8f95f066e4c03f39db668c052dfcfc177a38bade7f6b68b"
+      sha256: a83a511d731671c7f50623ce0dc70b4d6d3588bd8375243fc7978546c1556776
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.1"
+    version: "0.15.0"
   analyzer:
     dependency: transitive
     description:
@@ -418,7 +418,7 @@ packages:
     source: hosted
     version: "1.0.2"
   cupertino_ui:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cupertino_ui
       sha256: c3eaf7f5bdfee36deb0b14a4cbf7602f1b6b8d8b8576b81f38fc08c25881c94c
@@ -1518,7 +1518,7 @@ packages:
     source: hosted
     version: "0.13.0"
   material_ui:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: material_ui
       sha256: a6b19012df437a356cbc01f8ea22a105e07194c47c9a6009da0032a0ce35c4ab
@@ -1825,10 +1825,10 @@ packages:
     dependency: "direct main"
     description:
       name: pinput
-      sha256: "4c3f1b84768b47a56a1abdaca551bd7cef4ac673b882209039ecdf803a5d6e68"
+      sha256: d446a2a0a4b9f4d2f9c4a7e0aa1e5995d4ee09dad1d27c161953ef70b7a54fa4
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "7.0.0"
   platform:
     dependency: transitive
     description:
