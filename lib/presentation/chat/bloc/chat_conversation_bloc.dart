@@ -11,13 +11,11 @@ import 'package:skelter/presentation/chat/domain/usecases/watch_chat_messages.da
 class ChatConversationBloc
     extends Bloc<ChatConversationEvent, ChatConversationState> {
   ChatConversationBloc({
-    required WatchChatMessages watchChatMessages,
-    required SendChatMessage sendChatMessage,
+    required this._watchChatMessages,
+    required this._sendChatMessage,
     required String currentUserId,
     required String recipientUserId,
-  }) : _watchChatMessages = watchChatMessages,
-       _sendChatMessage = sendChatMessage,
-       _currentUserId = currentUserId,
+  }) : _currentUserId = currentUserId,
        _recipientUserId = recipientUserId,
        _chatId = buildChatId(currentUserId, recipientUserId),
        super(const ChatConversationState.initial()) {

@@ -13,15 +13,11 @@ import 'package:skelter/services/ai/gemini_service.dart';
 
 class AiChatBloc extends Bloc<AiChatEvent, AiChatState> {
   AiChatBloc({
-    required GeminiService geminiService,
-    required AppLocalizations localizations,
-    required List<Product> products,
-    required List<CartModel> cartItems,
-  }) : _geminiService = geminiService,
-       _localizations = localizations,
-       _products = products,
-       _cartItems = cartItems,
-       super(const AiChatState.initial()) {
+    required this._geminiService,
+    required this._localizations,
+    required this._products,
+    required this._cartItems,
+  }) : super(const AiChatState.initial()) {
     _setupEventListeners();
   }
 

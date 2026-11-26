@@ -11,11 +11,9 @@ import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 
 class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
   ProductDetailBloc({
-    required GetProductDetail getProductDetail,
-    required GenerateAIProductDescription generateAIProductDescription,
-  }) : _getProductDetail = getProductDetail,
-       _generateAIProductDescription = generateAIProductDescription,
-       super(const ProductDetailState.initial()) {
+    required this._getProductDetail,
+    required this._generateAIProductDescription,
+  }) : super(const ProductDetailState.initial()) {
     _setupEventListeners();
   }
 

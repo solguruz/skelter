@@ -9,9 +9,8 @@ import 'package:skelter/utils/extensions/primitive_types_extensions.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc({required GetProducts getProducts})
-    : _getProducts = getProducts,
-      super(HomeState.initial()) {
+  HomeBloc({required this._getProducts})
+    : super(HomeState.initial()) {
     _setupEventListener();
   }
 
