@@ -42,9 +42,8 @@ void main() {
 
     final mockGetProducts = MockGetProducts();
     final mockGetProductDetail = MockGetProductDetail();
-    when(
-      () => mockGetProducts(),
-    ).thenAnswer((_) async => const Right(<Product>[]));
+    when(() => mockGetProducts())
+        .thenAnswer((_) async => const Right(<Product>[]));
     sl.registerLazySingleton<GetProducts>(() => mockGetProducts);
     sl.registerLazySingleton<GetProductDetail>(() => mockGetProductDetail);
 

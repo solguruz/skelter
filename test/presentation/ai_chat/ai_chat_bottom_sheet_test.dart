@@ -63,9 +63,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   final mockLocalizations = MockAppLocalizations();
-  when(
-    () => mockLocalizations.ai_chat_error_generic,
-  ).thenReturn('Something went wrong. Please try again.');
+  when(() => mockLocalizations.ai_chat_error_generic)
+      .thenReturn('Something went wrong. Please try again.');
 
   testExecutable(() {
     goldenTest(

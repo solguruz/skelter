@@ -29,14 +29,12 @@ void main() {
         pumpBeforeTest: precacheImages,
         builder: () {
           final lightMockBloc = MockMyOrderBloc();
-          when(
-            () => lightMockBloc.state,
-          ).thenReturn(const MyOrderState.test(products: sampleProducts));
+          when(() => lightMockBloc.state)
+              .thenReturn(const MyOrderState.test(products: sampleProducts));
 
           final darkMockBloc = MockMyOrderBloc();
-          when(
-            () => darkMockBloc.state,
-          ).thenReturn(const MyOrderState.test(products: sampleProducts));
+          when(() => darkMockBloc.state)
+              .thenReturn(const MyOrderState.test(products: sampleProducts));
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>

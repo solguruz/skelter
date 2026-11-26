@@ -79,9 +79,8 @@ void main() {
         when(() => loginBlocNoPicture.state).thenReturn(LoginState.test());
 
         final signupBlocNoPicture = MockSignupBloc();
-        when(
-          () => signupBlocNoPicture.state,
-        ).thenReturn(SignupState.test(isDoneProfilePicEditing: false));
+        when(() => signupBlocNoPicture.state)
+            .thenReturn(SignupState.test(isDoneProfilePicEditing: false));
 
         final loginBlocWithPicture = MockLoginBloc();
         when(() => loginBlocWithPicture.state).thenReturn(LoginState.test());

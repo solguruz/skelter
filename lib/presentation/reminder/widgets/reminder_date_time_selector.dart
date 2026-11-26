@@ -47,9 +47,8 @@ class ReminderDateTimeSelector extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    DateFormat(
-                      kReminderDateTimeFormat,
-                    ).format(selectedDateTime),
+                    DateFormat(kReminderDateTimeFormat)
+                        .format(selectedDateTime),
                     style: AppTextStyles.p3Medium.copyWith(
                       color: context.currentTheme.textNeutralSecondary,
                     ),

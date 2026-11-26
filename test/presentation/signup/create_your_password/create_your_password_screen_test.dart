@@ -64,9 +64,8 @@ void main() {
       fileName: 'create_your_password_screen',
       builder: () {
         final signupBlocEmpty = MockSignupBloc();
-        when(
-          () => signupBlocEmpty.state,
-        ).thenReturn(SignupState.test(email: 'test@example.com'));
+        when(() => signupBlocEmpty.state)
+            .thenReturn(SignupState.test(email: 'test@example.com'));
 
         final signupBlocPoorPassword = MockSignupBloc();
         when(() => signupBlocPoorPassword.state).thenReturn(

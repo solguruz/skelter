@@ -28,9 +28,8 @@ void main() {
         pumpBeforeTest: precacheImages,
         builder: () {
           final mockBloc = MockProductDetailBloc();
-          when(
-            () => mockBloc.state,
-          ).thenReturn(const ProductDetailState.test());
+          when(() => mockBloc.state)
+              .thenReturn(const ProductDetailState.test());
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>

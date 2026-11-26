@@ -1,19 +1,21 @@
 import 'package:material_ui/material_ui.dart';
 
 class AppColors {
-  static const MaterialColor primarySwatches =
-      MaterialColor(0xFF3559E9, <int, Color>{
-        50: Color.fromRGBO(235, 241, 255, .1),
-        100: Color.fromRGBO(213, 226, 255, .2),
-        200: Color.fromRGBO(192, 213, 255, .3),
-        300: Color.fromRGBO(151, 186, 255, .4),
-        400: Color.fromRGBO(104, 149, 255, .5),
-        500: Color.fromRGBO(51, 92, 255, .6),
-        600: Color.fromRGBO(53, 89, 233, .7),
-        700: Color.fromRGBO(37, 71, 208, .8),
-        800: Color.fromRGBO(31, 59, 173, .9),
-        900: Color.fromRGBO(24, 47, 139, 1.0),
-      });
+  static const MaterialColor primarySwatches = MaterialColor(
+    0xFF3559E9,
+    <int, Color>{
+      50: Color.fromRGBO(235, 241, 255, .1),
+      100: Color.fromRGBO(213, 226, 255, .2),
+      200: Color.fromRGBO(192, 213, 255, .3),
+      300: Color.fromRGBO(151, 186, 255, .4),
+      400: Color.fromRGBO(104, 149, 255, .5),
+      500: Color.fromRGBO(51, 92, 255, .6),
+      600: Color.fromRGBO(53, 89, 233, .7),
+      700: Color.fromRGBO(37, 71, 208, .8),
+      800: Color.fromRGBO(31, 59, 173, .9),
+      900: Color.fromRGBO(24, 47, 139, 1.0),
+    },
+  );
 
   static const Color blue = Color(0xFF8EB6F9);
   static const Color sherpaBlue = Color(0xFF0DAED9);

@@ -32,14 +32,12 @@ void main() {
           when(() => systemThemeBloc.state).thenReturn(const ThemeState.test());
 
           final lightThemeBloc = MockThemeBloc();
-          when(
-            () => lightThemeBloc.state,
-          ).thenReturn(const ThemeState.test(themeMode: ThemeMode.light));
+          when(() => lightThemeBloc.state)
+              .thenReturn(const ThemeState.test(themeMode: ThemeMode.light));
 
           final darkThemeBloc = MockThemeBloc();
-          when(
-            () => darkThemeBloc.state,
-          ).thenReturn(const ThemeState.test(themeMode: ThemeMode.dark));
+          when(() => darkThemeBloc.state)
+              .thenReturn(const ThemeState.test(themeMode: ThemeMode.dark));
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>

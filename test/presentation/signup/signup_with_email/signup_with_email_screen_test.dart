@@ -64,9 +64,8 @@ void main() {
         when(() => signupBlocDefault.state).thenReturn(SignupState.test());
 
         final signupBlocValidEmail = MockSignupBloc();
-        when(
-          () => signupBlocValidEmail.state,
-        ).thenReturn(SignupState.test(email: 'test@example.com'));
+        when(() => signupBlocValidEmail.state)
+            .thenReturn(SignupState.test(email: 'test@example.com'));
 
         final signupBlocLongEmail = MockSignupBloc();
         when(() => signupBlocLongEmail.state).thenReturn(

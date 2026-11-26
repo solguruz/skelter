@@ -56,9 +56,8 @@ void main() {
     );
 
     mockLocalAuthService = MockLocalAuthService();
-    when(
-      () => mockLocalAuthService.isBiometricSupported,
-    ).thenAnswer((_) async => true);
+    when(() => mockLocalAuthService.isBiometricSupported)
+        .thenAnswer((_) async => true);
     sl.registerLazySingleton<LocalAuthService>(() => mockLocalAuthService);
 
     // Mocks SharedPreferencesAsync to prevent LateInitializationError

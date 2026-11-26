@@ -26,15 +26,12 @@ void main() {
 
   setUp(() {
     l10n = MockAppLocalizations();
-    when(
-      () => l10n.please_select_a_rating,
-    ).thenReturn('Please select a rating to continue.');
-    when(
-      () => l10n.feedback_category_required,
-    ).thenReturn('Please select a category to continue.');
-    when(
-      () => l10n.please_share_your_thoughts,
-    ).thenReturn('Please share your thoughts before submitting.');
+    when(() => l10n.please_select_a_rating)
+        .thenReturn('Please select a rating to continue.');
+    when(() => l10n.feedback_category_required)
+        .thenReturn('Please select a category to continue.');
+    when(() => l10n.please_share_your_thoughts)
+        .thenReturn('Please share your thoughts before submitting.');
   });
 
   group('Feedback Screen', () {
