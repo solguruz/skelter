@@ -124,8 +124,7 @@ class LocalAuthService {
         LocalAuthExceptionCode.noBiometricHardware =>
           BiometricAuthStatus.notEnrolled,
         LocalAuthExceptionCode.userCanceled ||
-        LocalAuthExceptionCode.systemCanceled =>
-          BiometricAuthStatus.cancelled,
+        LocalAuthExceptionCode.systemCanceled => BiometricAuthStatus.cancelled,
         _ => BiometricAuthStatus.error,
       };
     } catch (e) {
