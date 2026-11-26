@@ -13,7 +13,7 @@
 import 'dart:typed_data' as _i49;
 
 import 'package:auto_route/auto_route.dart' as _i44;
-import 'package:flutter/material.dart' as _i45;
+import 'package:material_ui/material_ui.dart' as _i45;
 import 'package:skelter/presentation/account_delete_success/account_delete_success_screen.dart'
     as _i1;
 import 'package:skelter/presentation/biometric_auth/biometric_auth_screen.dart'
