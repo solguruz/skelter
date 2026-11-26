@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:clarity_flutter/clarity_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/chat/bloc/chat_conversation_bloc.dart';
 import 'package:skelter/presentation/chat/bloc/chat_conversation_event.dart';

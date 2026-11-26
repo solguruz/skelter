@@ -1,7 +1,7 @@
 import 'package:alchemist/alchemist.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/presentation/change_theme/change_theme_screen.dart';
 import 'package:skelter/utils/theme/bloc/theme_bloc.dart';
@@ -32,14 +32,12 @@ void main() {
           when(() => systemThemeBloc.state).thenReturn(const ThemeState.test());
 
           final lightThemeBloc = MockThemeBloc();
-          when(
-            () => lightThemeBloc.state,
-          ).thenReturn(const ThemeState.test(themeMode: ThemeMode.light));
+          when(() => lightThemeBloc.state)
+              .thenReturn(const ThemeState.test(themeMode: ThemeMode.light));
 
           final darkThemeBloc = MockThemeBloc();
-          when(
-            () => darkThemeBloc.state,
-          ).thenReturn(const ThemeState.test(themeMode: ThemeMode.dark));
+          when(() => darkThemeBloc.state)
+              .thenReturn(const ThemeState.test(themeMode: ThemeMode.dark));
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>

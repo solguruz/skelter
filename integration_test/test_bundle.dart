@@ -2,14 +2,19 @@
 // ignore_for_file: type=lint, invalid_use_of_internal_member
 
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:patrol/patrol.dart';
-import 'package:patrol/src/native/contracts/contracts.dart';
+import 'package:patrol/src/constants.dart' as constants;
+import 'package:patrol/src/manifest_writer.dart';
+import 'package:patrol/src/platform/contracts/contracts.dart';
+import 'package:patrol/src/platform/mobile/patrol_runtime_ports.dart';
 import 'package:test_api/src/backend/invoker.dart';
 
 // START: GENERATED TEST IMPORTS
 import 'app_test.dart' as app_test;
+
 // END: GENERATED TEST IMPORTS
 
 Future<void> main() async {
@@ -45,10 +50,21 @@ Future<void> main() async {
   // Dart test (out of which they had been created) and wait for it to complete.
   // The result of running the Dart test is the result of the native test case.
 
-  final nativeAutomator = NativeAutomator(config: NativeAutomatorConfig());
-  await nativeAutomator.initialize();
-  final binding = PatrolBinding.ensureInitialized(NativeAutomatorConfig());
   final testExplorationCompleter = Completer<DartGroupEntry>();
+
+  // In build-time discovery mode the bundle is driven by a host `flutter test`
+  // run: we only register tests to build the group tree, then serialize it to a
+  // manifest. PatrolBinding (a Live binding) must NOT be initialized here - it's
+  // incompatible with the automated binding `flutter test` installs on the host.
+  late final PlatformAutomator platformAutomator;
+  late final PatrolBinding binding;
+  if (!constants.testDiscoveryEnabled) {
+    platformAutomator = PlatformAutomator(
+      config: PlatformAutomatorConfig.defaultConfig(),
+    );
+    await platformAutomator.initialize();
+    binding = PatrolBinding.ensureInitialized(platformAutomator);
+  }
 
   // A special test to explore the hierarchy of groups and tests. This is a hack
   // around https://github.com/dart-lang/test/issues/1998.
@@ -59,10 +75,31 @@ Future<void> main() async {
     // Maybe somewhat counterintuitively, this callback runs *after* the calls
     // to group() below.
     final topLevelGroup = Invoker.current!.liveTest.groups.first;
-    final dartTestGroup = createDartTestGroup(topLevelGroup,
+    final dartTestGroup = createDartTestGroup(
+      topLevelGroup,
       tags: null,
       excludeTags: null,
     );
+    if (constants.testDiscoveryEnabled) {
+      // Build-time discovery: serialize the WHOLE tree (same shape as
+      // ListDartTestsResponse.group) so the native side can flatten it with its
+      // existing listTestsFlat logic - selectors come out byte-identical to
+      // runtime discovery.
+      //
+      // The manifest is written from inside this test (not from main()) on
+      // purpose: under the host automated binding the framework runs tests only
+      // *after* main() finishes declaring, so awaiting the tree in main() would
+      // deadlock.
+      const manifestOutput = String.fromEnvironment('PATROL_MANIFEST_OUTPUT');
+      if (manifestOutput.isNotEmpty) {
+        writeTestManifest(
+          manifestOutput,
+          jsonEncode(ListDartTestsResponse(group: dartTestGroup).toJson()),
+        );
+      }
+      return;
+    }
+
     testExplorationCompleter.complete(dartTestGroup);
     print('patrol_test_explorer: obtained Dart-side test hierarchy:');
     reportGroupStructure(dartTestGroup);
@@ -72,15 +109,22 @@ Future<void> main() async {
   group('app_test', app_test.main);
   // END: GENERATED TEST GROUPS
 
+  if (constants.testDiscoveryEnabled) {
+    // Returning finishes declaration; `flutter test` then runs the explorer
+    // test (which writes the manifest) plus the registered no-op bodies.
+    return;
+  }
+
   final dartTestGroup = await testExplorationCompleter.future;
   final appService = PatrolAppService(topLevelDartTestGroup: dartTestGroup);
   binding.patrolAppService = appService;
+  await PatrolRuntimePorts.ensureLoaded();
   await runAppService(appService);
 
   // Until now, the native test runner was waiting for us, the Dart side, to
   // come alive. Now that we did, let's tell it that we're ready to be asked
   // about Dart tests.
-  await nativeAutomator.markPatrolAppServiceReady();
+  await platformAutomator.markPatrolAppServiceReady();
 
   await appService.testExecutionCompleted;
 }

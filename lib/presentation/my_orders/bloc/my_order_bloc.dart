@@ -16,12 +16,10 @@ class MyOrderBloc extends Bloc<MyOrderEvent, MyOrderState> {
   final AppLocalizations localizations;
 
   MyOrderBloc({
-    required GetProducts getProducts,
-    required GetProductDetail getProductDetail,
+    required this._getProducts,
+    required this._getProductDetail,
     required this.localizations,
-  }) : _getProducts = getProducts,
-       _getProductDetail = getProductDetail,
-       super(const MyOrderState.initial()) {
+  }) : super(const MyOrderState.initial()) {
     _setupEventListener();
   }
 

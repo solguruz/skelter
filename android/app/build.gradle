@@ -5,24 +5,20 @@ plugins {
     id 'com.google.firebase.firebase-perf'
     id 'com.google.firebase.crashlytics'
     // END: FlutterFire Configuration
-    id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
 android {
     namespace = "com.solguruz.skelter"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android and sms_autofill require compileSdk 37.
+    compileSdk = 37
     ndkVersion = "28.2.13676358"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         coreLibraryDesugaringEnabled true
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
@@ -45,6 +41,11 @@ android {
             signingConfig = signingConfigs.debug
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
+    }
+
+    buildFeatures {
+        // Flavors set app_name with resValue, which AGP 9 disables by default.
+        resValues = true
     }
 
     flavorDimensions "app"
@@ -74,6 +75,12 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
 flutter {
     source = "../.."
 }
@@ -84,7 +91,7 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     implementation 'com.google.j2objc:j2objc-annotations:3.0.0'
     implementation platform('com.android.billingclient:billing:7.0.0')
-    implementation platform('com.google.firebase:firebase-bom:34.7.0')
+    implementation platform('com.google.firebase:firebase-bom:35.2.0')
     // When using the BoM, you don't need specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-perf'
 }

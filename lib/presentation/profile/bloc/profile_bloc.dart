@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/constants/constants.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/profile/bloc/profile_event.dart';

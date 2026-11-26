@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clarity_flutter/clarity_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/ai_chat/widgets/ai_chat_fab.dart';
 import 'package:skelter/presentation/checkout/initial_checkout_screen.dart';

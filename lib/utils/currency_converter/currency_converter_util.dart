@@ -37,7 +37,7 @@ class CurrencyConverterUtil {
         ExchangeRateParams(fromCurrency: fromCurrency, toCurrency: toCurrency),
       );
 
-      return result.fold((failure) => 0.0, (rate) {
+      return result.fold<double>((failure) => 0.0, (rate) {
         final exchangeRate = rate.rates[toCurrency];
         if (exchangeRate == null) {
           return 0.0;

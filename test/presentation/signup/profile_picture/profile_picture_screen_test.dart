@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/gen/assets.gen.dart';
@@ -79,9 +79,8 @@ void main() {
         when(() => loginBlocNoPicture.state).thenReturn(LoginState.test());
 
         final signupBlocNoPicture = MockSignupBloc();
-        when(
-          () => signupBlocNoPicture.state,
-        ).thenReturn(SignupState.test(isDoneProfilePicEditing: false));
+        when(() => signupBlocNoPicture.state)
+            .thenReturn(SignupState.test(isDoneProfilePicEditing: false));
 
         final loginBlocWithPicture = MockLoginBloc();
         when(() => loginBlocWithPicture.state).thenReturn(LoginState.test());

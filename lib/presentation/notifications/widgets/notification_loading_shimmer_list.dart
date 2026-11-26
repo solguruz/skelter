@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/notifications/widgets/notification_shimmer_card.dart';
 import 'package:skelter/utils/theme/extension/theme_extension.dart';
 

@@ -10,9 +10,8 @@ class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
   final NotificationService _notificationService;
   final AppLocalizations _localizations;
 
-  ReminderBloc({required AppLocalizations localizations})
-    : _localizations = localizations,
-      _notificationService = NotificationService.instance,
+  ReminderBloc({required this._localizations})
+    : _notificationService = NotificationService.instance,
       super(ReminderState.initial()) {
     _setupEventListeners();
   }

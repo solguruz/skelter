@@ -234,9 +234,7 @@ class $AssetsTestImagesGen {
   List<AssetGenImage> get values => [testImage];
 }
 
-class Assets {
-  const Assets._();
-
+abstract final class Assets {
   static const String aEnv = '.env';
   static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
@@ -276,13 +274,13 @@ class AssetGenImage {
     BlendMode? colorBlendMode,
     BoxFit? fit,
     AlignmentGeometry alignment = Alignment.center,
-    ImageRepeat repeat = .noRepeat,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
     Rect? centerSlice,
     bool matchTextDirection = false,
     bool gaplessPlayback = true,
     bool isAntiAlias = false,
     String? package,
-    FilterQuality filterQuality = .medium,
+    FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
   }) {

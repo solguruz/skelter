@@ -1,8 +1,8 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
@@ -23,9 +23,8 @@ void main() {
   group('PhotosSection', () {
     testWidgets('PhotosSection', (tester) async {
       final productDetailBloc = MockProductDetailBloc();
-      when(
-        () => productDetailBloc.state,
-      ).thenReturn(const ProductDetailState.test());
+      when(() => productDetailBloc.state)
+          .thenReturn(const ProductDetailState.test());
 
       await tester.runWidgetTest(
         providers: [
@@ -43,9 +42,8 @@ void main() {
         pumpBeforeTest: precacheImages,
         builder: () {
           final productDetailBloc = MockProductDetailBloc();
-          when(
-            () => productDetailBloc.state,
-          ).thenReturn(const ProductDetailState.test());
+          when(() => productDetailBloc.state)
+              .thenReturn(const ProductDetailState.test());
 
           return GoldenTestGroup(
             columnWidthBuilder: (_) =>

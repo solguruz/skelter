@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_bloc.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_event.dart';
 import 'package:skelter/presentation/product_detail/bloc/product_detail_state.dart';

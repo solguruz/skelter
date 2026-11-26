@@ -3,9 +3,9 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:skelter/core/services/injection_container.dart';
 import 'package:skelter/presentation/home/bloc/home_bloc.dart';
@@ -42,9 +42,8 @@ void main() {
 
     final mockGetProducts = MockGetProducts();
     final mockGetProductDetail = MockGetProductDetail();
-    when(
-      () => mockGetProducts(),
-    ).thenAnswer((_) async => const Right(<Product>[]));
+    when(() => mockGetProducts())
+        .thenAnswer((_) async => const Right(<Product>[]));
     sl.registerLazySingleton<GetProducts>(() => mockGetProducts);
     sl.registerLazySingleton<GetProductDetail>(() => mockGetProductDetail);
 

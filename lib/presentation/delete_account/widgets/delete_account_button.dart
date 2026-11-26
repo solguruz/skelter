@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/delete_account/bloc/delete_account_bloc.dart';
 import 'package:skelter/presentation/delete_account/enum/delete_account_reasons.dart';

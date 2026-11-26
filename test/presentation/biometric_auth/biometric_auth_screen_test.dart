@@ -4,9 +4,9 @@ import 'package:alchemist/alchemist.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:skelter/core/services/injection_container.dart';
@@ -56,9 +56,8 @@ void main() {
     );
 
     mockLocalAuthService = MockLocalAuthService();
-    when(
-      () => mockLocalAuthService.isBiometricSupported,
-    ).thenAnswer((_) async => true);
+    when(() => mockLocalAuthService.isBiometricSupported)
+        .thenAnswer((_) async => true);
     sl.registerLazySingleton<LocalAuthService>(() => mockLocalAuthService);
 
     // Mocks SharedPreferencesAsync to prevent LateInitializationError
