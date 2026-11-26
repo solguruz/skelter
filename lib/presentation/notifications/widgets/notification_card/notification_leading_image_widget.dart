@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:skelter/presentation/notifications/model/notification_model.dart';
 import 'package:skelter/routes.gr.dart';

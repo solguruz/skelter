@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/settings/widgets/account_security.dart';
 import 'package:skelter/presentation/settings/widgets/biometric_authentication.dart';
 import 'package:skelter/presentation/settings/widgets/change_password.dart';

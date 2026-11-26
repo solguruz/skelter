@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/i18n/localization.dart';
 import 'package:skelter/presentation/force_update/constants/force_update_constants.dart';
 import 'package:skelter/utils/extensions/build_context_ext.dart';

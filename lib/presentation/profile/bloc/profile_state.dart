@@ -1,5 +1,5 @@
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 
 class ProfileState with EquatableMixin {
   final String name;

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/gen/assets.gen.dart';
 import 'package:skelter/presentation/chat/model/chat_model.dart';
 import 'package:skelter/utils/app_environment.dart';

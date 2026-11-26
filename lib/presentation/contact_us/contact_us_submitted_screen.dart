@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/contact_us/widgets/back_to_home_button.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_icon.dart';
 import 'package:skelter/presentation/contact_us/widgets/submission_success_message.dart';

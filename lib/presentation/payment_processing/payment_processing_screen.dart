@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/payment_processing/widgets/payment_loading_indicator.dart';
 import 'package:skelter/presentation/payment_processing/widgets/payment_processing_message.dart';
 import 'package:skelter/presentation/payment_processing/widgets/payment_processing_title.dart';

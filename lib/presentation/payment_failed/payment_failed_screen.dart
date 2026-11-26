@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:skelter/presentation/payment_failed/widgets/navigate_to_home_screen_button.dart';
 import 'package:skelter/presentation/payment_failed/widgets/payment_failed_icon.dart';
 import 'package:skelter/presentation/payment_failed/widgets/payment_failed_message.dart';
