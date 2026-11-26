@@ -37,7 +37,6 @@ void main() {
 
   patrolTest(
     'sign up with email test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
       await $.pumpWidgetAndSettle(const MainApp());

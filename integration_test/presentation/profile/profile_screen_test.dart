@@ -34,7 +34,6 @@ void main() {
 
   patrolTest(
     'profile screen end to end test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       final mockFirebaseAuth = MockFirebaseAuth();
 

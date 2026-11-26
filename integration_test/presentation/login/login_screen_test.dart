@@ -43,7 +43,6 @@ void main() {
 
   patrolTest(
     'open app, login with mobile number, verify products are displayed',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       await initializeApp(firebaseAuth: mockFirebaseAuth, dio: mockDio);
       await $.pumpWidgetAndSettle(const MainApp());
@@ -82,7 +81,6 @@ void main() {
 
   patrolTest(
     'login with email and password test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       // Initialise the App
       await initializeApp(
@@ -201,7 +199,6 @@ void main() {
 
   patrolTest(
     'sign in with Google test',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
     ($) async {
       await initializeApp(
         firebaseAuth: mockFirebaseAuth,
