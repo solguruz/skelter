@@ -1,12 +1,23 @@
 import 'dart:async';
 
 import 'package:alchemist/alchemist.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:skelter/widgets/styling/app_theme_data.dart';
+
+import 'pixel_tolerant_golden_comparator.dart';
 
 Future<void> testExecutable(
   FutureOr<void> Function() testMain, {
   bool forceUpdateGoldenFiles = false,
 }) async {
+  final comparator = goldenFileComparator;
+  if (comparator is LocalFileComparator) {
+    // Keep the goldens resolved relative to the running test file.
+    goldenFileComparator = PixelTolerantGoldenFileComparator(
+      comparator.basedir.resolve('flutter_test_config.dart'),
+    );
+  }
+
   const isRunningInCi = bool.fromEnvironment('CI');
   return AlchemistConfig.runWithConfig(
     config: AlchemistConfig(
